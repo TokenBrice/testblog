@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Token Exchange on TokenBrice</title>
+        <link>http://localhost:1313/tags/token-exchange/</link>
+        <description>Recent content in Token Exchange on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Mon, 30 Nov 2020 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/token-exchange/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>🐊 Navigating the swap swamps</title>
+        <link>http://localhost:1313/p/navigating-the-swap-swamps/</link>
+        <pubDate>Mon, 30 Nov 2020 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/navigating-the-swap-swamps/</guid>
+        <description>&lt;p&gt;Is swapping tokens easy as A, B, C? Don&amp;rsquo;t let yourself be fooled by the apparent simplicity: yes, there are easy to use interfaces where you pick an input, an amount, and press a button to trade. Yet, without a basic understanding of DeFi, you might find yourself falling for avoidable mistakes.  As DeFi is increasingly made more broadly accessible, knowing &lt;strong&gt;what&amp;rsquo;s happening under the hood is essential to make the most of it&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;So with this piece, I want to quickly discuss token swaps, focusing on a few tips and considerations to help you reduce the overall impact of gas costs on your trading.&lt;/p&gt;
+&lt;h3 id=&#34;reading-the-fine-print-before-hitting-the-swap-button&#34;&gt;Reading the fine print before hitting the &amp;ldquo;Swap&amp;rdquo; button!
+&lt;/h3&gt;&lt;p&gt;When it comes to swapping tokens, &lt;strong&gt;beware of the fine prints&lt;/strong&gt;! While most carefully watch the exchange rate, many other parameters also influence the output of the trade - such as the gas costs or the service used.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;Is the pre-trade estimate reliable?&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;It&amp;rsquo;s a true jungle! Some services display the worst-case scenario, while others are more optimistic. Meaning that on some services, you can sometimes beat the rate displayed, while others won&amp;rsquo;t allow it. Uniswap opted for an interesting approach, with a base rate paired with a &amp;ldquo;minimum received&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;ParaSwap currently works with a worst-case scenario assumption: rate fluctuations and various optimizations can result in a pleasant surprise.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;What about the gas cost?&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;The &lt;strong&gt;gas efficiency&lt;/strong&gt; of the aggregator you use can significantly vary depending on the situation. There are two main types of interactions aggregators perform swaps (potentially bundled) and interactions with smart contracts, such as with Aave&amp;rsquo;s to deposit USDC for aUSDC.&lt;/p&gt;
+&lt;p&gt;The latter can have the greatest impact on gas costs if they are not correctly optimized. Properly harnessing &lt;strong&gt;aggregators’ ability to wrap several interactions in one transaction&lt;/strong&gt; can help you reduce the impact of gas prices on their strategies.&lt;/p&gt;
+&lt;p&gt;Moreover, gas costs can be computed differently by different services. Some services can further reduce them by implementing the Gas Token. Depending on the service, the extra ETH saved can be returned to the user, or taken as a service fee.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/swap-swamps/debank.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Debank Swap Comparator&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;What&amp;rsquo;s your plan?&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Considering the whole situation is essential while computing gas costs. Comparing the gas costs of two transactions one to one makes little sense if one of the transactions is actually a series of operations while the other is not.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/swap-swamps/paraswap-aave-idle.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Paraswap-Aave-IdleFinance&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;With that in mind, try to &lt;strong&gt;think about the full context before performing a swap&lt;/strong&gt;, such as if you want to use the bought tokens with a DeFi service afterward.&lt;/p&gt;
+&lt;p&gt;You want to sell a token you&amp;rsquo;re currently using as collateral on Aave or Compound? An aggregator can do that in one transaction. Cashing-out some profits earned on an ERC-20 token to an interest-bearing stablecoin? Still one tx.&lt;/p&gt;
+&lt;h3 id=&#34;going-beyond-the-curtain&#34;&gt;Going beyond the curtain
+&lt;/h3&gt;&lt;p&gt;Increasing gas efficiency goes beyond the tools and services master race. It requires you to level up your understanding of them. In that spirit, I&amp;rsquo;ve been documenting the magic behind ParaSwap on &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://learn2swap.com/l2s/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt; Learn2Swap, its user handbook&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;With technical developments and new DEXes frequently launching, the swapping situation evolves pretty much daily. So to help you keep track, we &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://learn2swap.com/l2s/links-and-resources/changelog-2020&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;maintain a changelog&lt;/a&gt;&lt;/strong&gt; giving you a comprehensive summary of the additions and improvements to the service. Each update can have a significant impact:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/swap-swamps/paraswap-october2020-changelog.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;paraswap-october2020-changelog&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;For instance, &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/paraswap/status/1321417337703223304?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;one of the latest updates&lt;/a&gt; improved the computation of gas costs while routing the trades through several decentralized exchanges. It prevents ParaSwap from &amp;ldquo;over-optimizing&amp;rdquo; smaller trades, without requiring the user to choose between achieving the best rate or optimizing for gas efficiency.&lt;/p&gt;
+&lt;p&gt;So here are three &lt;strong&gt;key takeaways for efficient swaps&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&#34;notice tip&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#tip-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Tip&lt;/p&gt;&lt;ol&gt;
+&lt;li&gt;Compare the rates using a tool like &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://debank.com/swap&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Debank&lt;/a&gt;&lt;/strong&gt;, but don&amp;rsquo;t trust it blindly - feel free to double-check.&lt;/li&gt;
+&lt;li&gt;Keep in mind your whole situation: what you intend to do with the tokens before and after.&lt;/li&gt;
+&lt;li&gt;Make sure you&amp;rsquo;re in the know regarding the revenue model of the services you&amp;rsquo;re using. You can read &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://app.gitbook.com/@paraswap-network/s/l2s/understanding-paraswap/fees&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the details on ParaSwap&amp;rsquo;s situation here.&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;
+
+&lt;p&gt;So next time you swap, consider your options! You can access &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://paraswap.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ParaSwap&lt;/a&gt;&lt;/strong&gt; directly through the website, with your phone through your Argent or Monolith wallets, and now even with MetaMask and Ledger Live which aggregates ParaSwap amongst other sources.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>DAI on TokenBrice</title>
+        <link>http://localhost:1313/tags/dai/</link>
+        <description>Recent content in DAI on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Tue, 12 Jan 2021 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/dai/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>🗡 Risk? Yes please, but exactly how I like it</title>
+        <link>http://localhost:1313/risk-tranching-defi/</link>
+        <pubDate>Tue, 12 Jan 2021 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/risk-tranching-defi/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2021/risk-tranching/cover.gif" alt="Featured image of post 🗡 Risk? Yes please, but exactly how I like it" /&gt;&lt;p&gt;DeFi has grown tremendously over the past year, partly thanks to the appearance of more streamlined investment products such as Yearn&amp;rsquo;s or Harvest&amp;rsquo;s &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/vaults.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;vaults&lt;/a&gt;&lt;/strong&gt;. Thanks to their architecture, they facilitate the mutualization of capital which enables smaller yet profitable investments on money markets and other DeFi services like Curve or SushiSwap.&lt;/p&gt;
+&lt;p&gt;It was a necessary and much-welcomed layer, and several improvements are still to be made to streamline things even further and increase gas efficiency. However, I believe the bulk of the innovation this year will come from another front: risk management on the vault-type products.&lt;/p&gt;
+&lt;p&gt;Indeed, several definancial primitives have been developed to provide more options to segregate and hedge risks. There are now credible insurance options available for DeFi, as well as a new approach (in DeFi) to better distribute the risk between consenting and informed actors: tranching.&lt;/p&gt;
+&lt;p&gt;We&amp;rsquo;ll dive right in, but just before that, I think it&amp;rsquo;s apt to examine the terminology too.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;from-lending-protocols-to-money-markets&#34;&gt;From Lending Protocols to Money Markets
+&lt;/h2&gt;&lt;p&gt;If you&amp;rsquo;ve been reading me for a while, you might have seen the term &amp;ldquo;lending protocol&amp;rdquo; being used. While it was suited to describe their first purpose, I believe the concept has now outgrown the word, so I&amp;rsquo;ll refer to them as money market from now on. Indeed, &amp;ldquo;lending protocol&amp;rdquo; fails to capture all the subtleties now offered by services like Aave — I&amp;rsquo;m actually a bit late to the party of this one.&lt;/p&gt;
+&lt;p&gt;In a sense, the change of nomenclature reflects the different stages of evolution of these money markets. In their first months of existence, there was &lt;strong&gt;a liquidity imperative&lt;/strong&gt;: it&amp;rsquo;s essentially a fight to grow to a sizeable size, big enough to justify interest from other projects to integrate with the money market fuelling a positive growth loop as we&amp;rsquo;ve seen on Aave.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/risk-tranching/aave-debank.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Aave TVL Growth - Debank&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Once the critical mass is reached, &lt;strong&gt;the focus can and must evolve&lt;/strong&gt;. To further expand, the money market must extend its range of features - again, like we&amp;rsquo;ve seen Aave do with flashloans and fixed rate loans.&lt;/p&gt;
+&lt;p&gt;To me, it seems clear now that &lt;strong&gt;the second phase of growth of the money markets will be feature-driven&lt;/strong&gt;. Indeed, the base features available on the money market are essential, as these markets are more integrated into other DeFi protocols. The money markets with the most flexibility at the base layer will be able to handle more intricate use cases, such as credit delegation.&lt;/p&gt;
+&lt;p&gt;But today, I want to focus this piece on a risk management concept that hasn&amp;rsquo;t found its way to a mainstream money market yet: &lt;strong&gt;tranching&lt;/strong&gt;. Let&amp;rsquo;s see what it can enable!&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;tranching-would-you-like-another-slice-of-risk&#34;&gt;Tranching: would you like another slice of risk?
+&lt;/h2&gt;&lt;p&gt;To begin, let&amp;rsquo;s start with &lt;strong&gt;the most straightforward &amp;ldquo;risk alteration&amp;rdquo; there is - tranching&lt;/strong&gt;. The idea here is quite straightforward: the different risk layers taken by the depositor of a given money market are tranched - meaning segregated one from the other.&lt;/p&gt;
+&lt;p&gt;Each depositor can choose his preferred exposure. It enables, for instance, a confident degen to &lt;strong&gt;bear all available layers of risk to maximize his APY&lt;/strong&gt; while a more conservative whale could &lt;strong&gt;downsize its risk perimeter&lt;/strong&gt; by exposing oneself to the technical risk only.&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s the core idea, but let&amp;rsquo;s not forget we&amp;rsquo;re talking about decentralized finance here, so &lt;strong&gt;composability is key&lt;/strong&gt;. What makes tranching so exciting is its future as a &lt;strong&gt;financial primitive&lt;/strong&gt; - a building block that other apps and projects can use to deliver new services.&lt;/p&gt;
+&lt;p&gt;We&amp;rsquo;ll explore more in-depth what tranching as financial primitive entails right after we consider how it currently works in practice, and examine the broader context of risk hedging and APY fixation.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;If you&amp;rsquo;re new to DeFi or even finance in general, you might wonder why we care so much about these different flavors of risks?
+You can picture these mechanisms enabling diverse types of risk exposure as building blocks making it possible to &lt;strong&gt;build end-user products fitting all ranges of risk appetite&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;I explain why tranching matters more explicitly in the last part of this article where we consider some end-game scenarios for it.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;risk-tranching-in-practice&#34;&gt;Risk tranching in practice
+&lt;/h3&gt;&lt;p&gt;This whole article was actually inspired by a tweet I published where I shared what a tranched aDAI could look like:&lt;/p&gt;
+&lt;p&gt;As of today, there is mostly one product delivering tranching on mainnet I&amp;rsquo;m looking at &lt;a class=&#34;link&#34; href=&#34;https://saffron.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Saffron Finance&lt;/a&gt;. It&amp;rsquo;s essentially a tranching abstraction layer built on top of the Compound DAI market. The risk segregation is straightforward with two main tranches + one:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The &lt;strong&gt;AA tranche&lt;/strong&gt;, &lt;strong&gt;covered in case of platform failure&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;A tranche&lt;/strong&gt;, supplying the cover for the AA tranche (= slashing if a failure occurs) but earns a much &lt;strong&gt;more favorable APY&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;There is a third tranche - the &lt;strong&gt;S tranche&lt;/strong&gt;. However, it is simply rebalancing between the two others as needed.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/risk-tranching/saffron.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;The different tranches available on Saffron Finance&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Tranching occurs on an epoch-basis, currently set at two weeks. So if you supply the A tranche, for instance, you are bearing the risk of platform failure for the AA tranche for a 2 week period.&lt;/p&gt;
+&lt;p&gt;Thanks to the excitement that followed the launch, Saffron grew to close to $60M assets deposited. Since then, the dust settled around a low bar of roughly $15M of assets.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/risk-tranching/saffron-debank.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Saffron Finance TVL - Debank&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;On the charts, we can see some sharp withdrawals: it&amp;rsquo;s due to the epoch-based logic of Saffron. At the end of every epochs, depositors are not earning rewards anymore until they pull out and deposit in the next epoch tranches.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Saffron is looking to expand to other money markets, most obviously Aave and expand their token coverage (currently only DAI). Other projects are exploring the idea of tranching, most notably &lt;a class=&#34;link&#34; href=&#34;https://barnbridge.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;BarnBridge&lt;/a&gt;, but their current achievements are less enticing in my book.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Last minute edit: BarnBridge &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/CoinbaseCustody/status/1348739247277268997&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;BOND token is now listed on Coinbase&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Now that we have a more practical understanding of tranching and how it can work, let&amp;rsquo;s take a step back to understand what it provides in the broader context of risk management in decentralized finance.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;understanding-the-broader-context-of-risk-management-in-defi&#34;&gt;Understanding the broader context of risk management in DeFi
+&lt;/h2&gt;&lt;p&gt;So far, we&amp;rsquo;ve focused on the sole risk related to the definancial product itself: mainly smart contract risks, oracle, and economic attacks. We&amp;rsquo;ve left at least two layers of risk untouched:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;APY Variation&lt;/strong&gt;: The APY of the service used is usually variable, so there is an additional layer of exposure there.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Token Price Fluctuation&lt;/strong&gt;: Sometimes, the returns are paid in token different from the ones deposited. If the payout token is not a stablecoin, its price can vary - meaning there is yet an additional layer of exposure to consider here if we want to be exhaustive.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Besides, to fully understand the broader context, let&amp;rsquo;s not forget that there are several distinct &amp;ldquo;temporal approaches&amp;rdquo; to risk:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Using an approach such as tranching, you can be &lt;strong&gt;proactive&lt;/strong&gt;, splitting the risk &lt;strong&gt;beforehand&lt;/strong&gt; between participants that understand their exposure.&lt;/li&gt;
+&lt;li&gt;It can also go hand in hand with more &lt;strong&gt;reactive approaches&lt;/strong&gt;, such as insurance - a system providing payout &lt;strong&gt;afterward&lt;/strong&gt; in the event of a failure.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The insurance markets are another fascinating topic by themselves, so we&amp;rsquo;ll stick to this simple mention for now and go back to our yields.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;While we&amp;rsquo;re talking about insurance, a fascinating project just launched - Unslashed Finance. It&amp;rsquo;s made in France by a builder I admire, so I&amp;rsquo;m a little biased, but feel free &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://medium.com/unslashed/manifesto-for-a-decentralised-crypto-insurance-unslashed-finance-873078fd0ddd&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;to read their manifesto&lt;/a&gt;&lt;/strong&gt; to learn more about their vision.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;another-take-on-risk-management-for-yields-apy-fixation&#34;&gt;Another take on risk management for yields: APY-fixation
+&lt;/h2&gt;&lt;p&gt;As we were saying, the APY of the different yield products available in decentralized finance are constantly fluctuating. It makes for a less predictable income and prevents the entry of investors who are not willing to stomach several layers of risk.&lt;/p&gt;
+&lt;p&gt;To address this issue, another layer of meta-financial services is emerging - the base value proposition as an investor is quite simple: they offer a &lt;strong&gt;fixed APY on depositors&amp;rsquo; investments&lt;/strong&gt;. It&amp;rsquo;s essentially another flavor of &amp;ldquo;insurance&amp;rdquo;: you&amp;rsquo;ll get overall a bit of a lower yield, but it&amp;rsquo;s predictable. It&amp;rsquo;s very similar to a stable-interest loan on Aave (vs variable rate).&lt;/p&gt;
+&lt;p&gt;The buyer side of such services is super interesting: picture it &lt;strong&gt;like a prediction market, for the yield of a given vault or investment product.&lt;/strong&gt; Buyers deposit some assets and place a bet on the expected average yield: the closer their prediction is, the better is the return.&lt;/p&gt;
+&lt;p&gt;I don&amp;rsquo;t see the buyer side becoming mainstream anytime soon, but it provides the backbone to yet another useful financial primitive useful to provide services more suited to more risk-averse investors.&lt;/p&gt;
+&lt;h3 id=&#34;apy-fixation-in-practice&#34;&gt;APY-Fixation in practice
+&lt;/h3&gt;&lt;p&gt;So far, there are two projects working on delivering fixed-APY yield on popular decentralized investment products such as the Yearn vaults: &lt;a class=&#34;link&#34; href=&#34;https://apwine.fi/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;APWine&lt;/a&gt; &amp;amp; &lt;a class=&#34;link&#34; href=&#34;https://88mph.app/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;88mph&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Just like Saffron, 88mph is another abstraction layer built on top of Compound, Aave, and Harvest deposits. It provides a &lt;strong&gt;fixed APY for depositors&lt;/strong&gt;, while on the other side of the market buyers of floating-rate bonds are bearing the risk of the fluctuations of the APY of the underlying investment product.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/risk-tranching/88mph.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;88mph main interface&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;what-does-the-endgame-look-like&#34;&gt;What does the endgame look like?
+&lt;/h2&gt;&lt;p&gt;Let&amp;rsquo;s wrap this up with a little thought experiment. We&amp;rsquo;re now leaving the present and what is currently live on the Ethereum mainnet to extrapolate a bit and consider what tranching &amp;amp; other risk management approaches can enable in DeFi a few months or years from now.&lt;/p&gt;
+&lt;p&gt;Assuming:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;An investment product built, for instance, on the Aave money market:&lt;/li&gt;
+&lt;li&gt;With a Saffron-like product integrated into it&lt;/li&gt;
+&lt;li&gt;Also with an 88mph-like service integrated into it&lt;/li&gt;
+&lt;li&gt;And finally, an insurance such as Unslashed also natively integrated for the DAI peg.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You could envision &lt;strong&gt;the first &amp;ldquo;risk-free&amp;rdquo; DeFi investment&lt;/strong&gt;, which would be a wrapped deposit of say DAI on Aave, coming along with tranching to only bear the price risk hedged by a coverage against DAI losing its peg on Unslashed earning a fixed APY.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s insane to consider the different steps of the evolution of let&amp;rsquo;s say DAI we witnessed or are about to witness in barely two years:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;DAI&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Interest-bearing&lt;/strong&gt; DAI&lt;/li&gt;
+&lt;li&gt;Interest-bearing DAI with a &lt;strong&gt;fixed APY&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Interest-bearing DAI with a fixed APY &lt;strong&gt;not bearing the technical risks&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Interest-bearing DAI with a fixed APY not bearing the technical risks &amp;amp; &lt;strong&gt;covered against DAI losing its peg&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;aFIXEDAPYDAI_PEGINSURED: our new monetary overlord? The actual name will be way more catchy, rest assured!&lt;/p&gt;
+&lt;p&gt;Are you ready to witness &lt;strong&gt;the future of money unfolding methodically before your very eyes as your assets receive software updates&lt;/strong&gt;?&lt;/p&gt;
+&lt;p&gt;I for one cannot wait: I&amp;rsquo;ve been prepping for the past three years.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;Thanks to Waël for making the cover image featured at the top of this article (as well as the TokenBrice emblem).&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;🙏 Huge thanks to HHK, Charles, Thomas, Erwan, &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/phil_h&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PhilH&lt;/a&gt; &amp;amp; FrenchTony for proofreading the French version of this article and translating it integrally into English.&lt;/em&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>How DeFi can pay for your lunches</title>
+        <link>http://localhost:1313/p/how-defi-can-pay-for-your-lunches/</link>
+        <pubDate>Tue, 03 Mar 2020 14:53:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/how-defi-can-pay-for-your-lunches/</guid>
+        <description>&lt;p&gt;&lt;code&gt;This tactic was first published in the Bankless newsletter and written with advice and support from Ryan.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;a class=&#34;link&#34; href=&#34;https://bankless.substack.com/p/how-defi-can-pay-for-your-lunches&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Link to the original publication&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Dear Crypto Natives,&lt;/p&gt;
+&lt;p&gt;Remember that guy &lt;a class=&#34;link&#34; href=&#34;https://www.forbes.com/sites/laurashin/2016/01/07/this-man-has-been-living-on-bitcoin-for-3-years/#3c9a747a2697&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;who tried to live on Bitcoin&lt;/a&gt; in 2013?&lt;/p&gt;
+&lt;p&gt;Living bankless was harder back then. No one accepted it. Lots of friction. But people kept saying that one day every Starbucks would accept Bitcoin.&lt;/p&gt;
+&lt;p&gt;But it didn’t stick.&lt;/p&gt;
+&lt;p&gt;It’s funny because the guy in that story is now &lt;a class=&#34;link&#34; href=&#34;https://fortune.com/2019/12/11/crypto-crown-prince-olaf-carlson-wee/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;a mega-millionaire&lt;/a&gt; much the result of…not spending his Bitcoin!&lt;/p&gt;
+&lt;p&gt;What does that teach us? It teaches to not to spend our BTC &amp;amp; ETH! Who wants to end up like &lt;a class=&#34;link&#34; href=&#34;https://www.investopedia.com/news/bitcoin-pizza-day-celebrating-20-million-pizza-order/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Bitcoin pizza guy&lt;/a&gt;?&lt;/p&gt;
+&lt;p&gt;But it’s time to check in again. New tools like stablecoins and DeFi protocols are now make going bankless easier…and even…better than a bank?&lt;/p&gt;
+&lt;p&gt;I asked &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/TokenBrice&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Brice&lt;/a&gt; to share his story. He’s uses an Ethereum address, a few protocols, and a wallet + visa card combo to get passive DeFi income to pay for his lunches.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/bankless-defi-lunches/paying.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;paying-lunch-with-DAI-from-DeFi&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;(Above—&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/TokenBrice/status/1225773317598187527?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;watch Brice pay for French cheese&lt;/a&gt; the bankless way)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;And he plans to do a whole lot more!&lt;/p&gt;
+&lt;p&gt;We’re closer than ever to the dream of a crypto money system yet hardy anyone’s talking about it. They will. The next 10 yrs is where crypto becomes useful in daily life.&lt;/p&gt;
+&lt;p&gt;This is the decade we go bankless.&lt;/p&gt;
+&lt;p&gt;Let’s dive in!&lt;/p&gt;
+&lt;p&gt;-RSA&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;🙏Sponsor:&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;https://aave.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Aave&lt;/a&gt;—earn &lt;a class=&#34;link&#34; href=&#34;https://app.aave.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;high yields&lt;/a&gt; on deposits &amp;amp; borrow at the best possible rate!&lt;/p&gt;
+&lt;h3 id=&#34;tactics-tuesday&#34;&gt;&lt;strong&gt;TACTICS TUESDAY:&lt;/strong&gt;
+&lt;/h3&gt;&lt;h2 id=&#34;tactic-26-how-defi-can-pay-for-your-lunches&#34;&gt;&lt;strong&gt;Tactic #26:&lt;/strong&gt; How DeFi can pay for your lunches
+&lt;/h2&gt;&lt;p&gt;Brice tells us his system for earning daily DAI to pay for expenses like lunch. He uses an Ethereum address as his bank, DAI as his stablecoin &lt;a class=&#34;link&#34; href=&#34;https://bankless.substack.com/p/how-to-get-a-dai-saving-account&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;and savings account&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://realt.co/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;tokenized real-estate&lt;/a&gt; to generate passive income, and a smart-contract wallet plus &lt;a class=&#34;link&#34; href=&#34;https://monolith.xyz/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Visa card&lt;/a&gt; for spending. Learn about his 5 DAI per day portfolio.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Goal: &lt;em&gt;Generate a stable return in DAI to cover for living expenses.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Skill: &lt;em&gt;Intermediate&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Effort: &lt;em&gt;An hour or two a week, sometimes less&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;ROI: &lt;em&gt;9-12% annual if fully passive&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;⚠️&lt;strong&gt;RSA’s note on risk&lt;/strong&gt;: In this bankless frontier Brice is taking on &lt;a class=&#34;link&#34; href=&#34;https://bankless.substack.com/p/how-to-assess-the-risk-of-lending&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;many risks&lt;/a&gt;—to name a few: failure of DAI, failure of protocols like aDAI, failure of smart-contract wallet, variable interest rates, failure of the entire Ethereum protocol. He could lose all or a portion of his funds in a worse case. The passive income opportunities he mentions should be adjusted for these risks.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Guest post:&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/TokenBrice&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Brice Berdah&lt;/a&gt;, Community at &lt;a class=&#34;link&#34; href=&#34;https://monolith.xyz/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Monolith&lt;/a&gt; &amp;amp; DeFiFrance Co-Organizer&lt;/p&gt;
+&lt;p&gt;My relationship with money has always been ambiguous. As a teen, I was your usual &amp;ldquo;get money it’s spent that day&amp;rdquo; kind of guy—I wasn&amp;rsquo;t really thinking or strategic about it, just looking forward to enjoying what money enables.&lt;/p&gt;
+&lt;h3 id=&#34;the-masterplan&#34;&gt;&lt;strong&gt;The masterplan&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;As I grew up and started earning money on my own, I began thinking more and more about money and personal finance. Shortly after my first proper job, I was already doing math on my expenses, my income, and how long I would need to work and save in order to not have to work anymore. The dream of freedom.&lt;/p&gt;
+&lt;p&gt;Quickly, this turned into a basic plan with two arbitrary choices:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I would aim to acquire $1.5M. I assumed this capital would earn 5% / year landing me around $75K/year of interest before taxes—enough to sustain my lifestyle if not too excessive.&lt;/li&gt;
+&lt;li&gt;And I’d get there by the time I&amp;rsquo;m 35 (giving 20-30 good years to do my things)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;It was obviously and predictably a failure&lt;/strong&gt;. Between the start of my plan at 21 years old and now (I’m 28), I was barely able to save a fraction of the required amount.&lt;/p&gt;
+&lt;h4 id=&#34;why-did-my-plan-fail&#34;&gt;&lt;strong&gt;Why did my plan fail?&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;As I was learning about decentralised finance, I took some time to reflect on the back-then current failure of my masterplan. Here are the main reasons I identified:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;I did not define steps to reach the end goal&lt;/strong&gt;: I wanted to jump straight from no passive income to full passive income, without planing any intermediary step to make it more realistic and achievable.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;I had little to no discipline&lt;/strong&gt; when it came to taming my expenses&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;I overlooked the &amp;ldquo;details&amp;rdquo;&lt;/strong&gt;. I had little to no idea of how I was actually going to produce a stable and consistent 5% return on such capital. I just assumed it would be attainable.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;enter-decentralised-finance&#34;&gt;&lt;strong&gt;Enter decentralised finance&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;So let&amp;rsquo;s jump to the current situation! I followed the development of the DeFi ecosystem very closely, thanks to my job at &lt;a class=&#34;link&#34; href=&#34;https://monolith.xyz/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Monolith&lt;/a&gt; and the &lt;a class=&#34;link&#34; href=&#34;https://www.meetup.com/DeFi-France/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;different meetups&lt;/a&gt; I co-organise.&lt;/p&gt;
+&lt;p&gt;At first, I used DeFi out of curiosity: the amount I engaged was marginal—most of my net worth was still in ETH/ERC-20 tokens. Like most, I was both curious and perplexed—is this magic internet money experiment really working?&lt;/p&gt;
+&lt;h3 id=&#34;my-aha-moment&#34;&gt;&lt;strong&gt;My &amp;ldquo;Aha!&amp;rdquo; moment&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;I started seriously using more DeFi services, like &lt;a class=&#34;link&#34; href=&#34;https://compound.finance/markets&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Compound&lt;/a&gt; &amp;amp; bZx and then later the &lt;a class=&#34;link&#34; href=&#34;https://oasis.app/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Dai Saving Rate&lt;/a&gt; &amp;amp; &lt;a class=&#34;link&#34; href=&#34;https://aave.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Aave&lt;/a&gt;. It was awesome and magical, but it wasn&amp;rsquo;t what lit the spark for me.&lt;/p&gt;
+&lt;p&gt;Nope.&lt;/p&gt;
+&lt;p&gt;The magic spark came from a piece a tokenised real estate I bought on Ethereum using &lt;a class=&#34;link&#34; href=&#34;http://realt.co/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RealT&lt;/a&gt;. You may already know RealT—it’s a platform for tokenized real-estate. You own property tokens and receive &lt;strong&gt;daily rental payments in DAI.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Why this? It got my mind racing. This was how it went:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;1st day of rent:&lt;/strong&gt; oh okay, this thing is real. &lt;em&gt;By this point, I started discussing RealT with other people in the scene.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;End of first week:&lt;/strong&gt; now I was checking my wallet balance every morning—seeing the list of rent paid was exhilarating but left me craving more!&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;End of first month:&lt;/strong&gt; at first I spent the DAI almost immediately using my &lt;a class=&#34;link&#34; href=&#34;https://monolith.xyz/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Monolith Visa card&lt;/a&gt;. It was so tempting—the DAI sitting there in my wallet, accumulating every day.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;After first month:&lt;/strong&gt; as the idea of daily DAI became a reality to me, I started rethinking about my masterplan: how much DAI do I need per day to live solely on that? How much capital would it represent? (&lt;em&gt;Hint: way less than $1.5M)&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;(Above: a &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/TokenBrice/status/1223641685898465282?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFi Milkshake&lt;/a&gt; I bought with my daily DAI passive income using &lt;a class=&#34;link&#34; href=&#34;https://monolith.xyz/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Visa card&lt;/a&gt;)&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;dai-per-day-as-a-framework&#34;&gt;&lt;strong&gt;DAI per day as a framework&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;What happened there? Why would RealT have this impact on me while Compound did not? (Huge respect for all the projects mentioned in this post, please keep going!)&lt;/p&gt;
+&lt;p&gt;I think the answer is more straightforward than what people expect:&lt;/p&gt;
+&lt;p&gt;We used to download movies or buy them to watch them. At some point, Netflix offered us streaming and 99% of us never looked back—&lt;strong&gt;I expect the same thing to happen with money.&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;money-that-empowers-people&#34;&gt;&lt;strong&gt;Money that empowers people&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;Simply put, daily DAI streaming is a paradigm shift that enables most of us to instantly become much smarter and efficient in the way we relate and manage our assets. It’s empowering to the individual.&lt;/p&gt;
+&lt;p&gt;Why? The concept of DAI per day reinforces two powerful ideas: first, streaming money and second, using DAI as the base monetary reference.&lt;/p&gt;
+&lt;p&gt;Why is streaming money a paradigm shift?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It makes it easy to break down significant objectives in small chunks&lt;/li&gt;
+&lt;li&gt;There is no wait time between the first initial investment and the first payout. Payouts are available instantly—and spendable anywhere that &lt;a class=&#34;link&#34; href=&#34;https://monolith.xyz/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;accepts Visa&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Why is DAI a paradigm shift?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DAI is a stablecoin—you don’t have to hoard it or worry about daily value lose&lt;/li&gt;
+&lt;li&gt;DAI is at a bridge: easy to spend in the real world but also a hop away from all other Ethereum-based assets (including passive income assets like RealT)&lt;/li&gt;
+&lt;li&gt;As DeFi grows sources of DAI/day are becoming more numerous and attractive&lt;/li&gt;
+&lt;li&gt;Finally, the tokens used for payouts are more diverse (consider liquidity pools). Bringing everything back in DAI/day gives you exhaustive visibility over all your crypto-passive income sources.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;that-daily-dai-lifestyle&#34;&gt;&lt;strong&gt;That Daily Dai Lifestyle&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;Enough context, let&amp;rsquo;s get practical: what can we do today with these shiny new financial levers?&lt;/p&gt;
+&lt;p&gt;I went back to my masterplan to give it a second try.&lt;/p&gt;
+&lt;p&gt;This time, instead of going straight for full financial independence, I decided to aim for something more practical. For me, it was straightforward: I have three lunches in London every week, costing me around $30 per week on average.&lt;/p&gt;
+&lt;p&gt;That means I need roughly &lt;strong&gt;4.3 DAI per day&lt;/strong&gt; to pay for them.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;I could also skip lunch, but I decided to have it for free thanks to DeFi!&lt;/strong&gt; I&amp;rsquo;m not there yet but getting close: according to my revised plan, I&amp;rsquo;ll be getting free lunches by the end of March.&lt;/p&gt;
+&lt;h3 id=&#34;starting-with-a-5-dai-per-day-portfolio&#34;&gt;&lt;strong&gt;Starting with a 5 DAI per day portfolio&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;I am currently exploring different possibilities in my portfolio, so let&amp;rsquo;s consider a simple one: one that nets you 5 DAI per day.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s what you can expect if you want a simple passive DAI strategy:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;8-9% APR with DAI: for instance, locking your &lt;a class=&#34;link&#34; href=&#34;https://bankless.substack.com/p/how-to-get-a-dai-saving-account&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DAI in the DSR&lt;/a&gt; is at 8%&lt;/li&gt;
+&lt;li&gt;9-12.5% APR with income assets: but with a higher risk, using RealT&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now that&amp;rsquo;s if you want to set it and forget about it. There are other opportunities with additional earning opportunities. For instance, if you own a RealT asset, you can:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Try to sell at a premium on Uniswap&lt;/li&gt;
+&lt;li&gt;Benefits from their liquidity incentive program&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;But let’s keep this simple and passive:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;We&amp;rsquo;ll stick with the Dai Saving Rate—the safest way to produce DAI interests right now—and RealT—a more risky bet that can offer higher returns&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;How much in assets values is required for 5 Daily DAI at the below rates?&lt;/p&gt;
+&lt;div align = &#34;center&#34;&gt;
+![earning-table](/img/2020/bankless-defi-lunches/earning-table.png)
+&lt;/div&gt;
+&lt;h4 id=&#34;going-farther&#34;&gt;&lt;strong&gt;Going farther&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;While this is a simple framework to get started it suffers from some limits. For instance, if you&amp;rsquo;re looking to generate 100 DAI/day from this approach, RealT will not cut it. You&amp;rsquo;ll run into issues of liquidity (not enough estate available) or systemic risk (you&amp;rsquo;d be owning a sizeable share of ALL RealT estates).&lt;/p&gt;
+&lt;p&gt;With my current understanding, I intend to maintain a similar strategy up to roughly 10 DAI/day. My current portfolio also includes aDAI.&lt;/p&gt;
+&lt;p&gt;As I blast through the 10 DAI/day, this year, that is if the plan stands, I will be diversifying more and more. I think liquidity pools &amp;amp; staking (SNX, for instance) can be a way to go. However, I&amp;rsquo;m not familiar enough with these topics &amp;amp; haven&amp;rsquo;t started committing serious amounts of money to it—so I&amp;rsquo;m not the best one to talk about it right now: maybe in a few months?&lt;/p&gt;
+&lt;p&gt;Wonder how this looks in practice? &lt;a class=&#34;link&#34; href=&#34;https://etherscan.io/address/tokenbrice.eth&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;See for yourself at tokenbrice.eth.&lt;/a&gt;&lt;/p&gt;
+&lt;div align = &#34;center&#34;&gt;
+![zerion-preview](/img/2020/bankless-defi-lunches/wallet.png)
+&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;(Above: see Brice’s DAI earnings &amp;amp; spending in real-time—&lt;a class=&#34;link&#34; href=&#34;https://app.zerion.io/0x030de46c333dfd602442a103919412a7987d0ac7/lend?utm_campaign=aw&amp;amp;utm_medium=header_button&amp;amp;utm_source=landing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;plug tokenbrice.eth into Zerion&lt;/a&gt;)&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;-on-projections&#34;&gt;** On projections…**
+&lt;/h3&gt;&lt;p&gt;Allow me to loop back to my masterplan. While the DAI per day approach is fantastic it has one main downside: it makes yearly projections harder.&lt;/p&gt;
+&lt;p&gt;Take a minute now and try to guess how much daily DAI you need to produce 50k DAI per year? Did you do it?&lt;/p&gt;
+&lt;p&gt;How close were you to 137, the actual answer? Most people tend to overestimate.&lt;/p&gt;
+&lt;p&gt;So while DAI/day is my base, I also look at two other levels to not lose track of the big picture: the DAI per month and the DAI per year.&lt;/p&gt;
+&lt;h3 id=&#34;going-bankless-in-the-real-world&#34;&gt;&lt;strong&gt;Going bankless in the real world&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;I hope you found value in this tactic—my goal is practical DeFi: demonstrating what you can do harnessing DeFi today. This post was written down &amp;amp; translated adaptation of my &lt;a class=&#34;link&#34; href=&#34;https://www.meetup.com/DeFi-France/events/268374027/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;last talk at DeFi France.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Late last year &lt;a class=&#34;link&#34; href=&#34;https://slideslive.com/38920018/living-on-defi-how-i-survive-argentinas-50-inflation&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Mariano Conti’s talk&lt;/a&gt; sent an &lt;a class=&#34;link&#34; href=&#34;https://bankless.substack.com/p/straddling-two-worlds-crypto-and&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;electro-shock to the crypto world&lt;/a&gt;: he reminded us that DeFi is already used for very real situations, such as avoiding losing 50% of your net worth to inflation.&lt;/p&gt;
+&lt;p&gt;It was the perfect demonstration of someone living in the real world using the opportunities offered by DeFi. My goal was to provide the European version of it.&lt;/p&gt;
+&lt;p&gt;Mariano survived inflation using DeFi.&lt;/p&gt;
+&lt;p&gt;I, on the opposite, want to live my best life, thanks to DeFi.&lt;/p&gt;
+&lt;p&gt;Here’s the magic: &lt;strong&gt;both of us are acting in our own best interest and in doing so, we are supporting the development of a fairer &amp;amp; more accessible financial system for all.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This is a clear illustration of how fast the industry is evolving: hop on &amp;amp; enjoy the ride!&lt;/p&gt;
+&lt;h3 id=&#34;author-blub&#34;&gt;&lt;em&gt;&lt;strong&gt;Author Blub&lt;/strong&gt;&lt;/em&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;em&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/TokenBrice&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Brice Berdah&lt;/a&gt; is the community manager at &lt;a class=&#34;link&#34; href=&#34;https://monolith.xyz/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Monolith&lt;/a&gt; and co-organizer of DeFi France. He’s an active crypto user and leader in the grassroots movement for decentralized finance in the EU.&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;action-steps&#34;&gt;&lt;strong&gt;Action steps&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;What are the passive income opportunities in DeFi and what are the risks?&lt;/li&gt;
+&lt;li&gt;Get a Visa card for daily DAI spending (&lt;a class=&#34;link&#34; href=&#34;https://monolith.xyz/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Monolith&lt;/a&gt; if in EU or &lt;a class=&#34;link&#34; href=&#34;https://bankless.substack.com/p/how-to-get-your-first-crypto-visa&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;other options&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Go &lt;a class=&#34;link&#34; href=&#34;https://bankless.substack.com/about&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Bankless&lt;/a&gt;. $12 / mo. Includes &lt;a class=&#34;link&#34; href=&#34;https://bankless.substack.com/archive?utm_source=menu-dropdown&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;archive access&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://bankless.substack.com/p/welcome-to-the-inner-circle-wave&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Inner Circle&lt;/a&gt; &amp;amp; &lt;a class=&#34;link&#34; href=&#34;https://bankless.substack.com/p/the-deal-sheet&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Deals&lt;/a&gt;—[(pay w/ crypto)](&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Free coffees ☕, thanks to DeFi</title>
+        <link>http://localhost:1313/p/free-coffees-thanks-to-defi/</link>
+        <pubDate>Thu, 20 Feb 2020 14:53:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/free-coffees-thanks-to-defi/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2020/freecoffees/cover.png" alt="Featured image of post Free coffees ☕, thanks to DeFi" /&gt;&lt;p&gt;&lt;em&gt;Overview of the passive income-earning opportunities enabled by decentralised finance&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Sometimes, it feels like the world of money is upside down: while the returns offered by banks keep getting lower (if not negative!), innovative techs enabled the emergence of an alternative financial system that is already delivering incredible value.&lt;/p&gt;
+&lt;p&gt;To put it short: Ethereum created money on steroids while regular finance simply fails at delivering anything else than surface-level innovations.&lt;/p&gt;
+&lt;p&gt;While the money you have sitting at the bank has barely seen a one-digit interest rate for years, the yearly return enabled by decentralised finance frequently prints 2 digits.&lt;/p&gt;
+&lt;p&gt;How can this situation even be real? It seems like decentralised finance (DeFi) is still a little too intimidating for outsiders. Or more like used to! After reading this, you’ll have no excuse!&lt;/p&gt;
+&lt;p&gt;I wouldn’t want you scratching your head at the fifth line, so let’s clear the air on DeFi before we go on. Decentralised Finance is a term used to refer to the nascent &amp;amp; novel new financial ecosystem, built on Ethereum.&lt;/p&gt;
+&lt;p&gt;In this parallel finance ecosystem, thousands of users from around the globe borrow, lend and exchange tokens with one another. They do so using uncensorable and unstoppable services, such as &lt;a class=&#34;link&#34; href=&#34;https://uniswap.exchange/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Uniswap&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;free-coffees-thanks-to-strangers-from-theinternet&#34;&gt;Free coffees, thanks to strangers from the Internet
+&lt;/h3&gt;&lt;p&gt;Fully harnessing the capabilities of Ethereum, those new financial services are able to (potentially) operate in a decentralised, trustless and transparent manner — making the system &lt;strong&gt;more accessible and inclusive&lt;/strong&gt; overall (no credit check!).&lt;/p&gt;
+&lt;p&gt;Another key aspect of DeFi is its composability, often referred as “money lego”: projects built using Ethereum’s DeFi follow standards (such as ERC-20 for basic token definitions) enabling “permission-less interoperability” — it’s possible to integrate any project one with the other, without even requiring the help of its creators.&lt;/p&gt;
+&lt;p&gt;If you are curious about the topic, you’ll find &lt;a class=&#34;link&#34; href=&#34;https://www.notion.so/defifrance/DeFi-Onboarding-Guide-a0713cfe5d844ff28bc829006625b118&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;an exhaustive DeFi onboarding guide&lt;/a&gt; here that introduces many articles, podcasts and videos to learn more about DeFi.&lt;/p&gt;
+&lt;p&gt;Now, I know DeFi can be a lot, so I develop a very practical approach to it: &lt;strong&gt;we’ll talk only about LIVE, working services&lt;/strong&gt; that have been paying interests to their users for several months at least.&lt;/p&gt;
+&lt;h3 id=&#34;earning-returns-on-a-stablecoin&#34;&gt;Earning returns on a stablecoin
+&lt;/h3&gt;&lt;p&gt;&lt;em&gt;ℹ A stablecoin (such as DAI) is a token with stable value. It&amp;rsquo;s usually achieved by tracking the value of a stable asset, like the dollar: 1 DAI = $1.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The decentralised finance ecosystem is structuring itself as a more credible alternative every day. Strong &amp;amp; resilient services emerged as basic tools used by most:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://makerdao.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Maker&lt;/a&gt;: Borrow against ETH&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://makerdao.com/da/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DAI&lt;/a&gt;: Avoid price volatility &amp;amp; earn interest (Dai Saving Rate)&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://uniswap.exchange/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Uniswap&lt;/a&gt;: tokens exchange&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://compound.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Compound Finance&lt;/a&gt;: borrow or lend &amp;amp; earn interest&lt;/li&gt;
+&lt;li&gt;Other services exist to produce a passive income thanks to Ethereum, such as &lt;a class=&#34;link&#34; href=&#34;http://realt.co/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RealT&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://aave.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Aave&lt;/a&gt;, or &lt;a class=&#34;link&#34; href=&#34;https://fulcrum.trade/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;bZx&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;With the help of these new services, you can:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Have your assets in $ — &lt;strong&gt;DAI is a cryptocurrency tracking the price of $1&lt;/strong&gt; — so that you’re &lt;strong&gt;not exposed to the markets’ volatility&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Earn a &lt;strong&gt;5–8% yearly return&lt;/strong&gt;, on that $: your DAI will either be lent or locked directly in the Maker system (Dai Saving Rate) to help stabilize the price of DAI.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;how-does-a-wallet-earning-5-daiday-looklike&#34;&gt;How does a wallet earning 5 DAI/day look like?
+&lt;/h3&gt;&lt;p&gt;To keep it simple here, we’re considering only 3 investments strategy matching different risk profiles, using only two different services:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/freecoffees/5DAI.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;Dai Saving Rate is arguably the safest way to earn a return on your DAI&lt;/strong&gt;. The risk is minimal because you’re not lending your money to anyone. To keep it short, you lock your DAI in the Maker system, and the system pays you a premium because you’re helping DAI to maintain its peg.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;🖊 Edit: Please note that the earning rates presented for specific protocols are no longer accurate. However, similar results can still be achieved with alternative methods.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/freecoffees/defiscore.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;👆 DeFiscore is a community project offering a comprehensive rating of the risks associated with different lending protocols. What you see above is an overview of their ranking of DAI lending opportunities.&#34;
+	
+	
+&gt;
+&lt;em&gt;👆&lt;/em&gt; &lt;a class=&#34;link&#34; href=&#34;https://defiscore.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;em&gt;DeFiscore&lt;/em&gt;&lt;/a&gt; &lt;em&gt;is a community project offering a comprehensive rating of the risks associated with different lending protocols. What you see above is an overview of their ranking of DAI lending opportunities.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;On the other hand, the other solution used, RealT, is a &lt;strong&gt;little more novel and risky&lt;/strong&gt;. RealT tokenises real estate on Ethereum &amp;amp; allow anyone to become an owner. If you own a share of RealT estate, you’ll receive &lt;strong&gt;your share of the rent, paid in DAI, daily&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;ℹ Since RealT tokens are securities, you will have to through a KYC to purchase them.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;While the level of risk is higher with RealT than Maker, RealT does have one advantage — so far, the returns are stable. On the other hand, Maker’s DSR rate is still changing quite often:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;(&lt;em&gt;Nov 18 2019)&lt;/em&gt; DSR  Launched at 2%&lt;/li&gt;
+&lt;li&gt;➡ &lt;em&gt;(3 Jan)&lt;/em&gt; 4 %&lt;/li&gt;
+&lt;li&gt;➡ &lt;em&gt;(8 Jan)&lt;/em&gt; 6 %&lt;/li&gt;
+&lt;li&gt;➡ &lt;em&gt;(26 Jan 2020)&lt;/em&gt; 7.75%&lt;/li&gt;
+&lt;li&gt;➡ &lt;em&gt;(4 Feb)&lt;/em&gt; 8.75%&lt;/li&gt;
+&lt;li&gt;➡ &lt;em&gt;(9 Feb)&lt;/em&gt; 7.5%&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;from-dai-tocoffees&#34;&gt;From DAI to coffees
+&lt;/h3&gt;&lt;p&gt;Now that we have a clearer picture as to how we can generate a passive income using cryptocurrencies, you might wonder: what about the coffees?&lt;/p&gt;
+&lt;p&gt;Well, thanks to Monolith (disclaimer: I work there) it’s easy as ABC. We provide you with a non-custodial Ethereum wallet, paired with a Visa Debit Card. You can go from DAI in your wallet to a €/£ balance ready to be spent on your card in 30 seconds.&lt;/p&gt;
+&lt;p&gt;That was step 1. We’ve shared recently about a &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/monolith_web3/status/1223597132952887302?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;significant upcoming update&lt;/a&gt;, that will let you exchange tokens and access decentralised lending services straight from your Monolith app:&lt;/p&gt;
+&lt;h3 id=&#34;before-you-jumpin&#34;&gt;Before you jump in
+&lt;/h3&gt;&lt;p&gt;If you are seriously considering investing amounts close to those presented in the table above, &lt;strong&gt;please ensure that you know the basics&lt;/strong&gt;: such as using &amp;amp; &lt;a class=&#34;link&#34; href=&#34;https://medium.com/monolith/5-rules-you-need-to-know-to-stay-safe-on-ethereum-2447244cdcb3&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;securing&lt;/a&gt; an Ethereum wallet, understanding threats and choosing an &lt;a class=&#34;link&#34; href=&#34;https://medium.com/monolith/the-usability-of-security-the-choice-of-a-contract-wallet-1e32f92ea9a1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;appropriate security model&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;You do not need an account on any exchange to use DeFi.&lt;/strong&gt; It is much safer to access DeFi services directly from your wallet. Using a centralised service generates additional risks for your assets.&lt;/p&gt;
+&lt;p&gt;Ready to make the jump? Deploy your first contract wallet today and order your Visa debit card &lt;a class=&#34;link&#34; href=&#34;https://monolith.app.link/ETH-IS-MONEY&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;with the Monolith app&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/freecoffees/card.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://monolith.app.link/ETH-IS-MONEY&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🆓 &lt;strong&gt;Get your Monolith card for free&lt;/strong&gt; | 🇪🇺 Shipping to 31 countries in Europe | 💸 Spend DAI in a flash with minimal fees | 🔐 Advanced security model | 💱 Built-in DEX Aggregator (soon)&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;disclaimer&#34;&gt;DISCLAIMER
+&lt;/h3&gt;&lt;p&gt;&lt;em&gt;This article represents my personal view only — and is written free of any professional affiliation. Facts &amp;amp; data are sourced as much as possible, but my views are my own.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;It does not constitute an offer to sell, a solicitation of an offer to buy, or a recommendation of any cryptocurrency, digital token, investment, security or any other product or service.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Furthermore, nothing in this article is intended to provide legal or investment advice and nothing in this article should be construed as a recommendation to buy, sell, or hold any cryptocurrency, digital token, investment or security, or to engage in any investment strategy or financial transaction.&lt;/em&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Is stability a necessity for cryptocurrencies mainstream adoption?</title>
+        <link>http://localhost:1313/p/is-stability-a-necessity-for-cryptocurrencies-mainstream-adoption/</link>
+        <pubDate>Wed, 22 Aug 2018 12:14:52 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/is-stability-a-necessity-for-cryptocurrencies-mainstream-adoption/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2018/stablecoins/cover.jpeg" alt="Featured image of post Is stability a necessity for cryptocurrencies mainstream adoption?" /&gt;&lt;p&gt;When you talk about cryptocurrencies with people unfamiliar with it, the question of volatility is among the first to pop up. Quite often, it’s a low effort way to dismiss the whole world of cryptocurrencies and recent progress made with decentralization. Volatility does not affect all cryptocurrencies: some of them are made to be stable (price wise) — we call them the “stablecoins.”&lt;/p&gt;
+&lt;p&gt;Before we get to that point, let’s state some necessary facts to understand this article:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Cryptocurrencies are much more than just the Bitcoin&lt;/strong&gt;. There are more than 1500 tokens listed on CoinMarketCap, which is only the tip of the iceberg: in reality, there are thousands of cryptocurrencies circulating. The sheer amount of tokens can be scary, but it’s positive in the long run. It means that for every problem cryptocurrencies can solve you have dozens of different teams exploring as many different approaches — no stone is left unturned.&lt;/li&gt;
+&lt;li&gt;Whatever the initial vision of Satoshi was, &lt;strong&gt;Bitcoin is unfit to become a mainstream currency&lt;/strong&gt;. Its technical limitation such as its low transaction speed or the issues with mining (energy consumption, centralization, etc.) makes it inapt for this use case. However, its persistence (Bitcoin is almost 10 years old!) as well as its reliability makes it a good “store of value”, just like gold.&lt;/li&gt;
+&lt;li&gt;Nevertheless, there are many projects with the ambition to become tomorrow’s mainstream currency. &lt;strong&gt;They answer the fundamental issue raised when considering Bitcoin as a currency: its volatility.&lt;/strong&gt; Those projects are called &lt;strong&gt;stablecoins&lt;/strong&gt; and they will be the topic of this piece.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The question of volatility highlights a vital characteristic of a currency: price stability is a necessity to have a currency people feel confident using. Indeed, creating a new currency requires a thorough understanding of both technical mechanisms as well as social dynamics. In order &lt;strong&gt;to become a currency, a good must be recognized as such by its users and gain their trust.&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;are-fiat-goingsouth&#34;&gt;Are fiat going south?
+&lt;/h3&gt;&lt;p&gt;We observe a strong correlation between the adoption of cryptocurrencies and the “weakness” of the national currency (called fiat currencies) in a given country. It’s hard to measure the adoption of cryptocurrency, but we can easily get figures on how many people are interested in buying some using Google Trends:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2018/stablecoins/buy-bitcoin.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Geographical distribution of the query “How to buy bitcoin” using Google Trends&#34;
+	
+	
+&gt;
+Geographical distribution of the query “How to buy bitcoin” using Google Trends&lt;/p&gt;
+&lt;p&gt;The Ghanaian currency (the Cedi — GHS) went from roughly a dollar in 2008 to around 20 cents nowadays. Meanwhile, the Nigerian currency (the Naira — NGN) lost about half of its worth (measured against the dollar).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2018/stablecoins/cedi.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;The exchange rate of the dollar against the Cedi (left) and Naira (right) over the last ten years. Source: TradingEconomics.&#34;
+	
+	
+&gt;
+The exchange rate of the dollar against the Cedi (left) and Naira (right) over the last ten years. Source: &lt;a class=&#34;link&#34; href=&#34;https://tradingeconomics.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;TradingEconomics&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The devaluation happened fast enough for people living in these countries to see the impact of it. It could explain the strong interest we observe for cryptocurrencies in Ghana and Nigeria. However, the issue with the determining how much a given currency is worth is more complex than simply measuring it against the dollar. If we use the dollar as our reference point, we must question its stability: &lt;strong&gt;is the dollar itself even stable?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Without thinking twice about it, the “yes” seems like the go-to answer. The dollar hasn’t changed over these last 50 years — a $1 bill emitted in 1968 would still be recognized as such today. However, what about its worth? It is changing all the time. Is one 1968 dollar still worth $1 then? The answer is simply no — it would give access to a purchasing power corresponding to roughly 7 present days dollar.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2018/stablecoins/inflation.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Evolution of the buying power of the equivalent a 1968 dollar from this date until now. Source: TradingEconomics.&#34;
+	
+	
+&gt;
+Evolution of the buying power of the equivalent a 1968 dollar from this date until now. Source: &lt;a class=&#34;link&#34; href=&#34;https://tradingeconomics.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;TradingEconomics&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The main driver of the spread is of course inflation. The topic is sophisticated enough to have theses written about it, so we’ll leave it to others. Now that we have some context let’s get back to stablecoins.&lt;/p&gt;
+&lt;h3 id=&#34;whats-a-stablecoin&#34;&gt;What’s a stablecoin?
+&lt;/h3&gt;&lt;p&gt;The idea behind the stablecoin is pretty simple, the challenge lies in the execution. &lt;strong&gt;A stablecoin is a cryptocurrency that trades at a fixed price against a good (such as gold) or a common currency (most often the dollar).&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;A stablecoin’s worth is not stable; it is merely its value that is pegged to a &lt;strong&gt;relatively&lt;/strong&gt; stable asset. Creating a reliable stablecoin is already a real challenge, so creating a fixed-worth currency is a wild dream.&lt;/p&gt;
+&lt;p&gt;However, the question of having a stable value is interesting to consider. How would it look like? That one unit of the given currency is always worth one unit? That’s DOGE’s specialty!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2018/stablecoins/doge.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;The DOGE is a parodical currency created out of a meme which is now taken more and more seriously as cryptocurrencies develop&#34;
+	
+	
+&gt;
+The DOGE is a parodical currency created out of a meme which is now taken more and more seriously as cryptocurrencies develop&lt;/p&gt;
+&lt;p&gt;Let’s go back to more serious matters: the stability of currency could be defined as the fact that one unit of it always grant access to the same value. This definition would be consistent with the definition of a currency proposed in a &lt;a class=&#34;link&#34; href=&#34;https://hackernoon.com/money-101-discarding-the-myth-of-bartering-to-understand-bitcoin-better-3b8e66cd2e77&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;previous piece&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Money is not a store of value, it’s a claim upon value.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Keeping the link between the currency and the actual value it gives access to is elegant, in theory. However, in the real world, it’s close to impossible to measure the buying power of a given currency exactly. It is why we’ll consider stability defined as a currency keeping a constant price in regards to other goods or currencies which have a &lt;strong&gt;relatively&lt;/strong&gt; stable value. Before we get to the different stablecoin projects there are, let’s examine their utility.&lt;/p&gt;
+&lt;h3 id=&#34;what-are-stablecoins-goodfor&#34;&gt;What are stablecoins good for?
+&lt;/h3&gt;&lt;p&gt;We already have live and available stablecoins such as the USDT. They are mostly used by crypto exchanges and traders because they offer a way to avoid returning to fiat currencies and having to abide by all the legal framework that comes with it. Moreover, since their price is fixed against the dollar they are somewhat of a safe haven for traders: with them, they can get out of the market without really doing so.&lt;/p&gt;
+&lt;p&gt;For now, stablecoins are mostly a traders’ gimmick used to get in and out of the market without bringing their money back into their bank account. Hence, &lt;strong&gt;in the short-term, they are mostly a speculative tool&lt;/strong&gt;. However, they can provide a real utility in the long run.&lt;/p&gt;
+&lt;p&gt;Since cryptocurrencies have high volatility compared to fiat currencies, they are not really used as currency. Almost nobody is choosing to get their pay in cryptocurrencies, or using them to buy their groceries.&lt;/p&gt;
+&lt;p&gt;Having a stable cryptocurrency well integrated with the rest of the ecosystem would provide a credible solution to address these needs. At first, stablecoins would be the gateway between the fiat and the crypto world. In the long run, they could become the “fiat of cryptos” themselves: &lt;strong&gt;they would become cryptocurrencies which are stable enough to become a preferred payment method&lt;/strong&gt;. It would provide a broader and more reliable access to the services offered by other (non-stable) cryptocurrencies.&lt;/p&gt;
+&lt;h3 id=&#34;how-to-stabilize-a-cryptocurrency-liveexamples&#34;&gt;How to stabilize a cryptocurrency: live examples
+&lt;/h3&gt;&lt;p&gt;To fulfill their promise of stable exchange rate against a given fiat, stablecoins must offer a &lt;strong&gt;collateral&lt;/strong&gt;. As a result, several types of stablecoins emerged depending on the collateral mechanism they used:&lt;/p&gt;
+&lt;h4 id=&#34;fiat-collateralized-stablecoins&#34;&gt;Fiat collateralized stablecoins
+&lt;/h4&gt;&lt;p&gt;It is the most direct and simple approach to make a stablecoin, but also the most centralized. In brief, there is a central entity minting the stablecoin who owns a reserve of dollar corresponding to the volume put in circulation. This dollar reserve offers guarantees regarding the solvability of the coin and allow to exchange the stablecoin back to a dollar at any time.&lt;/p&gt;
+&lt;p&gt;Even so, this approach comes with several issues. First, it’s &lt;strong&gt;completely centralized&lt;/strong&gt; since a single entity is emitting the stablecoin and backing it. There are no other choices but to trust it. Besides the approach is &lt;strong&gt;economically inefficient&lt;/strong&gt;, especially at scale, as it requires to “freeze” an amount of money equal to the number of stablecoins in circulation.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;USDT&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This mechanism is used by the USDT, the most widespread stablecoin. Despite its adoption, &lt;strong&gt;the USDT is widely denounced&lt;/strong&gt; for its lack of transparency — there is no reliable method allowing its users to verify than Tether (the institution emitting USDT) actually possesses in its reserve a stock of dollar corresponding to the amount of USDT in circulation: around 2,8 billion currently. However, the ties between Tether and Bitfinex (the 4th cryptocurrency exchange regarding the trading volume) raise questions regarding the potential for market manipulation it allows.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;TrueUSD&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Created in answer to the lack of transparency of the USDT, TrueUSD uses the same mechanism while offering more guarantees. Rather than owning the token themselves, TrustToken (the institution emitting TrueUSD) works with a network of banks and financial institutions which keep the funds in escrow for them. One of them, Cohen&amp;amp;Company, publishes an &lt;a class=&#34;link&#34; href=&#34;https://blog.trusttoken.com/trueusd-attestation-reports-86f693b90a4?gi=749091358366&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;independent audit&lt;/a&gt; twice a month to confirm that the financial partners of TrustToken do hold in escrow a number of dollars corresponding to the volume of TUSD in circulation.&lt;/p&gt;
+&lt;p&gt;The guarantees offered seem more reliable than for the USDT, yet the problem is similar: this system requires its user to trust TrustToken and its partners, and particularly Cohen&amp;amp;Company to be honest. It works until it doesn’t.&lt;/p&gt;
+&lt;h4 id=&#34;crypto-collateralized-stablecoins&#34;&gt;Crypto collateralized stablecoins
+&lt;/h4&gt;&lt;p&gt;While fiat collateralized stablecoins are fulfilling (so far) their promise of stability, they are doing a disservice to cryptocurrencies as a whole whose aim is to provide a decentralized alternative to the legacy financial and monetary networks. To answer this concern, another type of stablecoins emerged. They use other cryptocurrencies as collateral and a network of smart contracts to peg their exchange price to the underlying asset.&lt;/p&gt;
+&lt;p&gt;Yet this type of stablecoins is facing issues too, the main one being the volatility of cryptocurrencies used as collateral. To address them, they necessitate &lt;strong&gt;a collateral superior to the value of the stablecoins emitted&lt;/strong&gt;, which hinders their potential large scale usage.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;MakerDAO — Dai&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Dai is another stablecoin pegged to the dollar (1 Dai = $1). It has some interesting features, the main one being that it is fully decentralized. Indeed, the institution emitting the Dai is MakerDAO, a decentralized autonomous organization. It’s an &lt;strong&gt;organization which governing rules are automated and enforced through publicly auditable smart contracts&lt;/strong&gt;, making them transparent and unchangeable.&lt;/p&gt;
+&lt;p&gt;Dai works in pair with MKR, the governance token. Owners of MKR can vote to decide on the mechanisms used to stabilized the Dai. The system is quite complex and could deserve several articles by itself. Dai was launched on December 17th 2017 after three years of development. Since its launch, its price was in the same range of stability than fiat collateralized stablecoins (+/- ~10 %).&lt;/p&gt;
+&lt;h4 id=&#34;un-collateralized-stablecoins&#34;&gt;Un-collateralized stablecoins
+&lt;/h4&gt;&lt;p&gt;These stablecoins are the most promising in the long run as the address the main concerns raised by the two previous types: they propose a decentralized solution which could be used at scale. These projects are still in the development phase.&lt;/p&gt;
+&lt;p&gt;Most of them use algorithms which reduce or increase the amount of the given stablecoin in circulation to stabilize their price. If the price goes over the dollar, the circulating supply increases; if it goes below, the supply decreases. The two most prominent projects in this category are Basis and Carbon.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Basis&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Basis wants to create an “algorithmic central bank” that would stabilize its price. Their system uses three different types of token which makes it quite complex. The goal is to reproduce a simplified version of the federal reserve system with the addition of investors.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Carbon&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;On the other hand, Carbon is trying to execute an approached theorized in 2014 already by Robert Sams called the &lt;a class=&#34;link&#34; href=&#34;https://github.com/rmsams/stablecoins/blob/master/paper.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;seigniorage shares&lt;/a&gt;. The solution is mostly theory for now and has yet to see a working implementation.&lt;/p&gt;
+&lt;h3 id=&#34;stablecoins-a-gift-or-a-curse-for-cryptocurrencies&#34;&gt;Stablecoins: a gift or a curse for cryptocurrencies?
+&lt;/h3&gt;&lt;p&gt;Stablecoins are a recent yet fascinating innovation. There are many projects currently in development (&lt;a class=&#34;link&#34; href=&#34;https://stablecoinindex.com/projects/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;non-exhaustive list&lt;/a&gt;) using diverse approaches. The typology proposed above is simplified: some projects mix several types of collateral while others use radically different mechanisms.&lt;/p&gt;
+&lt;p&gt;Today, stablecoins are speculative &lt;a class=&#34;link&#34; href=&#34;https://hackernoon.com/tagged/tools&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;tools&lt;/a&gt; more than anything else, but they can become one of the critical elements of the mainstream adoption of cryptocurrencies in the long run. Looking at the volume, the USDT is currently obliterating its competition, which creates a systematic risk for the whole cryptocurrencies market. If USDT was to fail, it could lead to widespread panic. Thus &lt;strong&gt;speculation pushed the market towards a highly centralized tool lacking any real transparency: a gentle irony for the future of decentralization.&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;sources--deepdive&#34;&gt;Sources / Deep Dive
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://bitcoinmagazine.com/articles/warning-signs-timeline-tether-and-bitfinex-events/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Warning Signs? A Timeline of Tether and Bitfinex Events&lt;/a&gt; — Amy Castor on Bitcoin Magazine, July 2nd, 2018.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://coinjournal.net/the-rise-of-stablecoins/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;The rise Of Stablecoins&lt;/a&gt; — Alex T. on CoinJournal, April 8th, 2018.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://hackernoon.com/stablecoins-carrying-the-way-to-the-crypto-promised-land-c124b2db8ea3&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Stablecoins — Carrying the Way to the Cryptocurrency Promised Land&lt;/a&gt; — Brian Quinlivan on Hackernoon, July 4th, 2018.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://hackernoon.com/stablecoins-designing-a-price-stable-cryptocurrency-6bf24e2689e5&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Stablecoins: designing a price-stable currency&lt;/a&gt; — Haseeb Quereshi on Hackernoon, Decembre 12th, 2017&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://prestonbyrne.com/2017/12/10/stablecoins-are-doomed-to-fail/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Stablecoins are doomed to fail&lt;/a&gt; — Preston Byrne on its personal blog, December 10th, 2017.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://medium.com/makerdao/what-is-mkr-e6915d5ca1b3&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;What is MKR?&lt;/a&gt; — MakerDAO’s blog, September 10th, 2015.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Stablecoin projects mentioned in the article:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://tether.to/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;USDT&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.trusttoken.com/trueusd/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;TrueUSD&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://makerdao.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MakerDAO&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.basis.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Basis&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.carbon.money/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Carbon&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

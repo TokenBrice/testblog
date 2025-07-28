@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>NFTfi on TokenBrice</title>
+        <link>http://localhost:1313/fr/tags/nftfi/</link>
+        <description>Recent content in NFTfi on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>fr</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Mon, 17 Oct 2022 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/fr/tags/nftfi/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Chicken Bonds : synergie DeFi x NFT pour résoudre le problème de l&#39;oeuf et de la poule de la ĺiquidité en finance décentralisée</title>
+        <link>http://localhost:1313/fr/lusd-chicken-bonds/</link>
+        <pubDate>Mon, 17 Oct 2022 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/lusd-chicken-bonds/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2022/lusd-chicken-bonds/lusd-chicken-bonds-cover-tokenbrice.png" alt="Featured image of post Chicken Bonds : synergie DeFi x NFT pour résoudre le problème de l&#39;oeuf et de la poule de la ĺiquidité en finance décentralisée" /&gt;&lt;p&gt;Liquity a récemment publié les LUSD Chicken Bonds, une &lt;strong&gt;expérience de théorie des jeux fusionnant des éléments DeFi et NFT pour accroître la liquidité du LUSD et réduire sa prime de prix&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Bien que les Chicken Bonds s&amp;rsquo;appuient sur des protocoles existants, tels que Yearn, b.protocol, ou Curve, ils mettent également en place de nouveaux mécanismes, dont les deux principaux sont les suivants :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&amp;ldquo;No maturity principal-protected bonding&amp;rdquo;&lt;/strong&gt; : Les Chicken Bonds utilisent un nouveau type de bonds offrant de fortes garanties au déposant, y compris la possibilité de récupérer la totalité du capital initialement fourni sans frais (Chicken Out).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Participer pour gagner des NFT dynamiques&lt;/strong&gt; : En interagissant avec le protocole LUSD Chicken Bonds, les utilisateurs obtiennent un &lt;strong&gt;NFT dynamique&lt;/strong&gt; qui évolue en fonction de leurs choix et des interactions précédentes sur le réseau.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Les Chicken Bonds s&amp;rsquo;attaquent à l&amp;rsquo;un des principaux enjeux de la DeFi, la croissance durable des pools de liquidité, en commençant par LUSD. À terme, le modèle sera mis à disposition dans une version sans permission généralisable pour tout protocole ayant besoin de liquidité.&lt;/p&gt;
+&lt;p&gt;Ce billet détaille le fonctionnement et les résultats attendus des &lt;a class=&#34;link&#34; href=&#34;https://chickenbonds.org&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;LUSD Chicken Bonds&lt;/a&gt;. Cependant, avant de répondre à ces questions, il est nécessaire d&amp;rsquo;avoir un contexte supplémentaire sur les LUSD : commençons !&lt;/p&gt;
+&lt;h2 id=&#34;le-contexte--la-prime-de-prix-sur-lusd&#34;&gt;Le contexte : La prime de prix sur LUSD
+&lt;/h2&gt;&lt;p&gt;L&amp;rsquo;une des dimensions les plus mal comprises du modèle de Liquity est le &lt;strong&gt;mécanisme d&amp;rsquo;ancrage du LUSD&lt;/strong&gt;. En effet, alors que le LUSD présente de fortes garanties (hard peg) que le LUSD&amp;gt;1,00$ (rachat) et &amp;lt;$1,10 (ratio de collatéralisation minimal de 110%), entre les deux, l&amp;rsquo;équilibre repose davantage sur un &lt;strong&gt;jeu d&amp;rsquo;incitations (soft peg)&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Dans le sillage de &lt;a class=&#34;link&#34; href=&#34;https://blog.chainalysis.com/reports/tornado-cash-sanctions-challenges/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;la répression de l&amp;rsquo;OFAC sur Tornado Cash&lt;/a&gt; en août, il y a eu une &lt;strong&gt;augmentation de la demande&lt;/strong&gt; de monnaies stables résistantes à la censure. Pourtant, l&amp;rsquo;appétit pour l&amp;rsquo;effet de levier est faible en raison de la détérioration des conditions du marché. Ainsi, si la demande de LUSD est élevée, une part importante de ses adeptes l&amp;rsquo;achète à un prix élevé sur les marchés au lieu de le frapper en utilisant leur ETH comme garantie.&lt;/p&gt;
+&lt;p&gt;Ces deux facteurs ont convergé au cours des derniers mois, conduisant à une &lt;strong&gt;prime soutenue&lt;/strong&gt; pour le LUSD, qui se négocie souvent dans une fourchette de 1,02 à 1,04 dollar. Je ne m&amp;rsquo;étendrai pas trop sur ce sujet ici, car il a déjà été abordé sur le blog de Liquity : &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.liquity.org/blog/the-premium-of-resiliency&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;The Premium of Resiliency&lt;/a&gt;&lt;/strong&gt;. Cependant, discutons de &lt;strong&gt;l&amp;rsquo;impact de la prime sur les utilisateurs de Liquity&lt;/strong&gt; car il a des conséquences réelles.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/lusd-chicken-bonds/lusd-peg-incentives.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;lusd-peg-incentives&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;impact-de-la-prime-lusd&#34;&gt;Impact de la prime LUSD
+&lt;/h3&gt;&lt;p&gt;L&amp;rsquo;impact d&amp;rsquo;une prime de prix sur les emprunteurs &lt;strong&gt;peut être positif ou négatif&lt;/strong&gt;, en fonction de leur timing et de leurs actions. Les emprunteurs qui s&amp;rsquo;inquiètent de la volatilité du prix du LUSD peuvent utiliser les Chicken Bonds, ou b.protocol pour préserver une exposition pure au LUSD tout en obtenant des rendements.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice info&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#info-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Information&lt;/p&gt;&lt;p&gt;Il convient de noter que les emprunteurs qui préservent une exposition à 100% au LUSD ne subissent aucune conséquence des fluctuations de son cours puisqu&amp;rsquo;ils n&amp;rsquo;ont pas besoin de le racheter lors du remboursement de leur dette.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Cependant, le fait que le LUSD fluctue peut également profiter aux utilisateurs avertis qui peuvent arbitrer les écarts :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Marge bénéficiaire&lt;/strong&gt; | Plus le LUSD dépasse 1 $, plus il est rentable d&amp;rsquo;effectuer une opération d&amp;rsquo;arbitrage sur son peg : à 1,01 $, le short du peg rapporte 0,01 $ par LUSD en cas de succès. À 1,09 $, les profits passent à 0,09 $ par LUSD.&lt;/li&gt;
+&lt;li&gt;Plus le LUSD s&amp;rsquo;éloigne de 1,00 $ et plus il se rapproche de 1,10 $, plus il est &lt;strong&gt;probable&lt;/strong&gt; que les arbitragistes du peg l&amp;rsquo;emportent sur les acheteurs de LUSD et poussent ainsi le prix à la baisse.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Ainsi, l&amp;rsquo;arbitrage des LUSD est un jeu d&amp;rsquo;équilibre entre la maximisation des profits (1) et leurs chances de réalisation (2). En d&amp;rsquo;autres termes, au-delà d&amp;rsquo;un certain niveau de prix, l&amp;rsquo;opération d&amp;rsquo;arbitrage devient &lt;strong&gt;trop rentable et trop susceptible de se réaliser pour que les arbitragistes l&amp;rsquo;ignorent&lt;/strong&gt;. Cela a contribué à ce que la paire LUSD reste dans la partie inférieure de son ancrage souple, entre 1,00 et 1,05 dollar, même pendant les phases de pic de la demande.&lt;/p&gt;
+&lt;p&gt;Pour les utilisateurs qui ne surveillent pas la situation en permanence, cependant, cela peut se traduire par une perte de capital - par exemple, si l&amp;rsquo;on emprunte des LUSD alors que le prix est à 1,02 $, qu&amp;rsquo;on les investit dans autre chose, puis que quelques semaines plus tard, on essaie de racheter des LUSD pour rembourser sa dette, pour se retrouver avec un prix à 1,04 $.&lt;/p&gt;
+&lt;p&gt;Ainsi, les fluctuations du LUSD dans la fourchette 1,00-1,10 ajoutent &lt;strong&gt;une couche supplémentaire d&amp;rsquo;incertitude pour les emprunteurs&lt;/strong&gt;. L&amp;rsquo;augmentation de la liquidité du LUSD et la stabilisation de sa parité contribueront à restaurer la confiance des emprunteurs et à rationaliser les interactions avec le protocole.&lt;/p&gt;
+&lt;h2 id=&#34;ca-cétait-avant-les-chicken-bonds&#34;&gt;Ca, c&amp;rsquo;était avant les Chicken Bonds
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/lusd-chicken-bonds/chicken-bonds.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;lusd-chicken-bonds&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Pour résoudre le problème de liquidité du LUSD, l&amp;rsquo;équipe Liquity a travaillé sur un &lt;strong&gt;nouveau protocole&lt;/strong&gt;, d&amp;rsquo;abord testé avec le LUSD : les Chicken Bonds. En cas de succès, le modèle sera étendu à une instance de LQTY. Dans une dernière étape, le modèle généralisé pourrait être rendu prêt à être exploité par n&amp;rsquo;importe quelle DAO avec la Chicken Bond Factory.&lt;/p&gt;
+&lt;p&gt;Mardi dernier, &lt;a class=&#34;link&#34; href=&#34;https://www.chickenbonds.org/blog-posts/chicken-bonds-is-live&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;les LUSD Chicken Bonds ont été mis en ligne&lt;/a&gt;, offrant &lt;strong&gt;une nouvelle proposition fusionnant les éléments de DeFi et NFTs fournissant des opportunités de rendement optimisées aux détenteurs de LUSD&lt;/strong&gt;. Elle alimentera également la croissance de la liquidité du LUSD sur le pool de la courbe LUSD/3CRV.&lt;/p&gt;
+&lt;p&gt;Il y a deux protagonistes qui interagissent avec les Chicken Bonds :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Les déposants (utilisateurs)&lt;/strong&gt; bénéficient d&amp;rsquo;une expérience gamifiée offrant &lt;strong&gt;des rendements amplifiés et auto-composés sur les LUSD&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Le déployeur (protocole)&lt;/strong&gt; met en place un &lt;strong&gt;mécanisme permettant la croissance soutenue et la capture de la liquidité sur son token&lt;/strong&gt; tout en engageant activement ses détenteurs.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;alors-que-sont-exactement-les-chicken-bonds-&#34;&gt;Alors, que sont exactement les Chicken Bonds ?
+&lt;/h3&gt;&lt;p&gt;En conséquence, les Chicken Bonds remplissent la fonction de différents types de produits selon la perspective. &lt;strong&gt;Pour les utilisateurs, les Chicken Bonds agissent comme un optimiseur de rendement amélioré&lt;/strong&gt;. Les bonds leur permettent de maximiser leurs rendements sur les LUSD en optimisant la fréquence de composition et en amplifiant les rendements existants. De leur point de vue, ils pourraient comparer l&amp;rsquo;utilité des Chicken Bonds à celle déjà fournie par un protocole comme Yearn, sans l&amp;rsquo;élément NFT. Il maximise et rationalise les activités de production de rendement sur LUSD.&lt;/p&gt;
+&lt;p&gt;Du point de vue du déployeur (protocole), les Chicken Bonds sont une &lt;strong&gt;solution rentable pour développer la liquidité disponible sur leur token&lt;/strong&gt;. Des solutions alternatives pour atteindre un objectif similaire incluraient l&amp;rsquo;extraction de liquidité, une solution de capture de POL comme Olympus Pro, l&amp;rsquo;acquisition de jetons de conducteur de liquidité(CRV, BAL, VELO, etc.), ou les bribes des votes des propriétaires de jetons conducteurs de liquidité&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/lusd-chicken-bonds/chicken-egg.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;chicken-egg&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Si chaque solution existante présente ses propres inconvénients, elles ont toutes un profil similaire : elles &lt;strong&gt;nécessitent des dépenses récurrentes pour accroître et maintenir la liquidité&lt;/strong&gt;. Seule l&amp;rsquo;acquisition de jetons de liquidité peut fournir des incitations continues pour soutenir la liquidité, mais c&amp;rsquo;est aussi l&amp;rsquo;approche la plus coûteuse car elle nécessite des investissements importants de la part des projets.&lt;/p&gt;
+&lt;p&gt;En revanche, les Chicken Bonds n&amp;rsquo;ont aucun coût car ils exploitent les sources de rendement existantes : &lt;strong&gt;Tout ce qu&amp;rsquo;il faut pour capturer et accroître la liquidité, c&amp;rsquo;est du temps&lt;/strong&gt;. Ils exploitent une nouvelle forme d&amp;rsquo;obligations &lt;strong&gt;sans échéance avec protection du capital&lt;/strong&gt;, offrant des rendements amplifiés et de fortes protections pour les déposants.&lt;/p&gt;
+&lt;p&gt;Pour expliquer le modèle des LUSD Chicken Bonds, passons au point de vue du déposant en examinant le cycle de vie d&amp;rsquo;une obligation et son impact sur le NFT associé.&lt;/p&gt;
+&lt;h3 id=&#34;lhistoire-dun-bond-à-travers-son-nft&#34;&gt;L&amp;rsquo;histoire d&amp;rsquo;un bond à travers son NFT
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/lusd-chicken-bonds/3chickens-static.gif&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;3poulets&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Pour créer un bond, un utilisateur dépose des LUSD. En échange, il reçoit un 🥚 Œuf NFT représentant son dépôt&lt;/strong&gt;. Le NFT contient la créance sur le LUSD cautionné sous-jacent et peut être vendu ou transféré. A partir de là, l&amp;rsquo;utilisateur dispose de deux options mutuellement exclusives qui transformeront également son NFT :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;🐔 Chicken In&lt;/li&gt;
+&lt;li&gt;ou 🐣 Chicken Out.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Les NFTs d&amp;rsquo;œuf ont quatre attributs : une carte, un œuf et un arrière-plan déterminés aléatoirement, ainsi qu&amp;rsquo;une taille d&amp;rsquo;œuf adaptée au montant de LUSD déposé.&lt;/p&gt;
+&lt;p&gt;Lorsqu&amp;rsquo;un bond est créé, il commence à accumuler progressivement des bLUSD. Au fur et à mesure qu&amp;rsquo;il arrive à maturité, il devient rentable pour les utilisateurs de le réclamer, en renonçant à leurs LUSD pour obtenir les bLUSD accumulés - C&amp;rsquo;est l&amp;rsquo;option &amp;quot; &lt;strong&gt;Chicken In&lt;/strong&gt; &amp;quot; et fait évoluer le visuel du NFT en conséquence : l&amp;rsquo;Œuf se transforme en 🐔 &lt;strong&gt;poulet fier&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;L&amp;rsquo;utilisateur peut récupérer l&amp;rsquo;intégralité du montant investi à tout moment du processus. Il renoncera néanmoins aux bLUSD accumulés jusqu&amp;rsquo;à présent - c&amp;rsquo;est l&amp;rsquo;option &amp;ldquo;&lt;strong&gt;Chicken Out&lt;/strong&gt;&amp;rdquo; et elle conduit également à une évolution du NFT de l&amp;rsquo;Œuf vers un 🐣 &lt;strong&gt;poulet effrayé&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/lusd-chicken-bonds/3chickens.gif&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;3poulets&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;approfondir-les-liens-les-bonds-et-le-nft&#34;&gt;Approfondir les liens les bonds et le NFT
+&lt;/h4&gt;&lt;p&gt;Pendant le Chicken In, le NFT gagne des attributs supplémentaires obtenus au hasard (peigne, queue, bec et ailes) et des attributs spéciaux en fonction des activités du portefeuille. Les portefeuilles engagés dans les activités suivantes peuvent obtenir des attributs spéciaux ou des chances accrues d&amp;rsquo;obtenir des attributs plus rares :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Posséder un Trove Liquity avec une dette en cours,&lt;/li&gt;
+&lt;li&gt;Posséder LQTY, ou le jalonner soit directement, soit avec Pickle,&lt;/li&gt;
+&lt;li&gt;Voter pour la jauge LUSD/3CRV (détenteurs de veCRV). &lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;La collection NFT exploite également des mécanismes intéressants, comme l&amp;rsquo;&lt;strong&gt;affinité&lt;/strong&gt; pour générer les poulets les plus cool possibles ; lisez l&amp;rsquo;article dédié sur le blog de Liquity pour plus d&amp;rsquo;informations sur le sujet :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/lusd-chicken-bonds/egg-variants-overview.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;egg-variants-overview&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Tous les NFTs font partie de la même collection et peuvent être échangés sur les sites habituels, tels que &lt;a class=&#34;link&#34; href=&#34;https://looksrare.org/collections/0xa8384862219188a8f03c144953Cf21fc124029Ee/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;LooksRare&lt;/a&gt; ou &lt;a class=&#34;link&#34; href=&#34;https://x2y2.io/collection/lusd-chicken-bonds-nfts/items&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;X2Y2&lt;/a&gt;. Chicken Bonds est une collection de NFT générative autant qu&amp;rsquo;un protocole DeFi : les deux sont intrinsèquement liés. L&amp;rsquo;art et le script de génération initial ont été réalisés par l&amp;rsquo;artiste NFT &lt;a class=&#34;link&#34; href=&#34;https://luchadores.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Luchador&lt;/a&gt;, créateur du jeu éponyme.&lt;/p&gt;
+&lt;div class=&#34;notice info&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#info-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Information&lt;/p&gt;&lt;p&gt;Pour une explication du prix de tous les attributs et modificateurs pris en compte, lisez l&amp;rsquo;article consacré aux NFT sur le blog de Chicken Bonds :&lt;br&gt;
+&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.chickenbonds.org/blog-posts/nft-x-defi-deep-dive-into-lusd-chicken-bonds-dynamic-nft&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;NFT x DeFi: Deep dive into LUSD Chicken Bonds&amp;rsquo; Dynamic NFT&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;boostedlusd-blusd--un-lusd-auto-composé-à-rendement-amélioré&#34;&gt;boostedLUSD (bLUSD) : un LUSD auto-composé à rendement amélioré.
+&lt;/h3&gt;&lt;p&gt;En créant un bond et éventuellement Chicken In, les déposants peuvent accumuler des bLUSD, mais vous pouvez vous demander à ce stade pourquoi ce jeton peut être souhaitable : plongeons dans le côté DeFi des Chicken Bonds !&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/lusd-chicken-bonds/blusd.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;blusd&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;En résumé, &lt;strong&gt;posséder bLUSD donne accès à des rendements auto-composés et amplifiés sur LUSD&lt;/strong&gt;. bLUSD est un token ERC-20 standard adossé à LUSD grâce au mécanisme de rédemption, avec un prix plancher croissant grâce à l&amp;rsquo;amplification du rendement.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/lusd-chicken-bonds/user-flow-overview.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;user-flow-overview&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;source-de-rendement-primaire&#34;&gt;Source de rendement primaire
+&lt;/h4&gt;&lt;p&gt;En tant que protocole, les Chicken Bonds collectent les LUSD et les déploient dans deux sources de rendement potentielles :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Liquity Stability Pool&lt;/strong&gt;, où les LUSD peuvent être déposés pour gagner des LQTY ainsi que des primes de liquidation ETH variables.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;La pool Curve LUSD/3CRV&lt;/strong&gt;, où les LUSD peuvent être fournis contre des USDC/USDT/DAI pour gagner des frais de transaction ainsi que des jetons CRV.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;notice info&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#info-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Information&lt;/p&gt;&lt;p&gt;Si vous n&amp;rsquo;êtes pas encore familier avec le fonctionnement de Liquity, vous pouvez vous mettre à jour avec cet article dédié : &lt;br&gt;
+&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/liquity-protocol.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;⚖️ Liquity : un service d&amp;rsquo;emprunt imparable, efficace et innovant&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h4 id=&#34;composition-des-rendements-automatique&#34;&gt;Composition des rendements automatique
+&lt;/h4&gt;&lt;p&gt;Au lieu de se brancher directement sur les sources de rendement, des solutions middleware sont utilisées pour offrir divers avantages.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Les dépôts dans le Liquity Stability Pool sont gérés à l&amp;rsquo;aide du &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://bprotocol.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;B.Protocol vault&lt;/a&gt;&lt;/strong&gt;, qui gère la récolte et la composition fréquentes des ETH et LQTY obtenus en LUSD.&lt;/li&gt;
+&lt;li&gt;Pour la pool Curve, le &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://yearn.finance/#/vault/0x5fA5B62c8AF877CB37031e0a3B2f34A78e3C56A6&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;vault Yearn&lt;/a&gt;&lt;/strong&gt; est utilisé pour optimiser les rendements obtenus en exploitant Convex.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Jusqu&amp;rsquo;ici, tout va bien : des solutions directes à des problèmes simples. Pourtant, l&amp;rsquo;amplification du rendement, l&amp;rsquo;une des plus grandes prouesses des Chicken Bonds, est un peu plus délicate.&lt;/p&gt;
+&lt;h4 id=&#34;amplification-du-rendement&#34;&gt;Amplification du rendement
+&lt;/h4&gt;&lt;p&gt;Pour comprendre comment il peut y parvenir, nous devons commencer à éplucher l&amp;rsquo;oignon qui est l&amp;rsquo;outil de comptabilité interne du protocole : les Buckets (&amp;ldquo;seaux)&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;Il y a trois buckets permettant aux Chicken bonds de garantir les trois caractéristiques principales du protocole : l&amp;rsquo;option de Chicken Out (Pending), l&amp;rsquo;amplification du rendement (Reserve), et la croissance de la liquidité (Permanent).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/lusd-chicken-bonds/3buckets.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;3buckets&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Le &lt;strong&gt;Pending Bucket&lt;/strong&gt; a une tâche simple : il doit être en mesure de rembourser intégralement les investisseurs s&amp;rsquo;ils devaient se dégonfler (Chicken Out). Pour s&amp;rsquo;assurer que c&amp;rsquo;est toujours possible, le Pending Bucket exploite une source de rendement sans perte impermanente : le Stability Pool.&lt;/p&gt;
+&lt;p&gt;Lorsque les utilisateurs Chicken In un bond, les soldes LUSD correspondants sont répartis entre le Reserve Bucket et le Permanent Bucket.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Le Reserve Bucket soutient le bLUSD&lt;/strong&gt;. Avec les rédemptions, les détenteurs de bLUSD peuvent brûler leurs jetons pour obtenir une part proportionnelle des LUSD contenus dans le Réserve Bucket - garantissant un prix plancher pour les bLUSD. Les fonds en réserve produisent également un rendement en exploitant le pool de stabilité.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Enfin, le Permanent Bucket accroît la liquidité des LUSD&lt;/strong&gt;. Grâce à sa fonction de shifting (&amp;ldquo;déplacement&amp;rdquo;), qui peut être déclenchée par n&amp;rsquo;importe qui lorsque le LUSD est au dessus du peg, le Permanent Bucket peut retirer ses liquidités du vault b.protocol pour alimenter le pool Curve LUSD/3CRV à la place. Cela permet de réduire le prix du LUSD et de sécuriser un point d&amp;rsquo;entrée favorable dans le pool puisque le dépôt la rééquilibre.&lt;/p&gt;
+&lt;p&gt;Le &lt;strong&gt;rendement produit par les buckets Pending et Permanent est redirigé vers le Reserve Bucket&lt;/strong&gt;, ce qui crée l&amp;rsquo;amplification du rendement et la hausse du prix plancher du bLUSD.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/lusd-chicken-bonds/lusd-cb-user-timeline-fr.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;lusd-cb-user-timeline&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;période-damorçage-et-prochaines-étapes&#34;&gt;Période d&amp;rsquo;amorçage et prochaines étapes
+&lt;/h3&gt;&lt;p&gt;Les Chicken Bonds LUSD sont en ligne depuis le mardi 4 octobre 2022. Pendant les deux premières semaines du système, jusqu&amp;rsquo;au 19 octobre, il est toujours dans la &lt;strong&gt;période d&amp;rsquo;amorçage&lt;/strong&gt; : Les Chicken Ins ne sont pas possibles, ce qui signifie que l&amp;rsquo;offre de bLUSD est toujours égale à 0. Cela signifie que tous les LUSD sont dans le Pending Bucket, sauf le rendement déjà produit qui est redirigé vers le Reserve Bucket.&lt;/p&gt;
+&lt;p&gt;Une fois la période d&amp;rsquo;amorçage terminée, l&amp;rsquo;option Chicken In sera disponible, permettant aux déposants de commencer à accéder aux bLUSD. Pour faciliter l&amp;rsquo;entrée et la sortie du bLUSD, une &lt;strong&gt;pool bLUSD pool sera incitée sur Curve Finance, en utilisant une commission de 3% payée lors du Chicken In&lt;/strong&gt;. Cela permettra à la liquidité de se développer progressivement à mesure que le premier lot de bonds atteindra son seuil de rentabilité (~19 octobre) et le moment optimal de rebond (~4 novembre).&lt;/p&gt;
+&lt;p&gt;La section suivante discute de la structure de liquidité choisie et de son impact.&lt;/p&gt;
+&lt;h2 id=&#34;impact-des-chicken-bonds-sur-le-prix-et-la-liquidité-du-lusd&#34;&gt;Impact des Chicken Bonds sur le prix et la liquidité du LUSD
+&lt;/h2&gt;&lt;p&gt;Si vous m&amp;rsquo;avez lu jusqu&amp;rsquo;à ce point, vous êtes maintenant au courant de la prime de prix du LUSD et du modèle introduit par les Chicken Bonds. Relions donc les points et examinons comment les Chicken Bonds du LUSD &lt;strong&gt;contribueront à la liquidité globale du LUSD et aideront à contenir sa prime&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Les Chicken Bonds ont deux impacts sur la liquidité du LUSD :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Avec la croissance du Permanent Bucket, la liquidité fournie au LUSD/3CRV augmentera tant que le prix du LUSD aura une prime.&lt;/li&gt;
+&lt;li&gt;La structure de la pool de liquidité a été choisie pour bLUSD afin d&amp;rsquo;aider à accroître davantage la liquidité sur le LUSD/3CRV.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;Dans un court laps de temps, la libération des LUSD Chicken Bonds a entraîné une augmentation de la demande de LUSD et une hausse de son prix. Cependant, les LUSD déposés dans les Chicken Bonds s&amp;rsquo;avèrent bénéfiques pour la liquidité du LUSD à long terme, comme nous le soulignons dans cette section.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;un-moteur-pour-capturer-la-liquidité-progressivement&#34;&gt;Un moteur pour capturer la liquidité progressivement
+&lt;/h3&gt;&lt;p&gt;Au fur et à mesure que les dépôts dans les Chicken Bonds du LUSD s&amp;rsquo;accumulent, l&amp;rsquo;impact potentiel sur le peg du LUSD augmente. En effet, lorsqu&amp;rsquo;un utilisateur fait un Chicken In, les LUSD sous-jacents sont répartis entre la Réserve et le Permanent Bucket.&lt;/p&gt;
+&lt;p&gt;Par défaut, les trois buckets produisent du rendement en déployant les LUSD dans le vault de b.protocol. Cependant, le Permanent Bucket dispose également d&amp;rsquo;une &lt;strong&gt;fonction de déplacement&lt;/strong&gt; qui peut être déclenchée par n&amp;rsquo;importe qui tant que les LUSD s&amp;rsquo;échangent à un prix élevé. Elle déplace les LUSD du Permanent Bucket pour &lt;strong&gt;fournir de la liquidité sur la Curve&lt;/strong&gt; (fourniture d&amp;rsquo;un seul actif), contribuant ainsi à rééquilibrer progressivement le pool tout en augmentant sa liquidité.&lt;/p&gt;
+&lt;p&gt;La part du montant total des LUSD déposés dans les Chicken Bonds allouée au Permanent Bucket est difficile à prévoir, car elle dépend du comportement des utilisateurs. Voici quelques calculs rapides en utilisant une estimation prudente de 10% des actifs totaux dans le Permanent Bucket, avec les 5M LUSD actuellement disponibles dans le LUSD/3CRV pour estimer l&amp;rsquo;impact des Chicken Bonds :&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Chicken Bonds TVL&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Liquidité directement ajoutée&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Liquidité ajoutée (%)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;7M (actuel)&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;700K LUSD&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;14.00%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;10M&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1M LUSD&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;20.00%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;20M&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2M LUSD&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;40.00%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;50M&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;5M LUSD&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;100.00%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Le pourcentage de liquidité ajoutée pourrait être un bon indicateur approximatif de l&amp;rsquo;ampleur de la réduction de la prime de prix. Gardez à l&amp;rsquo;esprit qu&amp;rsquo;il reste approximatif, car il ne prend en compte que la pool principale LUSD/3CRV.&lt;/p&gt;
+&lt;p&gt;Néanmoins, avec 10 millions de dollars de TVL dans les Chicken Bonds à la fin du premier cycle, l&amp;rsquo;impact pourrait déjà être palpable avec une augmentation de ~20% du montant LUSD disponible dans le pool Curve.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;La fonction de shifting est désactivée pendant les 45 premiers jours du système, c&amp;rsquo;est à dire jusqu&amp;rsquo;au 19 Novembre. Passé cette date, n&amp;rsquo;importe qui pourra déplacer la liquidité du Permanent Bucket de Curve &amp;lt;-&amp;gt; B.Protocol si &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://liquity.gitbook.io/chicken-bonds/faq/lusd-peg-stability#_vowf7444yzdt&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;les conditions&lt;/a&gt;&lt;/strong&gt; sont remplies.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;augmentation-de-la-liquidité-du-blusd-main-dans-la-main-avec-le-lusd&#34;&gt;Augmentation de la liquidité du bLUSD main dans la main avec le LUSD
+&lt;/h3&gt;&lt;p&gt;Il existe un autre effet bénéfique indirect des Chicken Bonds, découlant de la structure choisie pour la liquidité bLUSD, encouragée par le protocole.&lt;/p&gt;
+&lt;p&gt;En effet, un &lt;strong&gt;3% de frais de Chicken In est collecté et redirigé pour inciter les fournisseurs de liquidité de la pool bLUSD/LUSD-3CRV&lt;/strong&gt;. Cette pool est une méta pool composé de bLUSD appariés avec le jeton LP du LUSD/3CRV existant. A l&amp;rsquo;équilibre parfait, l&amp;rsquo;exposition des actifs serait : 50% bLUSD / 25% LUSD + 25% 3pool (8,33% USDC / 8,33% USDT / 8,33% DAI).&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Cette structure de liquidité garantit que &lt;strong&gt;50% des dépôts effectués dans le pool LP bLUSD contribuent directement à accroître la liquidité du principal LUSD/3CRV&lt;/strong&gt;. En outre, parce que ce pool a son propre budget d&amp;rsquo;incitation (frais Chicken In), il fournira un rendement LUSD attractif aux stakers en plus du rendement de base généré par les swaps.&lt;/p&gt;
+&lt;p&gt;Au fur et à mesure que les Chicken Bonds arrivent à maturité, la pool bLUSD/LUSD-3CRV pourrait obtenir sa propre jauge, garantissant des récompenses CRV (et potentiellement CVX) supplémentaires en plus de celles existantes.&lt;/p&gt;
+&lt;p&gt;Ce modèle a été préféré à une pool bLUSD/LUSD qui aurait nécessité une quantité importante de LUSD sans contribuer à la liquidité du LUSD par rapport aux autres monnaies stables. Le principal inconvénient du modèle choisi est qu&amp;rsquo;il rend les interactions de dépôt et de retrait plus complexes pour les fournisseurs de liquidités. Cependant, cette préoccupation sera levée avec &lt;strong&gt;zaps permettant l&amp;rsquo;approvisionnement et le retrait de LUSD et bLUSD directement&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;En fonction de l&amp;rsquo;équilibre du pool bLUSD/LUSD-3CRV, son approvisionnement unilatéral en LUSD ou bLUSD peut entraîner une prime :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;S&amp;rsquo;il y a trop de LUSD-3CRV dans le pool, fournir du bLUSD rééquilibre le pool et entraîne une prime.&lt;/li&gt;
+&lt;li&gt;S&amp;rsquo;il y a trop de bLUSD dans le pool, l&amp;rsquo;apport de LUSD entraînera une &lt;strong&gt;double prime&lt;/strong&gt; car les pools bLUSD/LUSD-3CRV et LUSD/3CRV sont rééquilibrées dans le processus.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Pour en savoir plus sur le bLUSD/LUSD-3CRV, consultez l&amp;rsquo;article dédié sur le blog Chicken Bonds &lt;a class=&#34;link&#34; href=&#34;https://www.chickenbonds.org/blog-posts/game-of-chickens-the-end-of-the-bootstrap-period-and-what-it-means-for-blusd&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Game of Chickens!&lt;/strong&gt; The end of the bootstrap period and what it means for bLUSD&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;solutions-supplémentaires-pour-accroître-la-liquidité-du-lusd&#34;&gt;Solutions supplémentaires pour accroître la liquidité du LUSD
+&lt;/h2&gt;&lt;p&gt;Les Chicken Bonds sont les principales initiatives en cours visant à accroître la liquidité du LUSD, mais d&amp;rsquo;autres projets et solutions sont également à l&amp;rsquo;étude. En voici un aperçu.&lt;/p&gt;
+&lt;h3 id=&#34;position-des-vecrv-et-bribes-pots-de-vin&#34;&gt;Position des veCRV et bribes (pots-de-vin)
+&lt;/h3&gt;&lt;p&gt;La trésorerie de Liquity est entrée dans la guerre du CRV il y a plusieurs mois, en acquérant et en verrouillant des jetons CRV pour soutenir la jauge bLUSD/LUSD-3CRV. Pour maximiser l&amp;rsquo;impact des LUSD Chicken Bonds, &lt;strong&gt;une campagne de bribes&lt;/strong&gt; est également synchronisée avec la sortie pour augmenter l&amp;rsquo;APY CRV des déposants de la pool LUSD/3CRV.&lt;/p&gt;
+&lt;p&gt;En utilisant Warden Quest, des jetons LQTY sont attribués aux votants veCRV et vlCVX sur la jauge LUSD/3CRV. La campagne de bribe a permis d&amp;rsquo;obtenir &lt;strong&gt;5M de votes veCRV (~1% du total des votes)&lt;/strong&gt;, ce qui a conduit à une forte augmentation de l&amp;rsquo;APY, l&amp;rsquo;amenant à la parité avec un dépôt de base dans la Stability Pool.&lt;/p&gt;
+&lt;div class=&#34;notice info&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#info-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Information&lt;/p&gt;&lt;p&gt;À la trâine par rapport aux CRV Wars ? Rattrappez votre retard avec cet article : &lt;br&gt;
+&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/crv-wars.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;⚔ CRV wars : la course pour accumuler la capacité d&amp;rsquo;influencer le protocole Curve Finance&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;le-lucy-de-powerpool--stability-pool-et-apport-de-liquidité&#34;&gt;Le LUCY de PowerPool : Stability Pool et apport de liquidité
+&lt;/h3&gt;&lt;p&gt;L&amp;rsquo;équipe de PowerPool a travaillé sur un &lt;strong&gt;nouveau type de pool Balancer&lt;/strong&gt; adaptée aux LUSD, et il est maintenant sur le point d&amp;rsquo;être publié : la pool LUSD-a-bb-USD, également connu sous le doux nom de &lt;strong&gt;LUCY&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Comme les Chicken Bonds, ce pool &lt;strong&gt;exploite le b.protocol pour offrir une opportunité de gain auto-composé sur le LUSD&lt;/strong&gt;. En effet, la principale innovation de cette pool est d&amp;rsquo;impliquer des actifs porteurs d&amp;rsquo;intérêts et de constamment &lt;strong&gt;rééquilibrer entre les activités de rendement et de fourniture de liquidités&lt;/strong&gt;. Le pool est composé de deux jetons wrappers :&lt;/p&gt;
+&lt;h4 id=&#34;1-balancer-boosted-aave-usd&#34;&gt;1/ Balancer Boosted Aave USD
+&lt;/h4&gt;&lt;p&gt;Cette pool est essentiellement l&amp;rsquo;équivalent &lt;strong&gt;de Balancer au 3pool de Curve&lt;/strong&gt;, la pool principale de stablecoin de l&amp;rsquo;échange décentralisé. La principale différence ici est que la pool implique des &lt;strong&gt;wrapper productif&lt;/strong&gt; de chaque stablecoin. En fonction des besoins en liquidité de la pool, chaque stablecoin est rééquilibré entre l&amp;rsquo;apport de liquidité et le rendement grâce à Aave :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/lusd-chicken-bonds/bbaUSD-pool-composition.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;bbaUSD-pool-composition&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;2-lusd--bprotocol&#34;&gt;2/ LUSD + b.protocol
+&lt;/h4&gt;&lt;p&gt;Les jetons bb-a-USD sont appariés au LUSD, qui &lt;strong&gt;rééquilibre également entre le rendement (Stability Pool avec b.protocol) et l&amp;rsquo;apport de liquidité&lt;/strong&gt; en fonction des besoins.&lt;/p&gt;
+&lt;p&gt;Ainsi, la pool LUCY devrait être intéressante pour accroître la liquidité disponible de LUSD, car elle pourrait fournir une option de cumul de rendements pour les fournisseurs de liquidité, gagnant :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Les &lt;strong&gt;frais de swap&lt;/strong&gt;, perçus sur les échanges impliquant les jetons de la pool.&lt;/li&gt;
+&lt;li&gt;Le &lt;strong&gt;rendement de base&lt;/strong&gt; de chaque jeton du pool (rendement d&amp;rsquo;Aave pour USDC/USDT/DAI, rendement de la Stability Pool pour LUSD).&lt;/li&gt;
+&lt;li&gt;[Si une jauge BAL est obtenue] le &lt;strong&gt;un rendement additionnel en BAL&lt;/strong&gt;, qui peut être encore augmenté avec des votes de jauge et des campagnes de bribes.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Cette nouvelle pool marquera l&amp;rsquo;arrivée du LUSD sur Balancer, diversifiant davantage ses sources de liquidité, puisque les principaux lieux d&amp;rsquo;échange du LUSD sont actuellement Curve, Uniswap et Velodrome sur Optimism.&lt;/p&gt;
+&lt;h3 id=&#34;intégration-du-lusd-dans-dautres-protocoles-de-prêt&#34;&gt;Intégration du LUSD dans d&amp;rsquo;autres protocoles de prêt
+&lt;/h3&gt;&lt;p&gt;Au cours des derniers mois, le LUSD a été de plus en plus intégré à divers protocoles DeFi, offrant &lt;strong&gt;des options supplémentaires aux détenteurs de LUSD et aux arbitragistes&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;L&amp;rsquo;&lt;a class=&#34;link&#34; href=&#34;https://app.aave.com/reserve-overview/?underlyingAsset=0x5f98805a4e8be255a32880fdec7f6728c6568ba0&amp;amp;marketName=proto_mainnet&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ajout du LUSD comme actif empruntable sur Aave&lt;/a&gt; a marqué la première fois que le stablecoin pouvait être emprunté en utilisant une garantie autre que l&amp;rsquo;ETH pour sécuriser la position. Au fur et à mesure que la liquidité disponible sur le marché augmente, elle ouvre l&amp;rsquo;arbitrage du LUSD aux détenteurs de non-ETH.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/lusd-chicken-bonds/lusd-aave-market.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;lusd-aave-market&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Pendant ce temps, &lt;strong&gt;LUSD a également été ajouté comme garantie sur deux protocoles de prêt basés sur €&lt;/strong&gt; : &lt;a class=&#34;link&#34; href=&#34;https://angle.money/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Angle Money&lt;/a&gt; et &lt;a class=&#34;link&#34; href=&#34;https://mimo.capital/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Mimo&lt;/a&gt;. Ces deux protocoles permettent aux détenteurs de LUSD de prendre une position courte sur l&amp;rsquo;euro, en utilisant leurs LUSD comme collatéral.&lt;/p&gt;
+&lt;p&gt;Enfin, &lt;a class=&#34;link&#34; href=&#34;https://gearbox.fi/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GearBox&lt;/a&gt; s&amp;rsquo;apprête à sortir sa V2 sous peu, permettant aux utilisateurs d&amp;rsquo;obtenir un effet de levier selon un ensemble de règles prédéterminées et appliquées par des smart contracts. Parmi les options disponibles lors de la sortie de la V2, &lt;strong&gt;les fournisseurs de liquidités du LUSD/3CRV seront en mesure de bénéficier d&amp;rsquo;un effet de levier sur leur position&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;L&amp;rsquo;expansion du marché des prêts de LUSD au-delà de Liquity augmente l&amp;rsquo;utilité du stablecoin tout en permettant à davantage de types d&amp;rsquo;utilisateurs différents d&amp;rsquo;arbitrer les fluctuations de son prix. Associé aux efforts en cours pour accroître la liquidité du LUSD sur le DEX, cela contribuera à stabiliser son prix.&lt;/p&gt;
+&lt;h3 id=&#34;lusd-sur-optimism--velodrome-et-stargate&#34;&gt;LUSD sur Optimism : Velodrome et Stargate
+&lt;/h3&gt;&lt;p&gt;LUSD a également &lt;strong&gt;une forte présence sur Optimism&lt;/strong&gt;, grâce à Liquity qui est l&amp;rsquo;un des protocoles impliqués dans la course du DEX Velodrome. Avec une position respectable sur Velodrome, Liquity a été capable de faire croître plusieurs pools liés au LUSD jusqu&amp;rsquo;à des TVL importantes. De plus, les pools sur Velodrome ont tendance à être plus équilibrés que celles du réseau principal :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/lusd-chicken-bonds/lusd-velodrome.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;lusd-velodrome&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Cependant, faire le pont entre LUSD et Optimisme est actuellement un peu un voyage à sens unique. Le bridge entre LUSD et Optimism est facile et ne prend que 5-10 minutes en utilisant le bridge officiel. Cependant, le retour sur le réseau principal prend 7 jours avec le bridge officiel, et aucune option alternative avec une liquidité décente n&amp;rsquo;est encore disponible.&lt;/p&gt;
+&lt;p&gt;La situation est sur le point de changer, permettant à la forte liquidité de LUSD sur Optimism d&amp;rsquo;avoir un impact positif sur la situation du mainnet : Stargate, le protocole de transport de liquidité omnichain, a récemment voté pour &lt;strong&gt;ajouter le support de LUSD&lt;/strong&gt; (&lt;a class=&#34;link&#34; href=&#34;https://snapshot.org/#/stgdao.eth/proposal/0xe6fef4aa9c8e9d162f694ab764b11c06918b9f199aafe43e0d85b12d8271011c&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;SIP#16&lt;/a&gt;), ce qui permettra un bridging rapide de et vers Optimism une fois implémenté. Si Stargate peut fournir une solution fiable pour le bridge rapide des LUSD d&amp;rsquo;Optimism vers le mainnet, cela pourrait avoir un impact positif sur l&amp;rsquo;équilibre des pools de liquidité LUSD du mainnet.&lt;/p&gt;
+&lt;h2 id=&#34;en-savoir-plus-sur-les-chicken-bonds&#34;&gt;En savoir plus sur les Chicken Bonds
+&lt;/h2&gt;&lt;p&gt;J&amp;rsquo;espère que cet article a piqué votre curiosité sur les Chicken Bonds et la LUSD. Si c&amp;rsquo;est le cas, de nombreuses ressources sont disponibles pour vous permettre d&amp;rsquo;explorer davantage le modèle ; voici quelques recommandations :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Le &lt;a class=&#34;link&#34; href=&#34;https://www.chickenbonds.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;site Web des Chicken Bonds&lt;/a&gt; est un excellent point de départ - vous y trouverez &lt;a class=&#34;link&#34; href=&#34;https://www.chickenbonds.org/lusd-bonds#front-ends&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;la liste des front ends&lt;/a&gt; que vous pouvez utiliser pour interagir avec les Chicken Bonds de LUSD.&lt;/li&gt;
+&lt;li&gt;Pour aller plus loin, n&amp;rsquo;hésitez pas à &lt;a class=&#34;link&#34; href=&#34;https://www.chickenbonds.org/blog&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;consulter le blog&lt;/a&gt; disponible sur le site Web : il contient plusieurs articles qui approfondissent les dimensions critiques des Chicken Bonds.&lt;/li&gt;
+&lt;li&gt;Enfin, la ressource la plus complète sur les Chicken Bonds est &lt;a class=&#34;link&#34; href=&#34;https://liquity.gitbook.io/chicken-bonds/faq/table-of-content&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;la documentation utilisateur&lt;/a&gt;, alors n&amp;rsquo;hésitez pas à la consulter si certaines de vos questions restent sans réponse.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;Pour approfondir avec un format vidéo plus interactif, n&amp;rsquo;hésitez pas à rattraper le meetup DeFi France consacré aux Chicken Bonds, disponible en replay : &lt;br&gt;
+&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=TXtXpfyHbVU&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🎥 DFF Toulouse #1 - Les Chicken Bonds nouvelle brique DeFi/NFT avec TokenBrice&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Pour suivre ce qui se passe avec les Chicken Bonds, vous trouverez des statistiques dans l&amp;rsquo;interface utilisateur du front-end que vous utilisez. Par ailleurs, un membre de la communauté a créé un outil d&amp;rsquo;analyse &lt;a class=&#34;link&#34; href=&#34;https://dune.com/nemoventures/chicken-bonds&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Chicken Bonds Dune Analytics&lt;/a&gt; qui vous sera utile. Pour de plus amples discussions, vous pouvez &lt;a class=&#34;link&#34; href=&#34;https://discord.gg/WQMEcgHBpc&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;rejoindre le Discord Liquity&lt;/a&gt;, où une toute nouvelle section est consacrée aux Chicken Bonds.&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;Pour l&amp;rsquo;instant, Liquity est le seul &amp;ldquo;déployeur&amp;rdquo;. Ce concept gagnera en pertinence avec la version généralisée des Chicken Bonds, où d&amp;rsquo;autres protocoles peuvent exploiter le modèle au profit de leurs jetons.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;Les jetons conducteur de liquidité permettent des incitations directes à des paires de liquidité ou de prêt sélectionnés, généralement par le biais d&amp;rsquo;un système de verrouillage. Ils permettent aux projets qui les verrouillent de diriger des incitations vers les pools de leur choix pour attirer des apporteurs de liquidité.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;Pour autant que je sache, c&amp;rsquo;est la première fois que ce type d&amp;rsquo;influence a été tenté sur les électeurs de Curve (ou tout autre détenteur de jetons DeFi) : Les bribes basés sur les attributs NFT ; nous voilà !&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;La pool est &lt;a class=&#34;link&#34; href=&#34;https://curve.fi/factory-crypto/134&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;déjà en ligne&lt;/a&gt; mais ne peut être alimentée avant la fin de la période d&amp;rsquo;amorçage.&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

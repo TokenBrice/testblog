@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Balancer Finance on TokenBrice</title>
+        <link>http://localhost:1313/tags/balancer-finance/</link>
+        <description>Recent content in Balancer Finance on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Thu, 24 Nov 2022 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/balancer-finance/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Liquity-driver token races beyond Curve: a look at the Balancer Wars</title>
+        <link>http://localhost:1313/balancer-wars/</link>
+        <pubDate>Thu, 24 Nov 2022 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/balancer-wars/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2022/balancer-wars/balancer-wars-cover.png" alt="Featured image of post Liquity-driver token races beyond Curve: a look at the Balancer Wars" /&gt;&lt;p&gt;Liquidity-driver tokens, as I call them, are an emergent and fascinating construction. Simply put, these tokens enable you to direct incentives (CRV, BAL, etc.) to the liquidity pool of your choice. To do so, you must usually own and lock the corresponding token (veCRV, veBAL, etc.) within their governance contract, ensuring continuous commitment from participating projects.&lt;/p&gt;
+&lt;p&gt;Thus, the liquidity-driver tokens quickly became highly sought after by DAOs with constant and usually growing liquidity needs. It led to what we call “races” (or &amp;ldquo;wars&amp;rdquo;): a term that refers to the various strategies projects harness to constantly increase their veTokens stash, ideally faster than the other participants of the races, to grow a competitive advantage.&lt;/p&gt;
+&lt;p&gt;I’ve covered the CRV tokenomics, the pioneer of the veToken model, and their consequences in this blog extensively:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;[⚔ CRV wars: understanding the race to accumulate power to influence Curve Finance protocol](2. &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2022/crv-wars-l2.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;⚔ Guerres CRV avancées : analyse des protocoles construits au dessus de Curve et Convex&lt;/a&gt;
+/content/posts/2021/crv-wars.md&amp;quot; &amp;gt;}})&lt;/li&gt;
+&lt;li&gt;[⚔ Advanced CRV warfare: analysis of protocols built on top of Curve and Convex](2. &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2022/crv-wars-l2.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;⚔ Guerres CRV avancées : analyse des protocoles construits au dessus de Curve et Convex&lt;/a&gt;
+/content/posts/2022/crv-wars-l2.md&amp;quot; &amp;gt;}})&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;vetokenomics-beyond-the-curve-ecosystem&#34;&gt;veTokenomics, beyond the Curve ecosystem
+&lt;/h2&gt;&lt;p&gt;While Curve is fascinating to study, as it’s the veCRV pioneer and still the most mature and dense implementation of ve tokenomics to date, there are now many other race instances with their twists worth looking at.&lt;/p&gt;
+&lt;p&gt;Indeed, the veCRV tokenomics is more than two years old, and many other projects have launched or revamped their tokenomics since, drawing inspiration from Curve’s model. Without being exhaustive, here are the other “races” I follow the most closely:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Solidly pioneered the “ve(3,3)” model (attempting to build and improve on the base ve model) on Fantom in February 2022, quickly attracting billions of TVL before &lt;a class=&#34;link&#34; href=&#34;https://hackmd.io/@c30/BJ2PNCwgs&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;failing dramatically because of very poor execution&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://app.velodrome.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Velodrome&lt;/a&gt;, a fork of Solidly fixing its critical issues, quickly found its place on Optimism after launching in June 2022.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://balancer.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Balancer&lt;/a&gt; — a historical alternative to Curve and Uniswap, a chain agnostic DEX packing interesting innovations, &lt;a class=&#34;link&#34; href=&#34;https://medium.com/balancer-protocol/vebal-is-live-aeda1ae13e20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;recently switched to a vemodel in March 2022.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/SolidlyETH&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Solidly&lt;/a&gt;, again. Indeed, while the first project failed, the community gathered to take over and is about to re-launch Solidly, this time on mainnet, making it much more interesting.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I am myself a liquidity-driver addict, as I was sharing recently on Twitter:&lt;/p&gt;
+&lt;p&gt;All projects have constant liquidity needs; addressing them sustainably is highly valuable. Indeed, the value of liquidity-driver tokens exceeds what DAOs/projects can draw from them: $1 worth of vote-bribing can move &amp;gt;$1 worth of incentives. Individual participants can also gain a lot by being able to position themselves early in a relevant race.&lt;/p&gt;
+&lt;p&gt;So with the stage set, let’s dive into today’s matter: Balancer, their BAL races, and the “BAL-Layer-2” infrastructure that emerged on top of it, just like it happened with Curve.&lt;/p&gt;
+&lt;h2 id=&#34;mapping-the-balancer-trinity&#34;&gt;Mapping the Balancer Trinity
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/balancer-wars/balancer-trinity.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;balancer-trinity&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;While we documented Curve, we watched the ecosystem grow together on this blog. With &lt;a class=&#34;link&#34; href=&#34;https://balancer.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Balancer&lt;/a&gt;, I’m covering it extensively for the first time and already looking at a mature ecosystem. Balancer already has “its Convex,” called &lt;a class=&#34;link&#34; href=&#34;https://aura.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Aura Finance&lt;/a&gt;. It already controls over 25% of the veBAL (vs &amp;gt;50% of veCRV for Convex).&lt;/p&gt;
+&lt;p&gt;However, the Balancer base infrastructure calls for a third component: an automation network necessary to enable the most advanced type of pools. At this stage, it’s still unclear who is leading this race, so I’ve used one of their most prominent participants – &lt;a class=&#34;link&#34; href=&#34;https://powerpool.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PowerPool&lt;/a&gt; and its PowerAgents network — to play the part.&lt;/p&gt;
+&lt;p&gt;For those familiar with UniswapV3 liquidity provisioning, one could say PowerAgents play a role similar to &lt;a class=&#34;link&#34; href=&#34;https://www.gelato.network/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Gelato&lt;/a&gt;: it handles the automation of operations required to enable specific use cases, such as rewards harvesting and auto-compounding.&lt;/p&gt;
+&lt;h2 id=&#34;what-makes-balancer-different&#34;&gt;What makes Balancer different?
+&lt;/h2&gt;&lt;p&gt;Along with Uniswap and Curve, Balancer has been one of the longest-standing DEX with significant traction today. Indeed, looking at the DEX market from a global perspective, Balancer is scoring fifth place with about 3% of the total volume processed:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/balancer-wars/dex-overview.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;defillama-dex-overview&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Overview of observed trading volume on main decentralized exchanges from &lt;a class=&#34;link&#34; href=&#34;https://defillama.com/dexs&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFiLlama&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;Balancer is only launched on mainnet, Polygon, and Arbitrum – meaning fewer chains than most of the other top 5 DEXes, something to keep in mind in a global-level comparison.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Balancer&amp;rsquo;s first version launched in March 2020, and many iterations have been shipped since then, improving the BAL token model and liquidity structure. However, Balancer had &lt;strong&gt;specificities since V1&lt;/strong&gt; that are probably key in explaining why it’s still standing today. I’ll focus on the most emblematic, Balancer-specific ones:&lt;/p&gt;
+&lt;h3 id=&#34;pool-supporting-2-to-8-assets&#34;&gt;Pool supporting 2 to 8 assets
+&lt;/h3&gt;&lt;p&gt;Balancer is still, to this day, one of the only DEX offering such a wide range of pool structures. Indeed, a Balancer pool can be made of &lt;strong&gt;any number ranging from 2 to 8 assets&lt;/strong&gt;, while most other DEX only support pairs, so two assets at once.&lt;/p&gt;
+&lt;p&gt;It enables novel types of pools, such as:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;3 assets pools, such as the wBTC/USDC/wETH pool similar to Curve’s TriCrypto pool, or to diversify the pairing of a given token, like the OHM/ETH/DAI pool.&lt;/li&gt;
+&lt;li&gt;Or even 7-8 asset pools that start acting as token indexes as much as liquidity pools, such as the YFI/wBTC/COMP/wETH/UNI/CHZ/LINK pool.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;arbitrary-pool-weighting&#34;&gt;Arbitrary pool weighting
+&lt;/h3&gt;&lt;p&gt;On top of the flexible support in terms of the number of tokens, &lt;strong&gt;pool weighting does not need to be even across tokens&lt;/strong&gt; and can be extensively customized.&lt;/p&gt;
+&lt;p&gt;This enables unbalanced pool structures that are very useful in certain situations:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;For instance, the OHM/DAI/ETH pool mentioned above is &lt;strong&gt;50%OHM, 25%DAI, and 25%wETH&lt;/strong&gt; – enabling the maximization of the OHM liquidity available against both DAI and ETH at the same time.&lt;/li&gt;
+&lt;li&gt;Another frequently used distribution is the &lt;strong&gt;98/2&lt;/strong&gt;, particularly fitting to start building the liquidity of a newly released token with minimal IL risk (since 98% of the pool is composed of the safe pairing asset, like a stable or ETH)&lt;/li&gt;
+&lt;li&gt;Finally, the &lt;strong&gt;80% Token / 20% pairing asset&lt;/strong&gt; such as 80% BAL / 20% wETH is also a highly sought-after liquidity distribution, as it enables token holders to partake in liquidity providing activities with minimized IL risks if the token was to appreciate.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;dynamic-pool-weighting&#34;&gt;Dynamic pool weighting
+&lt;/h3&gt;&lt;p&gt;Finally, Balancer can adjust the pool weighting distribution as needed through a specific type of pool called a &lt;a class=&#34;link&#34; href=&#34;https://docs.balancer.fi/products/balancer-pools/liquidity-bootstrapping-pools-lbps&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liquidity Boostraping Pool (LBP)&lt;/a&gt;. Such pools are particularly fitting for launching tokens &amp;amp; building their liquidity at the same time, as they enable the streamlined go-to-market token flow. For instance:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A given project wants to quickstart its token liquidity — the associated DAO controls a significant amount of the token, but usually none of the potential pairing asset (usually ETH or stablecoin)&lt;/li&gt;
+&lt;li&gt;So they start with a 98% USDC / 2% Token pool, enabling them to provide liquidity with minimal pairing token requirements.&lt;/li&gt;
+&lt;li&gt;The pool acts as a token initiation event and price discovery mechanism at the same time. The token starts at a given price, which decreases as time goes on if no one purchases the token.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/balancer-wars/LBP.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;balancer-trinity&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;LBPs are designed to enable users interested in the project to purchase tokens fairly over a given period, protecting them against the usual attacks seen on more classical tokens launches (such as MEV bots sniping initial supply).&lt;/p&gt;
+&lt;p&gt;It enables the user-DAO to accumulate the pairing token and first price discovery of the DAO’s token, making it easy to jump to the next step: quickstart the token liquidity with protocol-owned seeding.&lt;/p&gt;
+&lt;h3 id=&#34;specificities-of-balancers-vemodel&#34;&gt;Specificities of Balancer’s veModel
+&lt;/h3&gt;&lt;p&gt;Balancer also has implemented its twist on their Curve’s inspired locking mechanism. Here, instead of locking the token directly (CRV ⇒ veCRV), governance participants must &lt;strong&gt;lock an LP token&lt;/strong&gt; corresponding to the Balancer &lt;strong&gt;80% BAL / 20% wETH&lt;/strong&gt; pool.&lt;/p&gt;
+&lt;p&gt;As said above, this liquidity distribution limits IL risks for depositors on a BAL upside. Thanks to this twist, Balancer can capture significant liquidity reserves through the normal operations of its governance participation mechanism.&lt;/p&gt;
+&lt;p&gt;Finally, as of late, it seems like Balancer is focusing on interest-bearing tokens and developing new use cases to cater to them. For instance, &lt;a class=&#34;link&#34; href=&#34;https://medium.com/balancer-protocol/vebal-pt-2-bribing-and-bip19s-free-bribes-b2f8334eba14&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;BIP#19&lt;/a&gt; introduces “free bribes” for pools involving interest-bearing assets: the yield produced by the pool asset is recycled as a bribe to sustain its liquidity.&lt;/p&gt;
+&lt;h2 id=&#34;lay-of-the-land-of-the-balancer-wars&#34;&gt;Lay of the land of the Balancer Wars
+&lt;/h2&gt;&lt;p&gt;Like Curve, Balancer has one dominant player of its race which developed a protocol optimized for synergy with Balancer: Aura. Aura is one of many services available in the Balancer-functional-L2 ecosystem, but a vastly dominant one with ~25% of all veBAL under the protocol control.&lt;/p&gt;
+&lt;p&gt;Aura offers efficient farming to holders of Balancer LP tokens, with BAL rewards boosted thanks to the protocol&amp;rsquo;s sizeable veBAL stash and additional AURA incentives. In that regard, it is the same thing as Convex to Curve.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/balancer-wars/defiwars-balancer.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;defiwars-balancer&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Overview of the veBAL liquid wrappers — &lt;a class=&#34;link&#34; href=&#34;https://www.defiwars.xyz/wars/balancer&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;courtesy of defiwars.xyz&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;protocols-with-vebalvlaura-positions&#34;&gt;Protocols with veBAL/vlAURA positions
+&lt;/h3&gt;&lt;p&gt;On top of the protocols working on liquid-wrapper for veBAL like Aura, some other DAOs and projects built sizeable veBAL/vlAURA positions to grow and sustain their liquidity, like Frax is doing on Curve.&lt;/p&gt;
+&lt;h3 id=&#34;balancer-bribe-markets&#34;&gt;Balancer Bribe Markets
+&lt;/h3&gt;&lt;p&gt;Many bribe markets are enabling the purchase of veBAL or vlAURA votes; here are the main ones:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://hiddenhand.finance/aura&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Hidden Hand — Aura&lt;/a&gt; and &lt;a class=&#34;link&#34; href=&#34;https://hiddenhand.finance/balancer&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Hidden Hand – Balancer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://app.warden.vote/quest/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Paladin’s Warden Balancer Quest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://votemarket.stakedao.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;And StakeDAO BAL Votemarket&lt;/a&gt;, a sort of bribing marketplace aggregator&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;To follow the Balancer wars, make sure to harness the amazing data computed by the Llama Airforce:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/balancer-wars/llama-airforce-aura.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;llama-airforce-aura&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;As seen on the graph, the bribing markets took off quickly before finding an equilibrium at around &lt;strong&gt;$0.06 per AURA vote, translating into 1.50x bribes efficiency&lt;/strong&gt;: $1 spent bribing the vote results in $1.50 worth of BAL emission added to the targeted pool over the epoch.&lt;/p&gt;
+&lt;p&gt;This figure is lower on the Curve races, around 1.25x for the Convex vlCVX bribing. It’s logical since Curve races are much older.&lt;/p&gt;
+&lt;h2 id=&#34;whats-next-for-balancer&#34;&gt;What’s next for Balancer?
+&lt;/h2&gt;&lt;p&gt;To complement the traction achieved thanks to the tokenomics revamp and switch to veBAL, several technical developments have been shipped/are coming to the Balancer DEX and should help further cement its position.&lt;/p&gt;
+&lt;h3 id=&#34;boosted-pools&#34;&gt;Boosted Pools
+&lt;/h3&gt;&lt;p&gt;The first one is the boosted pool, which is already live. They optimize the yields produced by liquidity providers by harnessing additional IL-free yield sources with tokens not needed to stomach the liquidity-providing activity. The bb-a-USD, Balancer’s 3pool equivalent, is the top Boosted Pool currently, but more are coming, including a LUSD-based one: LUCY.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.liquity.org/blog/introduction-to-powerpool-lucy-pool-and-what-it-brings-to-lusd&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Introduction to PowerPool&amp;rsquo;s LUCY pool and what it brings to $LUSD&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;aave-x-balancer&#34;&gt;Aave x Balancer
+&lt;/h3&gt;&lt;p&gt;Aave and Balancer have historic ties, with Aave Safety Module harnessing Balancer V1, and Aave even shipping a V2 market a few years ago to leverage Balancer LP tokens.&lt;/p&gt;
+&lt;p&gt;Further collaborations are anticipated, as &lt;a class=&#34;link&#34; href=&#34;https://app.aave.com/governance/proposal/87/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Aave acquired BAL tokens recently&lt;/a&gt; and will face dramatically increased liquidity needs with the GHO release.&lt;/p&gt;
+&lt;h3 id=&#34;balancer-home-of-the-lsds&#34;&gt;Balancer: home of the LSDs?
+&lt;/h3&gt;&lt;p&gt;Finally, looking at the current top pool TVL-wise on Balancer, a clear fit is emerging: liquid staked derivatives, such as Rocket Pool’s rETH or Lido’s stETH. Both have sizeable pools properly incentivized on Balancer mainnet.&lt;/p&gt;
+&lt;p&gt;Lido’s wstETH/wETH pool even flipped the 80BAL/20wETH pool and became the top one of the DEX with $200M TVL. Similarly, stMATIC/wMATIC is the top Balancer/Polygon pool, followed by MATICX/wMATIC, featuring another liquid MATIC staking derivative. On Arbitrum, the third and last chain where Balancer is live, here again, the wstETH/wETH pool tops the chart.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion
+&lt;/h2&gt;&lt;p&gt;If you’d like to take part in the Balancer Wars, make sure to harness all the great resources available:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://llama.airforce/#/bribes/overview/hh/aura-bal&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Llama Airforce&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.defiwars.xyz/wars/balancer&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFiwars - Balancer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://dune.com/balancerlabs/balancer-pools&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Dune Analytics&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;While I hope this article provided you with actionable insights regarding liquidity-driver tokens, I wanted to add another layer: it seems like a &lt;strong&gt;subcategory&lt;/strong&gt; of liquidity-driver is emerging – &lt;strong&gt;the lending liquidity-driver token&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;They work very similarly, but instead of enabling their holders to direct incentives to liquidity pools, they allow them to &lt;strong&gt;direct incentives to select lending markets&lt;/strong&gt;. So, in the end, they accomplish a different goal through a similar mean: controlling a lot of these lending-liquidity-driver tokens, like &lt;a class=&#34;link&#34; href=&#34;https://euler.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Euler Finance’s&lt;/a&gt; EUL, allows for sustaining deep liquidity in lending markets.&lt;/p&gt;
+&lt;p&gt;It’s probably worth looking at; I’ve been anticipating the arrival of ve and ve(3,3) based tokenomics to money markets for a while.&lt;/p&gt;
+&lt;p&gt;🙏 Thanks to &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/disiaque_eth&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Disiaque&lt;/a&gt; for his help proofreading this article.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

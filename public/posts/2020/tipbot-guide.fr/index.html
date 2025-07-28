@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Un guide pour prendre en main TipBot.CC, le bot Discord crypto qui propose un wallet, des dons, différents jeux et plusieurs outils bien pratiques.">
+<title>💰 Tip.CC - Guide d&#39;utilisation du service de dons en cryptomonnaie sur Discord</title>
+
+<link rel='canonical' href='http://localhost:1313/posts/2020/tipbot-guide.fr/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="💰 Tip.CC - Guide d'utilisation du service de dons en cryptomonnaie sur Discord">
+<meta property='og:description' content="Un guide pour prendre en main TipBot.CC, le bot Discord crypto qui propose un wallet, des dons, différents jeux et plusieurs outils bien pratiques.">
+<meta property='og:url' content='http://localhost:1313/posts/2020/tipbot-guide.fr/'>
+<meta property='og:site_name' content='TokenBrice - Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Outils' /><meta property='article:tag' content='Discord' /><meta property='article:tag' content='Dons' /><meta property='article:tag' content='Stats' /><meta property='article:tag' content='Jeux Cryptos' /><meta property='article:tag' content='Airdrop' /><meta property='article:published_time' content='2020-09-14T01:05:50&#43;00:00'/><meta property='article:modified_time' content='2020-09-14T01:05:50&#43;00:00'/>
+<meta name="twitter:title" content="💰 Tip.CC - Guide d'utilisation du service de dons en cryptomonnaie sur Discord">
+<meta name="twitter:description" content="Un guide pour prendre en main TipBot.CC, le bot Discord crypto qui propose un wallet, des dons, différents jeux et plusieurs outils bien pratiques.">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">TokenBrice - Blog</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/-guide/" >
+                📔 Guide
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/2020/tipbot-guide.fr/">💰 Tip.CC - Guide d&#39;utilisation du service de dons en cryptomonnaie sur Discord</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Un guide pour prendre en main TipBot.CC, le bot Discord crypto qui propose un wallet, des dons, différents jeux et plusieurs outils bien pratiques.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Sep 14, 2020</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    10 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="a-introduction">A/ Introduction
+</h2><p>Bienvenue dans ce guide d’utilisation en français pour tip.cc. Vous y découvrirez son but, son utilité, et comment s’en servir avec les commandes principales du bot Discord.</p>
+<p>Cette traduction est officieuse, et j’espère seulement apporter de la visibilité pour tip.cc à la communauté francophone, en lui donnant l’outil pour apprendre à s’en servir à son plein potentiel.</p>
+<p><img src="/img/2020/tipbot/cover.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="tipbotcc-cover"
+	
+	
+></p>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>Ce guide a été rédigé par <strong>Loico</strong> du <a class="link" href="https://discord.gg/mW94vUU"  target="_blank" rel="noopener"
+    >Discord francophone CryptoMatrix</a>. 🙏 Un grand merci à lui !</p></div>
+
+<h3 id="-aide-rapide--que-faire-dun-tip-">🧲 Aide Rapide : Que faire d&rsquo;un tip ?
+</h3><p>Vous avez reçu un tip via <a class="link" href="https://tip.cc/"  target="_blank" rel="noopener"
+    >tip.cc</a> et vous ne savez pas quoi en faire ? Lisez ça !</p>
+<p>Si vous avez reçu un tip, cela veut dire que <strong>quelqu’un vous a envoyé de la crypto-monnaie via Discord. Voici une aide rapide pour voir et récupérer votre crypto-monnaie</strong>.</p>
+<ol>
+<li>Entamez une discussion privée avec le bot, en cliquant sur son nom.</li>
+</ol>
+<p><img src="/img/2020/tipbot/image23.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="guide-Discord-tipbot"
+	
+	
+></p>
+<ol start="2">
+<li>Puis écrivez <code>$bals</code> dans le champ prévu pour envoyer un message.</li>
+</ol>
+<p><img src="/img/2020/tipbot/image13.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="guide-Discord-tipbot"
+	
+	
+></p>
+<ol start="3">
+<li>Une discussion en message privé va s’ouvrir, avec le montant de vos tips reçu.</li>
+</ol>
+<p><img src="/img/2020/tipbot/image9.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="guide-Discord-tipbot"
+	
+	
+></p>
+<ol start="4">
+<li>Pour récupérer le tip (dans ce cas d’exemple, des TKN) et l’envoyer sur votre wallet préféré, écrivez <code>$withdraw TKN</code></li>
+</ol>
+<p>🚨 <strong>Soyez averti, le withdraw entraîne des frais de réseau.</strong></p>
+<p><img src="/img/2020/tipbot/image1.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="guide-Discord-tipbot"
+	
+	
+></p>
+<ol start="5">
+<li>Renseignez l’adresse de destination de votre portefeuille TKN (par exemple, l’adresse ERC-20 de votre metamask)</li>
+</ol>
+<p><img src="/img/2020/tipbot/image4.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="guide-Discord-tipbot"
+	
+	
+></p>
+<ol start="6">
+<li>Confirmez, en écrivant <code>all</code> ou le montant souhaité. Votre crypto arrivera dans votre wallet 😀</li>
+</ol>
+<h2 id="b-présentation-de-tipcc">B/ Présentation de Tip.cc
+</h2><h3 id="quest-ce-que-tipcc-">Qu’est-ce que Tip.cc ?
+</h3><p>Tip.cc est un service de don conçu pour être facilement ajouté sur n&rsquo;importe quel serveur Discord. Il comprend <strong>un service de tips directement entre utilisateurs</strong>, un portefeuille de crypto-monnaies, et quelques outils de visibilités sur les crypto-monnaies.</p>
+<p>Avec ce bot, vous pouvez envoyer des tokens aux membres de <strong>tous les serveurs Discord sur lequel Tip.cc et vous êtes tous deux présents</strong>. Vous pouvez également en recevoir de manière très rapide et facile, grâce à un portefeuille de crypto-monnaies sans frais et sécurisé.</p>
+<div class="notice info" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span>Info</p><p>Vos cryptos sur Tip.CC ne sont pas liées au serveur Discord sur lequel vous les avez reçus. Elles sont associées à votre compte Discord lui-même.</p></div>
+
+<p>L’utilisation de ce bot présente énormément de surprises !</p>
+<p>Participer à des airdrops, recevoir une enveloppe rouge, jeter un oeil rapide sur vos crypto-monnaies favorites, demander le prix du gas sur Ethereum&hellip; <strong>Vous apprendrez même, en suivant ce guide, à envoyer des crypto-monnaies à plusieurs utilisateurs dans une seule transaction.</strong></p>
+<p>Un autre bon point à mentionner : il n’y a <strong>pas de minimum requis pour les transactions</strong>, et pas de frais sur les transaction. Les seuls frais sont ceux de la blockchain correspondant à la cryptomonnaie utilisée pour un deposit ou un withdraw. Et <strong>si il y a un montant minimum pour un withdraw, c’est celui pour couvrir les frais de la blockchain</strong>.</p>
+<p>Ce bot, à l’heure de la publication de ce guide, est maintenu à jour, et supporte de plus en plus de cryptomonnaie différentes. Vous pouvez voir la <a class="link" href="https://tip.cc/currencies"  target="_blank" rel="noopener"
+    >📑 liste de toutes les cryptomonnaies supportées ici</a>.</p>
+<h3 id="tipcc-est-lié-à-votre-compte-discord">Tip.cc est lié à votre compte Discord
+</h3><div class="notice tip" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#tip-notice"></use></svg></span>Tip</p><p>Il est <strong>fortement conseillé d’avoir un 2FA actif sur votre compte Discord</strong>: c’est la sécurité de votre compte Discord qui fait la sécurité de votre portefeuille Tip.cc</p></div>
+
+<ul>
+<li>Comme dit plus haut, votre portefeuille étant lié à votre compte Discord, vous pouvez utiliser le même portefeuille avec <strong>tous les serveurs Discord ayant activé Tip.cc</strong> (CryptoMatrix, Monolith, Tip.cc…). Mais vous ne pourrez pas l’utiliser en revanche sur les serveurs n’ayant pas Tip.cc.</li>
+<li>Vous pouvez voir la balance de votre portefeuille <strong>en euro ou en dollars</strong>, selon le paramètre utilisé sur les serveurs Discord que vous utilisez.</li>
+<li>L’échange de crypto-monnaies entre utilisateur se base actuellement sur le P2P et la confiance. Le développement du bot étant actif, un système plus élaboré pourrait voir le jour prochainement.</li>
+<li>Vous pouvez <strong>déposer des crypto-monnaies sur votre compte Tip.cc depuis n’importe quel autre portefeuille, tout comme en retirer vers un autre portefeuille</strong>. Ceci engendre des frais liés au frais de la blockchain de la cryptomonnaie visé. Attention à surveiller le prix du gas sur Ethereum par exemple.</li>
+</ul>
+<h2 id="c-utilisation-de-tipcc">C/ Utilisation de Tip.cc
+</h2><p>🚨 Depuis plusieurs mois, les frais de transaction sur Ethereum ont augmenté significativement. Lorsque les coûts en gaz sont excessifs, vous pouvez avoir des messages d’erreur lorsque vous demandez une adresse de Dépôt à Tip.cc. Si cela vous arrive, réessayez la commande adéquate lorsque les coûts de transaction (gas) seront plus modérés.</p>
+<p>🚩 L’utilisation de Tip.cc se fait via des commandes à écrire dans des messages. Un préfixe est désigné avant chaque commande. Le préfixe par défaut est <code>$</code>, mais il est paramétrable, et peut être différent sur chaque serveur Discord. ( Exemple : <code>$</code> sur le serveur CryptoMatrix, <code>!</code> sur le serveur Monolith)</p>
+<p><strong>Ce guide utilisera le préfixe par défaut <code>$</code></strong></p>
+<h3 id="1-manipulation-du-portefeuille-tipcc">1. Manipulation du portefeuille Tip.cc:
+</h3><div class="notice tip" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#tip-notice"></use></svg></span>Tip</p><p>Par précaution, nous vous conseillons d&rsquo;utilisez la commande $bals uniquement en message privé.</p></div>
+
+<p>Le <code>$withdraw</code> et le <code>$deposit</code> quant à eux ne peuvent se faire qu’en message privé.</p>
+<ul>
+<li><code>$balances</code> et son raccourci <code>$bals</code></li>
+</ul>
+<p>Voir le contenu de votre wallet.</p>
+<p>Vous pouvez aussi préciser  <code>$bals eur</code> pour voir le total en euros. En discussion privé avec Tip.cc, le total s&rsquo;affiche en dollars sans cette précision.</p>
+<p><img src="/img/2020/tipbot/image12.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="guide-Discord-tipbot"
+	
+	
+></p>
+<ul>
+<li><code>$balance eth</code> et son raccourci <code>$bal ethereum</code></li>
+</ul>
+<p>Voir la somme d’une crypto spécifique de votre wallet. Remplacez <code>ethereum</code> par la crypto-monnaie souhaité. Les raccourcis comme <code>btc</code>ou <code>tkn</code> marche, tout comme les noms complets comme <code>bitcoin</code> ou <code>monolith</code>.</p>
+<p><img src="/img/2020/tipbot/image3.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="guide-Discord-tipbot"
+	
+	
+></p>
+<ul>
+<li><code>$currencies</code></li>
+</ul>
+<p>Voir toutes les crypto-monnaies supporté par Tip.cc. Vous pouvez naviguer avec les flèches bleues pour toute les découvrir. Chaque Discord utilisant Tip.cc peut choisir de limiter la liste des crypto-monnaies disponible à sa convenance.</p>
+<p><img src="/img/2020/tipbot/image20.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="guide-Discord-tipbot"
+	
+	
+></p>
+<ul>
+<li><code>$withdraw btc</code></li>
+</ul>
+<p>En utilisant cette commande en message privé, vous recevrez une demande d’adresse pour envoyer votre retrait vers l’adresse de votre choix. Vous pouvez aussi envoyer une photo de votre QR code en message privé au bot.</p>
+<p><img src="/img/2020/tipbot/image5.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="guide-Discord-tipbot"
+	
+	
+></p>
+<p>Une confirmation vous sera ensuite demandée pour le montant.</p>
+<p><img src="/img/2020/tipbot/image11.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="guide-Discord-tipbot"
+	
+	
+></p>
+<ul>
+<li><code>$deposit btc</code></li>
+</ul>
+<p>Commande pour permettre le dépôt de crypto-monnaies sur votre portefeuille Tip.cc . <code>$deposit xtz</code> fera apparaître un code QR ainsi que l’adresse de dépôt de la crypto-monnaie visé pour votre portefeuille.</p>
+<p><img src="/img/2020/tipbot/image8.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="guide-Discord-tipbot"
+	
+	
+></p>
+<div class="notice tip" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#tip-notice"></use></svg></span>Tip</p><p>La commande deposit ne fonctionne qu’en message privé avec Tip.cc. Si vous l’écrivez dans un salon public, vous recevrez automatiquement un message privé.</p></div>
+
+<h3 id="2-interaction-avec-les-utilisateurs-du-discord">2. Interaction avec les utilisateurs du Discord:
+</h3><h4 id="1-les-tips-tip">1. Les tips <code>$tip</code>
+</h4><p>Exemple: <code>$tip @user 1 TKN</code></p>
+<p>Cette commande est la base de vos interactions avec les autres utilisateurs. Pour envoyer de la crypto-monnaie à un autre utilisateur du Discord, il suffit d’écrire <code>$tip</code>, son pseudo <code>@user</code>, le montant <code>10</code>, et la crypto-monnaie, <code>btc</code>. Ce qui donne : <code>$tip @user 1 btc</code></p>
+<p><img src="/img/2020/tipbot/image14.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="guide-Discord-tipbot"
+	
+	
+></p>
+<p>Vous pouvez aussi tiper plusieurs personnes en même temps : <code>$tip @userA @userB 20 TKN</code> ou encore <code>$tip all @role 70 USDC</code></p>
+<p>Vous pouvez tiper un groupe entier avec cette commande, la somme se verra partagée équitablement pour le rôle dans une limite de 40 membres.</p>
+<p>Plein de variantes sont possible: changez <code>online</code> à la place de <code>all</code> pour ne tiper que les utilisateurs en ligne. La combinaison de groupe et possible avec <code>and</code>.</p>
+<blockquote>
+<p>Exemple :  <code>$tip 4 online @Utopiste and 10 offline @Analyste 15 ETH</code></p>
+</blockquote>
+<p>Voici la liste des paramètres disponibles:</p>
+<ul>
+<li><code>offline</code>: choisir uniquement des membres hors ligne</li>
+</ul>
+<blockquote>
+<p>ex: <code>$tip 5 offline @Analyste 5 ETH</code></p>
+</blockquote>
+<ul>
+<li><code>online</code>: choisir uniquement des membres en ligne</li>
+</ul>
+<blockquote>
+<p>ex: <code>$tip online @Utopiste 0.9 BTC</code></p>
+</blockquote>
+<ul>
+<li><code>all</code>: choisir tous les membres d’un groupe</li>
+</ul>
+<blockquote>
+<p>ex: <code>$tip all @Utopiste 10 LINK</code></p>
+</blockquote>
+<ul>
+<li><code>each</code>: donne à chacun la même somme</li>
+</ul>
+<blockquote>
+<p>ex: <code>$tip all @Utopiste 1 LINK each</code></p>
+</blockquote>
+<ul>
+<li><code>and</code>: combine des tips</li>
+</ul>
+<blockquote>
+<p>ex: <code>$tip all @Utopiste 1 LINK and 2 ETH</code></p>
+</blockquote>
+<ul>
+<li><code>random</code>: donne à une personne choisie aléatoirement votre tip</li>
+</ul>
+<blockquote>
+<p>ex: <code>$tip a random person 10 USDC</code></p>
+</blockquote>
+<ul>
+<li>
+<p><code>recently active</code>: pour viser des personnes avec une activité récente sur le Discord&hellip;</p>
+</li>
+<li>
+<p><code>active in the last x minutes</code>: remplacez x par un nombre</p>
+</li>
+<li>
+<p><code>active in the last x messages</code>: remplacez x par un nombre</p>
+</li>
+<li>
+<p><code>active x messages</code>: remplacez x par un nombre</p>
+</li>
+<li>
+<p><code>active x m</code>: remplacez x par un nombre, m pour minute</p>
+</li>
+</ul>
+<div class="notice tip" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#tip-notice"></use></svg></span>Tip</p><p>La commande $tip help permet de voir (en anglais) toutes les combinaisons de tips possibles.</p></div>
+
+<p>Marre d’être mentionné pour recevoir des poussières avec les distributions aléatoires ? Vous pouvez désactiver et réactiver les mentions avec une seul et même commande: <code>$tip nomention</code></p>
+<p>Vous pouvez aussi <a class="link" href="https://tip.cc/guides/tipping"  target="_blank" rel="noopener"
+    >📖 retrouver toutes les commandes ici</a>.</p>
+<h4 id="2-les-airdrops">2. Les airdrops
+</h4><p>Les airdrops permettent de tip aléatoirement des utilisateurs via un message. Cinq types de airdrop sont disponibles:</p>
+<ol>
+<li>Le <strong>Airdrop</strong> classique, ou il faut réagir à un message airdrop pendant un temps donné</li>
+<li>Le <strong>Phrasedrop</strong>, ou il faut écrire une phrase correctement pour avoir une chance de gagner.</li>
+<li>Le <strong>Mathdrop</strong>, ou il faut résoudre une équation mathématique pour être sélectionné.</li>
+<li>Le <strong>Redpacket</strong>, une enveloppe rouge pour le premier à réagir au airdrop.</li>
+<li><strong>Triviadrop</strong>, où il faut répondre correctement à une question aléatoire sur l’univers des crypto-monnaies.</li>
+</ol>
+<h5 id="airdrop-classique">Airdrop Classique
+</h5><ul>
+<li><code>$airdrop &amp;lt;montant&gt; for [durée] for [maximum d’utilisateur]</code></li>
+<li><code>$airdrop &amp;lt;montant&gt;</code></li>
+</ul>
+<p>Les gains sont séparés entre tous les utilisateurs ayant réagi dans les limites imposées.</p>
+<blockquote>
+<p>ex: <code>$airdrop 100 satoshis for 30 seconds for 10 people</code></p>
+</blockquote>
+<blockquote>
+<p>ou: <code>$airdrop 0.2 ETH</code></p>
+</blockquote>
+<p><img src="/img/2020/tipbot/image16.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="guide-Discord-tipbot"
+	
+	
+></p>
+<h5 id="phrasedrop">PhraseDrop
+</h5><ul>
+<li><code>$phrasedrop [montant] for [durée] for [maximum d’utilisateur] [phrase]</code></li>
+</ul>
+<p>Les gains sont séparés entre tous les utilisateurs ayant réécrit la phrase correctement dans les limites imposées.</p>
+<blockquote>
+<p>ex: <code>phrasedrop $20 for 4 minutes for 10 users &quot;Le Discord de CryptoMatrix c’est le meilleur&quot;</code></p>
+</blockquote>
+<h5 id="mathdrop">MathDrop
+</h5><ul>
+<li><code>$mathdrop [montant] for [durée] for [maximum d’utilisateur] [expression]</code></li>
+</ul>
+<p>Les gains sont séparés pour les utilisateurs ayant résolu l’équation dans les limites imposées.</p>
+<blockquote>
+<p>ex: <code>$mathdrop 5 TKN for 5 minutes for 3 users &quot;2 + 40&quot;</code></p>
+</blockquote>
+<h5 id="enveloppe-rouge">Enveloppe Rouge
+</h5><ul>
+<li><code>$redenvelope [montant] [durée]</code></li>
+</ul>
+<p>Le premier utilisateur à réagir dans le temps imparti récolte la somme.</p>
+<blockquote>
+<p>ex: <code>$redenvelope 0.005 btc 10s</code></p>
+</blockquote>
+<p><img src="/img/2020/tipbot/image18.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="guide-Discord-tipbot"
+	
+	
+></p>
+<h5 id="triviadrop">TriviaDrop
+</h5><ul>
+<li><code>$triviadrop [montant] for [durée] for [maximum d’utilisateur]</code></li>
+</ul>
+<p>Les gains sont répartis parmi les utilisateurs répondant correctement. Vous recevez une notification par DM si vous répondez correctement.</p>
+<blockquote>
+<p>ex: <code>$triviadrop $1 for 30 minutes for 10 users</code></p>
+</blockquote>
+<p><img src="/img/2020/tipbot/image21.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="guide-Discord-tipbot"
+	
+	
+></p>
+<h3 id="3-interaction-avec-les-outils-du-bot">3. Interaction avec les outils du bot
+</h3><p>Tip.cc comprend des outils sympathiques à utiliser en plus de sa fonction de wallet et de tip :</p>
+<ul>
+<li><code>$ticker lend</code></li>
+</ul>
+<p>Vous pouvez utiliser cette commande pour avoir des informations sur le prix d’un token, ainsi que son graphique en 1D si celui-ci est listé sur coingecko. Remplacez <code>lend</code> par le token que vous souhaitez.</p>
+<p><img src="/img/2020/tipbot/image24.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="guide-Discord-tipbot"
+	
+	
+></p>
+<ul>
+<li><code>$uniswap 0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e</code></li>
+</ul>
+<p>Affiche les informations d’un token listé sur uniswap. Vous pouvez soit écrire l’adresse contrat du token, <strong>soit écrire son nom</strong> s’il fait partie des plus connus. (exemple: <code>$uniswap tkn</code>)</p>
+<p><img src="/img/2020/tipbot/image6.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="guide-Discord-tipbot"
+	
+	
+></p>
+<ul>
+<li><code>$gas</code></li>
+</ul>
+<p>Les prix de gas Ethereum et Bitcoin à l’instant T vous sont accessible via cette commande. Les données sont récupérées depuis mempool.space et <a class="link" href="https://ethgasstation.info/"  target="_blank" rel="noopener"
+    >ETH Gas Station</a>.</p>
+<p><img src="/img/2020/tipbot/image19.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="guide-Discord-tipbot"
+	
+	
+></p>
+<ul>
+<li><code>$mining eth</code></li>
+</ul>
+<p>Affiche le hashrate et la difficulté de la crypto-monnaie demandée. Les informations sont récupérées depuis MiningPoolStats. Remplacez <code>eth</code> par une des  crypto-monnaies présente dans les données de MiningPoolStats.stream.</p>
+<p><img src="/img/2020/tipbot/image7.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="guide-Discord-tipbot"
+	
+	
+></p>
+<ul>
+<li><code>$pools eth</code></li>
+</ul>
+<p>Affiche les pools les plus actives de la crypto-monnaie demandée. Les informations sont récupérées depuis MiningPoolStats. Remplacez <strong>eth</strong> par une des  crypto-monnaies présente dans les données de MiningPoolStats.stream. Vous pouvez naviguer avec les flèches bleues en réactions sous le message.</p>
+<p><img src="/img/2020/tipbot/image10.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="guide-Discord-tipbot"
+	
+	
+></p>
+<ul>
+<li><code>$convert</code></li>
+</ul>
+<p>Une fonction de conversion est présente avec Tip.cc. Vous pouvez voir à quoi correspond une somme, en  fiat et en crypto, grâce à cette commande.</p>
+<blockquote>
+<p>ex: <code>$convert 100€ ; $convert 100$ ETH ; $convert 10 ETH ...</code></p>
+</blockquote>
+<ul>
+<li><code>$faucet btc</code></li>
+</ul>
+<p>Le bot Tip.cc comprend lui-même un faucet pour aider à découvrir et utiliser les fonctions du service. Vous devez préciser btc, eth, ou autre crypto-monnaie dans la commande, puis suivez le lien pour effectuer un vote pour tip.cc sur top.gg. L’action est possible chaque 12h . Le service de faucet n’est en rien relié avec les Discords hébergeant Tip.cc.</p>
+<p><img src="/img/2020/tipbot/image25.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="guide-Discord-tipbot"
+	
+	
+>
+<img src="/img/2020/tipbot/image17.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="guide-Discord-tipbot"
+	
+	
+></p>
+<ul>
+<li><code>$help</code></li>
+</ul>
+<p>Cette commande vous fournira un panneau d’aide à l’utilisation en anglais. Vous pouvez naviguer à l’aide des réactions.</p>
+<p><img src="/img/2020/tipbot/image2.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="guide-Discord-tipbot"
+	
+	
+></p>
+<ul>
+<li><code>$monikers</code></li>
+</ul>
+<p>Affiche la liste des surnoms. Un surnom est un mot ou une suite de mots pré-paramétrés pour une transaction, avec son montant et sa crypto-monnaie fixe. Chaque surnom à son pluriel, vous pouvez donc écrire pour les gourmands <code>$tip @user 3 pizzas</code>.</p>
+<p>Des surnoms peuvent être écrits au lieu des transactions traditionnelles. Il existe quelques surnoms de base, mais les administrateurs de votre Discord peuvent en ajouter si vous avez quelques suggestions sympathiques à leur fournir.</p>
+<p>Si la crypto-monnaie n’est pas précisée, la transaction sera effectuée avec la monnaie par défaut choisie par le Discord (BTC pour le serveur CryptoMatrix, TKN pour le serveur Monolith). La crypto-monnaie par défaut peut être changée par les administrateurs.</p>
+<p><img src="/img/2020/tipbot/image15.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="guide-Discord-tipbot"
+	
+	
+></p>
+<p>J’espère que la lecture vous aura apporté les précisions attendues pour utiliser Tip.cc en toute sérénité !</p>
+<div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>🙏 Ce guide vous est fourni par Loico. Il vous a été utile ?</p>
+<p>Rejoignez <a class="link" href="https://discord.gg/mW94vUU"  target="_blank" rel="noopener"
+    >le serveur Discord CryptoMatrix</a> pour le remercier en personne !</p></div>
+
+<h2 id="ressources-externes">Ressources externes
+</h2><ul>
+<li><a class="link" href="https://tip.cc/"  target="_blank" rel="noopener"
+    >Site officiel</a></li>
+<li><a class="link" href="https://tip.cc/guides"  target="_blank" rel="noopener"
+    >Guide officiel</a></li>
+<li><a class="link" href="https://tip.cc/currencies"  target="_blank" rel="noopener"
+    >Crypto-monnaies supportés</a></li>
+<li><a class="link" href="https://Discord.gg/fzdvTkR"  target="_blank" rel="noopener"
+    >Discord Tip.cc</a></li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/ethereum/">Ethereum</a>
+        
+            <a href="/tags/outils/">Outils</a>
+        
+            <a href="/tags/discord/">Discord</a>
+        
+            <a href="/tags/dons/">Dons</a>
+        
+            <a href="/tags/stats/">Stats</a>
+        
+            <a href="/tags/jeux-cryptos/">Jeux Cryptos</a>
+        
+            <a href="/tags/airdrop/">Airdrop</a>
+        
+    </section>
+
+
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Sep 14, 2020 01:05 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/posts/2020/defi-moneygames/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🧭 DeFi Moneygames: Assessing risk and avoiding wreckage</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2020/defi-moneygames.fr/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🧭 DeFi Moneygames: Comment comprendre le risque et éviter les pertes ?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2020/yearn-finance-yfi/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">YearnFinance - DeFi on autopilot?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2020/yearn-finance-yfi.fr/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">YearnFinance - La DeFi avec pilote automatique ?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2020/leveraging-eth/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🎚 ETH exposure or DeFi yields: why choose?</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 TokenBrice - Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.e87374ab760d28dfa333a671a892b101964bde5a2dac9100a50c9b0d779b4505.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

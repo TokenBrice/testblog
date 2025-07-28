@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Exploring a novel protocol offering no funding fee no liquidation leverage with convex returns, and announcing my involvment.">
+<title>Leverage Like a Sir: Polynomial Gains, No Liquidation Pains</title>
+
+<link rel='canonical' href='http://localhost:1313/leverage-sir/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Leverage Like a Sir: Polynomial Gains, No Liquidation Pains">
+<meta property='og:description' content="Exploring a novel protocol offering no funding fee no liquidation leverage with convex returns, and announcing my involvment.">
+<meta property='og:url' content='http://localhost:1313/leverage-sir/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Decentralized Finance' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Leverage' /><meta property='article:tag' content='Immutable Protocol' /><meta property='article:tag' content='Lending' /><meta property='article:tag' content='Polynomial' /><meta property='article:published_time' content='2025-03-12T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2025-03-12T01:13:50&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/2025/leverage-sir/leverage-sir-cover.jpg' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="Leverage Like a Sir: Polynomial Gains, No Liquidation Pains">
+<meta name="twitter:description" content="Exploring a novel protocol offering no funding fee no liquidation leverage with convex returns, and announcing my involvment."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/2025/leverage-sir/leverage-sir-cover.jpg' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">TokenBrice</a></h1>
+            <h2 class="site-description">Brutally Honest DeFi</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" selected>English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" >Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#sirtrading-explained-like-a-business">Sir.Trading explained like a business</a></li>
+    <li><a href="#zooming-in-on-the-apes-side">Zooming in on the APE’s side</a>
+      <ol>
+        <li><a href="#polynomial-returns">Polynomial returns?!</a></li>
+        <li><a href="#fee-structure">Fee Structure</a></li>
+      </ol>
+    </li>
+    <li><a href="#what-about-the-tea-drinkers">What about the TEA drinkers?</a></li>
+    <li><a href="#noteworthy-features">Noteworthy features</a>
+      <ol>
+        <li><a href="#trustlessness-maximization">Trustlessness maximization</a></li>
+        <li><a href="#protocol-owned-liquidity">Protocol Owned Liquidity</a></li>
+        <li><a href="#continuous-token-emission-model">Continuous Token Emission Model</a></li>
+      </ol>
+    </li>
+    <li><a href="#putting-your-understanding-in-practice">Putting your understanding in practice</a>
+      <ol>
+        <li><a href="#i-am-bullish-eth-or-btc-over-a-midlong-time-frame">“I am bullish ETH or BTC over a mid/long time frame”</a></li>
+        <li><a href="#i-am-bearing-eth-over-a-midlong-time-frame">“I am bearing ETH over a mid/long time frame”</a></li>
+        <li><a href="#i-am-bullish-sir-but-not-really-a-leverage-hungry-ape">“I am bullish SIR, but not really a leverage-hungry APE”</a></li>
+      </ol>
+    </li>
+    <li><a href="#discussing-my-involvement">Discussing My Involvement</a>
+      <ol>
+        <li><a href="#my-valhalla-or-hell-nothing-in-between-position">My “Valhalla or hell, nothing in-between” position</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/leverage-sir/">
+                
+                    <img src="/img/2025/leverage-sir/leverage-sir-cover.jpg" loading="lazy" alt="Featured image of post Leverage Like a Sir: Polynomial Gains, No Liquidation Pains" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/defi/" style="background-color: #2a9d8f; color: #fff;">
+                DeFi
+            </a>
+        
+            <a href="/categories/projects/" style="background-color: #2a9d8f; color: #fff;">
+                Projects
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/leverage-sir/">Leverage Like a Sir: Polynomial Gains, No Liquidation Pains</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Exploring a novel protocol offering no funding fee no liquidation leverage with convex returns, and announcing my involvment.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 12, 2025</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    16 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+        <footer class="article-translations">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+            <div>
+                
+                    <a href="http://localhost:1313/fr/leverage-sir/" class="link">Français</a>
+                
+            </div>
+        </footer>
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>A few weeks ago, Sir Trading, a fascinating novel DeFi primitive was shipped, and I quickly fell in love with it. I’ve also decided to get involved, so welcome to this article introducing Sir Trading, explaining what I found interesting in the model, and announcing my involvement as an advisor.</p>
+<h2 id="sirtrading-explained-like-a-business">Sir.Trading explained like a business
+</h2><p>To understand Sir Trading (and it works well with most protocols), we can use a business metaphor: Who are the customers, intermediaries, and stakeholders?</p>
+<p><img src="/img/2025/leverage-sir/sir-diagram.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="sir-diagram"
+	
+	
+></p>
+<p>So let’s start from the bottom up: our “customers” are the APEs who open leverage positions and pay fees. Everything else is a &ldquo;means&rdquo; to that end.</p>
+<p>Our second population is the “intermediaries”, the liquidity providers on the Sir Protocol, called TEA holders, also called “gentlemen”. They are necessary because the more TEA liquidity exists, the greater APE’s capacity to lever up, and thus, the more likely users are to ape at scale. Maximizing this population is essential, as it helps to address one of the main weaknesses of the Sir model: the <strong>absence of leverage decay can only be guaranteed if the liquidity provided is sufficient compared to the leveraged position opened.</strong></p>
+<p>Thus, it makes sense to incentivize liquidity providers with SIR emissions to attract liquidity proportional to APE demand. Additionally, continuous SIR rewards provide LPers with stable income, complementing the volatile minting/closing fees they also earn—a critical advantage, as LPers usually prioritize predictability (cf. Aerodrome vs. Uniswap).</p>
+<p>Finally, the SIR holders act as stakeholders. They can stake their tokens to receive ETH dividends from fees collected on positions opening and closing and, in the future, could be involved in a mini-governance centered around decisions about resource allocation (⇒ which vaults to incentivize with SIR emissions?).</p>
+<p>With our three core populations defined, we can essentially assemble them into the “business model” of Sir:</p>
+<p><img src="/img/2025/leverage-sir/sir-business-model.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="sir-business-model"
+	
+	
+></p>
+<p>SIR Protocol aims to maximize its customer base (APE holders), which drives revenue shared with stakeholders (SIR holders). Stakeholders approve SIR emissions to fund intermediaries (TEA LPers) that provide the liquidity necessary to the purpose and allocate it to the vaults most relevant to drive usage.</p>
+<h2 id="zooming-in-on-the-apes-side">Zooming in on the APE’s side
+</h2><p>As mentioned above, the protocol&rsquo;s core is the APE—the ability to leverage any asset traded on UniswapV3. But what makes this leverage so interesting, especially compared to the myriad of other options now available?</p>
+<p>The table below should answer the most important questions for anyone already familiar with other protocols offering leverage, such as f(x) or Squeeth:</p>
+<div class="table-wrapper"><table>
+  <tr>
+   <td>Type of Returns
+   </td>
+   <td>polynomial (=/ multiplicative)
+   </td>
+  </tr>
+  <tr>
+   <td>Max leverage
+   </td>
+   <td>Up to ^5 with no leverage decay given sufficient liquidity, realistically ~ ^2
+   </td>
+  </tr>
+  <tr>
+   <td>Liquidation
+   </td>
+   <td>None
+   </td>
+  </tr>
+  <tr>
+   <td>Rebalancing
+   </td>
+   <td>None
+   </td>
+  </tr>
+  <tr>
+   <td>Fees
+   </td>
+   <td>No funding fees, only set fees paid when opening or closing position
+   </td>
+  </tr>
+  <tr>
+   <td>Assets Supported
+   </td>
+   <td>Potentially any traded on UNIv3 + permissionless vault deployment
+   </td>
+  </tr>
+  <tr>
+   <td>Security Considerations
+   </td>
+   <td>Protocol to be eventually fully immutable once out of Beta Mode, oracle used is trustless (UNIv3)
+   </td>
+  </tr>
+</table></div>
+<p>As you can see above, I think the offer is quite compelling even when compared to existing options, although it is a bit “weird” if you are used to other more classical leverage products as you have to wrap your head around a few new concepts.</p>
+<h3 id="polynomial-returns">Polynomial returns?!
+</h3><p>First, let’s tackle <strong>the question of linear (most common) vs polynomial leverage (Sir’s case)</strong>. If you are not a math buff, I think the first thing to understand about polynomials is that their impact is increasingly more palpable as the price moves farther from the starting price. It is better to be careful, as it works both ways. Let’s illustrate with a hypothetical simplified position started when ETH = $2000 (fees are ignored for simplicity; we’ll come back to them later):</p>
+<div class="table-wrapper"><table>
+  <tr>
+   <td>
+   </td>
+   <td>$2500 (+25%)
+   </td>
+   <td>$3000 (+50%)
+   </td>
+   <td>4000 (+100%)
+   </td>
+   <td>10000 (+400%)
+   </td>
+  </tr>
+  <tr>
+   <td>Linear - ETH x2
+   </td>
+   <td>3 000
+   </td>
+   <td>4 000
+   </td>
+   <td>6 000
+   </td>
+   <td>18 000
+   </td>
+  </tr>
+  <tr>
+   <td>Polynomial - ETH ^2
+   </td>
+   <td>3 125
+   </td>
+   <td>4 500
+   </td>
+   <td>8 000
+   </td>
+   <td>50 000
+   </td>
+  </tr>
+  <tr>
+   <td>Linear - ETH x5
+   </td>
+   <td>4 500
+   </td>
+   <td>7 000
+   </td>
+   <td>12 000
+   </td>
+   <td>42 000
+   </td>
+  </tr>
+  <tr>
+   <td>Polynomial - ETH ^5
+   </td>
+   <td>6 103.52
+   </td>
+   <td>15 187.5
+   </td>
+   <td>64 000
+   </td>
+   <td>6 250 000
+   </td>
+  </tr>
+</table></div>
+<p>You see that last row/column scenario, with our ETH^5 ape reaching a &gt;$6M Valhalla on a mere 1 ETH base position (with a +400% price appreciation)? That’s the power of polynomial returns. What we looked at above is enticing, although it abstracts many factors, including the fees, and assumes no leverage decay for both positions. Picture it as an example of understanding the power of polynomial vs linear in a financial context more than anything else.</p>
+<p>Polynomial returns (convex payouts) have historically been overpromised and underdelivered. Delivering them consistently is usually challenging, but they are generally implemented with <strong>corrective factors</strong> of different natures and names: time decay, volatility decay, leverage decay, etc. The usual model for such a product revolves around <strong>managing loans between traders and lenders</strong> to keep the leverage as constant as possible. This leads to models where leveragers constantly stream varying fees to lenders and still see their positions often rebalanced. With Sir, this correcting factor is clear and explicit upfront – that is that steep fee, so let’s dive right into it.</p>
+<h3 id="fee-structure">Fee Structure
+</h3><p>Next is the fee model, which is also quite different from the usual. Sir fees are fixed, dependant on your leverage, and charged ½ at position opening (APE minting) and ½ at position closing (APE redemption). At first glance, they might seem quite steep:</p>
+<div class="table-wrapper"><table>
+  <tr>
+   <td>Leverage
+   </td>
+   <td>Total Fees
+   </td>
+  </tr>
+  <tr>
+   <td>^1.5
+   </td>
+   <td>17.35% of principal
+   </td>
+  </tr>
+  <tr>
+   <td>^5
+   </td>
+   <td>69.13% of principal
+   </td>
+  </tr>
+</table></div>
+<p>Let’s zoom in on an ETH/USDC^1.5 position to understand better the impact of the polynomial leverage and the Sir’s fees, with a hypothetical position opened at ETH = $2000.</p>
+<p><img src="/img/2025/leverage-sir/sir-calculator.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="sir-calculator"
+	
+	
+></p>
+<p>With ETH = $4000 (+100%), such position is up ~17% in ETH terms or ~134% in USD terms. Of course, by this point, you are a polynomial leverage expert, and thus you understand that <strong>the gap between the ETH/USDC^1.5 and raw ETH holding increases the further the price appreciates</strong>. At ETH = $6000 (+200%), the position is now up ~43% vs ETH or ~330% vs USD. At ETH = $8000, we are now at ~65% gains vs ETH and ~562% vs USD. Again, this works the same way in reverse; please remember.</p>
+<p>I think this explicits well the “goal of the game” with Sir:</p>
+<ol>
+<li>Ideally, you want to seize a nice dip + reversal to open your position on a favorable price and quickly earn enough returns to cover the fees.</li>
+<li>Your goal is then to seize the maximal spread between your opening and closing price, knowing that each % you can grab provides exponentially more returns.</li>
+</ol>
+<p>The product&rsquo;s design is well-suited for such plays since you do not have to worry about funding fees or time decay. You’re essentially looking to buy low and sell high; welcome to crypto: except this time, you have a tool amplifying your returns the more you manage to do so.</p>
+<p>Because of its fee structure, <strong>Sir is geared toward leveragers with a long-term perspective</strong>, which matches its other key features (no liquidation, no leverage decay). Overall, the fees paid are similar to those that would be incurred maintaining a margin position for a year, striking a balance between potential returns, protocol stability, and upfront costs. When opening a leveraged position, one of the main concerns is getting the timing wrong and chopped by range-bound price action, where the fees accumulate and take away any potential profits; this concern is non-existent in Sir’s model.</p>
+<p>Finally, I’d like to remind you one more time of the main limitation of Sir: the absence of liquidity decay can only be ensured if there is sufficient liquidity to stomach your trade. While it’s pretty <strong>reasonable to assume so for incentivized ^1.25, ^1.5, or even ^2 vaults</strong>, it becomes much less certain for ^5 vaults, even with strong incentives, because of the maths I shared above.</p>
+<p>If you’d like more data to understand the impact of polynomial leverage in the context of Sir (=fees included), check <a class="link" href="https://app.sir.trading/leverage-calculator"  target="_blank" rel="noopener"
+    >the new calculator on the Sir website</a>.</p>
+<p>Note: APE tokens are ERC-20; thus, further composability could be envisioned. It could get interesting as the protocol grows!</p>
+<h2 id="what-about-the-tea-drinkers">What about the TEA drinkers?
+</h2><p>Now that you have a decent understanding of the demand side, the APE/leveragers, let’s jump to the other side, the liquidity providers/TEA holders.</p>
+<p>Let’s start with the basics: TEA drinkers are essentially ~counter-trading APEs, as they provide the liquidity APE redeem against if they manage to earn and secure (redeem) sizable gains. When I say “counter-trading” here, I mean it similarly as a UNIv2_ETH/USDC LP is counter-trading the market: when the market is mostly buying ETH (⇒ price goes up), the liquidity providing positions are rebalancing to USDC, and vice versa.</p>
+<p>So, even more simply, <strong>TEA holders are shorter against the underlying asset than if they were just holding it</strong>. Understanding this is all you need to be able to project the impact of price variants on your principal. You also have to <strong>keep in mind the liquidity utilization,</strong> as if you are supplying to a vault where there is little/no aping, you are counter-trading little to no one, and your principal exposure becomes similar to a naked raw holding of the underlying.</p>
+<p>While TEA holders are “shorter” compared to a naked raw holding of the underlying asset, they remain exposed to its price appreciation.  You can <strong>think of TEA holders as ETH/USD^0-1</strong>.</p>
+<p>Now, with the principal cleared out, let’s address the earnings as a TEA holder. It’s pretty straightforward: by default, <strong>TEA holders of a given vault collectively earn all the fees incurred by the APE minters</strong>. Fees are earned in such (same token as the supplied token) and autocompounded. TEA holders can redeem them when burning their position to recover their principal + all the fees accrued.</p>
+<p>In addition to the fees earned based on aping activity, <strong>some vaults are also incentivized with</strong> <strong>streams of SIR emissions.</strong> These currently include the most utilized: ETH/USDC1.5, wBTC/USDT1.5, SIR/ETH1.5, and SIR/ETH5. When vaults are incentivized with SIR emissions, ~10% of the fees incurred by the APE are redirected to SIR stakers.</p>
+<p>Note: TEA tokens are ERC-1155, limiting further composability, which is a good thing here, as you want to avoid restaking-type situations on those tokens, which are critical to the protocol&rsquo;s proper functioning.</p>
+<h2 id="noteworthy-features">Noteworthy features
+</h2><p>With the above, you should already have a decent understanding of the protocol, so rather than boring you with expansive explanations of each subtleties, I’ll instead zoom in on a few features of Sir I found worthy of commentary:</p>
+<h3 id="trustlessness-maximization">Trustlessness maximization
+</h3><p>My blog readers will not be surprised to find a section addressing this, as maximal decentralization and trustlessness are my mantras. In that regard, Sir Trading fares quite well, and the design demonstrates the priority given to those two topics by its founders.</p>
+<p>Let’s start with the most important – the potential immutability of the protocol. Considering its novel approach and the risks associated with it, making the protocol immediately fully immutable could be inconsequential. Instead, the approach developed here is a progressive path to eventual immutability with four modes:</p>
+<p><img src="/img/2025/leverage-sir/sir-beta-mode.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="sir-beta-mode"
+	
+	
+></p>
+<p>Sir is currently in Training Wheels mode, in which some parameters, such as the fees can still be adjusted. From the Training Wheels mode, it can switch to Emergency in response to a bug or exploit and from here to a Shutdown (⇒ Redeploy) if needed. On the other hand, if all goes well, the training wheels can be removed, and the protocol can be switched to Unstoppable mode, where it becomes immutable. I find this approach balanced and interesting, <a class="link" href="https://docs.sir.trading/protocol-overview/beta-period"  target="_blank" rel="noopener"
+    >definitely worthy of studying</a> for other builders.</p>
+<p>Now, let’s look at the oracle solution chosen, a critical element for any lending or leverage-based protocol. Here, <strong>the solution is simple and fully trustless: Uniswap v3.</strong> It, of course, has limits, most notably the liquidity available on Uniswap to ensure the price is not easily manipulated. However, considering the top vaults are majors like ETH or wBTC, it’s not a big concern. It could be more of an issue for SIR-related vaults, but here again, the liquidity is reasonably sufficient compared to the token market cap (TVL in pools &gt; 35% FDV). Further mitigation is implemented on the UNIv3 oracle (30 min TWAP) to resist price manipulation better.</p>
+<p>Another interesting feature in terms of trustlessness and resilience is the <strong>harnessing of <a class="link" href="https://docs.sir.trading/protocol-overview/token-auctions"  target="_blank" rel="noopener"
+    >token auctions</a> to streamline fee distribution to stakers</strong>. Sir is far from the only one doing this, as, for instance, <a class="link" href="https://docs.euler.finance/developers/periphery/fee-flow/"  target="_blank" rel="noopener"
+    >Euler Finance harnesses a similar logic</a>. Such auctions enable the conversion of many assets into one (in this case, wETH) without adding unnecessary compromises to the protocol. I expect to see even more of these.</p>
+<p>Note: Xatarrer (founder) has self-submitted a DeFiScan review for Sir Trading, which is currently under review. Please check <a class="link" href="https://defiscan.info/"  target="_blank" rel="noopener"
+    >DeFiScan</a> once the review is published for more details regarding Sir&rsquo;s decentralization.</p>
+<h3 id="protocol-owned-liquidity">Protocol Owned Liquidity
+</h3><p>Liquidity is Sir&rsquo;s lifeblood, and the protocol design acknowledges this with <strong>a keen focus on growing permanent liquidity (TEA) reserves</strong>. Every liquidity provider deposit includes a fee (~8.99% of their principal) retained as permanent protocol-owned liquidity. Thus, incentivizing LPers with SIR isn’t just &ldquo;renting&rdquo; liquidity—it’s also an immediate partial &ldquo;buyout&rdquo; of their deposit.</p>
+<p>Thanks to this, as the protocol grows and can attract more liquidity providers, it builds permanent liquidity reserves, enabling an ever-increasing “minimal guaranteed liquidity for APEs”. It’s essentially a virtuous loop progressively solving one of the main drawbacks of the model: elegant!</p>
+<h3 id="continuous-token-emission-model">Continuous Token Emission Model
+</h3><p>SIR works under a <strong>constant emission model at the rate of 2015M SIR per year</strong>, with the lion’s share always going to incentivize liquidity providers. There is, however, a switch in the distribution logic, made to give the protocol the means for its early growth in the first three years:</p>
+<ul>
+<li>For the first 3 years, 68.13 % directed to liquidity providers, 13.65 % to pre-mainnet contributors, 10 % reserved in a treasury, and 8.22 % to investors.</li>
+<li>After that: 100% to liquidity providers.</li>
+</ul>
+<p>This model is efficient, as no vesting is needed for the team/investors/treasury, since the logic is wholly shifted here: you have to think in terms of streams of tokens (X SIR/day) instead of total balance and associated vesting.</p>
+<h2 id="putting-your-understanding-in-practice">Putting your understanding in practice
+</h2><p>To wrap things up, we can now articulate our shared understanding of the protocol by studying three different market hypotheses articulated into strategies:</p>
+<h3 id="i-am-bullish-eth-or-btc-over-a-midlong-time-frame">“I am bullish ETH or BTC over a mid/long time frame”
+</h3><p>This one is the most straightforward; it&rsquo;s as simple as minting the ETH/USDC^1.5 APE token. The absence of liquidation and funding fees will allow you to set this position and forget about it. <strong>Your primary metric to watch for here is the opening+closing fee at 17.35%: you need to seize a ~26% price appreciation on ETH to enter profit territory</strong>, with your gains increasing in a polynomial fashion from thereon.</p>
+<p>Variants:</p>
+<ul>
+<li>I am bullish BTC: all the same, except using the wBTC/USDT^1.5 APE (main vault: good amount of liquidity available).</li>
+<li>I am bullish ETH against BTC and looking for adrenaline: all the same, except using the wETH/wBTC^5 vault (careful, low liquidity right now)</li>
+<li>I am bullish SIR against ETH: you have several tiers of leverage available to express that conviction onchain (SIR/ETH^1.5 and SIR/ETH^5 being the most liquid).</li>
+</ul>
+<h3 id="i-am-bearing-eth-over-a-midlong-time-frame">“I am bearing ETH over a mid/long time frame”
+</h3><p>Really?! No judgment; there is also a vault for that, in the name of USDC/wETH^1.5! Because this vault is USDC based, against ETH, opening an APE position there means going short ETH with polynomial leverage.</p>
+<p>Inversely, supplying that vault as a liquidity provider (TEA) means counter-trading the (potential) shorters ⇒ being long ETH (if there is utilization), but from a USDC base this time. However, this vault is not incentivized with SIR emissions currently, so your earnings will stem only from APEs opening positions.</p>
+<h3 id="i-am-bullish-sir-but-not-really-a-leverage-hungry-ape">“I am bullish SIR, but not really a leverage-hungry APE”
+</h3><p>That’s understandable; not everyone is a thrill-maxxer. Here, you could consider <strong>harnessing the constant emissions to liquidity providers to build your SIR stash over time and only at capital opportunity cost</strong>. Considering the LP supply fee, you are “forced” to sustain the position for a few weeks/months to reduce the fee&rsquo;s impact. If you are worried about principal depreciation in the case of a significant market reversal upward, you could consider splitting your deposits over several incentivized vaults to hedge for it.</p>
+<p>Assuming you initially farm with an ETH or wBTC deposit, you have a compounding option with your freshly farmed SIR: supplying the SIR vaults. Also, consider staking your SIR to maximize a mid/long-term SIR position.</p>
+<h2 id="discussing-my-involvement">Discussing My Involvement
+</h2><p>Before you, I’d like to give you more context on my involvement with Sir: I am advising the Sir team to help them with my core topics: growth, tokenomics optimization, and BD. I am compensated for this endeavour, and I am also an APE and TEA holder and, therefore, a SIR farmer – <strong>I am long SIR in all possible ways</strong>.</p>
+<p>I discovered Sir somewhat recently (the protocol is still just a few weeks old), but the timing was excellent. As those following me on Twitter probably already know, I have been profoundly disappointed with f(x), where I suffered from an abusive liquidation stemming from infrastructure shortcomings on their end (RPCs).</p>
+<p>I was, since then, on the hunt for an alternative solution to f(x) and stumbled upon Sir, which delivers some similar features (“real” no liquidation, no funding fees) but also brings welcome additions to the mix, such as the polynomial leverage vs linear: both the protocol and the timing were perfect, so going the extra mile to help it succeed happened very spontaneously.</p>
+<p>I do not approach advisory as a collectible to add to my wallet, show in 2 monthly calls, collect the payout, and call it a day. I am on the opposite side, equally maximally committed, involved, and selective with them.</p>
+<p>With Sir, considering the recency of the protocol, my current contributions revolve around raising awareness for the protocol, helping it get well integrated into the ecosystem, and expliciting its benefits to as many people as possible, as done with this article. I harness my extensive DeFi experience, network, and presence to support the team in all relevant ways.</p>
+<h3 id="my-valhalla-or-hell-nothing-in-between-position">My “Valhalla or hell, nothing in-between” position
+</h3><p><a class="link" href="https://etherscan.io/tx/0x5f9038d9004b53501bdf05b3f30d8fc8fd2d8da6a89299a624276c7605bf4ea7"  target="_blank" rel="noopener"
+    >I opened a ^5 SIR position on my public wallet tokenbrice.eth</a> – feel free to track it: 500K SIR levered ^5 ⇒ redeemable for ~155K SIR at inception (~69% fees), opened on Mar-04-2025 08:34:47 PM UTC. If all goes well, I hope to eventually redeem this for ~8M SIR (⇒ SIR at 2x my starting price, assuming sufficient liquidity) and do something fun with it. <strong>I want to remind you that such leverage is the closest you can get to onchain insanity; this position is now known in the community as “Valhalla or hell, no in-between”</strong>.</p>
+<p>Note: As a protocol built for resilience, <a class="link" href="https://x.com/DeFiCollective_/status/1897575989032497390"  target="_blank" rel="noopener"
+    >Sir is also supported by the DeFi Collective</a>, which received a SIR donation, matched it with ETH, initiated and supplied the UNIv2 LP, and locked the LP token for one year to secure a liquidity baseline on the token.</p>
+<p>Disclaimer: This article and the above strategy are not investment advice but practical illustrations of what the protocol can do. You make your own decisions, and you are responsible for them. In case that wasn’t clear enough with the previous warnings: I am exposed to SIR as a token and protocol and stand to benefit from its growth; in other words, I am maximally aligned.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/ethereum/">Ethereum</a>
+        
+            <a href="/tags/decentralized-finance/">Decentralized Finance</a>
+        
+            <a href="/tags/defi/">DeFi</a>
+        
+            <a href="/tags/leverage/">Leverage</a>
+        
+            <a href="/tags/immutable-protocol/">Immutable Protocol</a>
+        
+            <a href="/tags/lending/">Lending</a>
+        
+            <a href="/tags/polynomial/">Polynomial</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Mar 12, 2025 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/defi-ux-disaster/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2025/defi-ux-disaster/defi-ux-disaster-cover.png" loading="lazy" data-key="" data-hash="/img/2025/defi-ux-disaster/defi-ux-disaster-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">DeFi’s UX Disaster: Curation Could Save Innovation</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/jr-strategist/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2023/jr-strategist/jr-strategist-cover.png" loading="lazy" data-key="" data-hash="/img/2023/jr-strategist/jr-strategist-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Hiring a Junior DeFi Strategist to help foster the growth of immutable protocols</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/joining-liquity/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/tokenbrice-liquity/cover.png" loading="lazy" data-key="" data-hash="/img/2022/tokenbrice-liquity/cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Announcement: Joining Liquity to bolster the growth of unstoppable DeFi</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/defi-flywheel/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/defi-flywheel/defi-flywheel-cover-en.png" loading="lazy" data-key="" data-hash="/img/2021/defi-flywheel/defi-flywheel-cover-en.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🎡 DeFi Flywheel : engineering protocol to protocol synergies through tokens</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/yearnfinance-defi-on-autopilot/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2020/yearn-finance-YFI/wifeys.jpg" loading="lazy" data-key="" data-hash="/img/2020/yearn-finance-YFI/wifeys.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">YearnFinance - DeFi on autopilot?</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

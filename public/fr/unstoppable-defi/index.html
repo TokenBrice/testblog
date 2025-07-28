@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="De la centralisation totale aux protocoles inarrêtables : définition et analyse du spectre des différents niveaux de résilience des protocoles DeFi">
+<title>Dans les coulisses du théâtre de la décentralisation : étude de l’inaltérabilité des protocoles DeFi</title>
+
+<link rel='canonical' href='http://localhost:1313/fr/unstoppable-defi/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Dans les coulisses du théâtre de la décentralisation : étude de l’inaltérabilité des protocoles DeFi">
+<meta property='og:description' content="De la centralisation totale aux protocoles inarrêtables : définition et analyse du spectre des différents niveaux de résilience des protocoles DeFi">
+<meta property='og:url' content='http://localhost:1313/fr/unstoppable-defi/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Finance décentralisée' /><meta property='article:tag' content='Stablecoins' /><meta property='article:tag' content='Actifs stables' /><meta property='article:tag' content='Marchés Monétaires' /><meta property='article:tag' content='Liquity' /><meta property='article:tag' content='LUSD' /><meta property='article:tag' content='LQTY' /><meta property='article:tag' content='Curve' /><meta property='article:tag' content='CRV' /><meta property='article:tag' content='Uniswap' /><meta property='article:tag' content='UNI' /><meta property='article:tag' content='Pooltogether' /><meta property='article:tag' content='POOL' /><meta property='article:tag' content='Liquity' /><meta property='article:tag' content='LUSD' /><meta property='article:tag' content='LQTY' /><meta property='article:tag' content='TrustlessFI' /><meta property='article:tag' content='Chainlink' /><meta property='article:tag' content='Oracles' /><meta property='article:published_time' content='2022-05-18T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2022-05-18T01:13:50&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/2022/unstoppable-defi/unstoppable-defi-tokenbrice-cover.png' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="Dans les coulisses du théâtre de la décentralisation : étude de l’inaltérabilité des protocoles DeFi">
+<meta name="twitter:description" content="De la centralisation totale aux protocoles inarrêtables : définition et analyse du spectre des différents niveaux de résilience des protocoles DeFi"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/2022/unstoppable-defi/unstoppable-defi-tokenbrice-cover.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Afficher le menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/fr/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/fr">TokenBrice</a></h1>
+            <h2 class="site-description">DeFi en brutale honnêteté</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/fr/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Accueil</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/%C3%A0-propos/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>À Propos</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Recherche</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/liens/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Liens</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" >English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" selected>Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Mode sombre</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table des matières</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#quest-ce-quun-protocole-defi-inarrêtable-">Qu’est-ce qu’un protocole DeFi inarrêtable ?</a>
+      <ol>
+        <li><a href="#-dépendances-tierces-des-protocoles">⚠️ Dépendances tierces des protocoles</a>
+          <ol>
+            <li><a href="#dépendance-aux-oracles-comme-chainlink">Dépendance aux oracles comme ChainLink</a></li>
+            <li><a href="#dépendance-à-dautres-protocoles-moins-résilients-que-le-protocole-de-base">Dépendance à d’autres protocoles moins résilients que le protocole de base</a></li>
+          </ol>
+        </li>
+        <li><a href="#-accès-aux-protocoles--la-question-des-sites-webs-front-end">⚠️ Accès aux protocoles : la question des sites webs (front-end)</a>
+          <ol>
+            <li><a href="#risque-de-censure-des-front-end">Risque de censure des front-end</a></li>
+            <li><a href="#risques-de-sécurité-des-front-end">Risques de sécurité des front-end</a></li>
+          </ol>
+        </li>
+        <li><a href="#ℹ-limites-des-protocoles-inarrêtables">ℹ️ Limites des protocoles inarrêtables</a></li>
+      </ol>
+    </li>
+    <li><a href="#le-spectre-de-la-résilience">Le spectre de la résilience</a></li>
+    <li><a href="#analyse-des-dex-les-plus-résilients">Analyse des DEX les plus résilients</a>
+      <ol>
+        <li><a href="#uniswap">Uniswap</a></li>
+        <li><a href="#curve-finance">Curve Finance</a></li>
+      </ol>
+    </li>
+    <li><a href="#analyse-approfondie-des-autres-protocoles-notables">Analyse approfondie des autres protocoles notables</a>
+      <ol>
+        <li><a href="#liquity">Liquity</a></li>
+        <li><a href="#pooltogether">PoolTogether</a></li>
+        <li><a href="#trustlessfi-">TrustlessFi 🏗️</a></li>
+      </ol>
+    </li>
+    <li><a href="#conclusion-et-dernières-précisions">Conclusion et dernières précisions</a></li>
+    <li><a href="#notes-de-bas-de-page">Notes de bas de page</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/fr/unstoppable-defi/">
+                
+                    <img src="/img/2022/unstoppable-defi/unstoppable-defi-tokenbrice-cover.png" loading="lazy" alt="Featured image of post Dans les coulisses du théâtre de la décentralisation : étude de l’inaltérabilité des protocoles DeFi" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/fr/categories/defi/" style="background-color: #2a9d8f; color: #fff;">
+                DeFi
+            </a>
+        
+            <a href="/fr/categories/understanding/" style="background-color: #2a9d8f; color: #fff;">
+                Comprendre
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/fr/unstoppable-defi/">Dans les coulisses du théâtre de la décentralisation : étude de l’inaltérabilité des protocoles DeFi</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            De la centralisation totale aux protocoles inarrêtables : définition et analyse du spectre des différents niveaux de résilience des protocoles DeFi
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">mai 18, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    20 minutes de lecture
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+        <footer class="article-translations">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+            <div>
+                
+                    <a href="http://localhost:1313/unstoppable-defi/" class="link">English</a>
+                
+            </div>
+        </footer>
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>La finance décentralisée a permis l’émergence de protocoles autonomes dont les fonctionnalités sont assurées par des smart contracts parfois immuables, permettant à des individus du monde entier d’utiliser des services financiers tout à la fois souverains, accessibles mais aussi plus efficaces et résilients que ceux disponibles en finance classique. Voilà la belle histoire qu’on raconte aux nouveaux arrivants pour les endormir : la réalité est bien plus nuancée.</p>
+<p>Effectivement, il y a bien <strong>une poignée de protocoles qui correspondent à cette réalité,</strong> mais la plupart sont loin d’être à la hauteur. Quand les taureaux sont de sortie, l’intérêt pour la résilience des protocoles est généralement très faible : la seule chose qui importe ce sont les appréciations de prix. Mais les ours ont fait leur grand retour, et avec vient heureusement un regain d’intérêt pour ces sujets.</p>
+<p>L’implosion récente de l’écosystème Luna et de son stablecoin associé, UST, aura, je l’espère, servi de piqûre de rappel pour certains. C’était hélas une catastrophe <strong>parfaitement évitable</strong>. Le modèle utilisé pour ce stablecoin et ses défauts étaient déjà connus, avec de nombreuses précédentes instances couvertes à l’époque sur ce blog : BAC, MIC, ESD, DSD, etc. (au niveau applicatif sur Ethereum plutôt que protocolaire, mais avec les mêmes problèmes de fond). Tous ont connu la même fin : une spirale interminable qui les amène toujours plus proche du 0 absolu.</p>
+<p>Face à cet événement, de nombreux investisseurs ont pris conscience que tous les stablecoins ne se valaient pas et cherchent à se renseigner davantage sur la résilience des nombreux stablecoins disponibles sur le marché ainsi que la robustesse de différents protocoles DeFi en général. Je saisis donc ce moment exceptionnel pour discuter de ce sujet essentiel pour la pérennité de la DeFi qui me passionne depuis longtemps.</p>
+<p>En effet, l’année dernière je vous proposais déjà une analyse exhaustive des risques encourus sur les services d’emprunts en DeFi et comment les évaluer. <strong><a class="link" href="https://tokenbrice.xyz/content/posts/2021/money-market-risks.fr.md"  target="_blank" rel="noopener"
+    >Cet article</a></strong> est toujours d’actualité et sa lecture est fortement recommandée pour tout investisseur avisé.</p>
+<p>Trêve d’introduction, venons au fait, en commençant par définir le terme &ldquo;inarrêtable&rdquo; et ce qu’il implique concrètement au niveau d’un protocole.</p>
+<h2 id="quest-ce-quun-protocole-defi-inarrêtable-">Qu’est-ce qu’un protocole DeFi inarrêtable ?
+</h2><p>Au niveau le plus basique, on peut qualifier <strong>un protocole DeFi d’inarrêtable<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> lorsque ses fonctions essentielles sont assurées par des smart contracts qui ne sont pas modifiables et qu’il ne requiert pas d’intervention externe pour subsister.</strong></p>
+<p>À cette définition plutôt simple et directe, je dois néanmoins ajouter de nombreuses notes et précisions pour couvrir la diversité des protocoles DeFi et des cas d’utilisation qu’ils desservent.</p>
+<h3 id="-dépendances-tierces-des-protocoles">⚠️ Dépendances tierces des protocoles
+</h3><p>En DeFi, il est extrêmement rare qu’un protocole fasse tout par lui-même. Le plus souvent, un protocole donné s’appuie sur différents protocoles tiers. Le cas le plus courant et le plus connu est bien sûr celui de l’oracle – la source de prix pour les actifs – un élément essentiel pour les services d’emprunts notamment.</p>
+<h4 id="dépendance-aux-oracles-comme-chainlink">Dépendance aux oracles comme ChainLink
+</h4><p>En la matière, l’oracle le plus utilisé est <a class="link" href="https://www.defiscan.info/protocols/chainlink-oracles/ethereum"  target="_blank" rel="noopener"
+    >ChainLink</a>. Bien que techniquement robuste, l’industrie a eu récemment droit à un rappel grâce à Chris Blec et quelques autres acteurs soucieux de la résilience du service : les oracles de ChainLink sont susceptibles d’être manipulés ou censurés. Le vecteur d’attaque le plus risqué semble être <strong>la multisig 3/20</strong> qui permet de changer immédiatement la source de prix pour un actif donné.</p>
+<p>Concrètement, cela signifie que si 3 personnes se synchronisent parmi ces 20, ils pourraient changer l’oracle ETH/USD par exemple pour un oracle maison qui retourne un prix de $1 et quasiment tous les prêts DeFi seraient liquidés dans la foulée. Il semble assez peu probable néanmoins que des gens membres de l’équipe ChainLink ou proches de celle-ci réalisent une telle attaque.</p>
+<p>Le plus gros risque semble donc être au niveau d’une attaque perpétrée par un acteur externe qui voudrait nuire à l’ensemble de la DeFi. En effet, avec une multisig aussi permissif, il “suffirait” d’identifier 3 membres ou plus de ce multisig, les kidnapper et les menacer pour changer une source de prix de ChainLink. C’est la fameuse “🔧 wrench attack” : qu’importe la sécurité des smart contracts, s’ils sont administrés par une multisig, ils sont vulnérables à ce type d’attaque qui passe par les personnes derrière les protocoles plutôt que le code directement.</p>
+<p>L’essentiel du problème ici ce n’est pas l’existence de ce multisig, nécessaire pour mettre à jour et améliorer les services que ChainLink apporte, mais son paramétrage :</p>
+<ol>
+<li>3/20 c’est extrêmement permissif et plus risqué d’un point de vue 🔧 wrench attack que 3/6 par exemple (qui aurait moins de cibles potentielles pour réaliser l’attaque). Un nombre plus raisonnable et aligné avec ce qu’il se fait habituellement pour 20 signataires au total serait quelque chose entre 8 et 12 requis.</li>
+<li>Absence de timelock : les changements sont donc immédiats.</li>
+</ol>
+<p><strong>⚠️ Mise à jour - 27 Mai</strong> : Le 23 Mai (5 jours après la publication de cet article), la paramétrage de la Multisig a évolué pour devenir 4/9, offrant une meilleure protection contre les 🔧 wrench attack, mais il n&rsquo;y a toujours pas de timelock.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
+<h4 id="dépendance-à-dautres-protocoles-moins-résilients-que-le-protocole-de-base">Dépendance à d’autres protocoles moins résilients que le protocole de base
+</h4><p>Un des éléments les plus fascinants en DeFi, c’est la composabilité : les protocoles s’intègrent et s’utilisent les uns et les autres. Si cela permet l’émergence de synergies et de cas d’utilisation innovants, cela vient également avec des risques additionnels.</p>
+<p>Sans trop le détailler, puisqu’on y reviendra ensuite, on va prendre en exemple ici PoolTogether, un des protocoles les plus résilients de la DeFi et quasi–inarrêtable. Le quasi, il le doit à ses dépendances externes et plus précisément les sources de rendement utilisées : Compound ou Aave.</p>
+<p>En effet, les smart contracts de PoolTogether sont totalement immuables sauf pour la partie qui gère l’allocation des prix (v4), mais les fonds sont déployés dans des protocoles qui sont eux alimentés par des smart contracts pouvant  être modifiés (nécessaire, par exemple, pour l&rsquo;ajout d&rsquo;un nouveau collatéral mais c&rsquo;est aussi un vecteur d&rsquo;attaque potentiel et un risque réel, cf xSUSHI sur Aave<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>)</p>
+<p><strong>La règle générale, c’est qu’un protocole est aussi résilient que le maillon le plus fragile de sa chaîne de composabilité</strong>. Cette règle n’est pas absolue, car il reste possible de mitiger ou de contenir l’exposition prise avec une intégration, en implémentant par exemple de la redondance, comme on le verra plus bas lors des analyses détaillées.</p>
+<h3 id="-accès-aux-protocoles--la-question-des-sites-webs-front-end">⚠️ Accès aux protocoles : la question des sites webs (front-end)
+</h3><p>Sur ce sujet, deux questions essentielles se posent :</p>
+<ol>
+<li>Le point d’accès au protocole (= le site web / front-end) est-il résilient / peut-il être censuré, par exemple par un acteur étatique ?</li>
+<li>Le site est-il sécurisé ? Peut-il être attaqué par un acteur malveillant ?</li>
+</ol>
+<h4 id="risque-de-censure-des-front-end">Risque de censure des front-end
+</h4><p>Ici, il faut commencer par rappeler un point absolument fondamental : un service DeFi existe grâce à un jeu de smart contracts. Il est <strong>tout à fait possible d’interagir avec n’importe quel service DeFi en passant directement par les contrats</strong> – et donc, même si leur site venait à être inaccessible. Bien sûr, tous les utilisateurs de la DeFi n’ont pas la compétence technique pour interagir avec des smart contracts directement, et c’est pourquoi <strong>la question des front-end reste importante</strong>.</p>
+<p>Ainsi, les protocoles qui tiennent à maximiser leur résilience se doivent de réfléchir à cette question. Il y a ici deux approches principales qui peuvent être cumulées.</p>
+<p>Tout d’abord, un protocole peut avoir <strong>plusieurs points d’accès</strong> qui permettent l’accès à son service : si l’un d’eux venait à être inaccessible, d’autres resteront en ligne, n’entraînant ainsi qu’un désagrément mineur pour les utilisateurs du service. Par exemple, <a class="link" href="https://www.defiscan.info/protocols/aave/ethereum"  target="_blank" rel="noopener"
+    >Aave</a> peut être utilisé via le site principal app.aave.com, mais également grâce à des outils comme <a class="link" href="https://defisaver.com/"  target="_blank" rel="noopener"
+    >DeFiSaver</a>, <a class="link" href="https://instadapp.io/"  target="_blank" rel="noopener"
+    >InstaDapp</a> et de nombreux autres.</p>
+<p>Néanmoins, la plupart de ces sites restent hébergés par des <strong>services centralisés</strong> qui pourraient tous être censurés en même temps : c’est plus de travail, mais c’est techniquement possible. Pour remédier à cette limite, il reste une autre option : avoir un ou plusieurs <strong>sites hébergés via une solution décentralisée comme <a class="link" href="https://ipfs.io/"  target="_blank" rel="noopener"
+    >IPFS</a></strong>.</p>
+<p>Pour finir, en matière de résilience du front-end, la palme de l’approche la plus originale, élégante et efficace déployée à ce jour reste sans doute celle du protocole <a class="link" href="https://www.defiscan.info/protocols/liquity/ethereum"  target="_blank" rel="noopener"
+    >Liquity</a>. En effet, Liquity n’a pas de site officiel pour son application déployé et géré directement par l’équipe. À la place, l’équipe fournit <strong>un kit pour déployer un front-end</strong> de Liquity, utilisable par tous. Cela permet au projet d’avoir <a class="link" href="https://www.liquity.org/frontend"  target="_blank" rel="noopener"
+    >une myriade de sites différents permettant d’utiliser son service</a>, dont certains sont hébergés sur IPFS :</p>
+<p><img src="/img/2022/unstoppable-defi/liquity-frontend.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="some-liquity-frontends"
+	
+	
+></p>
+<h4 id="risques-de-sécurité-des-front-end">Risques de sécurité des front-end
+</h4><p>Enfin, il ne faut pas oublier qu’aussi résilient que les smart contracts puissent être, un front-end reste un site web qui même s’il n’est pas censuré <strong>peut être susceptible de subir des attaques</strong> plus ou moins conséquentes : les sites des échanges décentralisés SpiritSwap ou bien encore QuickSwap ont par exemple récemment <a class="link" href="https://twitter.com/QuickswapDEX/status/1525306033400188928?s=20&amp;t=UKpcM2Gu6nZ9Kgl65kmp3w"  target="_blank" rel="noopener"
+    >fait les frais d’un tel scénario</a>.</p>
+<p>En l’occurrence, le vecteur d’attaque est lié au gestionnaire de nom de domaine (GoDaddy) utilisé par le service. D’autres types d’attaques sont envisageables : par exemple, les injections de code par le biais d’un service tiers que le site intègre, comme on a également pu le voir très récemment sur EtherScan et de nombreux autres sites à la suite de la compromission du tracker publicitaire utilisé (CoinZilla).</p>
+<h3 id="ℹ-limites-des-protocoles-inarrêtables">ℹ️ Limites des protocoles inarrêtables
+</h3><p>Tous les cas d’utilisation ne peuvent pas être couverts par des protocoles inarrêtables. En effet, en fonction de la complexité d’un protocole, il est parfois impossible d’éviter toute dépendance à un autre protocole lui-même censorable au moins en partie.</p>
+<p>Enfin, il faut également garder en tête la contrepartie qui vient avec l’immutabilité des smart contracts des protocoles inarrêtables : <strong>une mise à jour de ceux-ci est techniquement impossible</strong>.</p>
+<p>Ainsi, lorsqu’un protocole inarrêtable doit évoluer, il n’y a qu’un seul chemin possible : déployer une nouvelle version du protocole (avec son nouveau jeu de contrats immuables) et encourager la <strong>migration</strong> de ses utilisateurs vers celle-ci. C’est par exemple ce qu’a fait Uniswap à deux reprises, avec la migration vers la version 2 en Mai 2020<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup> puis un nouvelle fois un an plus tard avec la sortie de Uniswap v3 en Mai 2021<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>.</p>
+<p><img src="/img/2022/unstoppable-defi/UNIv2-migration-tool.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="UNIv2-migration-tool"
+	
+	
+></p>
+<p>En fonction des différences entre les versions, le protocole peut également proposer un outil pour faciliter la migration comme ce fut le cas pour UNIv1⇒UNIv2, mais impossible pour UNIv2⇒UNIv3 principalement à cause de l’introduction de la concentration de la liquidité.</p>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Remarque</p><p>Pour être exhaustif sur l’analyse coût/bénéfice des contrats immuables, rappelons qu’ils rendent les 🔧 wrench attack impossibles et peuvent également présenter un intérêt du point de vue réglémentaire.</p></div>
+
+<h2 id="le-spectre-de-la-résilience">Le spectre de la résilience
+</h2><p>Maintenant que la définition d&rsquo;inarrêtable avec tout ce qu’elle implique a été détaillée, je vous propose d’en venir directement à l’analyse. Avant de creuser les protocoles pertinents, je vous propose un spectre qui met en lumière différents niveaux de résilience :</p>
+<p><img src="/img/2022/unstoppable-defi/resilience-spectrum-fr.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="defi-spectre-resilience-tokenbrice"
+	
+	
+></p>
+<p>Détailler des protocoles centralisés ou  “DINO” (Decentralized in Name Only), qui n’ont de décentralisé que le nom, n&rsquo;est ni très excitant ni intéressant, je vous laisse donc creuser par vous-même. Analysons plutôt des protocoles qui se situent sur la partie la plus palpitante du spectre : à la droite de MakerDAO.</p>
+<h2 id="analyse-des-dex-les-plus-résilients">Analyse des DEX les plus résilients
+</h2><p>Avant d’en venir à la résilience d’Uniswap et de Curve, il faut rappeler quelques éléments importants sur les échanges décentralisés. Concrètement, ils ont deux types d’utilisateurs qui assument des niveaux de risques bien différents :</p>
+<ol>
+<li>Les utilisateurs qui échangent des tokens grâce aux DEX. Ceux-ci supportent les risques liés aux smart contracts des DEX pour le temps du swap seulement (ainsi que ceux lié aux “approve” illimité si le contrat du DEX venait à être compromis et que celui-ci est modulable)</li>
+<li>Les apporteurs de liquidité, qui sont exposés tant que leur position est maintenue.</li>
+</ol>
+<p>Sur Uniswap comme sur Curve, <strong>les contrats relatifs aux deux situations sont immuables</strong> : il est par exemple techniquement impossible d’envisager un “rug” des apporteurs de liquidité, ce qui n’est pas le cas pour tous les DEX : une telle attaque était possible sur SushiSwap par exemple à une époque à cause de leur fonction de migration.<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup></p>
+<p>Il faut noter également que les DEX s’appuyant sur un Automated Market Maker comme Uniswap ou Curve n’ont <strong>pas besoin d’oracle pour fonctionner</strong>, ce qui réduit grandement leur dépendance à des services tiers potentiellement censorables.</p>
+<p>Enfin, et ce sera le dernier point de contexte pour les DEX : même si les contrats sont immuables, le risque n’est pas nul pour les apporteurs de liquidité qui assument tous les risques liés aux tokens impliqués dans la paire. La règle générale ici est similaire à celle de la chaîne de composabilité : <strong>une position LP donnée est aussi risquée que son token le plus dangereux</strong>.</p>
+<div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Remarque</p><p>La question du front-end pour les DEX est un peu moins critique puisque de nombreux points d’accès existent. Les utilisateurs les plus malins passent même par un agrégateur d’échanges décentralisés, comme <a class="link" href="https://paraswap.io"  target="_blank" rel="noopener"
+    >ParaSwap</a>.</p></div>
+
+<h3 id="uniswap">Uniswap
+</h3><p>Sur <a class="link" href="https://uniswap.org/"  target="_blank" rel="noopener"
+    >Uniswap</a> v1, v2 et v3, les fonctions essentielles sont assurées par des contrats immuables. Depuis <a class="link" href="https://www.defiscan.info/protocols/uniswap-v2/ethereum"  target="_blank" rel="noopener"
+    >Uniswap V2</a>, la gouvernance peut voter néanmoins l’introduction d’un frais administratif<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup> (= pas pour les LP mais pour le protocole), comme c’est déjà le cas sur Curve.</p>
+<p>Ici, le cas est donc très simple. S’il y a certes une gouvernance, la bonne nouvelle (moins pour les possesseurs d’UNI), est que ce qu’elle peut faire est très limité. <strong>Aucune saisie ou migration des fonds n’est possible</strong>. Outre le frais, elle gère des sujets tels que le déploiement d’Uniswap sur une nouvelle chaîne, l’ajout de nouveaux tiers de frais (1bps pour les stablecoins), ou encore l’utilisation de la trésorerie du protocole<sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup>, par exemple pour financer des campagnes de liquidity mining ou encore pour distribuer des UNI à des gens sympathiques qui le demandent, sans aucune forme de limite ou comptabilité<sup id="fnref:9"><a href="#fn:9" class="footnote-ref" role="doc-noteref">9</a></sup>.</p>
+<h3 id="curve-finance">Curve Finance
+</h3><p><a class="link" href="https://curve.fi/"  target="_blank" rel="noopener"
+    >Curve Finance</a> est un autre exemple de DEX des plus résilient avec une approche tout aussi intéressante. Ici encore, les fonctions de base sont assurées par des contrats immuables. Néanmoins, Curve a aussi une “Emergency DAO” dont les membres sont élus par la gouvernance. Cette Emergency DAO peut “tuer” une pool (seulement celles qui ont moins de deux mois et ne sont pas des factory pools) : toutes les fonctions sauf le retrait sont désactivées. Cela permet d’éviter des pertes de fonds additionnels si un problème venait à émerger avec les contrats de Curve. L&rsquo;Emergency DAO peut également &ldquo;tuer&rdquo; une jauge - le contrat qui gère les récompenses en CRV (et autres tokens potentiels) pour les apporteurs de liquidité. Les jauge &ldquo;tuées&rdquo; peuvent être ressucitées par la suite par la DAO principale.</p>
+<p>Tout comme Uniswap, Curve a une gouvernance essentiellement centrée autour de la gestion des émissions du token CRV. Le modèle est néanmoins bien plus raffiné ici, je vous invite à lire mes précédents articles sur le sujet pour mieux le comprendre :</p>
+<ul>
+<li><a class="link" href="https://tokenbrice.xyz/content/posts/2021/crv-wars.fr.md"  target="_blank" rel="noopener"
+    >⚔ Guerre du CRV : comprendre la course à l&rsquo;accumulation de la capacité à influencer le protocole Curve Finance</a></li>
+<li><a class="link" href="https://tokenbrice.xyz/content/posts/2022/crv-wars-l2.fr.md"  target="_blank" rel="noopener"
+    >⚔ Guerre du CRV avancée : analyse des protocoles construits sur Curve et Convex </a></li>
+</ul>
+<p>Contrairement à Uniswap, la participation à la gouvernance de Curve requiert le verrouillage des tokens CRV ( ⇒veCRV) jusqu’à quatre ans pour ceux qui veulent maximiser leur influence. Cela permet ainsi de protéger la gouvernance de différents types d’attaques.</p>
+<p>Enfin, la gouvernance gère également une liste blanche des smart contracts autorisés à interagir avec le contrat veCRV <sup id="fnref:10"><a href="#fn:10" class="footnote-ref" role="doc-noteref">10</a></sup>: des décisions lourdes de conséquences pour les apporteurs de liquidité sur Curve et possesseurs de CRV sur le long terme.</p>
+<div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Remarque</p><p>La gouvernance de Curve est une des plus fascinantes à suivre en DeFi. Pour l’aider à prendre des décisions plus éclairées, <a class="link" href="https://substack.com/profile/66151946-crypto-risk-assessments"  target="_blank" rel="noopener"
+    >une newsletter proposant des analyses de risques des différents protocoles qui demandent une jauge</a> s’est mise en place. Je vous en recommande chaudement la lecture, c’est une excellente source pour parfaire sa compréhension des risques en DeFi.</p></div>
+
+<h2 id="analyse-approfondie-des-autres-protocoles-notables">Analyse approfondie des autres protocoles notables
+</h2><p>Outre les échanges décentralisés, il y a d’autres types de protocoles qui s’approchent autant que possible de l’extrémité la plus résiliente du spectre. Néanmoins, les cas d’utilisations des protocoles que nous allons détailler maintenant sont plus complexes et ne peuvent pas être desservis, à ma connaissance, sans dépendances à d’autres services plus ou moins censorables.</p>
+<h3 id="liquity">Liquity
+</h3><p><a class="link" href="https://www.liquity.org/"  target="_blank" rel="noopener"
+    >Liquity</a> est un projet opiniâtre qui vise à créer le système d’emprunt, ainsi que le stablecoin, le plus résilient tout en maintenant un système efficace économiquement pour les emprunteurs. Je ne vais pas trop m’étendre sur ce protocole ici, je vous invite à <strong><a class="link" href="https://tokenbrice.xyz/content/posts/2021/liquity-protocol.fr.md"  target="_blank" rel="noopener"
+    >lire l’article dédié</a></strong>.</p>
+<p>Concentrons-nous donc sur les points pertinents pour notre sujet du jour :</p>
+<ol>
+<li>Le code de Liquity est entièrement immuable.</li>
+<li>Liquity n’a pas de gouvernance.</li>
+<li>Néanmoins, comme tout service d’emprunt, Liquity dépend d’un oracle (prix de ETH en USD). Ici, c’est ChainLink qui est utilisé mais un système de secours est également mis en place. Des calculs permettent de déterminer si la donnée apportée par ChainLink est jugée fiable. Si ça n’est pas le cas, alors le système passe automatiquement sur une source de prix secondaire tant que cela est nécessaire : l’oracle Tellor.<sup id="fnref:11"><a href="#fn:11" class="footnote-ref" role="doc-noteref">11</a></sup></li>
+<li>Enfin, comme je le mentionnais plus haut, Liquity a également une approche intéressante pour maximiser la décentralisation des front-end.<sup id="fnref:12"><a href="#fn:12" class="footnote-ref" role="doc-noteref">12</a></sup></li>
+</ol>
+<p>Grâce à cette approche, Liquity est le protocole d’emprunt le plus résilient disponible sur Ethereum ce qui permet également à LUSD de rafler le titre de stablecoin le plus solide et décentralisé.<sup id="fnref:13"><a href="#fn:13" class="footnote-ref" role="doc-noteref">13</a></sup></p>
+<h3 id="pooltogether">PoolTogether
+</h3><p><a class="link" href="https://pooltogether.com/"  target="_blank" rel="noopener"
+    >PoolTogether</a> est un protocole fascinant qui explore un concept nouveau : le “sans-perte”. Concrètement, <a class="link" href="https://www.defiscan.info/protocols/pool-together-v5/ethereum"  target="_blank" rel="noopener"
+    >PoolTogether</a> est une loterie où le joueur ne prend aucun risque financier sur son apport principal : le jeu s’appuie entièrement sur le rendement que le principal produit, et le redistribue au différents joueurs en fonction de leur chance au tirage.</p>
+<p><img src="/img/2022/unstoppable-defi/pooltogether.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="pooltogether"
+	
+	
+></p>
+<p>Pour en apprendre plus sur ce protocole, je vous invite une fois de plus à <strong><a class="link" href="https://tokenbrice.xyz/content/posts/2021/pool-together.fr.md"  target="_blank" rel="noopener"
+    >lire l’article dédié</a></strong>.</p>
+<p>Analysons donc la résilience du protocole. Ici, le principal enjeu est <strong>la source de rendement initiale, qui est externe</strong> :  elle provient de services comme Aave ou Compound, qui ne sont pas totalement inarrêtables. Ainsi, un joueur de PoolTogether assume ce risque sur l’ensemble de son dépôt : le principal ainsi que le rendement généré (avant qu’il soit collecté et redirigé).</p>
+<p>Malgré cette dépendance tierce, le protocole PoolTogetger est particulièrement résilient. En effet, côté PoolTogether, <strong>les contrats sont aussi immuables que possible</strong>. Concrètement, ils le sont tous (une pool donnée ne peut donc pas changer de source de rendement), sauf pour la partie relative à la distribution des prix, qui n’affecte que le rendement généré. En effet, le modèle de distribution des prix peut évoluer suite à un vote de gouvernance (mainnet) ou à une opération du multisig (Avalanche/Polygon), nécessaire car la gouvernance cross-chain n’est pas encore disponible.</p>
+<p>Je trouve ce point fascinant et assez unique en DeFi : PoolTogether est une loterie sans perte, et ce principe de design (financier) se manifeste également au niveau des smart contracts : en excluant un problème avec Aave/Compound ou bug critique dans les contrats de PoolTogether, un joueur ne peut pas perdre son principal – c’est garanti par le code lui-même ; seul le rendement est potentiellement à risque. Et ce, même si l’équipe entière de PoolTogether subit une 🔧 wrench attack, ou que la gouvernance de PoolTogether est totalement capturée. Ainsi <strong>la promesse du no-loss est reflétée au niveau des contrats eux-mêmes</strong>.</p>
+<p>En matière de risques, il y a également des nuances et différences entre la V3 et V4 du protocole, le mieux reste encore de lire attentivement <a class="link" href="https://docs.pooltogether.com/security/risks"  target="_blank" rel="noopener"
+    >la documentation</a> plutôt claire sur le sujet.</p>
+<h3 id="trustlessfi-">TrustlessFi 🏗️
+</h3><p><a class="link" href="https://trustless.fi"  target="_blank" rel="noopener"
+    >Trustless</a> est un protocole qui me fascine dernièrement. Il n’est pas encore live, mais je pense que l’approche a beaucoup de mérites. Pour le décrire très simplement, <strong>TrustlessFi c’est un peu comme si Liquity et Reflexer faisaient un enfant ensemble, sur zkSync</strong>.</p>
+<p>Ainsi, le but est, comme pour Liquity, de créer un protocole qui sera éventuellement aussi inarrêtable que possible, et le stablecoin associé (HUE) héritera de cette propriété. On retrouve d’autres mécanismes proches de Liquity, comme ETH comme seul collatéral, des liquidations immédiates ou encore la décentralisation des front-end (avec un mécanisme de validation communautaire cette fois-ci).</p>
+<p>Côté gouvernance, on a ici une approche similaire au plan de dégouvernance de Reflexer/RAI mais plus engageante : 4 phases sont envisagées, et à chaque étape le contrôle de la Foundation et de la communauté décroît, rendant le protocole de plus en plus immuable. Ces <strong>phases seront implémentées au niveau du code des contrats eux-mêmes</strong> : il est possible de retarder la transition vers une nouvelle phase de 45 jours jusqu&rsquo;à trois fois si nécessaire, mais c’est impossible d’annuler totalement cette transition.</p>
+<p>Il y a également un mécanisme similaire au Dai Saving Rate de Maker-MCD qui permet de participer au système sans avoir forcément besoin de générer de la dette. Les possesseurs de HUE pourront ainsi le staker pour obtenir un rendement provenant des taux d’intérêt payés par les emprunteurs.</p>
+<p>Finalement, il y a également de véritables nouveautés fascinantes, comme par exemple le fait que les Troves/CDP seront tokenisés sous forme de NFT, permettant ainsi leur transfert. Ou bien encore, le déploiement de la liquidité en HUE sur Uniswap v3 avec une gestion assurée par le protocole lui-même (HUE/ETH). Au niveau de l’oracle également, on aurait ici enfin une source de prix inarrêtable avec l’utilisation d’Uniswap v3, mais cela vient sans doute avec des risques de manipulation accrus.[^^UNIv3-oracle]</p>
+<p>Dans l’ensemble, l’approche part clairement dans la bonne direction, mais il y a de nombreux nouveaux concepts dans ce protocole, il n’est donc pas aisé de se projeter pour envisager le résultat une fois disponible en production pour l’instant.<sup id="fnref:14"><a href="#fn:14" class="footnote-ref" role="doc-noteref">14</a></sup></p>
+<h2 id="conclusion-et-dernières-précisions">Conclusion et dernières précisions
+</h2><p>J’espère que cet article conséquent pourra servir de référence à tous ceux qui se posent des questions essentielles quant à la résilience des protocoles DeFi. Comme à mon habitude, plutôt que de vous livrer des analyses telles quelles, j’ai essayé de détailler autant que possible la méthodologie et le raisonnement afin de vous permettre d’étudier par vous-même la résilience de tout protocole non mentionné dans cet article.</p>
+<p>Pour approfondir, je vous invite chaudement à lire un article que j’ai publié l’année dernière qui est le parfait complément de celui-ci : il se concentre sur les marchés monétaires et services d’emprunts et vous propose là aussi une méthode d’analyse pour évaluer les différents risques potentiels qu’ils impliquent :</p>
+<p><strong><a class="link" href="https://tokenbrice.xyz/content/posts/2021/money-market-risks.fr.md%22"  target="_blank" rel="noopener"
+    >De l&rsquo;évaluation du risque sur les marchés monétaires en finance décentralisée</a></strong></p>
+<p>J’imagine qu’une analyse aussi limpide d’un sujet si critique pourrait susciter des émotions plus ou moins positives. Sachez que, comme toujours, mon intention est uniquement <strong>d’informer le plus grand nombre possible de DeFians sur des sujets que j’estime essentiels pour la DeFi en général.</strong></p>
+<p>Toutes mes actions éducatives et pédagogiques en DeFi n’ont pas d’autre objet que de maximiser la résilience et la pertinence de la finance décentralisée sur le long terme. J’espère que les développeurs ou promoteurs de protocoles situés à la gauche de mon spectre d’inaltérabilité suggéré sauront également comprendre et reconnaître ce mandat.</p>
+<p><em>🙏 Un immense merci à tous les relecteurs et contributeurs qui ont particié à l&rsquo;élaboration de cet article:</em></p>
+<ul>
+<li><em>Relecture et clarté de l&rsquo;expression : <a class="link" href="https://twitter.com/C53300"  target="_blank" rel="noopener"
+    >Charles</a> et <a class="link" href="https://twitter.com/disiaque_eth"  target="_blank" rel="noopener"
+    >Disiaque</a></em></li>
+<li><em>Relecture technique et factuelle: <a class="link" href="https://www.radjaidjah.org/"  target="_blank" rel="noopener"
+    >Taz</a> de DeFi France, <a class="link" href="https://twitter.com/MTorgin"  target="_blank" rel="noopener"
+    >MTorgin</a></em></li>
+</ul>
+<hr>
+<h2 id="notes-de-bas-de-page">Notes de bas de page
+</h2><div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>J’évoque tout au long de cet article l&rsquo;inarrêtabilité de certains protocoles DeFi : on parle ici de l’immuabilité du code des smart contracts. L’ordre des transactions sur Ethereum peut malgré tout être manipulé (⇒ MEV) et les mineurs gardent un rôle important (jusqu’à la transition vers PoS). L&rsquo;inarrêtabilité contractuelle évoquée dans cet article connaît donc des limites infrastructurelles.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>ChainLink a partagé plus d&rsquo;information sur ce multisig <a class="link" href="https://docs.chain.link/docs/using-chainlink-reference-contracts/#updates-to-proxy-and-aggregator-contracts"  target="_blank" rel="noopener"
+    >dans leur documentation</a> et vous pouvez vérifier le contrat <strong><a class="link" href="https://etherscan.io/address/0x21f73d42eb58ba49ddb685dc29d3bf5c0f0373ca#readProxyContract"  target="_blank" rel="noopener"
+    >directement sur EtherScan ici</a></strong> <img src="/img/2022/unstoppable-defi/chainlink-multisig-updated.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="chainlink-multisig-updated"
+	
+	
+>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p><a class="link" href="https://governance.aave.com/t/analysis-of-xsushis-incident/6335"  target="_blank" rel="noopener"
+    >Analyse de l&rsquo;incident</a> sur le forum de gouvernance Aave.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p><a class="link" href="https://uniswap.org/blog/launch-uniswap-v2"  target="_blank" rel="noopener"
+    >Annonce du lancement d’Uniswap V2</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p><a class="link" href="https://uniswap.org/blog/uniswap-v3"  target="_blank" rel="noopener"
+    >Annonce du lancement d’Uniswap V3</a>&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p>Plus d’information sur cette fonction tant redoutée dans <a class="link" href="https://rugdoc.io/education/migrator/"  target="_blank" rel="noopener"
+    >cet article dédié de Rugdoc</a>.&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p>Vous pouvez suivre <a class="link" href="https://gov.uniswap.org/t/i-think-it-is-necessary-for-uniswap-concurrently-to-turn-on-the-fee-switch-and-liquidity-mining-incentive/15645"  target="_blank" rel="noopener"
+    >les dernières discussions en la matière</a> sur le forum de gouvernance d’Uniswap.&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8">
+<p>Entièrement en token UNI, cette trésorerie est assez volatile. Néanmoins, il y a quand même plus de 227M UNI disponibles aujourd’hui, soit environ $1.1B. <a class="link" href="https://openorgs.info/"  target="_blank" rel="noopener"
+    >OpenOrgs</a>&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:9">
+<p>C’est le tristement célèbre vote 005 “DeFi Education Fund”, lisez <a class="link" href="https://gov.uniswap.org/t/governance-proposal-005-defi-education-fund/12963"  target="_blank" rel="noopener"
+    >le sujet associé sur le forum de gouvernance</a> pour plus de contexte.&#160;<a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:10">
+<p>Il y en a trois à l’heure actuelle : Yearn Finance (yveCRV), Convex (cvxCRV) et StakeDAO (sdCRV).&#160;<a href="#fnref:10" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:11">
+<p>Cet article propose <a class="link" href="https://www.liquity.org/blog/price-oracles-in-liquity"  target="_blank" rel="noopener"
+    >une introduction claire au système de gestion d’oracles sur Liquity</a>.&#160;<a href="#fnref:11" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:12">
+<p>Plus d’informations <a class="link" href="https://www.liquity.org/blog/liquity-runs-on-decentralized-frontends"  target="_blank" rel="noopener"
+    >sur le modèle technique et d’incitation pour les opérateurs de front-end Liquity</a>.&#160;<a href="#fnref:12" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:13">
+<p>Comme vous l’avez sans doute déjà vu, je suis ravi d’avoir <a class="link" href="https://tokenbrice.xyz/content/posts/2022/tokenbrice-liquity.fr.md"  target="_blank" rel="noopener"
+    >rejoint l’equipe de Liquity très récemment</a>. Je mentionne Liquity dans cet article car c’est un exemple pertinent et instructif de protocole résilient, indépendamment de mes engagements professionnels.&#160;<a href="#fnref:13" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:14">
+<p>Comme toujours, l&rsquo;alpha est pour ceux qui creusent et lisent attentivement les footnotes ainsi que <a class="link" href="https://trustlessfi.notion.site/Trustless-4be753d947b040a89a46998eca90b2c9"  target="_blank" rel="noopener"
+    >les documentations</a>.&#160;<a href="#fnref:14" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/fr/tags/defi/">DeFi</a>
+        
+            <a href="/fr/tags/ethereum/">Ethereum</a>
+        
+            <a href="/fr/tags/finance-d%C3%A9centralis%C3%A9e/">Finance Décentralisée</a>
+        
+            <a href="/fr/tags/stablecoins/">Stablecoins</a>
+        
+            <a href="/fr/tags/actifs-stables/">Actifs Stables</a>
+        
+            <a href="/fr/tags/march%C3%A9s-mon%C3%A9taires/">Marchés Monétaires</a>
+        
+            <a href="/fr/tags/curve/">Curve</a>
+        
+            <a href="/fr/tags/crv/">CRV</a>
+        
+            <a href="/fr/tags/uniswap/">Uniswap</a>
+        
+            <a href="/fr/tags/uni/">UNI</a>
+        
+            <a href="/fr/tags/pooltogether/">Pooltogether</a>
+        
+            <a href="/fr/tags/pool/">POOL</a>
+        
+            <a href="/fr/tags/liquity/">Liquity</a>
+        
+            <a href="/fr/tags/lusd/">LUSD</a>
+        
+            <a href="/fr/tags/lqty/">LQTY</a>
+        
+            <a href="/fr/tags/trustlessfi/">TrustlessFI</a>
+        
+            <a href="/fr/tags/chainlink/">Chainlink</a>
+        
+            <a href="/fr/tags/oracles/">Oracles</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Dernière mise à jour le mai 18, 2022 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Contenus liés</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/fr/liquity-protocol/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/liquity-protocol/cover-en.png" loading="lazy" data-key="" data-hash="/img/2021/liquity-protocol/cover-en.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">⚖️ Liquity : un service d&#39;emprunt inarrêtable, efficace et innovant</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/defi-vs-inflation/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/defi-vs-inflation/defi-vs-inflation-tokenbrice-cover.jpg" loading="lazy" data-key="" data-hash="/img/2022/defi-vs-inflation/defi-vs-inflation-tokenbrice-cover.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Comment construire un portefeuille DeFi résistant à l&#39;inflation ?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/reflexer-rai/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/reflexer-rai/cover.gif" loading="lazy" data-key="" data-hash="/img/2021/reflexer-rai/cover.gif"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🗿 Pourquoi, comment et qu&#39;est-ce que le RAI ?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/defi-janus/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/defi-janus/defi-janus-cover-en.png" loading="lazy" data-key="" data-hash="/img/2021/defi-janus/defi-janus-cover-en.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Janus : le nouvel ennemi juré des protocoles DeFi ?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/defi-flywheel/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/defi-flywheel/defi-flywheel-cover-en.png" loading="lazy" data-key="" data-hash="/img/2021/defi-flywheel/defi-flywheel-cover-en.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🎡 Flywheel DeFi : synergies de protocoles à protocoles, par tokens interposés </h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Généré avec <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Thème <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> conçu par <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

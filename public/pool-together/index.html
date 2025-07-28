@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Gambling, all rotten? Once again, decentralized finance allows us to consider new ways of doing things - in this case a less predatory and more fun lottery: PoolTogether. This article explains how it works.">
+<title>🎲 PoolTogether: The story of the no-loss lottery where everyone wins</title>
+
+<link rel='canonical' href='http://localhost:1313/pool-together/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="🎲 PoolTogether: The story of the no-loss lottery where everyone wins">
+<meta property='og:description' content="Gambling, all rotten? Once again, decentralized finance allows us to consider new ways of doing things - in this case a less predatory and more fun lottery: PoolTogether. This article explains how it works.">
+<meta property='og:url' content='http://localhost:1313/pool-together/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='POOL' /><meta property='article:tag' content='PoolTogether' /><meta property='article:tag' content='Lottery' /><meta property='article:tag' content='Sports betting' /><meta property='article:tag' content='money games' /><meta property='article:tag' content='betting games' /><meta property='article:tag' content='gambling' /><meta property='article:published_time' content='2021-12-20T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2021-12-20T01:13:50&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/2021/pool-together/cover-EN.png' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="🎲 PoolTogether: The story of the no-loss lottery where everyone wins">
+<meta name="twitter:description" content="Gambling, all rotten? Once again, decentralized finance allows us to consider new ways of doing things - in this case a less predatory and more fun lottery: PoolTogether. This article explains how it works."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/2021/pool-together/cover-EN.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">TokenBrice</a></h1>
+            <h2 class="site-description">Brutally Honest DeFi</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" selected>English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" >Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#the-context-limits-and-dangers-of-the-classic-lottery">The context: limits and dangers of the classic lottery</a>
+      <ol>
+        <li><a href="#addictions-dependencies-consequences">Addictions, dependencies: consequences</a>
+          <ol>
+            <li><a href="#promotion-of-a-deleterious-social-novel">Promotion of a deleterious social novel?</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#the-basics-to-understand-the-concept">The basics to understand the concept</a></li>
+    <li><a href="#pooltogether-v3-the-pool-token-sponsors-and-community-pools">PoolTogether v3: the POOL token, sponsors and community pools</a>
+      <ol>
+        <li><a href="#sponsoring-pools-and-reserve-factor">Sponsoring Pools and Reserve Factor</a></li>
+        <li><a href="#33t-lootboxes--pooltogether-on-polygon">3,3T, Lootboxes &amp; PoolTogether on Polygon</a></li>
+      </ol>
+    </li>
+    <li><a href="#pooltogether-v4-tsunami-with-innovative-cross-chain-approach">PoolTogether v4: Tsunami with innovative cross-chain approach</a>
+      <ol>
+        <li><a href="#cross-chain-egalitarian-approach">Cross-chain egalitarian approach</a>
+          <ol>
+            <li><a href="#the-basic-approach-replication">The basic approach: replication</a></li>
+            <li><a href="#tsunami">Tsunami</a></li>
+          </ol>
+        </li>
+        <li><a href="#adjustment-of-the-pricing-model">Adjustment of the pricing model</a></li>
+        <li><a href="#a-more-satisfying-experience">A more satisfying experience.</a></li>
+      </ol>
+    </li>
+    <li><a href="#the-pool-token">The POOL token</a>
+      <ol>
+        <li><a href="#airdrop-everybody-won">Airdrop: everybody won!</a></li>
+        <li><a href="#pool-incentives-and-lp-v3">POOL incentives and LP (v3)</a></li>
+        <li><a href="#define-the-funtogether">Define the &ldquo;FunTogether&rdquo;!</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/pool-together/">
+                
+                    <img src="/img/2021/pool-together/cover-EN.png" loading="lazy" alt="Featured image of post 🎲 PoolTogether: The story of the no-loss lottery where everyone wins" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/defi/" style="background-color: #2a9d8f; color: #fff;">
+                DeFi
+            </a>
+        
+            <a href="/categories/understanding/" style="background-color: #2a9d8f; color: #fff;">
+                Understanding
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/pool-together/">🎲 PoolTogether: The story of the no-loss lottery where everyone wins</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Gambling, all rotten? Once again, decentralized finance allows us to consider new ways of doing things - in this case a less predatory and more fun lottery: PoolTogether. This article explains how it works.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Dec 20, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    12 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+        <footer class="article-translations">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+            <div>
+                
+                    <a href="http://localhost:1313/fr/pool-together/" class="link">Français</a>
+                
+            </div>
+        </footer>
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>DeFi has enabled the emergence of an alternative financial system built on fundamentally different foundations: transparency, open-source, composability and resistance to censorship. Many use cases have emerged and it is now possible to buy and exchange tokens without a centralized intermediary, but also to lend or borrow and much more!</p>
+<p>The topic of the day, <a class="link" href="https://www.defiscan.info/protocols/pool-together-v5/ethereum"  target="_blank" rel="noopener"
+    >PoolTogether</a>, goes one step further: it uses and assembles different DeFi services to offer a new kind of &ldquo;money game&rdquo;, which is more fun, but also more instructive and much less dangerous and harmful than its classic counterpart.</p>
+<p>I offer you to explore this protocol in detail: we start with its context, before analyzing how it works and the different issues it involves. Let&rsquo;s get started!</p>
+<hr>
+<h2 id="the-context-limits-and-dangers-of-the-classic-lottery">The context: limits and dangers of the classic lottery
+</h2><p>This chapter is almost hard for me to write because it is seems so obvious, yet it is still very poorly perceived by the majority of people. Concretely from a societal point of view, the lottery is probably as deleterious as smoking. Consider:</p>
+<ol>
+<li>By its design (possible and promoted jackpot), the <strong>lottery targets the most vulnerable populations</strong>.</li>
+<li>Despite this, the <strong>expectation of winning is negative</strong>: players lose money while playing for most of them.</li>
+<li>There are also <strong>serious consequences for the winners</strong>, it&rsquo;s a complex experience and <a class="link" href="https://www.businessinsider.com/lottery-winners-lost-everything-2017-8?IR=T"  target="_blank" rel="noopener"
+    >many end up broke after a few years</a>. Regular gamblers also suffer from addiction problems.</li>
+<li>The lottery was wildly taxed and owned by the state&hellip; until now. <strong>Privatization means giving the profits from an activity that is clearly harmful to society to private companies</strong> - the comparison with smoking makes even more sense!</li>
+<li>Finally, and this is not specific to the lottery but <strong>equally miserable, denounceable and pitiful</strong>: gambling often targets the most vulnerable populations for their advertising and <a class="link" href="https://www.theguardian.com/society/2020/mar/27/children-more-likely-to-become-gamblers-due-to-high-volume-of-betting-ads"  target="_blank" rel="noopener"
+    >and particularly on young people</a>.</li>
+</ol>
+<p><img src="/img/2021/pool-together/winamax-pub.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="winamax-pub"
+	
+	
+></p>
+<p>You can have a look on the full film advertisement created by TBWA, France for Winamax <a class="link" href="https://www.adsoftheworld.com/media/film/winamax_the_mama"  target="_blank" rel="noopener"
+    >here</a>&hellip;</p>
+<h3 id="addictions-dependencies-consequences">Addictions, dependencies: consequences
+</h3><p>What follows is logical, mechanical and despairing: in the long term trend, bets are exploding despite a declining number of players:</p>
+<p><img src="/img/2021/pool-together/evolution-2007-2017.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="stats-fdj"
+	
+	
+></p>
+<p>The subject is complex and, like smoking, often documented and researched by the gambling service providers themselves. The numbers speak for themselves, however: about 17% of gamblers are potentially at risk of addiction or dependency.</p>
+<p><img src="/img/2021/pool-together/addictions.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="addictions"
+	
+	
+></p>
+<p>&ldquo;<em>In 2017, Internet gambling (lottery games, horse or sports betting and poker) accounted for 11.2% of total spending, a share that has been steadily increasing since its authorization in 2010</em>&rdquo; according to the French Observatory of Drugs and Addictions.</p>
+<p>Other statistics are simply hopeless but ultimately understandable: <strong>the more social and economic misery increases, the more the promise of the lottery jackpot attracts the gullible</strong>, thus increasing the privatized winnings of the FDJ (the operator of France&rsquo;s national lottery games) and others, and destroying the social fabric ever more.</p>
+<p>We&rsquo;ll stop here, but you&rsquo;ll have understood: when you get out of the studies financed by the FDJ or associated, you quickly realize the extent of the social break that the lottery causes. The 22.7% returned to the communities is clearly not enough to compensate the real costs of this &ldquo;game&rdquo; (ruined lives, addictions, suicides, broken families, etc.).</p>
+<h4 id="promotion-of-a-deleterious-social-novel">Promotion of a deleterious social novel?
+</h4><p>Finally, to finish this picture that sets the context, I propose a last more subjective point: what about the impact of the lottery on the <strong>social novel</strong>? The social novel is like the American dream: a fable that constitutes one of the foundations of the construction of the national identity (in this case: everyone can succeed in the US if they work hard enough).</p>
+<p>It is a real collective delusion, but it contributes to <strong>defining the imaginary associated with success in a given society.</strong></p>
+<p>So let me ask the question: what impact does the lottery have on our social novel? Again it is rather negative I think, because it feeds the fable that to be successful you have to be born into a good family, or &ldquo;lucky&rdquo; -&gt; become a celebrity / play high level sports or lottery. <strong>The classic lottery thus feeds the emptiness of our contemporary aspirations:</strong> one more factor contributing to the ambient mediocrity.</p>
+<p>But now we are done with that. Let&rsquo;s get to the heart of the matter and see how PoolTogether reshuffles the deck.</p>
+<h2 id="the-basics-to-understand-the-concept">The basics to understand the concept
+</h2><p>The principle of PoolTogether is basically quite simple, but there are also many details and subtleties that need to be figured out to really understand what the protocol aims to do.</p>
+<p>In DeFi, there are different sources of return, for example a USDC owner, a stablecoin, can lend it to others to generate a return via a service like Aave or Compound. <strong>Basically, PoolTogether is a playful abstraction layer built on top of such a source of returns.</strong> At a high level, it looks like something like this:</p>
+<ol>
+<li>Players deposit USDC into the USDC pool on PoolTogether - and receive a corresponding token to recognize their deposit (PTaUSDC)</li>
+<li>The pool (set of smart contracts) deploys the assets in different strategies to produce a return. The return is collected and used to fund the winners&rsquo; prize.</li>
+<li>Each USDC deposited in the pool (⇒ PTaUSDC) corresponds to a potential winning lottery ticket. Every day, an auditable random draw (ChainLink VRF) is held to determine the many winners, with 3 initial prize ranges: 10 PTaUSDC, 100 PTaUSDC or 2500 PTaUSDC jackpot.</li>
+</ol>
+<p>It&rsquo;s this infrastructure that produces a return - and puts only the return into play that qualifies Pool Together as a <strong>no-loss</strong> lottery. At any time, <strong>the player can stop playing: he will get back at least his initial committed capital</strong>, if he has never won the lottery, or more.</p>
+<p>If we want to be very precise, the only cost of Pool Together is the &ldquo;opportunity cost of capital&rdquo;: the potential lost opportunity on the mobilized capital, which could theoretically produce a better return otherwise.</p>
+<hr>
+<h2 id="pooltogether-v3-the-pool-token-sponsors-and-community-pools">PoolTogether v3: the POOL token, sponsors and community pools
+</h2><p>Two versions of PoolTogether are online: v3 and v4. The concept remains the same but the infrastructure has greatly evolved. So before we look at what v4 has brought, let&rsquo;s start with the still relevant v3 and <a class="link" href="https://app.pooltogether.com/"  target="_blank" rel="noopener"
+    >accessible here</a>.</p>
+<p>This update was released <a class="link" href="https://defirate.com/pooltogether-v3/"  target="_blank" rel="noopener"
+    >in October 2020</a> shortly before <a class="link" href="https://medium.com/pooltogether/introducing-pool-23b09f36db48"  target="_blank" rel="noopener"
+    >the POOL token</a>, in February 2021. It brings many improvements to the PoolTogether infrastructure.</p>
+<h3 id="sponsoring-pools-and-reserve-factor">Sponsoring Pools and Reserve Factor
+</h3><p>While the schematic explanation of earlier is useful, two initial subtleties must be added: sponsorship pools and the governance-controlled reserve factor.</p>
+<ol>
+<li>Let&rsquo;s start with <strong>sponsoring</strong>. The idea is to allow &ldquo;non-player capital&rdquo; to increase player earnings: this capital contributes to the output produced, but has no chance of winning. At first this was envisaged from a rather voluntary perspective, but with the launch of the token sponsors are now eligible for POOL rewards.</li>
+<li>The <strong>Reserve</strong> system is even simpler: each pool has a <em>Reserve Factor</em> which corresponds to a % of the return captured by the pool directly. These funds are used to guarantee the sustainability of the protocol.</li>
+</ol>
+<p>With v3, we also saw the arrival of <em>Community Pools</em>, pools created by the community directly on the tokens of their choice, as long as they have a source of return, as well as many other additions that were more or less successful.</p>
+<h3 id="33t-lootboxes--pooltogether-on-polygon">3,3T, Lootboxes &amp; PoolTogether on Polygon
+</h3><p>For example, Olympus DAO offers a <em>3,3 Together</em>, where players stake their OHM rebase: every three days the rebase of all players is distributed to the three winners.</p>
+<p>They also had other innovative ideas in v3 but they didn&rsquo;t catch on, mainly because of the gas costs of the mainnet. For example, each pool has its <em>Lootbox</em> which allows anyone to add an arbitrary token as a prize or even an NFT! Just send it to the lootbox address and when the next prize is distributed the NFT/token is automatically sent to the winner.</p>
+<p>The v3 also marked the arrival of the POOL token a few months later and its airdrop which we will talk about below.</p>
+<p>Finally, v3 also marked the arrival of PoolTogether on other channels like Polygon or BSC. Nevertheless this logic has its limits because it also leads to a fragmentation of liquidity.</p>
+<hr>
+<h2 id="pooltogether-v4-tsunami-with-innovative-cross-chain-approach">PoolTogether v4: Tsunami with innovative cross-chain approach
+</h2><p>The v4 is a very important iteration on the base proposed in v3. Here, the experience has been simplified and reworked to make it as accessible and fun as possible: and it works! Let&rsquo;s see how.</p>
+<h3 id="cross-chain-egalitarian-approach">Cross-chain egalitarian approach
+</h3><p>We will detail this point because it is crucial, PoolTogether was a pioneer in this field and it is a dimension that we find on all projects: <strong>the cross-chain strategy</strong>. It aims to offer the same service, whatever the channel used by the user. I&rsquo;m coming to that, but before I do, let&rsquo;s take the time to understand the classic cross-chain replication approach and its consequences.</p>
+<h4 id="the-basic-approach-replication">The basic approach: replication
+</h4><p>Most projects simply <strong>replicate their service on all channels</strong>: this is the case of Sushi for example, which is present on more than ten channels, but also Pool Together v3 as described above.</p>
+<p>This approach has the merit of simplicity and allows access to the service on all covered channels - but it results in <strong>fragmentation of liquidity</strong> which can make this service less qualitative on &ldquo;small channels&rdquo;. Thus PT v3 Polygon USDC players, now few in number, play for a weekly fee of $69. On the other hand PT v4 USDC players share a daily price of over $100,000.</p>
+<h4 id="tsunami">Tsunami
+</h4><p>With PoolTogether v4 comes the so-called Tsunami model where all chains are equal. To do this, PoolTogether introduces an abstraction layer between all chains to redistribute prices if necessary.</p>
+<p>This allows <strong>mutualizing depositors&rsquo; funds across all chains</strong> to offer one big attractive prize rather than multiplying pools and dividing prizes. One consequence is that players on Polygon (where the gas cost of depositing is marginal) can play with the same odds and payout expectation as mainnet players.</p>
+<p>So of course this requires more development and implementation work and there are consequences for players as well, the most notable being <strong>a one day delay between initial deposit and eligibility for the first draw</strong>. But this is not too much of a trade-off considering the fact that PoolTogether is intended to be a game that promotes long-term savings.</p>
+<h3 id="adjustment-of-the-pricing-model">Adjustment of the pricing model
+</h3><p>Where v3 opted for flexibility, with pools having daily or weekly draws, the unique v4 pool can afford a <strong>daily draw</strong> given its size. In addition, the prize structure has been revised to allocate more small prizes to make the experience a little less random in the long run.</p>
+<p><img src="/img/2021/pool-together/prize-breakdown-old.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="prize-breakdown-old"
+	
+	
+></p>
+<p>The jackpot logic is preserved with the first and only winner pocketing $2500 anyway, but there are also nearly 720 other potential winners with the $100 and $10 prizes.</p>
+<p><img src="/img/2021/pool-together/winning.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="tokenbrice-pooltogether-winning"
+	
+	
+></p>
+<p>In reality, the number of winning players is lower because it is possible to win several prizes at once. However, this approach also smoothes out the income for large depositors, who frequently win $10 or $100 rewards, potentially even every day if the deposit is large enough.</p>
+<p>This distribution allows for frequent rewards for players who use PoolTogether for savings purposes while maintaining the spirit of the game:</p>
+<ol>
+<li>A decent chance (depending on the size of the deposit) to have small winnings ($10 and $100 prizes)</li>
+<li>A small chance of a massive payout: the $2500 jackpot.</li>
+</ol>
+<p>Beyond the prize model, the whole experience around prize allocation has been reviewed with v4. The governance has continued to iterate and recently voted on an overhaul of the prize structure: <a class="link" href="https://gov.pooltogether.com/t/ptip-47-prize-adjustments/1752"  target="_blank" rel="noopener"
+    >PTIP-47: Prize Adjustments</a>.</p>
+<p><img src="/img/2021/pool-together/prize-breakdown.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="prize-breakdown"
+	
+	
+></p>
+<h3 id="a-more-satisfying-experience">A more satisfying experience.
+</h3><p>Many settings and details have been adjusted to make the winning experience more fun and enjoyable. The complete list is on <a class="link" href="https://docs.pooltogether.com/faq/v3-to-v4-differences"  target="_blank" rel="noopener"
+    >the PoolTogether documentation</a>, so we&rsquo;ll just mention the essentials.</p>
+<p>First of all, the winnings go into a <strong>claim logic</strong>, where before they went directly into the wallet. This makes it easier for players to understand and quantify winnings. In addition, they are now paid out in PTaUSDC, the PoolTogether v4 lottery ticket, and are therefore <strong>automatically compounded</strong>: winning increases your chances of winning, with a simple claim!</p>
+<p><img src="/img/2021/pool-together/comparaison.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="comparison-pt-vs-savings"
+	
+	
+></p>
+<p><strong>Players have 60 days to claim their reward</strong>, which guarantees a form of follow-up and commitment, but also allows an almost totally passive interaction with the protocol for those who wish to do so: deposit &gt; every 59 days: claim &gt; withdrawal when desired.</p>
+<hr>
+<p>The POOL token has been mentioned several times without digging into it: this was deliberate. Now that the system is clear to you, I propose to finish by analyzing its value proposition.</p>
+<h2 id="the-pool-token">The POOL token
+</h2><p>We will talk about airdrop of course, but also liquidity and of course governance: let&rsquo;s go!</p>
+<h3 id="airdrop-everybody-won">Airdrop: everybody won!
+</h3><p>To launch the most fun token of the DeFi, there couldn&rsquo;t be anything else than an airdrop obviously. This is one of the retroactive airdrops that followed in the wake of Uniswap, but still came early enough that it wasn&rsquo;t overly abused by the infamous airdrop hunters.</p>
+<p><strong>14% of POOL&rsquo;s total supply</strong> was distributed to players who participated before January 14, 2021, with weighting based on deposit amount and duration. This was a nice surprise for early adopters, even with small amounts.</p>
+<h3 id="pool-incentives-and-lp-v3">POOL incentives and LP (v3)
+</h3><p>Who says token also means most often incentives: PoolTogether is no exception to the rule.</p>
+<p>With the token came POOL incentives for all players; as well as adjustments to the sponsorship model described above. There is also a liquidity issue on the POOL token now.</p>
+<p>After starting with a classic incentive model for LPs, governance decided to explore a model that allows the protocol to <a class="link" href="https://gov.pooltogether.com/t/ptip-40-olympus-lp-incentives-pool-pool-distribution/1638"  target="_blank" rel="noopener"
+    >control its own liquidity (PTIP-40</a> through bonding (Ohm-like).</p>
+<h3 id="define-the-funtogether">Define the &ldquo;FunTogether&rdquo;!
+</h3><p>The POOL is used to take part in the protocol decisions and help to refine the model. Furthermore, the implementation of the governance itself is also fun. In order to vote, you have to deposit your POOL tokens in the POOL pool on PoolTogether: while having a basic return + chances to win prizes, players can thus vote on governance decisions.</p>
+<p>I sometimes call PoolTogether &ldquo;the most fun protocol in the whole of DeFi&rdquo;, a true statement but one that can be taken even further.</p>
+<p>PoolTogether governance, with its decisions, works to define what is &ldquo;optimal fun&rdquo;, with very concrete questions, like the number of prizes or their distribution. With the launch of v4, the number of prizes has greatly increased, allowing more players to win: more than half of the unique wallets playing PTv4 have won at least once:</p>
+<p>It&rsquo;s a good start, but there&rsquo;s probably room to refine the model even further to delight more players by positively promoting long-term savings.</p>
+<hr>
+<p>If you&rsquo;ve read me this far, would you like some more alpha?</p>
+<p><strong>PoolTogether&rsquo;s lossless logic is exported beyond the lottery / savings</strong>. Many social mechanisms and games around money can be involved: sports betting, prediction markets, insurance, etc. The lossless family will be large, and PoolTogether already knows a first cousin that tackles predictions markets: <a class="link" href="https://docs.entropyfi.com/user-guide/game-explained"  target="_blank" rel="noopener"
+    >EntropyFi</a>.</p>
+<p>Place your bets,</p>
+<ul>
+<li>🎲 no more bets ! [archaic logic]</li>
+<li>(🎲,🎲) and have fun :) [web3]</li>
+</ul>
+<p><em>🙏Thanks to Th. for helping translate this article into English.</em></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/defi/">DeFi</a>
+        
+            <a href="/tags/ethereum/">Ethereum</a>
+        
+            <a href="/tags/pool/">POOL</a>
+        
+            <a href="/tags/pooltogether/">Pooltogether</a>
+        
+            <a href="/tags/lottery/">Lottery</a>
+        
+            <a href="/tags/sports-betting/">Sports Betting</a>
+        
+            <a href="/tags/money-games/">Money Games</a>
+        
+            <a href="/tags/betting-games/">Betting Games</a>
+        
+            <a href="/tags/gambling/">Gambling</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Dec 20, 2021 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/unstoppable-defi/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/unstoppable-defi/unstoppable-defi-tokenbrice-cover.png" loading="lazy" data-key="" data-hash="/img/2022/unstoppable-defi/unstoppable-defi-tokenbrice-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Behind the scene of the decentralization theater: a study of the inalterability of DeFi protocols</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/defi-flywheel/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/defi-flywheel/defi-flywheel-cover-en.png" loading="lazy" data-key="" data-hash="/img/2021/defi-flywheel/defi-flywheel-cover-en.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🎡 DeFi Flywheel : engineering protocol to protocol synergies through tokens</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/lending-protocol-renaissance/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2024/lending-protocol-renaissance/0-lending-protocol-renaissance-cover.png" loading="lazy" data-key="" data-hash="/img/2024/lending-protocol-renaissance/0-lending-protocol-renaissance-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Is this a Lending Protocol Renaissance?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/stablecoin-marauder-map/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2023/stablecoin-marauder-map/stablecoin-marauder-map-cover.png" loading="lazy" data-key="" data-hash="/img/2023/stablecoin-marauder-map/stablecoin-marauder-map-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">The Maurauder&#39;s Map of Decentralized Stablecoins</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/maverick-liquidity-shaping/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2023/liquidity-shaping-maverick/cover.png" loading="lazy" data-key="" data-hash="/img/2023/liquidity-shaping-maverick/cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Staying Ahead of the Curve: the shift from Liquidity Mining to Liquidity Shaping</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

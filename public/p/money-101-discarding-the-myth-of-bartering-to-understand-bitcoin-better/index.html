@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="How do we go from metal-backed currencies to Bitcoin? It's a journey starting with forgetting the fairy tales we've heard about bartering.">
+<title>Money 101 - Discarding the myth of bartering to understand Bitcoin better</title>
+
+<link rel='canonical' href='http://localhost:1313/p/money-101-discarding-the-myth-of-bartering-to-understand-bitcoin-better/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Money 101 - Discarding the myth of bartering to understand Bitcoin better">
+<meta property='og:description' content="How do we go from metal-backed currencies to Bitcoin? It's a journey starting with forgetting the fairy tales we've heard about bartering.">
+<meta property='og:url' content='http://localhost:1313/p/money-101-discarding-the-myth-of-bartering-to-understand-bitcoin-better/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='bitcoin' /><meta property='article:tag' content='currency' /><meta property='article:tag' content='money' /><meta property='article:tag' content='cryptocurrency' /><meta property='article:tag' content='blockchain' /><meta property='article:tag' content='ecocrypto' /><meta property='article:published_time' content='2018-07-18T12:13:32&#43;00:00'/><meta property='article:modified_time' content='2018-07-18T12:13:32&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/2018/money101/cover.jpeg' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="Money 101 - Discarding the myth of bartering to understand Bitcoin better">
+<meta name="twitter:description" content="How do we go from metal-backed currencies to Bitcoin? It's a journey starting with forgetting the fairy tales we've heard about bartering."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/2018/money101/cover.jpeg' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">TokenBrice</a></h1>
+            <h2 class="site-description">Brutally Honest DeFi</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" selected>English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" >Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#the-tale-of-the-origins-ofmoney">The Tale of the Origins of Money</a></li>
+        <li><a href="#money-is-not-a-store-ofvalue">Money is not a store of value</a>
+          <ol>
+            <li><a href="#lets-burn-some-cash-to-understand-moneybetter">Let’s burn some cash to understand money better</a></li>
+            <li><a href="#make-itrain">Make it rain!</a></li>
+            <li><a href="#counterfeit-money-realvalue">Counterfeit money, real value?</a></li>
+          </ol>
+        </li>
+        <li><a href="#the-myth-of-bartering-and-its-inefficiency">The myth of bartering and its inefficiency</a>
+          <ol>
+            <li><a href="#the-distortion-of-the-historians-lens">The distortion of the Historian’s lens</a></li>
+            <li><a href="#downplaying-the-role-ofbanks">DOWNPLAYING THE ROLE OF BANKS</a></li>
+            <li><a href="#the-myth-of-bits-a-digital-ledger-is-still-a-good-oldledger">The myth of bits: a digital ledger is still a good old ledger</a></li>
+          </ol>
+        </li>
+        <li><a href="#a-sneak-peak-into-the-real-monetary-innovations">A sneak peak into the real monetary innovations</a>
+          <ol>
+            <li><a href="#change-the-ledgers-governance-mechanism">Change the ledgers’ governance mechanism</a></li>
+            <li><a href="#alter-the-innate-propriety-ofmoney">Alter the innate propriety of money</a></li>
+            <li><a href="#limit-what-kind-of-items-money-can-claim-be-claimedupon">Limit what kind of items money can claim be claimed upon</a></li>
+          </ol>
+        </li>
+        <li><a href="#conclusion">Conclusion</a>
+          <ol>
+            <li><a href="#sources-to-digdeeper">SOURCES: TO DIG DEEPER</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/money-101-discarding-the-myth-of-bartering-to-understand-bitcoin-better/">
+                
+                    <img src="/img/2018/money101/cover.jpeg" loading="lazy" alt="Featured image of post Money 101 - Discarding the myth of bartering to understand Bitcoin better" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/analysis/" style="background-color: #2a9d8f; color: #fff;">
+                Analysis
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/money-101-discarding-the-myth-of-bartering-to-understand-bitcoin-better/">Money 101 - Discarding the myth of bartering to understand Bitcoin better</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            How do we go from metal-backed currencies to Bitcoin? It&#39;s a journey starting with forgetting the fairy tales we&#39;ve heard about bartering.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jul 18, 2018</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    13 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+        <footer class="article-translations">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+            <div>
+                
+                    <a href="http://localhost:1313/fr/p/d%C3%A9construire-le-mythe-du-troc-pour-mieux-comprendre-le-bitcoin-et-les-innovations-mon%C3%A9taires/" class="link">Français</a>
+                
+            </div>
+        </footer>
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Money is a critical element of our modern societies: a slight change in its mechanisms can have a much broader impact than simply affecting the economy. Therefore, a better comprehension of these mechanisms will give you a better grasp on various topics ranging from Political Economy to cryptocurrencies.</p>
+<p>Money is a complex subject, even more lately if we consider all the <strong>convoluted systems and protocols</strong> that were progressively built on top of it: monetary creation, central banks, inflation… With this piece, we’ll go back to the basics and eventually down to cryptocurrencies: What defines a currency? Why do we need them? What types of currencies do exist?</p>
+<p>Buckle up for a quite an adventure in which we discard old but still prevalent tales and propose necessary new ones to make complex mechanisms crystal clear.</p>
+<h3 id="the-tale-of-the-origins-ofmoney">The Tale of the Origins of Money
+</h3><p>When you hear about currencies, you often get a tale that is easy to understand and compelling; yet it’s just a tale. It goes like this:</p>
+<blockquote>
+<p>At the beginning, we were barterers, the my chicken for your corn kind of deal. Then, since bartering wasn’t efficient, we needed a more standardised mean of exchange: a good that could pass as a store of value. Precious metals were the perfect candidates — they became coins, a form of money.</p>
+</blockquote>
+<blockquote>
+<p>Yet, later on, those coins evolved once again and became paper money — still a currency, but the origin of their value shifted: while a coin gets its value from its very material (the precious metal it’s made of), the paper money needs an institution to emit it and guarantee its value one way or another.</p>
+</blockquote>
+<blockquote>
+<p>Finally, in the digital era, money evolved one more time. It’s now all “digital” — just bits, 0 and 1 located somewhere in a server and transiting almost instantly in the fiber network.</p>
+</blockquote>
+<p>We must take our time to methodically deconstruct the tale in order to dismiss it, we’ll learn quite a few things along the way:</p>
+<h3 id="money-is-not-a-store-ofvalue">Money is not a store of value
+</h3><p><strong>Money is not a store of value, it’s a claim upon value.</strong><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<h4 id="lets-burn-some-cash-to-understand-moneybetter">Let’s burn some cash to understand money better
+</h4><p>Let’s study together the example that made the distinction between the two very clear to me: let’s say I burn a $20 bill — will any value be destroyed?</p>
+<p><img src="/img/2018/money101/joker.jpeg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Thanks to the Joker for helping with the experiment"
+	
+	
+>
+Thanks to the Joker for helping with the experiment</p>
+<p>Well… Simply no! What has been destroyed is my ability to claim the aforementioned value: I can’t exchange the ashes of my bill for a beer.</p>
+<h4 id="make-itrain">Make it rain!
+</h4><p>Understanding the difference between a store of value and a claim upon value allows us to also understand <strong>the obsession with circulating currency</strong>. Indeed, money is not wealth by itself: as long as the money is not claimed (spent for goods or services), it has no contribution whatsoever to the wealth of the given country.</p>
+<p><img src="/img/2018/money101/fly.gif"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>Let’s go back to our previous cash burning experiment to dig deeper: when I burnt my $20 bill, it had no impact on the GDP (Gross Domestic Product) of the USA. Yet, if I start to burn millions of dollars, we might start to see <strong>secondary consequences</strong> affecting the GDP: since there will be less money circulating, there might be less people using it to claim value (a beer, clothes…) and therefore an impact on the real economy of the country.</p>
+<p>Those secondary consequences will <strong>only happen if the cash I burnt was meant to be spent</strong> — if burning the bills prevented me from claiming the value they carried. Hence, if I’m a multi billionaire (so let’s assume: incapable of spending all of my money), I can burn millions of dollar without having any impact on the economy: those millions would have never flowed back into the economy anyway.</p>
+<p>Putting a stop to the flow of money which would have changed hands without that stop is like preventing others to work to provide value; this value would have been exchanged for currency if the money was circulating freely.</p>
+<h4 id="counterfeit-money-realvalue">Counterfeit money, real value?
+</h4><p>To get over with the myth of money as a store of value, let’s consider a third and last scenario. Let’s say I print a very **well done stash of counterfeit money **— everybody take it for the real one. Now I give out those bills to normal American citizens, and for the sake of the simplicity of this example, the FED doesn’t notice.</p>
+<p><img src="/img/2018/money101/print.jpeg"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>In that scenario, the happy citizens who got free real-like yet counterfeit bills will start spending them for goods and services — they will claim what is rightfully theirs because of their ownership of the bills, hence increasing the GDP of the country.</p>
+<p>Yet, all of this is a scam, no value was actually created: I only printed and handed out fake bills that people think legit.</p>
+<p>Money barely is the key to the gold chest. When money itself, its physical medium, still had value (such as gold or silver coins), the content of the chest was still tied to the amount written on the key. Now, we are in a system where keys are changing endlessly changing hands without ever returning to open the chest. <strong>Our trust in our currencies is so high that the amount written on the key is sufficient and even authoritative</strong>.</p>
+<h3 id="the-myth-of-bartering-and-its-inefficiency">The myth of bartering and its inefficiency
+</h3><p>Let’s go back to the first tale about the origin of money presented in the beginning of this article: was bartering really as prevalent as the story make it seems?<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<p>We need to place some context to answer this question. We’re talking about a world where money doesn’t exist yet; hell, the very notion of “property” is even clear yet. <strong>Of course there were exchanges, but the “exchange protocol” was very different that what we picture behind the idea of bartering</strong>.</p>
+<p><img src="/img/2018/money101/swap.jpeg"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>Premodern agricultural societies were largely self-sufficient: exchanges between the member of a given community followed informal systems based on relationships: the “economy” was powered by gifting and reciprocity.<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
+<p>In practical terms, rather than the <code>my goat for your corn</code> kind of deal, it was more like <code>I will help you build this house because I know how to do it. Later on, you'll help me furnish this other house since you're a skilled woodworker. If you don't, it can put an end to 1/our relationship, 2/your very place in the community</code></p>
+<p><em>Note: Considering the system depicted above was informal, the “if you don’t…” part didn’t need to be stated, it was understood.</em></p>
+<p>In the premodern agricultural societies depicted above, barter also existed but wasn’t the main mean of exchange: it was useful to be able to exchange with people who didn’t share the kind of relationship we depicted — for exchanges between communities for instance.</p>
+<h4 id="the-distortion-of-the-historians-lens">The distortion of the Historian’s lens
+</h4><p>There could be another reason to explain why the tale of the evolution from bartering to currency is still prevalent. <strong>To reconstruct the past, historians use remains found in modern times</strong>. Coins stand the test of time. On the opposite, informal gift/counter-gift dynamics barely leave any traces behind them.<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></p>
+<p><img src="/img/2018/money101/helixism.gif"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Helixism was born when Reddit started to play Pokemon, together (Twitch Plays Pokemon) — The Origin of Ancient Helixism"
+	
+	
+>
+Helixism was born when Reddit started to play Pokemon, together (<a class="link" href="https://en.wikipedia.org/wiki/Twitch_Plays_Pok%C3%A9mon"  target="_blank" rel="noopener"
+    >Twitch Plays Pokemon</a>) — <a class="link" href="https://www.reddit.com/r/twitchplayspokemon/comments/20cz6i/the_origin_of_ancient_helixism/"  target="_blank" rel="noopener"
+    >The Origin of Ancient Helixism</a></p>
+<p>Moreover, the example frequently chosen to illustrate the bartering system are doubtful. We’re talking about <code>goat vs corn</code> deals, but is it realistic in the context of a premodern agricultural society? Since they were mostly auto sufficient, bartering was for goods that weren&rsquo;t required for the community&rsquo;s survival, since these were already produced within the community.</p>
+<h4 id="downplaying-the-role-ofbanks">DOWNPLAYING THE ROLE OF BANKS
+</h4><p>With the tale of the origins of money, banks look like mere intermediary. They provide more or less practical systems allowing the money to flow: it used to be ledgers, and it’s still is but now we have a clunky web interface to write/edit stuff in them.</p>
+<p>Yet, this skip <strong>the crucial role played by banks in our current monetary systems: monetary creation</strong>. For the sake of the easy-of-comprehension of this article, I won’t dive into the depths of it in here, a quick presentation of it will have to suffice. This mechanism is called the fractional-reserve banking.<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup></p>
+<p><img src="/img/2018/money101/fractional-reserve.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="fractional-reserve"
+	
+	
+></p>
+<p>Here is a short and (too) quick explanation — a central bank emit a monetary base allowing commercial banks to issue currency by themselves through loans. When Bob comes to Bank of America for a $10,000 loan, BA is not pulling money from its reserve to credit Bob’s account. No, what happens instead is this: the amount written in Bank of America’s ledger next to Bob’s name is increased by 10,000, and that’s pretty much it. The confidence is the banking system is preserved through mandatory reserve, corresponding to a fraction (~10%) of the loaned amount.<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup> Which leads us to our next point.</p>
+<h4 id="the-myth-of-bits-a-digital-ledger-is-still-a-good-oldledger">The myth of bits: a digital ledger is still a good old ledger
+</h4><p>Now that we are clear on monetary creation — made by bank and nothing more that an input on a ledger — let’s tackle the last myth surrounding money, the one that states that money became 0 and 1, bits stored somewhere on a server.</p>
+<p><img src="/img/2018/money101/1000xcut.jpeg"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p><strong>In real life, the nature of money hasn’t changed</strong>: the good old bank ledger is still authoritative. Its authority comes from the fact that it doesn’t exist in a vacuum: it draws its authority from the whole <strong>political, societal and judiciary system that surround it</strong>. The way we interact with the ledger (analog or digital) doesn’t reshuffle the decks.</p>
+<p>With credit cards, ATMs, online banking and all the others “innovations”, it might seem like our monetary system evolved. In reality, we’re still very close to our first monetary systems and our modern currencies follow pretty much the same rules as the old ones. <strong>Innovations and changes happened mostly at the interface level: how we interact with the ledger.</strong></p>
+<p><img src="/img/2018/money101/coins.jpeg"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>Most of the changes happened at the monetary creation level, it used to be much simpler and a state matter but the rest didn’t budge much. Our modern currencies share more with the Gold Franc<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup> - pardon my Frenchness - that we imagine. Disruption has yet to happen on currencies, what we had so far is barely a parade of facelifts.</p>
+<h3 id="a-sneak-peak-into-the-real-monetary-innovations">A sneak peak into the real monetary innovations
+</h3><p>We needed to lay out the groundwork in order to finally reach this point, the most interesting part: how does real monetary innovation looks like? The answer is not as simple as “Bitcoin”, it can take many forms:</p>
+<h4 id="change-the-ledgers-governance-mechanism">Change the ledgers’ governance mechanism
+</h4><p>Quick reminder: the current trust placed in our ledgers is due to:</p>
+<ul>
+<li>The reputation of the institutions who handle the monetary systems, be it central banks, private banks or other institutions.</li>
+<li>The political, legal and societal framework built around banks.</li>
+<li>The general public ignorance of the mechanisms governing currencies.</li>
+</ul>
+<p>You might think it’s not much to hold the whole monetary system afloat; don’t worry, you’re not the only one. Critics have been numerous and early; in the 80s the cypherpunk movement were already looking into alternative currencies to break free from the fiat ones.<sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup></p>
+<p><em>Fiat currencies are intrinsically useless objects that serves a medium of exchanges. They only have value because a government maintain and guarantee it.</em></p>
+<p>Cypherpunk experimented with digital currencies and eventually lead us to the Bitcoin introduced by Satoshi. With Bitcoin, <strong>the trust in the monetary institutions is no longer required</strong> (“trustless”). Indeed, in short the idea is as follows: instead of trusting the banks and other institutions to maintain the ledger, why not make that ledger public (=blockchain) and rely on our peers instead? This system also requires the use of cryptography and mechanisms to reach a consensus on the public ledger (so there is only one), but that will be covered in another article.</p>
+<h4 id="alter-the-innate-propriety-ofmoney">Alter the innate propriety of money
+</h4><p>What about a currency that depreciates if not used? It would help to keep it circulating. The idea is not new, it was theorised in 1916 already by Silvio Gesell and is called demurrage.<sup id="fnref:9"><a href="#fn:9" class="footnote-ref" role="doc-noteref">9</a></sup></p>
+<p>The idea of a currency depreciating over time might seem scary at first as it contradict our intuitive comprehension of money (“<em>how can it be a store of value if its value shrink over time?”</em>). We already have already established that this intuitive comprehension of money was far from the truth of the practical world. This kind of money has an evident interest for recessionary phases, as it promotes spending the money quickly and “punishes” hoarding.</p>
+<h4 id="limit-what-kind-of-items-money-can-claim-be-claimedupon">Limit what kind of items money can claim be claimed upon
+</h4><p>Without even altering the innate proprieties of money, we can change what it can be exchanged for. Local currencies are a good example of this. If they are designed carefully, this kind of currencies can help revitalize the local economy and independent businesses. Local currencies are plentiful; the Brixton Pound (B£) is one of the most well known. The team behinds it does a pretty good job to explain their thought process.<sup id="fnref:10"><a href="#fn:10" class="footnote-ref" role="doc-noteref">10</a></sup></p>
+<h3 id="conclusion">Conclusion
+</h3><p>I hope this article will provide you with a better understanding of money but most importantly that it sparked an interest and it makes you want to learn more about it! The actual monetary innovation has yet to happen. The good news is <strong>now that we have cryptocurrencies, it’s much easier to create new ones</strong> — pretty much anybody can do it and it’s an excellent news!</p>
+<p>It means that all the mechanisms we talked about and many more will be implemented and tested at scale. They already are: there are more than 1500 traded cryptocurrencies and easily another 10 thousands local, confidential or developed for learning purposes. You would like to mint your own coins too? Here’s a <a class="link" href="https://blog.ethereum.org/2015/12/03/how-to-build-your-own-cryptocurrency/"  target="_blank" rel="noopener"
+    >guide to get started.</a></p>
+<p><img src="/img/2018/money101/bricedollar.jpeg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Soon in your wallets: the Brice paper e-Dollar coin pegged on sand"
+	
+	
+>
+Soon in your wallets: the Brice paper e-Dollar coin pegged on sand</p>
+<p>Beyond what blockchain can offer, maybe here lies the most valuable contribution of Satoshi. <strong>By creating Bitcoin, he paved the way and reminded the whole world that minting money isn’t reserved to states</strong> — it’s the business of regular people too: you, me, us, and even your computer illiterate grandma should have a say.</p>
+<p>Like all changes, it sounds scary but if you think twice about it, it makes so much sense: <strong>who better than the future users themselves could design the currency the most fitted to their needs?</strong></p>
+<p>This article is the translation of an original (French) <a class="link" href="https://ecocrypto.fr"  target="_blank" rel="noopener"
+    >EcoCrypto.fr</a> story.</p>
+<h4 id="sources-to-digdeeper">SOURCES: TO DIG DEEPER
+</h4><p>I would like to give a special acknowledgement to Brett Scott who tremendously helped me to understand what money is and the different mechanisms tied to it. <a class="link" href="https://suitpossum.blogspot.com/"  target="_blank" rel="noopener"
+    >Go check his blog, it’s worth the read!</a></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a class="link" href="https://suitpossum.blogspot.com/2016/03/money-is-not-store-of-value.html"  target="_blank" rel="noopener"
+    ><em>Money is not a store of value. It is a claim upon value</em></a> — Brett Scott for The Hectic’s Guide to Global Finance, on March the 10th 2016&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a class="link" href="http://neweconomicperspectives.org/2013/09/money-created-overcome-barter.html"  target="_blank" rel="noopener"
+    ><em>Was money created to overcome barte r?</em></a> — Reynold F. Nesiba for New Economic Perspective, on September the 23rd 2013&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p><a class="link" href="https://www.tandfonline.com/doi/abs/10.1080/03071028008567469"  target="_blank" rel="noopener"
+    ><em>The ties that bind: Culture and agriculture, property and propriety in the Newfoundland village fishery</em> </a>— Gerald M.Slider for Social History on May the 30th 2008&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p><a class="link" href="https://howwegettonext.com/the-future-of-money-depends-on-busting-the-fairy-tales-you-believe-about-its-past-30cbd90619e0"  target="_blank" rel="noopener"
+    ><em>The Future of Money Depends on Busting Fairy Tales About Its Past</em></a> — Brett Scott for Medium — How We Get to Next?, on March the 30th 2016&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p><a class="link" href="https://en.wikipedia.org/wiki/Fractional-reserve_banking"  target="_blank" rel="noopener"
+    ><em>Fractional-reserve Banking</em></a>, Wikipedia&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p><a class="link" href="https://www.sciencedirect.com/science/article/pii/S1057521914001070"  target="_blank" rel="noopener"
+    ><em>Can banks individually create money out of nothing? — The theories and the empirical evidence</em></a> — Richard A. Werner for the International Review of Financial Analysis, in December 2014&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p><a class="link" href="https://en.wikipedia.org/wiki/Gold_franc"  target="_blank" rel="noopener"
+    >Gold Franc</a>, Wikipedia.&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8">
+<p><a class="link" href="https://en.wikipedia.org/wiki/Cypherpunk"  target="_blank" rel="noopener"
+    >Cypherpunk</a>, Wikipedia&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:9">
+<p><a class="link" href="https://en.wikipedia.org/wiki/Demurrage_%28currency%29"  target="_blank" rel="noopener"
+    ><em>Demurrage (Currency)</em></a> — Wikipedia&#160;<a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:10">
+<p><a class="link" href="http://brixtonpound.org/what"  target="_blank" rel="noopener"
+    ><em>What is the Brixton Pound?</em></a> — Official website of the Britxton Pound&#160;<a href="#fnref:10" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/bitcoin/">Bitcoin</a>
+        
+            <a href="/tags/currency/">Currency</a>
+        
+            <a href="/tags/money/">Money</a>
+        
+            <a href="/tags/cryptocurrency/">Cryptocurrency</a>
+        
+            <a href="/tags/blockchain/">Blockchain</a>
+        
+            <a href="/tags/ecocrypto/">Ecocrypto</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Jul 18, 2018 12:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/why-decentralization-matters-a-12-min-overview-for-the-layman/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2018/decentralisation-layman/cover.png" loading="lazy" data-key="" data-hash="/img/2018/decentralisation-layman/cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Why decentralization matters? A 12 min overview for the layman</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/blockchains-meet-telecommunications-opportunity-risk-or-a-necessity/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2018/blockchain-telco/cover.png" loading="lazy" data-key="" data-hash="/img/2018/blockchain-telco/cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Blockchains meet Telecommunications: Opportunity, Risk, or A Necessity?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/respecting-users-privacy-the-oddity-that-must-become-a-standard/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2018/user-privacy/cover.jpeg" loading="lazy" data-key="" data-hash="/img/2018/user-privacy/cover.jpeg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Respecting Users Privacy - The oddity that must become a standard</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/the-sovereign-individual-in-the-age-of-technofeudalism/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/technofeudalism-sovereign-individual/francis-bacon.jpg" loading="lazy" data-key="" data-hash="/img/2021/technofeudalism-sovereign-individual/francis-bacon.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">The Sovereign Individual in the age of technofeudalism</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/why-is-technocentrism-killing-blockchains/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2019/technocentrism/cover.jpeg" loading="lazy" data-key="" data-hash="/img/2019/technocentrism/cover.jpeg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Why is technocentrism killing blockchains?</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

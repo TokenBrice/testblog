@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="A pratical perspetive looking at Maker as a solution to maintain an ETH exposure while providing extra capital to harness DeFi yields.">
+<title>🎚 ETH exposure or DeFi yields: why choose?</title>
+
+<link rel='canonical' href='http://localhost:1313/posts/2020/leveraging-eth/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="🎚 ETH exposure or DeFi yields: why choose?">
+<meta property='og:description' content="A pratical perspetive looking at Maker as a solution to maintain an ETH exposure while providing extra capital to harness DeFi yields.">
+<meta property='og:url' content='http://localhost:1313/posts/2020/leveraging-eth/'>
+<meta property='og:site_name' content='TokenBrice - Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Lending' /><meta property='article:tag' content='Maker' /><meta property='article:tag' content='Lending' /><meta property='article:tag' content='Leveraging' /><meta property='article:tag' content='Minting DAI' /><meta property='article:published_time' content='2020-08-03T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2020-08-03T01:13:50&#43;00:00'/>
+<meta name="twitter:title" content="🎚 ETH exposure or DeFi yields: why choose?">
+<meta name="twitter:description" content="A pratical perspetive looking at Maker as a solution to maintain an ETH exposure while providing extra capital to harness DeFi yields.">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">TokenBrice - Blog</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/-defi/" >
+                🌌 DeFi
+            </a>
+        
+            <a href="/categories/-practical/" >
+                💸 Practical
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/2020/leveraging-eth/">🎚 ETH exposure or DeFi yields: why choose?</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            A pratical perspetive looking at Maker as a solution to maintain an ETH exposure while providing extra capital to harness DeFi yields.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 03, 2020</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    8 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>As the Ether giant seems to be waking up, you might be considering your <strong>options to recenter your exposure on ETH</strong>. This is precisely what I&rsquo;ve been looking at and executed on lately, and now is the time for the feedback session!</p>
+<p>Indeed, DeFi is heating up and yields are attractive. However, <strong>even crazy liquidity mining returns (on stablecoins) might not beat the ETH price appreciation once its time comes.</strong> So, instead of having to choose, why not have not both?</p>
+<p>With this one goal in mind, the most obvious solution was <a class="link" href="http://makerdao.com/"  target="_blank" rel="noopener"
+    >Maker</a>. The position can, of course, be achieved using other services; I consider them at the end.</p>
+<p>So there you have the base idea: instead of investing directly in ERC20 or stablecoins and putting them to work, you maintain an ETH base, use it to generate DAI and then diversify into your positions. This way, you maintain a healthy ETH exposure - the tradeoff being the additional risk, including liquidation that are discussed below.</p>
+<p><img src="/img/2020/leveraging-ETH/leveraging-ETH.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Maker-Leveraging-ETH-overview"
+	
+	
+></p>
+<h2 id="re-investing-the-minted-dai">Re-investing the minted DAI
+</h2><p>The options to re-invest your DAI are pretty much infinite, so I will focus on these that make the most sense - aka the best at harnessing the current DAI premium. Feel free to check my previous publications covering incentivised liquidity pools investment opportunities &amp; the useful tools to harness them:</p>
+<ol>
+<li><strong><a class="link" href="https://tokenbrice.xyz/content/posts/2020/yield-farmer-tier-list.md"  target="_blank" rel="noopener"
+    >💦 The Yield Farmer Tier List</a></strong></li>
+<li><strong><a class="link" href="https://tokenbrice.xyz/content/posts/2020/defi-farmer-toolbox.md"  target="_blank" rel="noopener"
+    >🧰 The DeFinancial Farming Toolbox</a></strong>.</li>
+</ol>
+<p>So essentially when it comes to what makes of the DAI, you have several options, here are the broad categories:</p>
+<ul>
+<li><strong>SIMPLE STABLECOIN RETURNS</strong> - Put your DAI to work, with a simple deposit on Compound or Aave, or using a yield optimiser.</li>
+<li><strong>ADV. STABLECOIN RETURNS</strong> - Invest in Curve Ypool for decent returns + extra earning opportunities on your pool tokens.</li>
+<li><strong>ERC20 EXPOSURE (+LP)</strong> - Purchase ERC20 tokens and hold or purchase ERC20 tokens and provide liquidity.</li>
+<li><strong>MORE ETH LEVERAGE</strong> - Use the DAI to buy more ETH. Can be potentially repeated for more leverage (CAREFUL). This obviously makes the most sense when you&rsquo;re expecting positive price action on ETH.</li>
+</ul>
+<p>DAI is currently trading at a premium ($~1.03), some strategies are better than others to harness the impact of this spread. I detail them in the last section.</p>
+<h3 id="vault-management-how-to-increase-gas-efficiency">Vault Management: How to Increase Gas Efficiency?
+</h3><p>When it comes to making sure you&rsquo;re not burning yourself on the gas costs, I&rsquo;ve already covered several critical tools that we won&rsquo;t detail again, such as <a class="link" href="http://zapper.fi/"  target="_blank" rel="noopener"
+    >Zapper.Fi</a>, or <a class="link" href="http://paraswap.io/"  target="_blank" rel="noopener"
+    >ParaSwap</a> for some token swaps. Today, I want to discuss services that are helpful to manage Maker vaults.</p>
+<ol>
+<li>While interacting with your vaults, you&rsquo;ll find yourself make series of transactions (deposit ETH -&gt; mint DAI -&gt; do something with the DAI). To reduce your gas costs, you can <strong>use <a class="link" href="https://furucombo.app/"  target="_blank" rel="noopener"
+    >FuruCombo</a> to build your series of operations and execute it in one transaction.</strong></li>
+<li>You might find yourself in need of a &ldquo;flash capital&rdquo; to close a position somewhere and re-open it somewhere else. If that&rsquo;s the case, an Aave flash loan will be useful. Now for the best part: <strong>flash loans are available on FuruCombo!</strong></li>
+</ol>
+<p><img src="/img/2020/leveraging-ETH/furucombo.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Collateral swap using Furucombo"
+	
+	
+></p>
+<p>Keep in mind that in these times of high gas cost, each interaction is costly. To reduce the impact of gas on your strategy, try to minimize the amount of operations you&rsquo;re doing - FuruCombo is simply amazing for that!</p>
+<p>If you have many positions to close/open, you might also want to wait for an opportunistic time to do so, where gas costs are low. The weekend evenings (Europe time) are usually best.</p>
+<h2 id="-please-read-how-to-not-get-liquidated">🚨 PLEASE READ: How to not get liquidated?
+</h2><h3 id="understanding-makers-liquidation-mechanism">Understanding Maker&rsquo;s Liquidation Mechanism
+</h3><p>When you get liquidated, (a part of) your collateral is seized to cover your debt. <strong>The existence of liquidation on Maker means you could lose potentially all of your ETH</strong> if you are careless.</p>
+<p>Here are my tips and recommendations to make sure this does not happen to you:</p>
+<p><strong>If you are just starting with leverage, maintain a very healthy collateralization ratio</strong>. I’d recommend &gt; 300 % for new users, simply for peace of mind during your discovery phase.</p>
+<p><strong>Don&rsquo;t put all of your eggs in one basket</strong>: on Maker, you can open as many vaults as you want. While you don’t want to open hundreds of positions to keep the gas costs in check, you might also want to consider splitting your stash to not put all of your ETH under the same risk and be able to more gradually manage the positions as they grow.</p>
+<p><strong>Easy Vault Management</strong>: if you&rsquo;d like a less stressful approach, you can use <a class="link" href="https://defisaver.com/"  target="_blank" rel="noopener"
+    >DeFiSaver</a> to make sure your vault is automatically kept at a certain ratio with the Save function.</p>
+<p><img src="/img/2020/leveraging-ETH/defisaver-automation.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Automating Maker Vault Management with DeFi Saver"
+	
+	
+></p>
+<h3 id="advanced-vault-management">Advanced Vault Management
+</h3><p>If you have several vaults, you can use a tool to re-distribute capital between them in one transaction, again with FuruCombo:</p>
+<pre tabindex="0"><code>Mint DAI on Vault1 (currently safe) 
+&gt; Burn DAI on Vault2 to lower its risk
+</code></pre><p>Using a flash loan, you can even fully close a vault “into” another vault for instance:</p>
+<pre tabindex="0"><code>Flash loan DAI (=debt of Vault-1) 
+&gt; Burn on Vault-1, to free the ETH 
+&gt;&gt; Deposit the ETH in Vault-2 (the one you keep) 
+&gt;&gt;&gt; Mint DAI on Vault2 
+&gt;&gt;&gt;&gt; Pay back the flash loan.
+</code></pre><p><strong>Be mindful with what you do with the DAI you mint: it&rsquo;s a debt.</strong> Prefer safer investment options. If you invest in something stupid &amp; get rekt at the same time the ETH price is depreciating, you could be putting your ETH at risk.</p>
+<h2 id="why-maker-is-the-best-service-to-leverage-eth-right-now">Why Maker is the best service to leverage ETH right now
+</h2><p>I decided to focus this article on Maker only, considering the angle is to leverage ETH and Maker is currently the best platform to do so, as well as probably the safest (running track record). Here are my main three reasons:</p>
+<ol>
+<li><strong>Fits the bill</strong> - It enables you to keep an ETH exposure while generating extra DAI to re-invest.</li>
+<li><strong>0 fee if not liquidated - (⚠ gas costs)</strong> The current stability fee is 0 (on ETH) - it costs you nothing but gas to open a position on Maker.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></li>
+<li><strong>DAI Premium -</strong> DAI is frequently trading at $ 1.02-1.03 meaning minting DAI can result in a 2-3% instant profit on the amounts reinvested (more on this later - DAI premium section).</li>
+</ol>
+<p>Please keep in mind that <strong>this is NOW</strong>, several weeks from now there might be better options for such positions, as Aave implements its new tokenomics for instance. A similar position could already be achieved today using Compound, but it doesn&rsquo;t seem profitable to do so right now (vs Maker).</p>
+<h2 id="who-is-this-strategy-for">Who is this strategy for?
+</h2><p>Since it&rsquo;s quite a flexible strategy, <strong>it can be used by pretty much anyone owning ETH and looking for a way to put them to work.</strong> However, allow me to highlight some use case scenarios that should give you ideas:</p>
+<ol>
+<li>You&rsquo;ve entered the markets recently (2019), and made profits but not really on ETH. While your ERC-20 positions are up, you might be wary about missing on ETH gains. To increase your exposure to ETH, you could settle some of your positions to ETH, open a vault, and reopen up to ⅔ of the closed ERC-20 positions.</li>
+<li>You&rsquo;ve been harnessing neat gains on the stablecoins farming lately, but even the best yields can&rsquo;t beat a waking giant. You might consider buying ETH with your stablecoins, to then open a vault and reopen part of your stablecoin position - you keep some of your yields while adding a sweet exposure to ETH&rsquo;s price.</li>
+</ol>
+<h3 id="harnessing-the-dai-premium">Harnessing the DAI Premium
+</h3><p>To conclude, let&rsquo;s consider the best options if your goal is to make the most of the current DAI premium - what does it impact most?</p>
+<p>Obviously, it&rsquo;s very nice for ETH-leveraged long. Indeed, if DAI trades at $1.03, buying ETH from DAI is more efficient.</p>
+<p>If you are considering investing in the Curve y pool, I&rsquo;d recommend going 100% from DAI. You&rsquo;ll save gas cost massively on the swaps that are not required (+ less deposit and approve tx). On top of these savings, entering the Curve y pool fully in DAI usually has a positive price slippage.</p>
+<p>Currently it sits ~1.5% over 5000 DAI: that is 1.5% instant profit as you enter the position, quite attractive right?</p>
+<p><img src="/img/2020/leveraging-ETH/curve-dai-premium.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Curve DAI Premium"
+	
+	
+></p>
+<p>Depending on your risk preference and your capital, you might want to time your entry. I was able to harness up to a 3.5% positive bonus entering the ypool, so waiting can be worth it!</p>
+<p>Thanks to Grégoire for proof reading this content &amp; <a class="link" href="https://twitter.com/jimmyragosa"  target="_blank" rel="noopener"
+    >Jimmy</a> for suggesting <a class="link" href="https://defisaver.com/"  target="_blank" rel="noopener"
+    >DeFiSaver</a>, try it out!</p>
+<h2 id="key-takeaways">Key Takeaways
+</h2><ol>
+<li>You can <strong><a class="link" href="http://oasis.app/"  target="_blank" rel="noopener"
+    >put your ETH to work</a></strong>, without selling them! Try out with a first safe (&gt;300%) position.</li>
+<li>Liking it? Start exploring other strategies but remember to account for gas costs. Use <strong><a class="link" href="https://furucombo.app"  target="_blank" rel="noopener"
+    >FuruCombo</a></strong> to build more complex flows.</li>
+<li>Using vaults more and more? It might be a good time to consider <strong><a class="link" href="https://defisaver.com/"  target="_blank" rel="noopener"
+    >DeFiSaver</a></strong> to reduce your risk and manage your vault without stress.</li>
+</ol>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a class="link" href="https://twitter.com/MakerDaiBot/status/1290243544670785536"  target="_blank" rel="noopener"
+    >The Stability Fee is now = 0</a> for all collaterals on Maker.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/defi/">DeFi</a>
+        
+            <a href="/tags/ethereum/">Ethereum</a>
+        
+            <a href="/tags/maker/">Maker</a>
+        
+            <a href="/tags/lending/">Lending</a>
+        
+            <a href="/tags/leveraging/">Leveraging</a>
+        
+            <a href="/tags/minting-dai/">Minting DAI</a>
+        
+    </section>
+
+
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Aug 03, 2020 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/posts/2020/leveraging-eth.fr/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🎚 Ether ou DeFi : Pourquoi choisir ?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2020/yield-farmer-tier-list/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">💦 The Yield Farmer Tier List</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2020/defi-farmer-toolbox/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🧰 The DeFinancial Farming Toolbox</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2020/definancial-services-guide/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">📖 How to make DeFinancial products work for you</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2020/yield-farmer-tier-list.fr/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">💦 Pools de Liquidité avec programmes d&#39;incitation - La Tier List</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 TokenBrice - Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.e87374ab760d28dfa333a671a892b101964bde5a2dac9100a50c9b0d779b4505.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

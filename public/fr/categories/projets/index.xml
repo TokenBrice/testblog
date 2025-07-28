@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Projets on TokenBrice</title>
+        <link>http://localhost:1313/fr/categories/projets/</link>
+        <description>Recent content in Projets on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>fr</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Wed, 12 Mar 2025 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/fr/categories/projets/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Effet de Levier pour gentilhomme : gains polynomiaux sans liquidations</title>
+        <link>http://localhost:1313/fr/leverage-sir/</link>
+        <pubDate>Wed, 12 Mar 2025 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/leverage-sir/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2025/leverage-sir/leverage-sir-cover.jpg" alt="Featured image of post Effet de Levier pour gentilhomme : gains polynomiaux sans liquidations" /&gt;&lt;p&gt;Il y a quelques semaines, Sir Trading, une nouveau protocole DeFi fascinant et innovant, a été lancée, et je suis rapidement tombé amoureux. J&amp;rsquo;ai également décidé de m&amp;rsquo;impliquer, alors bienvenue dans cet article qui présente Sir Trading, explique ce que j&amp;rsquo;ai trouvé intéressant dans le modèle et annonce mon implication en tant que conseiller.&lt;/p&gt;
+&lt;h2 id=&#34;sirtrading-expliqué-comme-une-entreprise&#34;&gt;Sir.Trading expliqué comme une entreprise
+&lt;/h2&gt;&lt;p&gt;Pour comprendre Sir Trading (et cela fonctionne bien avec la plupart des protocoles), nous pouvons utiliser une métaphore d&amp;rsquo;entreprise : Qui sont les clients, les intermédiaires et les parties prenantes ?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2025/leverage-sir/sir-diagram.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;sir-diagram&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Commençons donc par le bas : nos « clients » sont les APEs qui ouvrent des positions à effet de levier et paient des frais. Tout le reste est un « moyen » pour atteindre cet objectif.&lt;/p&gt;
+&lt;p&gt;Notre deuxième population est celle des « intermédiaires », les fournisseurs de liquidité sur le protocole Sir, appelés détenteurs de TEA, également appelés « gentlemen ». Ils sont nécessaires car plus il y a de liquidité TEA, plus la capacité des APE à utiliser l&amp;rsquo;effet de levier est grande, et donc plus les utilisateurs sont susceptibles d&amp;rsquo;ape à grande échelle. Maximiser cette population est essentiel, car cela aide à résoudre l&amp;rsquo;une des principales faiblesses du modèle Sir : &lt;strong&gt;l&amp;rsquo;absence de dégradation de l&amp;rsquo;effet de levier ne peut être garantie que si la liquidité fournie est suffisante par rapport à la position à effet de levier ouverte.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Il est donc logique d&amp;rsquo;inciter les fournisseurs de liquidité avec des émissions de SIR pour attirer une liquidité proportionnelle à la demande des APE. De plus, les récompenses continues en SIR offrent aux LPers un revenu stable, complétant les frais de minting/closing volatils qu&amp;rsquo;ils gagnent également — un avantage critique, car les LPers privilégient généralement la prévisibilité (cf. Aerodrome vs. Uniswap).&lt;/p&gt;
+&lt;p&gt;Enfin, les détenteurs de SIR agissent comme des parties prenantes. Ils peuvent staker leurs tokens pour recevoir des dividendes en ETH provenant des frais collectés lors de l&amp;rsquo;ouverture et de la fermeture des positions et, à l&amp;rsquo;avenir, pourraient être impliqués dans une mini-gouvernance centrée sur les décisions concernant l&amp;rsquo;allocation des ressources (⇒ quels vaults inciter avec les émissions de SIR ?).&lt;/p&gt;
+&lt;p&gt;Avec nos trois populations clés définies, nous pouvons essentiellement les assembler dans le « modèle d&amp;rsquo;entreprise » de Sir :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2025/leverage-sir/sir-business-model.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;sir-business-model&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Le protocole SIR vise à maximiser sa base de clients (détenteurs d&amp;rsquo;APE), ce qui génère des revenus partagés avec les parties prenantes (détenteurs de SIR). Les parties prenantes approuvent les émissions de SIR pour financer les intermédiaires (LPers TEA) qui fournissent la liquidité nécessaire à cet objectif et l&amp;rsquo;allouent aux vaults les plus pertinents pour stimuler l&amp;rsquo;utilisation.&lt;/p&gt;
+&lt;h2 id=&#34;zoom-sur-le-côté-ape&#34;&gt;Zoom sur le côté APE
+&lt;/h2&gt;&lt;p&gt;Comme mentionné ci-dessus, le cœur du protocole est l&amp;rsquo;APE — la capacité d&amp;rsquo;utiliser l&amp;rsquo;effet de levier sur n&amp;rsquo;importe quel actif échangé sur UniswapV3. Mais qu&amp;rsquo;est-ce qui rend cet effet de levier si intéressant, surtout par rapport aux nombreuses autres options désormais disponibles ?&lt;/p&gt;
+&lt;p&gt;Le tableau ci-dessous devrait répondre aux questions les plus importantes pour quiconque est déjà familier avec d&amp;rsquo;autres protocoles offrant un effet de levier, tels que f(x) ou Squeeth :&lt;/p&gt;
+&lt;table&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Type de Rendements
+   &lt;/td&gt;
+   &lt;td&gt;polynomial (=/ multiplicatif)
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Effet de Levier Max
+   &lt;/td&gt;
+   &lt;td&gt;Jusqu&#39;à ^5 sans dégradation de l&#39;effet de levier avec une liquidité suffisante, réalistement ~ ^2
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Liquidation
+   &lt;/td&gt;
+   &lt;td&gt;Aucune
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Rééquilibrage
+   &lt;/td&gt;
+   &lt;td&gt;Aucun
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Frais
+   &lt;/td&gt;
+   &lt;td&gt;Pas de frais de financement, seulement des frais fixes payés lors de l&#39;ouverture ou de la fermeture de la position
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Actifs Supportés
+   &lt;/td&gt;
+   &lt;td&gt;Potentiellement tout actif échangé sur UNIv3 + déploiement de vault permissionless
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Considérations de Sécurité
+   &lt;/td&gt;
+   &lt;td&gt;Protocole devant être éventuellement entièrement immuable une fois sorti du mode Beta, oracle utilisé est sans confiance (UNIv3)
+   &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;Comme vous pouvez le voir ci-dessus, je pense que l&amp;rsquo;offre est assez convaincante même par rapport aux options existantes, bien qu&amp;rsquo;elle soit un peu « bizarre » si vous êtes habitué à d&amp;rsquo;autres produits d&amp;rsquo;effet de levier plus classiques, car vous devez vous familiariser avec quelques nouveaux concepts.&lt;/p&gt;
+&lt;h3 id=&#34;rendements-polynomiaux-&#34;&gt;Rendements polynomiaux ?!
+&lt;/h3&gt;&lt;p&gt;Tout d&amp;rsquo;abord, abordons &lt;strong&gt;la question de l&amp;rsquo;effet de levier linéaire (le plus courant) vs polynomial (cas de Sir)&lt;/strong&gt;. Si vous n&amp;rsquo;êtes pas un passionné de maths, je pense que la première chose à comprendre sur les polynômes est que leur impact est de plus en plus palpable à mesure que le prix s&amp;rsquo;éloigne du prix de départ. Il vaut mieux être prudent, car cela fonctionne dans les deux sens. Illustrons avec une position hypothétique simplifiée commencée lorsque ETH = 2000 $ (les frais sont ignorés pour simplifier ; nous y reviendrons plus tard) :&lt;/p&gt;
+&lt;table&gt;
+  &lt;tr&gt;
+   &lt;td&gt;
+   &lt;/td&gt;
+   &lt;td&gt;2500 $ (+25%)
+   &lt;/td&gt;
+   &lt;td&gt;3000 $ (+50%)
+   &lt;/td&gt;
+   &lt;td&gt;4000 $ (+100%)
+   &lt;/td&gt;
+   &lt;td&gt;10000 $ (+400%)
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Linéaire - ETH x2
+   &lt;/td&gt;
+   &lt;td&gt;3 000
+   &lt;/td&gt;
+   &lt;td&gt;4 000
+   &lt;/td&gt;
+   &lt;td&gt;6 000
+   &lt;/td&gt;
+   &lt;td&gt;18 000
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Polynomial - ETH ^2
+   &lt;/td&gt;
+   &lt;td&gt;3 125
+   &lt;/td&gt;
+   &lt;td&gt;4 500
+   &lt;/td&gt;
+   &lt;td&gt;8 000
+   &lt;/td&gt;
+   &lt;td&gt;50 000
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Linéaire - ETH x5
+   &lt;/td&gt;
+   &lt;td&gt;4 500
+   &lt;/td&gt;
+   &lt;td&gt;7 000
+   &lt;/td&gt;
+   &lt;td&gt;12 000
+   &lt;/td&gt;
+   &lt;td&gt;42 000
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Polynomial - ETH ^5
+   &lt;/td&gt;
+   &lt;td&gt;6 103,52
+   &lt;/td&gt;
+   &lt;td&gt;15 187,5
+   &lt;/td&gt;
+   &lt;td&gt;64 000
+   &lt;/td&gt;
+   &lt;td&gt;6 250 000
+   &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;Vous voyez ce scénario de la dernière ligne/colonne, avec notre ape ETH^5 atteignant un Valhalla de plus de 6 millions de dollars sur une simple position de base de 1 ETH (avec une appréciation de prix de +400%) ? C&amp;rsquo;est le pouvoir des rendements polynomiaux. Ce que nous avons examiné ci-dessus est alléchant, bien qu&amp;rsquo;il abstrait de nombreux facteurs, y compris les frais, et suppose aucune dégradation de l&amp;rsquo;effet de levier pour les deux positions. Considérez cela comme un exemple pour comprendre la puissance du polynomial par rapport au linéaire dans un contexte financier plus que toute autre chose.&lt;/p&gt;
+&lt;p&gt;Les rendements polynomiaux (paiements convexes) ont historiquement été surpromis et sous-livrés. Les livrer de manière cohérente est généralement difficile, mais ils sont généralement mis en œuvre avec des &lt;strong&gt;facteurs correctifs&lt;/strong&gt; de différentes natures et noms : dégradation temporelle, dégradation de la volatilité, dégradation de l&amp;rsquo;effet de levier, etc. Le modèle habituel pour un tel produit consiste à &lt;strong&gt;gérer des prêts entre traders et prêteurs&lt;/strong&gt; pour maintenir l&amp;rsquo;effet de levier aussi constant que possible. Cela conduit à des modèles où les utilisateurs d&amp;rsquo;effet de levier diffusent constamment des frais variables aux prêteurs et voient encore leurs positions souvent rééquilibrées. Avec Sir, ce facteur correctif est clair et explicite dès le départ — c&amp;rsquo;est ce frais élevé, alors plongeons-y.&lt;/p&gt;
+&lt;h3 id=&#34;structure-des-frais&#34;&gt;Structure des Frais
+&lt;/h3&gt;&lt;p&gt;Ensuite, le modèle de frais, qui est également assez différent de l&amp;rsquo;habituel. Les frais de Sir sont fixes, dépendent de votre effet de levier, et sont facturés à moitié lors de l&amp;rsquo;ouverture de la position (minting d&amp;rsquo;APE) et à moitié lors de la fermeture de la position (rédemption d&amp;rsquo;APE). À première vue, ils peuvent sembler assez élevés :&lt;/p&gt;
+&lt;table&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Effet de Levier
+   &lt;/td&gt;
+   &lt;td&gt;Frais Totaux
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;^1.5
+   &lt;/td&gt;
+   &lt;td&gt;17,35% du principal
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;^5
+   &lt;/td&gt;
+   &lt;td&gt;69,13% du principal
+   &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;Zoomons sur une position ETH/USDC^1.5 pour mieux comprendre l&amp;rsquo;impact de l&amp;rsquo;effet de levier polynomial et des frais de Sir, avec une position hypothétique ouverte à ETH = 2000 $.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2025/leverage-sir/sir-calculator.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;sir-calculator&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Avec ETH = 4000 $ (+100%), une telle position est en hausse d&amp;rsquo;environ 17% en termes d&amp;rsquo;ETH ou de 134% en termes d&amp;rsquo;USD. Bien sûr, à ce stade, vous êtes un expert en effet de levier polynomial, et donc vous comprenez que &lt;strong&gt;l&amp;rsquo;écart entre l&amp;rsquo;ETH/USDC^1.5 et la détention brute d&amp;rsquo;ETH augmente plus le prix s&amp;rsquo;apprécie&lt;/strong&gt;. À ETH = 6000 $ (+200%), la position est maintenant en hausse d&amp;rsquo;environ 43% par rapport à ETH ou 330% par rapport à USD. À ETH = 8000 $, nous sommes maintenant à ~65% de gains par rapport à ETH et 562% par rapport à USD. Encore une fois, cela fonctionne de la même manière en sens inverse ; veuillez vous en souvenir.&lt;/p&gt;
+&lt;p&gt;Je pense que cela explicite bien le « but du jeu » avec Sir :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Idéalement, vous voulez saisir un bon creux + retournement pour ouvrir votre position à un prix favorable et gagner rapidement suffisamment de rendements pour couvrir les frais.&lt;/li&gt;
+&lt;li&gt;Votre objectif est ensuite de saisir l&amp;rsquo;écart maximal entre votre prix d&amp;rsquo;ouverture et de fermeture, sachant que chaque % que vous pouvez saisir fournit des rendements exponentiellement plus importants.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;La conception du produit est bien adaptée à de telles opérations car vous n&amp;rsquo;avez pas à vous soucier des frais de financement ou de la dégradation temporelle. Vous cherchez essentiellement à acheter bas et vendre haut ; bienvenue dans la crypto : sauf que cette fois, vous avez un outil qui amplifie vos rendements plus vous parvenez à le faire.&lt;/p&gt;
+&lt;p&gt;En raison de sa structure de frais, &lt;strong&gt;Sir est orienté vers les utilisateurs d&amp;rsquo;effet de levier ayant une perspective à long terme&lt;/strong&gt;, ce qui correspond à ses autres caractéristiques clés (pas de liquidation, pas de dégradation de l&amp;rsquo;effet de levier). Dans l&amp;rsquo;ensemble, les frais payés sont similaires à ceux qui seraient encourus en maintenant une position sur marge pendant un an, établissant un équilibre entre les rendements potentiels, la stabilité du protocole et les coûts initiaux. Lors de l&amp;rsquo;ouverture d&amp;rsquo;une position à effet de levier, l&amp;rsquo;une des principales préoccupations est de se tromper de timing et d&amp;rsquo;être haché par une action de prix en range, où les frais s&amp;rsquo;accumulent et emportent tout profit potentiel ; cette préoccupation est inexistante dans le modèle de Sir.&lt;/p&gt;
+&lt;p&gt;Enfin, je voudrais vous rappeler une fois de plus la principale limitation de Sir : l&amp;rsquo;absence de dégradation de la liquidité ne peut être assurée que s&amp;rsquo;il y a suffisamment de liquidité pour absorber votre trade. Bien qu&amp;rsquo;il soit &lt;strong&gt;raisonnable de supposer cela pour les vaults incités ^1.25, ^1.5, ou même ^2&lt;/strong&gt;, cela devient beaucoup moins certain pour les vaults ^5, même avec de fortes incitations, en raison des maths que j&amp;rsquo;ai partagées ci-dessus.&lt;/p&gt;
+&lt;p&gt;Si vous souhaitez plus de données pour comprendre l&amp;rsquo;impact de l&amp;rsquo;effet de levier polynomial dans le contexte de Sir (=frais inclus), consultez &lt;a class=&#34;link&#34; href=&#34;https://app.sir.trading/leverage-calculator&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;le nouveau calculateur sur le site de Sir&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Remarque : Les tokens APE sont des ERC-20 ; ainsi, une composabilité supplémentaire pourrait être envisagée. Cela pourrait devenir intéressant à mesure que le protocole se développe !&lt;/p&gt;
+&lt;h2 id=&#34;quen-est-il-des-buveurs-de-tea-&#34;&gt;Qu&amp;rsquo;en est-il des buveurs de TEA ?
+&lt;/h2&gt;&lt;p&gt;Maintenant que vous avez une bonne compréhension du côté de la demande, les APE/utilisateurs d&amp;rsquo;effet de levier, passons de l&amp;rsquo;autre côté, les fournisseurs de liquidité/détenteurs de TEA.&lt;/p&gt;
+&lt;p&gt;Commençons par les bases : les buveurs de TEA font essentiellement du contre-trading par rapport aux APE, car ils fournissent la liquidité contre laquelle les APE rachètent s&amp;rsquo;ils parviennent à gagner et sécuriser (racheter) des gains importants. Quand je dis « contre-trading » ici, je veux dire de la même manière qu&amp;rsquo;un LP UNIv2_ETH/USDC contre-trade le marché : lorsque le marché achète principalement de l&amp;rsquo;ETH (⇒ le prix monte), les positions apportrices de liquidité se rééquilibrent vers l&amp;rsquo;USDC, et vice versa.&lt;/p&gt;
+&lt;p&gt;Donc, encore plus simplement, &lt;strong&gt;les détenteurs de TEA sont plus courts par rapport à l&amp;rsquo;actif sous-jacent que s&amp;rsquo;ils le détenaient simplement&lt;/strong&gt;. Comprendre cela est tout ce dont vous avez besoin pour pouvoir projeter l&amp;rsquo;impact des variations de prix sur votre principal. Vous devez également &lt;strong&gt;garder à l&amp;rsquo;esprit l&amp;rsquo;utilisation de la liquidité,&lt;/strong&gt; car si vous fournissez à un vault où il y a peu ou pas d&amp;rsquo;aping, vous contre-tradez peu ou personne, et votre exposition principale devient similaire à une détention brute de l&amp;rsquo;actif sous-jacent.&lt;/p&gt;
+&lt;p&gt;Bien que les détenteurs de TEA soient « plus courts » par rapport à une détention brute de l&amp;rsquo;actif sous-jacent, ils restent exposés à son appréciation de prix. Vous pouvez &lt;strong&gt;penser aux détenteurs de TEA comme ETH/USD^0-1&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Maintenant, avec le principal clarifié, abordons les gains en tant que détenteur de TEA. C&amp;rsquo;est assez simple : par défaut, &lt;strong&gt;les détenteurs de TEA d&amp;rsquo;un vault donné gagnent collectivement tous les frais encourus par les minters d&amp;rsquo;APE&lt;/strong&gt;. Les frais sont gagnés en tant que tels (même token que le token fourni) et auto-composés. Les détenteurs de TEA peuvent les racheter en brûlant leur position pour récupérer leur principal + tous les frais accumulés.&lt;/p&gt;
+&lt;p&gt;En plus des frais gagnés en fonction de l&amp;rsquo;activité d&amp;rsquo;aping, &lt;strong&gt;certains vaults sont également incités avec des flux d&amp;rsquo;émissions de SIR.&lt;/strong&gt; Ceux-ci incluent actuellement les plus utilisés : ETH/USDC1.5, wBTC/USDT1.5, SIR/ETH1.5 et SIR/ETH5. Lorsque les vaults sont incités avec des émissions de SIR, environ 10% des frais encourus par les APE sont redirigés vers les stakers de SIR.&lt;/p&gt;
+&lt;p&gt;Remarque : Les tokens TEA sont des ERC-1155, limitant la composabilité supplémentaire, ce qui est une bonne chose ici, car vous voulez éviter les situations de type restaking sur ces tokens, qui sont critiques pour le bon fonctionnement du protocole.&lt;/p&gt;
+&lt;h2 id=&#34;caractéristiques-notables&#34;&gt;Caractéristiques notables
+&lt;/h2&gt;&lt;p&gt;Avec ce qui précède, vous devriez déjà avoir une bonne compréhension du protocole, donc plutôt que de vous ennuyer avec des explications expansives de chaque subtilité, je vais plutôt zoomer sur quelques fonctionnalités de Sir que j&amp;rsquo;ai trouvées dignes de commentaire :&lt;/p&gt;
+&lt;h3 id=&#34;maximisation-de-labsence-de-confiance&#34;&gt;Maximisation de l&amp;rsquo;absence de confiance
+&lt;/h3&gt;&lt;p&gt;Les lecteurs de mon blog ne seront pas surpris de trouver une section abordant cela, car la décentralisation maximale et l&amp;rsquo;absence de confiance sont mes mantras. À cet égard, Sir Trading s&amp;rsquo;en sort plutôt bien, et la conception démontre la priorité accordée à ces deux sujets par ses fondateurs.&lt;/p&gt;
+&lt;p&gt;Commençons par le plus important — le potentiel d&amp;rsquo;immuabilité du protocole. Compte tenu de son approche novatrice et des risques associés, rendre le protocole immédiatement entièrement immuable pourrait être inconséquent. Au lieu de cela, l&amp;rsquo;approche développée ici est un chemin progressif vers une immuabilité éventuelle avec quatre modes :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2025/leverage-sir/sir-beta-mode.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;sir-beta-mode&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Sir est actuellement en mode Roues d&amp;rsquo;Entraînement, dans lequel certains paramètres, tels que les frais, peuvent encore être ajustés. À partir du mode Roues d&amp;rsquo;Entraînement, il peut passer en mode Urgence en réponse à un bug ou à une exploitation et de là à un Arrêt (⇒ Redéploiement) si nécessaire. D&amp;rsquo;un autre côté, si tout se passe bien, les roues d&amp;rsquo;entraînement peuvent être retirées, et le protocole peut être basculé en mode Imparable, où il devient immuable. Je trouve cette approche équilibrée et intéressante, &lt;a class=&#34;link&#34; href=&#34;https://docs.sir.trading/protocol-overview/beta-period&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;définitivement digne d&amp;rsquo;étude&lt;/a&gt; pour d&amp;rsquo;autres constructeurs.&lt;/p&gt;
+&lt;p&gt;Maintenant, regardons la solution d&amp;rsquo;oracle choisie, un élément critique pour tout protocole basé sur le prêt ou l&amp;rsquo;effet de levier. Ici, &lt;strong&gt;la solution est simple et entièrement sans confiance : Uniswap v3.&lt;/strong&gt; Elle a bien sûr des limites, notamment la liquidité disponible sur Uniswap pour garantir que le prix ne soit pas facilement manipulable. Cependant, compte tenu que les principaux vaults sont des majors comme ETH ou wBTC, ce n&amp;rsquo;est pas une grande préoccupation. Cela pourrait être plus problématique pour les vaults liés à SIR, mais ici encore, la liquidité est raisonnablement suffisante par rapport à la capitalisation du token (TVL dans les pools &amp;gt; 35% FDV). Une atténuation supplémentaire est mise en œuvre sur l&amp;rsquo;oracle UNIv3 (TWAP de 30 min) pour mieux résister à la manipulation des prix.&lt;/p&gt;
+&lt;p&gt;Une autre fonctionnalité intéressante en termes d&amp;rsquo;absence de confiance et de résilience est l&amp;rsquo;&lt;strong&gt;exploitation des &lt;a class=&#34;link&#34; href=&#34;https://docs.sir.trading/protocol-overview/token-auctions&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;enchères de tokens&lt;/a&gt; pour rationaliser la distribution des frais aux stakers&lt;/strong&gt;. Sir est loin d&amp;rsquo;être le seul à faire cela, car, par exemple, &lt;a class=&#34;link&#34; href=&#34;https://docs.euler.finance/developers/periphery/fee-flow/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Euler Finance exploite une logique similaire&lt;/a&gt;. De telles enchères permettent la conversion de nombreux actifs en un seul (dans ce cas, wETH) sans ajouter de compromis inutiles au protocole. Je m&amp;rsquo;attends à en voir encore plus.&lt;/p&gt;
+&lt;p&gt;Remarque : Xatarrer (fondateur) a soumis lui-même une revue DeFiScan pour Sir Trading, qui est actuellement en cours d&amp;rsquo;examen. Veuillez consulter &lt;a class=&#34;link&#34; href=&#34;https://defiscan.info/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFiScan&lt;/a&gt; une fois la revue publiée pour plus de détails concernant la décentralisation de Sir.&lt;/p&gt;
+&lt;h3 id=&#34;liquidité-possédée-par-le-protocole&#34;&gt;Liquidité Possédée par le Protocole
+&lt;/h3&gt;&lt;p&gt;La liquidité est le sang vital de Sir, et la conception du protocole le reconnaît avec &lt;strong&gt;un accent particulier sur la croissance des réserves de liquidité permanente (TEA)&lt;/strong&gt;. Chaque dépôt de fournisseur de liquidité comprend des frais (~8,99% de leur principal) retenus comme liquidité permanente possédée par le protocole. Ainsi, inciter les LPers avec SIR n&amp;rsquo;est pas seulement « louer » de la liquidité — c&amp;rsquo;est aussi un « rachat » partiel immédiat de leur dépôt.&lt;/p&gt;
+&lt;p&gt;Grâce à cela, à mesure que le protocole se développe et peut attirer plus de fournisseurs de liquidité, il construit des réserves de liquidité permanente, permettant une « liquidité minimale garantie pour les APE » toujours croissante. C&amp;rsquo;est essentiellement une boucle vertueuse résolvant progressivement l&amp;rsquo;un des principaux inconvénients du modèle : élégant !&lt;/p&gt;
+&lt;h3 id=&#34;modèle-démission-de-token-continue&#34;&gt;Modèle d&amp;rsquo;Émission de Token Continue
+&lt;/h3&gt;&lt;p&gt;SIR fonctionne sous un &lt;strong&gt;modèle d&amp;rsquo;émission constante au taux de 2015M SIR par an&lt;/strong&gt;, avec la part du lion allant toujours à l&amp;rsquo;incitation des fournisseurs de liquidité. Il y a cependant un changement dans la logique de distribution, fait pour donner au protocole les moyens de sa croissance initiale dans les trois premières années :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pour les 3 premières années, 68,13 % dirigés vers les fournisseurs de liquidité, 13,65 % vers les contributeurs pré-mainnet, 10 % réservés dans un trésor, et 8,22 % vers les investisseurs.&lt;/li&gt;
+&lt;li&gt;Après cela : 100% vers les fournisseurs de liquidité.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ce modèle est efficace, car aucun vesting n&amp;rsquo;est nécessaire pour l&amp;rsquo;équipe/les investisseurs/le trésor, puisque la logique est entièrement décalée ici : vous devez penser en termes de flux de tokens (X SIR/jour) plutôt qu&amp;rsquo;en solde total et vesting associé.&lt;/p&gt;
+&lt;h2 id=&#34;mettre-votre-compréhension-en-pratique&#34;&gt;Mettre votre compréhension en pratique
+&lt;/h2&gt;&lt;p&gt;Pour conclure, nous pouvons maintenant articuler notre compréhension partagée du protocole en étudiant trois hypothèses de marché différentes articulées en stratégies :&lt;/p&gt;
+&lt;h3 id=&#34;-je-suis-haussier-sur-eth-ou-btc-sur-un-horizon-de-temps-moyenlong-&#34;&gt;« Je suis haussier sur ETH ou BTC sur un horizon de temps moyen/long »
+&lt;/h3&gt;&lt;p&gt;Celle-ci est la plus simple ; il suffit de minter le token APE ETH/USDC^1.5. L&amp;rsquo;absence de liquidation et de frais de financement vous permettra de définir cette position et de l&amp;rsquo;oublier. &lt;strong&gt;Votre principale métrique à surveiller ici est le frais d&amp;rsquo;ouverture + fermeture à 17,35% : vous devez saisir une appréciation de prix d&amp;rsquo;environ 26% sur ETH pour entrer en territoire de profit&lt;/strong&gt;, avec vos gains augmentant de manière polynomiale à partir de là.&lt;/p&gt;
+&lt;p&gt;Variantes :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Je suis haussier sur BTC : tout pareil, sauf en utilisant l&amp;rsquo;APE wBTC/USDT^1.5 (vault principal : bonne quantité de liquidité disponible).&lt;/li&gt;
+&lt;li&gt;Je suis haussier sur ETH contre BTC et je cherche de l&amp;rsquo;adrénaline : tout pareil, sauf en utilisant le vault wETH/wBTC^5 (attention, faible liquidité actuellement)&lt;/li&gt;
+&lt;li&gt;Je suis haussier sur SIR contre ETH : vous avez plusieurs niveaux d&amp;rsquo;effet de levier disponibles pour exprimer cette conviction onchain (SIR/ETH^1.5 et SIR/ETH^5 étant les plus liquides).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;-je-suis-baissier-sur-eth-sur-un-horizon-de-temps-moyenlong-&#34;&gt;« Je suis baissier sur ETH sur un horizon de temps moyen/long »
+&lt;/h3&gt;&lt;p&gt;Vraiment ?! Pas de jugement ; il y a aussi un vault pour cela, au nom de USDC/wETH^1.5 ! Parce que ce vault est basé sur USDC, contre ETH, ouvrir une position APE là-bas signifie shorter ETH avec un effet de levier polynomial.&lt;/p&gt;
+&lt;p&gt;Inversement, fournir ce vault en tant que fournisseur de liquidité (TEA) signifie contre-trader les (potentiels) shorters ⇒ être long ETH (s&amp;rsquo;il y a utilisation), mais à partir d&amp;rsquo;une base USDC cette fois. Cependant, ce vault n&amp;rsquo;est pas actuellement incité avec des émissions de SIR, donc vos gains proviendront uniquement des positions ouvertes par les APE.&lt;/p&gt;
+&lt;h3 id=&#34;-je-suis-haussier-sur-sir-mais-pas-vraiment-un-ape-avide-deffet-de-levier-&#34;&gt;« Je suis haussier sur SIR, mais pas vraiment un APE avide d&amp;rsquo;effet de levier »
+&lt;/h3&gt;&lt;p&gt;C&amp;rsquo;est compréhensible ; tout le monde n&amp;rsquo;est pas un maximisateur de sensations fortes. Ici, vous pourriez envisager &lt;strong&gt;d&amp;rsquo;exploiter les émissions constantes aux fournisseurs de liquidité pour construire votre réserve de SIR au fil du temps et seulement au coût d&amp;rsquo;opportunité du capital&lt;/strong&gt;. Compte tenu des frais de fourniture LP, vous êtes « forcé » de maintenir la position pendant quelques semaines/mois pour réduire l&amp;rsquo;impact des frais. Si vous êtes inquiet de la dépréciation du principal en cas d&amp;rsquo;un important retournement de marché à la hausse, vous pourriez envisager de répartir vos dépôts sur plusieurs vaults incités pour vous en prémunir.&lt;/p&gt;
+&lt;p&gt;En supposant que vous farmiez initialement avec un dépôt d&amp;rsquo;ETH ou de wBTC, vous avez une option de composition avec votre SIR fraîchement farmé : fournir les vaults SIR. Envisagez également de staker votre SIR pour maximiser une position SIR à moyen/long terme.&lt;/p&gt;
+&lt;h2 id=&#34;discussion-de-mon-implication&#34;&gt;Discussion de Mon Implication
+&lt;/h2&gt;&lt;p&gt;Avant de vous quitter, j&amp;rsquo;aimerais vous donner plus de contexte sur mon implication avec Sir : Je conseille l&amp;rsquo;équipe de Sir pour les aider avec mes sujets principaux : croissance, optimisation de la tokenomie et développement commercial. Je suis rémunéré pour cet effort, et je suis également un détenteur d&amp;rsquo;APE et de TEA, et donc un farmer de SIR — &lt;strong&gt;Je suis long SIR de toutes les manières possibles&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;J&amp;rsquo;ai découvert Sir assez récemment (le protocole n&amp;rsquo;a que quelques semaines), mais le timing était excellent. Comme ceux qui me suivent sur Twitter le savent probablement déjà, j&amp;rsquo;ai été profondément déçu par f(x), où j&amp;rsquo;ai subi une liquidation abusive découlant de lacunes infrastructurelles de leur côté (RPCs).&lt;/p&gt;
+&lt;p&gt;J&amp;rsquo;étais, depuis lors, à la recherche d&amp;rsquo;une solution alternative à f(x) et je suis tombé sur Sir, qui offre des fonctionnalités similaires (« vraie » absence de liquidation, pas de frais de financement) mais apporte également des ajouts bienvenus au mix, comme l&amp;rsquo;effet de levier polynomial vs linéaire : à la fois le protocole et le timing étaient parfaits, donc faire un effort supplémentaire pour aider à son succès s&amp;rsquo;est produit très spontanément.&lt;/p&gt;
+&lt;p&gt;Je n&amp;rsquo;aborde pas le conseil comme un objet de collection à ajouter à mon portefeuille, à montrer dans 2 appels mensuels, à collecter le paiement et à en rester là. Je suis à l&amp;rsquo;opposé, tout aussi engagé, impliqué et sélectif avec eux.&lt;/p&gt;
+&lt;p&gt;Avec Sir, compte tenu de la récente du protocole, mes contributions actuelles tournent autour de la sensibilisation au protocole, de son intégration dans l&amp;rsquo;écosystème et de l&amp;rsquo;explicitation de ses avantages au plus grand nombre possible, comme cela a été fait avec cet article. J&amp;rsquo;exploite mon expérience extensive en DeFi, mon réseau et ma présence pour soutenir l&amp;rsquo;équipe de toutes les manières pertinentes.&lt;/p&gt;
+&lt;h3 id=&#34;ma-position--valhalla-ou-enfer-rien-entre-les-deux-&#34;&gt;Ma position « Valhalla ou enfer, rien entre les deux »
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://etherscan.io/tx/0x5f9038d9004b53501bdf05b3f30d8fc8fd2d8da6a89299a624276c7605bf4ea7&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;J&amp;rsquo;ai ouvert une position SIR^5 sur mon portefeuille public tokenbrice.eth&lt;/a&gt; — n&amp;rsquo;hésitez pas à la suivre : 500K SIR avec un effet de levier ^5 ⇒ rachetable pour ~155K SIR à l&amp;rsquo;initiation (~69% de frais), ouverte le 4 mars 2025 à 20:34:47 UTC. Si tout se passe bien, j&amp;rsquo;espère éventuellement racheter cela pour ~8M SIR (⇒ SIR à 2x mon prix de départ, en supposant une liquidité suffisante) et faire quelque chose d&amp;rsquo;amusant avec. &lt;strong&gt;Je veux vous rappeler qu&amp;rsquo;un tel effet de levier est ce qui se rapproche le plus de la folie onchain ; cette position est maintenant connue dans la communauté comme « Valhalla ou enfer, rien entre les deux »&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Remarque : En tant que protocole construit pour la résilience, &lt;a class=&#34;link&#34; href=&#34;https://x.com/DeFiCollective_/status/1897575989032497390&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Sir est également soutenu par le DeFi Collective&lt;/a&gt;, qui a reçu un don de SIR, l&amp;rsquo;a assorti d&amp;rsquo;ETH, a initié et fourni le LP UNIv2, et a verrouillé le token LP pour un an afin de sécuriser une base de liquidité pour le token.&lt;/p&gt;
+&lt;p&gt;Avertissement : Cet article et la stratégie ci-dessus ne sont pas des conseils en investissement mais des illustrations pratiques de ce que le protocole peut faire. Vous prenez vos propres décisions, et vous en êtes responsable. Au cas où cela n&amp;rsquo;était pas assez clair avec les avertissements précédents : Je suis exposé à SIR en tant que token et protocole et je bénéficie de sa croissance ; en d&amp;rsquo;autres termes, je suis aligné au maximum.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Annonce : lancement du DeFi Collective - une association conçue pour soutenir la DeFi autonome et résiliente</title>
+        <link>http://localhost:1313/fr/defi-collective/</link>
+        <pubDate>Mon, 16 Oct 2023 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/defi-collective/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2023/defi-collective/twitter_banner.png" alt="Featured image of post Annonce : lancement du DeFi Collective - une association conçue pour soutenir la DeFi autonome et résiliente" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://deficollective.org&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Présentation du DeFi Collective&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Historiquement, les systèmes financiers ont été mal gérés par les États, corrompus par des intérêts privés tenaces, et incapables de remplir leur fonction première : établir  un circuit neutre, juste et transparent pour permettre des échanges de valeur sans entraves.&lt;/p&gt;
+&lt;p&gt;Il y a plus de cinq ans, j&amp;rsquo;ai découvert la finance décentralisée (alors naissante) et j&amp;rsquo;ai été rapidement convaincu qu&amp;rsquo;elle représentait une tentative crédible de fournir un système d&amp;rsquo;échange de valeur neutre, libérée de l&amp;rsquo;influence des États et capable de résister aux tentatives de corruption des acteurs privés.&lt;/p&gt;
+&lt;p&gt;En effet, le réseau Ethereum fournit un grand livre de comptes transparent, permettant aux utilisateurs d&amp;rsquo;effectuer des transactions purement de pair à pair. Les smart contracts permettent la création de divers protocoles pour des cas d&amp;rsquo;utilisation plus avancés - dont certains peuvent approcher le niveau de résilience du réseau, comme Uniswap, une primitive financière fournissant une infrastructure pour l&amp;rsquo;échange sans permission de n&amp;rsquo;importe quel jeton qui fonctionnera aussi longtemps que le réseau Ethereum se synchronisera.&lt;/p&gt;
+&lt;p&gt;C&amp;rsquo;est ainsi que je me suis progressivement engagé à soutenir et à concrétiser cette vision :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;En 2018, j&amp;rsquo;ai commencé à écrire et à partager sur la DeFi sur différents supports, et j&amp;rsquo;ai finalement lancé ce blog quelques années plus tard.&lt;/li&gt;
+&lt;li&gt;Fin 2019, avec des amis, nous avons lancé &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/defi_fr&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFi France&lt;/a&gt; pour créer un environnement favorable à l&amp;rsquo;adoption et à l&amp;rsquo;implication de la DeFi dans les communautés francophones.&lt;/li&gt;
+&lt;li&gt;En 2020, j&amp;rsquo;ai commencé à &lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/@DeFiFrance/featured&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;animer des émissions en direct en français&lt;/a&gt; pour documenter les protocoles DeFi les plus pertinents et permettre à leurs utilisateurs de mieux les comprendre.&lt;/li&gt;
+&lt;li&gt;Enfin, en 2022, j&amp;rsquo;ai rejoint l&amp;rsquo;équipe de Liquity, pour aider à l&amp;rsquo;adoption du LUSD, une infrastructure essentielle à mes yeux, car LUSD reste le stablecoin le plus résilient disponible à ce jour.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2023/defi-collective/tokenbrice-metamorphosis.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;tokenbrice-metamorphosis-timeline&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;introduction-du-defi-collective&#34;&gt;Introduction du DeFi Collective
+&lt;/h3&gt;&lt;p&gt;Il est temps de présenter mon ultime engagement pour aider l&amp;rsquo;écosystème DeFi à réaliser ses promesses initiales : &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/DeFiCollective_&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;The DeFi Collective&lt;/a&gt;. Le DeFi Collective tente de résoudre un déséquilibre structurel qui pourrait conduire la DeFi à ne pas honorer ses valeurs fondamentales. En effet, la DeFi souffre d&amp;rsquo;une tension inhérente entre le respect de ses valeurs premières et les concessions que certains jugent nécessaires à sa croissance et à son adoption.&lt;/p&gt;
+&lt;p&gt;Les protocoles les plus largement adoptés sont rarement les plus résistants, et nous, au Collectif, pensons que cela provient d&amp;rsquo;un problème d&amp;rsquo;incitation :&lt;/p&gt;
+&lt;p&gt;Les équipes qui contrôlent étroitement leur protocole (généralement par le biais de multisigs) et qui exploitent des modèles de tokenomics agressifs ont tendance à disposer d&amp;rsquo;une plus grande puissance de feu pour attirer des capitaux et se promouvoir que celles qui valorisent la sécurité et la solidité par-dessus tout. Nous considérons le Collectif comme une ressource essentielle pour résoudre ce déséquilibre.&lt;/p&gt;
+&lt;h3 id=&#34;une-association-à-but-non-lucratif-pour-soutenir-les-protocoles-defi-les-plus-robustes&#34;&gt;Une association à but non-lucratif pour soutenir les protocoles DeFi les plus robustes
+&lt;/h3&gt;&lt;p&gt;Comment cela se passe-t-il ? &lt;strong&gt;Les protocoles qui garantissent des infrastructures publiques ouvertes, transparentes et résilientes recevront le soutien du collectif DeFi, gratuitement et sans conditions.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Le DeFi Collective est une association suisse à but non lucratif, dont le siège est à Zug, et qui est tenue par ses statuts d&amp;rsquo;utiliser ses ressources pour soutenir les protocoles du DeFi les plus solides. Qu&amp;rsquo;est-ce que cela implique ? Le Collectif clarifiera et publiera ses lignes directrices pour les protocoles peu après son lancement : tout protocole qui y correspond sera éligible à son soutien.&lt;/p&gt;
+&lt;p&gt;Mais de quel type de soutien s&amp;rsquo;agit-il ? De toute l&amp;rsquo;expertise critique qu&amp;rsquo;un protocole a besoin d&amp;rsquo;exploiter pour se développer et prospérer :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Gestion de liquidité&lt;/li&gt;
+&lt;li&gt;Gouvernance&lt;/li&gt;
+&lt;li&gt;Sensibilisation et éducation&lt;/li&gt;
+&lt;li&gt;Intégration et networking&lt;/li&gt;
+&lt;li&gt;Soutient juridique&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Le Collectif est &lt;strong&gt;un groupe d&amp;rsquo;experts qui ne peut pas être embauché ; au lieu de cela, il s&amp;rsquo;auto-désigne sur des protocoles qui correspondent à ses directives exigeantes.&lt;/strong&gt; Incarné par les fourmis, le Collectif a l&amp;rsquo;intention de démontrer que la coordination sociale est primordiale. Ensemble, les fourmis construiront une colonie de plus en plus grande, agissant comme un réseau organique nourrissant un écosystème où la DeFi anti-fragile peut prospérer.&lt;/p&gt;
+&lt;h3 id=&#34;les-fourmis-aiment-et-exploitent-les-tokens-directeurs-de-liquidité&#34;&gt;Les fourmis aiment et exploitent les tokens directeurs de liquidité
+&lt;/h3&gt;&lt;p&gt;Pour réaliser sa vision, le collectif a reçu le soutien d&amp;rsquo;équipes de premier ordre qui s&amp;rsquo;alignent sur sa vision, notamment Liquity, Maverick, CatInaBox, Diva, DYAD, Zero &amp;amp; Retro. &lt;strong&gt;Cela permet au Collectif d&amp;rsquo;être autonome dès le premier jour, et en contrôle de tokens directeurs de liquidité capable d&amp;rsquo;attirer 25 millions de dollars d&amp;rsquo;actifs dans les pools des DEX pertinents sur différents layers&lt;/strong&gt;, y compris mainnet, Optimism, Arbitrum, zkSync, Polygon zkEVM et plus encore.&lt;/p&gt;
+&lt;p&gt;En effet, le Collectif contrôle d&amp;rsquo;importantes positions de tokens directeurs de liquidité, notamment veVELO, vlLIQ, vlAURA, veRAM, veZERO, veRETRO et autres, et gère des trésoreries sur tous les réseaux mentionnés ci-dessus, afin de soutenir la liquidité des jetons concernés par le biais de votes, d&amp;rsquo;apport de liquidité direct et toute autre activité pertinente à cet effet. Le collectif adhère à des pratiques de gestion de trésorerie extrêmement prudentes visant à préserver et à accroître son capital d&amp;rsquo;une manière synergétique avec ses objectifs et sa vision.&lt;/p&gt;
+&lt;h3 id=&#34;au-delà-de-la-gestion-de-la-liquidité&#34;&gt;Au-delà de la gestion de la liquidité
+&lt;/h3&gt;&lt;p&gt;La gestion et le soutien de la liquidité est un domaine d&amp;rsquo;expertise essentiel pour le Collectif, ainsi que les activités liées à la gouvernance pour accroître l&amp;rsquo;adoption des protocoles soutenus dans l&amp;rsquo;ensemble de l&amp;rsquo;écosystème DeFi - ce seront mes deux principaux axes. Cependant, le DeFi Collective est une aventure bien plus grande que moi, et j&amp;rsquo;ai la chance de pouvoir compter sur le soutien de deux membres fondateurs tout aussi importants - Nils Bundi et Florian Prantl, qui mettent à profit leur expertise dans leurs domaines respectifs :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.linkedin.com/in/nils-bundi-6246b998/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Nils Bundis&lt;/a&gt; est un architecte et développeur du protocole DeFi avec une formation en ingénierie financière. En tant que dévelopeur expérimenté en DeFi, il connaît les défis liés à la construction de protocoles &amp;ldquo;véritablement décentralisés&amp;rdquo;. Outre l&amp;rsquo;aspect technique, Nils soutiendra également le Collectif grâce à son expertise en matière d&amp;rsquo;exigences opérationnelles.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/floowp_&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Florian Prantl&lt;/a&gt; est un avocat qui conseille des projets de DeFi et de CeFi pour les aider à déjouer les pièges juridiques et réglementaires lors de la mise en place et de l&amp;rsquo;expansion de leurs services. Il apporte également son expérience précieuse en la matière auprès des autorités pour militier pour des réglementations progressives et équilibrées. Au sein du Collectif, il apporte son expertise en matière de conformité opérationnelle, en fournissant des conseils aux protocoles soutenus et en contribuant à mise en place de lignes directrices pour aider les protocoles anti-fragile à émerger et se différencier, aussi bien auprès des utilisateurs que des régulateurs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Leurs compétences et leurs connaissances aideront le collectif à mener des recherches, à établir et à promouvoir des lignes directrices d&amp;rsquo;autorégulation et à entreprendre toute autre activité pertinente jugée nécessaire pour réaliser &lt;strong&gt;son objectif de soutenir les protocoles DeFi résilients existants et de favoriser un écosystème dans lequel les créateurs de protocoles sont davantage incités à suivre la voie de la solidité, de l&amp;rsquo;immuabilité et de la résilience&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;une-infrastructure-rationalisée-et-sous-contrôle&#34;&gt;Une infrastructure rationalisée et sous contrôle
+&lt;/h3&gt;&lt;p&gt;Tous les membres du conseil d&amp;rsquo;administration et les contributeurs du collectif sont limités à un engagement représentant au maximum 50 % de leurs heures de travail total. Cette politique a été conçue pour garder la structure sous contrôle et éviter les situations où la préservation/croissance de la structure devient prioritaire par rapport à la réalisation de ses objectifs finaux, ce qui est souvent le cas dans les institutions publiques et les associations.&lt;/p&gt;
+&lt;p&gt;Les contributeurs ont accepté une rémunération bien inférieure au taux du marché pour leurs efforts, tandis que les membres du conseil d&amp;rsquo;administration ne recoivent aucune compensation pour leur activité. Cela permet au Collectif de minimiser ses dépenses de départ et de composer agressivement ses revenus pour faire croître ses trésoreries onchain, lui donnant ainsi plus de moyens pour réaliser sa vision à terme.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Le DeFi Collective est désormais mon principal engagement&lt;/strong&gt;, ce qui signifie que je ne serai malheureusement plus en mesure de contribuer directement à Liquity en tant que membre de l&amp;rsquo;équipe. Cette décision n&amp;rsquo;a pas été facile à prendre. Pourtant, elle était nécessaire pour me permettre de continuer à me concentrer sur mes domaines d&amp;rsquo;expertise (la gestion des liquidités et la gouvernance) et de continuer à les développer. Le protocole Liquity, l&amp;rsquo;une des infrastructures de prêt les plus résilientes qui soient, correspond aux lignes directrices du Collectif et fera partie des protocoles soutenus parmi plusieurs autres qui seront introduits prochainement. Le Collectif sera ainsi en mesure de supporter la croissance et l&amp;rsquo;expansion de Liquity avec des activités liées à la gestion de la liquidité et d&amp;rsquo;aider LUSD à être plus largement soutenu à travers les protocoles DeFi et L2.&lt;/p&gt;
+&lt;h3 id=&#34;suivez-les-fourmis-et-impliquez-vous-dans-la-colonie&#34;&gt;Suivez les fourmis et impliquez-vous dans la colonie
+&lt;/h3&gt;&lt;p&gt;Vous êtes en accord avec la vision du collectif et vous voulez faire la différence en DeFi ? Vous pouvez façonner le Collectif : faites-nous part de votre expertise pour aider le Collectif en tant que contributeur ou ami, ou impliquez-vous activement en devenant membre - tout cela se passe sur &lt;a class=&#34;link&#34; href=&#34;https://discord.gg/KFhE3tpGsM&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;le Discord du DeFi Collective&lt;/a&gt; : un endroit où il faut être !&lt;/p&gt;
+&lt;p&gt;Pour rester en contact avec le DeFi Collective, vous pouvez également &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/DeFiCollective_&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;nous suivre sur Twitter&lt;/a&gt;, où nous tiendrons la communauté au courant de nos actualités, y compris le premier point en direct que j&amp;rsquo;animerai prochainement : &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://discord.gg/NsaQNpC65C?event=1164186718375772261&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;rejoignez-nous le jeudi 19 octobre à 19h GMT+2&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://deficollective.org&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Site DeFi Collective&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://deficollective.org/blog/the-defi-collective-introduction/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Introducing the DeFi Collective&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Annonce : Je rejoins Liquity pour soutenir la croissance de la DeFi inarrêtable</title>
+        <link>http://localhost:1313/fr/joining-liquity/</link>
+        <pubDate>Mon, 16 May 2022 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/joining-liquity/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2022/tokenbrice-liquity/cover.png" alt="Featured image of post Annonce : Je rejoins Liquity pour soutenir la croissance de la DeFi inarrêtable" /&gt;&lt;p&gt;J&amp;rsquo;ai été un peu moins impliqué dans la discussion DeFi ces derniers temps et vous pouvez légitimement vous demander pourquoi. Tout d&amp;rsquo;abord, j&amp;rsquo;avais besoin de ralentir et de prendre du temps pour moi, et le moment ne pouvait pas être mieux choisi. Pendant mon congé, j&amp;rsquo;ai eu le temps de réfléchir à ce qui m&amp;rsquo;a attiré à la DeFi en premier lieu et comment l&amp;rsquo;espace a évolué depuis que j&amp;rsquo;ai commencé à m&amp;rsquo;impliquer il y a environ quatre ans. Voir des protocoles présentant des défauts de conception massifs exploser est rassurant, surtout pour ceux qui l&amp;rsquo;ont anticipé, mais ce n&amp;rsquo;est pas exactement ce dont je rêvais lorsque j&amp;rsquo;ai découvert la DeFi.&lt;/p&gt;
+&lt;h3 id=&#34;la-defi-sest-elle-égarée-&#34;&gt;La DeFi s&amp;rsquo;est elle égarée ?
+&lt;/h3&gt;&lt;p&gt;Il me semble que la DeFi s&amp;rsquo;est perdue en route. La finance traditionnelle s&amp;rsquo;est transformée en ce monstre insensé que nous connaissons sans que ce soit voulu ni conçu pour ça : c&amp;rsquo;est simplement le résultat de chaque personne et entité qui a essayé de tirer la couverture vers elle : &lt;strong&gt;une accumulation des cupidités de chacun&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Les développements de cette dernière année au sein de la DeFi ont été très similaires à l&amp;rsquo;avarice de TradFi : en termes de construction d&amp;rsquo;un système financier résilient et souverain accessible à tous, presque rien n&amp;rsquo;a été réalisé. Au lieu de cela, la plupart des sorties n&amp;rsquo;ont rien été d&amp;rsquo;autre qu&amp;rsquo;une énième saveur de ponzinomics pour soutenir la cupidité des singes pendant quelques semaines jusqu&amp;rsquo;à ce qu&amp;rsquo;ils passent à la prochaine ferme.&lt;/p&gt;
+&lt;p&gt;Je reste convaincu que ce dont &lt;strong&gt;nous avons besoin sur le long terme, ce sont des systèmes capables de résister aux attaques (potentiellement coordonnées) des États, du crime organisé et des baleines&lt;/strong&gt;. La plupart des protocoles actuels disponibles dans la DeFi ne tiendraient pas un jour face à des attaques structurées d&amp;rsquo;une ampleur significative.&lt;/p&gt;
+&lt;p&gt;Une grande partie des protocoles &amp;ldquo;DeFi&amp;rdquo; sont vulnérables à la bonne vieille attaque &amp;ldquo;wrench attack&amp;rdquo; parce qu&amp;rsquo;ils reposent sur des multisigs : identifier, localiser et menacer une douzaine d&amp;rsquo;individus n&amp;rsquo;est pas une tâche ardue, surtout lorsque des milliards sont en jeu. Les attaques économiques peuvent également affecter sérieusement une autre part importante des protocoles DeFi, surtout si elles sont perpétrées par un acteur prêt à perdre de l&amp;rsquo;argent dans le processus. Enfin, les attaques de gouvernance sont si courantes qu&amp;rsquo;il n&amp;rsquo;est même plus excitant de les couvrir. Ce n&amp;rsquo;est pas la DeFi pour laquelle je me suis engagé.&lt;/p&gt;
+&lt;p&gt;J&amp;rsquo;ai construit une plateforme et mis en lumière des projets qui ont apporté quelque chose de nouveau et de pertinent au cours des dernières années. En complément de mes analyses et commentaires, j&amp;rsquo;ai soutenu plusieurs projets, partagé mes idées avec des équipes créatives et sensées, et parfois participé aux processus de gouvernance. Dernièrement, je me suis senti prêt à assumer un rôle plus actif au sein de l&amp;rsquo;écosystème : c&amp;rsquo;est aujourd&amp;rsquo;hui le jour J ! Je suis persuadé que mon approche honnête, parfois brutale, mais toujours informée, était et est toujours quelque chose qui fait défaut dans l&amp;rsquo;industrie où les shills sont rois.&lt;/p&gt;
+&lt;h4 id=&#34;annonce--tokenbrice-x-liquity&#34;&gt;Annonce : TokenBrice x Liquity
+&lt;/h4&gt;&lt;p&gt;J&amp;rsquo;ai le plaisir d&amp;rsquo;annoncer que j&amp;rsquo;ai rejoint &lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/liquity/ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liquity&lt;/a&gt; en tant que responsable du marketing pour soutenir la croissance du protocole, en me concentrant principalement sur un projet qui n&amp;rsquo;a pas encore été annoncé.&lt;/p&gt;
+&lt;p&gt;Bien que le protocole Liquity n&amp;rsquo;ait qu&amp;rsquo;un peu plus d&amp;rsquo;un an, l&amp;rsquo;équipe est  active et construit depuis bien plus longtemps. Ce qui a été réalisé est vraiment unique, remarquable et nécessaire. Liquity est le &lt;strong&gt;premier et toujours le seul service de prêt disponible en DeFi qui est inarrêtable&lt;/strong&gt; &amp;amp; de même, LUSD est le seul stablecoin capable de résister à toutes sortes de censures.&lt;/p&gt;
+&lt;p&gt;Ce qui m&amp;rsquo;a toujours étonné, c&amp;rsquo;est que cet exploit est réalisé sans compromettre l&amp;rsquo;efficacité du protocole : Liquity est extrêmement économique pour les emprunteurs, et la conception du protocole est d&amp;rsquo;une rare élégance. Liquity est &lt;strong&gt;construit comme un logiciel critique&lt;/strong&gt; : l&amp;rsquo;échec n&amp;rsquo;est pas une option. Je suis heureux qu&amp;rsquo;un tel protocole, fidèle à l&amp;rsquo;esprit de base de la DeFi, existe, et je suis ravi d&amp;rsquo;avoir la chance de l&amp;rsquo;aider à se développer.&lt;/p&gt;
+&lt;p&gt;Si vous ne connaissez pas encore ce que fait Liquity et pourquoi c&amp;rsquo;est important, n&amp;rsquo;hésitez pas à lire cette introduction :
+&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/liquity-protocol.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;⚖️ Liquity : un service d&amp;rsquo;emprunt inarrêtable, efficace et innovant&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;que-vais-je-faire-&#34;&gt;Que vais-je faire ?
+&lt;/h3&gt;&lt;p&gt;Chez Liquity, je mènerai les efforts de croissance à travers tous les canaux pertinents : documentation, stratégie de contenu, médias, événements, et plus encore, sans oublier, bien sûr, d&amp;rsquo;alimenter la mémétique. Je me concentrerai principalement sur un produit à venir, qui n&amp;rsquo;a pas encore été annoncé, mais je soutiendrai également l&amp;rsquo;existant de toutes les manières pertinentes. Avec mes efforts pour créer et développer la narrative, ainsi que le soutien de la communauté, je suis sûr que l&amp;rsquo;heure de gloire de Liquity est encore à venir !&lt;/p&gt;
+&lt;p&gt;Je suis toujours entièrement convaincu que les grandes choses se construisent du bas vers le haut : je serai en contact étroit avec la communauté de Liquity pour intégrer ses idées et ses commentaires à tous les niveaux possibles.&lt;/p&gt;
+&lt;p&gt;Bien que je sois enthousiasmé par la mission, mon dernier congé m&amp;rsquo;a beaucoup appris sur l&amp;rsquo;équilibre entre vie professionnelle et vie privée : j&amp;rsquo;ai donc décidé de  m&amp;rsquo;impliquer à temps partiel avec Liquity. Cela me permet de m&amp;rsquo;assurer que j&amp;rsquo;ai toujours le temps pour une vie personnelle saine et des passions, y compris la DeFi, comme mener mes propres recherches et les partager avec vous sur ce blog.&lt;/p&gt;
+&lt;p&gt;En ce qui concerne mes émissions en direct sur Twitch, je ne pense pas que je retrouverai le rythme hebdomadaire que j&amp;rsquo;avais auparavant, mais je n&amp;rsquo;exclus pas quelques émissions occasionnelles pour discuter de protocoles et de sujets pertinents.&lt;/p&gt;
+&lt;p&gt;Je suis ravi de cette nouvelle étape de mon voyage et impatient de partager plus avec vous concernant ce qui est à venir pour la DeFi inarrêtable.&lt;/p&gt;
+&lt;p&gt;🤗 Merci à tous mes lecteurs et auditeurs pour votre soutien jusqu&amp;rsquo;à présent. J&amp;rsquo;ai plusieurs articles de blog à venir avec des idées uniques à partager avec vous dans les mois à venir, alors restez à l&amp;rsquo;écoute !&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>TokenBrice, désormais 100% en français et bientôt sur Twitch !</title>
+        <link>http://localhost:1313/fr/p/tokenbrice-d%C3%A9sormais-100-en-fran%C3%A7ais-et-bient%C3%B4t-sur-twitch/</link>
+        <pubDate>Mon, 08 Mar 2021 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/p/tokenbrice-d%C3%A9sormais-100-en-fran%C3%A7ais-et-bient%C3%B4t-sur-twitch/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2021/tokenbrice-twitch/francebaiseouais.jpg" alt="Featured image of post TokenBrice, désormais 100% en français et bientôt sur Twitch !" /&gt;&lt;p&gt;Ces derniers jours, j&amp;rsquo;ai intensifié ma présence et laissé entendre que ce n&amp;rsquo;était qu&amp;rsquo;un début. Assez d&amp;rsquo;engouement, il est temps de vous parler de ce qui arrive cette semaine et ensuite !&lt;/p&gt;
+&lt;p&gt;Alors, qu&amp;rsquo;est-ce je vous prépare de beau ?&lt;/p&gt;
+&lt;p&gt;C&amp;rsquo;est simple : &lt;strong&gt;une présence intensifiée 100 % en français&lt;/strong&gt; pour aider encore plus de personnes à saisir ce qui se passe avec la finance décentralisée et réellement comprendre les différents protocoles utilisés.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Nous devons ce chef d&amp;rsquo;oeuvre à un Redditeur francophone &lt;a class=&#34;link&#34; href=&#34;https://www.reddit.com/u/Argh3483&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;/u/Argh3483&lt;/a&gt;: un vrai Chad !&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;À cette fin, j&amp;rsquo;arrive sur Twitch en tant que TokenBrice (et non DeFi France), vous pouvez d&amp;rsquo;ores et déjà &lt;a class=&#34;link&#34; href=&#34;https://www.twitch.tv/tokenbrice&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;me suivre sur Twitch&lt;/a&gt; pour être sûr de ne pas rater le premier live ainsi que les prochains.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Le premier live sera ce Mardi à 19h&lt;/strong&gt; : je vous proposerai un tour d&amp;rsquo;horizon de la DeFi d&amp;rsquo;environ deux heures avec Arthur.&lt;/p&gt;
+&lt;p&gt;Pour fêter ça, j&amp;rsquo;ai amassé de nombreuses éditions de ce NFT vraiment chouette qui sera l&amp;rsquo;un des nombreux cadeaux à gagner de différentes manières pour ceux qui suivent la chaine, aident à la faire connaître et contribuent à la communauté.&lt;/p&gt;
+&lt;p&gt;En outre, j&amp;rsquo;ai également préparé un budget en DAI — issu de mon farming DeFi — pour être sûr qu&amp;rsquo;il n&amp;rsquo;y ait pas un français qui s&amp;rsquo;intéresse à la DeFi de près ou de loin qui ne soit pas informé.&lt;/p&gt;
+&lt;h3 id=&#34;le-programme-sur-twitch&#34;&gt;Le programme sur Twitch
+&lt;/h3&gt;&lt;p&gt;Sur Twitch, j&amp;rsquo;envisage deux à quatre émissions par semaine :&lt;/p&gt;
+&lt;h4 id=&#34;-live-defi&#34;&gt;💸 Live DeFi
+&lt;/h4&gt;&lt;p&gt;Chaque Mardi à 19h | La première sera similaire à ce qui est fait actuellement sur YouTube : &lt;strong&gt;un live pour discuter des nouvelles de la DeFi&lt;/strong&gt; et creuser un ou plusieurs sujets ou protocoles intéressants. Nous recevrons des invités mais pas systématiquement.&lt;/p&gt;
+&lt;h4 id=&#34;-live-science-fiction-defi&#34;&gt;🛸 Live Science-Fiction DeFi
+&lt;/h4&gt;&lt;p&gt;Le samedi soir, à 21h | La seconde émission partira un peu plus dans l&amp;rsquo;espace puisqu&amp;rsquo;on fera &lt;strong&gt;de la science-fiction DeFi&lt;/strong&gt; : avec plusieurs invités, nous partirons de situations fictives liées aux thématiques de la DeFi pour considérer ce que le monde de demain pourrait être. Cela nous aidera à élever la réflexion et aborder la thématique de la DeFi avec l&amp;rsquo;appui de disciplines tierces.&lt;/p&gt;
+&lt;p&gt;Enfin, la troisième émission n&amp;rsquo;est pas encore totalement déterminée : elle dépendra de votre intérêt.&lt;/p&gt;
+&lt;h4 id=&#34;-cash-investigation-communautaire-defi&#34;&gt;🔍 Cash Investigation Communautaire DeFi
+&lt;/h4&gt;&lt;p&gt;J&amp;rsquo;envisage une sorte de &lt;strong&gt;Cash Investigation – version DeFi &amp;amp; communautaire&lt;/strong&gt;. Nous partirons d&amp;rsquo;un protocole donné et je vous montrerai tout ce que nous pouvons apprendre d&amp;rsquo;une enquête rondement menée sans même regarder le code des smart contracts. Idéalement, nous mènerons l&amp;rsquo;enquête conjointement et les plus bouillants d&amp;rsquo;entre vous me rejoindront en live pour partager leurs trouvailles ou méthodes. Plus que les révélations de ces lives (il peut y en avoir), ce qui m&amp;rsquo;intéresse c&amp;rsquo;est de vous montrer comment analyser les protocoles DeFi et le  faire avec vous en live pour que la méthodologie soit connue et réplicable par tous.&lt;/p&gt;
+&lt;h4 id=&#34;-et-si-on-parlait-aussi-nft-&#34;&gt;🃏 Et si on parlait aussi NFT ?
+&lt;/h4&gt;&lt;p&gt;L&amp;rsquo;autre option est une émission &amp;ldquo;&lt;strong&gt;Le coin des NFTs&amp;rdquo;&lt;/strong&gt; où nous ferons comme le live DeFi mais adapté aux NFTs, avec bien sûr des invités de marque de la scène française ! Je souhaite également utiliser cette émisision si elle a lieu pour mettre en avant des créateurs francophones de talent : il n&amp;rsquo;en manque pas !&lt;/p&gt;
+&lt;p&gt;Pour la troisième (et potentiellement quatrième) émissions, &lt;strong&gt;tout dépendra de vous&lt;/strong&gt; : vous déciderez laquelle des deux arrive en premier et elle n&amp;rsquo;arrivera qu&amp;rsquo;avec votre soutien. Plus de détails très prochainement !&lt;/p&gt;
+&lt;h4 id=&#34;les-dessous-du-twitch&#34;&gt;Les dessous du Twitch
+&lt;/h4&gt;&lt;p&gt;Outre &lt;a class=&#34;link&#34; href=&#34;https://gitcoin.co/grants/811/tokenbrice-evangelizing-defi-in-fr-en&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;mon gitcoin&lt;/a&gt; qui a reçu environ 1 300 DAI de donation en incluant le matching jusqu&amp;rsquo;à présent (j&amp;rsquo;ai moi-même donné largement plus que cette somme), je n&amp;rsquo;ai jamais accepté de rétribution d&amp;rsquo;aucune forme pour mes contributions communautaires.&lt;/p&gt;
+&lt;p&gt;Néanmoins, je veux &lt;strong&gt;rendre mon apport à la communauté le plus pérenne possible&lt;/strong&gt;. Je pense qu&amp;rsquo;il est donc temps d&amp;rsquo;accepter votre soutien plus directement. Sur Twitch, vous pourrez &amp;ldquo;sub&amp;rdquo;  pour me supporter et signaler votre intérêt, une fois les conditions nécessaires remplies.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Il n&amp;rsquo;y aura aucun favoritisme, même si vous donnez 50 subs&lt;/strong&gt;. Au mieux, vous aurez le droit à un statut spécial dans le chat reconnaissant votre généreux don. Je reste tout à fait inachetable : personne ne me fait taire si ce que j&amp;rsquo;ai à dire est pertinent.&lt;/p&gt;
+&lt;p&gt;Enfin, je souhaite que vos donations servent un double but :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Ce sera une forme de reconnaissance pour mes apports, une façon pour vous de dire merci et de soutenir mes efforts.&lt;/li&gt;
+&lt;li&gt;Si le flux de revenu devient conséquent (&amp;gt; 1000 € par mois), j&amp;rsquo;aimerai le rendre à la communauté au travers de différents mécanismes : une partie de ces revenus serviront de budget fun pour la chaine.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Je m&amp;rsquo;engage donc formellement à reverser un minimum d&amp;rsquo;un quart (25%) des revenus globaux procurés par la chaîne (après impôts) à la communauté d&amp;rsquo;une façon ou d&amp;rsquo;une autre — aussi bien airdrop que gitcoin ou d&amp;rsquo;autres donations.&lt;/p&gt;
+&lt;p&gt;Je publierai une fois par trimestre un bilan des revenus de la chaîne avec la trace des donations correspondantes pour que vous puissiez vérifier par vous-même que cette promesse est tenue. &lt;strong&gt;Quand on fait de la DeFi, on ne fait pas confiance : on vérifie.&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;ma-présence-sur-twitter&#34;&gt;Ma présence sur Twitter
+&lt;/h3&gt;&lt;p&gt;Comme annoncé sur Twitter, je fais également le choix de &lt;strong&gt;recentrer ma présence sur Twitter presque exclusivement en français&lt;/strong&gt;. Je ne tweeterai plus que dans la douce langue de Molière mais je me réserve le droit encore de troller ou simplement répondre à d&amp;rsquo;autres tweets en anglais lorsque je l&amp;rsquo;estimerai nécessaire.&lt;/p&gt;
+&lt;h3 id=&#34;le-youtube-defi-france&#34;&gt;Le YouTube DeFi France
+&lt;/h3&gt;&lt;p&gt;Le YouTube DeFi France reste ouvert à tout ceux qui souhaiteraient une audience pour diffuser leurs contenus qualitatifs comme toujours. En outre, une fois les détails techniques compris et réglés, les vidéos des lives Twitch seront disponibles en replay sur la chaîne YouTube : pas d&amp;rsquo;abandon de navire donc si vous n&amp;rsquo;aimez pas Twitch.&lt;/p&gt;
+&lt;p&gt;Néanmoins, &lt;strong&gt;le chat et la diffusion en live seront uniquement sur Twitch&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;mon-blog&#34;&gt;Mon blog
+&lt;/h3&gt;&lt;p&gt;Je continuerai de produire des contenus sur mon blog de qualité équivalente aux derniers articles publiés. Je considère mon blog comme &lt;strong&gt;un carnet de recherche DeFi&lt;/strong&gt;. Il m&amp;rsquo;arrive de passer des heures à creuser des protocoles ou des thématiques et j&amp;rsquo;écris des articles s&amp;rsquo;appuyant sur ces recherches lorsque cela est pertinent.&lt;/p&gt;
+&lt;p&gt;Auparavant j&amp;rsquo;écrivais mes articles en anglais : je les traduisais par la suite en français, j&amp;rsquo;ai décidé d&amp;rsquo;inverser le processus : ils seront désormais écrits en français et traduits éventuellement en anglais par des membres de la communauté.&lt;/p&gt;
+&lt;p&gt;Cela devrait engendrer une amélioration de la qualité de mon expression en français qui n&amp;rsquo;était pas toujours idéale par le passé. Cela me permet de réduire également le temps nécessaire pour produire chaque article. Une très bonne nouvelle.&lt;/p&gt;
+&lt;p&gt;Pour vous donner une idée, un article comme celui sur &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/money-market-risks.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;l’évaluation du risque des marchés monétaires&lt;/a&gt;&lt;/strong&gt; c&amp;rsquo;est environ une dizaine d&amp;rsquo;heures de travail, en plus de toute ma recherche et connaissances acquises en amont.&lt;/p&gt;
+&lt;h3 id=&#34;la-suite--quand-lune--&#34;&gt;La suite : quand lune ? 🌝
+&lt;/h3&gt;&lt;p&gt;Ce sera la prochaine étape &lt;strong&gt;d&amp;rsquo;une grande aventure entièrement en français&lt;/strong&gt;. Ensemble, je suis confiant, nous pourrons arriver à une proposition pertinente qui aidera à faire connaître et comprendre la finance décentralisée au plus grand nombre.&lt;/p&gt;
+&lt;p&gt;Outre la compréhension technique des protocoles, je souhaite &lt;strong&gt;élargir la réflexion&lt;/strong&gt; afférente à la finance décentralisée comme vous avez pu le constater avec le programme initial des émissions.&lt;/p&gt;
+&lt;p&gt;Enfin, je souhaite également &lt;strong&gt;ouvrir le stream au plus grand nombre&lt;/strong&gt; : je vais recevoir différentes personnes qui ont émergé au sein de la communauté DeFi France pour coanimer les lives avec moi.&lt;/p&gt;
+&lt;p&gt;De très nombreuses personnes suivent et contribuent quotidiennement aux discussions, il est temps de les mettre en lumière.&lt;/p&gt;
+&lt;p&gt;Merci pour votre soutien jusqu&amp;rsquo;à présent ! &lt;strong&gt;La communauté me donne des ailes, déployons les et volons ensemble&amp;hellip; vers l&amp;rsquo;infini et au-delà !&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/tokenbrice-twitch/buzz.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;buzz&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>La prochaine étape de mon aventure : un engagement encore plus communautaire</title>
+        <link>http://localhost:1313/fr/p/la-prochaine-%C3%A9tape-de-mon-aventure-un-engagement-encore-plus-communautaire/</link>
+        <pubDate>Thu, 15 Oct 2020 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/p/la-prochaine-%C3%A9tape-de-mon-aventure-un-engagement-encore-plus-communautaire/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2020/next-steps/df1.png" alt="Featured image of post La prochaine étape de mon aventure : un engagement encore plus communautaire" /&gt;&lt;p&gt;Je quitte mon poste de responsable de la communauté de Monolith pour consacrer une plus grande partie de mes efforts à la communauté : contenu, rencontres et conseils pour aider à découvrir la finance décentralisée !&lt;/p&gt;
+&lt;p&gt;Alors que je passe au chapitre suivant de mon implication dans l&amp;rsquo;espace DeFi, je veux prendre le temps d&amp;rsquo;écrire une déclaration personnelle pour une fois afin de partager mon histoire et ce qui va suivre.&lt;/p&gt;
+&lt;h3 id=&#34;découvrir-lether&#34;&gt;Découvrir l&amp;rsquo;Ether
+&lt;/h3&gt;&lt;p&gt;Il y a environ 36 mois, j&amp;rsquo;ai finalement lu le whitepaper d&amp;rsquo;Ethereum après avoir survolé l&amp;rsquo;espace de la crypto pendant un certain temps et j&amp;rsquo;ai été instantanément accroché. À l&amp;rsquo;époque, mes préoccupations étaient très éloignées de la finance décentralisée : j&amp;rsquo;ai vu dans Ethereum la première solution crédible pour une coordination à grache échelle, c&amp;rsquo;est-à-dire la première épée capable de tuer la bête Moloch [^1].&lt;/p&gt;
+&lt;p&gt;À l&amp;rsquo;époque, je travaillais encore dans une start-up tech sans rapport avec la blockchain, mais je me suis vite retrouvé à passer 6 à 10 heures par jour à me renseigner, à rencontrer et à discuter avec de nombreuses personnes qui partageaient mes intérêts. Peu de temps après, j&amp;rsquo;ai commencé à contribuer à divers projets.&lt;/p&gt;
+&lt;p&gt;En juillet 2018, &lt;strong&gt;j&amp;rsquo;ai réalisé qu&amp;rsquo;il était temps de prendre le taureau par les cornes et de me frayer un chemin dans l&amp;rsquo;espace&lt;/strong&gt; - je n&amp;rsquo;allais pas travailler pour une énième autre startup tech. J&amp;rsquo;ai commencé ce que j&amp;rsquo;envisageais être un média collaboratif à l&amp;rsquo;époque : EcoCrypto. C&amp;rsquo;était un peu le précurseur de ce blog, et vous pouvez &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/fr/tags/ecocrypto/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;trouver les articles réédités ici&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;ecocrypto--le-précurseur-&#34;&gt;EcoCrypto : Le précurseur ?
+&lt;/h3&gt;&lt;p&gt;L&amp;rsquo;approche d&amp;rsquo;EcoCrypto était assez particulière : chaque article a été revu par des personnes totalement extérieures à l&amp;rsquo;espace, comme mes parents. Ils ont été réécrits jusqu&amp;rsquo;à ce que le résultat soit autosuffisant et compréhensible. Après cela, je les ai également traduits en français. Ce processus d&amp;rsquo;écriture était intense et a pris beaucoup de temps. À l&amp;rsquo;époque, naïvement, je pensais qu&amp;rsquo;il suffisait d&amp;rsquo;essayer d&amp;rsquo;aller au-delà en termes de recherche et de qualité pour attirer les foules.&lt;/p&gt;
+&lt;p&gt;Malgré l&amp;rsquo;audience modeste, EcoCrypto m&amp;rsquo;a beaucoup appris. Pour me renforcer et apprendre à un rythme accéléré, j&amp;rsquo;ai également passé quelques mois à écrire &amp;ldquo;content bounty&amp;rdquo; : j&amp;rsquo;ai obtenu mon premier lot de shitcoin ICO grâce à ma plume.&lt;/p&gt;
+&lt;h3 id=&#34;devenir-pro&#34;&gt;Devenir pro
+&lt;/h3&gt;&lt;p&gt;Me sentant plus confiant dans ma compréhension de l&amp;rsquo;espace et dans mes capacités à gérer des tâches liées au marketing pour un projet de crypto, j&amp;rsquo;ai commencé à postuler auprès d&amp;rsquo;entreprises sélectionnées et j&amp;rsquo;ai passé des entretiens.&lt;/p&gt;
+&lt;p&gt;J&amp;rsquo;ai échangé avec quelques acteurs importants de l&amp;rsquo;espace, mais j&amp;rsquo;ai été &lt;strong&gt;déçu par leur culture interne et leur inertie&lt;/strong&gt; : toute ma vie, j&amp;rsquo;ai travaillé dans des startups, donc je n&amp;rsquo;ai pas beaucoup de patience pour ces jeux-là. A peu près au même moment, j&amp;rsquo;ai trouvé Monolith (TokenCard à l&amp;rsquo;époque) et j&amp;rsquo;ai commencé à discuter avec l&amp;rsquo;équipe du rôle de community manager.&lt;/p&gt;
+&lt;p&gt;J&amp;rsquo;étais enthousiasmé par le produit et ses ambitions, en particulier son aspect centré sur l&amp;rsquo;utilisateur. Jusqu&amp;rsquo;alors, j&amp;rsquo;ai travaillé avec des produits assez éloignés des gens ordinaires. À l&amp;rsquo;inverse, avec Monolith &lt;strong&gt;je pouvais avoir une vision à long terme où même mes parents utilisaient le produit auquel je contribuais&lt;/strong&gt; (et &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/TokenBrice/status/1290979491561472000&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;c&amp;rsquo;est arrivé&lt;/a&gt;) !&lt;/p&gt;
+&lt;p&gt;Malgré ma maigre expérience professionnelle dans le domaine de la blockchain (ce n&amp;rsquo;était pas vraiment banal en 2018), Monolith a pris un pari sur moi et j&amp;rsquo;ai commencé en avril 2018 en tant que Community Manager.&lt;/p&gt;
+&lt;h3 id=&#34;communautés--marques&#34;&gt;Communautés &amp;raquo; Marques
+&lt;/h3&gt;&lt;p&gt;J&amp;rsquo;ai tellement appris dans ce rôle ! Ce que j&amp;rsquo;ai le plus aimé, c&amp;rsquo;est que j&amp;rsquo;étais un pionnier toujours en contact avec des gens passionnants. À l&amp;rsquo;époque, il n&amp;rsquo;y avait pas de covid non plus, alors j&amp;rsquo;ai aussi eu la chance de rencontrer ces gens, à Paris, à Londres, et même d&amp;rsquo;assister à la DevCon V à Osaka !&lt;/p&gt;
+&lt;p&gt;Je sais que c&amp;rsquo;est idiot, mais Osaka m&amp;rsquo;a époustouflé. Avant cela, je ressentais l&amp;rsquo;énergie et l&amp;rsquo;ambition de l&amp;rsquo;espace. En y allant, je l&amp;rsquo;ai vu personnellement, et c&amp;rsquo;était autre chose. Cela a renforcé ma confiance dans l&amp;rsquo;impact qu&amp;rsquo;Ethereum pourrait avoir sur le monde.&lt;/p&gt;
+&lt;p&gt;C&amp;rsquo;est aussi à cette époque que j&amp;rsquo;ai rencontré &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/mounibec&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Mounir&lt;/a&gt; et &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/arthurmicoulet&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Arthur&lt;/a&gt;, et ensemble nous avons créé DeFi France : la participation à notre premier événement nous a époustouflés, avec 90 personnes dans la salle pour un événement organisé en quelques jours !&lt;/p&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;iframe loading=&#34;lazy&#34; 
+            src=&#34;https://www.youtube.com/embed/6rgt-bygKNo&#34; 
+            allowfullscreen 
+            title=&#34;YouTube Video&#34;
+    &gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;La vidéo du tout premier événement de DeFi France, entièrement en français&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Je pense que c&amp;rsquo;est précisément à ce moment-là que j&amp;rsquo;ai été frappé par une pensée critique qu&amp;rsquo;il m&amp;rsquo;a fallu des mois pour digérer, elle va comme suit :&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Jusqu&amp;rsquo;à présent, j&amp;rsquo;ai passé toute ma vie professionnelle à construire des communautés artificielles pour soutenir la croissance de marques. Et si j&amp;rsquo;utilisais enfin cette expertise durement acquise pour une meilleure fin ? Et si on abandonnait la marque et construisait une communauté&amp;hellip; pour la communauté ?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;participation-de-la-communauté-à-defi&#34;&gt;Participation de la communauté à DeFi
+&lt;/h3&gt;&lt;p&gt;Cela m&amp;rsquo;a pris un certain temps, mais il est maintenant temps de poursuivre enfin cette réflexion. Alors que je quitte mon rôle au sein de Monolith, &lt;strong&gt;j&amp;rsquo;aimerais utiliser ce temps supplémentaire pour faire un travail plus axé sur la communauté&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Heureusement pour moi, le temps était tout ce dont j&amp;rsquo;avais besoin et il y a beaucoup de travail à faire ! En effet, en un an, DeFi France s&amp;rsquo;est considérablement développé pour devenir le groupe de base DeFi le plus actif en Europe avec maintenant près de 2 000 membres parlant français sur Telegram.&lt;/p&gt;
+&lt;p&gt;Voici donc ce sur quoi je vais me concentrer maintenant :&lt;/p&gt;
+&lt;h4 id=&#34;tokenbricexyz&#34;&gt;TokenBrice.xyz
+&lt;/h4&gt;&lt;p&gt;J&amp;rsquo;écris beaucoup de contenu sur DeFi pour différentes entreprises, mais parfois je veux m&amp;rsquo;exprimer sur un ton plus léger, avec moins de contraintes. J&amp;rsquo;ai créé ce blog pour avoir un espace qui corresponde à mes idéaux pour le faire.&lt;/p&gt;
+&lt;p&gt;Mes idéaux ? Assez simples : Je pense que &lt;strong&gt;fournir un média honnête est extrêmement difficile s&amp;rsquo;il faut faire des profits, alors pourquoi ne pas les sortir de l&amp;rsquo;équation ?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Donc, sur ce blog, je refuse tous les messages sponsorisés ou les activités promotionnelles. Tous les articles sont écrits parce que je veux le faire. J&amp;rsquo;ai également pris un soin tout particulier à rendre ce blog aussi respectueux de la vie privée que possible : la bonne nouvelle, avec un blog gratuit sans publicité, c&amp;rsquo;est que je n&amp;rsquo;aurais de toute façon aucune utilisation de vos données, alors n&amp;rsquo;en recueillons pas (mais votre IP anonymisée pour les statistiques des articles).&lt;/p&gt;
+&lt;p&gt;Enfin, j&amp;rsquo;utilise une infrastructure où le contenu vit dans un dépôt public GitHub : pour les non-geek, &lt;strong&gt;cela signifie que chaque changement effectué sur tokenbrice.xyz est &lt;a class=&#34;link&#34; href=&#34;https://github.com/TokenBrice/blog/commits/master&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;documenté publiquement ici&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Il y a des frais liés au blog, principalement le temps passé à écrire et à faire des recherches, ainsi que les illustrations occasionnelles lorsque j&amp;rsquo;ai l&amp;rsquo;impression que mes graphiques de couverture PPT ne suffisent pas à rendre justice à l&amp;rsquo;article. Pourtant, je ne compte pas les heures passées avec ce blog, j&amp;rsquo;aime le mettre à jour.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Si vous appréciez mon travail, vous pouvez contribuer au &lt;a class=&#34;link&#34; href=&#34;https://gitcoin.co/grants/811/tokenbrice-shining-light-on-ethereums-defi-en-fr&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Gitcoin grants&lt;/a&gt; pour le soutenir.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Vous pouvez en savoir plus sur l&amp;rsquo;approche de ce blog dans &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/hello-world.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;cet article détaillant l&amp;rsquo;infrastructure&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;defi-france&#34;&gt;DeFi France
+&lt;/h4&gt;&lt;p&gt;Peu après la création de DeFi France, nous avons réalisé que quelque chose d&amp;rsquo;important était en train d&amp;rsquo;arriver. Avec un minimum d&amp;rsquo;efforts, le groupe grandissait rapidement et l&amp;rsquo;énergie qui s&amp;rsquo;y trouvait était incroyable (et l&amp;rsquo;est toujours !). Enfin, je pense que nous avons eu une idée de ce que la croissance d&amp;rsquo;une &amp;ldquo;communauté organique&amp;rdquo; nous a fait ressentir.&lt;/p&gt;
+&lt;p&gt;Plusieurs choses ont aidé ce travail, l&amp;rsquo;une des principales étant la langue : Le DeFi est déjà tellement confuse, alors pourquoi ne pas en parler dans notre langue maternelle pour faciliter les choses ? Au début de la discussion, nous avons pu constater &lt;strong&gt;l&amp;rsquo;excitation de discuter du sujet en français&lt;/strong&gt; ! Il s&amp;rsquo;est avéré qu&amp;rsquo;il y avait déjà beaucoup de Français dans l&amp;rsquo;espace DeFi, tout ce dont nous avions besoin était un endroit pour se rassembler et se rencontrer.&lt;/p&gt;
+&lt;p&gt;En plus de la composante linguistique, l&amp;rsquo;autre clé du succès de DeFi France réside dans sa communauté. Le groupe Telegram et les réunions mensuelles ont un succès incroyable sur un point essentiel : &lt;strong&gt;assurer que les incroyables contributeurs français de l&amp;rsquo;espace DeFi restent accessibles à tout le monde&lt;/strong&gt;, même à quelqu&amp;rsquo;un qui n&amp;rsquo;est pas présent dans l&amp;rsquo;espace. Chaque mois, il y a un lieu de rencontre où l&amp;rsquo;on peut venir, apprendre des gens engagés dans l&amp;rsquo;espace, et rencontrer des gens (maintenant à distance : putain de covid).&lt;/p&gt;
+&lt;p&gt;Alors prenons une minute pour remercier les personnes qui rendent cette communauté unique :&lt;/p&gt;
+&lt;p&gt;🙏 Pascal Tallarida, Marc Zeller, Alexandre Lourimi, Mosche Malawach, Mat C., Zhytop, McNulty, Jonathan, Dydymoon, Antoine, Fabrice, Florian, Romain et tant d&amp;rsquo;autres !&lt;/p&gt;
+&lt;h4 id=&#34;defi-france-youtube&#34;&gt;DeFi France (YouTube)
+&lt;/h4&gt;&lt;p&gt;Outre le groupe Telegram et la réunion mensuelle existants, nous développons actuellement une &lt;a class=&#34;link&#34; href=&#34;https://youtube.com/c/defifrance&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;chaîne YouTube&lt;/a&gt; pour offrir un contenu vidéo de haute qualité sur DeFi, toujours en français. Bien que je sois très impliqué dans les émissions (je présente la plupart d&amp;rsquo;entre elles pour l&amp;rsquo;instant), l&amp;rsquo;objectif est de développer la chaîne et de la rendre accessible à tout producteur pertinent et passionné.&lt;/p&gt;
+&lt;p&gt;En effet &lt;strong&gt;en France, les principaux médias crypto et YouTubers mènent des activités impitoyables&lt;/strong&gt;. Ils ne se soucient pas de ce qu&amp;rsquo;ils font tant que c&amp;rsquo;est rentable. Pire encore, une part importante ne se soucie même pas des inexactitudes factuelles de leur contenu tant qu&amp;rsquo;ils produisent des vues.&lt;/p&gt;
+&lt;p&gt;Je me suis donc dit : ne pouvons-nous pas établir une alternative communautaire qui, un jour peut-être, trouvera aussi le chemin des foules ? Voici donc le hack : nous développons une chaîne et son audience, et nous la rendons accessible à d&amp;rsquo;autres producteurs de contenu sur la base de l&amp;rsquo;expertise, de la bonne volonté et des connaissances.&lt;/p&gt;
+&lt;p&gt;Le projet a démarré il y a quelques mois et avance bien ! Nous avons franchi le cap des 500 abonnés et nous avons maintenant 2 formats d&amp;rsquo;émission récurrents en plus de la rediffusion des rencontres DeFi france.&lt;/p&gt;
+&lt;h4 id=&#34;banklessfr&#34;&gt;BanklessFR
+&lt;/h4&gt;&lt;p&gt;J&amp;rsquo;ai mis BanklessFR juste en avant dernier, parce que je ne veux pas voler la vedette ici. Commerçons pas attribuer : &lt;strong&gt;BanklessFR n&amp;rsquo;existe que grâce au travail précis et soutenu de Jon qui est le directeur de la rédaction et le principal traducteur.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Retour à l&amp;rsquo;histoire de BanklessFR : J&amp;rsquo;ai pris contact avec Ryan un jour pour lui parler de ma vie bankless (j&amp;rsquo;ai à peine touché à un produit financier non-DeFi de toute ma vie) et surprise ! il était enthousiaste - cela s&amp;rsquo;est traduit par un article : &lt;a class=&#34;link&#34; href=&#34;https://bankless.substack.com/p/how-defi-can-pay-for-your-lunches&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Comment DeFi peut payer vos déjeuners&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Au même moment (le bon timing est primordial), &lt;a class=&#34;link&#34; href=&#34;http://twitter.com/otherbright&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Jon&lt;/a&gt; émergeait dans la communauté DeFi France comme l&amp;rsquo;un des nouveaux membres les plus motivés. De sa propre initiative, il a commencé à traduire plusieurs contenus en français, dont l&amp;rsquo;un des miens, ce qui nous a amené à parler davantage de traductions. Nous avons discuté des prochaines étapes potentielles de ces efforts, et BanklessFR est rapidement apparu comme une évidence.&lt;/p&gt;
+&lt;p&gt;J&amp;rsquo;ai donc contacté Ryan et j&amp;rsquo;ai été ravi d&amp;rsquo;apprendre que cela faisait déjà partie de ses plans pour la mondialisation de Bankless ! Ainsi, avec le soutien de Ryan et un financement initial collecté grâce à la contribution à la bourse de Bankless International, BanklessFR a commencé le 27 mai avec la publication de la traduction du &lt;a class=&#34;link&#34; href=&#34;https://banklessfr.substack.com/p/le-skill-cube-de-bankless&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Skill Cube.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Depuis, BanklessFR s&amp;rsquo;est développé : nous élargissons l&amp;rsquo;offre de contenu et explorons différentes manières de pérenniser le projet. Après le premier Gitcoin Grants en septembre, nous venons de publier la &lt;a class=&#34;link&#34; href=&#34;https://app.rarible.com/token/0xd07dc4262bcdbf85190c01c996b4c06a461d2430:43413:0x6b40aca108fdb67a781ed4c6810f47f7f3764d00&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;première série NFT BanklessFR&lt;/a&gt; pour illustrer un article auquel elle est liée.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/img/2020/next-steps/imageNFTbanklessfr.gif&#34;  title=&#34;BanklessFR First ever NFT, made by Arke&#34;
+    &gt;Premier NFT BanklessFR&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;et-ton-travail-brice-&#34;&gt;Et ton travail, Brice ?
+&lt;/h4&gt;&lt;p&gt;Alors que je me recentre sur mon engagement communautaire, je suis aussi très heureux d&amp;rsquo;annoncer que je vais assumer un nouveau rôle. J&amp;rsquo;ai du mal à appeler cela un travail, car je contribuerai avec un ami à développer le produit incroyable qu&amp;rsquo;il a créé : &lt;a class=&#34;link&#34; href=&#34;https://paraswap.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ParaSwap&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;J&amp;rsquo;apporterai mon aide sur les sujets qui relèvent de mon expertise, comme naviguer la complexité de la DeFi, la production de contenu et de documentation, et l&amp;rsquo;interaction avec la communauté.&lt;/p&gt;
+&lt;p&gt;Je suis très enthousiaste à propos de cette nouvelle opportunité - car &lt;strong&gt;les échanges de tokens sont l&amp;rsquo;un de ces sujets qui s&amp;rsquo;approfondissent au fur et à mesure que l&amp;rsquo;on en apprend davantage&lt;/strong&gt;. En effet, le ParaSwap est un produit qui fonctionne avec beaucoup de magie cachée en coulisses, interagissant parfois avec plusieurs contrats intelligents et vous faisant passer par plusieurs tokens pour optimiser vos transactions.&lt;/p&gt;
+&lt;p&gt;Au-delà du produit lui-même, &lt;strong&gt;l&amp;rsquo;histoire de ParaSwap vaut également la peine d&amp;rsquo;être racontée&lt;/strong&gt;. Après avoir mené son projet à bien en tant qu&amp;rsquo;homme-armée pendant des mois, Mounir a réuni une équipe extraordinaire pour passer à l&amp;rsquo;étape suivante. Je l&amp;rsquo;ai suivi attentivement depuis le premier jour, je suis donc ravi d&amp;rsquo;avoir la chance de le rejoindre et d&amp;rsquo;y contribuer.&lt;/p&gt;
+&lt;p&gt;L&amp;rsquo;un de mes objectifs sera de &lt;strong&gt;mettre en lumière la complexité abstraite par ParaSwap pour les développeurs et les utilisateurs finaux de dApp&lt;/strong&gt;. Il y a tellement de produits et de services dans l&amp;rsquo;espace qu&amp;rsquo;il peut être très difficile de s&amp;rsquo;y retrouver. Je vais donc mettre à profit mon expertise et mon réseau pour identifier des situations gagnant-gagnant : des projets qui peuvent exploiter l&amp;rsquo;infrastructure de ParaSwap pour améliorer la qualité et l&amp;rsquo;opérabilité de leur service.&lt;/p&gt;
+&lt;p&gt;Voici quelques bribes de mon histoire de crypto ! Puisque vous êtes arrivé jusqu&amp;rsquo;ici, permettez-moi de partager une dernière chose - une simple illustration démontrant certaines caractéristiques qui font de ParaSwap plus qu&amp;rsquo;un simple agrégateur - c&amp;rsquo;est &lt;strong&gt;le&lt;/strong&gt; middleware DeFi :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/next-steps/paraswap-edge.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Qu&amp;rsquo;est-ce qui rend ParaSwap supérieur à d&amp;rsquo;autres agrégateurs comme 1InchExchange ?&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Intrigués ? &lt;a class=&#34;link&#34; href=&#34;https://learn2swap.com/l2s/understanding-paraswap/edge&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Consultez cette article&lt;/a&gt; pour mieux comprendre l&amp;rsquo;avantage unique de ParaSwap et comment vous pouvez l&amp;rsquo;exploiter pour que DeFi travaille pour vous.&lt;/p&gt;
+&lt;p&gt;Merci de m&amp;rsquo;avoir lu et je vous verrai dans l&amp;rsquo;Ether !&lt;/p&gt;
+&lt;p&gt;[^1] : Moloch est le dieu cananéen de la défaillance de la coordination humaine : &lt;a class=&#34;link&#34; href=&#34;https://bankless.substack.com/p/ethereum-slayer-of-moloch-&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Ethereum, Tueur de Moloch - Bankless&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

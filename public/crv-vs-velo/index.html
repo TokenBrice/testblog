@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="The Velodrome model, inspired by veCRV, achieves superior alignment between the three key participants of a DEX - LPs, tokenholders, and projects needing liquidity. Yet, most of the DeFi space still fails understand why: but not you anon - once you read this post.">
+<title>Subtles nuances with great consequences: a cross analysis of Curve and Velodrome</title>
+
+<link rel='canonical' href='http://localhost:1313/crv-vs-velo/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Subtles nuances with great consequences: a cross analysis of Curve and Velodrome">
+<meta property='og:description' content="The Velodrome model, inspired by veCRV, achieves superior alignment between the three key participants of a DEX - LPs, tokenholders, and projects needing liquidity. Yet, most of the DeFi space still fails understand why: but not you anon - once you read this post.">
+<meta property='og:url' content='http://localhost:1313/crv-vs-velo/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Decentralized Finance' /><meta property='article:tag' content='Curve Finance' /><meta property='article:tag' content='CRV' /><meta property='article:tag' content='Velodrome' /><meta property='article:tag' content='Velo' /><meta property='article:tag' content='veCRV' /><meta property='article:tag' content='veVELO' /><meta property='article:tag' content='Convex' /><meta property='article:tag' content='CVX' /><meta property='article:tag' content='Votium' /><meta property='article:tag' content='vlCVX' /><meta property='article:tag' content='veCRV' /><meta property='article:tag' content='bribe.crv' /><meta property='article:published_time' content='2024-03-21T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2024-03-21T01:13:50&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/2024/crv-vs-velo/cover.png' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="Subtles nuances with great consequences: a cross analysis of Curve and Velodrome">
+<meta name="twitter:description" content="The Velodrome model, inspired by veCRV, achieves superior alignment between the three key participants of a DEX - LPs, tokenholders, and projects needing liquidity. Yet, most of the DeFi space still fails understand why: but not you anon - once you read this post."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/2024/crv-vs-velo/cover.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">TokenBrice</a></h1>
+            <h2 class="site-description">Brutally Honest DeFi</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" selected>English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" >Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#a-vecrvvevelo-fees-collection--distribution">A/ veCRV/veVELO Fees Collection &amp; Distribution</a>
+      <ol>
+        <li><a href="#a1-amount-of-fees-distributed-velo--2-x-curve">A.1/ Amount of fees distributed: VELO = 2 x Curve</a></li>
+        <li><a href="#a2-model-for-the-distribution-of-fees-a-fairer-and-more-efficient-approach">A.2/ Model for the distribution of fees: a fairer and more efficient approach</a></li>
+        <li><a href="#a3-what-it-means-in-practice">A.3/ What it means in practice</a></li>
+      </ol>
+    </li>
+    <li><a href="#b-lp-boosts--its-impact-on-the-ecosystem">B/ LP boosts &amp; its impact on the ecosystem</a>
+      <ol>
+        <li><a href="#b1-lp-boost-explained">B.1/ LP Boost explained</a></li>
+        <li><a href="#b2-consequences-of-lp-boost">B.2/ Consequences of LP Boost</a></li>
+      </ol>
+    </li>
+    <li><a href="#seamlessly-expanding-beyond-what-curve-offers">Seamlessly expanding beyond what Curve offers</a>
+      <ol>
+        <li><a href="#velodrome-relays">Velodrome Relays</a></li>
+        <li><a href="#venft-tokenized-locked-positions">veNFT: Tokenized locked positions</a></li>
+        <li><a href="#a-deep-understanding-of-the-nature-of-the-game">A deep understanding of the nature of the game</a></li>
+      </ol>
+    </li>
+    <li><a href="#parting-words">PARTING WORDS</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/crv-vs-velo/">
+                
+                    <img src="/img/2024/crv-vs-velo/cover.png" loading="lazy" alt="Featured image of post Subtles nuances with great consequences: a cross analysis of Curve and Velodrome" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/defi/" style="background-color: #2a9d8f; color: #fff;">
+                DeFi
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/crv-vs-velo/">Subtles nuances with great consequences: a cross analysis of Curve and Velodrome</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            The Velodrome model, inspired by veCRV, achieves superior alignment between the three key participants of a DEX - LPs, tokenholders, and projects needing liquidity. Yet, most of the DeFi space still fails understand why: but not you anon - once you read this post.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 21, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    13 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Today, I want to address Velodrome/Aerodrome, a genuine success story in DeFi. I’ve covered DEXes extensively on this blog, especially Curve: this article will compare the two models and explain how Velodrome improved on the veCRV template.</p>
+<p>First, let me start with a disclaimer: there are two core components to a DEX that everyone needs to be aware of to understand what follows:</p>
+<ol>
+<li>The liquidity structures it provides (x*y=k, stableswap, CL, stableswap-NG, curve V2, etc.)</li>
+<li>The incentives model, which for a DEX is synonymous with its tokenomics.</li>
+</ol>
+<p>This post focuses on the latter, the core of <a class="link" href="https://www.defiscan.info/protocols/velodrome-v2/optimism"  target="_blank" rel="noopener"
+    >Velodrome</a>&rsquo;s innovation. This post assumes basic familiarity with Curve’s veCRV tokenomics; if not, I urge you to <a class="link" href="https://tokenbrice.xyz/fr/crv-wars"  target="_blank" rel="noopener"
+    >read my previous writing about it</a>, posted three years ago but still helpful to understand the model.</p>
+<h2 id="a-vecrvvevelo-fees-collection--distribution">A/ veCRV/veVELO Fees Collection &amp; Distribution
+</h2><p>Fee collection and redistribution are the lifelines of a decentralized exchange. Here, simplicity is usually good, as the DEX segment leader Uniswap is still operating under an extremely simple yet brutally efficient model, where 100% of the collected money goes to the liquidity providers.</p>
+<p>With the launch of its CRV token in August 2020, Curve explored an alternative path, where 50% of the fees collected on a given pair go to liquidity providers and the remaining 50% to the “DAO” (admin fees), meaning the veCRV holders. Curve introduced the concept of “liquidity gauges,” where locked token holders (veCRV) can direct emissions to be received by liquidity providers, creating an incentive baseline independent of the volume processed.</p>
+<p>Velodrome launched two years later, at the end of May 2022, and explored yet another split, inspired by a previous project iterating on the Curve model: Solidly. Here, <strong>LPs get no exposure to the fees collected on the pairs they provide liquidity for and are fully incentivized by token emissions</strong>.</p>
+<p>The core difference between veCRV and veVELO lies in how they handle the fees collected at the DEX/DAO level, where we observe differences in the amount of fees collected and their distribution model.</p>
+<p>Let’s dive into the nuances of this topic: they are key to understanding the pros and cons of each mode.</p>
+<h3 id="a1-amount-of-fees-distributed-velo--2-x-curve">A.1/ Amount of fees distributed: VELO = 2 x Curve
+</h3><p>Curve and Velodrome operate under the same base logic: every week, a given amount of CRV/VELO tokens are emitted and distributed to liquidity providers. Each pool has an associated gauge for which veCRV/veVELO holders can vote, and the weekly budget allocation follows the proportion of the “gauge vote”: if a gauge receives 1% of the total veCRV/veVELO vote, 1% of all the emissions produced that week will be directed to it.</p>
+<p>These emissions are essentially the main cost for the DEX: the price paid to attract and retain liquidity. What matters then is what comes on the other side of the balance sheet – the revenues: in our case, it’s the fees collected.</p>
+<p>On Curve, revenues stem from the “admin fees” of each pool, which are usually set at 50%. This means the fees collected on a given pool are split 50/50 between the LP and the DAO/veCRV holders.</p>
+<p><img src="/img/2024/crv-vs-velo/curve-revenues.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="curve-revenues"
+	
+	
+></p>
+<p>On Velodrome, it&rsquo;s straightforward: liquidity providers get no exposure to the fees collected on the pool they supply; they are incentivized through $VELO emissions only, meaning that the DAO/veVELO holders get 100% of the fees generated on the DEX.</p>
+<p>While this core difference already has a massive impact, the following one is even more meaningful as it pertains to how those fees are distributed to veCRV/veVELO holders.</p>
+<h3 id="a2-model-for-the-distribution-of-fees-a-fairer-and-more-efficient-approach">A.2/ Model for the distribution of fees: a fairer and more efficient approach
+</h3><p>Curve harnesses a model that could be described as <strong>a fee mutualization system</strong>: the fees veCRV holders receive depend only on the amount of veCRV they control. Without getting too technical, those fees are collected in the various tokens involved in the pool (such as USDC/USDT/DAI for the 3pool), and every week, harvested, swapped for 3pool LP token, and then made available for claiming to veCRV holders – as you can see, this means somewhat of an infrastructure to operate, the cost of which scale with the number of pools on the Curve DEX.</p>
+<p>On the other hand, Velodrome provides a superior model on all dimensions, as it achieves better DEX/LP/token holder alignment without any infrastructure required. Let’s see how.</p>
+<p>Simply put, <strong>Velodrome connects gauge-voting activity with fee distribution</strong>. Here, the amount of veVELO one controls matters, but even more important is which pool one votes for since the <strong>voters are exposed to the fees collected on the pairs they vote for only.</strong> They collect the fees as such (i.e., a voter of the ETH/USDC pool gets ETH and USDC), meaning the infrastructure required is much more manageable.</p>
+<p>Velodrome ties fee distribution to the gauge-voting activity: veVELO holders receive the fees collected on the pool they vote ONLY, paid as such every week. It enables the better alignment of veVELO holders with the best interest of Velodrome as a DEX compared to Curve.</p>
+<p>This simple twist creates an interesting voting flywheel. High-volume pairs collect lots of fees, meaning high incentives for voters. This leads to many votes, which direct sensible emissions to the pair, attracting more liquidity providers, enabling more volume processing, etc., until an equilibrium point is reached. This means that high-volume pairs sustain themselves without bribes or a benevolent profit-minimizer whale-voter needed, which is not the case with Curve.</p>
+<p><img src="/img/2024/crv-vs-velo/velodrome-revenues.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="velodrome-revenues"
+	
+	
+>
+Velodrome Revenues Overview - <a class="link" href="https://dune.com/0xkhmer/velodrome"  target="_blank" rel="noopener"
+    >source: 0xkhmer dashboard</a></p>
+<p><img src="/img/2024/crv-vs-velo/aerodrome-revenues.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="aerodrome-revenues"
+	
+	
+>
+Aerodrome Revenues Overview - <a class="link" href="https://dune.com/0xkhmer/aerodrome"  target="_blank" rel="noopener"
+    >source: 0xkhmer dashboard</a></p>
+<h3 id="a3-what-it-means-in-practice">A.3/ What it means in practice
+</h3><p>Enough with the explainer; let’s illustrate by considering the case of a veCRV/veVELO voter, who decided to vote for a pair processing minimal volume (the situation is common).</p>
+<p>On Curve:</p>
+<ol>
+<li>A significant veCRV holder votes for a pool processing a marginal amount of volume compared to its TVL, either to collect a bribe or because he wants to support the tokens involved in the pool.</li>
+<li>His voting activity is detrimental to Curve as a DEX because he directs emissions where they are unnecessary.</li>
+<li>He receives the same amount of 3CRV as a more Curve-aligned voter with an equivalent veCRV bag trying to direct incentives to maximize volume.</li>
+</ol>
+<p>Now on Velodrome:</p>
+<ol>
+<li>A significant veVELO holder votes for a pool processing a marginal amount of volume compared to its TVL, either to collect a bribe or because he wants to support the tokens involved in the pool.</li>
+<li>His voting activity is detrimental to Velodrome as a DEX because he directs emissions where they are unnecessary.</li>
+<li>He receives a marginal amount of fees since the pool he is voting for is processing a marginal volume.</li>
+</ol>
+<p>The situation is the same in reverse for voting on a high-volume pool that would be of interest to the DEX:</p>
+<ul>
+<li>On Curve, this DEX-aligned voter will receive the same amount of 3CRV as anyone holding the same bag.</li>
+<li>On Velodrome, this DEX-aligned voter will be well rewarded, as he will be a majority voter on a high-volume pair: an ideal situation to maximize fees earned.</li>
+</ul>
+<p>On both sides, bribes are paid to voters and can lead to situations where votes are directed to pools that are not optimal in terms of volume processed. However, on Curve, there is no penalty for doing so. On Velodrome, bribers of such pools compete with high-volume pools offering attractive APR to voters, with or without bribes.</p>
+<p>The same thing, from another angle: on Curve, the cost of bribes depends only on the value of CRV emissions. On Velodrome, the baseline price a project must pay to gather votes depends on the total bribes + fees collected on other pools. This means that high-volume pools push the cost of bribes upward, entertaining yet another flywheel in the flywheel.</p>
+<p>Understanding the above means understanding the core difference between the Curve and Velodrome models. However, to get the full picture, more elements must be considered. Let’s discuss the LP boost now.</p>
+<h2 id="b-lp-boosts--its-impact-on-the-ecosystem">B/ LP boosts &amp; its impact on the ecosystem
+</h2><p>LP boost, as it is called, is a Curve-specific feature. Many protocols forking the veCRV tokenomics, such as Balancer with its veBAL, also use it. It enables veCRV holders to earn more CRV rewards on their LP, factoring in several elements, including the size of their veCRV bag and the size of their various LPs. Thus, with appropriate veCRV ownership, an LP can get an “LP Boost” of up to 2.5x compared to the base emission rate.</p>
+<h3 id="b1-lp-boost-explained">B.1/ LP Boost explained
+</h3><p>To maximize the boost obtained, up to 2.5x maximal, one must:</p>
+<ol>
+<li>Own as much veCRV as possible</li>
+<li>Have LP positions in as many pools as possible.</li>
+<li>Have a proportionate/balanced amount of TVL in those various pools.</li>
+</ol>
+<p><strong>Simply put, LP Boost is a rugged game from the get-go</strong>. It is not designed to benefit individual veCRV holders over their LP but to attract meta-protocol, such as Convex, who can achieve 1+2+3 consistently. <strong>The growth of Convex is not a success story; it is by design (Curve’s design)</strong>. If it were not for Convex, another similar protocol would own most of the veCRV supply. We observed similar patterns with other protocols that adopted LP Boost: Balancer has Aura. Convex and Aura control &gt; 50% of the veCRV/veBAL supply.</p>
+<p>Velodrome and Aerodrome completely avoid the possibility of a new protocol to gobble up the supply by not having any boosting mechanism. As we’ve seen with Curve, Convex emerged and captured most of the supply; now, all LPs are earning with a boost, and none are benefiting from any disproportionate amount of CRV. The system has converged to everyone earning about the same effective boost, or in Velodrome/Aerodrome’s case, no boost since the future outcome would’ve been LPs earning the same effective boost. The other fact remains that since Convex has a majority of CRV locked, they control the future governance of CRV.</p>
+<h3 id="b2-consequences-of-lp-boost">B.2/ Consequences of LP Boost
+</h3><p>The existence of the LP-Boost calls for a Convex-like layer on top of the DEX; there is no avoiding it. At this point, some could think: &ldquo;So you have a protocol gobbling most of your emissions and locking them forever; what&rsquo;s the problem?&rdquo;</p>
+<p>The answer is simple: it&rsquo;s simply inefficient design since those meta-layers provide features that could be delivered less convoluted at the base level (by the DEX itself) and without the fees.</p>
+<p>Curve needs Convex and the bribe marketplace: Votium, Warden, and Hidden Hands. But also the auto-compounder/vote delegation manager: Airforce Union, Concentrator, etc. You end up with dozens of protocols taking some fees here and there to deliver something that Velodrome manages to pack in natively. This makes the experience more complex for the users, who must know about these dozens of protocols and their subtleties to make the most of Curve.</p>
+<p>Also, remember how, while discussing the fee distribution, we mentioned that Curve required a much more dense infrastructure to operate? Well, imagine the mess that veCRV+LP Boost is in the backend. There is a reason why both Curve and Balancer are taking ages to ship on a new L2, and often with partial functionality (such as no LP boost, surprise surprise.).</p>
+<h2 id="seamlessly-expanding-beyond-what-curve-offers">Seamlessly expanding beyond what Curve offers
+</h2><p>On Velodrome, the bribe marketplace is built-in: projects can post their bribes directly on the Velodrome frontend, and voters can check available bribes and vote in the same place. New features keep being delivered and added to the same interface used by all participants: LPs, projects, and tokenholders.</p>
+<h3 id="velodrome-relays">Velodrome Relays
+</h3><p>They go from quality-of-life / gas-saving upgrades, such as the “auto-max-lock”, saving lockers for those who wish to remain max-locked to maximize their gauge-voting power the hassle of doing it manually, to much more extensive features, like Relay, a veVELO position management system.</p>
+<p><img src="/img/2024/crv-vs-velo/relay.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="velodrome-relay"
+	
+	
+></p>
+<p>It’s a tool catering to projects using Velodrome to grow liquidity on their pairs. It enables them to set up their voting and bribing strategy and implement it automatically: no need to submit weekly transactions anymore. Relay has another benefit, since currently, the strategy available is a veVELO-maxi one, compounding all fees &amp; bribes collected into VELO and relocking it to maximize voting power: it creates a sizeable VELO sink, directly indexed on the fees distributed by the exchange. <a class="link" href="https://twitter.com/VelodromeFi/status/1762908204894445834"  target="_blank" rel="noopener"
+    >Almost 1/5 of all veVELO are already there</a>.</p>
+<p>As the Relay feature matures, more strategies will be available to its users, including some that compound all the fees and bribes earned into veVELO but, for instance, make them claimable in ETH or USDC. It will prove very convenient for veVELO holders that are not looking to support a project in particular.</p>
+<h3 id="venft-tokenized-locked-positions">veNFT: Tokenized locked positions
+</h3><p>Velodrome has other neat innovations packed in, such as the still under-appreciated veNFT: with Curve, veCRV is non-transferable, making their management painful. Velodrome can achieve the same alignment but enables transferability: veVELO positions are represented by a veNFT that can be transferred. There is no way of redeeming a given veNFT for the underlying VELO tokens apart from waiting for the lock to expire. However, it eases the management of such a position by enabling its transfer. There is also <a class="link" href="https://decode.market/"  target="_blank" rel="noopener"
+    >an OTC market for veVELO veNFTs</a>, where holders can sell their position to interested buyers at a fluctuating discount compared to the value of underlying VELO tokens.</p>
+<h3 id="a-deep-understanding-of-the-nature-of-the-game">A deep understanding of the nature of the game
+</h3><p>Exchanges like Curve or Velodrome are a particular product type in the DeFi landscape. In regular business terms, <strong>they could be described as B2B2C: Business to Business to Consumer</strong>. They are B2B because their first customers are other projects – the various protocols looking for liquidity. If they successfully service this market, the projects they onboard to their DEX will do the B2C work for them, as their liquidity pools present opportunities to their respective token holders.</p>
+<p>In that regard, I feel like Curve utterly failed. With its pyramid of solutions nested on top of one another, Curve is particularly unfriendly to onboard for projects. They wanna bribe? All right, decide between veCRV or vlCVX bribes on Bribe.crv, Votium, Warden, or StakeDAO. Do they want to manage their own CRV? Fine, just pick between veCRV, aCRV, cvxCRV, sdCRV, vlCVX, uCRV, etc. While this myriad of options might ravish Curve-enthusiasts, it turns, in my perspective, into a negative quality for the B2B side of things.</p>
+<p>In contrast, the experience with Velodrome is seamless: one place where everything happens, one option for each – without needing to compare between half a dozen cryptic and sometimes misleading alternatives. Coupled with the previous characteristics of the veCRV games discussed before, especially the LP Boost, it makes the <a class="link" href="https://tokenbrice.xyz/farewell-glc/#the-case-of-the-crv-wars"  target="_blank" rel="noopener"
+    >Curve ecosystem particularly unfriendly to new entrants</a>: <strong>who would want to enter a race rigged in favor of the first entrants three years after it began</strong>?</p>
+<p><img src="/img/2024/crv-vs-velo/tour-de-op.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="tour-de-op"
+	
+	
+></p>
+<p>Moreover, the Velodrome BD efforts are remarkable; the team is broadly available to help onboard new projects, and several programs are designed to make the experience as simple and compelling for new entrants, regrouped under the “Tour de OP” umbrella, which includes a bribe matching program, lock bonuses and vote boosting.</p>
+<h2 id="parting-words">PARTING WORDS
+</h2><p>As you might have seen, both Velodrome &amp; Aerodrome have attracted much attention lately, thanks to their token seeing positive momentum: I think it&rsquo;s well deserved. The release of Slipstream, Velodrome’s implementation of Concentrated Liquidity, will increase the volume processed per unit of TVL, unlocking the flywheel&rsquo;s next growth phase. Aerodrome, Velodrome’s fork on the Base network, has seen spectacular growth since it launched six months ago, further demonstrating the model&rsquo;s viability.</p>
+<p>In the longer term, the Velodrome team is starting to <a class="link" href="https://medium.com/@VelodromeFi/velodrome-the-metadex-48e4af1ef9a4"  target="_blank" rel="noopener"
+    >refer to Velo as a &ldquo;MetaDEX&rdquo;</a>, hinting at Velodrome becoming the base liquidity hub not just of Optimism but for the whole Superchain: all chains built on the OP stack.</p>
+<p>Time will tell, but Velodrome is already a resounding success on Optimism, so managing a cross-chain DEX properly would be a game changer. This is especially true considering how much Curve &amp; Balancer has failed there—not because they did not try, but simply because their convoluted infrastructure with LP boost makes cross-chain deployment painful (Hello AuraFinance distributing AURA on chains where&hellip; there is no liquidity for $AURA).</p>
+<p>PS: I’m addressing the DEX part of the product suite here, which is the complete product for Velodrome but not for Curve, which now has crvUSD and Llamalend. Still, even with crvUSD included, Aerodrome is now collecting and redistributing more fees than Curve, all of this while being present on one chain only vs 13 for Curve. While Curve-DEX has been sub-par for a while, the team has repeatedly proven innovative and able to bounce back. crvUSD revenues have already flipped those of Curve-DEX, and who knows what Llamalend could achieve.</p>
+<p>Game on: let’s wait and see.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/defi/">DeFi</a>
+        
+            <a href="/tags/ethereum/">Ethereum</a>
+        
+            <a href="/tags/decentralized-finance/">Decentralized Finance</a>
+        
+            <a href="/tags/curve-finance/">Curve Finance</a>
+        
+            <a href="/tags/crv/">CRV</a>
+        
+            <a href="/tags/velodrome/">Velodrome</a>
+        
+            <a href="/tags/velo/">Velo</a>
+        
+            <a href="/tags/vevelo/">VeVELO</a>
+        
+            <a href="/tags/convex/">Convex</a>
+        
+            <a href="/tags/cvx/">CVX</a>
+        
+            <a href="/tags/votium/">Votium</a>
+        
+            <a href="/tags/vlcvx/">VlCVX</a>
+        
+            <a href="/tags/vecrv/">VeCRV</a>
+        
+            <a href="/tags/bribe.crv/">Bribe.crv</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Mar 21, 2024 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/crv-wars-l2/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/curve-wars-l2/curve-wars-l2-cover-tokenbrice.png" loading="lazy" data-key="" data-hash="/img/2022/curve-wars-l2/curve-wars-l2-cover-tokenbrice.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">⚔ Advanced CRV warfare: analysis of protocols built on top of Curve and Convex </h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/solidly-velodrome-fork/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2023/solidly-velodrome-template/cover.png" loading="lazy" data-key="" data-hash="/img/2023/solidly-velodrome-template/cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ve(3,3), the logical next step after veCRV?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/crv-wars/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/crv-wars/curve-wars-cover-tokenbrice.png" loading="lazy" data-key="" data-hash="/img/2021/crv-wars/curve-wars-cover-tokenbrice.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">⚔ CRV wars: understanding the race to accumulate power to influence Curve Finance protocol</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/pegged-assets-swap/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://raw.githubusercontent.com/TokenBrice/blog/refs/heads/master/static/img/2025/pegged-assets-swap/pegged-assets-swap-cover.png" loading="lazy" data-key="" data-hash="https://raw.githubusercontent.com/TokenBrice/blog/refs/heads/master/static/img/2025/pegged-assets-swap/pegged-assets-swap-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">The Pegged Asset Swap Wars</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/defi-janus/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/defi-janus/defi-janus-cover-en.png" loading="lazy" data-key="" data-hash="/img/2021/defi-janus/defi-janus-cover-en.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Janus: the new sworn enemy of DeFi protocols?</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

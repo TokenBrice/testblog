@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>VeVELO on TokenBrice</title>
+        <link>http://localhost:1313/tags/vevelo/</link>
+        <description>Recent content in VeVELO on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Tue, 08 Jul 2025 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/vevelo/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>The Pegged Asset Swap Wars</title>
+        <link>http://localhost:1313/pegged-assets-swap/</link>
+        <pubDate>Tue, 08 Jul 2025 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/pegged-assets-swap/</guid>
+        <description>&lt;img src="https://raw.githubusercontent.com/TokenBrice/blog/refs/heads/master/static/img/2025/pegged-assets-swap/pegged-assets-swap-cover.png" alt="Featured image of post The Pegged Asset Swap Wars" /&gt;&lt;p&gt;Dear readers, it’s been a while! As you likely know, liquidity management is both my passion and profession. In this article, I aim to revisit the basics and offer a brief history through the lens of pegged asset swaps. As we detail the liquidity structure and venues that best support those pairs, we will gain a deeper understanding of key concepts that remain critical to navigating that space today. We also get the chance to cover Fluid DEX and EulerSwap, the two most interesting releases of the year for liquidity-building who definitely deserved more airtime around here.&lt;/p&gt;
+&lt;h2 id=&#34;the-early-days-of-pegged-asset-swaps-2018-2019&#34;&gt;The Early Days of Pegged Asset Swaps (2018-2019)
+&lt;/h2&gt;&lt;p&gt;Once upon a time, more than half a decade ago, &lt;strong&gt;all we had to swap on the mainnet were Uniswap, Bancor, and some clunky order-book-based DEXes like EtherDelta.&lt;/strong&gt; So, when it came to pegged asset swaps, the options were minimal, and we were using the Uniswap V2 USDC/USDT pool, which was akin to sheer insanity.&lt;/p&gt;
+&lt;p&gt;Let’s zoom in on this historical trivia to understand &lt;strong&gt;the level of waste that was achieved&lt;/strong&gt; at that time. When it comes to liquidity pools, the key parameter is the relative evolution of the two assets&amp;rsquo; prices: if you have done any volatile LPing, you’re deeply familiar with that. If you LP say LINK/ETH, the max pain for you, in terms of impermanent loss, is, for instance, ETH shooting up while LINK is dumping: your LP position decreases in ETH (which goes up in price), and accrues LINK (which is falling).&lt;/p&gt;
+&lt;p&gt;USDC/USDT is another story, though, as the two assets are deeply correlated, with a maximum price difference ever seen between them of around 10% during a specific event (the USDC SVB depeg); in regular times, the two have a price difference in the basis point range. However, UNIv2 distributes the liquidity across the entire price range, meaning it allocates an equal amount of liquidity anywhere from 1 USDC = 0.0000000001 USDT to 1 USDC = 10000000000000 USDT. To put it simply: 99.9% of the liquidity in a UNIv2_USDC/USDT will never be utilized. I think it’s clearer on the graph:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/TokenBrice/blog/refs/heads/master/static/img/2025/pegged-assets-swap/liquidity-structure.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;liquidity-structures&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The only valuable liquidity there (assuming 1 USDC ≃ 1 USDT) is located at the intersection of the two green lines, making up a very minimal share of the entire liquidity distribution curve.&lt;/p&gt;
+&lt;p&gt;On the other hand, note the stableswap liquidity distribution, displayed in blue, on the same graph. For assets at similar prices, the area covered by the curve is much greater than with the Uniswap invariant.&lt;/p&gt;
+&lt;h2 id=&#34;the-stableswap-revolution-for-pegged-assets-swaps-2020&#34;&gt;The StableSwap Revolution for Pegged Assets Swaps (2020)
+&lt;/h2&gt;&lt;p&gt;Once StableSwap was available, stablecoin liquidity quickly migrated there, as it was significantly more efficient (we’re talking &amp;gt;100x improvements in efficiency vs UNIv2). It was &lt;strong&gt;the first live instance ever seen of Concentrated Liquidity on mainnet, before UNIv3&lt;/strong&gt;. The two are difficult to compare, as UNIv3 is much more flexible, while Curve-StableSwap is more specialized; however, kudos must be given where due. Along with increased efficiency, Curve provided an incentive model - veCRV+CRV emissions, which has been &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/crv-wars/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;covered several times on this blog already&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Incentives are critical for pegged asset pairs, as they have some specific characteristics:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;They tend to be overall &lt;strong&gt;low-volume&lt;/strong&gt; (compared to a volatile pairing)&lt;/li&gt;
+&lt;li&gt;**The fees LP can charge are much lower **(up until recently, the convention was 0.3% to 1% per trade for volatile assets, and 0.05% for pegged assets)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Their volume comes in spikes&lt;/strong&gt; correlated to events associated with the coin (ex, USDC depeg was one of the highest volume days ever for USDC)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Because of all of the above, I thought until very recently that incentivization structures were even more critical for pegged asset pairs than for volatile assets. With the arrival of Fluid DEX and EulerSwap, I don’t think it’s the case anymore. However, before we delve into them, we must first address another significant historical milestone in pegged assets liquidity: the release of Uniswap V3.&lt;/p&gt;
+&lt;h2 id=&#34;the-arrival-of-uniswap-v3-concentrated-liquidity-2021&#34;&gt;The arrival of Uniswap V3 Concentrated Liquidity (2021)
+&lt;/h2&gt;&lt;p&gt;Uniswap V3 released and delivered customizable concentrated liquidity to essentially every asset type, enabling massive efficiency gains for all liquidity providers. However, since it wasn’t just for pegged assets, it almost meant amplified impermanent losses for volatile assets LPs. Considering the novelty of the liquidity structure, along with the lack of infrastructure in the early days, the launch of UNIv3 was initially slow.&lt;/p&gt;
+&lt;p&gt;However, the customizable concentration delivered tangible benefits, especially for a subcategory of pegged assets I branded “loosely pegged assets”: think of pairs like:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;wstETH/ETH (correlated, but wstETH is up-only against ETH),&lt;/li&gt;
+&lt;li&gt;LUSD/USDC (correlated, but LUSD can slightly over/under-peg)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In such cases, &lt;strong&gt;UNIv3 concentrated liquidity enabled LPs to replicate a distribution similar in efficiency to Curve’s Stableswap but adjusted to the tokens&amp;rsquo; price action particularities&lt;/strong&gt;, and it translated once again into massive efficiency gains. However, the final unlock (as of the current industry state) was only to come years later with the arrival of Fluid DEX and EulerSwap.&lt;/p&gt;
+&lt;h2 id=&#34;debt-as-liquidity-2025&#34;&gt;Debt as liquidity (2025)
+&lt;/h2&gt;&lt;p&gt;I won&amp;rsquo;t delve too deeply into the models of Fluid and EulerSwap in this post for conciseness, as I want to focus more on what it means for liquidity building. Simply put, Fluid found a creative way to transform debt into liquidity with “Smart Debt”.&lt;/p&gt;
+&lt;p&gt;Picture an average user supplying ETH collateral and borrowing USDC. Does he specifically want USDC? Most likely, he doesn’t care as long as he’s borrowing a safe and stable USD-pegged coin. He’d likely take USDT as well.&lt;/p&gt;
+&lt;p&gt;That is precisely what smart debt does. In a smart debt vault, our borrower borrows a mix of USDC and USDT, which constantly evolves: his debt now serves as liquidity for the USDC/USDT pair. What that means for the borrowers is &lt;strong&gt;reduced borrowing cost, as he now earns trading fees&lt;/strong&gt;, potentially enabling him to offset the borrowing interest.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/TokenBrice/blog/refs/heads/master/static/img/2025/pegged-assets-swap/fluid-smart-debt.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;fluid-smart-debt&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;That’s from the borrower’s perspective, but now let’s switch to a protocol mindset. What does this mean for Circle and Tether? Essentially, &lt;strong&gt;liquidity at virtually 0 costs, with no form of incentivization whatsoever.&lt;/strong&gt; Nothing really new there for Circle who has been sponsored by the whole ecosystem for years – but for another stablecoin, say a GHO, BOLD, or FRAX, that is huge.&lt;/p&gt;
+&lt;p&gt;I focused on Fluid here, but the thought process is similar for EulerSwap, although the implementation is different. EulerSwap is still in testing mode and already printing serious volume on USDC/USDT.&lt;/p&gt;
+&lt;p&gt;If you understand this, you can reach my thesis, which simply states, “I don’t see a DeFi where Euler/Fluid/Similar do not eventually dominate pegged-assets swaps.”&lt;/p&gt;
+&lt;p&gt;Not seeing it yet? Remember the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pegged assets pairs are usually low volume ⇒ low fees&lt;/li&gt;
+&lt;li&gt;Thus, they require heavy incentivization to maintain on a classical DEX&lt;/li&gt;
+&lt;li&gt;Fluid and Euler can sustain this liquidity at close to no cost.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;⇒ If (it already started) there is a race to the bottom in terms of fees for pegged asset swaps, regular DEXes have exactly 0% chances of winning it.&lt;/p&gt;
+&lt;h3 id=&#34;0xorb-a-potential-challenger-2026&#34;&gt;0xOrb, a potential challenger (~2026)?
+&lt;/h3&gt;&lt;p&gt;Now, to give you an accurate picture of the whole pegged asset swap landscape, I must mention another project not live yet, but promising: &lt;a class=&#34;link&#34; href=&#34;https://orbswap.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;0xOrb&lt;/a&gt;. The promise is simple: &lt;strong&gt;stableswap, but with n assets, n being able to go up to 1000&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;So for instance, for stablecoin, you could picture a mega-pool well supplied in USDC and USDT, that then proceed to onboard “alternative” stablecoins and offer them great liquidity against the majors. The approach has merits for the long-tail of pegged assets, but I don’t see such pools dominating the core volume (USDC&amp;lt;&amp;gt;USDT or cbBTC&amp;lt;&amp;gt;wBTC).&lt;/p&gt;
+&lt;p&gt;On top of that, such pools could be cross-chain, although I think the benefit here is absolutely marginal if not &lt;strong&gt;detrimental&lt;/strong&gt; (⇒ increases the risks and complexity of the infra for no benefits), &lt;strong&gt;since USDC and USDT are increasingly bridgable 1:1 fast between chains thanks to product like &lt;a class=&#34;link&#34; href=&#34;https://www.circle.com/cross-chain-transfer-protocol&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;CCTP&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;what-does-it-mean-for-incumbent-pure-dex-players&#34;&gt;What does it mean for incumbent pure-DEX players?
+&lt;/h2&gt;&lt;p&gt;First, the most significant caveat: we’re discussing pegged asset swaps here. Replicating the same playbook on volatile pairs is much more challenging, &lt;a class=&#34;link&#34; href=&#34;https://gov.fluid.io/t/current-issues-with-eth-usdc-pool/1606&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;as seen in Fluid’s Smart Debt+Collateral ETH/USDC vault and the losses its LP incurred&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;DEXes that generate most of their volume and fees through volatile pairs, such as Aerodrome, are likely not to be impacted by these new entrants. &lt;strong&gt;The reality is, however, much grimmer for DEXes focusing on pegged assets&lt;/strong&gt;, and I want to consider two of these to wrap this article up:&lt;/p&gt;
+&lt;h3 id=&#34;curve-game-over-unless-there-are-sizeable-changes&#34;&gt;Curve: game over unless there are sizeable changes
+&lt;/h3&gt;&lt;p&gt;Pegged assets swaps remain critical for Curve, still seen as the home of stablecoin liquidity. Indeed, there were attempts to capture volatile volume with CryptoSwap, but it proved unsuccessful.&lt;/p&gt;
+&lt;p&gt;With the arrival of Fluid and EulerSwap, I think Curve is the DEX with the most to lose, and I don’t see it maintaining a prominent volume (they have already been kicked out of the top 10 a while ago) unless sizable changes are happening:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;veCRV revamp&lt;/strong&gt;: harnessing the learnings from newer models like veAERO to optimize the CRV emissions allocation.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Increased DEX efficiency harnessing crvUSD&lt;/strong&gt;: for instance, by enabling crvUSD loans to Curve LPs.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;A new liquidity structure for volatile assets&lt;/strong&gt; : so that Curve can capture the associated volume.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;ekubo-the-confident-latecomer-rushing-to-its-demise&#34;&gt;Ekubo: the confident latecomer rushing to its demise
+&lt;/h3&gt;&lt;p&gt;Ekubo’s situation is arguably even worse, as they came only recently to the party. At face value, Ekubo on Ethereum is a fast-growing DEX printing serious volumes. Ekubo is essentially a UNIv4-alt, with slightly more liquidity structure customization and a DAO that proved less extractive than Uniswap’s (the lowest bar of all, but still).&lt;/p&gt;
+&lt;p&gt;The problem lies in where the volume comes from: the vast majority (&amp;gt;95%) of it is on a USDC/USDT pair with 0.00005% fees and heavily incentivized. Ekubo is essentially playing a race to the bottom it cannot win because Ekubo cannot sustain extremely low fees in the long term (LPs must eat), while Fluid/Euler can (if borrowers receive even a 0.1% yield on their debt, thanks to smart debt, they are better off than without smart debt and thus happy).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/TokenBrice/blog/refs/heads/master/static/img/2025/pegged-assets-swap/ekubo.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;ekubo-stats&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;With a $2.6M TVL pool, processing ~$130M volume daily for $662 of fees collected daily, incentivized ~8% in EKUBO, they are already fast approaching the limit of what they can do.&lt;/p&gt;
+&lt;p&gt;The most amusing aspect of all this is that &lt;strong&gt;Ekubo itself initiated the race to the bottom with the USDC/USDT swap fees and will be spectacularly vainquished at its own game&lt;/strong&gt;. DeFi never ceases to entertain.&lt;/p&gt;
+&lt;p&gt;As always, I hope this article was insightful and deepened your understanding of the pegged assets swap game. I look forward to getting my character trashed by the Ekubo community simply for stating an opinion driven by facts: their reaction gave me extreme confidence in my assessment, as I have observed the same response when:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I denounced MAI&amp;rsquo;s absurd security practices, and it got hacked + depegged shortly after.&lt;/li&gt;
+&lt;li&gt;I denounced R/David Garai&amp;rsquo;s gaslighting and lies, and R proceeded to get hacked into oblivion &amp;lt;6 months later.&lt;/li&gt;
+&lt;li&gt;I criticized Prisma’s team behavior, and they proceeded to get hacked and shut down the protocol &amp;lt;12 months later.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And the list goes on. Best of luck to all, especially the EKUBO bag holders – try to have some class in your dismay that would serve you well.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Is this a Lending Protocol Renaissance?</title>
+        <link>http://localhost:1313/lending-protocol-renaissance/</link>
+        <pubDate>Mon, 01 Jul 2024 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/lending-protocol-renaissance/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2024/lending-protocol-renaissance/0-lending-protocol-renaissance-cover.png" alt="Featured image of post Is this a Lending Protocol Renaissance?" /&gt;&lt;p&gt;In the last few months, we’ve seen a flurry of novel and exciting lending protocols come to market, such as Morpho, DYAD, Fluid, or Tapioca; even more are expected in the coming months, such as Liquity V2 (Bold) or Euler V2. All are innovative, in the arena, trying things to the point that I wonder if we’re not experiencing a lending protocol renaissance after a few years of rehashing the same concepts.&lt;/p&gt;
+&lt;p&gt;Thus, in this article, I’d like to give you a tour of the interesting ideas I’ve seen being explored — we’ll go through some of the protocols mentioned above and, for each, focus on understanding their main innovation.&lt;/p&gt;
+&lt;h2 id=&#34;collateralized-debt-position-cdp-protocols-vs-money-market&#34;&gt;Collateralized Debt Position (CDP) protocols vs Money Market
+&lt;/h2&gt;&lt;p&gt;Let’s dive in, starting with a primer on the differences between CDP protocols (e.g., Maker or Liquity) and money markets (e.g., Aave or Morpho). It will come in handy as we will discuss both in this article and even finish with a project merging the two models into one protocol.&lt;/p&gt;
+&lt;table&gt;
+  &lt;tr&gt;
+   &lt;td&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;strong&gt;&lt;em&gt;CDP (ex: Liquity)&lt;/em&gt;&lt;/strong&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;strong&gt;&lt;em&gt;Money Market (ex: Aave)&lt;/em&gt;&lt;/strong&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;em&gt;Borrower Interest Rate&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Predictable, can even be fixed or initiation fee only&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Volatile, entirely dependent on pool usage&lt;/em&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;em&gt;Collateral accepted&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Usually limited options, cannot mix collateral&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Various collateral: a given position can mix several collaterals at once&lt;/em&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;em&gt;Assets that can be borrowed&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Only the protocol stablecoin (DAI on Marker, LUSD on Liquity)&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Diverse – any asset enabled as a borrowable asset&lt;/em&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;em&gt;Collateral re-hypothecation&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;None&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Collateral are deposited in a pool and thus potentially re-lent to other users&lt;/em&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;em&gt;Protocol core challenge&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Stabilizing the stablecoin outputted &amp; securing enough liquidity on it&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Attracting sufficient borrowable assets (USDC, ETH) to fulfill borrowing demand&lt;/em&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;em&gt;Protocol main risk&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Oracle failure ⇒ collateral value not accurately evaluated ⇒ some users can borrow more than their collateral worth ⇒ stablecoin death spiral&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Oracle failure ⇒ collateral value not accurately evaluated ⇒ some users can borrow more than their collateral worth ⇒ all borrowable assets are drained&lt;/em&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;CDP protocols stand out for their ability to facilitate cheaper borrowing costs, thereby stimulating more borrowing-side demand, a challenging feat to achieve. This is due to the unique feature of CDPs, where the user directly contracts debt against the protocol, eliminating the need to source and pay an external stablecoin depositor demanding a competitive interest rate, as is the case with a money market like Aave. The primary challenge with CDPs lies in the stability and liquidity of the stablecoin that is produced.&lt;/p&gt;
+&lt;p&gt;On the other hand, money markets tend to be more flexible. Thanks to their structure, they allow users to mix and match collateral and can quickly onboard new ones. Yet, they tend to require more maintenance, as collateral parameters must be constantly adjusted to reflect the realities of the market. This creates quite the load for governance, as seen on Aave, where &lt;a class=&#34;link&#34; href=&#34;https://boardroom.io/aave/overview&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;over a thousand proposals&lt;/a&gt; were already processed in four and a half years: approximately 22 per month. It works, but it seems overengineered; surely there must be a better way.&lt;/p&gt;
+&lt;h2 id=&#34;dyad-flirting-with-the-endogenous-collateral-taboo&#34;&gt;DYAD: Flirting with the endogenous collateral taboo
+&lt;/h2&gt;&lt;p&gt;Dyad is a CDP protocol that implements several novel ideas, such as delivering free borrowing to its users, who must own an NFT to partake (Note). It also serves as the protocol&amp;rsquo;s base coordination layer. I invite you to &lt;a class=&#34;link&#34; href=&#34;https://dyad.gitbook.io/dyad-docs-v2/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;read the documentation&lt;/a&gt; to become more familiar with it. Let’s zoom in on Dyad’s novel approach to handling a key topic for CDP protocols: overcollateralization.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice info&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#info-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Info&lt;/p&gt;&lt;p&gt;For stablecoins, we talk about endogenous vs exogenous collateral. To quickly tell, ask yourself this question: if the stablecoin fails, does the collateral also fail? If yes, your collateral is endogenous (ex: my beloved &amp;amp; defunct &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/posts/2021/seigniorage-basis-vs-esd/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;seigniorage-based stablecoins&lt;/a&gt;); if not, it’s exogenous (ex: ETH for Liquity).&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Stablecoins harnessing endogenous or no collateral can scale quickly, as seen with ESD, Basis Cash, or Terra/UST. However, they can and usually do explode even faster. For this reason, harnessing endogenous collateral is considered a risky practice – worthy of an instant Red Flag / F on the stablecoin rating agency &lt;a class=&#34;link&#34; href=&#34;https://bluechip.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Bluechip&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2024/lending-protocol-renaissance/1-endogenous-collateral-bluechip.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1-endogenous-collateral-bluechip&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;What I would like to focus on today regarding Dyad is its utility token, KEROSENE, which is a mechanism for allocating the right to mint against existing surplus collateral in the system. By default, the system&amp;rsquo;s minimal collateralization ratio is 150%. However, KEROSENE holders can deposit it into their Notes to reduce their exogenous collateral ratio to 100%.&lt;/p&gt;
+&lt;p&gt;Thus, KEROSENE is not technically an endogenous collateral but a mechanism to price and enable users to harness the protocol&amp;rsquo;s exogenous over-collateralization. KEROSENE’s utility gives it a “deterministic value” corresponding to its utility while deposited into a Note. Since KEROSENE is mostly farmed by supplying liquidity on DYAD, it could entertain an interesting flywheel.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2024/lending-protocol-renaissance/2-dyad-defillama.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;2-dyad-defillama&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Launched at the end of the year, the protocol has seen gentle and steady growth, although still limited. The rollout is progressive: the base functionalities are live (Note, DYAD minting, LP incentives, KEROSENE utility), yet much more is coming: sDYAD, momentum (a mechanism to better align protocol participants), a lending market, etc. It’s worth following for any stablecoin enjoyer such as myself.&lt;/p&gt;
+&lt;h2 id=&#34;liquity-v2--the-base-rate-of-defi&#34;&gt;Liquity v2 – The base rate of DeFi
+&lt;/h2&gt;&lt;p&gt;Liquity’s LUSD remains one of the most successful genuinely decentralized stablecoins on the mainnet, so when v2 was announced, it gathered a lot of attention. After researching a novel approach harnessing a reserve model, the team pivoted back to a CDP protocol, growing from learning the first iteration. V2 is expected to be released by the end of the year.&lt;/p&gt;
+&lt;p&gt;Today, I want to focus on one, in particular, on interest rate management.&lt;/p&gt;
+&lt;p&gt;Interest-rate management is crucial for all lending protocols, even CDP protocols. The rate can be easily defined based on the market utilization rate in money markets. For CDP protocols, replicating a similar approach is impossible, and other venues must be explored; several were:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Governance-defined (ex: Maker / DAI): while this approach provides flexibility, it generates uncertainty for borrowers and challenges in governance.&lt;/li&gt;
+&lt;li&gt;Algorithmic (ex: Liquity / LUSD): no governance is always better, when possible; however, it doesn’t come without shortcomings either. In the case of Liquity, the set initiation fee proved inflexible, which led to the protocol adjusting to a higher interest rate environment with redemptions and, thus, through a lowering of the overall LUSD supply.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;With v2, the protocol switches to an interest rate model (no more initiation fee), which should already provide more agility. What’s more interesting is &lt;a class=&#34;link&#34; href=&#34;https://www.liquity.org/blog/liquity-v2-why-user-set-interest-rates&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;how this interest rate is decided: directly by the users&lt;/a&gt;. The team introduces another protocol-level game with straightforward parameters: redemptions will be processed based on the interest rate paid by the user, from lowest to highest.&lt;/p&gt;
+&lt;p&gt;Thus, users who choose a very low interest will put themselves first in line for redemptions, while those who pick the highest interest will be maximally protected. To make it easy for any user to partake, interest rate delegation will be possible, with various delegates delivering different mandates expected at launch.&lt;/p&gt;
+&lt;p&gt;This will allow the protocol to rapidly adjust to all kinds of market environments, from low interest rates to high, avoiding the long redemption phases as seen in v1 while remaining immutable and delivering greater predictability to borrowers.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2024/lending-protocol-renaissance/3-bold-stability.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;3-bold-stability&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;As the protocol gains adoption, the average interest rate observed could even inform beyond Liquity v2 itself, as it will correspond to a base rate borrowers are willing to pay on a risk-minimized and immutable protocol. Riskier protocols will have to offer a lower interest rate to attract borrowers. The v2 packs many more interesting innovations. To get up to speed, I recommend checking out &lt;a class=&#34;link&#34; href=&#34;https://x.com/bjnpck/status/1772227278606389496&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Bojan’s thread of threads&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;tapioca--cdp-x-money-market-convergence&#34;&gt;Tapioca – CDP x Money Market Convergence
+&lt;/h2&gt;&lt;p&gt;Tapioca was launched just a few weeks ago and is still being progressively released, as some protocol components still need to be made live. In today’s highlight, I’d like to focus on two main items:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Convergence of the CDP and Money Market model with Tapioca&lt;/li&gt;
+&lt;li&gt;The innovative token lock model harnessed&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Let’s dive right in. For more context about Tapioca, as often, &lt;a class=&#34;link&#34; href=&#34;https://docs.tapioca.xyz/tapioca&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the official documentation&lt;/a&gt; is a great source.&lt;/p&gt;
+&lt;h3 id=&#34;convergence-of-cdp-and-money-market&#34;&gt;Convergence of CDP and Money Market
+&lt;/h3&gt;&lt;p&gt;CDP protocols face a challenge: they must deliver competitive yield on the stablecoin they output to drive demand. Liquity v2 will redirect most of the fees collected, thanks to the interest rate, to BOLD stakers, Maker has the DSR / sDAI, etc.&lt;/p&gt;
+&lt;p&gt;Yet, another way to ensure stablecoin minters can access competitive yields is to build a money market on top of the stablecoin: that’s precisely what Tapioca is doing. Indeed, Tapioca is essentially a double protocol.&lt;/p&gt;
+&lt;p&gt;First, there is the CDP—branded “Big Bang,” where users can mint USDO against selected collateral: gas tokens and LSDs. The collateral selection is purposely restrictive, as tokens accepted here directly affect USDO backing. Borrowers pay an interest rate and, depending on USDO’s peg situation, potentially an initiation fee of up to 1% (if underpeg). It enables users to loop-leverage their ETH / LSD exposure or simply harness their ETH / LSD as collateral to borrow some USDO.&lt;/p&gt;
+&lt;p&gt;Then, there is the money market — branded “Singularity,” which provides isolated markets where users can supply various types of collateral to borrow USDO, supplied by borrowers on the CDP side. This creates a native yield for USDO holders that is decorrelated from the CDP side, as well as offering an elegant approach to handle all types of collateral:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Censorship resistant majors ⇒ CDP collateral =backing USDO&lt;/li&gt;
+&lt;li&gt;Derivatives / more risky tokens ⇒ Singularity = yield to USDO holders without compromising USDO’s backing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This dual structure allows Tapioca to host various collateral, with appropriate risk-mitigation measures for each. Since singularity harnesses isolated markets, the risk for each collateral onboarded there is isolated, and it can be further managed with its parametrization (LTV, interest rate, and liquidation bonus) and limits.&lt;/p&gt;
+&lt;h3 id=&#34;twaml-an-innovative-token-locking-model&#34;&gt;twAML: an innovative token-locking model
+&lt;/h3&gt;&lt;p&gt;After following and commenting on the DEX evolutions, starting with veCRV and &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/crv-vs-velo/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the improvements we observed with Velodrome (veNFT)&lt;/a&gt;, I anticipated seeing token lock models harnessed on lending protocols too. It has been, but only in a primitive manner, with gauge-based emissions &amp;amp; governance token locking to allocate them, such as seen on Prisma.&lt;/p&gt;
+&lt;p&gt;Tapioca finally delivers with an exciting approach harnessing a new type of token locking (twAML), both for their governance token TAP and for the suppliers of the money market, to secure the supply side and thus drive more borrowing demand. Hence, after Velodrome improved the veCRV model and delivered the first credible improvement over veCRV, we might see its third iteration come to fruition. Here are the highlights:&lt;/p&gt;
+&lt;table&gt;
+  &lt;tr&gt;
+   &lt;td colspan=&#34;4&#34; &gt;&lt;strong&gt;&lt;em&gt;Main Locking Model Overview&lt;/em&gt;&lt;/strong&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;em&gt;Name&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;veCRV&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;veNFT (ex: veVELO)&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;twAML (ex: twTAP)&lt;/em&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;em&gt;Meaning&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Vote Escrowed&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Vote Escrowed NFT&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Time Weighted Average Magnitude Lock&lt;/em&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;em&gt;Locked Position Represented by&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;None&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;NFT&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;NFT&lt;/em&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;em&gt;Locked Position Transferable&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;No&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Yes&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Yes&lt;/em&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;em&gt;TKN &amp;lt;&gt; veTKN ratio&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Solely dependent on time duration, one veTKN per TKN if 4-year lock&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;same as veCRV&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Depends on twAML – the average lock duration of other lockers: if equal/above, then one veTKN per TKN&lt;/em&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;em&gt;veTKN &amp;lt;&gt; TKN Decay&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Yes, linear over time (ex, after 2 years of lock, only 0.5 veTKN per TKN)&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;same as veCRV&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;No Decay&lt;/em&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;em&gt;Revenues for lockers&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;Pro-rata share of the fees collected on Curve&lt;/em&gt;
+&lt;li&gt;&lt;em&gt;Potential bribes&lt;/em&gt;
+&lt;li&gt;&lt;em&gt;LP boost revenue&lt;/em&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+   &lt;/td&gt;
+   &lt;td&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;Weekly rebase added to veNFT&lt;/em&gt;
+&lt;li&gt;&lt;em&gt;Fees from pool voted on&lt;/em&gt;
+&lt;li&gt;&lt;em&gt;Potential bribes&lt;/em&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+   &lt;/td&gt;
+   &lt;td&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;USDO Interest Accrued &lt;/em&gt;
+&lt;li&gt;&lt;em&gt;Liquidation Profit Shares&lt;/em&gt;
+&lt;li&gt;&lt;em&gt;USDO Creation Fees&lt;/em&gt;
+&lt;li&gt;&lt;em&gt;Flash Mint Fee&lt;/em&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;The main innovation lies in the flexibility and additional game theory layer this model implements. Instead of a linear veTKN to TKN correspondence, depending on the time locked and maxing at four years, like with veCRV and veAERO, twAML looks at other lockers&amp;rsquo; average lock time (magnitude weighted). In practice, achieving a 1:1 TKN&amp;lt;-&amp;gt;veTKN correspondence no longer requires a four-year lock but simply to lock for as much / longer than the existing locks. Thus, the lock time will rapidly increase during the first epoch, ramping up from the 4-week maximum initially set up until it finds an equilibrium point and potentially starts to decay.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2024/lending-protocol-renaissance/4-twTAP.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;4-twTAP&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Released for the first time with dynamic adjusting, the twAML was met with excessive degeneracy and quickly ramped up over four years. Thus, the team has returned to work and switched the adjustment to epoch-based. The new iteration is expected in the coming weeks, another development worth monitoring for stablecoin and lock tokens enjoyers.&lt;/p&gt;
+&lt;p&gt;Tapioca is quite the beefy protocol, two years in the work. I’ve barely scratched the surface there, as there are many other components worthy of commentary:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It’s natively omnichain harnessing Layer 0&amp;rsquo;s omnichain fungible token standard&lt;/li&gt;
+&lt;li&gt;Tapioca, like Liquity, will be one of the few CDP protocols redirecting fees generated from stablecoin minting to its token holders through the twTAP model.&lt;/li&gt;
+&lt;li&gt;Rewards for USDO lockers are distributed in oTAP, an option token connected to the twAML logic.&lt;/li&gt;
+&lt;li&gt;The protocol is keen on accruing Protocol-Owned Liquidity, both for TAP and USDO, which will enable it to lower its liquidity maintenance costs and potentially turn it into a profitable endeavor.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I wanted to cover more protocols, but this article is already beefy, so I’ll keep it there for today. There are many exciting developments for lending protocols worth discussing, such as the growth of isolated markets with protocols like Morpho or Silo. All of this and more leads me to believe that after years of Aave &amp;amp; Maker dominating the lending protocol landscape, we might see some challengers rising to a similar size, if not overtaking them in the coming years.&lt;/p&gt;
+&lt;p&gt;I’ll be watching, and so should you.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Thanks to Gray for the cover image.&lt;/em&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Subtles nuances with great consequences: a cross analysis of Curve and Velodrome</title>
+        <link>http://localhost:1313/crv-vs-velo/</link>
+        <pubDate>Thu, 21 Mar 2024 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/crv-vs-velo/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2024/crv-vs-velo/cover.png" alt="Featured image of post Subtles nuances with great consequences: a cross analysis of Curve and Velodrome" /&gt;&lt;p&gt;Today, I want to address Velodrome/Aerodrome, a genuine success story in DeFi. I’ve covered DEXes extensively on this blog, especially Curve: this article will compare the two models and explain how Velodrome improved on the veCRV template.&lt;/p&gt;
+&lt;p&gt;First, let me start with a disclaimer: there are two core components to a DEX that everyone needs to be aware of to understand what follows:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The liquidity structures it provides (x*y=k, stableswap, CL, stableswap-NG, curve V2, etc.)&lt;/li&gt;
+&lt;li&gt;The incentives model, which for a DEX is synonymous with its tokenomics.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This post focuses on the latter, the core of &lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/velodrome-v2/optimism&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Velodrome&lt;/a&gt;&amp;rsquo;s innovation. This post assumes basic familiarity with Curve’s veCRV tokenomics; if not, I urge you to &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/fr/crv-wars&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;read my previous writing about it&lt;/a&gt;, posted three years ago but still helpful to understand the model.&lt;/p&gt;
+&lt;h2 id=&#34;a-vecrvvevelo-fees-collection--distribution&#34;&gt;A/ veCRV/veVELO Fees Collection &amp;amp; Distribution
+&lt;/h2&gt;&lt;p&gt;Fee collection and redistribution are the lifelines of a decentralized exchange. Here, simplicity is usually good, as the DEX segment leader Uniswap is still operating under an extremely simple yet brutally efficient model, where 100% of the collected money goes to the liquidity providers.&lt;/p&gt;
+&lt;p&gt;With the launch of its CRV token in August 2020, Curve explored an alternative path, where 50% of the fees collected on a given pair go to liquidity providers and the remaining 50% to the “DAO” (admin fees), meaning the veCRV holders. Curve introduced the concept of “liquidity gauges,” where locked token holders (veCRV) can direct emissions to be received by liquidity providers, creating an incentive baseline independent of the volume processed.&lt;/p&gt;
+&lt;p&gt;Velodrome launched two years later, at the end of May 2022, and explored yet another split, inspired by a previous project iterating on the Curve model: Solidly. Here, &lt;strong&gt;LPs get no exposure to the fees collected on the pairs they provide liquidity for and are fully incentivized by token emissions&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The core difference between veCRV and veVELO lies in how they handle the fees collected at the DEX/DAO level, where we observe differences in the amount of fees collected and their distribution model.&lt;/p&gt;
+&lt;p&gt;Let’s dive into the nuances of this topic: they are key to understanding the pros and cons of each mode.&lt;/p&gt;
+&lt;h3 id=&#34;a1-amount-of-fees-distributed-velo--2-x-curve&#34;&gt;A.1/ Amount of fees distributed: VELO = 2 x Curve
+&lt;/h3&gt;&lt;p&gt;Curve and Velodrome operate under the same base logic: every week, a given amount of CRV/VELO tokens are emitted and distributed to liquidity providers. Each pool has an associated gauge for which veCRV/veVELO holders can vote, and the weekly budget allocation follows the proportion of the “gauge vote”: if a gauge receives 1% of the total veCRV/veVELO vote, 1% of all the emissions produced that week will be directed to it.&lt;/p&gt;
+&lt;p&gt;These emissions are essentially the main cost for the DEX: the price paid to attract and retain liquidity. What matters then is what comes on the other side of the balance sheet – the revenues: in our case, it’s the fees collected.&lt;/p&gt;
+&lt;p&gt;On Curve, revenues stem from the “admin fees” of each pool, which are usually set at 50%. This means the fees collected on a given pool are split 50/50 between the LP and the DAO/veCRV holders.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2024/crv-vs-velo/curve-revenues.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;curve-revenues&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;On Velodrome, it&amp;rsquo;s straightforward: liquidity providers get no exposure to the fees collected on the pool they supply; they are incentivized through $VELO emissions only, meaning that the DAO/veVELO holders get 100% of the fees generated on the DEX.&lt;/p&gt;
+&lt;p&gt;While this core difference already has a massive impact, the following one is even more meaningful as it pertains to how those fees are distributed to veCRV/veVELO holders.&lt;/p&gt;
+&lt;h3 id=&#34;a2-model-for-the-distribution-of-fees-a-fairer-and-more-efficient-approach&#34;&gt;A.2/ Model for the distribution of fees: a fairer and more efficient approach
+&lt;/h3&gt;&lt;p&gt;Curve harnesses a model that could be described as &lt;strong&gt;a fee mutualization system&lt;/strong&gt;: the fees veCRV holders receive depend only on the amount of veCRV they control. Without getting too technical, those fees are collected in the various tokens involved in the pool (such as USDC/USDT/DAI for the 3pool), and every week, harvested, swapped for 3pool LP token, and then made available for claiming to veCRV holders – as you can see, this means somewhat of an infrastructure to operate, the cost of which scale with the number of pools on the Curve DEX.&lt;/p&gt;
+&lt;p&gt;On the other hand, Velodrome provides a superior model on all dimensions, as it achieves better DEX/LP/token holder alignment without any infrastructure required. Let’s see how.&lt;/p&gt;
+&lt;p&gt;Simply put, &lt;strong&gt;Velodrome connects gauge-voting activity with fee distribution&lt;/strong&gt;. Here, the amount of veVELO one controls matters, but even more important is which pool one votes for since the &lt;strong&gt;voters are exposed to the fees collected on the pairs they vote for only.&lt;/strong&gt; They collect the fees as such (i.e., a voter of the ETH/USDC pool gets ETH and USDC), meaning the infrastructure required is much more manageable.&lt;/p&gt;
+&lt;p&gt;Velodrome ties fee distribution to the gauge-voting activity: veVELO holders receive the fees collected on the pool they vote ONLY, paid as such every week. It enables the better alignment of veVELO holders with the best interest of Velodrome as a DEX compared to Curve.&lt;/p&gt;
+&lt;p&gt;This simple twist creates an interesting voting flywheel. High-volume pairs collect lots of fees, meaning high incentives for voters. This leads to many votes, which direct sensible emissions to the pair, attracting more liquidity providers, enabling more volume processing, etc., until an equilibrium point is reached. This means that high-volume pairs sustain themselves without bribes or a benevolent profit-minimizer whale-voter needed, which is not the case with Curve.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2024/crv-vs-velo/velodrome-revenues.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;velodrome-revenues&#34;
+	
+	
+&gt;
+Velodrome Revenues Overview - &lt;a class=&#34;link&#34; href=&#34;https://dune.com/0xkhmer/velodrome&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;source: 0xkhmer dashboard&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2024/crv-vs-velo/aerodrome-revenues.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;aerodrome-revenues&#34;
+	
+	
+&gt;
+Aerodrome Revenues Overview - &lt;a class=&#34;link&#34; href=&#34;https://dune.com/0xkhmer/aerodrome&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;source: 0xkhmer dashboard&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;a3-what-it-means-in-practice&#34;&gt;A.3/ What it means in practice
+&lt;/h3&gt;&lt;p&gt;Enough with the explainer; let’s illustrate by considering the case of a veCRV/veVELO voter, who decided to vote for a pair processing minimal volume (the situation is common).&lt;/p&gt;
+&lt;p&gt;On Curve:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A significant veCRV holder votes for a pool processing a marginal amount of volume compared to its TVL, either to collect a bribe or because he wants to support the tokens involved in the pool.&lt;/li&gt;
+&lt;li&gt;His voting activity is detrimental to Curve as a DEX because he directs emissions where they are unnecessary.&lt;/li&gt;
+&lt;li&gt;He receives the same amount of 3CRV as a more Curve-aligned voter with an equivalent veCRV bag trying to direct incentives to maximize volume.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Now on Velodrome:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A significant veVELO holder votes for a pool processing a marginal amount of volume compared to its TVL, either to collect a bribe or because he wants to support the tokens involved in the pool.&lt;/li&gt;
+&lt;li&gt;His voting activity is detrimental to Velodrome as a DEX because he directs emissions where they are unnecessary.&lt;/li&gt;
+&lt;li&gt;He receives a marginal amount of fees since the pool he is voting for is processing a marginal volume.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The situation is the same in reverse for voting on a high-volume pool that would be of interest to the DEX:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;On Curve, this DEX-aligned voter will receive the same amount of 3CRV as anyone holding the same bag.&lt;/li&gt;
+&lt;li&gt;On Velodrome, this DEX-aligned voter will be well rewarded, as he will be a majority voter on a high-volume pair: an ideal situation to maximize fees earned.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;On both sides, bribes are paid to voters and can lead to situations where votes are directed to pools that are not optimal in terms of volume processed. However, on Curve, there is no penalty for doing so. On Velodrome, bribers of such pools compete with high-volume pools offering attractive APR to voters, with or without bribes.&lt;/p&gt;
+&lt;p&gt;The same thing, from another angle: on Curve, the cost of bribes depends only on the value of CRV emissions. On Velodrome, the baseline price a project must pay to gather votes depends on the total bribes + fees collected on other pools. This means that high-volume pools push the cost of bribes upward, entertaining yet another flywheel in the flywheel.&lt;/p&gt;
+&lt;p&gt;Understanding the above means understanding the core difference between the Curve and Velodrome models. However, to get the full picture, more elements must be considered. Let’s discuss the LP boost now.&lt;/p&gt;
+&lt;h2 id=&#34;b-lp-boosts--its-impact-on-the-ecosystem&#34;&gt;B/ LP boosts &amp;amp; its impact on the ecosystem
+&lt;/h2&gt;&lt;p&gt;LP boost, as it is called, is a Curve-specific feature. Many protocols forking the veCRV tokenomics, such as Balancer with its veBAL, also use it. It enables veCRV holders to earn more CRV rewards on their LP, factoring in several elements, including the size of their veCRV bag and the size of their various LPs. Thus, with appropriate veCRV ownership, an LP can get an “LP Boost” of up to 2.5x compared to the base emission rate.&lt;/p&gt;
+&lt;h3 id=&#34;b1-lp-boost-explained&#34;&gt;B.1/ LP Boost explained
+&lt;/h3&gt;&lt;p&gt;To maximize the boost obtained, up to 2.5x maximal, one must:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Own as much veCRV as possible&lt;/li&gt;
+&lt;li&gt;Have LP positions in as many pools as possible.&lt;/li&gt;
+&lt;li&gt;Have a proportionate/balanced amount of TVL in those various pools.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Simply put, LP Boost is a rugged game from the get-go&lt;/strong&gt;. It is not designed to benefit individual veCRV holders over their LP but to attract meta-protocol, such as Convex, who can achieve 1+2+3 consistently. &lt;strong&gt;The growth of Convex is not a success story; it is by design (Curve’s design)&lt;/strong&gt;. If it were not for Convex, another similar protocol would own most of the veCRV supply. We observed similar patterns with other protocols that adopted LP Boost: Balancer has Aura. Convex and Aura control &amp;gt; 50% of the veCRV/veBAL supply.&lt;/p&gt;
+&lt;p&gt;Velodrome and Aerodrome completely avoid the possibility of a new protocol to gobble up the supply by not having any boosting mechanism. As we’ve seen with Curve, Convex emerged and captured most of the supply; now, all LPs are earning with a boost, and none are benefiting from any disproportionate amount of CRV. The system has converged to everyone earning about the same effective boost, or in Velodrome/Aerodrome’s case, no boost since the future outcome would’ve been LPs earning the same effective boost. The other fact remains that since Convex has a majority of CRV locked, they control the future governance of CRV.&lt;/p&gt;
+&lt;h3 id=&#34;b2-consequences-of-lp-boost&#34;&gt;B.2/ Consequences of LP Boost
+&lt;/h3&gt;&lt;p&gt;The existence of the LP-Boost calls for a Convex-like layer on top of the DEX; there is no avoiding it. At this point, some could think: &amp;ldquo;So you have a protocol gobbling most of your emissions and locking them forever; what&amp;rsquo;s the problem?&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;The answer is simple: it&amp;rsquo;s simply inefficient design since those meta-layers provide features that could be delivered less convoluted at the base level (by the DEX itself) and without the fees.&lt;/p&gt;
+&lt;p&gt;Curve needs Convex and the bribe marketplace: Votium, Warden, and Hidden Hands. But also the auto-compounder/vote delegation manager: Airforce Union, Concentrator, etc. You end up with dozens of protocols taking some fees here and there to deliver something that Velodrome manages to pack in natively. This makes the experience more complex for the users, who must know about these dozens of protocols and their subtleties to make the most of Curve.&lt;/p&gt;
+&lt;p&gt;Also, remember how, while discussing the fee distribution, we mentioned that Curve required a much more dense infrastructure to operate? Well, imagine the mess that veCRV+LP Boost is in the backend. There is a reason why both Curve and Balancer are taking ages to ship on a new L2, and often with partial functionality (such as no LP boost, surprise surprise.).&lt;/p&gt;
+&lt;h2 id=&#34;seamlessly-expanding-beyond-what-curve-offers&#34;&gt;Seamlessly expanding beyond what Curve offers
+&lt;/h2&gt;&lt;p&gt;On Velodrome, the bribe marketplace is built-in: projects can post their bribes directly on the Velodrome frontend, and voters can check available bribes and vote in the same place. New features keep being delivered and added to the same interface used by all participants: LPs, projects, and tokenholders.&lt;/p&gt;
+&lt;h3 id=&#34;velodrome-relays&#34;&gt;Velodrome Relays
+&lt;/h3&gt;&lt;p&gt;They go from quality-of-life / gas-saving upgrades, such as the “auto-max-lock”, saving lockers for those who wish to remain max-locked to maximize their gauge-voting power the hassle of doing it manually, to much more extensive features, like Relay, a veVELO position management system.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2024/crv-vs-velo/relay.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;velodrome-relay&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;It’s a tool catering to projects using Velodrome to grow liquidity on their pairs. It enables them to set up their voting and bribing strategy and implement it automatically: no need to submit weekly transactions anymore. Relay has another benefit, since currently, the strategy available is a veVELO-maxi one, compounding all fees &amp;amp; bribes collected into VELO and relocking it to maximize voting power: it creates a sizeable VELO sink, directly indexed on the fees distributed by the exchange. &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/VelodromeFi/status/1762908204894445834&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Almost 1/5 of all veVELO are already there&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;As the Relay feature matures, more strategies will be available to its users, including some that compound all the fees and bribes earned into veVELO but, for instance, make them claimable in ETH or USDC. It will prove very convenient for veVELO holders that are not looking to support a project in particular.&lt;/p&gt;
+&lt;h3 id=&#34;venft-tokenized-locked-positions&#34;&gt;veNFT: Tokenized locked positions
+&lt;/h3&gt;&lt;p&gt;Velodrome has other neat innovations packed in, such as the still under-appreciated veNFT: with Curve, veCRV is non-transferable, making their management painful. Velodrome can achieve the same alignment but enables transferability: veVELO positions are represented by a veNFT that can be transferred. There is no way of redeeming a given veNFT for the underlying VELO tokens apart from waiting for the lock to expire. However, it eases the management of such a position by enabling its transfer. There is also &lt;a class=&#34;link&#34; href=&#34;https://decode.market/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;an OTC market for veVELO veNFTs&lt;/a&gt;, where holders can sell their position to interested buyers at a fluctuating discount compared to the value of underlying VELO tokens.&lt;/p&gt;
+&lt;h3 id=&#34;a-deep-understanding-of-the-nature-of-the-game&#34;&gt;A deep understanding of the nature of the game
+&lt;/h3&gt;&lt;p&gt;Exchanges like Curve or Velodrome are a particular product type in the DeFi landscape. In regular business terms, &lt;strong&gt;they could be described as B2B2C: Business to Business to Consumer&lt;/strong&gt;. They are B2B because their first customers are other projects – the various protocols looking for liquidity. If they successfully service this market, the projects they onboard to their DEX will do the B2C work for them, as their liquidity pools present opportunities to their respective token holders.&lt;/p&gt;
+&lt;p&gt;In that regard, I feel like Curve utterly failed. With its pyramid of solutions nested on top of one another, Curve is particularly unfriendly to onboard for projects. They wanna bribe? All right, decide between veCRV or vlCVX bribes on Bribe.crv, Votium, Warden, or StakeDAO. Do they want to manage their own CRV? Fine, just pick between veCRV, aCRV, cvxCRV, sdCRV, vlCVX, uCRV, etc. While this myriad of options might ravish Curve-enthusiasts, it turns, in my perspective, into a negative quality for the B2B side of things.&lt;/p&gt;
+&lt;p&gt;In contrast, the experience with Velodrome is seamless: one place where everything happens, one option for each – without needing to compare between half a dozen cryptic and sometimes misleading alternatives. Coupled with the previous characteristics of the veCRV games discussed before, especially the LP Boost, it makes the &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/farewell-glc/#the-case-of-the-crv-wars&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Curve ecosystem particularly unfriendly to new entrants&lt;/a&gt;: &lt;strong&gt;who would want to enter a race rigged in favor of the first entrants three years after it began&lt;/strong&gt;?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2024/crv-vs-velo/tour-de-op.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;tour-de-op&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Moreover, the Velodrome BD efforts are remarkable; the team is broadly available to help onboard new projects, and several programs are designed to make the experience as simple and compelling for new entrants, regrouped under the “Tour de OP” umbrella, which includes a bribe matching program, lock bonuses and vote boosting.&lt;/p&gt;
+&lt;h2 id=&#34;parting-words&#34;&gt;PARTING WORDS
+&lt;/h2&gt;&lt;p&gt;As you might have seen, both Velodrome &amp;amp; Aerodrome have attracted much attention lately, thanks to their token seeing positive momentum: I think it&amp;rsquo;s well deserved. The release of Slipstream, Velodrome’s implementation of Concentrated Liquidity, will increase the volume processed per unit of TVL, unlocking the flywheel&amp;rsquo;s next growth phase. Aerodrome, Velodrome’s fork on the Base network, has seen spectacular growth since it launched six months ago, further demonstrating the model&amp;rsquo;s viability.&lt;/p&gt;
+&lt;p&gt;In the longer term, the Velodrome team is starting to &lt;a class=&#34;link&#34; href=&#34;https://medium.com/@VelodromeFi/velodrome-the-metadex-48e4af1ef9a4&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;refer to Velo as a &amp;ldquo;MetaDEX&amp;rdquo;&lt;/a&gt;, hinting at Velodrome becoming the base liquidity hub not just of Optimism but for the whole Superchain: all chains built on the OP stack.&lt;/p&gt;
+&lt;p&gt;Time will tell, but Velodrome is already a resounding success on Optimism, so managing a cross-chain DEX properly would be a game changer. This is especially true considering how much Curve &amp;amp; Balancer has failed there—not because they did not try, but simply because their convoluted infrastructure with LP boost makes cross-chain deployment painful (Hello AuraFinance distributing AURA on chains where&amp;hellip; there is no liquidity for $AURA).&lt;/p&gt;
+&lt;p&gt;PS: I’m addressing the DEX part of the product suite here, which is the complete product for Velodrome but not for Curve, which now has crvUSD and Llamalend. Still, even with crvUSD included, Aerodrome is now collecting and redistributing more fees than Curve, all of this while being present on one chain only vs 13 for Curve. While Curve-DEX has been sub-par for a while, the team has repeatedly proven innovative and able to bounce back. crvUSD revenues have already flipped those of Curve-DEX, and who knows what Llamalend could achieve.&lt;/p&gt;
+&lt;p&gt;Game on: let’s wait and see.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

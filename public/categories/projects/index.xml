@@ -1,0 +1,825 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Projects on TokenBrice</title>
+        <link>http://localhost:1313/categories/projects/</link>
+        <description>Recent content in Projects on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Wed, 12 Mar 2025 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/projects/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Leverage Like a Sir: Polynomial Gains, No Liquidation Pains</title>
+        <link>http://localhost:1313/leverage-sir/</link>
+        <pubDate>Wed, 12 Mar 2025 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/leverage-sir/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2025/leverage-sir/leverage-sir-cover.jpg" alt="Featured image of post Leverage Like a Sir: Polynomial Gains, No Liquidation Pains" /&gt;&lt;p&gt;A few weeks ago, Sir Trading, a fascinating novel DeFi primitive was shipped, and I quickly fell in love with it. I’ve also decided to get involved, so welcome to this article introducing Sir Trading, explaining what I found interesting in the model, and announcing my involvement as an advisor.&lt;/p&gt;
+&lt;h2 id=&#34;sirtrading-explained-like-a-business&#34;&gt;Sir.Trading explained like a business
+&lt;/h2&gt;&lt;p&gt;To understand Sir Trading (and it works well with most protocols), we can use a business metaphor: Who are the customers, intermediaries, and stakeholders?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2025/leverage-sir/sir-diagram.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;sir-diagram&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;So let’s start from the bottom up: our “customers” are the APEs who open leverage positions and pay fees. Everything else is a &amp;ldquo;means&amp;rdquo; to that end.&lt;/p&gt;
+&lt;p&gt;Our second population is the “intermediaries”, the liquidity providers on the Sir Protocol, called TEA holders, also called “gentlemen”. They are necessary because the more TEA liquidity exists, the greater APE’s capacity to lever up, and thus, the more likely users are to ape at scale. Maximizing this population is essential, as it helps to address one of the main weaknesses of the Sir model: the &lt;strong&gt;absence of leverage decay can only be guaranteed if the liquidity provided is sufficient compared to the leveraged position opened.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Thus, it makes sense to incentivize liquidity providers with SIR emissions to attract liquidity proportional to APE demand. Additionally, continuous SIR rewards provide LPers with stable income, complementing the volatile minting/closing fees they also earn—a critical advantage, as LPers usually prioritize predictability (cf. Aerodrome vs. Uniswap).&lt;/p&gt;
+&lt;p&gt;Finally, the SIR holders act as stakeholders. They can stake their tokens to receive ETH dividends from fees collected on positions opening and closing and, in the future, could be involved in a mini-governance centered around decisions about resource allocation (⇒ which vaults to incentivize with SIR emissions?).&lt;/p&gt;
+&lt;p&gt;With our three core populations defined, we can essentially assemble them into the “business model” of Sir:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2025/leverage-sir/sir-business-model.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;sir-business-model&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;SIR Protocol aims to maximize its customer base (APE holders), which drives revenue shared with stakeholders (SIR holders). Stakeholders approve SIR emissions to fund intermediaries (TEA LPers) that provide the liquidity necessary to the purpose and allocate it to the vaults most relevant to drive usage.&lt;/p&gt;
+&lt;h2 id=&#34;zooming-in-on-the-apes-side&#34;&gt;Zooming in on the APE’s side
+&lt;/h2&gt;&lt;p&gt;As mentioned above, the protocol&amp;rsquo;s core is the APE—the ability to leverage any asset traded on UniswapV3. But what makes this leverage so interesting, especially compared to the myriad of other options now available?&lt;/p&gt;
+&lt;p&gt;The table below should answer the most important questions for anyone already familiar with other protocols offering leverage, such as f(x) or Squeeth:&lt;/p&gt;
+&lt;table&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Type of Returns
+   &lt;/td&gt;
+   &lt;td&gt;polynomial (=/ multiplicative)
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Max leverage
+   &lt;/td&gt;
+   &lt;td&gt;Up to ^5 with no leverage decay given sufficient liquidity, realistically ~ ^2
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Liquidation
+   &lt;/td&gt;
+   &lt;td&gt;None
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Rebalancing
+   &lt;/td&gt;
+   &lt;td&gt;None
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Fees
+   &lt;/td&gt;
+   &lt;td&gt;No funding fees, only set fees paid when opening or closing position
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Assets Supported
+   &lt;/td&gt;
+   &lt;td&gt;Potentially any traded on UNIv3 + permissionless vault deployment
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Security Considerations
+   &lt;/td&gt;
+   &lt;td&gt;Protocol to be eventually fully immutable once out of Beta Mode, oracle used is trustless (UNIv3)
+   &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;As you can see above, I think the offer is quite compelling even when compared to existing options, although it is a bit “weird” if you are used to other more classical leverage products as you have to wrap your head around a few new concepts.&lt;/p&gt;
+&lt;h3 id=&#34;polynomial-returns&#34;&gt;Polynomial returns?!
+&lt;/h3&gt;&lt;p&gt;First, let’s tackle &lt;strong&gt;the question of linear (most common) vs polynomial leverage (Sir’s case)&lt;/strong&gt;. If you are not a math buff, I think the first thing to understand about polynomials is that their impact is increasingly more palpable as the price moves farther from the starting price. It is better to be careful, as it works both ways. Let’s illustrate with a hypothetical simplified position started when ETH = $2000 (fees are ignored for simplicity; we’ll come back to them later):&lt;/p&gt;
+&lt;table&gt;
+  &lt;tr&gt;
+   &lt;td&gt;
+   &lt;/td&gt;
+   &lt;td&gt;$2500 (+25%)
+   &lt;/td&gt;
+   &lt;td&gt;$3000 (+50%)
+   &lt;/td&gt;
+   &lt;td&gt;4000 (+100%)
+   &lt;/td&gt;
+   &lt;td&gt;10000 (+400%)
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Linear - ETH x2
+   &lt;/td&gt;
+   &lt;td&gt;3 000
+   &lt;/td&gt;
+   &lt;td&gt;4 000
+   &lt;/td&gt;
+   &lt;td&gt;6 000
+   &lt;/td&gt;
+   &lt;td&gt;18 000
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Polynomial - ETH ^2
+   &lt;/td&gt;
+   &lt;td&gt;3 125
+   &lt;/td&gt;
+   &lt;td&gt;4 500
+   &lt;/td&gt;
+   &lt;td&gt;8 000
+   &lt;/td&gt;
+   &lt;td&gt;50 000
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Linear - ETH x5
+   &lt;/td&gt;
+   &lt;td&gt;4 500
+   &lt;/td&gt;
+   &lt;td&gt;7 000
+   &lt;/td&gt;
+   &lt;td&gt;12 000
+   &lt;/td&gt;
+   &lt;td&gt;42 000
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Polynomial - ETH ^5
+   &lt;/td&gt;
+   &lt;td&gt;6 103.52
+   &lt;/td&gt;
+   &lt;td&gt;15 187.5
+   &lt;/td&gt;
+   &lt;td&gt;64 000
+   &lt;/td&gt;
+   &lt;td&gt;6 250 000
+   &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;You see that last row/column scenario, with our ETH^5 ape reaching a &amp;gt;$6M Valhalla on a mere 1 ETH base position (with a +400% price appreciation)? That’s the power of polynomial returns. What we looked at above is enticing, although it abstracts many factors, including the fees, and assumes no leverage decay for both positions. Picture it as an example of understanding the power of polynomial vs linear in a financial context more than anything else.&lt;/p&gt;
+&lt;p&gt;Polynomial returns (convex payouts) have historically been overpromised and underdelivered. Delivering them consistently is usually challenging, but they are generally implemented with &lt;strong&gt;corrective factors&lt;/strong&gt; of different natures and names: time decay, volatility decay, leverage decay, etc. The usual model for such a product revolves around &lt;strong&gt;managing loans between traders and lenders&lt;/strong&gt; to keep the leverage as constant as possible. This leads to models where leveragers constantly stream varying fees to lenders and still see their positions often rebalanced. With Sir, this correcting factor is clear and explicit upfront – that is that steep fee, so let’s dive right into it.&lt;/p&gt;
+&lt;h3 id=&#34;fee-structure&#34;&gt;Fee Structure
+&lt;/h3&gt;&lt;p&gt;Next is the fee model, which is also quite different from the usual. Sir fees are fixed, dependant on your leverage, and charged ½ at position opening (APE minting) and ½ at position closing (APE redemption). At first glance, they might seem quite steep:&lt;/p&gt;
+&lt;table&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Leverage
+   &lt;/td&gt;
+   &lt;td&gt;Total Fees
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;^1.5
+   &lt;/td&gt;
+   &lt;td&gt;17.35% of principal
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;^5
+   &lt;/td&gt;
+   &lt;td&gt;69.13% of principal
+   &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;Let’s zoom in on an ETH/USDC^1.5 position to understand better the impact of the polynomial leverage and the Sir’s fees, with a hypothetical position opened at ETH = $2000.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2025/leverage-sir/sir-calculator.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;sir-calculator&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;With ETH = $4000 (+100%), such position is up ~17% in ETH terms or ~134% in USD terms. Of course, by this point, you are a polynomial leverage expert, and thus you understand that &lt;strong&gt;the gap between the ETH/USDC^1.5 and raw ETH holding increases the further the price appreciates&lt;/strong&gt;. At ETH = $6000 (+200%), the position is now up ~43% vs ETH or ~330% vs USD. At ETH = $8000, we are now at ~65% gains vs ETH and ~562% vs USD. Again, this works the same way in reverse; please remember.&lt;/p&gt;
+&lt;p&gt;I think this explicits well the “goal of the game” with Sir:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Ideally, you want to seize a nice dip + reversal to open your position on a favorable price and quickly earn enough returns to cover the fees.&lt;/li&gt;
+&lt;li&gt;Your goal is then to seize the maximal spread between your opening and closing price, knowing that each % you can grab provides exponentially more returns.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The product&amp;rsquo;s design is well-suited for such plays since you do not have to worry about funding fees or time decay. You’re essentially looking to buy low and sell high; welcome to crypto: except this time, you have a tool amplifying your returns the more you manage to do so.&lt;/p&gt;
+&lt;p&gt;Because of its fee structure, &lt;strong&gt;Sir is geared toward leveragers with a long-term perspective&lt;/strong&gt;, which matches its other key features (no liquidation, no leverage decay). Overall, the fees paid are similar to those that would be incurred maintaining a margin position for a year, striking a balance between potential returns, protocol stability, and upfront costs. When opening a leveraged position, one of the main concerns is getting the timing wrong and chopped by range-bound price action, where the fees accumulate and take away any potential profits; this concern is non-existent in Sir’s model.&lt;/p&gt;
+&lt;p&gt;Finally, I’d like to remind you one more time of the main limitation of Sir: the absence of liquidity decay can only be ensured if there is sufficient liquidity to stomach your trade. While it’s pretty &lt;strong&gt;reasonable to assume so for incentivized ^1.25, ^1.5, or even ^2 vaults&lt;/strong&gt;, it becomes much less certain for ^5 vaults, even with strong incentives, because of the maths I shared above.&lt;/p&gt;
+&lt;p&gt;If you’d like more data to understand the impact of polynomial leverage in the context of Sir (=fees included), check &lt;a class=&#34;link&#34; href=&#34;https://app.sir.trading/leverage-calculator&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the new calculator on the Sir website&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Note: APE tokens are ERC-20; thus, further composability could be envisioned. It could get interesting as the protocol grows!&lt;/p&gt;
+&lt;h2 id=&#34;what-about-the-tea-drinkers&#34;&gt;What about the TEA drinkers?
+&lt;/h2&gt;&lt;p&gt;Now that you have a decent understanding of the demand side, the APE/leveragers, let’s jump to the other side, the liquidity providers/TEA holders.&lt;/p&gt;
+&lt;p&gt;Let’s start with the basics: TEA drinkers are essentially ~counter-trading APEs, as they provide the liquidity APE redeem against if they manage to earn and secure (redeem) sizable gains. When I say “counter-trading” here, I mean it similarly as a UNIv2_ETH/USDC LP is counter-trading the market: when the market is mostly buying ETH (⇒ price goes up), the liquidity providing positions are rebalancing to USDC, and vice versa.&lt;/p&gt;
+&lt;p&gt;So, even more simply, &lt;strong&gt;TEA holders are shorter against the underlying asset than if they were just holding it&lt;/strong&gt;. Understanding this is all you need to be able to project the impact of price variants on your principal. You also have to &lt;strong&gt;keep in mind the liquidity utilization,&lt;/strong&gt; as if you are supplying to a vault where there is little/no aping, you are counter-trading little to no one, and your principal exposure becomes similar to a naked raw holding of the underlying.&lt;/p&gt;
+&lt;p&gt;While TEA holders are “shorter” compared to a naked raw holding of the underlying asset, they remain exposed to its price appreciation.  You can &lt;strong&gt;think of TEA holders as ETH/USD^0-1&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Now, with the principal cleared out, let’s address the earnings as a TEA holder. It’s pretty straightforward: by default, &lt;strong&gt;TEA holders of a given vault collectively earn all the fees incurred by the APE minters&lt;/strong&gt;. Fees are earned in such (same token as the supplied token) and autocompounded. TEA holders can redeem them when burning their position to recover their principal + all the fees accrued.&lt;/p&gt;
+&lt;p&gt;In addition to the fees earned based on aping activity, &lt;strong&gt;some vaults are also incentivized with&lt;/strong&gt; &lt;strong&gt;streams of SIR emissions.&lt;/strong&gt; These currently include the most utilized: ETH/USDC1.5, wBTC/USDT1.5, SIR/ETH1.5, and SIR/ETH5. When vaults are incentivized with SIR emissions, ~10% of the fees incurred by the APE are redirected to SIR stakers.&lt;/p&gt;
+&lt;p&gt;Note: TEA tokens are ERC-1155, limiting further composability, which is a good thing here, as you want to avoid restaking-type situations on those tokens, which are critical to the protocol&amp;rsquo;s proper functioning.&lt;/p&gt;
+&lt;h2 id=&#34;noteworthy-features&#34;&gt;Noteworthy features
+&lt;/h2&gt;&lt;p&gt;With the above, you should already have a decent understanding of the protocol, so rather than boring you with expansive explanations of each subtleties, I’ll instead zoom in on a few features of Sir I found worthy of commentary:&lt;/p&gt;
+&lt;h3 id=&#34;trustlessness-maximization&#34;&gt;Trustlessness maximization
+&lt;/h3&gt;&lt;p&gt;My blog readers will not be surprised to find a section addressing this, as maximal decentralization and trustlessness are my mantras. In that regard, Sir Trading fares quite well, and the design demonstrates the priority given to those two topics by its founders.&lt;/p&gt;
+&lt;p&gt;Let’s start with the most important – the potential immutability of the protocol. Considering its novel approach and the risks associated with it, making the protocol immediately fully immutable could be inconsequential. Instead, the approach developed here is a progressive path to eventual immutability with four modes:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2025/leverage-sir/sir-beta-mode.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;sir-beta-mode&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Sir is currently in Training Wheels mode, in which some parameters, such as the fees can still be adjusted. From the Training Wheels mode, it can switch to Emergency in response to a bug or exploit and from here to a Shutdown (⇒ Redeploy) if needed. On the other hand, if all goes well, the training wheels can be removed, and the protocol can be switched to Unstoppable mode, where it becomes immutable. I find this approach balanced and interesting, &lt;a class=&#34;link&#34; href=&#34;https://docs.sir.trading/protocol-overview/beta-period&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;definitely worthy of studying&lt;/a&gt; for other builders.&lt;/p&gt;
+&lt;p&gt;Now, let’s look at the oracle solution chosen, a critical element for any lending or leverage-based protocol. Here, &lt;strong&gt;the solution is simple and fully trustless: Uniswap v3.&lt;/strong&gt; It, of course, has limits, most notably the liquidity available on Uniswap to ensure the price is not easily manipulated. However, considering the top vaults are majors like ETH or wBTC, it’s not a big concern. It could be more of an issue for SIR-related vaults, but here again, the liquidity is reasonably sufficient compared to the token market cap (TVL in pools &amp;gt; 35% FDV). Further mitigation is implemented on the UNIv3 oracle (30 min TWAP) to resist price manipulation better.&lt;/p&gt;
+&lt;p&gt;Another interesting feature in terms of trustlessness and resilience is the &lt;strong&gt;harnessing of &lt;a class=&#34;link&#34; href=&#34;https://docs.sir.trading/protocol-overview/token-auctions&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;token auctions&lt;/a&gt; to streamline fee distribution to stakers&lt;/strong&gt;. Sir is far from the only one doing this, as, for instance, &lt;a class=&#34;link&#34; href=&#34;https://docs.euler.finance/developers/periphery/fee-flow/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Euler Finance harnesses a similar logic&lt;/a&gt;. Such auctions enable the conversion of many assets into one (in this case, wETH) without adding unnecessary compromises to the protocol. I expect to see even more of these.&lt;/p&gt;
+&lt;p&gt;Note: Xatarrer (founder) has self-submitted a DeFiScan review for Sir Trading, which is currently under review. Please check &lt;a class=&#34;link&#34; href=&#34;https://defiscan.info/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFiScan&lt;/a&gt; once the review is published for more details regarding Sir&amp;rsquo;s decentralization.&lt;/p&gt;
+&lt;h3 id=&#34;protocol-owned-liquidity&#34;&gt;Protocol Owned Liquidity
+&lt;/h3&gt;&lt;p&gt;Liquidity is Sir&amp;rsquo;s lifeblood, and the protocol design acknowledges this with &lt;strong&gt;a keen focus on growing permanent liquidity (TEA) reserves&lt;/strong&gt;. Every liquidity provider deposit includes a fee (~8.99% of their principal) retained as permanent protocol-owned liquidity. Thus, incentivizing LPers with SIR isn’t just &amp;ldquo;renting&amp;rdquo; liquidity—it’s also an immediate partial &amp;ldquo;buyout&amp;rdquo; of their deposit.&lt;/p&gt;
+&lt;p&gt;Thanks to this, as the protocol grows and can attract more liquidity providers, it builds permanent liquidity reserves, enabling an ever-increasing “minimal guaranteed liquidity for APEs”. It’s essentially a virtuous loop progressively solving one of the main drawbacks of the model: elegant!&lt;/p&gt;
+&lt;h3 id=&#34;continuous-token-emission-model&#34;&gt;Continuous Token Emission Model
+&lt;/h3&gt;&lt;p&gt;SIR works under a &lt;strong&gt;constant emission model at the rate of 2015M SIR per year&lt;/strong&gt;, with the lion’s share always going to incentivize liquidity providers. There is, however, a switch in the distribution logic, made to give the protocol the means for its early growth in the first three years:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;For the first 3 years, 68.13 % directed to liquidity providers, 13.65 % to pre-mainnet contributors, 10 % reserved in a treasury, and 8.22 % to investors.&lt;/li&gt;
+&lt;li&gt;After that: 100% to liquidity providers.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This model is efficient, as no vesting is needed for the team/investors/treasury, since the logic is wholly shifted here: you have to think in terms of streams of tokens (X SIR/day) instead of total balance and associated vesting.&lt;/p&gt;
+&lt;h2 id=&#34;putting-your-understanding-in-practice&#34;&gt;Putting your understanding in practice
+&lt;/h2&gt;&lt;p&gt;To wrap things up, we can now articulate our shared understanding of the protocol by studying three different market hypotheses articulated into strategies:&lt;/p&gt;
+&lt;h3 id=&#34;i-am-bullish-eth-or-btc-over-a-midlong-time-frame&#34;&gt;“I am bullish ETH or BTC over a mid/long time frame”
+&lt;/h3&gt;&lt;p&gt;This one is the most straightforward; it&amp;rsquo;s as simple as minting the ETH/USDC^1.5 APE token. The absence of liquidation and funding fees will allow you to set this position and forget about it. &lt;strong&gt;Your primary metric to watch for here is the opening+closing fee at 17.35%: you need to seize a ~26% price appreciation on ETH to enter profit territory&lt;/strong&gt;, with your gains increasing in a polynomial fashion from thereon.&lt;/p&gt;
+&lt;p&gt;Variants:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I am bullish BTC: all the same, except using the wBTC/USDT^1.5 APE (main vault: good amount of liquidity available).&lt;/li&gt;
+&lt;li&gt;I am bullish ETH against BTC and looking for adrenaline: all the same, except using the wETH/wBTC^5 vault (careful, low liquidity right now)&lt;/li&gt;
+&lt;li&gt;I am bullish SIR against ETH: you have several tiers of leverage available to express that conviction onchain (SIR/ETH^1.5 and SIR/ETH^5 being the most liquid).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;i-am-bearing-eth-over-a-midlong-time-frame&#34;&gt;“I am bearing ETH over a mid/long time frame”
+&lt;/h3&gt;&lt;p&gt;Really?! No judgment; there is also a vault for that, in the name of USDC/wETH^1.5! Because this vault is USDC based, against ETH, opening an APE position there means going short ETH with polynomial leverage.&lt;/p&gt;
+&lt;p&gt;Inversely, supplying that vault as a liquidity provider (TEA) means counter-trading the (potential) shorters ⇒ being long ETH (if there is utilization), but from a USDC base this time. However, this vault is not incentivized with SIR emissions currently, so your earnings will stem only from APEs opening positions.&lt;/p&gt;
+&lt;h3 id=&#34;i-am-bullish-sir-but-not-really-a-leverage-hungry-ape&#34;&gt;“I am bullish SIR, but not really a leverage-hungry APE”
+&lt;/h3&gt;&lt;p&gt;That’s understandable; not everyone is a thrill-maxxer. Here, you could consider &lt;strong&gt;harnessing the constant emissions to liquidity providers to build your SIR stash over time and only at capital opportunity cost&lt;/strong&gt;. Considering the LP supply fee, you are “forced” to sustain the position for a few weeks/months to reduce the fee&amp;rsquo;s impact. If you are worried about principal depreciation in the case of a significant market reversal upward, you could consider splitting your deposits over several incentivized vaults to hedge for it.&lt;/p&gt;
+&lt;p&gt;Assuming you initially farm with an ETH or wBTC deposit, you have a compounding option with your freshly farmed SIR: supplying the SIR vaults. Also, consider staking your SIR to maximize a mid/long-term SIR position.&lt;/p&gt;
+&lt;h2 id=&#34;discussing-my-involvement&#34;&gt;Discussing My Involvement
+&lt;/h2&gt;&lt;p&gt;Before you, I’d like to give you more context on my involvement with Sir: I am advising the Sir team to help them with my core topics: growth, tokenomics optimization, and BD. I am compensated for this endeavour, and I am also an APE and TEA holder and, therefore, a SIR farmer – &lt;strong&gt;I am long SIR in all possible ways&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;I discovered Sir somewhat recently (the protocol is still just a few weeks old), but the timing was excellent. As those following me on Twitter probably already know, I have been profoundly disappointed with f(x), where I suffered from an abusive liquidation stemming from infrastructure shortcomings on their end (RPCs).&lt;/p&gt;
+&lt;p&gt;I was, since then, on the hunt for an alternative solution to f(x) and stumbled upon Sir, which delivers some similar features (“real” no liquidation, no funding fees) but also brings welcome additions to the mix, such as the polynomial leverage vs linear: both the protocol and the timing were perfect, so going the extra mile to help it succeed happened very spontaneously.&lt;/p&gt;
+&lt;p&gt;I do not approach advisory as a collectible to add to my wallet, show in 2 monthly calls, collect the payout, and call it a day. I am on the opposite side, equally maximally committed, involved, and selective with them.&lt;/p&gt;
+&lt;p&gt;With Sir, considering the recency of the protocol, my current contributions revolve around raising awareness for the protocol, helping it get well integrated into the ecosystem, and expliciting its benefits to as many people as possible, as done with this article. I harness my extensive DeFi experience, network, and presence to support the team in all relevant ways.&lt;/p&gt;
+&lt;h3 id=&#34;my-valhalla-or-hell-nothing-in-between-position&#34;&gt;My “Valhalla or hell, nothing in-between” position
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://etherscan.io/tx/0x5f9038d9004b53501bdf05b3f30d8fc8fd2d8da6a89299a624276c7605bf4ea7&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;I opened a ^5 SIR position on my public wallet tokenbrice.eth&lt;/a&gt; – feel free to track it: 500K SIR levered ^5 ⇒ redeemable for ~155K SIR at inception (~69% fees), opened on Mar-04-2025 08:34:47 PM UTC. If all goes well, I hope to eventually redeem this for ~8M SIR (⇒ SIR at 2x my starting price, assuming sufficient liquidity) and do something fun with it. &lt;strong&gt;I want to remind you that such leverage is the closest you can get to onchain insanity; this position is now known in the community as “Valhalla or hell, no in-between”&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Note: As a protocol built for resilience, &lt;a class=&#34;link&#34; href=&#34;https://x.com/DeFiCollective_/status/1897575989032497390&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Sir is also supported by the DeFi Collective&lt;/a&gt;, which received a SIR donation, matched it with ETH, initiated and supplied the UNIv2 LP, and locked the LP token for one year to secure a liquidity baseline on the token.&lt;/p&gt;
+&lt;p&gt;Disclaimer: This article and the above strategy are not investment advice but practical illustrations of what the protocol can do. You make your own decisions, and you are responsible for them. In case that wasn’t clear enough with the previous warnings: I am exposed to SIR as a token and protocol and stand to benefit from its growth; in other words, I am maximally aligned.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Farewell to the GHO Liquidity Committee and reflections on the rise of DeFi newspeak</title>
+        <link>http://localhost:1313/farewell-glc/</link>
+        <pubDate>Thu, 08 Feb 2024 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/farewell-glc/</guid>
+        <description>&lt;p&gt;I’ve resigned from the GHO Liquidity Committee and would like, in this blog post, to share more context on its adventures and the learning we can draw from it.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://etherscan.io/verifySig/35543&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Onchain message from tokenbrice.eth&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://etherscan.io/tx/0x39760c8cd33beba102cbcb6a3c50489a24b1a50d8290de7c42c09845cf814dba&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Signer removal transaction&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For those whose first reaction will be “ain’t ready all of that,” here is a recap of the main shortcoming I see in the committee that led to my decision:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The committee&amp;rsquo;s operating model is inefficient and prevents a coherent vision from emerging and being delivered.&lt;/li&gt;
+&lt;li&gt;The committee&amp;rsquo;s scope of responsibilities is unclear, leading to a passive attitude (towards governance mishaps) assumed by most members.&lt;/li&gt;
+&lt;li&gt;The committee mainly comprises governance professionals who lack any serious expertise in the topic at play – liquidity management. It results in inefficient operations, conflicts of interest because of their numerous other commitments, and subpar use of the Committee’s resources.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Governance is always a challenge. Indeed, it can seem insane to give power to random people on the internet, and it often is. There is a built-in democratic assumption in governance operations – although most governances are purely plutocratic – that severely hinders any serious structuration that would enable delivering upon commonly agreed goals. The GHO Liquidity Committee was appointed by the Aave governance precisely because it recognized – in a flash of lucidity – its incompetence and ineptitude in directional liquidity management.&lt;/p&gt;
+&lt;p&gt;Yet, I’ll tell you what’s even crazier: giving power to people that the crowds perceive as “experts” on a topic. It’s all a show: the most recognized and mediatic expert of a given field is never the one actually the most informed on the topic. I, for one, would know quite a bit on the matter, with my own field of specialization — liquidity management, shaping, and incentivization — a topic prone to public perception manipulation more than any other because of the financial stakes inherently associated with it.&lt;/p&gt;
+&lt;h2 id=&#34;the-case-of-the-crv-wars&#34;&gt;The case of the CRV Wars
+&lt;/h2&gt;&lt;p&gt;Let’s illustrate: regarding liquidity, the word on the street is that Curve is the best model, and all pros and experts use Curve, right? &lt;strong&gt;It’s so good that over the last round (62), projects are spending $1 to receive $0.7 of incentives to their pools&lt;/strong&gt;: an instant donation of 30% of the amount they spend on bribes to veCRV/vlCVX holders. It means that if projects which bribed would have allocated the same amount to direct liquidity mining instead, they would have delivered 30% more $ to their LPs and thus attracted more liquidity for the same cost, all of which without assuming the price risk associated with CRV fluctuations for a week.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2024/farewell-glc/votium-round-62.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;curve-bribes&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;So what’s happening there? Quite a few things, and it’s not the main course on today’s menu, just the appetizer, so I’ll go over this quickly:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Most projects have no one internally competent with liquidity&lt;/strong&gt;, so they often do random wastes like these. Many prominent DeFi projects recognized for the liquidity games are big spenders but not exactly savvy.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Curve Wars have been a meme for a while&lt;/strong&gt;: there have been no genuine new entrants in these wars for ages – simply because it’s not worth it financially for most players, especially those without ties to the Curve ecosystem. Moreover, the liquidity structures available on Curve (stableswap and V2) are suboptimal compared to Uniswap or Maverick for many very common types of DeFi tokens – LSDs, LRTs, loosely pegged stablecoins, and liquid wrappers. You can confidently mark any protocol outputting a token of this type building liquidity primarily on Curve as inapt in liquidity management.&lt;/li&gt;
+&lt;li&gt;What you are left with are &lt;strong&gt;“insider protocols,”&lt;/strong&gt; teams building on top of the Curve ecosystem who usually own sizeable veCRV/vlCVX positions, allowing them to recoup a large share of their bribes (1. Own veCRV/vlCVX ⇒ 2. Post a bribe ⇒ 3. Vote on the pool you just bribed ⇒ 4. Collect and repeat next round). This tactic manipulates public perception into thinking that real money is being spent on these Curve wars. Some of these now insiders are originally external protocols, such as Inverse or Alchemix, which decided to kiss the llama ring for the better and the worse.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Don’t take my word for it; simply look at the top spenders: Frax, Convex, Alchemix, CLever (Aladin), Prisma, Conic, Inverse, etc. &lt;strong&gt;To make it easy to visualize, here are the top spenders of the last round, ranked by amount spent, with the insider protocols highlighted in red&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2024/farewell-glc/top-bribers.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;curve-bribes&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Enough with Curve, llamas already hate me; I just wanted to highlight the example of Curve, “the king of liquidity,” being a poorly efficient venue to build and sustain liquidity. Curve, “maker or breaker of stablecoins,” as the DEX with arguably subpar liquidity structures for most stablecoin pools: &lt;strong&gt;Newspeak arrived in DeFi, and public perception/words used are often entirely at odds with the onchain observable reality&lt;/strong&gt;. Sadly, a similar pattern has been observed with the GHO Liquidity Committee, today&amp;rsquo;s topic, so let’s get to it.&lt;/p&gt;
+&lt;h2 id=&#34;the-case-of-the-gho-liquidity-committee&#34;&gt;The case of the GHO Liquidity Committee
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;The GHO Liquidity Committee is a prime example of expertise misplacement&lt;/strong&gt;, as it was composed of an unhealthy mix of professionals “DeFi politicians” (more on this below), people with low expertise and vested interest in a given DEX, and people close to the Aave’s DAO / ex Aave team but devoid of any expertise on the topic of liquidity.&lt;/p&gt;
+&lt;p&gt;It led to a waste of resources, baseless struggles, and heavily misinformed decisions. At the end of the day, the &lt;strong&gt;GLC is like a big bag of cash everyone was trying to pull from to direct to protocol they have an interest in&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;So let’s dive in: what were its limitations, and what anyone interested in governance, whether committee-based or not, can learn from it?&lt;/p&gt;
+&lt;h3 id=&#34;operating-model-of-the-glc&#34;&gt;Operating model of the GLC
+&lt;/h3&gt;&lt;p&gt;In its first months, the GLC operated erratically, sometimes leading several initiatives that were at odds with each other and needed a more coherent vision. It was simply a bunch of degens with a large amount of GHO in a multisig &lt;strong&gt;spraying and praying&lt;/strong&gt;. The pinnacle was reached when bribes were allocated to a pool whose liquidity shape was detrimental to the repegging efforts, which, luckily for the Committee, ended out of range before the emissions began, enabling its prompt termination: a net burn of GHO.&lt;/p&gt;
+&lt;p&gt;I was eventually elected head of the committee and &lt;a class=&#34;link&#34; href=&#34;https://x.com/TokenBrice/status/1719328410479059227?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;assumed a temporary and objective-based dictatorship&lt;/a&gt;. It enabled the committee to stop allocating resources on liquidity support that were doing a disservice to the cause of repegging GHO and &lt;strong&gt;focus the energy, resources, and efforts where it actually mattered.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Yet the story also raised eyebrows and attracted media attention (&lt;a class=&#34;link&#34; href=&#34;https://www.coindesk.com/business/2023/11/28/aaves-gho-stablecoin-nears-elusive-dollar-peg/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;CoinDesk&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://thedefiant.io/benevolent-dictator-succeeds-in-bringing-aave-s-stablecoin-gho-near-parity-with-usd&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFiant&lt;/a&gt;, etc.) as it highlighted the failure of governance by itself – at least from the perspective of said media. &lt;strong&gt;During my two mandates, two targets were set: the first was missed by a few basis points (after an increase of ~200 bps), and the second was missed by a few days&lt;/strong&gt;. My targets were ambitious, especially considering that they relied as much on deliverables external to the liquidity committee (interest rate management, single-sided staking for GHO, etc.). After two terms, I let go of the leading role early in January.&lt;/p&gt;
+&lt;p&gt;⇒ When governance elects a committee to handle a specific task, it acknowledges its inefficiency on the matter. &lt;strong&gt;Such committees should not shy away from appointing a leadership, as ownership and responsibility can be very healthy,&lt;/strong&gt; especially in “decentralized” governances where the eminences are often gray, and thus ownership and responsibility often lacking.&lt;/p&gt;
+&lt;h3 id=&#34;scope-of-the-glc&#34;&gt;Scope of the GLC
+&lt;/h3&gt;&lt;p&gt;The GLC inherited several “governance debts”: decisions made by the governance that prove absolutely indefensible in the current state of affairs and operations. It failed even to find the will to challenge them and instead decided to enforce them despite the warning of a couple of committee members.&lt;/p&gt;
+&lt;p&gt;Example: Mobilizing the CRV of the committee as sdCRV, a subpar option at the technical level, as it requires weekly voting of the committee (no vote carry-over), has low liquidity, and strips the committee of its due CRV gauge voting power unless it owns veSDT / benefits from a veSDT boost delegation, all of that in a lovely ethical mess, as it strengthens ties with a protocol/team that operates with many questionable practices and several committee members are veSDT holders and in proximity with the said team.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;⇒ The scope of any appointed committee must be clearly defined – and the committee should be able and willing to challenge decisions previously enacted by governance on its matter of expertise.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;what-professionalism-means-in-defi-newspeak&#34;&gt;What “professionalism” means in DeFi newspeak
+&lt;/h3&gt;&lt;p&gt;Participants in groups such as the GHO Liquidity Committee are expected to be “professionals” — you, dear readers, and I would understand by that: master of their topic, accurate, always trying to serve the committee&amp;rsquo;s purpose, and available for their mission.&lt;/p&gt;
+&lt;p&gt;But we’re misplaced, as in DeFi newspeak, “professionalism” has an entirely different meaning; it’s actually the opposite, as DeFi “professional” profiles tend to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Make no waves, and avoid anything perceived as “political”, even if that means associating with scammers: you cannot put business partners in a tough spot.&lt;/li&gt;
+&lt;li&gt;Silence truths that are hard to swallow but would be of public interest to enable the community to learn from previous mistakes. For instance, &lt;strong&gt;the failure of the developers of GHO to anticipate the depeg is never discussed&lt;/strong&gt;. However, it had been expected by many – myself included — up to one year before GHO’s launch. The interest rate model and the absence of a GHO single staking option at the launch were both apparent lacks that any competent stablecoin developer should have anticipated and resolved &lt;strong&gt;before launch&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Harness structures such as the GLC to promote the protocol they have vested interests in by all means possible, even if that means arriving at situations that, if described honestly, would qualify as conflicts of interest.&lt;/li&gt;
+&lt;li&gt;Demonstrate, by their onchain initiatives and the communication they share in private groups, an approximate, if not missing, understanding of the topic of their expertise.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;⇒ Participants in governance should learn how to place their trust better. Thanks to their existing platforms, the most publicly visible figures are usually selected when committees are elected.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;My presence in this committee was an oddity that emerged out of necessity, as governance knew that a deep understanding of liquidity shaping, especially Maverick, was needed to give the GLC the best chances of success. Many actual experts hanging around governance forums and Discords remain powerless despite their knowledge and good intentions simply because they are not well-known figures in DeFi.&lt;/p&gt;
+&lt;h3 id=&#34;the-rise-of-defi-politicians-and-its-consequences&#34;&gt;The rise of DeFi politicians and its consequences
+&lt;/h3&gt;&lt;p&gt;Governance is a theater. Anyone involved in DeFi knows that, but even myself was surprised to realize the extent of the scenarization of governance interactions. Just like IRL politics, where we have professional politicians devoid of expertise about the topics they are handling, we’re observing the same phenomenon in DeFi, where a caste of politicians is assuming an increasing responsibility over various DAOs.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Such profiles specialize in governance-related operations and operate exactly like the IRL PR specialists: their primary care is about public perception and how to manipulate it to achieve their purpose&lt;/strong&gt; (usually obtaining the allocation of a sizeable budget from the DAO to their governance structure). Governance discussion is not happening publicly on the forum — the forum is just a stage. The actual discussions are happening backstage: in calls, IRL meetings, and DMs. Discussions on the forum are avoided as much as possible, especially if they are anticipated to be controversial. The forum is simply here to record previously and privately discussed matters: look at the conversations on most proposals: they look so fake that, at this point, one could suspect bots are talking to one another, which once again reminds me of IRL politics. It happened to me several times that such a profile contacted me as I was typing an answer to their governance post, trying to avoid any form of public discourse:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2024/farewell-glc/gov-typing.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;typing&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;⇒ Confirmed DeFi politicians (= those who earn their money mostly/only through governance-related activities) should simply be banned from participating in any structure having even a remote power – as they are the bane of decentralization, the devil in Prada of DeFi. The professionalization of governance is synonymous with its capture and thus centralization.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;parting-words&#34;&gt;Parting Words
+&lt;/h2&gt;&lt;p&gt;As &lt;a class=&#34;link&#34; href=&#34;https://x.com/haydenzadams/status/1710510768469237827?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Hayden puts it&lt;/a&gt;, &lt;strong&gt;governance stands at the bottom of the tier list in terms of decentralization and thus should be a solution of last resort.&lt;/strong&gt; Not only is it inefficient, but it’s also simply too prone to be manipulated, and the probability of it happening increases with the power and resources the governance manages. &lt;strong&gt;Once a given governance has grown enough, its corruption is simply unavoidable&lt;/strong&gt;, at least under the current dominant plutocratic governance model: 1 token = 1 vote, hello stone age of governance we’ve been seemingly stuck at for five years.&lt;/p&gt;
+&lt;p&gt;To wrap this up, allow me one last analogy with IRL politics since we’ve established that similar actors participate in DeFi’s governance. Governance professionals love to dismiss ideas because they deem them “too political.” It enables them to appear as reasonable, non-aligned figures. Yet, &lt;strong&gt;non-alignment does not exist: every decision is political&lt;/strong&gt;. Those who say otherwise usually tend to be positioned at the “extreme-center” end of the spectrum: a brutal profit maximalist alignment wrapped in a costume of gentle neutrality, aka the DeFi equivalent of an Emmanuel Macron.&lt;/p&gt;
+&lt;p&gt;When it comes to committees appointed by governance, I am unlikely to participate in any other after this one – unless its scope is clearly defined and it&amp;rsquo;s given the means to challenge governance&amp;rsquo;s suboptimal decisions.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Introducing my next step: contributing to a DeFi mastermind geared to support trustless and unstoppable DeFi: The DeFi Collective</title>
+        <link>http://localhost:1313/defi-collective/</link>
+        <pubDate>Mon, 16 Oct 2023 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/defi-collective/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2023/defi-collective/twitter_banner.png" alt="Featured image of post Introducing my next step: contributing to a DeFi mastermind geared to support trustless and unstoppable DeFi: The DeFi Collective" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://deficollective.org&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Proudly introducting The DeFi Collective&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Historically, financial systems have been mismanaged by states, corrupted by entrenched private interests, and unable to deliver an equitable, fair, and transparent baseline to enable unfettered value exchanges.&lt;/p&gt;
+&lt;p&gt;Over five years ago, I discovered the (back then) nascent decentralized finance ecosystem and was promptly convinced it embodies a credible attempt to deliver a neutral value exchange layer, freed from the influence of states and able to resist the corruption attempts of private actors.&lt;/p&gt;
+&lt;p&gt;Indeed, the Ethereum network provides a neutral ledger, enabling users to transact in a purely peer-to-peer fashion. Its ability to support smart contracts allows for the creation of various protocols for more advanced use cases — some of which can approach the network&amp;rsquo;s resilience level, such as Uniswap, a financial primitive providing infrastructure for the permissionless exchange of any token that will operate as long as the Ethereum network synchronizes.&lt;/p&gt;
+&lt;p&gt;Thus, I progressively became more engaged and committed to upholding and delivering on this vision:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;In 2018, I started to write and share about DeFi on various mediums, and eventually launched this blog a couple of years later.&lt;/li&gt;
+&lt;li&gt;In late 2019, with friends, we launched &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/defi_fr&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFi France&lt;/a&gt; to nurture a supportive environment to broaden adoption and involvement in DeFi amongst the French-speaking communities.&lt;/li&gt;
+&lt;li&gt;In 2020, I started to &lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/@DeFiFrance/featured&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;host live shows in French&lt;/a&gt; to document the most relevant DeFi protocols and deepen the users’ comprehension of them.&lt;/li&gt;
+&lt;li&gt;And finally, in 2022, I joined the Liquity team, to help grow the adoption of LUSD, a critical piece of infrastructure in my perspective, as it remains the most resilient stablecoin available to date.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2023/defi-collective/tokenbrice-metamorphosis.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;tokenbrice-metamorphosis-timeline&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;proudly-introducing-the-defi-collective&#34;&gt;Proudly introducing The DeFi Collective
+&lt;/h3&gt;&lt;p&gt;It’s time to introduce my latest commitment to help the DeFi ecosystem deliver on its initial promises: &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/DeFiCollective_&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;The DeFi Collective&lt;/a&gt;. The DeFi Collective attempts to solve a structural imbalance that could ultimately lead DeFi to fail to deliver on its core values. DeFi suffers from an inherent tension between delivering on its base values and the concessions some think are needed for growth and adoption.&lt;/p&gt;
+&lt;p&gt;The most widely adopted protocols are rarely the most resilient, and we at the Collective believe it stems from an incentive misalignment:&lt;/p&gt;
+&lt;p&gt;Teams who tightly control their protocol (usually through multisigs) and harness aggressive tokenomics models tend to have more firepower to attract capital and promote themselves than those who value security and sturdiness above all else. We picture the Collective as a critical resource in reverting this imbalance.&lt;/p&gt;
+&lt;h3 id=&#34;a-nonprofit-association-to-support-the-sturdiest-defi-protocols&#34;&gt;A nonprofit association to support the sturdiest DeFi protocols
+&lt;/h3&gt;&lt;p&gt;How? It’s straightforward; you’ll see that the &lt;strong&gt;DeFi Collective delivers a competitive edge, allocated only to the highest-quality DeFi protocols.&lt;/strong&gt; Protocols that ensure open, transparent, and resilient public infrastructures will receive the support of the DeFi Collective, free of charge and without conditions.&lt;/p&gt;
+&lt;p&gt;The DeFi Collective is a Swiss nonprofit association incorporated in Zug, bound by its status to use its resources to support the most resilient and relevant DeFi protocols. What does this entail? The Collective will clarify and publish its “protocol guidelines” shortly after launch: any protocol that matches them is eligible for its support.&lt;/p&gt;
+&lt;p&gt;But what kind of support are we talking about? About all the critical expertise a protocol needs to harness to grow and thrive:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Liquidity management&lt;/li&gt;
+&lt;li&gt;Governance&lt;/li&gt;
+&lt;li&gt;Awareness and education&lt;/li&gt;
+&lt;li&gt;Integrations and networking&lt;/li&gt;
+&lt;li&gt;Legal &amp;amp; self-policing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The Collective is &lt;strong&gt;a group of experts that cannot be hired; instead, it self-appoints on protocols that match its demanding guidelines.&lt;/strong&gt; Embodied by the ants, The Collective intends to demonstrate that social coordination is paramount. Together, ants will build an ever-growing colony, acting as an organic mesh network nurturing an ecosystem where trustless DeFi can thrive.&lt;/p&gt;
+&lt;h3 id=&#34;ants-like-and-harness-liquidity-driving-tokens&#34;&gt;Ants like and harness liquidity-driving tokens
+&lt;/h3&gt;&lt;p&gt;To deliver on its vision, The Collective received support from top-notch teams that align with it, including Liquity, Maverick, CatInaBox, Diva, DYAD, Zero &amp;amp; Retro. &lt;strong&gt;It enables the Collective to be self-sustainable from day one, and able to direct and sustain over $25M of assets in liquidity pools of relevant DEXes across various layers,&lt;/strong&gt; including mainnet, Optimism, Arbitrum, zkSync, Polygon zkEVM &amp;amp; more.&lt;/p&gt;
+&lt;p&gt;Indeed, the Collective controls sizable liquidity-driving positions, including veVELO, vlLIQ, vlAURA, veRAM, veZERO, veRETRO &amp;amp; more, and manages treasuries on all the networks mentioned above, to support the liquidity of relevant tokens through liquidity-driving votes and liquidity-providing activities. The Collective adheres to extremely risk-averse treasury management practices intended to preserve and grow its capital in a manner that is synergistic with its goals and vision.&lt;/p&gt;
+&lt;h3 id=&#34;beyond-liquidity-management&#34;&gt;Beyond Liquidity Management
+&lt;/h3&gt;&lt;p&gt;Liquidity management and support is a critical area of expertise for the Collective that I will champion, along with governance-related activities to increase the adoption of the tokens from the supported protocols across the broader DeFi ecosystem. However, the DeFi Collective is an adventure much bigger than myself, and I am blessed with the support of two equally critical founding board members – Nils Bundi and Florian Prantl, who deliver on their expertise in their respective areas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.linkedin.com/in/nils-bundi-6246b998/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Nils Bundis&lt;/a&gt; is a DeFi protocol architect and developer with a background in financial engineering. As an experienced DeFi builder, he knows the challenges of building “truly decentralized” protocols. Apart from the technical depth, Nils will also support the Collective with his expertise in the operational requirements, ensuring secure and trusted DeFi services.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/floowp_&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Floria Prantl&lt;/a&gt; is a lawyer and policy specialist with a background in advising DeFi and CeFi projects, navigating the legal and regulatory pitfalls in setting up and expanding their services. He also brings valuable experience advocating with authorities for progressive and balanced regulations. At the Collective, he particularly lends his expertise to operational compliance, offering guidance to supported protocols and contributing to the Collective&amp;rsquo;s self-policing, networking, and other vital initiatives.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Their skills and knowledge will help the Collective to conduct research, establish and promote self-policing guidelines, and entertain any other relevant activities deemed necessary to deliver on &lt;strong&gt;its vision of supporting the existing resilient and DeFi-aligned protocols and foster an ecosystem where protocol builders have increased incentives to walk the path of sturdiness, immutability, and resilience&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;a-streamlined-infrastructure-kept-in-check&#34;&gt;A streamlined infrastructure, kept in check
+&lt;/h3&gt;&lt;p&gt;All board members and contributors to the Collective are capped to a commitment accounting for at max 50% of their working hours. This policy was designed to keep the structure in check and avoid situations where the preservation/growth of the structure is given more priority than achieving its end goals, which is often seen in public institutions and associations.&lt;/p&gt;
+&lt;p&gt;Contributors have agreed to compensation well below the market rate for their efforts. Boardmembers are not compensated for their activity. This enables the Collective to minimize its starting expenses and aggressively compounds its earnings to grow its onchain treasuries, giving it more means to deliver on its vision.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The DeFi Collective is now my main focus and commitment&lt;/strong&gt;, meaning that I will sadly no longer be able to contribute directly to Liquity as a team member. It was not an easy decision to make. Still, it was necessary to enable me to keep focusing on my areas of expertise (liquidity management and governance) and keep growing them. As one of the most resilient lending infrastructures available, the Liquity protocol matches the Collective guidelines and will be part of the supported protocols amongst several others to be introduced shortly. The Collective will thus be able to support Liquity’s growth and expansion with liquidity-management-related activities and help LUSD get more broadly supported across DeFi protocols and L2.&lt;/p&gt;
+&lt;h3 id=&#34;follow-the-ants-and-get-involved-with-the-colony&#34;&gt;Follow the ants and get involved with the colony
+&lt;/h3&gt;&lt;p&gt;Do you resonate with the Collective’s vision and want to make a difference in DeFi? You can shape the Collective: let us know about your unique expertise to assist the collective as a contributor or a friend, or get actively involved to join as a member – all of this is happening on &lt;a class=&#34;link&#34; href=&#34;https://discord.gg/KFhE3tpGsM&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the Collective Discord&lt;/a&gt;: a place to be!&lt;/p&gt;
+&lt;p&gt;To keep in touch with The DeFi Collective, you can also &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/DeFiCollective_&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;follow us on Twitter&lt;/a&gt;, where we will update the community with our news, including the upcoming first Collective Live Session I’ll be hosting: &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://discord.gg/NsaQNpC65C?event=1164186718375772261&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;join us Thursday, October 19, at 7 PM GMT+2&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Learn more about the Collective:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://deficollective.org&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFi Collective website&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://deficollective.org/blog/the-defi-collective-introduction/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Introducing the DeFi Collective&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Announcement: TokenBrice 🤝 Maverick</title>
+        <link>http://localhost:1313/maverick-x-tokenbrice/</link>
+        <pubDate>Fri, 21 Apr 2023 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/maverick-x-tokenbrice/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2023/maverickxtokenbrice/maverick-x-tokenbrice-cover.png" alt="Featured image of post Announcement: TokenBrice 🤝 Maverick" /&gt;&lt;p&gt;This post is more of a personal announcement: I wanted to let you know what I am up to and what&amp;rsquo;s happening with Maverick. So let&amp;rsquo;s not beat around the bush: I&amp;rsquo;m thrilled to announce that &lt;strong&gt;I&amp;rsquo;m supporting the Maverick team as an advisor, helping with the growth strategy, tokenomics, and business development.&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;storytime&#34;&gt;Storytime
+&lt;/h3&gt;&lt;p&gt;Just like me, you must be over-saturated with DEXes. If you follow DeFi closely, you&amp;rsquo;ve seen several of these launches daily. Yet most still adopt fundamental liquidity structures: x*y=k for volatile pairs and stableswap, and focus on innovating on the tokenomics instead: the now famous ve(3,3) DEXes.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;I&amp;rsquo;ve been looking for a DEX that would innovate at the fundamental level&lt;/strong&gt; for a while, so in May last year, when Bob reached out to let me know about Maverick, I was all ears. I quickly realized Maverick could reshape how we envision liquidity in DeFi and help further improve its efficiency. So I’m glad to announce my involvement today: Maverick is already live, growing quickly, and poised for even exponential growth.&lt;/p&gt;
+&lt;p&gt;But before we dive into what makes Maverick so interesting, we need to take a step back and consider the broader context of liquidity in DeFi:&lt;/p&gt;
+&lt;h3 id=&#34;liquidity-structuring-deep-dive&#34;&gt;Liquidity Structuring Deep Dive
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;In the beginning, there was Uniswap&lt;/strong&gt;, and its ease of use for liquidity providers led people to believe it was a trivial activity. Yet, any liquidity-providing activity on a DEX involves two decisions:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Picking a pair (or more) of tokens (ex: ETH/USDC)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;span style=&#34;text-decoration:underline;&#34;&gt;Forming price assumptions regarding one/both tokens (🐂, 🐻, or 🦀)&lt;/span&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The second decision is &lt;strong&gt;often implicit&lt;/strong&gt;, like with UniswapV2, where you get no option but only one choice: 50/50, meaning that your optimal scenario is both tokens going sideways in price with a large trading volume.&lt;/p&gt;
+&lt;p&gt;When Uniswap V3 emerged, the second assumption was suddenly more explicit to DeFi users thanks to concentrated liquidity. However, V3 added complexity to the liquidity provider experience and active management. It &lt;strong&gt;mainly caters to power-users who can afford frequent rebalancing&lt;/strong&gt;, or &lt;strong&gt;require external tooling&lt;/strong&gt; to be harnessed effectively by LPs, the liquidity manager – Arrakis, Bunni, etc.&lt;/p&gt;
+&lt;h3 id=&#34;whats-unique-about-maverick&#34;&gt;What&amp;rsquo;s unique about Maverick?
+&lt;/h3&gt;&lt;p&gt;Simply put, Maverick is the spiritual descendant of UniV3 and CurveV2. It offers infinite flexibility in the design of liquidity-providing position, similar to Uniswap V3, but with streamlined and autonomous execution, just like on Curve. Indeed, LPs on Maverick can decide to redistribute their liquidity to follow the price in one or both directions. &lt;strong&gt;If needed, the rebalancing is done at the DEX level, ensuring gas efficiency.&lt;/strong&gt; Maverick also supports “static pools” that are range-bound too.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;This feature makes Maverick a fantastic fit for pegged assets, especially those that are not continually trading precisely at the peg&lt;/strong&gt; and so underserved by the usual liquidity structures, such as a LUSD/USDC pair:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Curve stableswap, which optimizes liquidity for a 1/1 price, is not ideal when LUSD is overpeg.&lt;/li&gt;
+&lt;li&gt;Uniswap v3, where LPs usually end up super concentrated around the current market price, which is efficient, but also quickly through them out of range as the price move&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2023/maverickxtokenbrice/mav-both.gif&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;mav-mode-both&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;On Maverick, such a pair can be harnessed optimally by each LP, depending on their actual goal. &lt;strong&gt;It enables each LP to craft an automatically adjusting position that enforces a strategy fitting his assumptions and needs&lt;/strong&gt;. Here are some examples of goals &amp;lt;-&amp;gt; liquidity structure matching:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;🎚️ | Looking for a safe yield with minimal risk? A static LP might be preferable, as the outcomes are predictable.&lt;/li&gt;
+&lt;li&gt;🐂/🐻 | Thinking LUSD is currently over/undervalued: you can supply directional liquidity and earn extra if your assumption verifies.&lt;/li&gt;
+&lt;li&gt;🦀 | Want to bet on volume with prices going sideways? You can simply focus your liquidity a few bins around the price and activate the &lt;strong&gt;left-right mode&lt;/strong&gt; to constantly rebalance the current price, thus maximizing the available liquidity and fees collected but also the potential impermanent loss.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So far, Maverick has found &lt;strong&gt;a beast of a product/market fit on pools like wstETH/ETH&lt;/strong&gt;, often averaging over 100% daily utilization rate. Here’s today, for instance (4/20):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Curve: TVL = $1.5B, Volume =$34M, Utilization = 2,26%&lt;/li&gt;
+&lt;li&gt;Maverick: TVL = $10.6M, Volume =$10.45M, &lt;strong&gt;Utilization = 98,5%&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2023/maverickxtokenbrice/mav-pools.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Maverick Top Pools&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;whats-next&#34;&gt;What&amp;rsquo;s next?
+&lt;/h3&gt;&lt;p&gt;Launched just a few weeks ago on the Ethereum mainnet, Maverick is already seeing an impressive volume and unprecedented liquidity utilization rate, especially on pegged asset pairs.&lt;/p&gt;
+&lt;p&gt;Maverick was also launched on zkSync, its first L2, a few days ago. As more staple DeFi projects roll out service there, Maverick will have many opportunities to demonstrate the superior efficiency its liquidity designs can offer to LPs.&lt;/p&gt;
+&lt;p&gt;I’m excited about the next steps: as a DeFi Strategist at Liquity, the release of Maverick felt like early Christmas to me; I think it&amp;rsquo;s just getting started!&lt;/p&gt;
+&lt;p&gt;I’ll contribute to Maverick as an advisor, meaning that my main focus remains my commitment to immutable protocols, especially Liquity, helping them grow through various onchain and offchain activities. I’m confident Maverick will quickly prove to be a decisive tool in achieving that purpose.&lt;/p&gt;
+&lt;p&gt;Just hearing about Maverick? &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://mav.xyz/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Check it out&lt;/a&gt;&lt;/strong&gt; or &lt;a class=&#34;link&#34; href=&#34;https://discord.gg/mavprotocol&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;join the Discord server.&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Hiring a Junior DeFi Strategist to help foster the growth of immutable protocols</title>
+        <link>http://localhost:1313/jr-strategist/</link>
+        <pubDate>Wed, 29 Mar 2023 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/jr-strategist/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2023/jr-strategist/jr-strategist-cover.png" alt="Featured image of post Hiring a Junior DeFi Strategist to help foster the growth of immutable protocols" /&gt;&lt;p&gt;I&amp;rsquo;m looking for a Junior DeFi Strategist to join me on my daily DeFi adventures, learn and grow. The fundamental missions are governance proposals, liquidity management, business development, and partnerships, but the scope is quite flexible.&lt;/p&gt;
+&lt;p&gt;This is a unique opportunity for a passionate DeFi curious to jumpstart his/her career in crypto. Be the first hire for a community-led effort to cater governance-minimized and immutable protocols to achieve the mission of DeFi.&lt;/p&gt;
+&lt;p&gt;You&amp;rsquo;ll be working closely with me and learn my tactics to successfully grow liquidity and utility for immutable DeFi projects.&lt;/p&gt;
+&lt;h3 id=&#34;your-activities&#34;&gt;Your activities
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Seek and find new partnership opportunities for DeFi projects&lt;/li&gt;
+&lt;li&gt;Collaborate with other DeFi protocols and DAOs&lt;/li&gt;
+&lt;li&gt;Write governance proposals, and support proposals submitted by third parties.&lt;/li&gt;
+&lt;li&gt;Manage strategies enforced on the various liquidity-driver tokens owned.&lt;/li&gt;
+&lt;li&gt;Optimize Protocol Owned Liquidity strategies across main net and L2s&lt;/li&gt;
+&lt;li&gt;Write and tweet about partnerships and liquidity opportunities&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;your-experience-and-skills&#34;&gt;Your experience and skills
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Extensive DeFi on chain track record - who cares about diplomas? Show me a wallet.&lt;/li&gt;
+&lt;li&gt;Actively involved in DeFi, owning some key governance tokens, knowledgeable about the main models (Liquity, Curve, Aave, etc.)&lt;/li&gt;
+&lt;li&gt;Solid understanding of DEXs like Curve, Uniswap, Balancer and voting protocols I.e.  Convex, Aura as well as ve(3,3) models like e.g. Velodrome&lt;/li&gt;
+&lt;li&gt;Well versed in the differences of cvxCRV, yCRV, sdCRV, uCRV, and aCRV
+Solid understanding of the top DeFi protocols and good overview of the promising newcomers&lt;/li&gt;
+&lt;li&gt;You’re already active on various governance forums or DeFi-related Discords.&lt;/li&gt;
+&lt;li&gt;Written and spoken English proficiency.&lt;/li&gt;
+&lt;li&gt;You can work independently as well as team up with your peers&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;what-i-can-offer&#34;&gt;What I can offer
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Exciting part time position (~50%) with a monthly retainer in FIAT (for the beginning)&lt;/li&gt;
+&lt;li&gt;Drive a community-led initiative (more to be announced soon)&lt;/li&gt;
+&lt;li&gt;Be part of a top notch and proven DeFi team&lt;/li&gt;
+&lt;li&gt;Work remotely (ideally in Europe or US timezone)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Interested? &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://forms.gle/6qaXgkczuhiaqNTV6&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Please apply via this form&lt;/a&gt;&lt;/strong&gt;. I&amp;rsquo;ll get back in touch shortly.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Announcement: Joining Liquity to bolster the growth of unstoppable DeFi</title>
+        <link>http://localhost:1313/joining-liquity/</link>
+        <pubDate>Mon, 16 May 2022 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/joining-liquity/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2022/tokenbrice-liquity/cover.png" alt="Featured image of post Announcement: Joining Liquity to bolster the growth of unstoppable DeFi" /&gt;&lt;p&gt;I&amp;rsquo;ve been a little less involved in the DeFi discussion lately  and you might righfully wonder why. First, I needed to slow down and take some time for myself, and the timing could not be better. While I was off, I had the time to reflect on what drew me to DeFi in the first place and how the space has evolved since I started getting involved about four years ago. Watching protocols with massive design flaws blowing up is reassuring, especially to those who anticipated it, but not exactly what I dreamed of when I discovered DeFi.&lt;/p&gt;
+&lt;h3 id=&#34;has-defi-lost-its-way&#34;&gt;Has DeFi lost its way?
+&lt;/h3&gt;&lt;p&gt;To me, it seems like we&amp;rsquo;ve lost our ways. TradFi turned into the non-sensical monster we know not on purpose nor by design: it was simply the result of every person and entity trying to pull the blanket to themselves: &lt;strong&gt;an accumulation of individual&amp;rsquo;s greed&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The developments during this last year in DeFi felt very similar to TradFi&amp;rsquo;s avarice: in terms of building a resilient and self-sovereign financial system for all, close to nothing was achieved. Instead, most of the releases were focused on delivering yet another flavor of ponzinomics to sustain the greed of apes for a few weeks until they move to the next shiny farm.&lt;/p&gt;
+&lt;p&gt;I remain convinced that what &lt;strong&gt;we need in the end-game are systems able to resist the (potentially coordinated) attacks of states, organized crime, and whales&lt;/strong&gt;. Most of the current protocols available in DeFi would not stand a day against structured attacks of significant magnitude.&lt;/p&gt;
+&lt;p&gt;A large share of &amp;ldquo;DeFi&amp;rdquo; protocols are vulnerable to the good old wrench attack because of their reliance on multisigs: identifying, locating and threatening a dozen individuals is not an arduous task, especially when billions are at stake. Economic attacks can also seriously affect another significant share of DeFi protocols, especially if perpetrated by an actor willing to burn money in the process. Finally, governance attacks are so commonplace it&amp;rsquo;s not even exciting to cover them anymore. It is not the DeFi I signed up for.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve built a platform and shed light on the projects that brought something new and relevant to the table during the last few years. Complimentary to my analysis and commentaries, I&amp;rsquo;ve supported several projects, shared my insights with creative and sensible teams, and sometimes been involved in the governance processes. Lately, I&amp;rsquo;ve felt ready to assume a more active role within the ecosystem: today is the day! I&amp;rsquo;m confident my honest, sometimes brutal, yet always informed approach was and still is something lacking in the industry where shills are king.&lt;/p&gt;
+&lt;h3 id=&#34;announcing-tokenbrice-x-liquity&#34;&gt;Announcing: TokenBrice x Liquity
+&lt;/h3&gt;&lt;p&gt;I&amp;rsquo;m delighted to announce that I&amp;rsquo;ve joined &lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/liquity/ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liquity&lt;/a&gt; as Head of Marketing to support the growth of protocol, mainly focusing on a yet-to-be-announced project.&lt;/p&gt;
+&lt;p&gt;While the Liquity protocol is just over a year old, the team has already been active and building for much longer. What has been achieved is truly unique, remarkable, and needed. Liquity is the &lt;strong&gt;first and still only lending service available in DeFi that is  unstoppable&lt;/strong&gt; &amp;amp; likewise, LUSD is the only stablecoin capable of resisting all kinds of censorships.&lt;/p&gt;
+&lt;p&gt;What always amazed me is that this feat is delivered without compromising on the protocol&amp;rsquo;s efficiency: Liquity is extremely cost-efficient, and the protocol&amp;rsquo;s design is one of rare elegance. Liquity is &lt;strong&gt;built like mission-critical software&lt;/strong&gt;: failure is not an option. I&amp;rsquo;m glad such a protocol, truthful to the root spirit of DeFi, exists, and I&amp;rsquo;m thrilled to get the chance to help it grow.&lt;/p&gt;
+&lt;p&gt;If you&amp;rsquo;re not familiar yet with what Liquity does and why it matters, feel free this intro:
+&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/liquity-protocol.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;⚖️ Liquity: an unstoppable, efficient and innovative borrowing service&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;what-will-i-do&#34;&gt;What will I do?
+&lt;/h3&gt;&lt;p&gt;At Liquity, I&amp;rsquo;ll spearhead the growth efforts through all relevant channels: documentation, content strategy, media, events, and more, without forgetting, of course, to fuel the memetic. While I&amp;rsquo;ll mostly focus on an upcoming and yet to be announced product, I&amp;rsquo;ll also support the existing one in all relevant ways. With my efforts to craft and grow Liquity&amp;rsquo;s narrative, the community&amp;rsquo;s support, I&amp;rsquo;m confident Liquity&amp;rsquo;s prime time is yet to come!&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m still entirely convinced that great things are built from the bottom-up: I&amp;rsquo;ll be in close touch with the Liquity&amp;rsquo;s community to incorporate its insights and feedback at every possible level.&lt;/p&gt;
+&lt;p&gt;While I&amp;rsquo;m excited by the mission, my latest time-off taught me a lot about work/life balance: therefore, I&amp;rsquo;ve decided to keep my involvement with Liquity part-time. It lets me make sure I still have the time for a healthy personal life and hobbies, including DeFi, such as conducting my research and sharing them with you on this blog.&lt;/p&gt;
+&lt;p&gt;Regarding my live shows on Twitch, I don&amp;rsquo;t think I&amp;rsquo;ll get back to the weekly rhythm I used to have, but I&amp;rsquo;m not excluding some occasional shows to discuss relevant protocols and topics.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m thrilled for this next step of my journey and eager to share more with you regarding what is coming next for unstoppable DeFi.&lt;/p&gt;
+&lt;p&gt;🤗 Thanks to all my readers and listeners for your support so far. I have several upcoming blog posts with unique insights to share with you in the coming months, so stay tuned!&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>TokenBrice, désormais 100% en français et bientôt sur Twitch !</title>
+        <link>http://localhost:1313/p/tokenbrice-d%C3%A9sormais-100-en-fran%C3%A7ais-et-bient%C3%B4t-sur-twitch/</link>
+        <pubDate>Mon, 08 Mar 2021 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/tokenbrice-d%C3%A9sormais-100-en-fran%C3%A7ais-et-bient%C3%B4t-sur-twitch/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2021/tokenbrice-twitch/troll-en.png" alt="Featured image of post TokenBrice, désormais 100% en français et bientôt sur Twitch !" /&gt;&lt;p&gt;Yo.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>One step closer towards working for and answering to the Ethereum &amp; DeFi community</title>
+        <link>http://localhost:1313/p/one-step-closer-towards-working-for-and-answering-to-the-ethereum-defi-community/</link>
+        <pubDate>Thu, 15 Oct 2020 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/one-step-closer-towards-working-for-and-answering-to-the-ethereum-defi-community/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2020/next-steps/df1.png" alt="Featured image of post One step closer towards working for and answering to the Ethereum &amp; DeFi community" /&gt;&lt;p&gt;As I move on with the next chapter of my involvement in the DeFi space, I wanted to take the time to write a rare personal statement to share my story and what&amp;rsquo;s coming next.&lt;/p&gt;
+&lt;h3 id=&#34;discovering-the-ether&#34;&gt;Discovering the Ether
+&lt;/h3&gt;&lt;p&gt;About 36 months ago, I finally read the Ethereum whitepaper after hovering around the crypto space for a while and was instantly hooked. Back then, my concerns were far remote from decentralized finance: I saw in Ethereum the first credible solution to coordinate a scale aka the first sword finally able to slay the beast Moloch&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;I was still working in a non-crypto related tech startup back then but quickly I found myself spending 6 to 10 hours a day reading on the space, meeting and chatting with many people that shared my interest. Shortly after, I started contributing to various projects.&lt;/p&gt;
+&lt;p&gt;Back in July 2018, &lt;strong&gt;I realized it was time to grab the bull by the horns and break my way into the space&lt;/strong&gt; - I was not going to work for yet another tech startup. I started what I wished could be a collaborative media back then: EcoCrypto. It was a bit of the precursor to this blog, and you can &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/tags/ecocrypto/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;find the articles re-published here&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;ecocrypto-the-precursor&#34;&gt;EcoCrypto: The Precursor?
+&lt;/h3&gt;&lt;p&gt;The approach on EcoCrypto was quite particular: every article was reviewed by people completely outside the space, such as my parents. They were rewritten until the result was self-sufficient and understandable. After that, I also translated them into French. This writing process was intense and time consuming. Back then, naively, I thought that trying to go above and beyond in terms of research and quality would be enough to attract the crowds.&lt;/p&gt;
+&lt;p&gt;Despite the moderate audience, EcoCrypto taught me a lot about the space. To beef up and learn at an accelerated pace, I&amp;rsquo;ve also spent a few months writing &amp;ldquo;content bounty&amp;rdquo; and secured my first batch of ICO-shitcoins.&lt;/p&gt;
+&lt;h3 id=&#34;going-pro&#34;&gt;Going Pro
+&lt;/h3&gt;&lt;p&gt;Feeling more confident about my understanding of the space and my capabilities to handle marketing-related tasks for a crypto project, I started applying to selected companies, and went through the interview processes.&lt;/p&gt;
+&lt;p&gt;I exchanged with a few prominent actors of the space, but I was &lt;strong&gt;quickly turned off by their internal culture &amp;amp; inertia&lt;/strong&gt;: all my life, I&amp;rsquo;ve worked in startups so I&amp;rsquo;ve got little patience for corporate-induced BS. Around the same time, I found Monolith (TokenCard back then) and started discussing with the team about the community manager role.&lt;/p&gt;
+&lt;p&gt;I was excited by the product and its ambitions, especially its user-focused aspect. Until then, I&amp;rsquo;ve worked with products quite remote from everyday people. On the other hand with Monolith &lt;strong&gt;I could see a long-term vision where even my parents were using the product I was contributing to&lt;/strong&gt; (and &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/TokenBrice/status/1290979491561472000&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;it happened&lt;/a&gt;)!&lt;/p&gt;
+&lt;p&gt;Despite my slim professional experience in the crypto space (it wasn&amp;rsquo;t exactly commonplace in 2018), Monolith took a bet on me and I started in April 2018 as Community Manager.&lt;/p&gt;
+&lt;h3 id=&#34;communities--brands&#34;&gt;Communities &amp;raquo; Brands
+&lt;/h3&gt;&lt;p&gt;I&amp;rsquo;ve learned so much in that role! What I loved the most about it is that I was a frontliner always in contact with exciting people. Back then, there was no covid either so I also had the chance to actually meet these people, in Paris, in London, and even attend the DevCon V in Osaka!&lt;/p&gt;
+&lt;p&gt;I know it&amp;rsquo;s silly, but Osaka blew my mind. Before it, I felt the energy and ambition of the space. Going there, I &lt;strong&gt;saw&lt;/strong&gt; it personally, and it was something else. It bolstered my confidence in the impact Ethereum could have on the world.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s also around this time that I&amp;rsquo;ve met &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/mounibec&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Mounir&lt;/a&gt; and &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/arthurmicoulet&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Arthur&lt;/a&gt;, and together we created &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/learndefi/_index.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFi France&lt;/a&gt;: the attendance at our first event blew our mind, with 90 people in the room for an event organised in a few days!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/next-steps/df1.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;DeFi France DF1&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;I think it&amp;rsquo;s precisely then that I&amp;rsquo;ve been stuck by a critical thought I needed months to digest, it goes as follows:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;So far, I&amp;rsquo;ve spent my whole professional life building artificial communities to support the growth of brands. How about I finally use this hard-earned expertise for a better end? How about we drop the brand &amp;amp; build a community… for the community?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;community-involvement-in-defi&#34;&gt;Community Involvement in DeFi
+&lt;/h3&gt;&lt;p&gt;It took me a while, but now is the time to finally follow through with the thought. As I transition out of my role with Monolith, &lt;strong&gt;I&amp;rsquo;d like to use this extra time to do more community-driven work&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Luckily for me, time was all I needed and there is plenty of work to do! Indeed, within a year, DeFi France grew tremendously to become the most active DeFi grassroots group in Europe with now close to 2 000 FR-speaking members on Telegram.&lt;/p&gt;
+&lt;p&gt;So here&amp;rsquo;s what I will be focusing on now:&lt;/p&gt;
+&lt;h4 id=&#34;tokenbricexyz&#34;&gt;TokenBrice.xyz
+&lt;/h4&gt;&lt;p&gt;I write a lot of content about DeFi for different companies but sometimes I want to express myself in a lighter tone, with less constraints. I started this blog to have a space that fit my ideals to do so.&lt;/p&gt;
+&lt;p&gt;My ideals? Quite simple: I think that &lt;strong&gt;delivering an honest media is extremely difficult if profits must be made, so how about we get them out of the equation?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;So on this blog, I refuse all sponsored posts or promotional activities. All articles are written because I want to do so. I&amp;rsquo;ve also taken extra care to make this blog as privacy-preserving as possible: the cool news with a free blog without ads is that I would have no use of your data anyway, so let&amp;rsquo;s not collect any (but your anonymised IP for article stats).&lt;/p&gt;
+&lt;p&gt;Finally, I use an infrastructure where the content lives in a public GitHub repository: for the non-geek &lt;strong&gt;it means that every single change made on tokenbrice.xyz is documented publicly.&lt;/strong&gt; There is no flip-flopping here. &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/TokenBrice/blog/commits/master&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Don&amp;rsquo;t trust, verify.&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;There are still costs incurred with the blog, mostly the time spent writing and researching as well the occasional illustrations when I feel like my PPT cover graphics are not enough to do the article justice. Yet, I&amp;rsquo;m not counting the hours with this blog, I enjoy updating it.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;If you appreciate my work, you can contribute to the &lt;a class=&#34;link&#34; href=&#34;https://gitcoin.co/grants/811/tokenbrice-shining-light-on-ethereums-defi-en-fr&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Gitcoin grant&lt;/a&gt; to support it.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You can read more about the approach with this blog in &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/hello-world.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;this article detailling the infrastructure&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;defi-france&#34;&gt;DeFi France
+&lt;/h4&gt;&lt;p&gt;Quickly after the creation of DeFi France, we realized something powerful was happening. With minimal effort, the group was growing fast and the energy in there was amazing (and still is!). Finally, I think we&amp;rsquo;ve got a sense of what the growth of an &amp;ldquo;organic community&amp;rdquo; felt like.&lt;/p&gt;
+&lt;p&gt;Several things helped this work, one of the main one being the language: DeFi is so confusing already, so why not discuss it in our native language to make it easier? In the early discussion we could tell &lt;strong&gt;the excitement of chatting about the topic in French&lt;/strong&gt;! As it turned out, there were plenty of Frenchmen in the DeFi space already, all we needed was one place to gather and meet.&lt;/p&gt;
+&lt;p&gt;On top of the language component, the other key to the success of DeFi France lies in its community. The Telegram group and the monthly meetups are incredibly successful at one critical thing: to &lt;strong&gt;ensure that the amazing French builders of the DeFi space were accessible to anyone&lt;/strong&gt;, even to someone with no presence in the space. Every month, there is a hangout where you can come, learn from people committed in the space, and meet people (now remote: fucking covid).&lt;/p&gt;
+&lt;p&gt;So let&amp;rsquo;s take a minute here to thanks some of the people who make this community amazing:&lt;/p&gt;
+&lt;p&gt;🙏 Pascal Tallarida, Marc Zeller, Alexandre Lourimi, Mosche Malawach, Mat C., Zhytop, McNulty, Jonathan, Dydymoon, Antoine, Fabrice, Florian, Romain &amp;amp; so many others!&lt;/p&gt;
+&lt;h4 id=&#34;defi-france-youtube&#34;&gt;DeFi France (YouTube)
+&lt;/h4&gt;&lt;p&gt;Next to the existing Telegram group and monthly meetup, we&amp;rsquo;re now growing a &lt;a class=&#34;link&#34; href=&#34;https://youtube.com/c/defifrance&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;YouTube channel&lt;/a&gt; to offer high-quality content video content about DeFi, still in French. Although I&amp;rsquo;m heavily involved in the shows presenting most of them for now, the vision is to grow the channel and make it accessible to any relevant and passionate producer.&lt;/p&gt;
+&lt;p&gt;Indeed &lt;strong&gt;in France, the leading crypto media and YouTubers are running ruthless businesses&lt;/strong&gt;. They do not care about what they are pushing as long as it&amp;rsquo;s profitable. Worse, a fair share don&amp;rsquo;t even care about the factual inaccuracies of their content as long as they produce views.&lt;/p&gt;
+&lt;p&gt;So I figured: can&amp;rsquo;t we establish a community alternative that one day, maybe, will find it way to the crowds too? So here&amp;rsquo;s the hack: we grow a channel, and we make it accessible to other content producers based on expertise, goodwill and knowledge.&lt;/p&gt;
+&lt;p&gt;The project started a few months ago and is going well on its way! We crossed the 500 subscribers mark and now have 2 recurring emission formats on top of the rediffusion of the DeFi france meetups.&lt;/p&gt;
+&lt;h4 id=&#34;banklessfr&#34;&gt;BanklessFR
+&lt;/h4&gt;&lt;p&gt;I put BanklessFR right before the last, because I don&amp;rsquo;t want to steal the show here. Credits where they are due: &lt;strong&gt;BanklessFR only exists because of the sustained hard work of Jon who is the editorial director and the main translator&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Back to BanklessFR&amp;rsquo;s story: I&amp;rsquo;ve reached out to Ryan one day to tell him about my bankless-first life (I&amp;rsquo;ve barely touched a non-DeFi financial product in my whole life) and surprise! he was keen - it translated into an article: &lt;a class=&#34;link&#34; href=&#34;https://bankless.substack.com/p/how-defi-can-pay-for-your-lunches&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;How DeFi Can Pay For Your Lunches?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Around the same time (lucky timing is everything), &lt;a class=&#34;link&#34; href=&#34;http://twitter.com/otherbright&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Jon&lt;/a&gt; was emerging in the DeFi France community as one of the most motivated new joins. He started translating several pieces of content into French on his own initiative, including one of mine which led us to talk more about translations. We discussed potential next steps for these efforts, and BanklessFR quickly seemed like an evidence.&lt;/p&gt;
+&lt;p&gt;So I&amp;rsquo;ve reached back to Ryan and was delighted to find out that it was actually already part of his plans for Bankless to go global! So with the support of Ryan and an initial funding collected thanks to contribution to the Bankless International grant, BanklessFR started on May 27 with the publication of the translation of the &lt;a class=&#34;link&#34; href=&#34;https://banklessfr.substack.com/p/le-skill-cube-de-bankless&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Skill Cube.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;BanklessFR has now been growing since: we&amp;rsquo;re expanding the content offering &amp;amp; exploring different ways to turn this into a sustainable project. After the first Gitcoin grant in September, we just released the &lt;a class=&#34;link&#34; href=&#34;https://app.rarible.com/token/0xd07dc4262bcdbf85190c01c996b4c06a461d2430:43413:0x6b40aca108fdb67a781ed4c6810f47f7f3764d00&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;first BanklessFR NFT series&lt;/a&gt; to illustrate an article it&amp;rsquo;s tied to.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/next-steps/imageNFTbanklessfr.gif&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;BanklessFR First NFT&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;what-about-your-job-brice&#34;&gt;What about your job, Brice?
+&lt;/h4&gt;&lt;p&gt;While I&amp;rsquo;m recentering on my community-engagement, I&amp;rsquo;m also incredibly excited to announce that I&amp;rsquo;ll be taking on a new role. I have a hard time calling it a job considering I&amp;rsquo;d be working with a friend on the amazing product he created: ParaSwap.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ll be helping with the topics pertaining to my expertise such as navigating the density of DeFi space, producing content and documentation, and interacting with the DeFi community.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m immensely excited about this new opportunity - as &lt;strong&gt;token swaps are one of those topics that keep getting deeper the more you learn about it&lt;/strong&gt;. Indeed, ParaSwap is a product working magic behind the scenes, sometimes interacting with several smart contracts and routing trades through several tokens to optimize them.&lt;/p&gt;
+&lt;p&gt;Beyond the product itself, &lt;strong&gt;the story of ParaSwap is also worth telling&lt;/strong&gt;. After carrying out his project as a one-man-army for months, Mounir assembled an amazing team to take it to the next step. I&amp;rsquo;ve been following attentively since the first day so I&amp;rsquo;m thrilled to get the chance to join and contribute.&lt;/p&gt;
+&lt;p&gt;One of my focus will be to &lt;strong&gt;shine a light on the complexity ParaSwap abstracts for dApp developers and end-users&lt;/strong&gt;. There are so many products and services in the space that it can get very hard to navigate. So I&amp;rsquo;ll be harnessing my expertise and network to identify win-win situations: projects which can harness ParaSwap&amp;rsquo;s infrastructure to improve the quality and operability of their service.&lt;/p&gt;
+&lt;p&gt;There you go for some tidbits of my crypto story! Since you&amp;rsquo;ve made it this far, allow to share one last thing - a simple illustration demonstrating some features that make ParaSwap more than a mere aggregator - it&amp;rsquo;s &lt;strong&gt;the&lt;/strong&gt; DeFi middleware:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/next-steps/paraswap-edge.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;What makes ParaSwap better than other aggregators like 1InchExchange?&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Intrigued? &lt;a class=&#34;link&#34; href=&#34;https://learn2swap.com/l2s/understanding-paraswap/edge&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Check this resource&lt;/a&gt; to better understand ParaSwap&amp;rsquo;s unique edge and how you can harness it to make DeFi work for you.&lt;/p&gt;
+&lt;p&gt;Thanks for reading it and I&amp;rsquo;ll see you in the Ether!&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;Moloch is the Canaanite god of human coordination failure: &lt;a class=&#34;link&#34; href=&#34;https://bankless.substack.com/p/ethereum-slayer-of-moloch-&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Ethereum, Slayer of Moloch - Bankless&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
+        <title>Hello, World!</title>
+        <link>http://localhost:1313/p/hello-world/</link>
+        <pubDate>Tue, 05 May 2020 14:53:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/hello-world/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2020/hello-world/infrastructure-fr.png" alt="Featured image of post Hello, World!" /&gt;&lt;p&gt;Welcome to my humble domain,&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m thrilled to take this project live. As often with me, what started as a simple project ended up becoming&amp;hellip; something else.&lt;/p&gt;
+&lt;p&gt;Initially, I started preparing this blog with a straightforward goal: I&amp;rsquo;ve been writing content on the web for a while, I wanted a place for all of it to live.&lt;/p&gt;
+&lt;p&gt;While I was at it, I looked at the different solutions available and realized it could be much more: it could turn into &lt;strong&gt;a minimalistic yet sufficient approach to deliver content online, no strings attached.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Without further ado, introducing:&lt;/p&gt;
+&lt;h3 id=&#34;tokenbricexyz-a-blog-respecting-your-privacy&#34;&gt;Tokenbrice.xyz, a blog respecting your privacy
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;I made this blog as a callout: I&amp;rsquo;m no dev, I can barely code, and yet I was able to respect my reader&amp;rsquo;s privacy, to an unprecedented level in the space.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;To do so, TokenBrice.xyz relies on open source frameworks and solutions such as Hugo (rendering of the blog) or Matomo (privacy-conscious analytics).&lt;/p&gt;
+&lt;p&gt;For those interested, this blog implements full IP anonymisation, cookies non-propagation, in full compliance with the &lt;a class=&#34;link&#34; href=&#34;https://www.cnil.fr/sites/default/files/typo/document/Configuration_piwik.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;CNIL guidelines&lt;/a&gt; - an independent French&amp;rsquo; administrative body acting as a privacy watchdog.&lt;/p&gt;
+&lt;p&gt;Tokenbrice.xyz is deployed on &lt;a class=&#34;link&#34; href=&#34;https://ipfs.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;IPFS&lt;/a&gt;. I&amp;rsquo;m not entirely happy with the infrastructure just yet, but I think it&amp;rsquo;s significant progress compared to most existing websites:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/hello-world/infrastructure.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;tokenbrice-xyz-infrastructure-overviewe&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;dont-compromise-when-asking-for-more-privacy-conscious-solutions&#34;&gt;Don&amp;rsquo;t compromise when asking for more privacy-conscious solutions
+&lt;/h3&gt;&lt;p&gt;Nothing will be done, ever, even in the DeFi industry, unless us users make our concerns heard. &lt;strong&gt;So, check your favourite projects&amp;rsquo; websites - and let them know how dirty they&amp;rsquo;ve been!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You can use tools such as &lt;a class=&#34;link&#34; href=&#34;https://privacybadger.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Privacy Badger&lt;/a&gt; to see how many trackers they have &amp;amp; block them!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/hello-world/privacy-badger.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;privacy-badger&#34;
+	
+	
+&gt;
+&lt;em&gt;A basic CoinTelegraph page has 14 trackers.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;However, please, assume best intentions: trackers and other privacy-intrusive devices are embedded in many systems, sometimes insidiously.  Do not assume a malicious intent as soon as you see a tracker. This tracker can be here for other reasons, such as:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Lack of knowledge (I know nothing and made it)&lt;/li&gt;
+&lt;li&gt;Lack of care for your privacy (probably)&lt;/li&gt;
+&lt;li&gt;Lack of resources (so to them, privacy is not a priority)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Let&amp;rsquo;s spell it out in case it&amp;rsquo;s not clear enough: there are no valid reasons for someone to ship a privacy-intrusive website nowadays especially if the site is &amp;ldquo;read-only&amp;rdquo;, like this blog.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Yet there are still too many out there!&lt;/p&gt;
+&lt;p&gt;So &lt;strong&gt;let&amp;rsquo;s call these potentially — ignorant, if not — careless, if not — lazy, if not — not-giving-a-fuck-about-privacy developers out.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I can barely touch an HTML file, and I did it — &lt;strong&gt;so if you truly care, quit your bullshit and get to work.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;With ♥ love,&lt;/p&gt;
+&lt;p&gt;TokenBrice.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>EcoCrypto&#39;s Manifesto</title>
+        <link>http://localhost:1313/p/ecocryptos-manifesto/</link>
+        <pubDate>Sun, 01 Jul 2018 10:36:03 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/ecocryptos-manifesto/</guid>
+        <description>&lt;p&gt;Welcome on Ecocrypto, the incorruptible French publication soon to become a reference. EcoCrypto was created to provide an answer the lack of honest and qualitative content in the French crypto ecosystem.&lt;/p&gt;
+&lt;p&gt;The manifesto establishes the rules we will abide by to ensure EcoCrypto starts and stays majestic.&lt;/p&gt;
+&lt;h2 id=&#34;ecocrypto-brings-a-slow-approach-to-news&#34;&gt;EcoCrypto brings a slow approach to news
+&lt;/h2&gt;&lt;p&gt;We take our time to produce high-quality content. We don’t just write a commentary or a reaction to the latest news. We follow our own pace.&lt;/p&gt;
+&lt;p&gt;We have but one agenda: broaden the crypto world. We want to include as many people as possible in the discussion currently taking place in the cryptosphere. We think the crypto community would benefit from ALL perspectives, and especially the perspectives of those who are presently left out such as people who are unfamiliar with new technologies, or those who don’t speak English.&lt;/p&gt;
+&lt;p&gt;We write content to make you think, to help you learn, and to challenge your views to broaden your perspective on the world as a whole. If a given piece of content cannot fit any other these three goals, it will not be published.&lt;/p&gt;
+&lt;p&gt;Decentralization and cryptocurrencies are our focus, but they don’t happen in a vacuum: they will affect the whole world. Hence, we won’t restrict ourselves, and we will bring insights from politics, sociology, philosophy and any other relevant field when appropriate.&lt;/p&gt;
+&lt;h5 id=&#34;are-you-schizophrenic-brice-whats-up-with--we-&#34;&gt;Are you schizophrenic Brice? What’s up with « we »?
+&lt;/h5&gt;&lt;p&gt;I believe EcoCrypto will grow bigger than myself. Yet, I’m not afraid to carry this project alone as long as necessary. Anyone who recognizes oneself in this manifesto is welcome to join the adventure. The adherence to the manifesto and the quality of the content are the two only required criteria to be able to publish on EcoCrypto.&lt;/p&gt;
+&lt;h3 id=&#34;ecocrypto-is-part-of-the-new-world-and-held-to-its-standards&#34;&gt;EcoCrypto is part of the new world and held to its standards
+&lt;/h3&gt;&lt;p&gt;Youngsters and oldsters alike from all around the world finally have the chance to step up and do their part in a new genesis. We will hold ourselves to the highest standards to ensure we are not steering this blank state back to its greedy roots.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;We will enforce the following policies from day one:&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;centralized-and-proprietary-services-minimization&#34;&gt;Centralized and Proprietary Services Minimization
+&lt;/h4&gt;&lt;p&gt;We will avoid using proprietary and centralized services as much as possible. Ultimately, our goal is using none. We won’t be using Google Analytics for obvious reasons. We won’t implement that freakin’ Facebook pixel or any other tracking pixel. To still have exploitable stats on our website, we implemented &lt;a class=&#34;link&#34; href=&#34;https://matomo.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Matomo (ex Piwit)&lt;/a&gt;, the self-hosted open analytics solution. We will always prefer an open-source solution if available. The blog is currently powered by WordPress and hosted on SiteGround for its first year. Feel free to reach out if you can figure a more privacy-conscious solution covering our needs.&lt;/p&gt;
+&lt;h4 id=&#34;no-sympathy-for-the-devils&#34;&gt;No sympathy for the devils
+&lt;/h4&gt;&lt;p&gt;While EcoCrypto will need awareness at first, we don’t want compromise with our principles. We will allow ourselves one year of presence on centralized social networks to help develop the initial awareness around Ecocrypto. After that date, it will be time for a cleanup. Since EcoCrypto was officially launched today (07/08/2018), all of our social accounts on centralized services will be deleted on the 8th of July 2019. Hell, we’ll make it a party!&lt;/p&gt;
+&lt;h4 id=&#34;writers-privacy&#34;&gt;Writers Privacy
+&lt;/h4&gt;&lt;p&gt;Disclosing your identity is not a requirement to become a writer. Simply send us an email at &lt;a class=&#34;link&#34; href=&#34;mailto:redaction@ecocrypto.fr&#34; &gt;redaction@ecocrypto.fr&lt;/a&gt; from a disposable email address. As long as the content is sound and follows the principles stated in this document, we really don’t give a fuck about your name.&lt;/p&gt;
+&lt;h4 id=&#34;manifestos-accountability&#34;&gt;Manifesto’s Accountability
+&lt;/h4&gt;&lt;p&gt;If any change is made to this document, the previous versions will be kept online and accessible. You will be able to find &lt;a class=&#34;link&#34; href=&#34;https://ecocrypto.fr/manifeste/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;all the editions of the manifesto here&lt;/a&gt;, as well as a changelog detailing the main changes and their motivations. Feel free to suggest any solution that could allow us to prove the untempering of the manifesto and that wouldn’t require you to trust us.&lt;/p&gt;
+&lt;h4 id=&#34;our-articles-are-meant-to-spread&#34;&gt;Our articles are meant to spread
+&lt;/h4&gt;&lt;p&gt;All articles published on EcoCrypto will be translated into English to maximize their availability. If you enjoyed a particular article and would like to translate it into your native language (excluding French, as we cover that already), feel free to do so. Our only condition is that you keep us informed.&lt;/p&gt;
+&lt;h4 id=&#34;we-value-your-attention&#34;&gt;We VALUE your attention
+&lt;/h4&gt;&lt;p&gt;You, readers of EcoCrypto are entrusting us with a highly sensitive material: the time and the attention you give to our articles. We are fully aware of the responsibility it entails. We will be transparent, honest and incorruptible to prove ourselves worthy of your time. We will not mislead you to make you click on our articles. Each story will have to provide a real contribution for it to be published. If you think a given piece of content is not paying its due respect to your attention, please let us know.&lt;/p&gt;
+&lt;h3 id=&#34;the-decentralization-of-ecocrypto&#34;&gt;The Decentralization of EcoCrypto
+&lt;/h3&gt;&lt;p&gt;As the initiator of the project, I, TokenBrice, will have a significant influence over it in its early days. I am fully aware of the centralization vector I represent. EcoCrypto will eventually grow into a decentralized project, but I must first ensure its development and maintain its quality. I will communicate directly on EcoCrypto regarding the steps taken for its decentralization.&lt;/p&gt;
+&lt;p&gt;Welcome to the new world.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

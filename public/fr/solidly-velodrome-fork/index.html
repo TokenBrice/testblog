@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="On creuse les modèles de Solidly et Velodrome pour comprendre en quoi les DEX ve(3,3) augmentent le modèle veCRV.">
+<title>ve(3,3) : l&#39;étape logique après le modèle veCRV?</title>
+
+<link rel='canonical' href='http://localhost:1313/fr/solidly-velodrome-fork/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="ve(3,3) : l'étape logique après le modèle veCRV?">
+<meta property='og:description' content="On creuse les modèles de Solidly et Velodrome pour comprendre en quoi les DEX ve(3,3) augmentent le modèle veCRV.">
+<meta property='og:url' content='http://localhost:1313/fr/solidly-velodrome-fork/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Decentralized Finance' /><meta property='article:tag' content='Curve Finance' /><meta property='article:tag' content='CRV' /><meta property='article:tag' content='Convex' /><meta property='article:tag' content='CVX' /><meta property='article:tag' content='vlCVX' /><meta property='article:tag' content='veCRV' /><meta property='article:tag' content='Solidly' /><meta property='article:tag' content='Velodrome' /><meta property='article:tag' content='ve(3' /><meta property='article:tag' content='3)' /><meta property='article:tag' content='DEX' /><meta property='article:tag' content='Échanges' /><meta property='article:published_time' content='2023-04-28T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2023-04-28T01:13:50&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/2023/solidly-velodrome-template/cover.png' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="ve(3,3) : l'étape logique après le modèle veCRV?">
+<meta name="twitter:description" content="On creuse les modèles de Solidly et Velodrome pour comprendre en quoi les DEX ve(3,3) augmentent le modèle veCRV."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/2023/solidly-velodrome-template/cover.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Afficher le menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/fr/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/fr">TokenBrice</a></h1>
+            <h2 class="site-description">DeFi en brutale honnêteté</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/fr/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Accueil</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/%C3%A0-propos/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>À Propos</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Recherche</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/liens/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Liens</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" >English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" selected>Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Mode sombre</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table des matières</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#introduction-aux-dex-ve33">Introduction aux DEX ve(3,3)</a>
+      <ol>
+        <li><a href="#structure-de-lamm-vs-couche-dincitation">Structure de l&rsquo;AMM VS couche d&rsquo;incitation</a></li>
+      </ol>
+    </li>
+    <li><a href="#les-innovations-apportées-par-solidly">Les innovations apportées par Solidly</a></li>
+    <li><a href="#les-améliorations-apportées-par-velodrome-au-modèle-solidly">Les améliorations apportées par Velodrome au modèle Solidly</a>
+      <ol>
+        <li><a href="#présentation-de-velodrome-v2">Présentation de Velodrome V2</a></li>
+      </ol>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#principaux-enseignements">Principaux enseignements</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/fr/solidly-velodrome-fork/">
+                
+                    <img src="/img/2023/solidly-velodrome-template/cover.png" loading="lazy" alt="Featured image of post ve(3,3) : l&#39;étape logique après le modèle veCRV?" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/fr/categories/defi/" style="background-color: #2a9d8f; color: #fff;">
+                DeFi
+            </a>
+        
+            <a href="/fr/categories/understanding/" style="background-color: #2a9d8f; color: #fff;">
+                Comprendre
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/fr/solidly-velodrome-fork/">ve(3,3) : l&#39;étape logique après le modèle veCRV?</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            On creuse les modèles de Solidly et Velodrome pour comprendre en quoi les DEX ve(3,3) augmentent le modèle veCRV.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">avr. 28, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    10 minutes de lecture
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+        <footer class="article-translations">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+            <div>
+                
+                    <a href="http://localhost:1313/solidly-velodrome-fork/" class="link">English</a>
+                
+            </div>
+        </footer>
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Les forks Solidly/Velodrome ont poussé comme des champignons, en particulier sur les layers 2 populaires comme Arbitrum ou zkSync. Solidly est maintenant le troisième protocole le plus forké en DeFi et l&rsquo;un des rares cas où les forks (comme Velodrome) sont les leaders du marché. À première vue, on pourrait croire qu&rsquo;il s&rsquo;agit d&rsquo;un nouveau train de hype, comme lorsque nous avons eu la saison des forks Uni/Sushi, la saison des forks Olympus, etc.</p>
+<p>En effet, c&rsquo;est exagéré : une quantité absurde de DEX sont lancés chaque semaine, et 95% d&rsquo;entre eux ne seront plus d&rsquo;actualité dans six mois. Cependant, comme dans la plupart des cas de hype similaire, il existe une innovation fondamentale dans la conception des échanges décentralisés qui vaut la peine d&rsquo;être étudiée.</p>
+<p>Cet article se penchera donc sur les modèles Solidly et Velodrome afin de comprendre pourquoi ils sont devenus un modèle de fork standard. Cela étant dit, nous serons dans une excellente position pour réfléchir aux prochaines étapes pour ces DEX et à ce à quoi ce marché pourrait ressembler dans quelques mois.</p>
+<p>C&rsquo;est parti !</p>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Remarque</p><p>Cet article suppose une compréhension minimale de la finance décentralisée et une compréhension approfondie du modèle veCRV. Si vous avez besoin d&rsquo;une remise à niveau, consultez : <a class="link" href="https://tokenbrice.xyz%22/content/posts/2021/crv-wars.fr.md"  target="_blank" rel="noopener"
+    >⚔ CRV Wars : comprendre la course à l&rsquo;accumulation de CRV pour influencer le protocole Curve Finance</a>.</p></div>
+
+<h2 id="introduction-aux-dex-ve33">Introduction aux DEX ve(3,3)
+</h2><p>Avant de nous plonger dans la manière dont Solidly s&rsquo;est appuyé sur le modèle veCRV et a tenté de l&rsquo;améliorer, prenons un peu de recul.</p>
+<h3 id="structure-de-lamm-vs-couche-dincitation">Structure de l&rsquo;AMM VS couche d&rsquo;incitation
+</h3><p>Pour comprendre l&rsquo;histoire des DEX ve(3,3), nous devons faire la distinction entre deux niveaux qui sont tout aussi importants pour un échange décentralisé :</p>
+<ol>
+<li><strong>La structure de la liquidité</strong> : les différents modèles d&rsquo;AMM utilisés pour maintenir la liquidité, tels que x*y=k d&rsquo;UNIv2 ou le stableswap de Curve.</li>
+<li><strong>Le modèle d&rsquo;incitation</strong> : les frais + toutes les autres incitations destinées au fournisseur de liquidités, y compris les émissions de jetons (comme dans le modèle CRV).</li>
+</ol>
+<p>Si, en fin de compte, la première couche - la structure de la liquidité - est le cœur du jeu, la deuxième couche - les incitations - est cruciale pour attirer et maintenir une liquidité suffisante.</p>
+<p>Curve a innové dans les deux domaines, mais les modèles dont nous allons parler aujourd&rsquo;hui sont construits sur cette base et <strong>se concentrent entièrement sur l&rsquo;amélioration de la couche d&rsquo;incitation</strong>. En effet, au stade actuel, la plupart des DEX ve(3,3) exploitant le modèle Solidly ou Velodrome n&rsquo;offrent que deux types de structure de liquidité bien connus : x*y=k &amp; stableswap.</p>
+<div class="notice info" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span>Information</p><p>Selon les DEX, ces deux modèles de liquidité sont appelés corrélé/volatile ou stable/volatile.</p></div>
+
+<p>Parlons donc de ce qui était si intéressant dans le Solidly original d&rsquo;Andre Cronje et des enseignements que nous pouvons tirer de son échec.</p>
+<h2 id="les-innovations-apportées-par-solidly">Les innovations apportées par Solidly
+</h2><p>Solidly a été présenté au début de 2022 sur <a class="link" href="https://andrecronje.medium.com/ve-3-3-44466eaa088b"  target="_blank" rel="noopener"
+    >le medium de Andre Cronje</a> ; la partie cruciale de la vision de Solidly était une amélioration significative de l&rsquo;utilité pour ceux qui vérouillent des tokens - les lockers. Sur Curve, les lockers sont engagés pour quatre ans, sans aucun transfert possible. Bien que cela soit excellent pour l&rsquo;alignement des incitations à long terme de tous les participants de l&rsquo;écosystème Curve, cela crée également une barrière importante à l&rsquo;entrée.</p>
+<p>C&rsquo;est ainsi qu&rsquo;est né ve(3,3), avec en son cœur <strong>le veNFT</strong>. Alors que les veCRV sont illiquides, les positions veSOLID sont représentées par le veNFT qui est lui liquide, ce qui permet leur transfert ou leur vente/achat de gré à gré. Cela permet de rendre le verrouillage moins effrayant. Pour l&rsquo;encourager davantage, Cronje a introduit les &ldquo;<strong>rebases anti-dilutives</strong>&rdquo;, un concept tiré d&rsquo;Ampleforth/Olympus.</p>
+<p>L&rsquo;idée est simple : étant donné que le modèle Curve/Solidly DEX émet des jetons chaque semaine aux fournisseurs de liquidités, les détenteurs de jetons sont constamment dilués. Ils doivent constamment augmenter leur position afin de maintenir leur part de vote actuelle. Pour compenser cela, les détenteurs de veSOLID reçoivent un rebasement hebdomadaire proportionnel aux émissions. Cela leur permet de conserver leur part de vote même si aucun nouveau jeton n&rsquo;est bloqué.</p>
+<p>Hormis ces changements, Solidly a hérité de la plupart des éléments du modèle Curve, y compris <strong>la fonction LP boost</strong>, qui permet aux détenteurs de vetokens d&rsquo;obtenir des rendements accrus sur leur position de liquidité. Cette fonctionnalité a des conséquences réelles puisqu&rsquo;elle &ldquo;appelle pratiquement un Convex&rdquo;. En effet, la conclusion logique d&rsquo;une telle fonctionnalité est qu&rsquo;un ou quelques acteurs s&rsquo;emparent de quantités significatives de vetokens et fournissent leur LP boost aux déposants moyennant une commission.</p>
+<p>La présence ou l&rsquo;absence de cette caractéristique constitue la différence essentielle entre les modèles de Solidly et de Velodrome, et nous y reviendrons plus tard.</p>
+<p>Enfin, il y a une dernière particularité essentielle sur le modèle d&rsquo;incitation des votants. Sur Curve, les LP reçoivent la moitié des frais d&rsquo;échange collectés + les émissions de CRV, alors que les votants ne sont pas exposés aux frais de la pool sur laquelle ils votent. Cela peut conduire à une situation où les veCRV holders votent pour des pools uniquement pour les incitations de vote, même si la pool ne fournit aucun volume à l&rsquo;échange.</p>
+<p>Sur Solidly, les LP ne sont récompensés que par l&rsquo;émission SOLID, et les frais collectés sur la paire sont redirigés vers les votants de la pool. Ainsi, en tant que détenteur de veSOLID, pour optimiser vos gains, vous êtes incité à prendre en compte le volume de la pool sur lequel vous votez, et pas seulement les pots-de-vin. Cela abouti à un meilleur alignement des incitations des principaux participants du protocole (swapper, apporteur de liquidité, veHolder).</p>
+<p>Solidly a aussi innové sur la stratégie de lancement, avec <strong>un airdrop ciblé sur les protocoles</strong>, en fonction de leur activité onchain sur Fantom, où Solidly se trouvait. Ensemble, toutes ces innovations et le battage médiatique ont permis d&rsquo;attirer rapidement une quantité massive de liquidités sur l&rsquo;échange.</p>
+<p>Mais la mise en œuvre initiale de Solidly présentait quelques faiblesses majeures, notamment une baisse agressive des émissions et une création de jauges entièrement sans permission qui permettait à n&rsquo;importe quel pool de recevoir des récompenses SOLID. Il était possible de jouer, alors on a joué. Rapidement, des jetons ont été créés dans le seul but de farmer SOLID : le prix du SOLID s&rsquo;est écroulé et la spirale de la mort s&rsquo;est enclanchée.</p>
+<p><img src="/img/2023/solidly-velodrome-template/solidly-tvl.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="cover-image"
+	
+	
+></p>
+<p>La TVL a disparu aussi rapidement qu&rsquo;elle est apparue, et Solidly est entré dans l&rsquo;histoire pour la plupart des gens. Mais ceux qui ont suivi les événements de près savaient que l&rsquo;échec de Solidly ne provenait pas d&rsquo;une faiblesse du modèle ve(3,3) mais plutôt d&rsquo;un <strong>détail négligé de son implémentation</strong>, ce qui signifie que même si Solidly n&rsquo;existait plus, ve(3,3) referait probablement surface. Et c&rsquo;est ce qui s&rsquo;est passé, quelques mois plus tard, sur une autre chaîne, et conçu par une autre équipe : Velodrome.</p>
+<h2 id="les-améliorations-apportées-par-velodrome-au-modèle-solidly">Les améliorations apportées par Velodrome au modèle Solidly
+</h2><p><a class="link" href="https://www.defiscan.info/protocols/velodrome-v2/optimism"  target="_blank" rel="noopener"
+    >Velodrome</a> a exploité le modèle de Solidly et a résolu le problème des émissions en mettant en place une <strong>validation pour les jauges</strong>, ce qui permet d&rsquo;éviter la situation où les récompenses sont attribuées à des jetons inventés, comme c&rsquo;est le cas sur Solidly.</p>
+<p>Velodrome est allé bien au-delà d&rsquo;un simple fork et a mis en œuvre d&rsquo;autres améliorations, notamment un modèle d&rsquo;émissions plus durable et la <strong>suppression de la fonction LP boost</strong>, ce qui signifie qu&rsquo;il n&rsquo;y a pas de traitement préférentiel pour les détenteurs de veVELO en termes de rendement. Cela simplifie également l&rsquo;expérience pour les nouveaux LP qui pourraient être déconcertés par la gamme de rendement que l&rsquo;on voit sur les DEX avec la fonction LP boost.</p>
+<p>Au-delà des caractéristiques techniques, une grande partie du succès de Velodrome est due à <strong>l&rsquo;exécution et au soin apporté par l&rsquo;équipe aux stratégies de développement commercial</strong>, une partie essentielle du modèle ve(3,3). Construit sur Optimism, Velodrome a trouvé son PMF comme la source de liquidité de la chaîne. Grâce à son modèle, le maintien de la liquidité sur Velodrome est beaucoup plus rentable pour les projets que, par exemple, sur Uniswap.</p>
+<p>Comme Solidly, <strong>Velodrome a airdrop plusieurs protocoles avec un NFT veVELO,</strong> sans conditions, ce qui a énormément aidé à attirer l&rsquo;activité initiale de vote et d&rsquo;incitation. Le protocole a trouvé une bonne place, principalement auprès d&rsquo;autres protocoles émettant des stablecoins ou des dérivés d&rsquo;enjeux liquides ETH :</p>
+<p><img src="/img/2023/solidly-velodrome-template/defiwars-velodrome.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="defiwars-velodrome"
+	
+	
+></p>
+<p>Cela fait presque un an, et l&rsquo;activité s&rsquo;est maintenue, grâce à des ajustements prudents et progressifs des <strong>incitations OP attribuées sur le protocole</strong>, connu sous le nom de <a class="link" href="https://medium.com/@VelodromeFi/tour-de-op-updates-631268181baa"  target="_blank" rel="noopener"
+    >Tour de OP</a>. La plupart d&rsquo;entre eux sont utilisés pour encourager deux comportements essentiels pour soutenir la vélocité de la flywheel :</p>
+<ol>
+<li>Les incitations au vote (bribes), qui sont encouragées grâce à un matching en OP.</li>
+<li>Verrouillage de veVELO, encouragé par des OP bonus attribués aux lockers de VELO.</li>
+</ol>
+<p>Le matching des bribes est encore augmentée pour les projets qui verrouillent veVELO ou déploient des quantités importantes de liquidité (Protocol Owned Liquidity), ce qui contribue à amplifier l&rsquo;effet de renforcement : ceux qui veulent construire des liquidités soutenues à long terme sur Velodrome ont de bonnes raisons d&rsquo;acheter veVELO, de verrouiller et de voter, de soumettre des incitations de vote et de fournir de la POL, <strong>idéalement tout cela en même temps</strong>.</p>
+<p>Cela permet à Velodrome d&rsquo;être en tête du classement des protocoles TVL sur Optimism et de traiter environ 30% du volume total de la chaîne, contre 50% pour Uniswap, qui a environ ¼ de la TVL de Velodrome.</p>
+<p><img src="/img/2023/solidly-velodrome-template/optimism-volume.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="optimism-DEX-volume"
+	
+	
+></p>
+<p>Alors, pourquoi un tel écart entre les deux ? C&rsquo;est simple : Le ratio Volume/TVL d&rsquo;Uniswap est ~9x supérieur à celui de Velodrome car la liquidité sur Uniswap est beaucoup plus concentrée et donc plus efficace. Mais cela est sur le point de changer car Velodrome V2 arrive bientôt.</p>
+<h3 id="présentation-de-velodrome-v2">Présentation de Velodrome V2
+</h3><p>Bien qu&rsquo;Uniswap ait eu une longueur d&rsquo;avance avec la liquidité concentrée, cela va changer rapidement. La licence v3 <a class="link" href="https://docs.uniswap.org/contracts/v3/guides/governance/liscense-modifications"  target="_blank" rel="noopener"
+    >a expiré le 1er avril 2023</a>, ce qui signifie que le modèle est maintenant beaucoup plus facile à réimplémenter. De nombreux DEX, y compris les forks Solidly/Velodrome, ont l&rsquo;intention d&rsquo;exploiter cette possibilité. Cependant, pour garder cet article concentré, nous ne couvrirons que ce qui est annoncé pour Velodrome V2, attendu dans les semaines/mois à venir.</p>
+<p>En effet, Velodrome V2 ne marquera pas seulement <strong>l&rsquo;introduction du style UNI-v3 de LP sur le DEX</strong> mais aussi des améliorations significatives de l&rsquo;UX/UI, un relayeur pour faciliter la gestion des veNFT, des illustrations pour les veNFT, et bien d&rsquo;autres choses encore. Consultez l&rsquo;<a class="link" href="https://medium.com/@VelodromeFi/velodrome-the-road-ah-43488531bb0e"  target="_blank" rel="noopener"
+    >article d&rsquo;annonce de la V2</a> pour plus de détails.</p>
+<h2 id="conclusion">Conclusion
+</h2><p>J&rsquo;espère que cet article vous a aidé à comprendre les avantages des modèles Solidly et Velodrome. Bien que je mentionne la myriade de forks dans l&rsquo;introduction, j&rsquo;ai gardé le cap dans cet article. Je pense que cela appelle une suite où je passe au peigne fin les principaux forks et les modifications qu&rsquo;elles apportent au modèle : bientôt !</p>
+<h2 id="principaux-enseignements">Principaux enseignements
+</h2><ul>
+<li><strong>L&rsquo;importance des capacités humaines/commerciales de l&rsquo;équipe</strong> | ve(3,3), tout comme Curve, sont des protocoles pour des protocoles. Le professionnalisme de l&rsquo;équipe et sa capacité à établir des priorités et à mettre en œuvre le développement commercial sont des facteurs de réussite importants pour le DEX à long terme.</li>
+<li><strong>L&rsquo;importance des bons partenaires</strong>| Même si le BD est bien fait, un DEX ve(3,3) donné n&rsquo;est bon que dans la mesure où ses meilleurs coureurs le sont. Oui, vous voulez qu&rsquo;ils postent des incitations de vote, qu&rsquo;ils apportent de la liquidité, qu&rsquo;ils votent et qu&rsquo;ils fassent connaître le marché, mais pas seulement. La qualité des liquidités acheminées vers le DEX est également importante (rapport volume/TVL &amp; nature de la liquidité).</li>
+<li><strong>LP Boost et conséquences</strong> | Si un ve(3,3) implémente le LP boost, il appelle des protocoles de type Convex. Le succès du ve(3,3) dépendra de l&rsquo;ampleur et de la qualité des résultats obtenus par les protocoles Convex-like construits dessus. Pour suivre les statistiques clés des différents wrappers et des principaux détenteurs de jetons ve, consultez - <a class="link" href="https://www.defiwars.xyz/wars"  target="_blank" rel="noopener"
+    >DeFiWars</a>.</li>
+<li><strong>Impact de l&rsquo;arrivée des liquidités concentrées</strong> | Bien que ve(3,3) soit une innovation significative pour la couche d&rsquo;incitation du DEX, il exploite actuellement des structures de liquidité basique. Une bonne adéquation entre le modèle d&rsquo;incitation ve(3,3) et une structure de liquidité efficace de type UNIv3 permettra d&rsquo;améliorer encore l&rsquo;efficacité de la flywheel.</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/fr/tags/defi/">DeFi</a>
+        
+            <a href="/fr/tags/ethereum/">Ethereum</a>
+        
+            <a href="/fr/tags/decentralized-finance/">Decentralized Finance</a>
+        
+            <a href="/fr/tags/curve-finance/">Curve Finance</a>
+        
+            <a href="/fr/tags/crv/">CRV</a>
+        
+            <a href="/fr/tags/convex/">Convex</a>
+        
+            <a href="/fr/tags/cvx/">CVX</a>
+        
+            <a href="/fr/tags/vlcvx/">VlCVX</a>
+        
+            <a href="/fr/tags/vecrv/">VeCRV</a>
+        
+            <a href="/fr/tags/solidly/">Solidly</a>
+        
+            <a href="/fr/tags/velodrome/">Velodrome</a>
+        
+            <a href="/fr/tags/ve3/">Ve(3</a>
+        
+            <a href="/fr/tags/3/">3)</a>
+        
+            <a href="/fr/tags/dex/">DEX</a>
+        
+            <a href="/fr/tags/%C3%A9changes/">Échanges</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Dernière mise à jour le avr. 28, 2023 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Contenus liés</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/fr/crv-wars-l2/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/curve-wars-l2/curve-wars-l2-cover-tokenbrice.png" loading="lazy" data-key="" data-hash="/img/2022/curve-wars-l2/curve-wars-l2-cover-tokenbrice.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">⚔ Guerre du CRV avancée : analyse des protocoles construits sur Curve et Convex </h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/crv-wars/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/crv-wars/curve-wars-cover-tokenbrice.png" loading="lazy" data-key="" data-hash="/img/2021/crv-wars/curve-wars-cover-tokenbrice.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">⚔ Guerre du CRV : comprendre la course à l&#39;accumulation de la capacité à influencer le protocole Curve Finance</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/maverick-liquidity-shaping/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2023/liquidity-shaping-maverick/cover.png" loading="lazy" data-key="" data-hash="/img/2023/liquidity-shaping-maverick/cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Maverick et la transition du Liquidity Mining au Liquidity Shaping</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/defi-janus/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/defi-janus/defi-janus-cover-en.png" loading="lazy" data-key="" data-hash="/img/2021/defi-janus/defi-janus-cover-en.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Janus : le nouvel ennemi juré des protocoles DeFi ?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/defi-flywheel/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/defi-flywheel/defi-flywheel-cover-en.png" loading="lazy" data-key="" data-hash="/img/2021/defi-flywheel/defi-flywheel-cover-en.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🎡 Flywheel DeFi : synergies de protocoles à protocoles, par tokens interposés </h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Généré avec <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Thème <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> conçu par <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

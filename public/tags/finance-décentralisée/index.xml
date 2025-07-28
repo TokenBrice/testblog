@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Finance Décentralisée on TokenBrice</title>
+        <link>http://localhost:1313/tags/finance-d%C3%A9centralis%C3%A9e/</link>
+        <description>Recent content in Finance Décentralisée on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Tue, 28 Sep 2021 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/finance-d%C3%A9centralis%C3%A9e/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>⚔ CRV wars: understanding the race to accumulate power to influence Curve Finance protocol</title>
+        <link>http://localhost:1313/crv-wars/</link>
+        <pubDate>Tue, 28 Sep 2021 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/crv-wars/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2021/crv-wars/curve-wars-cover-tokenbrice.png" alt="Featured image of post ⚔ CRV wars: understanding the race to accumulate power to influence Curve Finance protocol" /&gt;&lt;p&gt;Since the early days of Curve Finance and the launch of the CRV token, we have been waiting, contemplating and assuming what the CRV war could bring. Now, with the launch of Convex, then Bribe.crv and finally Votium, everything is accelerating: VeCRV votes can now be bought! So let&amp;rsquo;s see how this impacts Curve and DeFi as a whole.&lt;/p&gt;
+&lt;p&gt;At first glance, the question is quite simple and straightforward:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Curve is the largest decentralized DeFi exchange in terms of total value deposited.&lt;/li&gt;
+&lt;li&gt;The CRV token provides access to 1/ a share of the fees collected 2/ &lt;strong&gt;a voting power to influence the issuance of future CRVs.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;=&amp;gt; Having control over a large CRV voting power makes it &lt;strong&gt;much easier to develop a Curve pool&lt;/strong&gt;, since it offers the possibility to vote for large CRV returns on the pool in question.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Nevertheless, as often in DeFi, everything is not so simple and the devil is in the details. To understand the stakes of the CRV war, you need to have &lt;strong&gt;a good understanding of the different tools built on it&lt;/strong&gt;. This will allow you to judge the relevance of the strategies deployed by the different projects that seek to influence Curve.&lt;/p&gt;
+&lt;h2 id=&#34;convex-and-the-vecrv-separation&#34;&gt;Convex and the VeCRV separation
+&lt;/h2&gt;&lt;p&gt;Before analyzing the battlefields - i.e. the different tools used in this CRV war - we need to look more deeply at one in particular: Convex. I&amp;rsquo;ve already talked about it on this blog, explaining &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/defi-flywheel.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the flywheel dimension of Convex with the CvxCRV&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The interactions of Convex with Curve go far beyond the CvxCRV, which is only one element.&lt;/p&gt;
+&lt;p&gt;In fact, &lt;strong&gt;one could describe Convex as a separation between governance and returns on VeCRV&lt;/strong&gt; by amplifying each of the elements on a separate token. Let me explain:&lt;/p&gt;
+&lt;h3 id=&#34;cvxcrv--vecrv-yield&#34;&gt;CvxCRV = VeCRV-yield++
+&lt;/h3&gt;&lt;p&gt;CvxCRV corresponds to a VeCRV owned by Convex. They are locked in forever, but the liquidity available on CvxCRV/CRV allows depositors to close out their position.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;In terms of governance, CvxCRV loses all its capabilities&lt;/strong&gt; : VeCRV owner can vote on gauges (CRV issue) and governance votes. A CvxCRV owner has no other benefit than the return.&lt;/p&gt;
+&lt;p&gt;Nevertheless, &lt;strong&gt;the return is amplified compared to a simple possession of VeCRV&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Return in 3pool token - the share of fees collected on Curve - exactly like VeCRV&lt;/li&gt;
+&lt;li&gt;Return in CRV (10% of all CRV farmed by Convex shared between all CvxCRV stakers)&lt;/li&gt;
+&lt;li&gt;Virtually the same yield in CVX&lt;/li&gt;
+&lt;li&gt;Potential airdrops like Ellipsis&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;CvxCRV corresponds to a simple compromise compared to VeCRV: governance capabilities are lost (-&amp;gt; vlCVX) but in return the performance is greatly amplified and diversified.&lt;/p&gt;
+&lt;h3 id=&#34;vlcvx--vecrv-gov&#34;&gt;vlCVX = VeCRV-gov++
+&lt;/h3&gt;&lt;p&gt;At the other end of the spectrum, Convex offers another interesting abstraction from Curve. It is its native CVX token. Indeed, &lt;strong&gt;each CVX corresponds to a VeCRV&lt;/strong&gt; voting capability (which comes from CvxCRV).&lt;/p&gt;
+&lt;p&gt;To mobilize it, the depositor must &amp;ldquo;vote lock&amp;rdquo; his CVX in vlCVX. They are locked for 16 weeks + 3 days and so provide access to governance capacity. Currently, vlCVX is by far the most economically efficient way to accrue Curve voting capacity:&lt;/p&gt;
+&lt;table&gt;
+  &lt;tr&gt;
+   &lt;td&gt;
+   &lt;/td&gt;
+   &lt;td&gt;Price
+   &lt;/td&gt;
+   &lt;td&gt;Voting power
+   &lt;/td&gt;
+   &lt;td&gt;VeCRV-vote/$
+   &lt;/td&gt;
+   &lt;td&gt;Commitment
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;VeCRV
+   &lt;/td&gt;
+   &lt;td&gt;$2.42
+   &lt;/td&gt;
+   &lt;td&gt;1 veCRV
+   &lt;/td&gt;
+   &lt;td&gt;0.41
+   &lt;/td&gt;
+   &lt;td&gt;4 years
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;vlCVX
+   &lt;/td&gt;
+   &lt;td&gt;$8.2
+   &lt;/td&gt;
+   &lt;td&gt;12,75 VeCRV
+   &lt;/td&gt;
+   &lt;td&gt;1.55
+   &lt;/td&gt;
+   &lt;td&gt;16 weeks + 3 days
+   &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;In addition to the increased profitability of CVX to influence Curve, the commitment is also less than on VeCRV. For the comparison table, I assumed a 4-year lock on CRV. The difference is even more in favor of vlCVX for shorter commitments.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice warning&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Warning&lt;/p&gt;&lt;p&gt;The vlCVX does have one drawback: after the initial 16 weeks of lock-in, penalties are applied to depositors if the tokens remain inactive for more than 4 weeks.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;If you want to further analyze the returns offered by the delegation of CVX and the associated vote buying, feel free to &lt;a class=&#34;link&#34; href=&#34;https://medium.com/@portiadog/convex-finance-1cc6c9c1c733&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;read this article&lt;/a&gt; which offers more detailed calculations :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/crv-wars/bribes-rewards.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;bribes-rewards&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;bribes-a-not-so-clean-separation&#34;&gt;Bribes: a not so clean separation
+&lt;/h3&gt;&lt;p&gt;The situation was clear, but it did not remain so for long. Indeed, it should first be noted that vlCVX is not without returns: &lt;strong&gt;vlCVX owners share 6% of all CRVs farmed by Convex, in the form of CvxCRV&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Furthermore, this is potentially not the only return for which vlCVX owners are eligible. Indeed, &lt;strong&gt;governance capacity can also offer a substantial return via bribe mechanisms&lt;/strong&gt; (vote buying).&lt;/p&gt;
+&lt;p&gt;Different projects offer incentives for voting on the gauge of a given Pool Curve. For example, Alchemix offers rewards in ALCX, its native token, which can be claimed each week by all those who used their VeCRV to vote to increase the CRV allocation of the AlUSD pool.&lt;/p&gt;
+&lt;p&gt;In the long run, it is not impossible that the initial separation planned by Convex is not the most honest. Currently, the yield on cvxCRV is about 60% while it is only 15% on CVX. Nevertheless, &lt;strong&gt;when you add the bribes into the equation, it is not impossible that the yield on vlCVX is much higher than on cvxCRV.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;the-battlefields&#34;&gt;The battlefields
+&lt;/h2&gt;&lt;p&gt;&amp;ldquo;Bribes&amp;rdquo; services are an essential part of the Curve governance equation. However, before digging into them, we need to recall the basic path (veCRV) that defines the framework for all its variants.&lt;/p&gt;
+&lt;p&gt;VeCRV is obtained by locking CRV for up to 4 years. The longer the lock, the closer the VeCRV/CRV ratio is to 1. &lt;strong&gt;The lock gradually depletes over time as does the voting capacity&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;This is why vaults built on VeCRV operate on a 4-year perpetual locking logic: in order to preserve a voting capacity that is always as close to the maximum possible, &lt;strong&gt;they &amp;ldquo;refresh&amp;rdquo; the locking frequently.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/crv-wars/vecrv-ecosystem-tokenbrice.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;vecrv-ecosystem-tokenbrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;bribe-v0--direct-incentive-on-pools&#34;&gt;Bribe v0 : direct incentive on pools
+&lt;/h3&gt;&lt;p&gt;Before we talk about bribes, it is worth remembering there is a primitive form that has been available since the early days of Curve: additional incentives (on top of CRVs) for liquidity providers. Synthetix pioneered this with the SNX liquidity mining program on the sUSD pool.&lt;/p&gt;
+&lt;p&gt;Direct incentives can be combined with bribes, and are even recommended. We will see below how MIM, for example, obtained much more activity by sharing its budget between incentives and bribes (after an initial phase without bribes).&lt;/p&gt;
+&lt;h3 id=&#34;bribecrv-by-cronje-with-vecrv&#34;&gt;Bribe.crv by Cronje [with veCRV]
+&lt;/h3&gt;&lt;p&gt;As you can see, the &amp;ldquo;bribes&amp;rdquo; are purchases of VeCRV votes. They are paid by the week, generally on Friday (the day the votes are taken into account).&lt;/p&gt;
+&lt;p&gt;However, just as there are several systems for interacting with VeCRV, there are also several mechanisms for bribes. So we start with the one that was available first: &lt;a class=&#34;link&#34; href=&#34;http://bribe.crv.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://bribe.crv.finance/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The basic unit is the VeCRV. Bribe.crv is a simple interface that summarizes the different offers and allows to collect its bribes. Voting is done directly on Curve.&lt;/p&gt;
+&lt;p&gt;After a somewhat timid start, the service is being used more and more and many projects are now proposing bribes. The returns in the first few weeks have been excellent, it remains to be seen if they will last. For example, I got &lt;strong&gt;about 10% return on my VeCRV (/ current price) in 5 weeks&lt;/strong&gt; by voting for the MIM pool and receiving SPELL tokens in bribes.&lt;/p&gt;
+&lt;p&gt;We&amp;rsquo;ll come back to the results below.&lt;/p&gt;
+&lt;h3 id=&#34;votium-with-vlcvx&#34;&gt;Votium [with vlCVX]
+&lt;/h3&gt;&lt;p&gt;The alternative available is &lt;a class=&#34;link&#34; href=&#34;http://votium.app/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Votium&lt;/a&gt;. Here, the basic unit is the vlCVX, so the two services are not competitors but complementary.&lt;/p&gt;
+&lt;p&gt;Votium is more recent so the available bribes are more limited. On the other hand, &lt;strong&gt;Votium already controls an impressive voting power: about 8M CVX or more than 102M VeCRV&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The system is potentially more passive than with bribe.crv since depositors can delegate to Votium who will take care of voting each week for them and collect the corresponding bribes.&lt;/p&gt;
+&lt;p&gt;Even with an active delegation, a depositor can at any time take back control and vote for a given pool, directly on snapshot (-&amp;gt; no gas cost). The system is therefore more flexible than bribe.crv in this respect&lt;/p&gt;
+&lt;p&gt;Other services to handle bribes are also in development with a release in the near future. So far the bribe game has focused mainly on CRV, but &lt;a class=&#34;link&#34; href=&#34;https://www.paladin.vote/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Paladin&lt;/a&gt;, for example, intends to offer a similar mechanism with other protocols as well.&lt;/p&gt;
+&lt;h2 id=&#34;putting-it-into-practice-tactics-and-results&#34;&gt;Putting it into practice: tactics and results
+&lt;/h2&gt;&lt;p&gt;The conceptual bases are a bit heavy on this subject, but it is essential to understand them. To make it more explicit, let&amp;rsquo;s move on to the practical side with concrete examples.&lt;/p&gt;
+&lt;h3 id=&#34;the-spellmim-case&#34;&gt;The Spell/MIM case
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://abracadabra.money/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Abracadabra&lt;/a&gt; is a Maker service. Various assets are accepted as collateral, including productive assets such as xSUSHI or cvx3pool.&lt;/p&gt;
+&lt;p&gt;Just as Maker produces DAI, Abracadabra produces a stablecoin (on the dollar) called MIM. The liquidity available on MIM, as well as the opportunity for returns, is therefore a key factor in the platform&amp;rsquo;s success.&lt;/p&gt;
+&lt;p&gt;This is why Abracadabra has progressively gone through all forms of direct or indirect bribes on Curve :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;It started with a SPELL incentive (governance token) on the Curve/MIM pool.&lt;/li&gt;
+&lt;li&gt;When bribe.crv arrived, &lt;strong&gt;a portion of that incentive was reallocated to bribe&lt;/strong&gt; - thus distributed to veCRV owners who vote for the MIM gauge.&lt;/li&gt;
+&lt;li&gt;Now, with the arrival of vlCVX, the team is considering reallocating the budget through this.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In a few weeks, the MIM pool has exploded on Curve, at all levels:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CRV yields were really good in some weeks&lt;/li&gt;
+&lt;li&gt;This has attracted liquidity and volume, slightly reducing the yield but increasing the ability to boost the pool&lt;/li&gt;
+&lt;li&gt;As a result of this momentum, MIM is now the fifth largest pool curve in terms of volume, with a nice volume/TVL ratio.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/crv-wars/crv-pools.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;curve-pools&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Moreover, the pool is now well balanced and rather dense (&amp;gt; $700M total liquidity).&lt;/p&gt;
+&lt;p&gt;The example of Abracadabra is extremely instructive, as it demonstrates the relevance of the abstractions built on VeCRV: &lt;strong&gt;without increasing its total budget, Abracadabra has been able to attract much more liquidity than at the time of the simple direct incentive in SPELL.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You therefore understand that DeFi projects that take advantage of the veCRV, cvxCRV and vlCVX mechanisms have an undeniable advantage (&lt;strong&gt;economic AND political&lt;/strong&gt;) over those who have not yet grasped all their subtleties.&lt;/p&gt;
+&lt;h3 id=&#34;sdvecrv-vs-cvxcrv&#34;&gt;sdveCRV VS cvxCRV
+&lt;/h3&gt;&lt;p&gt;Indeed, &lt;strong&gt;I now consider understanding Curve and the ability to effectively influence its governance to be an essential and required capability in most DeFi projects, especially for stablecoin projects.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;No need to take my word for it though, let&amp;rsquo;s compare in practice two approaches implemented by projects with similar issues: liquidity strategies on cvxCRV (from Convex) and sdveCRV (from StakeDAO) - two abstractions built on veCRV.&lt;/p&gt;
+&lt;p&gt;Although the situations are similar, there are some important differences:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Let&amp;rsquo;s start by recalling that Convex controls more than 30 times the amount of CRV controlled by Stake (102M vs 3M).&lt;/li&gt;
+&lt;li&gt;Furthermore, sdveCRV has serious problems with its peg: 1 sdveCRV ~= 0.5 CRV&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/crv-wars/sdvecrv-peg.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;sdvecrv-peg&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;sdvecrv-liquidity-plan-total-misunderstanding-and-abject-failure&#34;&gt;sdveCRV liquidity plan: total misunderstanding and abject failure
+&lt;/h4&gt;&lt;p&gt;So let&amp;rsquo;s move on to the analysis. Initially the liquidity of sdveCRV was against ETH just like Yearn. Since Convex, the Stake team is trying to react to make sdveCRV more attractive.&lt;/p&gt;
+&lt;p&gt;Nevertheless, the team clearly did not take the time to analyze the situation and rushed into what turned out to be &lt;strong&gt;one of the biggest governance failures ever seen on Curve&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;After creating an anemic sdveCRV/CRV pool via the Curve Factory, a vote was taken to add the gauge control (= CRV incentives). Not only was &lt;a class=&#34;link&#34; href=&#34;https://dao.curve.fi/vote/ownership/83&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the vote overwhelmingly rejected&lt;/a&gt; but also &lt;strong&gt;the sdveCRV pool is set up in an aberrant and absolutely dangerous way for depositors.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Indeed, the factor A (amplification parameter) of the pool is &lt;a class=&#34;link&#34; href=&#34;https://curve.fi/factory/34&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;set to 200&lt;/a&gt; &amp;mdash; a correct value for assets that follow the same peg, but &lt;strong&gt;delusional if one asset is worth twice the other&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/crv-wars/sdvecrv-mim-crv-pools.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;sdvecrv-mim-crv-pools&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;To give you an idea, even the aforementioned absolutely massive MIM pool (7000x the liquidity of the sdveCRV pool) has not yet reached 200 of A factor (119 currently, increasing).&lt;/p&gt;
+&lt;p&gt;Thus, not only did Stake fail to solve its liquidity problem on sdveCRV, but &lt;strong&gt;such a course of events clearly raises the question of the Stake team&amp;rsquo;s understanding of the intricacies of Curve/Convex&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;To get sdveCRV back to peg and develop its liquidity, they will need a lot of effort, in order:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Review the pool parameters&lt;/li&gt;
+&lt;li&gt;Direct incentives in SDT on the pool?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Once these steps are completed, the team would then have a chance to get the CRV gauge on this pool, but not before. So the current situation looks like a costly dead end: &lt;strong&gt;no way out unless the SDT board is heated (even more)&lt;/strong&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;cvxcrv-liquidity-plan-immediate-take-off&#34;&gt;cvxCRV liquidity plan: immediate take-off
+&lt;/h4&gt;&lt;p&gt;On the contrary, the liquidity plan on cvxCRV demonstrates how effective the process can be. Initially (and still today), the main pool for cvxCRV is on Sushiswap, against CRV.&lt;/p&gt;
+&lt;p&gt;This situation does not really make sense: &lt;strong&gt;Sushi is far from optimal for optimizing liquidity across assets that follow the same peg&lt;/strong&gt;. So when Curve launched factory pools (V2), the &lt;a class=&#34;link&#34; href=&#34;https://curve.fi/factory/22&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;cvxCRV/CRV pool&lt;/a&gt; was one of the first to emerge.&lt;/p&gt;
+&lt;p&gt;(Note here the A Factor at 50 - while cvxCRV holds its peg much better than sdveCRV&amp;hellip;)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/crv-wars/cvxcrv-pool.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;cvxcrv-pool&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Without any incentive from Convex or Curve, the pool has already seen significant volume flow through DEX aggregators like Paraswap. Soon, there was a vote to add the CRV gauge which passed - and this pool is now farmable directly through Convex.&lt;/p&gt;
+&lt;p&gt;The pool remains slightly unbalanced (there is so much to do with CRVs, which are becoming increasingly rare&amp;hellip;) but it already brings a competitive alternative to the SLP cvxCRV/CRV pool with still a fraction of its liquidity.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion
+&lt;/h2&gt;&lt;p&gt;I hope this article has helped you grasp the intricacies of the extended veCRV ecosystem and their implications for the CRV battle.&lt;/p&gt;
+&lt;p&gt;Before concluding, I would like to remind you that as usual the alpha is in the nooks and crannies. If you have understood this article, feel free to export the liquidity strategy analysis to other projects: I am sure it will be instructive!&lt;/p&gt;
+&lt;p&gt;I tell you often, but it will never be enough: not only Curve is the most important DEX in DeFi but it is also &lt;strong&gt;the most advanced protocol in terms of governance and tokenomics by far compared to anything else&lt;/strong&gt;. Even if you have no interest in Curve/Convex, it&amp;rsquo;s essential to understand these protocols in order to properly consider what&amp;rsquo;s going on in DeFi&amp;hellip; Hopefully this article will help you!&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;🙏 Huge thanks to HHK, Charles, Thomas, Erwan, &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/phil_h&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PhilH&lt;/a&gt; &amp;amp; FrenchTony for proofreading the French version of this article and translating it integrally into English.&lt;/em&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Exploring stable assets on Ethereum: approaches &amp; endgame</title>
+        <link>http://localhost:1313/ethereum-stable-assets/</link>
+        <pubDate>Tue, 23 Mar 2021 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/ethereum-stable-assets/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2021/pegged-assets/money-god-meme.png" alt="Featured image of post Exploring stable assets on Ethereum: approaches &amp; endgame" /&gt;&lt;p&gt;Today, I want to cover an essential topic for Ethereum and other blockchains and often misunderstood: &lt;strong&gt;&amp;ldquo;stable&amp;rdquo; assets&lt;/strong&gt;, which track the price of a reference asset. Before looking at the different approaches to producing such an asset, we&amp;rsquo;ll first start with a higher level of analysis:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Why are such assets needed?&lt;/li&gt;
+&lt;li&gt;What are they used for?&lt;/li&gt;
+&lt;li&gt;Why do we want to standardize non-native Ethereum assets on this chain?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Once these foundations are established, we will have all the tools to &lt;strong&gt;figure out the different methods and what is at stake&lt;/strong&gt;.. I will conclude with a more detailed analysis of a project that seems to me very relevant and innovative : the RAI of Reflexer Labs&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;If you are already familiar with the different pegging mechanisms, you can jump &lt;a class=&#34;link&#34; href=&#34;#focus-on-reflexers-rai&#34; &gt;directly to the section on Reflexer&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;assets-standardization-on-the-ethereums-blockchain&#34;&gt;Assets standardization on the Ethereum&amp;rsquo;s blockchain
+&lt;/h2&gt;&lt;p&gt;The volume of issuance and use of pegged-assets has exploded last year, but before we look at what they are actually used for, let&amp;rsquo;s understand why. The simplest use case is to produce a stable asset, most often indexed to the dollar.&lt;/p&gt;
+&lt;p&gt;To do this, &lt;strong&gt;the method used at a high level is tokenization&lt;/strong&gt;: we represent an asset that comes from another chain / world on Ethereum, such as wBTC (corresponding to 1 BTC on the Bitcoin chain) or USDC (corresponding to 1 USD in Circle&amp;rsquo;s bank account).&lt;/p&gt;
+&lt;p&gt;This &lt;strong&gt;addresses one of the most common concerns for the general public: &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2018/stablecoins.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;cryptos are volatile assets&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Also, &lt;strong&gt;the rise of stablecoins has gone hand in hand with the rise of DeFi&lt;/strong&gt;, why? According to me, there are many reasons, the main ones being:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Borrowings&lt;/li&gt;
+&lt;li&gt;Stable assets can be very productive in DeFi&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;why-are-borrowings-mostly-in-stablecoins&#34;&gt;Why are borrowings mostly in stablecoins?
+&lt;/h3&gt;&lt;p&gt;The money markets allow their users to borrow assets using other assets as collateral. The most frequent use case corresponds to the following pattern.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The user deposits a volatile asset, such as ETH, wBTC or LINK&lt;/li&gt;
+&lt;li&gt;He uses it as collateral to &lt;strong&gt;borrow a stable asset, like USDC or DAI&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Why is this so? To put it simply, few people are fond of the risks associated with price changes. &lt;strong&gt;Borrowing an asset, if you then mobilize it, is like shorting it&lt;/strong&gt;. No problem with stablecoins - in theory - but the reality is quite different with a non-stable asset: if the price goes down, good for you: the debt will only be cheaper to repay.&lt;/p&gt;
+&lt;p&gt;However, the other way around, the scenario can be frightening since &lt;strong&gt;you can end up with a debt that increases&lt;/strong&gt;. Let&amp;rsquo;s say you borrow 1000 UNI when one UNI is worth $20. You sell them for another token, for example stablecoins. So here you are with $20,000 DAI that you mobilize in DeFi for example.&lt;/p&gt;
+&lt;p&gt;You hold your debt for several months and now you want to pay it off. Except that one UNI is now worth $30 and you no longer have any: you have to buy some back on the markets to pay off the debt and close the position. &lt;strong&gt;The debt is always paid in the borrowed asset&lt;/strong&gt;: you therefore owe 1,000 UNIs at $30 per unit or 30,000 DAI.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice warning&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Warning&lt;/p&gt;&lt;p&gt;I am ignoring the loan interest&amp;rsquo;s here for simplicity&amp;rsquo;s sake. In reality you should pay back slightly more UNI, according to the interest rate and the length of exposure.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;yield-farming-with-stable-assets&#34;&gt;Yield-farming with stable-assets
+&lt;/h3&gt;&lt;p&gt;With the first point understood, the second one makes perfect sense.: &lt;strong&gt;a lot of people are borrowing stablecoins&lt;/strong&gt;, so that means that on the other side of the market people are lending them out, for attractive interest rates considering the demand. For example, on Aave, one of the main money markets, there has been &lt;strong&gt;a liquidity crunch in stablecoins&lt;/strong&gt; almost since the launch of v2. Depositors enjoy an average annualized return of about 10%.&lt;/p&gt;
+&lt;p&gt;The situation is quite similar elsewhere with differences due to the specificities of each money market. Nevertheless, the liquidity crisis on stablecoins goes far beyond Aave: it potentially extends to the whole DeFi.&lt;/p&gt;
+&lt;p&gt;Indeed, &lt;strong&gt;there is no shortage of opportunities to produce a return with stablecoins&lt;/strong&gt;. I&amp;rsquo;m talking about loans here, but it is also possible to bring liquidity to stablecoin pairs and even combine the two approaches to increase returns with a product like Curve:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/pegged-assets/curve-yield-pool.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;curve-yield-pool&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;explosion-of-the-pegged-assets-use-in-2020&#34;&gt;Explosion of the pegged-assets use in 2020
+&lt;/h3&gt;&lt;p&gt;Thus, we have seen a real explosion in the issuance and use of pegged-assets in 2020. On the one hand, more and more projects are being launched to propose &lt;strong&gt;new asset types or new approaches to represent them&lt;/strong&gt;. On the other hand, the scenarios for using these pegged-assets are multiplying thanks to the growth of Curve money markets, vaults like those offered by Yearn or Harvest, and other even more complex DeFi products.&lt;/p&gt;
+&lt;p&gt;To name but one, let&amp;rsquo;s talk about &lt;a class=&#34;link&#34; href=&#34;https://alchemix.fi/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Alchemix&lt;/a&gt;, a new synthetic asset service that allows &lt;strong&gt;loans secured by your future return&lt;/strong&gt;. Let me explain: with Alchemix, everything starts with a stable asset that produces a return. They chose the yDAI to start with (DAI productive thanks to the Yearn&amp;rsquo;s vault).&lt;/p&gt;
+&lt;p&gt;The user starts by depositing yDAI. He can then &lt;strong&gt;give up his future return&lt;/strong&gt; to borrow up to 50% of the deposited value. His loan is &lt;strong&gt;reimbursed automatically thanks to the interest generated by the yDAI&lt;/strong&gt;. In addition, since he has access to 50% of the deposited value immediately (borrowed in alUSD), he can put it to work to increase the return of the entire strategy.&lt;/p&gt;
+&lt;p&gt;This type of product allows for an interesting across time arbitrage and leads to an even greater demand for stablecoins: at the launch of Alchemix, deposits in the yDAI vault took off up to the maximum capacity available for a while.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve talked about stablecoins so far, but a similar scenario has played out on other pegged-assets like tokenized BTC on Ethereum.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/pegged-assets/stablecoin-growth.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;stablecoin-growth-ethereum-messari&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;With the impressive growth of DeFi, we can only expect the demand for this type of asset to grow ever faster. So let&amp;rsquo;s take a look at the different approaches used to produce them to understand their trade-off.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;the-different-methods-to-produce-pegged-assets&#34;&gt;The different methods to produce pegged-assets
+&lt;/h2&gt;&lt;p&gt;So far, the vast majority of this demand for stable assets is being addressed with solutions based on a 1:1 match requiring trust. Thus, it is &lt;strong&gt;mostly USDT ($38.5B issued) and USDC ($9.4B) that are leading the way&lt;/strong&gt;, well ahead of DAI ($2.7B). The same goes for Bitcoin, without going into detail, all the most used solutions require trust.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;Pegged-assets&amp;quot; are assets that follow the price of another via a mechanism called &amp;ldquo;pegging&amp;rdquo;. Therefore, the &amp;ldquo;peg&amp;rdquo; is the value that the asset must maintain, for example $1 for stablecoins that follow the dollar.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;A growing variety of approaches are being explored to produce a pegged-asset with less compromise. They are generally grouped into large families that correspond to the main method used to maintain the peg. However, as these approaches develop, the boundaries between them become blurred as several projects explore &lt;strong&gt;hybrid approaches mixing several elements of each&lt;/strong&gt;. We will start from the simplest to understand and progressively go to the most complex.&lt;/p&gt;
+&lt;h3 id=&#34;using-a-trusted-third-party-11-ratio&#34;&gt;Using a trusted third party (1:1 ratio)
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👍 Advantages:&lt;/strong&gt; The peg is easily maintained and rather stable. The system is solvent at all times (-&amp;gt; 1 USD in the bank for 1 USDC issued for example)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👎 Disadvantages/Risks:&lt;/strong&gt; The system requires a central trusted intermediary - the issuing organization. This same organization relies on another intermediary, the bank where the USD are deposited. In addition, the presence of a trusted intermediary creates a risk: is it reliable? transparent? The risk goes beyond image, it can also be legal.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This approach has already been detailed enough, so I&amp;rsquo;ll move on to the more complex methods.&lt;/p&gt;
+&lt;h3 id=&#34;stablecoins-produced-by-over-collateralization-maker-dai&#34;&gt;Stablecoins produced by over-collateralization: Maker DAI
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;👍 Advantages:&lt;/strong&gt; The system no longer involves a central trusted intermediary (at least initially) &amp;amp; still manages to more or less maintain the peg.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;👎 Disadvantages/Risks:&lt;/strong&gt; It will require &lt;strong&gt;always more $ collateral than $ (DAI) produced (over-collateralization)&lt;/strong&gt;. Governance risks. Risks at the liquidation level, carried out by third parties. The system is as trustless as its most used collateral. Maker now accepts censorable collateral (wBTC, USDC, etc.) which reintroduces a trust risk into the system.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Long before algorithmic stablecoins, MakerDAO is a pioneer when thinking about how to &lt;strong&gt;produce a stable asset with less trust needed in the system than 1:1 approaches&lt;/strong&gt;. Maker is a more complex service because beyond the DAI - the stablecoin issued by the system, it also allows its users to use different assets to borrow (technically mint) DAIs.&lt;/p&gt;
+&lt;p&gt;In addition, it recreates risks and dangers to maintain the peg of the DAI. Many improvements have been proposed and implemented since the beginning, which allows DAI to be much more stable now than in its early days. Nevertheless, the scaling of DAI has come with additional compromises in terms of trust.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;more-innovative-approaches&#34;&gt;More innovative approaches
+&lt;/h3&gt;&lt;p&gt;Here, the approaches are more diversified - I group them into two families: the algorithmic approaches already well studied on my blog and the hybrid approaches. Both are based on an essential concept to understand: the &amp;ldquo;central bank&amp;rdquo; of these systems is a smart contract.&lt;/p&gt;
+&lt;h4 id=&#34;a-smart-contract-as-central-bank&#34;&gt;A smart contract as &amp;ldquo;central bank&amp;rdquo;
+&lt;/h4&gt;&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;I use the words &amp;ldquo;central bank&amp;rdquo; because it evokes the essential concept here: the body that issues money and implements the monetary policy of the system is a smart contract. This allows for great transparency and visibility on the actions related to monetary policy.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;To understand the systems presented below, you really need to understand this: &lt;strong&gt;the decisions to create or destroy new stablecoins are &amp;ldquo;taken&amp;rdquo; by a smart contract&lt;/strong&gt; - it alone has this ability to issue (and destroy / burn in some systems) tokens.&lt;/p&gt;
+&lt;p&gt;When I say that the smart contract takes &amp;ldquo;decisions&amp;rdquo;, I must explain myself : &lt;strong&gt;to be more precise, one could say that it reacts to the evolution of various measurable parameters&lt;/strong&gt;. The decisions of the smart contract are therefore transparent and predictable. A change in the rules governing it is possible but only via a governance vote.&lt;/p&gt;
+&lt;p&gt;Most often, the main parameter taken into account is simply &lt;strong&gt;the price of the stablecoin&lt;/strong&gt;. For example, in early algorithmic systems like Basis (BAC is the stablecoin), the rules are simple:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If BAC &amp;gt; $1, then the system issues and distributes new BAC to try to bring the price back towards $1.&lt;/li&gt;
+&lt;li&gt;When BAC &amp;lt; $1 the system destroys BAC to create upward pressure. The destruction is not direct but voluntary: the actors in the system are encouraged to burn their BAC for a coupon (BAB) corresponding to 1 BAC + premium, which they can collect only when BAC has a sustained price above the dollar.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For more background on this &amp;ldquo;smart contract central bank&amp;rdquo; idea, you can read my first article on algorithmic stablecoins:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/algorithmic-stablecoins.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;L&amp;rsquo;état et le futur des stablecoins algorithmiques&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;algorithmic-approaches&#34;&gt;Algorithmic approaches
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👍 Advantages:&lt;/strong&gt; This makes systems without a central trust intermediary possible and thus opens the way to truly trustless pegged-assets. Community governance possible.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👎 Disadvantages/Risks:&lt;/strong&gt; Sustained peg loss or difficulty maintaining peg. Possible governance attack.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I analyze the main approaches to produce algorithmic stablecoins in a dedicated article :&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/seigniorage-basis-vs-esd.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;⚖ L&amp;rsquo;histoire de deux modèles de seigneuriage : Basis contre ESD&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Thus, projects like ESD, DSD, or Basis Cash were the pioneers of algorithmic stablecoins. However, all of these systems are now in a bit of an abyss: &lt;strong&gt;their stablecoins have been worth well under a dollar for a long time&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/pegged-assets/bac-90days.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;bac-price-90d&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Their users are looking forward to a V2 that will bring stablecoin back to the dollar like the messiah.&lt;/p&gt;
+&lt;h4 id=&#34;hybrid-approaches&#34;&gt;Hybrid approaches
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👍 Advantages:&lt;/strong&gt; The best of both worlds?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👎 Disadvantages / Risks:&lt;/strong&gt; A new potentially central and  intermediate point of trust appears in the system. You what happened next&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Given the current limitations of first generation algorithmic stablecoins, another approach has successfully emerged: the hybrid approach.  These are intrinsically algorithmic systems that &lt;strong&gt;include nonetheless a reserve in stablecoin&lt;/strong&gt;. (different from the system) used to maintain the peg: &lt;a class=&#34;link&#34; href=&#34;https://samkazemian.medium.com/frax-v2-algorithmic-market-operations-b84521ed7133&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;more info here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The pioneer in this field is Frax. With Frax, &lt;strong&gt;when FRAX trades above the dollar the system itself sells some to accumulate USDC&lt;/strong&gt;. This helps to bring the price down while building up a reserve of stablecoins not exposed to the system itself. Thus, if FRAX is trading &lt;strong&gt;below the dollar, the system can buy FRAX directly&lt;/strong&gt; on the market (using its stock of USDC) to bring the price back down to $1.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/pegged-assets/frax-price.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;frax-price-90d&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;While this approach has the &lt;strong&gt;merit of efficiency&lt;/strong&gt; (FRAX has maintained its peg very well since launch), it reintroduces a trusted intermediary into the mechanism. Sure, it&amp;rsquo;s not a bank like with Tether, but it&amp;rsquo;s still necessary trust in the system. What happens if the USDC balance of Frax is seized or frozen: could the system survive it? For those who don&amp;rsquo;t know, yes it is technically (and legally) possible.&lt;/p&gt;
+&lt;div class=&#34;notice info&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#info-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Info&lt;/p&gt;&lt;p&gt;I remain very high-level on FRAX and describe the system mostly as it was in the beginning. Many integrations have been implemented or are being considered, such as the ability to mint FRAX directly into the FRAX-Tornado anonymity set (directly into TornadoCash) to offer a potentially more confidential stablecoin.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;focus-on-reflexers-rai&#34;&gt;Focus on Reflexer&amp;rsquo;s RAI
+&lt;/h2&gt;&lt;p&gt;To finish this article, which I hope will be instructive, I suggest to analyze an innovative system: Reflexer RAI. It is a similar approach to MakerDAO, in the sense that the stable asset is produced by over-collateralization. Nevertheless, it brings many improvements over the Maker model:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Trustless collateral&lt;/strong&gt;: Until now, RAI only accepts ETH as collateral. This means that 100% of the collaterals in the system are not censurable.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Beyond the dollar&lt;/strong&gt;: the asset produced by the system does not follow the dollar (which is not really stable itself). The price of the RAI is determined by a consensus established by the market.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Money God&lt;/strong&gt; : just like algorithmic stablecoins, the system reacts to different observed parameters. However, just like MakerDAO, here it is the users themselves who directly hit the RAI.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Governance&lt;/strong&gt; : the token of the Reflexer system (FLX), which will be distributed to the users, is intended to be used to progressively decentralize the governance.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Don&amp;rsquo;t panic if you don&amp;rsquo;t immediately understand why this system is innovative and significant, we will explore each of these points in more detail.&lt;/p&gt;
+&lt;h3 id=&#34;censorship-resistant-collateral&#34;&gt;Censorship-resistant collateral
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Initially, MakerDAO only accepted Ether as collateral&lt;/strong&gt;. With the first significant update of the system - the &lt;a class=&#34;link&#34; href=&#34;https://makerdao.com/whitepaper/White%20Paper%20-The%20Maker%20Protocol_%20MakerDAO%E2%80%99s%20Multi-Collateral%20Dai%20%28MCD%29%20System-FINAL-%20021720.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Multi Collateral DAI&lt;/a&gt; - more tokens became usable as collateral.&lt;/p&gt;
+&lt;p&gt;The community was perplexed by this decision, especially because of the choice of accepted tokens. Thus, BAT was one of the first new collateral while LINK, a token with volume and liquidity already far superior to BAT at the time, only arrived much later.&lt;/p&gt;
+&lt;p&gt;Beyond this &lt;strong&gt;difficult to understand valuation&lt;/strong&gt;, the crux of the problem is that &lt;strong&gt;many collaterals now accepted are censorable&lt;/strong&gt;: wBTC, RenBTC, USDC, TUSD, etc. This reduces the trustlessness of MakerDAO since at different times up to 50% of all DAIs were minted from censorable collaterals.&lt;/p&gt;
+&lt;p&gt;The figure is now reduced, but the concern remains. Furthermore, the addition of a special USDC vault was criticized during Black Thursday for helping DAI regain its peg - but it also made MakerDAO even more dependent on such collaterals.&lt;/p&gt;
+&lt;p&gt;So Reflexer also fits in as &lt;strong&gt;a reaction to this &amp;ldquo;drift&amp;rdquo; of MakerDAO&lt;/strong&gt;: for now, only ETH is accepted to open a vault. I will be surprised if the team or the DAO vote to accept censorable collateral.&lt;/p&gt;
+&lt;h3 id=&#34;beyond-the-us-dollar&#34;&gt;Beyond the US Dollar
+&lt;/h3&gt;&lt;p&gt;Moreover, Reflexer goes much further than DAI in its quest for stability. Indeed, the dollar itself does not have a stable value, because of the continuous production of new units which leads to inflation: thus $10,000 in 1950 is equivalent in purchasing power to almost $110,000 in 2021 (3.42% inflation per year on average over the period).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;An asset that is intended to be stable must therefore go beyond the limitations of the dollar and this is precisely what RAI does&lt;/strong&gt;: it does not follow the price of the dollar. The price of RAI is determined by pure social consensus: the system takes into account the observed price of the ETH/RAI pair (market price) as well as an internal price target (redemption rate).&lt;/p&gt;
+&lt;p&gt;There are often gaps between the two, which creates an incentive to beat the RAI:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/pegged-assets/reflexer-spread.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;reflexer-spread&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Therefore, RAI is obviously not a stablecoin, It is not a pegged-asset either&lt;/strong&gt;. There are not enough words to describe RAI accurately, but let me try. RAI is an abstraction on the ETH which is intended to be more stable than the ETH, while maintaining its trustlessness (with time).&lt;/p&gt;
+&lt;h3 id=&#34;all-hail-the-money-god&#34;&gt;All Hail the Money God
+&lt;/h3&gt;&lt;p&gt;The &amp;ldquo;Money God&amp;rdquo; is the term used to refer to the set of rules that govern the Reflexer system. The memetic potential is also enormous. To remain quite synthetic, the Money God is lenient towards those who follow a perennial and long-term logic on the protocol.&lt;/p&gt;
+&lt;p&gt;For example, the distribution mechanism of the Reflexer token, FLX, was recently modified to better align incentives (&lt;a class=&#34;link&#34; href=&#34;https://medium.com/reflexer-labs/introducing-flx-20755214a465&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;more info here&lt;/a&gt;). The essence of the change is to better compensate those who perpetuate the system, i.e.:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Deposit ETH to mint RAI&lt;/li&gt;
+&lt;li&gt;Deposit &lt;strong&gt;all&lt;/strong&gt; the RAI minted + the equivalent in ETH in the liquidity pool on Uniswap.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;As of March 8, 100% of FLX is being distributed to those who follow this scenario. &lt;a class=&#34;link&#34; href=&#34;https://gist.github.com/stefanionescu/e66204be990f4bc113a022341cb39186&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;The history of FLX retroactive distribution strategies is here&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;the-de-governance-plan&#34;&gt;The De-Governance Plan
+&lt;/h3&gt;&lt;p&gt;Besides the important technical innovation on Reflexer, barely explored here, I particularly appreciate &lt;strong&gt;their approach to governance and decentralization of the protocol&lt;/strong&gt;, as described by Stefan one of its architects:&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;The principle of “ungovernance” comes from our desire to progressively remove human control from the RAI system, thus making it socially scalable.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;The team has established &lt;strong&gt;a plan with concrete and dated goals&lt;/strong&gt; to achieve this end. The first step is to make the system&amp;rsquo;s liquidation and taxation mechanisms &amp;ldquo;governance minimized&amp;rdquo; - only a few parameters will remain changeable via governance (voting of FLX holders) from this point on. The target date is April 17, 2022, a little over a year after the initial launch of RAI.&lt;/p&gt;
+&lt;p&gt;At each step, the scenario is similar: a critical mechanism of the system is &amp;ldquo;governance-minimized&amp;rdquo; before it is put back under the full control of FLX holders.&lt;/p&gt;
+&lt;p&gt;You can find &lt;a class=&#34;link&#34; href=&#34;https://medium.com/reflexer-labs/introducing-flx-20755214a465&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the details of this plan here&lt;/a&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion
+&lt;/h2&gt;&lt;p&gt;I&amp;rsquo;ve been following and waiting for Reflexer for over a year, I&amp;rsquo;m thrilled to finally tell you about it, and please forgive me for the delay: I wanted to put it in context to make sure everyone grasps the innovation brought by this protocol.&lt;/p&gt;
+&lt;div class=&#34;notice warning&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Warning&lt;/p&gt;&lt;p&gt;This article &lt;strong&gt;does not constitute investment advice&lt;/strong&gt;. I have no credentials in this area: they do not yet exist for DeFi.&lt;/p&gt;
+&lt;p&gt;I am discussing the mechanics of several protocols and what they allow for or envision in the future. Even if I mention tokens, ditto: I discuss their utility or tokenomics but &lt;strong&gt;never their relevance as an investment&lt;/strong&gt;. On this topic, it&amp;rsquo;s up to you!&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;I hope this article helps you better understand the rise of pegged-assets on Ethereum - it is essential. It&amp;rsquo;s also critical to understand the different trade-off sets associated with each approach: they are all potentially more or less relevant, depending on your situation and needs!&lt;/p&gt;
+&lt;p&gt;Finally, whether you are convinced by Reflexer or not, I strongly encourage you to dig into this system, just as I regularly invite you to explore the workings of Aave, Curve or Unslashed. All four are very relevant and innovative systems: understanding them in depth will allow you to internalize many essential things  to understand decentralized finance in general.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;🙏 Huge thanks to HHK, Charles, Thomas, Erwan, &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/phil_h&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PhilH&lt;/a&gt; &amp;amp; FrenchTony for proofreading the French version of this article and translating it integrally into English.&lt;/em&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

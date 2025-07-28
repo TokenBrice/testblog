@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Shining a light on DeFi’s dirty secret: the curation layer crisis - and what can we do to address it.">
+<title>DeFi’s UX Disaster: Curation Could Save Innovation</title>
+
+<link rel='canonical' href='http://localhost:1313/defi-ux-disaster/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="DeFi’s UX Disaster: Curation Could Save Innovation">
+<meta property='og:description' content="Shining a light on DeFi’s dirty secret: the curation layer crisis - and what can we do to address it.">
+<meta property='og:url' content='http://localhost:1313/defi-ux-disaster/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Decentralized Finance' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Public Good' /><meta property='article:tag' content='DeFiScan' /><meta property='article:tag' content='BlueChip' /><meta property='article:tag' content='L2Beat' /><meta property='article:published_time' content='2025-03-08T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2025-03-08T01:13:50&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/2025/defi-ux-disaster/defi-ux-disaster-cover.png' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="DeFi’s UX Disaster: Curation Could Save Innovation">
+<meta name="twitter:description" content="Shining a light on DeFi’s dirty secret: the curation layer crisis - and what can we do to address it."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/2025/defi-ux-disaster/defi-ux-disaster-cover.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">TokenBrice</a></h1>
+            <h2 class="site-description">Brutally Honest DeFi</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" selected>English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" >Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#defining-the-infrastructure-application-and-curation-layers">Defining the infrastructure, application, and curation layers</a></li>
+    <li><a href="#the-curation-layer-defis-achilles-heel">The Curation Layer: DeFi’s Achilles’ Heel</a>
+      <ol>
+        <li><a href="#curation-is-the-missing-piece-to-mass-onboarding">Curation is the missing piece to mass onboarding</a></li>
+      </ol>
+    </li>
+    <li><a href="#how-did-we-get-there">How did we get there?</a>
+      <ol>
+        <li><a href="#new-curation-layer-projects-struggle-to-emerge">New curation layer projects struggle to emerge</a></li>
+        <li><a href="#the-cost-of-free-to-access-information">The cost of free-to-access information</a></li>
+        <li><a href="#what-can-you-dear-reader-do-about-this">What can you, dear reader, do about this?</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/defi-ux-disaster/">
+                
+                    <img src="/img/2025/defi-ux-disaster/defi-ux-disaster-cover.png" loading="lazy" alt="Featured image of post DeFi’s UX Disaster: Curation Could Save Innovation" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/defi/" style="background-color: #2a9d8f; color: #fff;">
+                DeFi
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/defi-ux-disaster/">DeFi’s UX Disaster: Curation Could Save Innovation</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Shining a light on DeFi’s dirty secret: the curation layer crisis - and what can we do to address it.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 08, 2025</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    12 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+        <footer class="article-translations">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+            <div>
+                
+                    <a href="http://localhost:1313/fr/defi-ux-disaster/" class="link">Français</a>
+                
+            </div>
+        </footer>
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Everyone worries about the infrastructure and app layers, and that’s cute, but what about the curation layer? Without it, the two others are nearly useless, as the complexity of the space is already far too great for most of the population to handle. So today, I want to plead to address the most significant lack in DeFi, informed by my experience with over six years spent educating people about it, onboarding pretty much anyone willing in my surroundings and online, and following up with them.</p>
+<h2 id="defining-the-infrastructure-application-and-curation-layers">Defining the infrastructure, application, and curation layers
+</h2><p>Before we move forward, we need to align on the key terms – those three layers. An image is worth a thousand words, so let’s study an interesting example taken from the wild that features bits of each of the three layers:</p>
+<p><img src="/img/2025/defi-ux-disaster/jumper.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="jumper-exchange"
+	
+	
+></p>
+<p>This is a pretty dense flow involving:</p>
+<ul>
+<li>Ethereum mainnet (infrastructure)</li>
+<li>wBTC (application)</li>
+<li>Mayan bridge (infrastructure)</li>
+<li>Aave on Optimism (application)</li>
+<li>USDC (application)</li>
+<li>Jumper (application + curation), powered by Li.FI (infrastructure).</li>
+</ul>
+<p>Doing this “manually” would represent a hefty sequence of operations:</p>
+<ol>
+<li>Approve wBTC on exchange</li>
+<li>Swap wBTC to USDC on mainnet</li>
+<li>Approve USDC on bridge</li>
+<li>Bridge USDC from mainnet to optimism</li>
+<li>Approve USDC on Aave/Optimism</li>
+<li>Deposit USDC on Aave/Optimism</li>
+</ol>
+<p>Hurray! Here’s for the application layer working its magic! But I’d like to focus on another even more critical dimension here - the curation dimension of Jumper:</p>
+<p>Jumper auto-detected the tokens I had in my wallet as soon as I connected, allowing me to find my wBTC quickly. It found two potential bridges and “recommended” one by placing it first (because it has the best returns). It found the respective token contracts and protocol I needed. It also provided me with an interface to execute all this without worrying if I was about to send my tokens to a scammer — that might not seem much to you or me, but to a normie, that is close to everything.</p>
+<p>So from that example, let’s take a minute to settle the definitions:</p>
+<ol>
+<li><strong>Infrastructure layer: the base layer</strong>, which can include blockchains (Ethereum), but also pieces of infrastructure that are built upon at the next layer (Li.Fi&gt;Jumper scenario).</li>
+<li><strong>&raquo; Application layer: the end-user layer</strong>, where they actually interact with DeFi – these include all the protocols, frontends, and toolings (DeBank, DeFiSaver, Jumper, etc.) you are aware of.</li>
+<li><strong>&raquo;&raquo; Curation layer: the “guidance” layer</strong>, helping users navigate the options available at the application layer. While it exists independently, its insights can and should be integrated into the application layer.</li>
+</ol>
+<p>This perspective is essentially a simplified version of <a class="link" href="https://www.researchgate.net/figure/The-Decentralized-Finance-DeFi-Stack_fig4_340061422"  target="_blank" rel="noopener"
+    >Schär&rsquo;s DeFi Stack</a> where his Settlement and Asset layers are merged into my Infrastructure layer, his Protocol+Application layer into my Application layer, and his Aggregation layer is broadened and rebranded into my Curation Layer:</p>
+<p><img src="/img/2025/defi-ux-disaster/defi-stack.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Schar-defi-stack"
+	
+	
+></p>
+<p>The Curation layer champions, others than widely used tools with a curation/directory element such as <a class="link" href="https://coingecko.com/"  target="_blank" rel="noopener"
+    >CoinGecko</a> (helping users to validate token contract &amp; protocols front end URLs), <a class="link" href="https://jumper.exchange/"  target="_blank" rel="noopener"
+    >Jumper</a> or <a class="link" href="https://debank.com/"  target="_blank" rel="noopener"
+    >Debank</a> currently are websites/frameworks providing essential and verifiable insights on key verticals such as <a class="link" href="https://l2beat.com/"  target="_blank" rel="noopener"
+    >L2Beat</a> (L2s decentralization evaluation), <a class="link" href="https://defillama.com/"  target="_blank" rel="noopener"
+    >DeFillama</a> (DeFi data + directory), <a class="link" href="https://bluechip.org/"  target="_blank" rel="noopener"
+    >Bluechip</a> (stablecoin economic ratings), <a class="link" href="https://www.defisafety.com/"  target="_blank" rel="noopener"
+    >DeFiSafety</a> (development practices evaluation) or <a class="link" href="https://defiscan.info/"  target="_blank" rel="noopener"
+    >DeFiScan</a> (protocol decentralization evaluation).</p>
+<p>Curation can include various endeavours:</p>
+<ul>
+<li><strong>Validation</strong>: Helping users verify the validity of information, such as CoinGecko acting as a source of truth for contract addresses or DeFillama for protocol frontend URLs, or Rabby various warnings helping users to realize if they are interacting with a spoofed version of a given protocol.</li>
+<li><strong>Aggregation</strong>: Curation is provided on top of the aggregation (“here is the best route”). This includes all DEXes and bridge aggregators (ParaSwap, CowSwap, Bungee, Jumper, etc).</li>
+<li><strong>Verifiable Insights</strong>: Information service providers like L2Beat, DeFiScan, or Bluechip enable users to access contextualized and verifiable information (onchain and against their respective framework) in their given vertical.</li>
+</ul>
+<h2 id="the-curation-layer-defis-achilles-heel">The Curation Layer: DeFi’s Achilles’ Heel
+</h2><p>If you are unconvinced about the urgent need for a better curation layer, I beg you to onboard your mom to DeFi, explain the basics of a wallet, send her some ETH, and watch her scratch her head.</p>
+<p>Wanna swap? Sure, we have 200 DEXes, 20 aggregators, aggregators of aggregators, and also those new bridge aggregators that now handle swap, ah and let’s not forget the intent-based protocols; by the way, do you know you can also indirectly swap by supplying a UNIv3 pool? So which one is it gonna be? Oh, you heard of Uniswap? Right, let’s try this. No, Mom, don’t click that first link on the search results; it’s not the real Uniswap. “But it’s written Uniswap”&hellip;</p>
+<h3 id="curation-is-the-missing-piece-to-mass-onboarding">Curation is the missing piece to mass onboarding
+</h3><p><strong>What was the biggest helper when onboarding people? It’s not Aave, Eigen, or the latest shiny chains like Bera or Abstract. It was simple, straightforward, and easy to use tools such as DeBank or Jumper.</strong> On top of the utility, both also act as a mini curation layer: DeBank helps users know their positions and provides them with a safe and verified link to the protocol frontends.</p>
+<p>Jumper essentially made bridging something a normie can handle. Before Jumper, they needed to know about the various bridges available for a given route, safely find their website and not a phising copy of it sitting at the top of the associated query thanks to Google Ads; and if their token was just a little bit “exotic”, they also needed to be familiar with the contract address find, copy and paste flow. All of this was abstracted in a simple and safe-to-use UI, making DeFi newcomers immensely more comfortable with the multichain world. I’ve witnessed it firsthand with my trainees; there was a before and an after Jumper in how much they could accomplish independently without worrying.</p>
+<p>While both DeBank and Jumper have curating components, it’s not their primary focus. If we want to broaden the base that can harness DeFi, <strong>we need to double down on curation</strong>, with dedicated apps and services well integrated with the main gateways users already harness (wallets, portfolio trackers, aggregators, etc).</p>
+<h2 id="how-did-we-get-there">How did we get there?
+</h2><p>For the lazy readers, I’ll give it straight: <strong>the DeFi staples failed us</strong> – that is, the top protocols, institutions, and other well-funded actors of the space.</p>
+<p><strong>Think about those prominent protocols like Aave, Uniswap, or Maker and their associated DAOs: have you ever seen them fund something remotely close to a DeFi public good?</strong> Think about the big layer 2 or layer 1 foundations; do you see them entertaining such endeavours? The closest we got was maybe with Uniswap and the DeFi Education Fund, but it has limitations; its scope is mainly lobbying for regulations, and there remain <a class="link" href="https://gov.uniswap.org/t/demand-for-transparency-from-defi-education-fund/13299"  target="_blank" rel="noopener"
+    >unaddressed concerns about its funding and transparency</a>.</p>
+<p>The only exception here would be that DeFiLlama was initially funded by ex-Curve team members. However, it was done at a personal level, not in the name of Curve Finance: still, <strong>it is worthy of praise, as it shows genuine concern for the overall good of the space</strong>, and not just Curve’s success — an endeavour usually direly lacking in DeFi, and the main driver behind our current predicament.</p>
+<p>To illustrate this better, let me tell you a story. When the <a class="link" href="https://deficollective.org/"  target="_blank" rel="noopener"
+    >DeFi Collective</a> was still an idea, we contacted various teams that we thought were value-aligned to offer them to donate to the Collective. Our core idea and pitch were that:</p>
+<ol>
+<li>DeFi Collective will help genuine DeFi thrive</li>
+<li>If you are a top protocol, you benefit from having a strong ecosystem</li>
+<li>Thus, even if you do not directly benefit from the existence and success of the Collective, you will benefit indirectly over a longer timeframe, and you might consider donating nonetheless.</li>
+</ol>
+<p>A few resonated with the project, and we can’t thank them enough (they are listed on <a class="link" href="https://deficollective.org"  target="_blank" rel="noopener"
+    >the homepage</a>). But for most, the conversations went essentially like this:</p>
+<ul>
+<li>Me: “Hello, TokenBrice here, /insert_pitch/”</li>
+<li>Them: “Nice idea! So our protocol, where would it stand on the framework?”</li>
+<li>Me, being honest: “Well, it depends; it could be stage 1 or 2, but even if that is, we will most likely not allocate funds to it at least early on, as we have to demonstrate the positive impact the Collective can have with smaller projects first.”</li>
+<li>Them: “So there’s nothing in it for us?”</li>
+<li>Me: “Not directly, but you will benefit from having the DeFi ecosystem thriving: that means more resilient protocols and tokens for your protocol to integrate.”</li>
+<li>Them: “Not interested.”</li>
+</ul>
+<p>You might think it is just us, but it is not! Let’s look at the situation with the other curation-layer projects mentioned before. We have two oddities, DeFillama and L2beat, which, although they struggled initially, are now well-funded and often receive donations. Apart from that, it’s pretty much a nightmare:</p>
+<ul>
+<li>Bluechip initially explored a non-profit structure funded by donations but could not get sufficient funding, so it had to evolve into a for-profit venture.</li>
+<li>DeFiSafety is carried by only one chad, Rex, and had to introduce <a class="link" href="https://www.defisafety.com/pricing"  target="_blank" rel="noopener"
+    >payments</a>. Despite delivering high-quality and actionable reviews harnessed by many for years, it still barely stays afloat.</li>
+</ul>
+<h3 id="new-curation-layer-projects-struggle-to-emerge">New curation layer projects struggle to emerge
+</h3><p>As you can see above, the core issue is not so much about the funding of already successful and well-known curation layer projects but <strong>about smaller and newer projects not being able to source the funding they need to grow in the first place</strong>.</p>
+<p>Once a project reaches an L2Beat / DeFillama size and awareness, supporting it can be seen as a “marketing cost” for adjacent projects. For instance, several L2s allocated a share of their token supply to L2Beat: it made economic sense for them, as it raised awareness of their L2. It achieved support for a public good simultaneously – a win-win! Thanks to their awareness and reach, these two curation layer projects also usually perform well on donation platforms such as Gitcoin.</p>
+<h3 id="the-cost-of-free-to-access-information">The cost of free-to-access information
+</h3><p>The thing is that these <strong>curation-layer services have serious costs</strong>, costs they cannot recoup with their readers if they want to keep the information they produce maximally available – that is, free and open to all.</p>
+<p>I can give you insights on DeFiScan. Discounting:</p>
+<ul>
+<li>The months we spent researching and iterating on the framework.</li>
+<li>All DeFiCollective members who are seriously underpaid ($1500-2500/month for a half time) for their expertise and commitment (a.k.a. proper value-aligned Chads, I can’t thank them enough), are also supporting DeFiScan.</li>
+<li>Many contributors, myself included, work closer to full-time for DeFiCollective/DeFiScan (for a half-time pay).</li>
+<li>DeFiCollective covers all infrastructure and service costs incurred by DeFiScan.</li>
+</ul>
+<p>We <strong>estimate</strong> the effective cost of a review in the $3000 (small immutable protocol) to $10 000 range (large codebase, mutable protocol), and potentially even more (hello Aave and your infinite codebase). Mind that each review is not only written by the initial submitter (who can be one of us or someone tied to the reviewed protocol) but also carefully discussed and reviewed by other team members. With 14 reviews already published, that’s essentially <strong>a “burn” of $91k already in about five months</strong> of existence. <strong>If we account for the review in progress (total including the live ones = 35), this cost jumps to $227,500, or a ~$45,500 monthly burn.</strong></p>
+<p>Please remember that the above is an estimation, as no one is paying for DeFiScan – not you, the readers/users, or the projects reviewed. For some perspective, let’s look at Bluechip since Ben agreed to share their pricing – what projects pay to get reviewed: $15k for a holistic evaluation and a $5k annual maintenance fee, starting after a year.</p>
+<p>I’m not writing this to beg for your money – we are figuring it out on our own, thanks to the unique situation of the DeFiCollective, and exploring all other relevant options. This is a reminder that information (curation, in our case) has a cost.</p>
+<h3 id="what-can-you-dear-reader-do-about-this">What can you, dear reader, do about this?
+</h3><p>Again, I’d like to stress that the goal of this article, the message it carries, is not “donate to your curation layer services”. However, you are welcome to, and at our level, you already have. When we offered our community the opportunity to donate for the first anniversary of the DeFi Collective, you <a class="link" href="https://deficollective.org/blog/first-anniversary-nft/"  target="_blank" rel="noopener"
+    >jumped at the occasion</a>. You contributed the maximum possible (10 ETH) in not even three days.</p>
+<p>Instead, the message I would love to spread is more about <strong>1) the critical importance of the curation layer, 2) realizing the costs of the valuable information they provide, and 3) the need for you, me, and essentially everyone to be much more proactive in advocating for its funding.</strong> It’s pretty clear that big DAOs and other well-funded institutions are not too eager to fund this, so it is up to us to help them see the light.</p>
+<p>Again, thanks to the unique situation at the DeFi Collective, we’re not worried about our short/mid-term survival; however, I think it’s a necessity for the long-term survival of DeFi to see DeFiSafety, Bluechip, and other projects yet to emerge and thrive. We are, of course, all three chatting to one another already and contemplating a “DeFi Information Service Provider Alliance” (name is a work in progress), in which we would love to see more significant projects like DeFiLlama and L2Beat as well.</p>
+<p>If you read my plea and heard my call, the next step is simple: <strong>go to the DAOs you are active on and ask them what they are doing to support the space beyond their immediate benefits.</strong> The current situation, with its seriously undersized curation layer, has severe consequences that should be obvious to all: <strong>newcomers are getting butchered</strong>, rugged, scammed, etc. As a result, our whole industry looks like a circus from the outside. <strong>DeFi can only go mainstream once the average new user is reasonably safe</strong>; that is currently not the case. Moreover, curation tools are also a big ask from institutional clients actively seeking such resources: <strong>an enhanced curation layer means we will be better at attracting and retaining both individuals and institutions</strong>.</p>
+<p>So go nudge public and well-known whales and other well-funded institutions to do more. Protocols of the size of Aave, Maker, Uniswap, Eigen, and more have a responsibility to support the broader ecosystem. Since they are currently barely/not doing it, <strong>it’s our job to remind them and advocate in that direction</strong>, as that’s the beauty of DeFi: if they fail to do it because they see no immediate benefits for them, I’m convinced that they will suffer long-term and face real costs because of it.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/ethereum/">Ethereum</a>
+        
+            <a href="/tags/decentralized-finance/">Decentralized Finance</a>
+        
+            <a href="/tags/defi/">DeFi</a>
+        
+            <a href="/tags/public-good/">Public Good</a>
+        
+            <a href="/tags/defiscan/">DeFiScan</a>
+        
+            <a href="/tags/bluechip/">BlueChip</a>
+        
+            <a href="/tags/l2beat/">L2Beat</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Mar 08, 2025 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/leverage-sir/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2025/leverage-sir/leverage-sir-cover.jpg" loading="lazy" data-key="" data-hash="/img/2025/leverage-sir/leverage-sir-cover.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Leverage Like a Sir: Polynomial Gains, No Liquidation Pains</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/defi-flywheel/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/defi-flywheel/defi-flywheel-cover-en.png" loading="lazy" data-key="" data-hash="/img/2021/defi-flywheel/defi-flywheel-cover-en.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🎡 DeFi Flywheel : engineering protocol to protocol synergies through tokens</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/pegged-assets-swap/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://raw.githubusercontent.com/TokenBrice/blog/refs/heads/master/static/img/2025/pegged-assets-swap/pegged-assets-swap-cover.png" loading="lazy" data-key="" data-hash="https://raw.githubusercontent.com/TokenBrice/blog/refs/heads/master/static/img/2025/pegged-assets-swap/pegged-assets-swap-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">The Pegged Asset Swap Wars</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/lending-protocol-renaissance/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2024/lending-protocol-renaissance/0-lending-protocol-renaissance-cover.png" loading="lazy" data-key="" data-hash="/img/2024/lending-protocol-renaissance/0-lending-protocol-renaissance-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Is this a Lending Protocol Renaissance?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/crv-vs-velo/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2024/crv-vs-velo/cover.png" loading="lazy" data-key="" data-hash="/img/2024/crv-vs-velo/cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Subtles nuances with great consequences: a cross analysis of Curve and Velodrome</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

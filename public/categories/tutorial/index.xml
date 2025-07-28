@@ -1,0 +1,1354 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Tutorial on TokenBrice</title>
+        <link>http://localhost:1313/categories/tutorial/</link>
+        <description>Recent content in Tutorial on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Thu, 23 Nov 2017 13:21:53 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/tutorial/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>How To Build A Cryptobot In Python Able To Fetch Data From External APIs</title>
+        <link>http://localhost:1313/p/how-to-build-a-cryptobot-in-python-able-to-fetch-data-from-external-apis/</link>
+        <pubDate>Thu, 23 Nov 2017 13:21:53 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/how-to-build-a-cryptobot-in-python-able-to-fetch-data-from-external-apis/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2017/sato/satodemo.gif" alt="Featured image of post How To Build A Cryptobot In Python Able To Fetch Data From External APIs" /&gt;&lt;p&gt;Chatbots have an incredible  potential. Yet, for bots to be efficient, they must integrate and  exchange data with existing services and processes.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The ability to fetch data from external API allows for more complex use case that a simple Q and A logic&lt;/strong&gt;. Moreover, this ability combined with NLP offers even more opportunities.&lt;/p&gt;
+&lt;p&gt;For instance, Sato – the cryptobot we’ll be building today, is able to recognize all  cryptocurrencies, even those not even listed yet. I won’t have to do anything for him to be able to process queries on  crypto appearing even years from now, because Sato, deep-down,  understood what a cryptocurrency symbol is  (after being fed with thousands of them).&lt;/p&gt;
+&lt;h2 id=&#34;what-are-we-building-today&#34;&gt;&lt;strong&gt;WHAT ARE WE BUILDING TODAY?&lt;/strong&gt;
+&lt;/h2&gt;&lt;p&gt;By the end of this tutorial, we  will have a bot able to fetch data from a third party API depending on  what our users input, and reply to them with the value fetched. Here’s  the end-result of what we’ll build today: a cryptobot aka a chatbot able to fetch any cryptocurrency price.&lt;/p&gt;
+&lt;p&gt;What you’ll have by the end of this tutorial&lt;/p&gt;
+&lt;p&gt;In a rush? Here is all you need to build your own:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://cai.tools.sap/ahirice/sato-cryptobot/train/?utm_source=blog&amp;amp;utm_campaign=sato&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;The bot on SAP Conversational AI&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/Ahirice/sato/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;The GitHub repo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Need to see it to believe it? That’s wise!&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.messenger.com/t/satofolio&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;img src=&#34;http://localhost:1313/img/2017/sato/messenger-button-1.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;chat-on-messenger&#34;
+	
+	
+&gt;&lt;/a&gt;Or if you would rather understand how it was made, go through with the tutorial.&lt;/p&gt;
+&lt;h2 id=&#34;i-build-the-base-of-your-bot-choose-your-path&#34;&gt;&lt;strong&gt;I/ BUILD THE BASE OF YOUR BOT: CHOOSE YOUR PATH&lt;/strong&gt;
+&lt;/h2&gt;&lt;p&gt;The goal today is to build bot able to recognize a question about pricing on any cryptocurrency. Let your imagination flow, &lt;strong&gt;it could be really anything there is involving data available on third party APIs&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Before we dive in the tutorial, let me give you some information on how Sato works.&lt;/p&gt;
+&lt;h3 id=&#34;meet-sato-the-cryptobot&#34;&gt;&lt;strong&gt;MEET SATO, THE CRYPTOBOT&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;Sato is a bot made to answer basic questions about cryptocurrencies and fetch their prices. Here’s an  overview of what he can do:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Fecth cryptocurrencies prices  (what we’ll build today): Sato recognizes cryptocurrencies symbol  (“ETH”, “BTC”) and fetch their price on &lt;a class=&#34;link&#34; href=&#34;https://www.cryptocompare.com/api/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;cryptocompare API&lt;/a&gt; to finally return BTC and USD value to the user.&lt;/li&gt;
+&lt;li&gt;Answer the users’ questions about wallets – online wallets, exchange wallets, cold wallets and hardware wallets.&lt;/li&gt;
+&lt;li&gt;Address questions about private and public keys as well as the security of cryptocurrencies.&lt;/li&gt;
+&lt;li&gt;Briefly present the main cryptocurrencies, currently BTC, ETH, BCH and LTC.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;inside-sato-cryptobot&#34;&gt;&lt;strong&gt;INSIDE SATO, CRYPTOBOT&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;Today, we’ll focus on the skill fetching the crypto prices, as it requires an external API call. Essentially, Sato needs three things to be able to detect a question about crypto price and return the value asked:&lt;/p&gt;
+&lt;p&gt;Firstly, he needs an intent &lt;a class=&#34;link&#34; href=&#34;https://cai.tools.sap/ahirice/sato-cryptobot/train/crypto_price?utm_source=blog&amp;amp;utm_campaign=sato&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;(@crypto_price&lt;/a&gt;) with diverse expressions and cryptocurrencies mentioned, so he can  efficiently recognize these questions. Here are some of the expressions  used to define the @crypto_price intent:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/sato/i-crypto-price.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;cryptobot @crypto_price expressions&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;A sample of the expressions used to define the @crypto_price intent&lt;/p&gt;
+&lt;p&gt;Secondly, for Sato to be able to recognize all cryptocurrencies, he’ll need the biggest list you can find. I found 1200+ on CoinMarketCap which is good enough to begin with. I created a gazette of the crypto names to improve its understanding.&lt;/p&gt;
+&lt;p&gt;Thirdly, we’ll need to build a skill which triggers when the @ask_price intent or #crypto_name entity is recognized:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/sato/skill1.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;cryptobot - triggers&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Sato – Cryptobot / crypto_main skill triggers&lt;/p&gt;
+&lt;p&gt;You can also add #crypto_name as a requirements, to make sure no API called is fired without parameters:&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://mk0caiblog1h3pefaf7c.kinstacdn.com/wp-content/uploads/2017/11/cryptomissing.png&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;img src=&#34;http://localhost:1313/img/2017/sato/cryptomissing.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Sato - Cryptobot / crypto_main skill requirements&#34;
+	
+	
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Sato – Cryptobot / crypto_main skill requirements&lt;/p&gt;
+&lt;p&gt;This skill must also call your webhook that we’ll setup below:&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://mk0caiblog1h3pefaf7c.kinstacdn.com/wp-content/uploads/2017/11/webhookcryotio.png&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;img src=&#34;http://localhost:1313/img/2017/sato/webhookcryotio.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Sato - Cryptobot / crypto_main skill actions&#34;
+	
+	
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Sato – Cryptobot / crypto_main skill actions&lt;/p&gt;
+&lt;p&gt;Don’t forget to add a memory reset after the webhook trigger, it’s required to clean the memory after each answer.&lt;/p&gt;
+&lt;p&gt;Finally, we’ll test our bot  straight in Messenger, so you’ll need to create a page and an app and  connect it. Everything is documented in the &lt;code&gt;CONNECT&lt;/code&gt; tab and in &lt;a class=&#34;link&#34; href=&#34;https://cai.tools.sap/blog/build-your-first-bot-with-sap-conversational-ai/?utm_source=blog&amp;amp;utm_campaign=sato&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the getting started tutorial&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To keep it concise**, this tutorial will not detail the creation of a bot**. We’ll start from a functioning bot already.&lt;/p&gt;
+&lt;p&gt;To meet me there, you have two options:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Option A: build your own bot (who doesn’t have to be a cryptobot)&lt;/li&gt;
+&lt;li&gt;Option B: fork Sato and start from here.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You’ll also need&lt;a class=&#34;link&#34; href=&#34;https://cai.tools.sap/signup/?utm_source=blog&amp;amp;utm_campaign=sato&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt; an account on SAP Conversational AI&lt;/a&gt; to complete this tutorial.&lt;/p&gt;
+&lt;h3 id=&#34;a-build-your-own-bot&#34;&gt;&lt;strong&gt;A/ BUILD YOUR OWN BOT&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;Nathan wrote an exhaustive tutorial on &lt;a class=&#34;link&#34; href=&#34;https://cai.tools.sap/blog/build-your-first-bot-with-sap-conversational-ai/?utm_source=blog&amp;amp;utm_campaign=sato&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;how to build your first bot with SAP Conversational AI&lt;/a&gt; so I’ll leave the basics to him. Feel free to &lt;a class=&#34;link&#34; href=&#34;https://slack.cai.tools.sap/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;reach our to our community on Slack&lt;/a&gt; if you need some help.&lt;/p&gt;
+&lt;h3 id=&#34;b-fork-the-bot-used-in-this-tutorial&#34;&gt;&lt;strong&gt;B/ FORK THE BOT USED IN THIS TUTORIAL&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;SAP Conversational AI is &lt;strong&gt;collaborative bot platform&lt;/strong&gt;, it works pretty much like GitHub. Which means you can &lt;a class=&#34;link&#34; href=&#34;https://cai.tools.sap/ahirice/sato-cryptobot/?utm_source=blog&amp;amp;utm_campaign=sato&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;simply fork my bot Sato&lt;/a&gt; and start from here. Here’s how:&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://mk0caiblog1h3pefaf7c.kinstacdn.com/wp-content/uploads/2017/11/Recast-AI-ahirice-sato-cryptobot.png&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;img src=&#34;http://localhost:1313/img/2017/sato/Recast-AI-ahirice-sato-cryptobot-1024x158.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Forking a bot on SAP Conversational AI&lt;/p&gt;
+&lt;h2 id=&#34;ii-basic-server-code-and-requirements&#34;&gt;&lt;strong&gt;II/ BASIC SERVER CODE AND REQUIREMENTS&lt;/strong&gt;
+&lt;/h2&gt;&lt;p&gt;Since we want to interact with our bot, we’ll need a server to be able to receive the results of the NLP made by SAP Conversational AI and send our responses back.&lt;/p&gt;
+&lt;p&gt;On the &lt;a class=&#34;link&#34; href=&#34;https://cai.tools.sap&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;bot builder&lt;/a&gt;, go to the &lt;code&gt;CODE&lt;/code&gt; tab to find an example of base code required to start your API. We give examples in Node.JS, PHP, Python and Ruby. This tutorial will be Python only.&lt;/p&gt;
+&lt;p&gt;Here’s the base code for Python:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;flask&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Flask&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;request&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;jsonify&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;json&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;app&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Flask&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;__name__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;port&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;5000&amp;#39;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;route&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;methods&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;POST&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;index&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;():&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;loads&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;request&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get_data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()))&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;jsonify&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;status&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;200&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;replies&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[{&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;s1&#34;&gt;&amp;#39;type&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;text&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;s1&#34;&gt;&amp;#39;content&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;Roger that&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;route&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;/errors&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;methods&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;POST&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;errors&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;():&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;loads&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;request&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get_data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()))&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;jsonify&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;status&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;200&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;run&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;port&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;port&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Take some time to look at the code to get a better understanding of what we’ll be doing: &lt;strong&gt;we’ll build on this code during this tutorial&lt;/strong&gt;. You can save it in your favorite text editor for now.&lt;/p&gt;
+&lt;h3 id=&#34;requirements&#34;&gt;&lt;strong&gt;REQUIREMENTS&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;As you can see, the server script uses the &lt;a class=&#34;link&#34; href=&#34;http://flask.pocoo.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Flask as a web framework&lt;/a&gt;, so we’ll need it.&lt;/p&gt;
+&lt;p&gt;For the API call, we’ll also use &lt;a class=&#34;link&#34; href=&#34;http://docs.python-requests.org/en/master/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Requests&lt;/a&gt;. Let’s go ahead and install both:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pip install Flask
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pip install requests
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;iii-test-the-server-ngrok&#34;&gt;&lt;strong&gt;III/ TEST THE SERVER: NGROK&lt;/strong&gt;
+&lt;/h2&gt;&lt;p&gt;Now that we have the base server,  let’s make it run and test it. It will allow us to be more incremental  in the process so the debugging (if any) is simplified.&lt;/p&gt;
+&lt;p&gt;To expose our local server to the internet, we’ll need ngrok.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: If you are using Windows like me, there is awesome package manager – &lt;a class=&#34;link&#34; href=&#34;https://chocolatey.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Chocolatey&lt;/a&gt; which works pretty much like apt-get on UNIX. With it, you’ll be able to install ngrok in one line &lt;code&gt;choco install ngrok_portable&lt;/code&gt;. Moreover, Chocolatey adds ngrok to your PATH, allowing you to start ngrok from any terminal simply by typing &lt;code&gt;ngrok&lt;/code&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Now is the time to start our server and test it, this implies:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Set a webhook trigger in your bot (detailed in step 1)&lt;/li&gt;
+&lt;li&gt;Run your python script,&lt;/li&gt;
+&lt;li&gt;Expose port 5000 to the internet with ngrok: &lt;code&gt;ngrok http 5000&lt;/code&gt;,&lt;/li&gt;
+&lt;li&gt;Copy the forwarding URL form ngrok and past it as your bot base URL on SAP Conversational AI&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;iv-preparing-the-external-api-call&#34;&gt;&lt;strong&gt;IV/ PREPARING THE EXTERNAL API CALL&lt;/strong&gt;
+&lt;/h2&gt;&lt;p&gt;It’s about time to start building! Let’s have a look at the api call we’ll be doing to get the price of  any cryptocurrency. Several APIs are available for this purpose so I  just went ahead and picked one: &lt;a class=&#34;link&#34; href=&#34;https://www.cryptocompare.com/api/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Cryptocompare API&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.cryptocompare.com/api/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Cryptocompare API&lt;/a&gt; offers thousands of possibilities, but for the sake of simplicity, we’ll stick with the basics. &lt;strong&gt;We want the price of the matched crypto in BTC, USD and EUR&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Here’s how the call is structured(here for ETH):&lt;code&gt;https://min-api.cryptocompare.com/data/price?fsym=&amp;quot;ETH&amp;quot;&amp;amp;tsyms=BTC,USD,EUR&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;You have two parameters:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;fsym&lt;/code&gt;: the symbol of the cryptocurrency, this is where we’ll need to fetch the crypto_name recognized in the #crypto_name entity.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tsyms&lt;/code&gt;: the currency in which the price will be returned. We chose BTC, USD and EUR here.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So, in our case, we’ll only need to adapt the &lt;code&gt;fsym&lt;/code&gt; parameter to the recognized cryptocurrency, while the rest of the call stays the same.&lt;/p&gt;
+&lt;h2 id=&#34;v-adapt-the-api-call-to-include-the-symbol-recognized-in-the-user-input&#34;&gt;&lt;strong&gt;V/ ADAPT THE API CALL TO INCLUDE THE SYMBOL RECOGNIZED IN THE USER INPUT&lt;/strong&gt;
+&lt;/h2&gt;&lt;p&gt;Now that we know how to fetch the prices, we need to go back to our server code and upgrade it so it can:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Know the #crypto_name recognized by SAP Conversational AI.&lt;/li&gt;
+&lt;li&gt;Make an API call to Cryptocompare using the #crypto_name.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let’s get started!&lt;/p&gt;
+&lt;h3 id=&#34;a-finding-our-data-in-sap-conversational-ai-json&#34;&gt;&lt;strong&gt;A/ FINDING OUR DATA IN SAP Conversational AI JSON&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;Let’s have a look at the data returned by SAP Conversational AI on a user input. To do so, you click the &lt;code&gt;CHAT WITH YOUR BOT&lt;/code&gt; button present on all pages, on the bottom-right corner. Then, you can  switch between the conversation and the JSON view by clicking on the  orange information circle as below:&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://mk0caiblog1h3pefaf7c.kinstacdn.com/wp-content/uploads/2017/11/priceOMG.png&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;img src=&#34;http://localhost:1313/img/2017/sato/priceOMG.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Check the JSON of the conversation.&lt;/p&gt;
+&lt;p&gt;Here, our symbol is accessible with &lt;code&gt;[&#39;conversation&#39;][&#39;memory&#39;][&#39;crypto&#39;][&#39;raw&#39;]&lt;/code&gt;. Since the value and the raw and identical in this case, you can use either.&lt;/p&gt;
+&lt;p&gt;On our server, the JSON returned by the website test panel is &lt;strong&gt;encapsulated into the &lt;code&gt;data&lt;/code&gt; dictionary&lt;/strong&gt; (see server code). So we need an extra step to retrieve it on our server:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# FETCH THE CRYPTO NAME
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;crypto_name = data[&amp;#39;conversation&amp;#39;][&amp;#39;memory&amp;#39;][&amp;#39;crypto&amp;#39;][&amp;#39;value&amp;#39;]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;b-make-an-api-call-using-the-recognized-entity&#34;&gt;&lt;strong&gt;B/ MAKE AN API CALL USING THE RECOGNIZED ENTITY&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;For the API call, we’ll be using  Requests. Don’t forget to import it in your server’s script, then, we  build our base request (r):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;import requests
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;r = requests.get(&amp;#34;https://min-api.cryptocompare.com/data/price?fsym=&amp;#34;+crypto_name+&amp;#34;&amp;amp;tsyms=BTC,USD,EUR&amp;#34;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Go ahead and print it, but you may be disappointed:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/sato/r.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;cryptobot - cryptocompare API response&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Indeed, if you want to get the values returned by the call, you need to print &lt;code&gt;r.json()&lt;/code&gt;. The good news is that JSON returned by Cryptocompare is really as simple as it could be:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/sato/cryptocompare-json.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;cryptobot - JSON from cryptocompare API&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Cryptocompare JSON&lt;/p&gt;
+&lt;p&gt;Great! Now, we just have one last step to figure out: returning the prices to the user.&lt;/p&gt;
+&lt;h2 id=&#34;vi-returning-the-data-fetched-to-the-user&#34;&gt;&lt;strong&gt;VI/ RETURNING THE DATA FETCHED TO THE USER&lt;/strong&gt;
+&lt;/h2&gt;&lt;p&gt;Now, it’s time to finish our base  server code upgrade: we need to edit the replies returned to include our freshly fetched data. To do so, we’ll edit the message returned by our  server code:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;return jsonify( 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    status=200, 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    replies=[{ 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &amp;#39;type&amp;#39;: &amp;#39;text&amp;#39;, 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &amp;#39;content&amp;#39;: &amp;#39;Roger that&amp;#39;, 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    }],
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;We’ll be editing the replies only, to include the prices we fetched:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   replies=[{
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &amp;#39;type&amp;#39;: &amp;#39;text&amp;#39;,
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &amp;#39;content&amp;#39;: &amp;#39;The price of %s is %f BTC and %f USD&amp;#39; % (crypto_name, r.json()[&amp;#39;BTC&amp;#39;], r.json()[&amp;#39;USD&amp;#39;])
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    }],
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Since the reply is a string, we must use the modulo (%) operator to  include our prices in the string. Here, the first %s tells Python to  look for a string while the two following %f indicates floats.&lt;/p&gt;
+&lt;p&gt;Our upgraded server is now finished, here’s the whole code :&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;flask&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Flask&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;request&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;jsonify&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;json&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;requests&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;app&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Flask&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;__name__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;port&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;5000&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;route&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;methods&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;POST&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;index&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;():&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;loads&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;request&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get_data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;c1&#34;&gt;# FETCH THE CRYPTO NAME&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;n&#34;&gt;crypto_name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;conversation&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;][&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;memory&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;][&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;crypto&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;][&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;raw&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;c1&#34;&gt;# FETCH BTC/USD/EUR PRICES&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;n&#34;&gt;r&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;requests&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;https://min-api.cryptocompare.com/data/price?fsym=&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;crypto_name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;amp;tsyms=BTC,USD,EUR&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;jsonify&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;status&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;200&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;replies&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;s1&#34;&gt;&amp;#39;type&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;text&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;s1&#34;&gt;&amp;#39;content&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;The price of &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;%s&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt; is &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;%f&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt; BTC and &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;%f&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt; USD&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;crypto_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;BTC&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;USD&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;route&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;/errors&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;methods&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;POST&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;errors&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;():&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;loads&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;request&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get_data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;jsonify&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;status&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;200&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;run&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;port&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;port&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;With our new server completed, we now have all the pieces of our puzzle. Let’s assemble it:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Run your python script,&lt;/li&gt;
+&lt;li&gt;Expose port 5000 to the internet with ngrok: &lt;code&gt;ngrok http 5000&lt;/code&gt;,&lt;/li&gt;
+&lt;li&gt;Copy the forwarding URL form ngrok and past it as your bot base URL on SAP Conversational AI&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Now that you have the basics to build a bot able to fetch third party data, what’s gonna be? You show us!&lt;/p&gt;
+&lt;p&gt;PS: Since this tutorial uses ngrok, your computer must be on and ngrok must be running for your bot to function.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://cai.tools.sap/blog/github-repo-heroku/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;If you want to make your bot always available, follow the next tutorial&lt;/a&gt;.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>How to host a Python server for a SAP Conversational AI bot using Github and Heroku</title>
+        <link>http://localhost:1313/p/how-to-host-a-python-server-for-a-sap-conversational-ai-bot-using-github-and-heroku/</link>
+        <pubDate>Thu, 23 Nov 2017 13:21:53 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/how-to-host-a-python-server-for-a-sap-conversational-ai-bot-using-github-and-heroku/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2017/sato/satodemo.gif" alt="Featured image of post How to host a Python server for a SAP Conversational AI bot using Github and Heroku" /&gt;&lt;p&gt;In the previous tutorial, we learnt how to host our own server for our bot, so he would be able to &lt;strong&gt;fetch data from third party APIs&lt;/strong&gt; and return it to its users. Alas, the Python server made in the last tutorial was &lt;strong&gt;self-hosted&lt;/strong&gt;: you had to run it on your own computer, using ngrok to expose one of your ports to the internet.&lt;/p&gt;
+&lt;p&gt;If you closed the terminal running the script, or turned off the computer, the server was shut down and  your bot left unable to reply. Hopefully, thanks to services such as &lt;a class=&#34;link&#34; href=&#34;https://www.heroku.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Heroku&lt;/a&gt; it’ easy to get started with servers.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://cai.tools.sap/blog/python-cryptobot/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Want to start from the beginning? Check the first tutorial on Sato: How to build a bot able to fetch data from external APIs&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;meet-sato-the-cryptobot&#34;&gt;&lt;strong&gt;Meet SATO, the cryptobot&lt;/strong&gt;
+&lt;/h2&gt;&lt;p&gt;Here’s the end-result of what we’ll build today: a cryptobot aka a chatbot able to fetch any cryptocurrency price.&lt;/p&gt;
+&lt;p&gt;What you’ll have by the end of this tutorial&lt;/p&gt;
+&lt;p&gt;In a rush? Here is all you need to build your own:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://cai.tools.sap/ahirice/sato-cryptobot/train/?utm_source=blog&amp;amp;utm_campaign=sato&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;The bot on SAP Conversational AI&lt;/a&gt; and&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/Ahirice/sato/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;The GitHub repository&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Need to see it to believe it? That’s wise!&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.messenger.com/t/satofolio&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;img src=&#34;http://localhost:1313/img/2017/sato/messenger-button-1.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;chat-on-messenger&#34;
+	
+	
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Or if you would rather understand how it was made, go through with the tutorial.&lt;/p&gt;
+&lt;h2 id=&#34;what-are-we-building-today&#34;&gt;&lt;strong&gt;What are we building today?&lt;/strong&gt;
+&lt;/h2&gt;&lt;p&gt;Today, we’re taking &lt;strong&gt;the next step to ensure permanent availability of your bot&lt;/strong&gt;. By the end of this tutorial, you’ll have your bot server hosted on &lt;a class=&#34;link&#34; href=&#34;https://www.heroku.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Heroku&lt;/a&gt; and always available, 24/24, 7/7.&lt;/p&gt;
+&lt;p&gt;This implies some extra steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Hosting your code on a Github repo&lt;/li&gt;
+&lt;li&gt;Modifying our server code for Heroku&lt;/li&gt;
+&lt;li&gt;Adding extra files to match Heroku’s requirements&lt;/li&gt;
+&lt;li&gt;Connecting the Github repo and the Heroku app&lt;/li&gt;
+&lt;li&gt;Test and debug&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.heroku.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Heroku&lt;/a&gt; is nicely integrated with &lt;a class=&#34;link&#34; href=&#34;https://github.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GitHub&lt;/a&gt; so this is where the code will be hosted.&lt;/p&gt;
+&lt;h3 id=&#34;i-github&#34;&gt;&lt;strong&gt;I/ GITHUB&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;This section will focus on using GitHub Bash/CLI (Command Line Interface) to host our code. &lt;strong&gt;You can skip this step all together using the visual interface&lt;/strong&gt; on &lt;a class=&#34;link&#34; href=&#34;https://www.github.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GitHub website&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;1-git-in-three-lines&#34;&gt;&lt;strong&gt;1. GIT IN THREE LINES&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;Github has two major interest for developers: first, it tremendously &lt;strong&gt;facilitates collaboration&lt;/strong&gt;. Secondly, it smoothly handles &lt;strong&gt;file versioning.&lt;/strong&gt; Even if these two advantages may seem remote to you for now, it’s worth it to learn good habits right from the start: GitHub is now a standard.&lt;/p&gt;
+&lt;h4 id=&#34;2-getting-gitbash&#34;&gt;&lt;strong&gt;2. GETTING GITBASH&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://git-scm.com/download/win&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;You can get Git Bash from here.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: In the first tutorial, I mentioned about using &lt;a class=&#34;link&#34; href=&#34;https://chocolatey.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Chocolatey&lt;/a&gt; on Windows for package management. If you did so, you can install Git simply by inputting &lt;code&gt;choco install git&lt;/code&gt; in a terminal.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Not only will it  install Git, but it will also add it to your system’s path, allowing you to call Git from any terminal. Unlike Ngrok, the Git installer can also add Git to your system path so here choosing between the two  installation methods is a matter of preferences.&lt;/p&gt;
+&lt;h4 id=&#34;3-identification-global&#34;&gt;&lt;strong&gt;3. IDENTIFICATION (GLOBAL)&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;Before we starting manipulating  files with Git, we’ll need to set up our email and username. They can be set at a global level or at a directory level. For the sake of  simplicity, we’ll set them at a the global level:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global user.email &amp;#34;email@example.com&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global user.name &amp;#34;bobby&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;You can confirm both by using the same command without any value:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/sato/gitconfigconfirm.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;github repo - git user config&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Verifying username config on GitHub CLI&lt;/p&gt;
+&lt;h4 id=&#34;4-directories&#34;&gt;&lt;strong&gt;4. DIRECTORIES&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;Next, we need to open our project directory (locally). There are many ways to do it.&lt;/p&gt;
+&lt;p&gt;Using the CLI, you can move between folders with the &lt;code&gt;cd&lt;/code&gt; command. You can use tab to autocomplete your input in order to speed up the process:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/sato/cdtabs.gif&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;github repo - Navigating folders using CLI&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Navigating folders using CLI&lt;/p&gt;
+&lt;p&gt;If you need to create a new folder, use the &lt;code&gt;mkdir foldername&lt;/code&gt; command&lt;/p&gt;
+&lt;p&gt;You can also go to your folder using the explorer, and then open a console at the location with SHIFT+Right Click -&amp;gt; &lt;code&gt;Open Powershell Window Here&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Now that we have our folder, let’s say /git/ for instance, you can add the file you want to push to GitHub in it. For now, let’s push the server file from the previous tutorial.&lt;/p&gt;
+&lt;p&gt;First, make sure you are in the right directory in your terminal. Here’s where I’m at:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/sato/beforegit.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;github repo - Preparing for the push&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Preparing for the push&lt;/p&gt;
+&lt;h4 id=&#34;5-first-git-push&#34;&gt;&lt;strong&gt;5. FIRST GIT PUSH&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;A git push has several stages.  First, you add files to the commit. Then, you commit the changes.  Finally, it’s time to push the changes to the remote origin (the GitHub  repo).&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;To get started, let’s initialize our local repository (/git/ on my screenshot) as a Git repository: &lt;code&gt;git init&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Now, we add the file we wants to push (server.py): &lt;code&gt;git add server.py &lt;/code&gt;&lt;em&gt;Note: you can add all files in your local repository with the following command: &lt;code&gt;git add .&lt;/code&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Then, we commit our changes. To easily keep track of our changes, try to be concise and descriptive in your message:&lt;code&gt;git commit -m &amp;quot;First server.py commit&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;We’re now almost  ready to push, once we tell GitHub which repository we want to push our  files into. In GitBash language, that’s the ORIGIN:&lt;code&gt;git remote add origin https://github.com/Ahirice/sato&lt;/code&gt;
+&lt;em&gt;Don’t forget to replace the origin URL with your own github repo.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;And verify it:&lt;code&gt;git remote -v &lt;/code&gt;&lt;em&gt;Your repository URL (&lt;a class=&#34;link&#34; href=&#34;https://github.com/Ahirice/sato&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/Ahirice/sato&lt;/a&gt; for me here) is displayed at the top of the repository Quick Setup  page. If you repository is already published, the repo URL is the URL  you use to access it on GitHub.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Everything is set up, now it’s time to finally push: &lt;code&gt;git push origin master&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Here is the whole process in a GIF:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/sato/gitpush.gif&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;github repo - GitHub push GIF&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;GitHub push GIF&lt;/p&gt;
+&lt;p&gt;Success! And here went the first push to our GitHub repo, feels good right?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/sato/1out5.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;*&lt;strong&gt;Step 1/5 – Hosting the code on a GitHub repo*&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;ii-preparing-for-heroku-required-files&#34;&gt;&lt;strong&gt;II/ PREPARING FOR HEROKU: REQUIRED FILES&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;Before we deploy, we need to add  some files to our repository that Heroku requires. Moreover, we’ll have  to adjust our server.py script slightly to make it work on this new  configuration. Let’s start with the required files:&lt;/p&gt;
+&lt;h4 id=&#34;1-requirementstxt&#34;&gt;&lt;strong&gt;1. REQUIREMENTS.TXT&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;During the first tutorial, we installed Requests and Flask using pip. For our remote server to work, &lt;strong&gt;it will need these two libraries&lt;/strong&gt;. This is precisely what the requirements.txt file is about.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Flask==0.12.2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;requests==2.18.4
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Heroku will process the  requirements.txt and install any library listed here in the virtual  environment used to run your server. The whole process is automatic, you just need to make sure all your script requirements are listed here.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: The state of the art process would have been to create a virtual environment  before we began any coding. Then, when deploying to Heroku, we would  have frozen our virtual environment requirements to populate our  requirements.txt file. For the sake of simplicity, we kept things a  little bit easier than they should be.&lt;/em&gt;&lt;/p&gt;
+&lt;h4 id=&#34;2-procfile&#34;&gt;&lt;strong&gt;2. PROCFILE&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;The procfile is a  text file that must be in the root directory of your application. It  states the command executed to start your app.&lt;/p&gt;
+&lt;p&gt;During the first tutorial, we started our local server with &lt;code&gt;python server.py&lt;/code&gt;. Here, the command is almost the same. We just need to explicitly state  the process type (web) for Heroku, so here’s what we write in our  Procfile:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;web: python server.py
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;3-appjson&#34;&gt;&lt;strong&gt;3. APP.JSON&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;The app.json file is used to  declare standard information about your application, including: name,  images, addons environment variables… &lt;a class=&#34;link&#34; href=&#34;https://devcenter.heroku.com/articles/app-json-schema&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Heroku offers a comprehensive resource &lt;/a&gt;explaining how this file is structured, we invite you to check it if you want to dig deeper.&lt;/p&gt;
+&lt;p&gt;For now, we’ll just use a basic app.json:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &amp;#34;name&amp;#34;: &amp;#34;Sato crypto bot&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &amp;#34;description&amp;#34;: &amp;#34;The server side for Sato.&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &amp;#34;image&amp;#34;: &amp;#34;heroku/python&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &amp;#34;repository&amp;#34;: &amp;#34;https://github.com/Ahirice/sato&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &amp;#34;keywords&amp;#34;: [&amp;#34;python&amp;#34;, &amp;#34;flask&amp;#34; ],
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &amp;#34;addons&amp;#34;: [ &amp;#34;heroku-postgresql&amp;#34; ],
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &amp;#34;environments&amp;#34;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &amp;#34;test&amp;#34;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &amp;#34;scripts&amp;#34;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &amp;#34;test&amp;#34;: &amp;#34;server.py test&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      }
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Don’t forget to at least &lt;strong&gt;edit the repository key value to match your own GitHub repo&lt;/strong&gt;. The rest can stay the same.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/sato/2out5.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Step 2/5 – Adding Heroku required files&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;iii-preparing-for-heroku-python-server-modifications&#34;&gt;&lt;strong&gt;III/ PREPARING FOR HEROKU: PYTHON SERVER MODIFICATIONS&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;Our server file need slights adjustments to work on Heroku. You can find both files on the GitHub repo:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;server.py&lt;/strong&gt; is the server script used on Heroku&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;server-self-run.py:&lt;/strong&gt; is the script we used in the first tutorial (and ran ourselves with ngrok)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Essentially, we just need to modify the port and the host of our app. Here’s how:&lt;/p&gt;
+&lt;h4 id=&#34;1-switching-from-port-5000-to-a-port-defined-as-environment-variable&#34;&gt;&lt;strong&gt;1. SWITCHING FROM PORT 5000 TO A PORT DEFINED AS ENVIRONMENT VARIABLE&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;The first and the biggest change we have to do is to &lt;strong&gt;modify the port used by our webapp.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In the first tutorial, we hardcoded the port in our script (&lt;code&gt;port = &amp;quot;5000&amp;quot;&lt;/code&gt; [line6 in server-self-run.py]). This time, &lt;strong&gt;we’ll need to define the port as an environment variable&lt;/strong&gt; (Heroku requirement). Hopefully, this is done in two simple steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;First, to access environment variables in Python, we’ll be using the &lt;code&gt;os.environ&lt;/code&gt; function . It means we must import os. [line 4 in server.py].&lt;/li&gt;
+&lt;li&gt;Then, we need to adapt the line were we define the port: &lt;code&gt;os.environ[&amp;quot;PORT&amp;quot;]&lt;/code&gt; fetch the value of the environment variable named “PORT”: we’re almost there. Since &lt;strong&gt;ports are integers&lt;/strong&gt; (=whole number which can be positive, negative or null), we must ensure the port we fetch is indeed one.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/sato/integers.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;github repo&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Testing the int() function&lt;/p&gt;
+&lt;p&gt;To do so, we encapsulate our query in the &lt;code&gt;int()&lt;/code&gt; function. Therefore, our port is now defined as it follows:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;port = int(os.environ[&amp;#34;PATH&amp;#34;])
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;em&gt;Note: Although  we have to import os in our script, it’s not needed in the  requirements.txt. Indeed, os is one of the base python library, such as &lt;a class=&#34;link&#34; href=&#34;https://docs.python.org/3/library/time.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;time&lt;/a&gt; or &lt;a class=&#34;link&#34; href=&#34;https://docs.python.org/3/library/sys.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;sys&lt;/a&gt;: these libraries are available as soon as Python is installed.&lt;/em&gt;&lt;/p&gt;
+&lt;h4 id=&#34;2-changing-the-host&#34;&gt;&lt;strong&gt;2. CHANGING THE HOST&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;There is one last change to do  before our server.py is ready. To expose our flask app to the internet  (so it can accepts connection from remote sources instead of just local  ones), &lt;a class=&#34;link&#34; href=&#34;http://flask.pocoo.org/docs/0.12/quickstart/#public-server&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;we must set its host as “0.0.0.0.”.&lt;/a&gt; We just need to change the very last line of our script:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;app.run(port=port, host=&amp;#34;0.0.0.0&amp;#34;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;3-pushing-the-new-files-to-our-github-repo&#34;&gt;&lt;strong&gt;3. PUSHING THE NEW FILES TO OUR GITHUB REPO&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;During the last two steps, we modified server.py and created requirements.txt, procfile and app.json.&lt;/p&gt;
+&lt;p&gt;Before we move forward with the fifth and last step of the tutorial, &lt;strong&gt;we need to push these changes to our repo&lt;/strong&gt;. Hopefully, we’re now familiar with GitHub’s process. If you have some  doubts about the process here, please refer to the first step of this  tutorial.&lt;/p&gt;
+&lt;p&gt;Once we have the updated and newly created files on our GitHub repo, we are ready to deploy to Heroku.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/sato/3out5.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;*&lt;strong&gt;Step 3/5 – Adapting the server script for Heroku*&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;iv-githeroku&#34;&gt;&lt;strong&gt;IV/ GIT+HEROKU&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;Now, that we’ve been through the  Git process, it’s time for some good news. Heroku offers an easy and  potent GitHub integration: once your connect the two accounts, &lt;strong&gt;new files pushed on the master repository on GitHub will be automatically deployed to Heroku&lt;/strong&gt; (unless you rather do it manually).&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: If the  CLI grew on you, or you would rather not connect your Github and Heroku  accounts, Heroku also offers a CLI to deploy your servers. It won’t be  covered in this tutorial, so we recommend you check &lt;a class=&#34;link&#34; href=&#34;https://devcenter.heroku.com/articles/getting-started-with-python&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Heroku’s Getting Started&lt;/a&gt; guide if you want to do it this way.&lt;/em&gt;&lt;/p&gt;
+&lt;h4 id=&#34;1-deployment-on-heroku&#34;&gt;&lt;strong&gt;1. DEPLOYMENT ON HEROKU&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;The account creation process on  Heroku as it’s straightforward so we won’t detail it. Once you have you  account, create a new app, and connect to your GitHub account to deploy  it automatically. Just follow the GIF:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/sato/herokudeploy.gif&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;github repo - Deployment options on Heroku&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Deployment options on Heroku&lt;/p&gt;
+&lt;p&gt;Once automatic deployment is active, every time you push to your GitHub repo, Heroku will deploy the new files to your server.&lt;/p&gt;
+&lt;p&gt;If you would rather deploy  manually but still benefits from the convenience offered by the  GitHub&amp;lt;-&amp;gt;Heroku integration, you can use the Manual Deploy option  (click on the &lt;code&gt;Deploy Branch&lt;/code&gt; button). If you do so, remember to go back on Heroku and click this button every time you update your code. Here’s a GIF:&lt;/p&gt;
+&lt;h4 id=&#34;2-connecting-your-heroku-app-to-sap-conversational-ai&#34;&gt;&lt;strong&gt;2. CONNECTING YOUR HEROKU APP TO SAP Conversational AI&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;Once your app is deployed on Heroku, the only thing left to do is to tell SAP Conversational AI where to find it.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Go on your app on Heroku, on the  settings tab, and scroll down to the Domain and Certificates section.  Under the domain entry, your app endpoint is displayed. Essentially,  it’s your app name (on Heroku) .herokuapp.com. Copy it.&lt;/li&gt;
+&lt;li&gt;Now go back on SAP Conversational AI, in settings, and paste your Heroku app URL in the Bot Base URL field.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/sato/4out5.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Step 4/5 – Push deploy the new server on Heroku&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;v-test-and-debug&#34;&gt;&lt;strong&gt;V/ TEST AND DEBUG&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;Now, before we go on Messenger to  test our bot, let’s access the logs. They’ll prove helpful if you don’t  get it working right the first time.&lt;/p&gt;
+&lt;h4 id=&#34;1-accessing-herokus-logs&#34;&gt;&lt;strong&gt;1. ACCESSING HEROKU’S LOGS&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;You have two main ways of accessing Heroku’s logs:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;From Heroku website&lt;/strong&gt;: if you click on the More button, at the top left on Heroku, you can access your server logs.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;From any terminal:&lt;/strong&gt; if you have installed &lt;a class=&#34;link&#34; href=&#34;https://devcenter.heroku.com/articles/heroku-cli&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Heroku CLI&lt;/a&gt; (available on Chocolatey of course), you can access your logs from any terminal.&lt;/p&gt;
+&lt;p&gt;You can access the logs in real time with the following command:&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://mk0caiblog1h3pefaf7c.kinstacdn.com/wp-content/uploads/2017/12/commandsato.png&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;img src=&#34;http://localhost:1313/img/2017/sato/commandsato.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/sato/5out5.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;*&lt;strong&gt;Step 5/5 – Running the server script and accessing the logs*&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;With access to the logs, we’ll have all we need to debug in case of a faulty script. Let’s have a look at the common issues:&lt;/p&gt;
+&lt;h4 id=&#34;2-common-issues&#34;&gt;&lt;strong&gt;2. COMMON ISSUES:&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;TRAILING / IN BOT BASE URL&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/sato/301.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;github repo - Common issues, trailing /&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Errors raised by an extra trailing slash&lt;/p&gt;
+&lt;p&gt;Since we set up the webhook our bot call as &lt;code&gt;/&lt;/code&gt;, we must make sure the the bot base URL address we pasted does not have an ending /: &lt;code&gt;https://flask-sato-server.herokuapp.com&lt;/code&gt;. Here on the screen, we have a trailing slash in the bot base URL, which leads to a POST request on &lt;code&gt;https://flask-sato-server.herokuapp.com//&lt;/code&gt; unable to be processed triggering a redirect (301) and method not allowed (405) errors.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NO RESPONSE ON SERVER AND NGROK&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;If nothing happens both on your  server and on ngrok, it means SAP Conversational AI can’t reach it. It’s most certainly due to a typo in the bot base URL, or the complete lack  of it.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;SLOW RESPONSE TIME&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Heroku put your app to sleep when they’ve been inactive for a while. Hence, the first user  who aks a crypto price after a long downtime might wait a while. You can upgrade your account to avoid this, or make another script to keep your bot server always up. It’s a great follow-up exercise.&lt;/p&gt;
+&lt;p&gt;You’re very welcome to contact us if you need help, trough the comment section below or via &lt;a class=&#34;link&#34; href=&#34;https://slack.cai.tools.sap/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Slack&lt;/a&gt;.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Exploring and Industry &amp; Finding Content Ideas: a matter of tools?</title>
+        <link>http://localhost:1313/p/exploring-and-industry-finding-content-ideas-a-matter-of-tools/</link>
+        <pubDate>Tue, 31 Oct 2017 13:21:53 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/exploring-and-industry-finding-content-ideas-a-matter-of-tools/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2017/seo-tools/cover.png" alt="Featured image of post Exploring and Industry &amp; Finding Content Ideas: a matter of tools?" /&gt;&lt;p&gt;Knowing the audience is the key to successful content; it’s the key to successful marketing itself. Yet, for a start-up and moreover at an early stage, &lt;strong&gt;it’s damn hard&lt;/strong&gt;. I tried a lot of different tools before finding the one I’m happy with.&lt;/p&gt;
+&lt;p&gt;The theory is known, and well documented online: the &lt;a class=&#34;link&#34; href=&#34;https://backlinko.com/skyscraper-technique&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Skycrapper Technique&lt;/a&gt; is now commonplace. Yet, I find that jumping from theory to field tests and implementation is probably the toughest step.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/seo-tools/explaining-seo.gif&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Explaining SEO - Source: webconfs.com | Check it out for more SEO-related comics&#34;
+	
+	
+&gt;
+Explaining SEO - &lt;a class=&#34;link&#34; href=&#34;http://www.webconfs.com/seo-comics.php&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Source: webconfs.com | Check it out for more SEO-related comics&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;I’ll walk your through the basics of exploring an industry using a mix of free and paid tools in order find content ideas and insights to improve your web presence&lt;/strong&gt;. To make it less abstract, I’ll use insights gathered with SEMRush on the telecommunications industry, during the March-April 2017 period to demonstrate my case.&lt;/p&gt;
+&lt;h3 id=&#34;exploring-and-analyzing-seo-strategies&#34;&gt;Exploring and analyzing SEO strategies
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;The SEO Arms race&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In order to spot top organic performing content, you’ll need tools. Some free tools can do, but you’ll find yourself using &lt;strong&gt;dozens of them&lt;/strong&gt; in order to match the possibilities offered on a premium SEO service.&lt;/p&gt;
+&lt;p&gt;When I was looking for my SEO all-in-one dream tool, I put MozPro and SEMRush to the test for a month since both offer a &lt;a class=&#34;link&#34; href=&#34;//www.semrush.com/sem/?ref=9864882220&#34; &gt;free trial&lt;/a&gt;. To sum it in one sentence, the difference between the two lies in the &lt;strong&gt;accessibility versus exhaustivity dilemma&lt;/strong&gt;. While MozPro is easy to on board, SEMRush can be intimidating; yet it offers more features and add new ones at an impressive rate.&lt;/p&gt;
+&lt;p&gt;SEMRush was particularly useful to track the results of your SEO efforts, be it search position or backlinks. Its usefulness doesn’t stop here as you can use SEMRush on any domain. &lt;strong&gt;Looking at competitors’ metrics&lt;/strong&gt; helps to discover opportunities and to &lt;strong&gt;confirm hunches you may have on potential strategies&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The true value of SEMRush to me lies in two things. First, it does in one single tool what would require 15+ free tools. Also, the data given by free tools won’t be as &lt;strong&gt;detailed, precise, and easy to access&lt;/strong&gt;. Second, the depth and the scope of the data provided is arguably unmatched by other paid services and nonexistent in free services.&lt;/p&gt;
+&lt;p&gt;Before we dig into the Rolls Royce, &lt;strong&gt;let’s see how far some free tools can get you&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Free SEO tools and services&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The sheer amount of tools, web-services, chrome extensions and such made for SEO and Content is overwhelming. The following tools list is just &lt;strong&gt;a partial, and ultimately biased selection&lt;/strong&gt; that should help you get started:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The essentials toolbox&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/seo-tools/screaming-frog.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Checking a blog sitemap (Screaming Frog)&#34;
+	
+	
+&gt;
+Checking a blog sitemap (Screaming Frog)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.screamingfrog.co.uk/seo-spider/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Screaming Frog SEO Spider&lt;/a&gt;: It’s a &lt;strong&gt;swiss-army knife tool&lt;/strong&gt;, used for anything from finding broken links to checking for duplicate content or analyzing pages titles and meta descriptions. It’s one of the few free tools I find myself using frequently, even when I have access to a premium tool.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.alexa.com/siteinfo&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Alexa Ranking&lt;/a&gt;: Very basic, but it still gives you an idea of the current traffic flow to a given website and its recent trends.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.spyfu.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Spyfu &lt;/a&gt;— This tool is very valuable to get an idea for the AdWords strategy of your competition, including CPC, keyword and creatives.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.dareboost.com/en/home&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Dareboost&lt;/a&gt;: Check your websites and your competitors for web performance, security and on-page SEO optimizations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Keyword Exploration&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://adwords.google.com/home/tools/keyword-planner/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Google Keyword Planner&lt;/a&gt; — very useful tool for keyword discovery and CPC/volume estimations. You can also mix and match words to produce new keywords.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://trends.google.com/trends/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Google Trends&lt;/a&gt; — easily compare volumes between different keywords, see data on volume such as interest over time, where are the search made, or related topics and queries. + &lt;a class=&#34;link&#34; href=&#34;https://www.google.com/trends/correlate&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Google Trends Correlate&lt;/a&gt; — Find keywords correlated to yours. Here are two Google Trends I like to use to showcase the potent of the tool: queries on “running”, “fitness” and “diet” (with the New Year’s Eve impact) and queries on “gift” and “present” (with Christmas’ impact).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/seo-tools/gtrends1.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;A somehow famous Google Trends: volume on “running”, “fitness” and “diet” reaches its peak just after New Year’s Eve&#34;
+	
+	
+&gt;
+A somehow famous Google Trends: volume on “running”, “fitness” and “diet” reaches its peak just after New Year’s Eve&lt;img src=&#34;http://localhost:1313/img/2017/seo-tools/gtrends2.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;A similar dynamics is observed for “gift” and “refund”. “Gift” peaks a week before Christmas while “Refund” peaks mid-February.&#34;
+	
+	
+&gt;
+A similar dynamics is observed for “gift” and “refund”. “Gift” peaks a week before Christmas while “Refund” peaks mid-February.&lt;/p&gt;
+&lt;p&gt;Google Trends is one of the most basic tool there is, yet it can give you invaluable insights. &lt;strong&gt;Trends are strongly correlated with the real world&lt;/strong&gt; and now used for literally anything such as &lt;a class=&#34;link&#34; href=&#34;https://qz.com/1052656/bitcoin-price-google-trends-can-help-you-figure-where-bitcoins-price-is-headed/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;to estimate prices evolution of cryptocurrencies&lt;/a&gt;, measure volume distribution for similar keywords, or &lt;a class=&#34;link&#34; href=&#34;https://searchengineland.com/google-trends-election-hub-offers-deep-dive-search-trends-2016-candidates-political-issues-258784&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;gauge the efficiency of political communications.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Here’s a last one with Hillary vs Trump over the last 9 months of the campaign. Ignoring the massive spike on the Election Day, Trump was consistently generating more volume that Hillary months before the election. &lt;strong&gt;Even if the election was a surprise to most, the data doesn’t lie: it clearly hinted a Trump victory for a long-time before he was elected.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/seo-tools/gtrends3.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Searches about Hillary and Trump, between the 01/01/2016 and the 11/30/2016 (the election was the 8)&#34;
+	
+	
+&gt;
+Searches about Hillary and Trump, between the 01/01/2016 and the 11/30/2016 (the election was the 8)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://ubersuggest.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Ubersuggest &lt;/a&gt;— Find new keywords with suggestions based on one keyword.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;http://keywordin.com/keyword-generator.php&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Keywordin’s Keyword Generator&lt;/a&gt; — Mix and match different words or groups of words together to create more long trend variations of your keywords.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/seo-tools/relatedkw.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Level 1/2/3 related keywords for “content promotion” using SEOChat&#34;
+	
+	
+&gt;
+Level 1/2/3 related keywords for “content promotion” using SEOChat&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;http://tools.seochat.com/tools/related-keywords-tool/#sthash.PVTTGKHQ.HntdXy5H.dpbs&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;SEOChat Related Keyword&lt;/a&gt; — Find level 1/2/3 (long trend) related keywords based on one given keyword.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;SEMRush insights’&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;For the sake of this article, I’ll show what kind of insights a premium tool can land. The insights presented below were gathered using SEMRush ($99/m) during the &lt;strong&gt;March-April 2017 period&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;SEMRush works as an “SEO search engine”. In the top bar, you can input any domains (yours or competition’s) and get precise metrics on it including backlinks, top keywords, paid vs organic distribution… Here’s how it looks like on a sample domain query (twilio.com):&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/seo-tools/domain-overview.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Domain overview for twilio.com (SEMRush)&#34;
+	
+	
+&gt;
+Domain overview for twilio.com (SEMRush)&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;domain overview&lt;/strong&gt; include metrics about backlinks, their types, anchors… Every entry is accessible in a dedicated and exportable full report.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/img/2017/seo-tools/backlinks.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Backclink section of Twilio’s domain overview (SEMRush)&#34;
+	
+	
+&gt;
+Backclink section of Twilio’s domain overview (SEMRush)&lt;/p&gt;
+&lt;p&gt;You can also search keywords. The overview tab will give you data about organic and paid volumes, search results and copies. Two other tabs are dedicated to keywords: phrase match and related keywords. &lt;strong&gt;The amount if data available on any keyword is really vast, this where SEMRush shines; as long as the search volume is sufficient.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/seo-tools/keyword-overview.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Keyword overview for “SMS API”: Twilio is clearly dominating for now (SEMRush)&#34;
+	
+	
+&gt;
+Keyword overview for “SMS API”: Twilio is clearly dominating for now (SEMRush)&lt;/p&gt;
+&lt;p&gt;Together, the tools provided by SEMRush let you conduct true &lt;strong&gt;surveys of your competitors’ digital activities and estimate the success of their strategies&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Below is a quick overview of the insights gathered during the first round of competitor’s analysis for &lt;a class=&#34;link&#34; href=&#34;https://www.callr.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;CALLR,&lt;/a&gt; a voice and SMS API and SIP Trunking provider (03–28–2017) using SEMRush.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;A voice and SMS API essentially allows computers to interact directly with phone networks. Services such as Twilio’s, CALLR’s, or Nexmo’s are behind the text messages you get to confirm your authentication on websites (2FA), the notification texts you can get from services such as Uber or Amazon, etc. and&lt;/em&gt; &lt;a class=&#34;link&#34; href=&#34;https://customers.twilio.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;em&gt;many other use cases&lt;/em&gt;&lt;/a&gt; &lt;em&gt;involving automated phone calls and text messages.&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Over 12% of Twilio’s organic traffic comes from a single article&lt;/strong&gt;, not strongly related to their expertise. Indeed, it’s a &lt;a class=&#34;link&#34; href=&#34;https://www.twilio.com/blog/2017/02/an-easy-way-to-read-and-write-to-a-google-spreadsheet-in-python.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;tutorial detailing how to handle (read and write) Google Sheets with Python&lt;/a&gt;. 12% of Twilio’s organic entries is around 15K monthly sessions according to SEMRush. It could be surprising but it makes sense: people using Voice/SMS APIs find themselves interacting with huge sheets quite often, contact lists for instance.&lt;/li&gt;
+&lt;li&gt;About 10% of Sinch’s organic traffic come from keywords related (or matching) &lt;strong&gt;flash call&lt;/strong&gt;, one of the business use case they put forward. ~38% of their organic traffic lands on their tutorials.&lt;/li&gt;
+&lt;li&gt;Still on Sinch, &lt;strong&gt;41/500 of their top queries were due to an extensive tutorial&lt;/strong&gt; (with 700+ comments) on how to build a messaging app on Android. &lt;a class=&#34;link&#34; href=&#34;https://www.sinch.com/tutorials/android-messaging-tutorial-using-sinch-and-parse&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Now the page returns a 404&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Nexmo’s present a sensibly different organic traffic profile than the rest of the competition. While most providers get the bulk of their organic search traffic from brand or even exact query, &lt;strong&gt;Nexmo’s top entry points are their products pages&lt;/strong&gt;, especially the &lt;a class=&#34;link&#34; href=&#34;https://www.nexmo.com/products/sms&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;SMS page&lt;/a&gt; (25% of organic sessions) and &lt;a class=&#34;link&#34; href=&#34;https://www.nexmo.com/products/chat&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Chat app page&lt;/a&gt; (another 12%). At CALLR, we studied them extensively.&lt;/li&gt;
+&lt;li&gt;The American competitor CallFire is deploying &lt;strong&gt;a smart strategy to increase their organic presence&lt;/strong&gt;. They have seemingly auto-generated page to match every US area code. A large part of their traffic comes from people looking for “XXX area code”. Conversion on this traffic must be low though.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As you can see, SEMRush helps you find an already field-tested, working strategy used by your competitors. While your chances of achieving the same success by purely replicating them are slim, it gives you an idea of what works in the industry and what people are looking for. &lt;strong&gt;Just as a note, it’s the first time I share this unexploited list, and even though the tips are 6 months old, they might still be valid&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;On the list above, the first one I would address would be Sinch 404’s as it’s the most straightforward: your job would be to &lt;strong&gt;produce a tutorial on the same topic&lt;/strong&gt;, better than Sinch, and then reach out to all those who still links to Sinch’s 404 to offer your own tutorial instead.&lt;/p&gt;
+&lt;p&gt;Even if the page is now a 404, &lt;a class=&#34;link&#34; href=&#34;https://web.archive.org/web/20160408195857/https://www.sinch.com/tutorials/android-messaging-tutorial-using-sinch-and-parse/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;using the Internet Archive you can still access the original tutorial&lt;/a&gt; to see what you’ll have to overtake.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;You can try both SEMRush and MozPro for free to make up your mind&lt;/strong&gt;. &lt;a class=&#34;link&#34; href=&#34;https://moz.com/products/pro&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MozPro&lt;/a&gt; offers a free one month trial and &lt;a class=&#34;link&#34; href=&#34;http://www.semrush.com/sem/?ref=9864882220&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;you can get a free trial of SEMRush&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;finding-content-performing-on-social-network-withbuzzsumo&#34;&gt;Finding content performing on social network with BuzzSumo
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://buzzsumo.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;BuzzSumo&lt;/a&gt; is a &lt;strong&gt;social analytics and monitoring tool.&lt;/strong&gt; Before I dig in, it’s time for a disclaimer. BuzzSumo is $99/month with a 14-days free trial. Because of the price, I decided to opt out of it, but I did use it for the duration of the free trial. It helped me get a better understanding of the dynamics in my industry.&lt;/p&gt;
+&lt;p&gt;Considering my limited experience with the tool, I won’t go into too much depths. If you’re considering paying for BuzzSumo and using it extensively, I recommend you to read these comprehensive resources: &lt;a class=&#34;link&#34; href=&#34;https://raelyntan.com/buzzsumo-tutorial/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Raelyn Tan’s BuzzSumo tutorial&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;http://buzzsumo.com/knowledge/getting-started-with-buzzsumo/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;BuzzSumo’s team itself densely document its product&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can search for topics or keywords and see the most shared (social) content. You can go even further and see, for any given post, &lt;strong&gt;the accounts who shared it allowing you to understand how each post got&lt;/strong&gt; its reach. This is also particularly useful is you are publishing similar content: it gives you a list of people potentially interested in sharing it.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/seo-tools/buzzsumo.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;The results of a search on BuzzSumo&#34;
+	
+	
+&gt;
+The results of a search on BuzzSumo&lt;/p&gt;
+&lt;p&gt;I set up the BuzzSumo trial in February, to find the top-content addressing VoIP, SIP, and telco APIs. Back then, I recently joined CALLR and was in a reading spree to get a better hang of the main themes to address. Thanks to BuzzSumo, I &lt;strong&gt;compiled a list of the top-performing content&lt;/strong&gt; of the industry. I sorted them according to varied factors: topics, quality of content, approach, tone, targeted audience… Then, looking at sharers, I tried to &lt;strong&gt;correlate these factors to the article’s performance&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;BuzzSumo’s main strength is that it’s a &lt;strong&gt;must-have tool if you want to use the&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;http://backlinko.com/skyscraper-technique&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;skyscraper technique&lt;/strong&gt;&lt;/a&gt;&lt;strong&gt;.&lt;/strong&gt; It facilitates the process of finding people potentially interested by your content. Indeed, BuzzSumo’s main strength is that it lets you see the list of sharers of a given content.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/seo-tools/buzzsumo-sharers.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Preview of the sharer list feature&#34;
+	
+	
+&gt;
+Preview of the sharer list feature&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Yet, the metrics it gives you can be hard to interpret&lt;/strong&gt;. For instance, in the telco industry I found basic heavily-shared 500–1000 words articles, sometime even just basic product pages from competitors, not particularly qualitative. The gist? Most of these shares are on LinkedIn, and it turns out &lt;strong&gt;a lot of these shares comes from the company’s own employees.&lt;/strong&gt; If a 2000+ employees company manage to get them to share their own content, it can really skew the results.&lt;/p&gt;
+&lt;p&gt;My advice with BuzzSumo is to &lt;strong&gt;dig deeper.&lt;/strong&gt; Don’t stop at what BuzzSumo gives you. This is also part of the reason I decided to not subscribe to it: it facilitates the research of content performing on social and influencers, but &lt;strong&gt;it’s not sufficient by itself&lt;/strong&gt; as it relies on indicators that are easily fooled (shares, likes and such are easily bought or automated).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;From theory to practice&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;As you can see, the most actionable insights are sadly gated behind heavily priced tools. While BuzzSumo has its flaws due to the shaky nature of social media, it can prove itself useful from a company investing on social medias. On the other hand, a SEO/SEM tool seems to be a must have for any business in for the long-haul, looking to build a &lt;strong&gt;durable online presence&lt;/strong&gt;. Whatever tool you choose, you’re essentially looking for two major benefits:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1/ Ability to fetch SEO and SEM data on your competitors / partners / any 3rd party website.&lt;/li&gt;
+&lt;li&gt;2/ Greater tracking capabilities of your own and competitors domains metrics and content performance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you are just looking to &lt;strong&gt;facilitate your tracking efforts,&lt;/strong&gt; there are some tools cheaper than SEMRush or MozPro. For simple keyword position tracking, check &lt;a class=&#34;link&#34; href=&#34;https://www.serplab.co.uk/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;SERPLAB&lt;/a&gt; offering free version with the paid version starting at $5/m. For backlink tracking, check &lt;a class=&#34;link&#34; href=&#34;https://www.linkody.com/en/plans&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Linkody&lt;/a&gt; starting at 13€/m.&lt;/p&gt;
+&lt;p&gt;If you are serious about building a long-lasting web presence, you’ll eventually need one of the shiny big tools. Good luck finding your dream SEO toolbox, I’m still constantly tweaking mine!&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://moz.com/checkout/freetrial&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Free trial on MozPro (1 month)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://www.semrush.com/sem/?ref=9864882220&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Free trial on SEMRush (7 days)&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Reddit and Reddit Ads Hitchhiker’s Guide</title>
+        <link>http://localhost:1313/p/reddit-and-reddit-ads-hitchhikers-guide/</link>
+        <pubDate>Tue, 10 Oct 2017 11:16:29 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/reddit-and-reddit-ads-hitchhikers-guide/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2017/reddit/cover.png" alt="Featured image of post Reddit and Reddit Ads Hitchhiker’s Guide" /&gt;&lt;p&gt;It’s been a long time since I realized most content and marketing materials focused on the main social networks — Facebook, Twitter, LinkedIn and Instagram, leaving little to no room to the countless other services used around the world.&lt;/p&gt;
+&lt;p&gt;In my last gig, I explored content promotion and marketing using “alternatives sources”. Indeed, platforms such as Reddit, Quora, Medium, Hackernews or directories helped us tremendously to &lt;strong&gt;make&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;http://www.callr.com/blog/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;our blog&lt;/strong&gt;&lt;/a&gt; &lt;strong&gt;visible to new audiences&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;According to Alexa, Reddit is now the &lt;strong&gt;eighth most visited website in the world&lt;/strong&gt;, and the fourth in the US.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/reddit/alexa-reddit.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Reddit is the #8 top visited website in the world, according to Alexa&#34;
+	
+	
+&gt;
+Reddit is the #8 top visited website in the world, &lt;a class=&#34;link&#34; href=&#34;https://www.alexa.com/siteinfo/reddit.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;according to Alexa&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;What’s even more interesting is the progressive internationalization of Reddit: in its early days, most of the website’s visitors were Americans. Nowadays, even if the &lt;strong&gt;English-speaking world still makes for roughly 3/4 of Reddit&lt;/strong&gt;, thriving national communities developed.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/reddit/alexa-reddit-2.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Reddit, a window into the English-speaking world (source: Alexa)&#34;
+	
+	
+&gt;
+Reddit, a window into the English-speaking world (source: &lt;a class=&#34;link&#34; href=&#34;https://www.alexa.com/siteinfo/reddit.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Alexa&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;So, massive social platforms such as Reddit emerged over the last few years and while some marketers notice, &lt;strong&gt;most stayed in the old playground&lt;/strong&gt;. Worse, a fair share of those who noticed the popularity on Reddit are &lt;strong&gt;aggressively trying to game it for their own benefits&lt;/strong&gt;, with bots and other dubious methods.&lt;/p&gt;
+&lt;p&gt;We’ll explore the shady side of marketing on Reddit in the last section — Corporate Shilling on Reddit. Before that, I would love to share my own experience with Reddit, to give a feedback on the network as a content promotion platform both organically and with ads as well as share the lessons I learned and the tools I used.&lt;/p&gt;
+&lt;p&gt;I tried to keep it as concise as possible, but Reddit is a whole world: expect quite a ride.&lt;/p&gt;
+&lt;h3 id=&#34;organic-posting-onreddit&#34;&gt;Organic Posting on Reddit
+&lt;/h3&gt;&lt;h4 id=&#34;what-isreddit&#34;&gt;What is Reddit?
+&lt;/h4&gt;&lt;p&gt;I was an avid Redditor before starting &lt;a class=&#34;link&#34; href=&#34;http://www.callr.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;my last gig at CALLR&lt;/a&gt;, and it helped tremendously. With a healthy daily dose of Reddit comes an &lt;strong&gt;intrinsic knowledge of the rules and expectations of its users&lt;/strong&gt; that helped us understand what the community liked and disliked.&lt;/p&gt;
+&lt;p&gt;If you are working in a startup or in tech, ask around in your company, chances are some of your developers are on Reddit and could help you get started.&lt;/p&gt;
+&lt;p&gt;Unlike most other organic channels, which offer targeting options only through their ads platform, &lt;strong&gt;Reddit “organic targeting” is precise&lt;/strong&gt;. Indeed, to put it simply &lt;strong&gt;Reddit is like a huge board&lt;/strong&gt; (&lt;a class=&#34;link&#34; href=&#34;https://www.reddit.com/r/all/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;/r/All&lt;/a&gt;) &lt;strong&gt;of boards&lt;/strong&gt; (subreddits). Any user can create a subreddit to discuss the topic of his choice. Some subreddits grow big and are heavily moderated (&lt;a class=&#34;link&#34; href=&#34;https://www.reddit.com/r/technology/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;/r/Technology&lt;/a&gt; for instance). Others are more niche and stay small with dynamic and qualitative discussions.&lt;/p&gt;
+&lt;p&gt;/r/All is the global frontpage of Reddit. When he user connects to the website, he/she lands in his personal frontpage: a page made of the best posts taken from all the subreddit he/she has subscribed to.&lt;/p&gt;
+&lt;h4 id=&#34;posting-onreddit&#34;&gt;Posting on Reddit
+&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;As a brand, it’s hard to be visible on Reddit organically&lt;/strong&gt;. If you create a brand-named account, users might perceive your post as intrusive. Moreover, a lot of subreddits have restrictions on the type of links you can submit: links to brand blogs are quite often prohibited.&lt;/p&gt;
+&lt;p&gt;To find sizable audience on Reddit, &lt;strong&gt;you must frame your content a certain way.&lt;/strong&gt; Redditors are very attached to the community: if you want to fit in, you need to respect this attachment and contribute. Two types of submission are possible on Reddit:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Link Post:&lt;/strong&gt; they include an URL and a title. On the frontpage, the title will be displayed and if the user clicks it, he’ll get to the page linked.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Text Post:&lt;/strong&gt; they include a title and a body text. &lt;strong&gt;The text itself can include links.&lt;/strong&gt; On the frontpage, if a user clicks a text post, he stays on Reddit and sees the body of the post as well as the comments.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/reddit/fronpage.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot of the frontpage of Reddit, here all posts are link posts. You can tell by the domain displayed in parenthesis after the title. The top post squared in black is an ad.&#34;
+	
+	
+&gt;
+&lt;strong&gt;Screenshot of the frontpage of Reddit, here all posts are link posts. You can tell by the domain displayed in parenthesis after the title. The top post squared in black is an ad.&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;the-link-vs-textstruggle&#34;&gt;The link vs text struggle
+&lt;/h4&gt;&lt;p&gt;We quickly realized one thing that helped us step up our Reddit game: link-posts are very hard to get right, while &lt;strong&gt;text posts are received with more benevolence&lt;/strong&gt;. With the body text, you can explain what your post is about and provide a summary of it. &lt;strong&gt;It can include a link to your blog post&lt;/strong&gt; so Redditors who want to know more about your topic can find the information they need.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Text posts were essential to our success on Reddit.&lt;/strong&gt; We understood the value of it with our first text post that got a moderately positive reception. &lt;a class=&#34;link&#34; href=&#34;https://www.reddit.com/r/learnpython/comments/6bowht/built_my_own_apartment_search_bot_with_python/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;One of our most successful text post&lt;/a&gt; was made by one of our developers. He had just published a DIY bot tutorial on our blog and then presented it in a Reddit text-post in the &lt;a class=&#34;link&#34; href=&#34;https://www.reddit.com/r/learnpython/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;/r/LearnPython subreddit.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Link posts are not to avoid altogether though. Indeed, if you find a good subreddit/blog post fit, it’s worth trying. &lt;strong&gt;Don’t forget to check the sidebar of the subreddit your posting on before publishing&lt;/strong&gt;: rules vary per subreddit.&lt;/p&gt;
+&lt;p&gt;Reddit’s activity is “spikey”: if you manage to create a successful post, it might stay on the top of its subreddit for a day or two. Yet, if you want to keep it qualitative, &lt;strong&gt;you’ll avoid publishing too often&lt;/strong&gt; as it may feel like spam to the community.&lt;/p&gt;
+&lt;p&gt;If your post is tremendously successful, &lt;strong&gt;it might reach the frontpage or even /r/All where the volumes generated are an order of magnitude higher.&lt;/strong&gt; Since our topics are mostly niche, we never reached /r/All yet we consistently generated at least &lt;strong&gt;2000 sessions/month from Reddit since May&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;reddit-ads&#34;&gt;Reddit Ads
+&lt;/h3&gt;&lt;p&gt;Reddit Ads is the platform on which you can find &lt;strong&gt;an unbeatable CPC (Cost Per Click)&lt;/strong&gt; with very precise targeting**.** I’ve already explained the subreddits system in the organic section, so the Ads part is straightforward. &lt;strong&gt;You pay to get your message occasionally displayed at the top the subreddits of your choice&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Which means displayed to users without ad blockers. Stats estimate &lt;strong&gt;AdBlocker usage around 20% for Europe/US.&lt;/strong&gt; Considering the average Redditor is much more tech-savy than the general population, I wouldn’t be surprised if the number jumps closer to &lt;strong&gt;40% on Reddit&lt;/strong&gt;. Hopefully, you only pay for displayed ads.&lt;/p&gt;
+&lt;p&gt;Just like any other ad platform, Reddit lets you set different creatives for the same campaigns. As it turns out, &lt;strong&gt;difference of CTR (Click-Through-Rate)and CPC between creatives can be huge&lt;/strong&gt;, anywhere between 2–4x. So far, we’ve lead three campaigns on Reddit. While the first, being a test run was far from optimized, the metrics from the following two are really encouraging. We’ll go back on each of these.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The first Reddit Ads Campaign: What’s an API?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Our first campaign targeted &lt;a class=&#34;link&#34; href=&#34;https://www.reddit.com/r/tech/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;/r/tech&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://www.reddit.com/r/learnprogramming/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;/r/learnprogramming&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://www.reddit.com/r/webdev/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;/r/webdev&lt;/a&gt; and &lt;a class=&#34;link&#34; href=&#34;https://www.reddit.com/r/technology/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;/r/technology&lt;/a&gt; with our &lt;a class=&#34;link&#34; href=&#34;https://www.callr.com/blog/what-is-an-api/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;What’s an API article&lt;/a&gt;? As you can see, targeting was not the smartest: /r/webdev is a community for developers who probably already know what an API is. Here are the results we obtained, with an average CPC at $0.60.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/reddit/ads1.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Results of the ‘What’s an API?’ Reddit Ads campaign&#34;
+	
+	
+&gt;
+&lt;em&gt;Results of the ‘What’s an API?’ Reddit Ads campaign&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Despite sub-par targeting, this campaign helped me familiarize myself with the platform. Once Davy’s House Hunter bot article was out, I now it was our time to shine on Reddit Ads. I also quickly realized that 4 creatives was far from enough to reach decent results.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The second run: House Hunter Bot&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Shortly after this campaign, Davy published his &lt;a class=&#34;link&#34; href=&#34;https://www.callr.com/blog/python-house-hunter-bot/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;House Hunter Bot article&lt;/a&gt; and the organic Reddit post was quite a success. Considering the &lt;strong&gt;potential of the content,&lt;/strong&gt; we decided to boost it with Reddit Ads &lt;strong&gt;targeted at Python developers and learning communities.&lt;/strong&gt; Here is the initial targeting: /r/learnprogramming, /r/Python, /r/LearnPython, /r/Programming and /r/Flask. We added /r/webdev and /r/coolgithubprojects later.&lt;/p&gt;
+&lt;p&gt;Because of the large differences we observed between all the four creatives on our first campaign, we went with &lt;strong&gt;12 different creatives this time&lt;/strong&gt;, to progressively weed out the worst performer. On the following screen, 5 creatives with the lowest CTR/highest CPC were already deleted:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/reddit/ads2.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Results of House Hunter Bot Reddit Ads campaign&#34;
+	
+	
+&gt;
+&lt;em&gt;Results of House Hunter Bot Reddit Ads campaign&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The CPC improved tremendously, sitting at a $0.14 average at the end of the campaign. &lt;strong&gt;It ran for a month and half and suffered from ad-fatigue&lt;/strong&gt;: over the first two weeks, the total average CPC was as low as $ 0.10 and CTR &amp;gt; 0.20%.&lt;/p&gt;
+&lt;p&gt;On top of the traffic, the campaign landed over 10 business lead and a few newsletter signups. Compared with the cost of a lead from AdWords, &lt;strong&gt;the ROI of this campaign was promising&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The third try: Nested Symbols on Sketch&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;It leads us to our third and latest campaign. Once again, we wanted to bank on an organic success. With the reach of &lt;a class=&#34;link&#34; href=&#34;https://www.callr.com/blog/how-i-streamlined-my-design-process-with-a-few-nested-symbols-on-sketch/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;our Sketch post&lt;/a&gt;, we decided to give it a try on Reddit as designer communities are dynamic. The targeting was the following: /r/SketchApp, /r/design, /r/web_design, /r/userexperience, /r/userexperiencedesign, /r/graphic_design.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/reddit/ad3s.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Results of Sketch Reddit Ads campaign&#34;
+	
+	
+&gt;
+&lt;em&gt;Results of Sketch Reddit Ads campaign&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;While the content did not have the same conversion potential as the House Hunter Bot, it helped us raise awareness in the entrepreneurs and design communities.&lt;/p&gt;
+&lt;h3 id=&#34;tips-to-redditsmart&#34;&gt;Tips to Reddit smart
+&lt;/h3&gt;&lt;h4 id=&#34;1-finding-subreddits-relevant-to-your-content-with-a-dynamic-community&#34;&gt;&lt;strong&gt;1. Finding subreddits relevant to your content with a dynamic community&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;Finding relevant subreddits is crucial for both your organic and promotional activity on Reddit. A minimal amount of activity is necessary for a subreddit to be able to receive advertising. Using Google Sheets IMPORTXML function, we &lt;strong&gt;produced this sheet to fetch automatically the number of subscribers of any given subreddit and determine if ads are available or not&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;You can find it here: &lt;a class=&#34;link&#34; href=&#34;https://docs.google.com/spreadsheets/d/1I1HHpUhkaqE8hiC7Es63pBn2n2ex04rScoCrySR2X5s/edit?usp=sharing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Subreddits list and activity Google Sheets&lt;/a&gt; — everything is automated, you just need to fill the name of the subreddit in column B (exact spelling) and let the magic happens. The second tab is what I use to track the results from all organic reddit posts in the same place.&lt;/p&gt;
+&lt;p&gt;The sheet will help you gauge the activity of any given subreddit but finding the subs itself can be tricky. Yes, Reddit has a search engine, but it’s notoriously bad. Here are the tools/services I used to find our subreddits:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Google Search “site:reddit.com some topic”.&lt;/strong&gt; The “site:” syntax allows you to restrict a google search to a single website. It’s neat in this case, as Google is (sadly) a much more efficient way to search Reddit than Reddit’s built-in search engine. Exploring the first results pages with this method will land you the biggest subreddits related to any topics. &lt;strong&gt;To find smaller subreddits using Google, you can use the “-” exclude parameter&lt;/strong&gt;. For instance, to find subreddits other than /r/Chatbots on the same topic, the query would be:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“site:reddit.com -reddit.com/r/chatbots chatbot”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/reddit/sidebar.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;The sidebar of /r/Design&#34;
+	
+	
+&gt;
+The sidebar of &lt;a class=&#34;link&#34; href=&#34;https://www.reddit.com/r/Design/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;/r/Design&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Branching out from known subreddits:&lt;/strong&gt; this technique is useful to find more subreddits relevant to your niche once you have already found the biggest ones. &lt;strong&gt;Most subreddit include a list of related subreddits in their sidebar, check it!&lt;/strong&gt; Keep in mind that each subreddit has its own moderator and might not list related subreddits in the sidebar. See on the left a snapshot of /r/Design Sidebar, listing design related subreddits.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Subbredit search websites:&lt;/strong&gt; Finding subreddit is a struggle, not only for marketers. Numerous services now exist, including: &lt;a class=&#34;link&#34; href=&#34;http://metareddit.com/reddits/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MetaReddit&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://snoopsnoo.com/subreddits/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;SnoopSnoo&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;http://www.joelriley.com/subreddit-explorer/index.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;SubRedditExplorer&lt;/a&gt;…&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Subreddits to help you find subreddits&lt;/strong&gt;: yes, you read it right. Check &lt;a class=&#34;link&#34; href=&#34;https://www.reddit.com/r/findareddit/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;/r/findareddit&lt;/a&gt; or &lt;a class=&#34;link&#34; href=&#34;https://www.reddit.com/r/subredditoftheday/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;/r/Subredditoftheday&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;2-reddits-posts-and-comments-formatting&#34;&gt;&lt;strong&gt;2. Reddit’s posts and comments formatting&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/reddit/markdown.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Screenshot of Dillinger&#34;
+	
+	
+&gt;
+Screenshot of &lt;a class=&#34;link&#34; href=&#34;https://dillinger.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Dillinger&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Text posts and comments use a specific Markdown formatting. &lt;a class=&#34;link&#34; href=&#34;https://www.reddit.com/wiki/commenting&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;The syntax&lt;/a&gt; is straightforward. You can also use a text editor or an online editor. I personally use &lt;a class=&#34;link&#34; href=&#34;https://dillinger.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Dillinger&lt;/a&gt; which displays the markdown and the preview side by side, with the words and characters which is basically all I need.&lt;/p&gt;
+&lt;h4 id=&#34;3-how-does-the-ad-looklike&#34;&gt;&lt;strong&gt;3. How does the ad look like?&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;Just like organic Reddit posts, &lt;strong&gt;promotional posts can be texts or link&lt;/strong&gt;. Both looks the same on Reddit, only the action on click changes: text post takes you to the Reddit thread, with your text and the comments while link post takes you straight to the linked page.&lt;/p&gt;
+&lt;p&gt;Unlike organic Reddit posts, we’ve seen performing creatives both as link or text post. Below is the preview of how an ad looks like on Reddit. This one is &lt;strong&gt;our top performer for the campaign&lt;/strong&gt;, with a &lt;strong&gt;$0.12 CPC and 0.210% CTR.&lt;/strong&gt; The text is a slightly edited version of the one used in &lt;a class=&#34;link&#34; href=&#34;https://www.reddit.com/r/learnpython/comments/6bowht/built_my_own_apartment_search_bot_with_python/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the organic reddit post.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/reddit/ads4.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Preview of one the creative used for the House Hunter Reddit Ads campaign&#34;
+	
+	
+&gt;
+&lt;em&gt;Preview of one the creative used for the House Hunter Reddit Ads campaign&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The ads are displayed on top of the reddit stream, featuring a “Sponsored” mention to state their nature. Here is an example of an ad displayed on the user side:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/reddit/ads-preview.gif&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Preview of how a Reddit Ad (DuckDuckGo) looks for a user&#34;
+	
+	
+&gt;
+&lt;em&gt;Preview of how a Reddit Ad (DuckDuckGo) looks for a user&lt;/em&gt;&lt;/p&gt;
+&lt;h4 id=&#34;4-what-others-parameterstargeting-options-can-be-setup&#34;&gt;&lt;strong&gt;4. What others parameters/targeting options can be set up?&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;As you can see below, apart from the subreddits targeting we already presented, you need to decide on a bid (maximum price for 1000 impressions, from $0.20 to $100) and a budget for the campaign. It’s straightforward and &lt;strong&gt;people used to advertise on other platforms will quickly find their marks.&lt;/strong&gt; You can also target by interest, exclude specific subreddits, day/time or platforms.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/reddit/ads-settings.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Budget, Schedule and Targeting options for the Reddit House Hunter bot campaign&#34;
+	
+	
+&gt;
+&lt;em&gt;Budget, Schedule and Targeting options for the Reddit House Hunter bot campaign&lt;/em&gt;&lt;/p&gt;
+&lt;h4 id=&#34;5-organic-reddit-vs-redditads&#34;&gt;5. Organic Reddit vs Reddit Ads
+&lt;/h4&gt;&lt;p&gt;It can be hard to decide what is the best fit for each post: organic Reddit or Reddit Ads? Here are a few rules I use:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If I am promoting a &lt;strong&gt;content&lt;/strong&gt; (= an article that actually provides value), I will try posting it &lt;strong&gt;organically&lt;/strong&gt; on relevant subreddits. If the organic post is successful, I might consider starting an Ad campaign a few days after the post.&lt;/li&gt;
+&lt;li&gt;If what I am promoting is not a content, but for instance it’s a &lt;strong&gt;product presentation page&lt;/strong&gt; or a new product announcement, I go &lt;strong&gt;straight with Reddit Ads&lt;/strong&gt;. Indeed, your chances of getting traction with a promotional material are close to none organically.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;An organic Reddit post can be the perfect way to test Reddit’s appetite for a topic or a type of content&lt;/strong&gt;. If you are planning to do large scale campaigns on your content (&amp;gt;$100/$150), I recommend you try an organic post first. It will help you figure out performing creatives for your Ads campaign later.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;6-trackingresults&#34;&gt;6. Tracking results
+&lt;/h4&gt;&lt;p&gt;Before we conclude with a brief overview of corporate shilling on Reddit, I thought it would be useful to address the question of &lt;strong&gt;link tacking on Reddit&lt;/strong&gt;. I won’t got into the details of UTM codes, Buffer produced a &lt;a class=&#34;link&#34; href=&#34;https://blog.bufferapp.com/utm-guide&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;very comprehensive guide already.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;While link tracking is a reflex for most marketers, it can be dangerous on Reddit. UTM codes are immensely useful yet &lt;strong&gt;they are visible&lt;/strong&gt;: some subreddits remove any submissions with UTM. In my experience, it’s safer to &lt;strong&gt;completely avoid using link tracking for Reddit organic posts&lt;/strong&gt;. With Google Analytics, you will have enough data anyways to understand your traffic from Reddit anyway.&lt;/p&gt;
+&lt;p&gt;For Reddit Ads though, of course tracking codes are not an issue. Moreover, Reddit &lt;a class=&#34;link&#34; href=&#34;https://www.reddit.com/r/redditads/comments/6x1wj9/announcing_the_release_of_the_reddit_conversion/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;recently announced the release of its tracking pixel&lt;/a&gt; along with a &lt;a class=&#34;link&#34; href=&#34;https://www.reddithelp.com/en/categories/advertising/advertising-101/installing-reddit-conversion-pixel&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;guide on how to install and use it&lt;/a&gt;. I haven’t lead a campaign since the release of the pixel, but since it facilitates the tracking of conversion made from Reddit, it seems to be worth considering for anyone advertising on the platform.&lt;/p&gt;
+&lt;h3 id=&#34;corporate-shilling-onreddit&#34;&gt;Corporate Shilling on Reddit
+&lt;/h3&gt;&lt;p&gt;In the beginning of the article, I mentioned the aggressive behaviors of certain brands who try to game Reddit’s mechanics for their own profits.&lt;/p&gt;
+&lt;p&gt;In terms of actual behavior on the platform, &lt;strong&gt;it translates into bots, vote manipulation and obfuscation&lt;/strong&gt;. Let’s dig into a specific event to make the big picture clearer.&lt;/p&gt;
+&lt;h4 id=&#34;the-macdonalds-incident&#34;&gt;The MacDonald’s Incident
+&lt;/h4&gt;&lt;p&gt;About two months ago, a post appeared on /r/Gaming, entitled &lt;a class=&#34;link&#34; href=&#34;https://www.reddit.com/r/HailCorporate/comments/6qmc68/made_my_delivery_drivers_night_by_showing_him_vr/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;“Made my delivery driver’s night by showing him VR for the first time”&lt;/strong&gt;&lt;/a&gt;. It was a picture, displayed below.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/reddit/mc-astro.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;The picture used for MacDonald’s con act on Reddit, to announce the delivery of their burgers on Uber Eats&#34;
+	
+	
+&gt;
+The picture used for MacDonald’s con act on Reddit, to announce the delivery of their burgers on Uber Eats&lt;/p&gt;
+&lt;p&gt;A lot of things are suspicious, and Reddit was quick to notice. Here are the main flaws:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The overall disposition seems unnatural, the food is placed at the forefront, with the burger in the hands of the OP.&lt;/li&gt;
+&lt;li&gt;Have you ever met anyone having McDonald’s + Wine night?&lt;/li&gt;
+&lt;li&gt;The bottle in the middle of the table is red wine while the glasses contain white wine.&lt;/li&gt;
+&lt;li&gt;A whole bottle of wine and three glasses for a lady presumably eating alone — it was a fun night!&lt;/li&gt;
+&lt;li&gt;The delivery bag left on the table as a way to broadcast the availability of McDonald’s on UberEats, the goal of this ad.&lt;/li&gt;
+&lt;li&gt;The whole “white girl eating food kindly delivered by his nice black Uber driver who she introduced to a new tech” has a dangerous … lack of taste to it?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;While the reactions were unanimous, &lt;strong&gt;the post still reached the frontpage&lt;/strong&gt; — the whole operation is probably seen as successful for MacDonald’s. Indeed, in the early hours of the post, the masquerade was still uncovered.&lt;/p&gt;
+&lt;p&gt;The first comment chains read like an ad script. Are they from real users, bots or fake accounts? Probably an &lt;strong&gt;unhealthy mix of all three&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/reddit/mc-astro-comment.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;First reactions on MacDonald’s post/ad, screen by /u/SwellandDecay (source: /r/HailCorporate)&#34;
+	
+	
+&gt;
+First reactions on MacDonald’s post/ad, screen by /u/SwellandDecay (source: &lt;a class=&#34;link&#34; href=&#34;https://www.reddit.com/r/HailCorporate/comments/6qmc68/made_my_delivery_drivers_night_by_showing_him_vr/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;/r/HailCorporate&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;Essentially, MacDonald’s strategy relied on three things:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Finding a way to frame their ad that would resonate with /r/Gaming — here they used VR.&lt;/li&gt;
+&lt;li&gt;Using a fake/bought/rented account to post it.&lt;/li&gt;
+&lt;li&gt;Buying upvotes or using fake and bot accounts to upvote the post to the frontpage.&lt;/li&gt;
+&lt;li&gt;Using bots and fake/bought/rented accounts to submit and upvote comments that were in accordance with MacDonald’s message, in order to keep control over the discussion (and &lt;strong&gt;downvote contradicting comments&lt;/strong&gt;).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The combined actions allowed them to have a lot of control over the post and its most visible comments. Yet, even if they managed to reach the frontpage, &lt;strong&gt;the Reddit community was also quick to react&lt;/strong&gt;. The comment now at the top of the post is denouncing the ad.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/reddit/mc-astro-comment2.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;The first comment (10/07/2017) on the MacDonald’s post&#34;
+	
+	
+&gt;
+The first comment (10/07/2017) on the MacDonald’s post&lt;/p&gt;
+&lt;h4 id=&#34;reddits-corporate-shilling-watchdogs&#34;&gt;Reddit’s corporate shilling watchdogs
+&lt;/h4&gt;&lt;p&gt;Corporate Shilling got so bad on Reddit, a subreddit emerged to denounce it: &lt;a class=&#34;link&#34; href=&#34;https://www.reddit.com/r/HailCorporate/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;/r/HailCorporate/&lt;/a&gt;. Here is &lt;a class=&#34;link&#34; href=&#34;https://www.reddit.com/r/HailCorporate/comments/6qmc68/made_my_delivery_drivers_night_by_showing_him_vr/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the post on /r/HailCorporate addressing the MacDonald’s ad&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The problem is sadly only beginning. At the same time of the MacDonald’s shadow-ad, &lt;strong&gt;a regular Redditor proved you can buy your way to the frontpage&lt;/strong&gt;. &lt;a class=&#34;link&#34; href=&#34;https://www.reddit.com/r/conspiracy/comments/6osp4h/guy_buys_upvotes_on_rvideos_gets_to_front_page/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;He published a video&lt;/a&gt; in which he explained how he did it: buying upvotes. In his own words, “it wasn’t event that much money”.&lt;/p&gt;
+&lt;p&gt;The video indeed reached the frontpage showcasing the Redditor explaining Reddit’s flaws. His cat makes an appearance. Yet, it’s hard to know if its because of the upvotes he bought or because Redditors who stumbled upon the video upvoted it as a way to denounce corporate shilling.&lt;/p&gt;
+&lt;p&gt;Either way, the &lt;strong&gt;upvotes he bought at least helped him give hist post the initial traction&lt;/strong&gt; it needed to reach the frontpage, which is already more than enough to skew Reddit’s natural behavior.&lt;/p&gt;
+&lt;h3 id=&#34;where-does-reddit-go-fromhere&#34;&gt;Where does Reddit go from here?
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2017/reddit/snoo.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Snoo, Reddit’s mascot&#34;
+	
+	
+&gt;
+Snoo, Reddit’s mascot&lt;/p&gt;
+&lt;p&gt;The situation is far from fixed, as a dumb Google search such as “Reddit buy upvotes” gives you countless of options to chose from. I’m sure the admins are working hard to detect and prevent abuses, but considering the scope of the issue and the stakes, it’s gonna take a while.&lt;/p&gt;
+&lt;p&gt;This is the main reason that motivated me to write this post. I wanted to give to anyone, my feedback and tools to harness the power of Reddit — without falling into the dark side of it. Reddit can generates fascinating discussions and his the home of numerous and dynamic communities built around anything from video games ( &lt;a class=&#34;link&#34; href=&#34;http://redditmetrics.com/r/gaming&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;/r/gaming&lt;/a&gt; — #9 top subreddit), cute animals ( &lt;a class=&#34;link&#34; href=&#34;http://redditmetrics.com/r/aww&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;/r/aww&lt;/a&gt; — #12), philosophy ( &lt;a class=&#34;link&#34; href=&#34;http://redditmetrics.com/r/philosophy&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;/r/philosophy&lt;/a&gt; — #44) to make-up ( &lt;a class=&#34;link&#34; href=&#34;http://redditmetrics.com/r/MakeupAddiction&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;/r/MakeupAddiction&lt;/a&gt; — #183).&lt;/p&gt;
+&lt;p&gt;It reminds me of an concept that fit sadly well to this discussion: &lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Tragedy_of_the_commons&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;the tragedy of the commons&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Essentially, when a marketer find a channel that performs well for his brand, **his first reaction will be to milk it dry **— try to harness the maximum of attention he could get from this channel (hello MacDonald’s). And it’s understandable, who wouldn’t bank on a success?&lt;/p&gt;
+&lt;p&gt;However, doing so quite often &lt;strong&gt;comes at the cost of the channel fundamentals&lt;/strong&gt;— the channel progressively become a flavorless advertising medium instead of what it was supposed to be.&lt;/p&gt;
+&lt;p&gt;Once you consider both the long-term and macro perspective, there is but one option left which is more profitable in the long run, both for the marketer and for the channel: &lt;strong&gt;try to develop the channel as you grow on it&lt;/strong&gt;. It means taking your time, respecting the channel, learning about its customs and of course, when you’re ready, adding you contribution to it.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

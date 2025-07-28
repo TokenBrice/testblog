@@ -1,0 +1,1653 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Practical on TokenBrice</title>
+        <link>http://localhost:1313/categories/practical/</link>
+        <description>Recent content in Practical on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Mon, 10 May 2021 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/practical/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>🌽 Defi money markets cookbook</title>
+        <link>http://localhost:1313/money-market-recipes/</link>
+        <pubDate>Mon, 10 May 2021 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/money-market-recipes/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2021/money-market-recipes/money-market-recipes-cover.png" alt="Featured image of post 🌽 Defi money markets cookbook" /&gt;&lt;p&gt;On this blog, I frequently discuss about money markets and assets market in DeFi. Basically, they allow you to &lt;strong&gt;loan and borrow tokens&lt;/strong&gt;. These two actions have become like &lt;strong&gt;deFi verbs&lt;/strong&gt;: they are used directly or indirectly in almost every strategy.&lt;/p&gt;
+&lt;p&gt;So while it is crucial to understand the protocols you are using and especially &lt;strong&gt;the different &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/money-market-risks.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;money market risks&lt;/a&gt;&lt;/strong&gt;, Today, I would like to focus on the why and the how:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Which strategies can be implemented using money markets?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;How can they be deployed in practice?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;We&amp;rsquo;re going to break down different &amp;ldquo;recipes&amp;rdquo; to take advantage of the money markets. Take these recipes as &lt;strong&gt;inspiration to develop your own strategies&lt;/strong&gt;.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice warning&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Warning&lt;/p&gt;&lt;p&gt;&lt;strong&gt;This article does not constitute investment advice: I am not authorized to dispense it. Rather than mechanically reproducing the strategies presented as examples, I invite you to try to understand the approach.&lt;/strong&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;leveraged-bets-on-a-money-market-via-the-market-itself&#34;&gt;Leveraged bets on a money market via the market itself
+&lt;/h2&gt;&lt;p&gt;Every money markets have an associated token, for example the AAVE token for Aave. It is generally used for the governance of the protocol and sometimes also allows to capture part of the value it generates. With this strategy, we will &lt;strong&gt;use a money market to borrow assets that will then be used to gain exposure to the native token of the desired platform&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;⚙ Condition:&lt;/strong&gt; Optimism about the future of a given money market. It&amp;rsquo;s native token in this scenario is expected to appreciate in line with the growth of the market over the medium/long term.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📅 Time horizon:&lt;/strong&gt; 3 - 24 months. ~3 months is a recommended minimum so that gas fees and borrowing costs don&amp;rsquo;t impact the returns of the strategy too much.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔮 Expected result&lt;/strong&gt;: the acquired token appreciates, which allows to pay back the debt (+ possible interest) at term by reselling part of the initial position. Once the debt is repaid, part of the acquired tokens can be kept.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🃏 Bonus / Facilitator:&lt;/strong&gt; If the token in question can produce a return (e.g. AAVE in the Safety Module), this will allow the debt to be repaid even faster or to accumulate &amp;ldquo;free&amp;rdquo; tokens if the scenario of its price appreciation is verified.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Although this strategy is quite basic, it is one of my favorites. I recently shared with you on Twitter an example of how to put it into practice, which we will detail here:&lt;/p&gt;
+&lt;p&gt;Here, the concerned protocol is &lt;a class=&#34;link&#34; href=&#34;https://liquity.org&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liquity&lt;/a&gt; and the implementation of the strategy is quite simple, but has two variations:&lt;/p&gt;
+&lt;h3 id=&#34;direct-exposure-to-the-native-token&#34;&gt;Direct exposure to the native token
+&lt;/h3&gt;&lt;p&gt;Either by directly exposing yourself to the LQTY token, which is of course more risky:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-recipes/mm-long-token-tokenbrice-en.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;mm-long-tokenbrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li&gt;Deposit ETH on &lt;a class=&#34;link&#34; href=&#34;https://www.liquity.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liquity&lt;/a&gt; via one of the frontends, they will serve as collateral for the position.&lt;/li&gt;
+&lt;li&gt;Borrow LUSD&lt;/li&gt;
+&lt;li&gt;Swap LUSD (via ParaSwap for the best rate!) for LQTY, the native token of Liquity&lt;/li&gt;
+&lt;li&gt;Stake LQTY, which generates LUSD and some ETH&lt;/li&gt;
+&lt;li&gt;Eventually repayment of debt (2) via LUSD yield (4) and resale of some of the LQTY acquired in step 3 after price appreciation.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Or more conservatively, with a strategy using Liquity to borrow LUSDs and make them productive:&lt;/p&gt;
+&lt;h3 id=&#34;exposure-mainly-in-stablecoins&#34;&gt;Exposure mainly in stablecoins
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-recipes/mm-long-tokenbrice-en.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;mm-long-token-tokenbrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Deposit ETH on &lt;a class=&#34;link&#34; href=&#34;https://www.liquity.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liquity&lt;/a&gt; via one of the frontends, they will serve as collateral for the position.&lt;/li&gt;
+&lt;li&gt;Borrow LUSD&lt;/li&gt;
+&lt;li&gt;Stake LUSD via either the Stability Pool (-&amp;gt; LQTY + ETH) or the LUSD pool on Curve Finance (-&amp;gt; Native + LQTY + CRV).&lt;/li&gt;
+&lt;li&gt;Eventually repayment of debt (2) via yield (3)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;Yearn Finance also offers a LUSD vault that automatically manages the position on Curve.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;investing-time-rather-than-money&#34;&gt;Investing time rather than money
+&lt;/h2&gt;&lt;p&gt;Alchemix arrival has opened up new perspectives in terms of strategy. On Alchemix, the debt repays itself over time. Indeed, &lt;strong&gt;the collateral used (yDAI) is a stablecoin that produces a return (via Yearn)&lt;/strong&gt;. Thus with the current conditions the loan is self-repaying in three years.&lt;/p&gt;
+&lt;p&gt;I suggest a simple strategy to take advantage of Alchemix to make a profit. The main drawback is that &lt;strong&gt;only half of the amount of DAI initially placed in Alchemix can be borrowed in AlUSD&lt;/strong&gt; and then invested.
+Nevertheless, as this strategy is based on stablecoins, it does not - (⚠ oracles) - involve any price risk and therefore does not require daily monitoring.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;⚙ Condition:&lt;/strong&gt; DAI that will be locked in for ~3 years. Only half of the deposited amount is mobilizable.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📅 Time horizon:&lt;/strong&gt; ~3 years (depends on DAI return rate on Yearn).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔮 Expected result&lt;/strong&gt;: In 3 years, the AlUSD debt is fully repaid and the DAI initially mobilized on Alchemix are free again. It remains to be seen what happened with the investment made with the borrowed AlUSD: it all depends on the choices made, I do not predict the future.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🃏 Bonus / Facilitator:&lt;/strong&gt; Use the borrowed AlUSD to invest in a token that can produce a return. This allows you to make a compound investment or even pay off Alchemix debt faster.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;long-alcx-via-alchemix&#34;&gt;Long ALCX via Alchemix
+&lt;/h3&gt;&lt;p&gt;To illustrate the concept, I propose another simple strategy which is equivalent to long Alchemix via its token ALCX :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-recipes/alchemix-investment-tokenbrice-en.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;alchemix-investment-tokenbrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Deposit DAI as collateral on Alchemix. Alchemix deploys it on Yearn Finance to generate a return.&lt;/li&gt;
+&lt;li&gt;Borrow up to 50% of the initial value deposited in AlUSD, a stablecoin.&lt;/li&gt;
+&lt;li&gt;Invest the AlUSD in the desired token. Here for the example it is ALCX the native governance token of Alchemix.&lt;/li&gt;
+&lt;li&gt;Stake the acquired token to produce a return&lt;/li&gt;
+&lt;li&gt;The repayment of the debt in AlUSD contracted on Alchemix is done automatically with time. It is possible to repay in advance thanks to the generated returns (4).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;putting-a-hodl-collateral-to-work-over-the-long-term&#34;&gt;Putting a &amp;ldquo;hodl&amp;rdquo; collateral to work over the long term
+&lt;/h2&gt;&lt;p&gt;I came to DeFi several years ago with a simple ambition: I wanted to put my Ethers to work. At the time it was not an easy task but nowadays there are many very interesting solutions. I will focus on one of them, Aave, for two reasons.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Aave has launched &lt;strong&gt;a liquidity mining&lt;/strong&gt; program paid in StkAave&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; (Aave V2 - Mainnet).&lt;/li&gt;
+&lt;li&gt;Aave is accessible on the &lt;strong&gt;sidechain Polygon&lt;/strong&gt; where the low fees allow to deploy DeFi strategies efficiently even with small capital. There is also a liquidity mining program there, in MATIC &lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;To make this strategy as accessible as possible, we will develop the example on the Polygon sidechain. It is therefore possible to use any of the tokens supported as collateral on the Aave/Polygon market: MATIC, AAVE, wETH, wBTC, USDC, and DAI.&lt;/p&gt;
+&lt;h3 id=&#34;how-to&#34;&gt;How-to
+&lt;/h3&gt;&lt;p&gt;The strategy is to &lt;strong&gt;produce returns through the borrowing of stablecoins used to provide liquidity on the Curve exchange service&lt;/strong&gt;. With the liquidity mining program on Aave, every step of the process is potentially lucrative at least in MATIC.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;⚙ Condition:&lt;/strong&gt; Having tokens accepted as collateral on Aave, and bring them back to Polygon for example using &lt;a class=&#34;link&#34; href=&#34;https://wallet.matic.network/bridge/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the POS bridge&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📅 Time horizon:&lt;/strong&gt; Short / medium term.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔮 Expected outcome:&lt;/strong&gt; Returns in MATIC, stablecoins and ETH.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🃏 Bonus / Facilitator:/&lt;/strong&gt;. Prospective: mining CRV &amp;amp; potential leverage when LP Curve Polygon tokens are accepted as collateral on Aave.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;putting-eth-to-work-on-polygon&#34;&gt;Putting ETH to work on Polygon
+&lt;/h3&gt;&lt;p&gt;To illustrate this strategy, I start with the assumption of generating a return from ETH.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-recipes/polygon-aave-curve-eth-farming-tokenbrice-en.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;polygon-aave-curve-eth-farming-tokenbrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;ETH deposit as collateral on Aave/Polygon (+native +MATIC)&lt;/li&gt;
+&lt;li&gt;Borrowing stablecoins (-APR +MATIC)&lt;/li&gt;
+&lt;li&gt;Deposit and staking of stablecoins on Curve/Polygon (+natif +MATIC)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Note that Curve LP Polygon tokens are being considered for potential addition as collateral in the Aave market. We can also expect potential CRV rewards on Polygon LP positions if the DAO decides to do so.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;It is possible to implement this strategy by keeping the tokens used as collateral on the L1 Aave in order to benefit from the mining of StkAAVE. It will be necessary to migrate the borrowed stablecoins from the Ethereum network to Polygon using for example &lt;a class=&#34;link&#34; href=&#34;https://wallet.matic.network/bridge/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Matic&amp;rsquo;s POS bridge&lt;/a&gt;.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;protect-yourself-against-the-price-risk-of-the--farming-in-&#34;&gt;Protect yourself against the price risk of the $: farming in €.
+&lt;/h2&gt;&lt;p&gt;In DeFi, everything is done in dollars. It makes sense, everyone knows, but for a European user it is a significant additional  risk. Indeed, if your ambition is to generate enough to live on with DeFi, then this means your output will eventually be in Euro.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-recipes/eur-usd-1y.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;eur-usd-1y&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;For a European farmer, it may therefore be &lt;strong&gt;interesting to have a DeFi exposure in € to avoid this risk&lt;/strong&gt;. At the moment, there are simply no Euro borrowing options other than &lt;a class=&#34;link&#34; href=&#34;https://mimo.capital/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Mimo Capital&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This service allows you to borrow PAR from ETH, wBTC or USDC. The MIMO governance token is also distributed to owners of active vaults as well as to liquidity providers on the PAR/ETH and PAR/USDC Balancer pools.&lt;/p&gt;
+&lt;p&gt;Nevertheless, the protocol is still recent and the PAR token is not yet supported in the ecosystem, as a collateral on Aave or in a Curve pool for example. So the situation is not yet ideal but it has the merit to exist!&lt;/p&gt;
+&lt;p&gt;Other DeFi-€ solutions are in development. MakerDAO, for example, has mentioned a Euro-DAI, while Jarvis Network is working on a synthetic stablecoin €, the jEUR.&lt;/p&gt;
+&lt;h3 id=&#34;how-to-1&#34;&gt;How-to
+&lt;/h3&gt;&lt;p&gt;To farm natively in Euros, the best option is still what you can do with EURS. Since the launch of the pool on Curve, there are many options.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;⚙ Condition:&lt;/strong&gt; Owning EURS / sEUR&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📅 Time horizon:&lt;/strong&gt; 1 month - years&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔮 Expected result:&lt;/strong&gt; Growing a capital in Euro-stable&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🃏 Bonus / Enabler:&lt;/strong&gt; Owning VeCRVs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-recipes/EURS-farming-tokenbrice-en.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;EURS-farming-tokenbrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;strong&gt;pool Curve&lt;/strong&gt; directly offers an attractive yield in CRV even when it is not boosted.&lt;/li&gt;
+&lt;li&gt;To automatically sell the farmed CRVs to compound the return, a vault is ideal. &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://yearn.finance&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Yearn&lt;/a&gt; offers a vault on EURS&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Farming is also possible via the EURS vault of &lt;a class=&#34;link&#34; href=&#34;https://stakedao.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;StakeDAO&lt;/a&gt;, in order to accumulate SDT as well.&lt;/li&gt;
+&lt;li&gt;Or &lt;a class=&#34;link&#34; href=&#34;https://harvest.finance&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Harvest&lt;/a&gt; also offers a vault that makes up the bulk of the returns while paying in FARM.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;I hope these different recipes will inspire you. Make sure you are &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/money-market-risks.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;aware of the different money market risks&lt;/a&gt;&lt;/strong&gt;, used for all these strategies.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;🙏 Huge thanks to HHK, Charles, Thomas, Erwan, &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/phil_h&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PhilH&lt;/a&gt; &amp;amp; FrenchTony for proofreading the French version of this article and translating it integrally into English.&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;The liquidity mining program StkAAVE was launched on Mars 26 following a governance vote. &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/AaveAave/status/1386753673104134155?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;More info here&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;Polygon sponsors a liquidity mining program in MATIC, both on &lt;a class=&#34;link&#34; href=&#34;https://blog.polygon.technology/defiforall-kicking-off-l2-defi-summer-with-40-million-usd-in-liquidity-mining-rewards-from-4937d7c6e287&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Aave&lt;/a&gt; and &lt;a class=&#34;link&#34; href=&#34;https://blog.polygon.technology/continuing-scalability-defi-summer-with-5-million-usd-in-liquidity-mining-rewards-from-polygon-e73a76c5a8ad?gi=9a7b7e130606&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Curve&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
+        <title>🤖 Vaults: DeFi Investing Streamlined?</title>
+        <link>http://localhost:1313/p/vaults-defi-investing-streamlined/</link>
+        <pubDate>Wed, 30 Sep 2020 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/vaults-defi-investing-streamlined/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2020/vaults/harvest.gif" alt="Featured image of post 🤖 Vaults: DeFi Investing Streamlined?" /&gt;&lt;p&gt;As the ecosystem of decentralized financial services on Ethereum grows and matures, the service offering is becoming more dense and sometimes hard to understand. While the most technically savvy users can chase the latest releases and hedge their risk appropriately, less-seasoned investors might feel left out.&lt;/p&gt;
+&lt;p&gt;Luckily, there are DeFi services made to match the diverse set of investors exploring the space. Yearn Finance was the first platform to pioneer a passive-type of investment products: vaults.&lt;/p&gt;
+&lt;p&gt;The base idea is simple as 1, 2, 3:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Vaults are &lt;strong&gt;tokenized investment strategies&lt;/strong&gt;: your deposit is represented by a token (for instance, yCRV in Yearn’s Vault -&amp;gt; yyCRV/yUSD)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The vault frequently harvest and re-invest the profits&lt;/strong&gt; (here CRV) to purchase more of the base asset supplied, compounding the returns.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Fees are streamlined&lt;/strong&gt;: the depositors do not pay for the gas costs of the vaults operation (such as harvesting). Fees are usually charged while exiting the vault.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;So if you&amp;rsquo;d like to &lt;strong&gt;avoid the headaches&lt;/strong&gt; of chasing the latest farm, managing the claim of the profits you earn, when and how to reinvest them, without forgetting, of course, to account for the gas costs of all these operations in the calculation of your profits, vaults are a credible alternative.&lt;/p&gt;
+&lt;p&gt;Vaults are made to &lt;strong&gt;abstract the complexity for the end-users&lt;/strong&gt;. You deposit some tokens and wait while they are farming a set strategy for you. So let&amp;rsquo;s see what options are available.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;This article is straight to the point and highlights the different vaults available. To learn more about Yearn Finance debuts, &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/yearn-finance-YFI.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;read this piece&lt;/strong&gt;&lt;/a&gt;. For more context on Yearn’s forks, &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/yearn-waifus.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;check this one&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;simplest-basic-vaults&#34;&gt;Simplest: Basic Vaults
+&lt;/h2&gt;&lt;p&gt;Vaults use the token you deposit (DAI for instance) to farm a given strategy, produce a return and re-invest it automatically.&lt;/p&gt;
+&lt;p&gt;The pioneer is of course Yearn with the yCRV vault, but several options are now available or progressively rolling out. This article provides a structured overview of the main earning opportunities enabled by vaults.&lt;/p&gt;
+&lt;p&gt;Here, you deposit a given token to earn more of it over time, and potentially additional reward. The tokens you are supplying are not used to provide liquidity on decentralized exchanges, &lt;strong&gt;so there is no exposure to impermanent losses&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;However, &lt;strong&gt;as more and more vault-types products are being released, you want to take the time to understand what&amp;rsquo;s happening with the one you choose&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Below you will find tables summarizing the main vaults that I know of, with the tokens they accept, the service they farm, and how the return is denominated.&lt;/p&gt;
+&lt;p&gt;The mention &amp;ldquo;returns normalized to the base&amp;rdquo; means that the strategy generates a return frequently settled for the base token supplied - this operation is sometimes referred to as “harvesting”.&lt;/p&gt;
+&lt;div class=&#34;notice tip&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#tip-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Tip&lt;/p&gt;&lt;p&gt;The frequency of the harvest is important as it will influence the compounding factor of the overall position, as well as level of risk taken on the price of the farmed token.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;stablecoins--btc-vaults&#34;&gt;Stablecoins &amp;amp; BTC Vaults
+&lt;/h3&gt;&lt;p&gt;When it comes to Vaults, the most common tokens accepted as deposits are stablecoins. Such vaults will deploy your capital on Curve Finance pool to earn CRV tokens, usually the Y pool, . More recent projects, such as Pickle Finance also enables farming from the Curve sUSD pool.&lt;/p&gt;
+&lt;div align=&#34;center&#34;&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/vaults/pickle-pjar0.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;pickle-finance-pjar0&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Pickle Finance pJar 0 explainer infographics &lt;a class=&#34;link&#34; href=&#34;https://medium.com/@picklefinance/introducing-picklejars-70a311ab65c5&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;source&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Finally, some services like Harvest or YFV have an incentive model on top of their vault: depositors earn the governance token of the platform (FARM or YFV) on top of the base return.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;TOKENS&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;SERVICE&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;FARMS ON&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;REWARDS&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DAI, USDC, USDT, TUSD&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Harvest.Finance&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Curve&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Curve returns normalized to the base + FARM&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;USDC, USDT, DAI, TUSD, BUSD&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DFI.Money&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Curve&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Curve returns normalized to the base&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DAI, USDC, USDT, TUSD&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;YFV (Seed Pool)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Value&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;YFV/VALUE staking reward&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;yCRV, DAI, USDC, USDT, TUSD&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Yearn Finance&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Curve&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Curve returns normalized to the base&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;pJar 0 + psCRV pool (Curve sUSD)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Pickle Finance&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Curve/Pickle&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Curve returns normalized to sCRV + PICKLE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Since Curve also supports tokenized BTC pools, there are now vaults for them too:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;TOKEN&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;SERVICE&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;FARMS ON&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;REWARDS&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;wBTC, renBTC &amp;amp; CRVRENWBTC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Harvest.Finance&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Curve&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Curve returns normalized to the base + FARM&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;hBTC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DFI.Money&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Curve?&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Rewards normalized to the base&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;With Harvest.Finance, you can deposit wBTC or renBTC directly, or the CRVRENWBTC token, which represents a deposit in Curve&amp;rsquo;s Pool 5 (RenBTC &amp;amp; wBTC pool).&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;eth-based-vaults&#34;&gt;ETH-Based Vaults
+&lt;/h3&gt;&lt;p&gt;BTC &amp;amp; Stablecoins positions are interesting, but maybe you&amp;rsquo;d like to keep an exposure to the price ETH?&lt;/p&gt;
+&lt;p&gt;You can achieve such a result by yourself by leveraging your ETH. You&amp;rsquo;ll use them as collateral to mint or borrow stablecoins/wBTC that are then deployed to produce a return superior to your borrowing cost: here&amp;rsquo;s an article I wrote providing tips and tools to leverage ETH efficiently - &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/leveraging-ETH.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;🎚 ETH exposure or DeFi yields: why choose?&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;However, with such a position, you can be exposed to liquidations if the price of ETH was to drop.&lt;/p&gt;
+&lt;p&gt;Once again, Yearn was the pioneer here with the release of the wETH vault that automated this whole process. However, the volume of deposit was massive and the service ran into some technical issues currently being worked on.&lt;/p&gt;
+&lt;p&gt;So instead of waiting for the re-release of Yearn&amp;rsquo;s wETH vault, why not consider the &lt;strong&gt;existing available options&lt;/strong&gt;? They are not as intricate as Yearn&amp;rsquo;s wETH, since they do not leverage your ETH; the ETH is simply deposited somewhere to produce a return.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;SERVICE&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;FARMS ON&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;REWARDS&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Yearn Finance&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Maker + Curve&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Normalized to ETH&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Harvest.Finance&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Cream Deposit&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Cream returns normalized to wETH + FARM return (fwETH staking)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;YFV&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Soda&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Soda returns normalized to wETH + VALUE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DFI.Money&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;?&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Returns normalized to wETH&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;So far, we&amp;rsquo;ve stuck to &amp;ldquo;simple&amp;rdquo; vaults where you deposit a given token, let it sit for a while, and hopefully walk out of there with more of it (+potentially some governance extra tokens). Yet, the release of Uniswap&amp;rsquo;s UNI token, another kind of riskier vault is available.&lt;/p&gt;
+&lt;h2 id=&#34;riskier-uniswap-uni-farming-vaults&#34;&gt;Riskier: Uniswap UNI-farming Vaults
+&lt;/h2&gt;&lt;h3 id=&#34;uni-farming-basics&#34;&gt;UNI farming basics
+&lt;/h3&gt;&lt;p&gt;Along with the release of the UNI token came a distribution program instauring UNI incentives on specific pools:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;ETH/USDC&lt;/li&gt;
+&lt;li&gt;ETH/USDT&lt;/li&gt;
+&lt;li&gt;ETH/DAI&lt;/li&gt;
+&lt;li&gt;ETH/wBTC&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;If you provide liquidity on any of the pools listed above, you can stake your liquidity pool token for an additional UNI income directly on Uniswap&amp;rsquo;s website. You&amp;rsquo;ll be earning UNI continuously. However, you&amp;rsquo;ll have to manage the position yourself, which means claiming the UNI (and pay the associated gas costs), as well as selling and reinvesting them.&lt;/p&gt;
+&lt;p&gt;These strategies are riskier than ETH/BTC/Stablecoins vaults. Indeed, while farming UNI tokens you are providing liquidity on Uniswap, which comes with a risk of impermanent losses.&lt;/p&gt;
+&lt;p&gt;But why face the hassle of &amp;ldquo;manual farming&amp;rdquo; when you can &lt;strong&gt;let a vault do the hard work for you&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;uni-farming-using-a-vault&#34;&gt;UNI farming using a Vault
+&lt;/h3&gt;&lt;p&gt;Indeed, quickly after the launch of Uniswap, several services started offering vault-type products to streamline the farming of UNI. Here&amp;rsquo;s an overview:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;SERVICE&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;TOKENS&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;REWARDS&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Harvest&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ETH/USDC, ETH/DAI, ETH/USDT, ETH/wBTC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;UNI returns normalized to the base + FARM&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Pickle Finance&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ETH/DAI, ETH/USDC, ETH/USDT&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;UNI returns normalized to the base + PICKLE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;YFV&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ETH/USDC, ETH/wBTC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;UNI returns normalized to the base + VALUE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;This list is not exhaustive. Only vaults are included - services which automatically re-invest the profits for you.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Other opportunities exist to farm UNI, but they require more intervention from your end. For instance, with &lt;a class=&#34;link&#34; href=&#34;http://sakeswap.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Sake Swap&lt;/a&gt; you can stake your ETH-Stable Uni-V2 LP tokens to earn both UNI &amp;amp; SAKE tokens. However, you&amp;rsquo;ll have to claim and manage the SAKE &amp;amp; UNI tokens earned yourself.&lt;/p&gt;
+&lt;p&gt;To learn more about a given vault and how they operate, feel free to check their resources. Yearn and Harvest Finance have great documentation with infographics explaining their vaults:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.learnyearn.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Learn Yearn&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://farm.chainwiki.dev/en/home&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Farm Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;notice warning&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Warning&lt;/p&gt;&lt;p&gt;This is not investment advice, stay sharp and do your own research.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Services mentioned:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://yearn.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Yearn Finance&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://harvest.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Harvest Finance&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://pickle.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Pickle Finance&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://dfi.money/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;DFI.Money&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://yfv.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;YFV&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Merry Farming! 🚜&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>🧭 DeFi Moneygames: Assessing risk and avoiding wreckage</title>
+        <link>http://localhost:1313/p/defi-moneygames-assessing-risk-and-avoiding-wreckage/</link>
+        <pubDate>Wed, 26 Aug 2020 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/defi-moneygames-assessing-risk-and-avoiding-wreckage/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2020/defi-moneygames/cover.png" alt="Featured image of post 🧭 DeFi Moneygames: Assessing risk and avoiding wreckage" /&gt;&lt;p&gt;Food-based social moneygames are all the rage in decentralised finance. Today, I wanted to write a quick piece to provide some context on them, as well as some tips for those who want to. I&amp;rsquo;ll not pass moral judgement on such projects, I leave it up to you.&lt;/p&gt;
+&lt;p&gt;The launch of Yearn Finance last month was probably the most significant event of the year for DeFi. If you are not familiar at all with Yearn, check this intro: &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/yearn-finance-YFI.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;YearnFinance - DeFi on autopilot?&lt;/a&gt;&lt;/strong&gt; - it will be helpful to better understand today&amp;rsquo;s article.&lt;/p&gt;
+&lt;p&gt;The launch of Yearn&amp;rsquo;s token, YFI was highly innovative back then: 100% of the supply has been distributed to users providing liquidity on different pools tied to the protocol. This launch framework has now become a template replicated by countless projects which spun out in the wake of Yearn&amp;rsquo;s tremendous success: YFII, YFL, YAM, SHRIMP, PASTA, BASED, etc.&lt;/p&gt;
+&lt;p&gt;On top of this base building block of &amp;ldquo;the farming cooperative&amp;rdquo; provided by Yearn, many projects add a tokonomics twist to their base asset, hoping to make it more sticky. Here are the usual suspects:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;A deflationary model&lt;/strong&gt; (this is usually stupid) - &lt;strong&gt;RUN&lt;/strong&gt;. Example: PASTA. (RIP)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;A rebase mechanism&lt;/strong&gt; (it can get interesting - increases information asymmetry). What matters here is finding a relevant price target &amp;amp; making sure the rebase code is not faulty / not leading to issues with other parts of the protocol such as the liquidity pools (Hello YAM). Sadly, it also contributes to turning the game into a ponzi-esque situation where inexperienced investors get plundered by experienced farmers - rebase mechanisms make it tricky to calculate returns.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Social-based mechanisms&lt;/strong&gt;, such as a daily/weekly bonus for the top X holders, like &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/Taconomics101&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;TACO&lt;/a&gt;, or double rewards every Tuesday because Taco Tuesdays are REAL!&lt;/li&gt;
+&lt;li&gt;For some, the &lt;strong&gt;main value stems from the community angle&lt;/strong&gt; rather than the tokonomics, like for &lt;a class=&#34;link&#34; href=&#34;http://shrimp.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Shrimp&lt;/a&gt; which ambitions to become more community-driven than other similar projects by enabling the creation of advanced pool (incentivised in SHRIMP) by anyone.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice tip&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#tip-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Tip&lt;/p&gt;&lt;p&gt;If you want a common thread to filter the noise, &lt;strong&gt;governance is a good one. It&amp;rsquo;s a necessity and ultimately a key factor in the success of all these projects&lt;/strong&gt;. Look at the kind of decisions that are made, what is the process, and who is shaping the project, ect.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;p&gt;So there you have the base concept and it&amp;rsquo;s so simple and plug and play that we &lt;strong&gt;could create a foodcoin together for the fun&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;Picture $WINE. You farm it by locking DeFi tokens for the first week. Then a WINE/ETH pool will be incentivized for longer (high potential to be a dumping pool, more on this below).&lt;/p&gt;
+&lt;p&gt;WINE is already highly memable and has an emoji, good starting point! However we need more, we need some fun and stickiness to it, how about:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The top holder has a 20% chance of getting &amp;ldquo;Drunk&amp;rdquo; daily. If that happens, he will be a generous drunkie donating 20% of all his WINE to 100 random daily active addresses.&lt;/li&gt;
+&lt;li&gt;Don’t get too tipsy either: each WINE transaction has a 1% chance of sending 50% of the value transferred to the reward contract instead - increasing the rewards for farmers.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Those mechanisms are profoundly uninspired, but they give you a picture of how easy those concepts are to come by. They can also be implemented very quickly thanks to code blocks (such as the staking contracts) forked from standards (such as Synthetix staking contract).&lt;/p&gt;
+&lt;div class=&#34;notice warning&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Warning&lt;/p&gt;&lt;p&gt;$WINE does not exist. DO NOT buy $WINE. DO buy wine! 🍷&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;p&gt;Enough for the context and the theory - I might dive into the community dimensions of the game in the next post. But for today, allow me to share some practical wisdom on these games earned sweating my gwei out:&lt;/p&gt;
+&lt;h3 id=&#34;practical-tips-if-you-are-playing-food-based-moneygames&#34;&gt;Practical tips if you are playing food-based moneygames
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;First and foremost, mind the gas!&lt;/strong&gt; Farming the meme-food coins usually require you to at least stake and then claim/exit. Depending on the pools you are farming you might also have to add liquidity to decentralized exchanges - making the position more intricate and costlier to unfurl.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Secondly, NEVER BUY THE FOOD TOKENS - farm them.&lt;/strong&gt; Buying such a token is taking on an incredible amount of risk - you are against an army of people farming them for free who can be eager to dump.&lt;/p&gt;
+&lt;p&gt;Finally, let&amp;rsquo;s get a bit more practical by looking at real examples to explicit the risk scenario of each farming pool types:&lt;/p&gt;
+&lt;h4 id=&#34;level--1---erc-20-staking-pool---ok-if-the-code-is-safu&#34;&gt;LEVEL = 1 - ERC 20 STAKING POOL - OK IF THE CODE IS SAFU
+&lt;/h4&gt;&lt;p&gt;With such pools, you stake a DeFi token (usually MKR, COMP, SNX, LEND, wETH and YFI) to earn the meme food token, YAM for instance.&lt;/p&gt;
+&lt;p&gt;The risk is minimized: if you can compare the staking code with an existing one to ensure there are no shenanigans. Since you&amp;rsquo;re simply staking and not providing liquidity - you&amp;rsquo;re not taking any economic risks. As long as you can ensure the safety of the protocol - your farm capital is not endangered.&lt;/p&gt;
+&lt;p&gt;Past this point (SAFU confirmed), the main risk you are taking is that the coin you are farming might be worth little to nothing by the time you have enough to dump. Stick to reasonable projects to avoid such a scenario known as as the &amp;ldquo;death spiral&amp;rdquo; - when a meme coin enters the final phase of its existence:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/defi-moneygames/pasta-deathloop.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;defi-moneygames-PASTA-deathloop&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;level--2---982-pools&#34;&gt;LEVEL = 2 - 98%/2% POOLS
+&lt;/h4&gt;&lt;p&gt;These pools are usually more tricky, as they involve providing liquidity to a decentralised exchange. Often, they are heavily skewed towards a sound &amp;amp; reputable token: for instance, the YFLink 98% aLINK / 2% YFL pool.&lt;/p&gt;
+&lt;p&gt;Here, &lt;strong&gt;you are facing a new type of risk: impermanent losses.&lt;/strong&gt; IL are greatest when the two assets involved in the pool are moving fast in opposite directions, price-wise. 98/2% pools have their own category because they are a bit safer, although they are not fully immune to IL.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/defi-moneygames/yfv.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;defi-moneygames-YFV&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;level--rekt---the-dumping-pools&#34;&gt;LEVEL = REK&amp;rsquo;T - THE DUMPING POOLS
+&lt;/h4&gt;&lt;p&gt;These pools are the MOST dangerous. I&amp;rsquo;d advise anyone needing guidance to simply avoid them - the game is too risky to be played. A great example of why is the PASTA yyCRV / PASTA Uniswap pool.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s put it like this: if some can farm PASTA essentially for free by locking some DeFi tokens - why would they not dump them all for yyCRV, the soundest money-making machine of the industry? That is precisely what happened.&lt;/p&gt;
+&lt;p&gt;As soon as the incentivised pool launched, PASTA farmers dumped heavily to claim those precious yyCRV fools put up for grabs. Why would they not? The price of PASTA tanked from roughly $1 to $0.04, butchering any profit made by those who committed to the pools on top of them losing their precious yyCRV.&lt;/p&gt;
+&lt;p&gt;So what qualifies a pool as the dumping pool? &lt;strong&gt;Allow me to be super explicit here to make sure you&amp;rsquo;re not going hara-kiri with your precious tokens&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;The dumping pool is usually 50/50&lt;/strong&gt;: 50 of the meme shitcoin, 50 of a sound asset like ETH, wETH or yyCRV.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The dumping pool is incentivized with a high budget&lt;/strong&gt;- how else would you get plebs to commit? Of course, this profit is hard to realise as most of the capital is lost to IL, and the returns are earned in the foodcoin which can enter the death spiral.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The dumping pool usually launches a few days after the first ones&lt;/strong&gt;, and last longer. Indeed, you need to give a few days for the farmers to accumulate.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Don&amp;rsquo;t trust me, I&amp;rsquo;m just a simple farmer - follow a legend like &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/DegenSpartan/status/1296619171984232448?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DegenSpartan&lt;/a&gt; - he&amp;rsquo;s nice enough to announce his dumps publicly (shortly) after they started.&lt;/p&gt;
+&lt;p&gt;Best of luck, and remember one thing if you recently joined the space: the food money games are played against experienced traders with years of crypto experience.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;Most are 0 sum games: no value is created, it&amp;rsquo;s just a complex 3-4 layers value transfer mechanism.&#39;&#39;&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Are you confident enough in your experience to venture into the lions&amp;rsquo; den?&lt;/strong&gt; If not, stand clear of anything past the basic staking pools.&lt;/p&gt;
+&lt;hr&gt;
+&lt;div class=&#34;notice info&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#info-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Info&lt;/p&gt;&lt;p&gt;I am not a financial advisor - you make your own decision. I have no formal training or certification when it comes to investing. I&amp;rsquo;m merely sharing my personal experience with decentralised finance services, with the goal of helping my peers to better understand the value provided by such services.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;I am NOT responsible for &lt;u&gt;YOUR INVESTMENT DECISIONS&lt;/u&gt;&lt;/strong&gt;, may they bring you Lambos or bankruptcy.&lt;/p&gt;&lt;/div&gt;
+
+</description>
+        </item>
+        <item>
+        <title>🎚 ETH exposure or DeFi yields: why choose?</title>
+        <link>http://localhost:1313/p/eth-exposure-or-defi-yields-why-choose/</link>
+        <pubDate>Mon, 03 Aug 2020 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/eth-exposure-or-defi-yields-why-choose/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2020/leveraging-ETH/leveraging-ETH.png" alt="Featured image of post 🎚 ETH exposure or DeFi yields: why choose?" /&gt;&lt;p&gt;As the Ether giant seems to be waking up, you might be considering your &lt;strong&gt;options to recenter your exposure on ETH&lt;/strong&gt;. This is precisely what I&amp;rsquo;ve been looking at and executed on lately, and now is the time for the feedback session!&lt;/p&gt;
+&lt;p&gt;Indeed, DeFi is heating up and yields are attractive. However, &lt;strong&gt;even crazy liquidity mining returns (on stablecoins) might not beat the ETH price appreciation once its time comes.&lt;/strong&gt; So, instead of having to choose, why not have not both?&lt;/p&gt;
+&lt;p&gt;With this one goal in mind, the most obvious solution was &lt;a class=&#34;link&#34; href=&#34;http://makerdao.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Maker&lt;/a&gt;. The position can, of course, be achieved using other services; I consider them at the end.&lt;/p&gt;
+&lt;p&gt;So there you have the base idea: instead of investing directly in ERC20 or stablecoins and putting them to work, you maintain an ETH base, use it to generate DAI and then diversify into your positions. This way, you maintain a healthy ETH exposure - the tradeoff being the additional risk, including liquidation that are discussed below.&lt;/p&gt;
+&lt;h2 id=&#34;re-investing-the-minted-dai&#34;&gt;Re-investing the minted DAI
+&lt;/h2&gt;&lt;p&gt;The options to re-invest your DAI are pretty much infinite, so I will focus on these that make the most sense - aka the best at harnessing the current DAI premium. Feel free to check my previous publications covering incentivised liquidity pools investment opportunities &amp;amp; the useful tools to harness them:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/yield-farmer-tier-list.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;💦 The Yield Farmer Tier List&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/defi-farmer-toolbox.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🧰 The DeFinancial Farming Toolbox&lt;/a&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;So essentially when it comes to what makes of the DAI, you have several options, here are the broad categories:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SIMPLE STABLECOIN RETURNS&lt;/strong&gt; - Put your DAI to work, with a simple deposit on Compound or Aave, or using a yield optimiser.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ADV. STABLECOIN RETURNS&lt;/strong&gt; - Invest in Curve Ypool for decent returns + extra earning opportunities on your pool tokens.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ERC20 EXPOSURE (+LP)&lt;/strong&gt; - Purchase ERC20 tokens and hold or purchase ERC20 tokens and provide liquidity.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MORE ETH LEVERAGE&lt;/strong&gt; - Use the DAI to buy more ETH. Can be potentially repeated for more leverage (CAREFUL). This obviously makes the most sense when you&amp;rsquo;re expecting positive price action on ETH.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;DAI is currently trading at a premium ($~1.03), some strategies are better than others to harness the impact of this spread. I detail them in the last section.&lt;/p&gt;
+&lt;h3 id=&#34;vault-management-how-to-increase-gas-efficiency&#34;&gt;Vault Management: How to Increase Gas Efficiency?
+&lt;/h3&gt;&lt;p&gt;When it comes to making sure you&amp;rsquo;re not burning yourself on the gas costs, I&amp;rsquo;ve already covered several critical tools that we won&amp;rsquo;t detail again, such as &lt;a class=&#34;link&#34; href=&#34;http://zapper.fi/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Zapper.Fi&lt;/a&gt;, or &lt;a class=&#34;link&#34; href=&#34;http://paraswap.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ParaSwap&lt;/a&gt; for some token swaps. Today, I want to discuss services that are helpful to manage Maker vaults.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;While interacting with your vaults, you&amp;rsquo;ll find yourself make series of transactions (deposit ETH -&amp;gt; mint DAI -&amp;gt; do something with the DAI). To reduce your gas costs, you can &lt;strong&gt;use &lt;a class=&#34;link&#34; href=&#34;https://furucombo.app/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;FuruCombo&lt;/a&gt; to build your series of operations and execute it in one transaction.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;You might find yourself in need of a &amp;ldquo;flash capital&amp;rdquo; to close a position somewhere and re-open it somewhere else. If that&amp;rsquo;s the case, an Aave flash loan will be useful. Now for the best part: &lt;strong&gt;flash loans are available on FuruCombo!&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/leveraging-ETH/furucombo.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Collateral swap using Furucombo&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Keep in mind that in these times of high gas cost, each interaction is costly. To reduce the impact of gas on your strategy, try to minimize the amount of operations you&amp;rsquo;re doing - FuruCombo is simply amazing for that!&lt;/p&gt;
+&lt;p&gt;If you have many positions to close/open, you might also want to wait for an opportunistic time to do so, where gas costs are low. The weekend evenings (Europe time) are usually best.&lt;/p&gt;
+&lt;h2 id=&#34;-please-read-how-to-not-get-liquidated&#34;&gt;🚨 PLEASE READ: How to not get liquidated?
+&lt;/h2&gt;&lt;h3 id=&#34;understanding-makers-liquidation-mechanism&#34;&gt;Understanding Maker&amp;rsquo;s Liquidation Mechanism
+&lt;/h3&gt;&lt;p&gt;When you get liquidated, (a part of) your collateral is seized to cover your debt. &lt;strong&gt;The existence of liquidation on Maker means you could lose potentially all of your ETH&lt;/strong&gt; if you are careless.&lt;/p&gt;
+&lt;p&gt;Here are my tips and recommendations to make sure this does not happen to you:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;If you are just starting with leverage, maintain a very healthy collateralization ratio&lt;/strong&gt;. I’d recommend &amp;gt; 300 % for new users, simply for peace of mind during your discovery phase.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Don&amp;rsquo;t put all of your eggs in one basket&lt;/strong&gt;: on Maker, you can open as many vaults as you want. While you don’t want to open hundreds of positions to keep the gas costs in check, you might also want to consider splitting your stash to not put all of your ETH under the same risk and be able to more gradually manage the positions as they grow.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Easy Vault Management&lt;/strong&gt;: if you&amp;rsquo;d like a less stressful approach, you can use &lt;a class=&#34;link&#34; href=&#34;https://defisaver.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFiSaver&lt;/a&gt; to make sure your vault is automatically kept at a certain ratio with the Save function.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/leveraging-ETH/defisaver-automation.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Automating Maker Vault Management with DeFi Saver&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;advanced-vault-management&#34;&gt;Advanced Vault Management
+&lt;/h3&gt;&lt;p&gt;If you have several vaults, you can use a tool to re-distribute capital between them in one transaction, again with FuruCombo:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Mint DAI on Vault1 (currently safe) 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; Burn DAI on Vault2 to lower its risk
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Using a flash loan, you can even fully close a vault “into” another vault for instance:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Flash loan DAI (=debt of Vault-1) 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; Burn on Vault-1, to free the ETH 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt;&amp;gt; Deposit the ETH in Vault-2 (the one you keep) 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt;&amp;gt;&amp;gt; Mint DAI on Vault2 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; Pay back the flash loan.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Be mindful with what you do with the DAI you mint: it&amp;rsquo;s a debt.&lt;/strong&gt; Prefer safer investment options. If you invest in something stupid &amp;amp; get rekt at the same time the ETH price is depreciating, you could be putting your ETH at risk.&lt;/p&gt;
+&lt;h2 id=&#34;why-maker-is-the-best-service-to-leverage-eth-right-now&#34;&gt;Why Maker is the best service to leverage ETH right now
+&lt;/h2&gt;&lt;p&gt;I decided to focus this article on Maker only, considering the angle is to leverage ETH and Maker is currently the best platform to do so, as well as probably the safest (running track record). Here are my main three reasons:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Fits the bill&lt;/strong&gt; - It enables you to keep an ETH exposure while generating extra DAI to re-invest.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;0 fee if not liquidated - (⚠ gas costs)&lt;/strong&gt; The current stability fee is 0 (on ETH) - it costs you nothing but gas to open a position on Maker.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DAI Premium -&lt;/strong&gt; DAI is frequently trading at $ 1.02-1.03 meaning minting DAI can result in a 2-3% instant profit on the amounts reinvested (more on this later - DAI premium section).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Please keep in mind that &lt;strong&gt;this is NOW&lt;/strong&gt;, several weeks from now there might be better options for such positions, as Aave implements its new tokenomics for instance. A similar position could already be achieved today using Compound, but it doesn&amp;rsquo;t seem profitable to do so right now (vs Maker).&lt;/p&gt;
+&lt;h2 id=&#34;who-is-this-strategy-for&#34;&gt;Who is this strategy for?
+&lt;/h2&gt;&lt;p&gt;Since it&amp;rsquo;s quite a flexible strategy, &lt;strong&gt;it can be used by pretty much anyone owning ETH and looking for a way to put them to work.&lt;/strong&gt; However, allow me to highlight some use case scenarios that should give you ideas:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;You&amp;rsquo;ve entered the markets recently (2019), and made profits but not really on ETH. While your ERC-20 positions are up, you might be wary about missing on ETH gains. To increase your exposure to ETH, you could settle some of your positions to ETH, open a vault, and reopen up to ⅔ of the closed ERC-20 positions.&lt;/li&gt;
+&lt;li&gt;You&amp;rsquo;ve been harnessing neat gains on the stablecoins farming lately, but even the best yields can&amp;rsquo;t beat a waking giant. You might consider buying ETH with your stablecoins, to then open a vault and reopen part of your stablecoin position - you keep some of your yields while adding a sweet exposure to ETH&amp;rsquo;s price.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;harnessing-the-dai-premium&#34;&gt;Harnessing the DAI Premium
+&lt;/h3&gt;&lt;p&gt;To conclude, let&amp;rsquo;s consider the best options if your goal is to make the most of the current DAI premium - what does it impact most?&lt;/p&gt;
+&lt;p&gt;Obviously, it&amp;rsquo;s very nice for ETH-leveraged long. Indeed, if DAI trades at $1.03, buying ETH from DAI is more efficient.&lt;/p&gt;
+&lt;p&gt;If you are considering investing in the Curve y pool, I&amp;rsquo;d recommend going 100% from DAI. You&amp;rsquo;ll save gas cost massively on the swaps that are not required (+ less deposit and approve tx). On top of these savings, entering the Curve y pool fully in DAI usually has a positive price slippage.&lt;/p&gt;
+&lt;p&gt;Currently it sits ~1.5% over 5000 DAI: that is 1.5% instant profit as you enter the position, quite attractive right?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/leveraging-ETH/curve-dai-premium.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Curve DAI Premium&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Depending on your risk preference and your capital, you might want to time your entry. I was able to harness up to a 3.5% positive bonus entering the ypool, so waiting can be worth it!&lt;/p&gt;
+&lt;p&gt;Thanks to Grégoire for proof reading this content &amp;amp; &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/jimmyragosa&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Jimmy&lt;/a&gt; for suggesting &lt;a class=&#34;link&#34; href=&#34;https://defisaver.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFiSaver&lt;/a&gt;, try it out!&lt;/p&gt;
+&lt;h2 id=&#34;key-takeaways&#34;&gt;Key Takeaways
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;You can &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;http://oasis.app/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;put your ETH to work&lt;/a&gt;&lt;/strong&gt;, without selling them! Try out with a first safe (&amp;gt;300%) position.&lt;/li&gt;
+&lt;li&gt;Liking it? Start exploring other strategies but remember to account for gas costs. Use &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://furucombo.app&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;FuruCombo&lt;/a&gt;&lt;/strong&gt; to build more complex flows.&lt;/li&gt;
+&lt;li&gt;Using vaults more and more? It might be a good time to consider &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://defisaver.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFiSaver&lt;/a&gt;&lt;/strong&gt; to reduce your risk and manage your vault without stress.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/MakerDaiBot/status/1290243544670785536&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;The Stability Fee is now = 0&lt;/a&gt; for all collaterals on Maker.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
+        <title>💦 The Yield Farmer Tier List</title>
+        <link>http://localhost:1313/p/the-yield-farmer-tier-list/</link>
+        <pubDate>Tue, 07 Jul 2020 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/the-yield-farmer-tier-list/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2020/yield-farmer-tier-list/cover.png" alt="Featured image of post 💦 The Yield Farmer Tier List" /&gt;&lt;p&gt;DeFi is like a layered yield cake. When you first walk through the door, making a deposit on Aave and seeing your balance grow puts you in awe. Shortly thereafter, through your own research or discussions with the community, you realize there is more to it &lt;strong&gt;- there could be icing on the cake too!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;There are many ways you could find several streams of yields on a given capital utilizing Ethereum&amp;rsquo;s decentralized finance. &lt;strong&gt;Today, we&amp;rsquo;ll exclude out of the box any strategy involving leverage&lt;/strong&gt; - the easiest way to achieve such a feat. There are still a lot of high-quality crops to plant, even without leverage!&lt;/p&gt;
+&lt;p&gt;Indeed, capital efficiency is increasing at a rapid pace in DeFi thanks to novel financial primitives like Compound, Balancer or Curve. It&amp;rsquo;s now possible to &lt;strong&gt;achieve up to 3 layers of returns&lt;/strong&gt;, and there are pools for any risk appetite, from pure stablecoins ones to 100% ERC-20 tokens exposure.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The Liquidity Wars are merely beginning.&lt;/strong&gt; Follow the governance of the protocol you&amp;rsquo;re invested in closely, it&amp;rsquo;s even more critical now. Meanwhile, since DeFi feels more and more like gaming, allow me to import a concept inherited from there: tier list.&lt;/p&gt;
+&lt;p&gt;In video games, tier lists are useful to navigate the different types of characters or builds. They establish both a typology and a ranking. Today, we&amp;rsquo;ll bring this concept back to DeFi to arrange the most attractive liquidity pools into coherent groups.&lt;/p&gt;
+&lt;h2 id=&#34;before-we-start&#34;&gt;BEFORE WE START
+&lt;/h2&gt;&lt;p&gt;ℹ Please note - This content assumes a basic understanding of the world of Ethereum&amp;rsquo;s decentralized finance. Refer to my earlier articles if that&amp;rsquo;s the first time you&amp;rsquo;ve heard of it:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;This piece will not cover basic DeFi investment strategies, detailed in the &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/definancial-services-guide.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;📖 DeFinancial Services Guide&lt;/a&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;For more information regarding the tools you can use to implement and manage these strategies, please check &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/defi-farmer-toolbox.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🧰 The DeFinancial Farming Toolbox&lt;/a&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;This is not investment advice and reading this document as anything more than a structured list of incentivised liquidity pools would be a misrepresentation.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;suggest-yours&#34;&gt;Suggest yours!
+&lt;/h3&gt;&lt;p&gt;This post can be a living document. Feel free to suggest incentivised pools I&amp;rsquo;ve missed. If you are familiar with Github, &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/TokenBrice/blog/blob/master/content/posts/2020/yield-farmer-tier-list.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;you can do a pull request&lt;/a&gt;&lt;/strong&gt;. If not, just reach out and share documentation about the pool and its incentive program.&lt;/p&gt;
+&lt;p&gt;Finally, allow me to make the distinction between:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Liquidity Mining&lt;/strong&gt;: a base action of the platform (such as supply liquidity) is rewarded with the platform native token (ex: BAL on Balancer)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Liquidity Incentive Programs&lt;/strong&gt;: a specific liquidity pool is eligible for extra rewards, through staking of the pool token or weekly distributions (ex: Wednesday for JRT Balancer pools).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The good news is: you can stack both! Let&amp;rsquo;s see how.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/yield-farmer-tier-list/yield-farmer-tier-list.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;TokenBrice-Yield-Farmer-Tier-List-DeFi&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;tier-1-defi-yield-trifecta&#34;&gt;Tier 1: DeFi Yield Trifecta
+&lt;/h2&gt;&lt;p&gt;As I walk you through the main earning-staking opportunities I&amp;rsquo;ve found, I will also share broader considerations about providing liquidity on AMMs, such as thoughts on the pool weighting to help you make informed decisions.&lt;/p&gt;
+&lt;p&gt;So before we chase our wildest dream, the highly-thought-after yield trifecta, let&amp;rsquo;s take a minute to consider what it looks like. When it comes to yields, the cream of the crop is usually an incentivised &amp;amp; balanced Balancer pool with low fees, meaning it&amp;rsquo;s eligible for the maximum amount of BAL liquidity mining rewards, on top of the liquidity incentive program (&amp;amp; the commissions on swaps).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;There is exactly one Balancer pool matching these criteria with 2 stablecoins&lt;/strong&gt; to my knowledge, so this is where we start:&lt;/p&gt;
+&lt;h3 id=&#34;the-50-musd--50-usdc-balancer-pool&#34;&gt;The 50% mUSD / 50% USDC Balancer Pool
+&lt;/h3&gt;&lt;p&gt;mstable&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; is a meta-stablecoin. You can go on their app to lock your USDT, USDC, DAI &amp;amp; TUSD to mint mUSD. Once you own mUSD, several earning opportunities are available.&lt;/p&gt;
+&lt;p&gt;The most direct one is the &amp;ldquo;Save&amp;rdquo; feature on the mStable app. It will lock your mStable tokens and generate a return through lending.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/yield-farmer-tier-list/mstable.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;mstable&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Now that&amp;rsquo;s a simple yield and won&amp;rsquo;t deserve a feature here by itself.&lt;/p&gt;
+&lt;p&gt;However, it&amp;rsquo;s the perfect introduction to the Balancer mUSD/USDC pool, our first trifecta of the day. What&amp;rsquo;s a trifecta you ask? Pretty simple: 3 layers of yields:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Commissions on swaps&lt;/strong&gt;: It&amp;rsquo;s a liquidity pool facilitating trades and earning a fee.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;BAL liquidity mining&lt;/strong&gt;- this is a balanced 50/50 pool with low fee (5 bps) earning the maximum amount of BAL possible (mining factor = 1).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://medium.com/mstable/introducing-meta-mta-mstables-protocol-token-6e1032291ccf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MTA liquidity incentives&lt;/a&gt;&lt;/strong&gt; program on this pool.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;EXPOSURE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;REWARDS IN&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;AVAILABLE SINCE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L1 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L2 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L3 APY / INCENTIVE BUDGET&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;50% USDC&lt;br/&gt;50 %mUSD&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Native&lt;br/&gt;BAL&lt;br/&gt;MTA&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;June 26 2020&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Variable&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;?? BAL&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;50 000 MTA/week&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;em&gt;*Native rewards = earned in the same token as the exposure (usually a commission fee taken on trades facilitated)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Please note: The respective ratios of four stablecoins backing the mUSD (half of the exposure) can vary, go to the m stable app&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; to view it:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/yield-farmer-tier-list/musd.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;mstable-asset-distribution&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;This pool is particularly attractive because the exposure is 100% stablecoin-based, despite a very solid yield thanks to the max BAL mining ratio + the incentive program paid in the highly anticipated MTA token.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note/Warning: 💬 Discussions are ongoing in the &lt;a class=&#34;link&#34; href=&#34;https://discord.com/invite/ARJWaeF&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Balancer Discord&lt;/a&gt; governance channel to lower the BAL mining ratio on this pool. It was lowered to 0.1 for tokens tracking the same asset.&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;9010-incentivised-balancer-pools&#34;&gt;90/10 Incentivised Balancer Pools
+&lt;/h3&gt;&lt;h4 id=&#34;90-snx--10-usdc-balancer-pool&#34;&gt;90% SNX / 10% USDC Balancer Pool
+&lt;/h4&gt;&lt;p&gt;Feel like you missed out on SNX rise? For medium capitals (&amp;lt; 5000 SNX) it makes little sense to stake if you account for the gas costs. This pool is a great alternative for a bullish SNX exposure with great yield potential.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;EXPOSURE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;REWARDS IN&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;AVAILABLE SINCE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L1 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L2 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L3 APY / INCENTIVE BUDGET&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;90% SNX&lt;br/&gt;10% USDC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Native&lt;br/&gt;BAL&lt;br/&gt;SNX&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;5 Jun 2020&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Variable&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;23 % for a $10 BAL&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DONE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Here, since the pool is heavily skewed towards SNX, the BAL mining is not maximized. Remember the factor of 1 for the BAL mining on the mUSD pool? Here it&amp;rsquo;s 0.36: you get about a third of the amount of BAL you would mine in a 50/50 &amp;amp; low-fee pool.&lt;/p&gt;
+&lt;p&gt;However, 90/10 pools are great to heavily minimize impermanent losses risk if you believe the token has a lot of upside potential.&lt;/p&gt;
+&lt;p&gt;The &lt;a class=&#34;link&#34; href=&#34;https://blog.synthetix.io/balancer-snx-usdc-liquidity-trial/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;incentive program on this pool is now over&lt;/a&gt;, so it&amp;rsquo;s back to being a regular twofecta pool.&lt;/p&gt;
+&lt;h4 id=&#34;jrt-balancer-pools&#34;&gt;JRT Balancer Pools
+&lt;/h4&gt;&lt;p&gt;Jarvis Network offers an incentive program over three pools, all 90 % JRT + 10% DAI, ETH or USDC. The reward model is similar to the previous pool:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;EXPOSURE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;REWARDS IN&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;AVAILABLE SINCE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L1 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L2 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L3 APY / INCENTIVE BUDGET&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;90% JRT&lt;br/&gt;10% ETH, DAI or USDC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Native&lt;br/&gt;BAL&lt;br/&gt;JRT&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Jun 17 2020&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Variable&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;23 % for a $10 BAL&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;70 000 JRT/week&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://medium.com/jarvis-network/liquidity-program-with-balancer-db23aa0ce10&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;📖 Incentive Program Introduction&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Please note: JRT price&amp;rsquo;s action has been quite explosive lately. DYOR.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;⚡ Update (&lt;em&gt;July 08&lt;/em&gt;): JRT rewards are now distributed to ANY Balancer pool (whitelisted):&lt;/p&gt;
+&lt;h3 id=&#34;ampl-geyser&#34;&gt;AMPL Geyser
+&lt;/h3&gt;&lt;p&gt;AMPL is a beast of its own, so I invite you to read more on it &lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; before you dive into this one. Here, the exposure is 50 % ETH and 50 % AMPL. On top of your commissions, you&amp;rsquo;re eligible for extra AMPL &amp;amp; as well as the AMPL rebalances (on your AMPL = 50% of the exposure).&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;EXPOSURE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;REWARDS IN&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;AVAILABLE SINCE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L1 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L2 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L3 APY / INCENTIVE BUDGET&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;50 % ETH&lt;br/&gt;50 % AMPL&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Native&lt;br/&gt;AMPL&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;April 21st 2020&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Variable&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Variable - AMPL Rebalances&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;36 911 AMPL/month&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.ampltalk.org/app/forum/ampl-geyser-19/topic/about-the-geyser-21/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;📖 AMPL Geyser Incentive Program Introduction&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Rebalances compounded impact can be hard to calculate. This spreadsheet recently emerged to &lt;a class=&#34;link&#34; href=&#34;https://www.publish0x.com/canuhodl/ampleforth-dollar-ampl-calculator-spreadsheet-for-investors-xmdjxvy&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🧮 help AMPL investors calculate the impact of the rebalances.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/yield-farmer-tier-list/ampl-geyser.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;ampleforth-geyser&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The Geyser code is audited&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt; and insured on Nexus Mutual&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;. The reward calculation here takes into account the time staked - so this pool is best utilised over the long-term.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;tier-2-how-many-fecta-can-there-be&#34;&gt;Tier 2: How many fecta can there be?
+&lt;/h2&gt;&lt;h3 id=&#34;synthetix-incentivised-pools&#34;&gt;Synthetix Incentivised Pools
+&lt;/h3&gt;&lt;p&gt;Synthetix has been pioneering liquidity incentive programs with the early Uniswap sETH/ETH pool (+SNX incentives). Synthetic pools are still highly attractive, we&amp;rsquo;ll consider the two main ones of interest for yield stakers.&lt;/p&gt;
+&lt;p&gt;Please note the Curve&amp;rsquo;s token (CRV), one of the liquidity mining rewards of both pools presented below, is not live yet. &lt;a class=&#34;link&#34; href=&#34;https://github.com/curvefi/curve-dao-contracts/blob/master/doc/readme.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;CRV currently documented mechanisms&lt;/a&gt; can change before the launch.&lt;/p&gt;
+&lt;h3 id=&#34;the-og-curve-susd-pool&#34;&gt;The OG: Curve sUSD Pool
+&lt;/h3&gt;&lt;p&gt;Just like the mUSD/USDC pool, this pool exposure is 100% in stablecoins, yet the rewards are paid in SNX.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;EXPOSURE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;REWARDS IN&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;AVAILABLE SINCE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L1 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L2 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L3 APY / INCENTIVE BUDGET&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;31.58 % USDT&lt;br/&gt;30.67% USDC&lt;br/&gt;24.62% suSD&lt;br/&gt;13.13% DAI&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Native&lt;br/&gt;SNX&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Aprill 22 2020&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;~5 %&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;CRV (not live yet)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;48 000 SNX / week&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.synthetix.io/new-curve-pool-launch/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;📖Incentive Program Introduction&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This pool is one of the earliest liquidity mining programs there is yet still quite competitive. If you&amp;rsquo;ve read my previous guides, you know about this already&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;the-btc-og-variant-curve-renbtcsbtcwbtc&#34;&gt;The BTC-OG Variant: Curve renBTC/sBTC/wBTC
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/yield-farmer-tier-list/curve-btc.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;curve-synthetix-balancer-ren-btc-pool&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;This is similar to the first one, with different tokens. Here, your price exposure is 100% in BTC, while your liquidity mining rewards are made of four hot DeFi tokens: BAL, SNX, REN &amp;amp; CRV.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;EXPOSURE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;REWARDS IN&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;AVAILABLE SINCE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L1 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L2 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L3 APY / INCENTIVE BUDGET&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;44.54% renBTC&lt;br/&gt;32.21% wBTC&lt;br/&gt;23.26% sBTC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Native&lt;br/&gt;SNX, REN, BAL &amp;amp; CRV&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;June 19 2020&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;~5 %&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;BAL&lt;br/&gt;CRV&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;10 000 SNX/week&lt;br/&gt;25 000 REN/week&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.synthetix.io/btc-yield-farming-pool/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;📖Incentive Program Introduction&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Because these two Curve pools have full exposure in a stable (USD) or relatively stable assets (BTC), they are a great resource to &amp;ldquo;park&amp;rdquo; profits realised on more risky ERC-20 based pools. You still &lt;strong&gt;maintain a decent APR on the base asset (~3-5%) while having a nice upside potential on the liquidity mining rewards&lt;/strong&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;tier-3-twofecta-are-nice-too&#34;&gt;Tier 3: Twofecta are nice too!
+&lt;/h2&gt;&lt;h3 id=&#34;your-favorite-erc-20-balancer-pool&#34;&gt;Your Favorite ERC-20 Balancer Pool
+&lt;/h3&gt;&lt;p&gt;The Balancer exchange comes with built-in BAL mining incentives. They apply to any pool involving whitelisted tokens. Therefore, any Balancer pool is already a twofecta: you&amp;rsquo;re eligible for commissions on the swaps facilitated + the BAL mining rewards. Please keep in mind that the pool weighting (ideally balanced) and fees (ideally low) affect the BAL mining ratio. The table below assume a ratio of 1, observed for instance on 50/50 pairs with 5 bps fees (0.05%).&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s look at the return profile generic Balancer pools:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;EXPOSURE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;REWARDS IN&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;AVAILABLE SINCE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L1 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L2 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L3 APY / INCENTIVE BUDGET&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;50% wETH&lt;br/&gt;50% ERC20&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Native&lt;br/&gt;BAL&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;June&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Variable&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;~60% for a $10 BAL&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Beyond Balancer, Liquidity incentives programs are getting into fashion, expect more to be revealed, as well as liquidity mining programs. You can &lt;strong&gt;use a service like &lt;a class=&#34;link&#34; href=&#34;https://pools.fyi/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Pool FYI&lt;/a&gt; which now has an &amp;ldquo;Incentivised&amp;rdquo; tag to check for the best opportunities&lt;/strong&gt;. For Balancer, use &lt;a class=&#34;link&#34; href=&#34;http://www.predictions.exchange/balancer/%5B%5D&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;this website&lt;/a&gt; to explore the pools and check their BAL mining factor.&lt;/p&gt;
+&lt;h3 id=&#34;compound-deposit&#34;&gt;Compound Deposit
+&lt;/h3&gt;&lt;p&gt;Since the launch of COMP, a Compound deposit could also be considered a twofecta. Indeed, on top of the base APR the deposit is earning, users are also now eligible for COMP rewards. You can &lt;a class=&#34;link&#34; href=&#34;http://www.predictions.exchange/compound/None&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;calculate them here&lt;/a&gt;.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;EXPOSURE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;REWARDS IN&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;AVAILABLE SINCE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L1 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L2 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L3 APY / INCENTIVE BUDGET&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Depends&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Native&lt;br/&gt;COMP&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;June&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Variable&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Variable in COMP&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;-risk-breakdown---read-this&#34;&gt;⚠ RISK BREAKDOWN - READ THIS
+&lt;/h2&gt;&lt;p&gt;Each pool comes with its own sets of risk, here&amp;rsquo;s an overview to help you account for them. When you invest in a liquidity pool, you&amp;rsquo;re assuming the following risk:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;/ALWAYS/ The base Ethereum network risk (51% attack, etc.)&lt;/li&gt;
+&lt;li&gt;/ALWAYS/ You&amp;rsquo;re also assuming the risk carried by the token contracts of any token involved in the pool.&lt;/li&gt;
+&lt;li&gt;/ALWAYS/ As well as the risk involved to the exchange&amp;rsquo;s contracts, which can be hacked or faulty to begin with.&lt;/li&gt;
+&lt;li&gt;/ALWAYS/ An economic risk, the impermanent losses (loss vs raw holding) - that will be heavily affected by your token choices &amp;amp; the pool weighting.&lt;/li&gt;
+&lt;li&gt;/WHILE ENTERING &amp;amp; EXITING/ The risks associated with any service you use, such as &lt;a class=&#34;link&#34; href=&#34;https://zapper.fi&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Zapper.fi&lt;/a&gt;, for the time of the transaction.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I will walk you through the risk profile of one of the pools to help you model it: the mUSD/USDC pool. Just like the returns, the risk profile is a cake with many layers:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;I won&amp;rsquo;t develop on the Ethereum network risk&lt;/li&gt;
+&lt;li&gt;Here, we have two tokens in the pool: mUSD &amp;amp; USDC. To compute the risk, we need to look at what&amp;rsquo;s backing mUSD - unwrapping, we&amp;rsquo;re exposed to: USDC, USDT, TUSD. Each of these tokens carry their own risks, since for instance &lt;a class=&#34;link&#34; href=&#34;https://support.usdc.circle.com/hc/en-us/articles/360001314526-Circle-USDC-Risk-Factors&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Circle can freeze USDC balances of any account&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Here, we&amp;rsquo;re using Balancer. Their contracts were audited by Trail of Bits recently&lt;sup id=&#34;fnref1:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;. Still, the protocol is quite recent. We&amp;rsquo;re also relying on mStable contracts for the mUSD.&lt;/li&gt;
+&lt;li&gt;We&amp;rsquo;re lucky on the impermanent losses - considering the pool involves two stablecoins, the risk is minimized.&lt;/li&gt;
+&lt;li&gt;It all depends on the tools you&amp;rsquo;re using here. Bear in mind that you&amp;rsquo;re also assuming a risk associated with mUSD/Mstable.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Happy farming!&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;Thanks to &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/gregoireljda&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Grégoire&lt;/a&gt; for his help proofreading this article.&lt;/em&gt;
+&lt;em&gt;Thanks to &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/otherbright&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Jon&lt;/a&gt; for his careful review of the FR translation.&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://mstable.org&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;mStable&lt;/a&gt; is a &amp;ldquo;meta stablecoin&amp;rdquo; aggregating several stablecoins together (USDC, USDT, TUSD &amp;amp; DAI) under the mUSD token, while the underlying supply is mobilised similarly to Curve (lending and liquidity providing).&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;You can view the current mUSD underlying distribution on the &lt;a class=&#34;link&#34; href=&#34;https://app.mstable.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;mStable app&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://ampleforth.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Ampleforth (AMPL)&lt;/a&gt; is &amp;ldquo;adaptive money built on sound economics&amp;rdquo;. It intends to provide a new type of asset which price movement is uncorrelated from any other.&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/ampleforth/ampleforth-audits/blob/master/token-geyser/v1.0.0/CertiK_Verification_Report.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Certik - Audit Report 28 Feb 2020&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref1:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:5&#34;&gt;
+&lt;p&gt;There are currently 51 643 NXM staked on the AMPL Geyser Contract &lt;a class=&#34;link&#34; href=&#34;https://etherscan.io/address/0xd36132e0c1141b26e62733e018f12eb38a7b7678&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;code&gt;0xd36132e0c1141b26e62733e018f12eb38a7b7678&lt;/code&gt;&lt;/a&gt;. &lt;img src=&#34;http://localhost:1313/img/2020/yield-farmer-tier-list/ampl-geyser-insurance.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;cover-Yield-Farmer-Tier-List&#34;
+	
+	
+&gt;&amp;#160;&lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:6&#34;&gt;
+&lt;p&gt;The Curve sUSD pool was already mentioned as part of a DeFi investment strategy built on an SNX stake in the &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/posts/2020/definancial-services-guide/#5-a-the-synthetixcurve-yieldstack-aka-the-4-steaks-yieldburger&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFinancial Service Guide&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
+        <title>🧰 The DeFinancial Farming Toolbox</title>
+        <link>http://localhost:1313/p/the-definancial-farming-toolbox/</link>
+        <pubDate>Sun, 28 Jun 2020 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/the-definancial-farming-toolbox/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2020/defi-farmer-toolbox/cover.jpeg" alt="Featured image of post 🧰 The DeFinancial Farming Toolbox" /&gt;&lt;p&gt;Howdy farmer,&lt;/p&gt;
+&lt;p&gt;If you made it here, we will assume a shared basic understanding of &lt;a class=&#34;link&#34; href=&#34;https://ethereumprice.org/guides/article/yield-farming/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;what yield farming is&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You might even have tried it by yourself, or heard the &lt;a class=&#34;link&#34; href=&#34;https://defiweekly.substack.com/p/tales-from-a-yield-farmer&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;tales from a yield farmer&lt;/a&gt;: amazing! Today, it’s my turn to share key concepts &amp;amp; a curated list of tools to help you make the most out of it.&lt;/p&gt;
+&lt;p&gt;If by any chance you landed here without any idea of what &lt;a class=&#34;link&#34; href=&#34;https://ethhub.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Ethereum&lt;/a&gt; or &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/posts/2020/definancial-services-guide/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFi&lt;/a&gt;&lt;/strong&gt; is, please click these links. This is not a guide, I keep it short &amp;amp; sweet with pointers only - Let’s get started!&lt;/p&gt;
+&lt;h2 id=&#34;organic-defarming&#34;&gt;Organic DeFarming
+&lt;/h2&gt;&lt;p&gt;Farming used to be simple: you planted some seeds and hopefully collected yields. Nowadays, we have some &lt;strong&gt;super crops&lt;/strong&gt;, landing extra yields on top of usual commissions on the swaps facilitated or fees collected on lending.&lt;/p&gt;
+&lt;p&gt;How? Essentially because &lt;strong&gt;some DeFi platforms like Compound or Balancer are now incentivising users to perform actions critical to the service;&lt;/strong&gt; such as supplying liquidity and borrowing for Compound. Their users are rewarded with their native governance token (COMP in this case). Pricing such token is a hard task the markets are currently crunching on. Price stability of these token may take time as they are currently in price discovery mode&lt;/p&gt;
+&lt;p&gt;So before we go any further, it’s time to hear a tale from Stani, an organic farmer:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;What is needed is sustainable farming. In essence, farmers should farm quality crops by bringing quality liquidity for long term and keeping the seeds of these crops to expand their farms to new lands.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Stani Kulechov, Aave&amp;rsquo;s CEO &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/StaniKulechov/status/1276093091624226816?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;on Twitter&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;We’ll dive deeper into this later, but the overall &lt;strong&gt;high average gas prices are incentivising you to pick solid crops and stick with them&lt;/strong&gt; instead of foraging all around. For more context on liquidity mining, I’d also recommend reading this piece about the SAFG framework:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Fundamentally the SAFG shifts us from a world of “buying to own” to one of “participating to govern,” which can ultimately result in more successful protocols and healthier communities.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://medium.com/ideo-colab/meet-the-safg-defis-emergent-framework-for-participatory-investing-and-protocol-development-62286a576fb5&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Intro - SAFG Framework&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;liquidity-mining-sources&#34;&gt;Liquidity Mining Sources
+&lt;/h3&gt;&lt;p&gt;Here are the main liquidity mining sources, ordered by the share of tokens available through liquidity mining:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Balancer Labs - &lt;a class=&#34;link&#34; href=&#34;https://medium.com/balancer-protocol/proposing-balancer-liquidity-mining-cab4503972fa&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;BAL&lt;/a&gt; - 100M total supply, 75M distributed through liquidity mining (75%), since June 1 - includes some externally incentivized pools.&lt;/li&gt;
+&lt;li&gt;Curve Finance - CRV ??? - there is currently little to no public information available.&lt;/li&gt;
+&lt;li&gt;Compound Finance - &lt;a class=&#34;link&#34; href=&#34;https://medium.com/compound-finance/expanding-compound-governance-ce13fcd4fe36&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;COMP&lt;/a&gt; - 10M total supply, ~4.2M through liquidity mining (42%), since June 15&lt;/li&gt;
+&lt;li&gt;Universal Market Access - &lt;a class=&#34;link&#34; href=&#34;https://defirate.com/safg/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;UMA&lt;/a&gt; ~ 35% of the supply through mining (details TBD)&lt;/li&gt;
+&lt;li&gt;Synthetix &amp;amp; other incentives program (like JRT)&lt;/li&gt;
+&lt;li&gt;Jarvis x Aave &lt;a class=&#34;link&#34; href=&#34;https://sponsoring.jarvis.network/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Onramp Sponsoring Program&lt;/a&gt;: redirect interest earned form your stablecoins on Aave to earn JRT tokens.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/defi-farmer-toolbox/synthetix-liquidity-mining.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;synthetix liquidity mining programs&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;adapting-the-strategy-to-your-budget&#34;&gt;Adapting the strategy to your budget
+&lt;/h3&gt;&lt;p&gt;Before we see how to get in and out of such positions, it&amp;rsquo;s time for a quick discussion on gas prices. They have been pretty high lately in a 25-35 gwei/fast range. Here&amp;rsquo;s roughly what it means for common operations:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Deposit @Compound ($2-3 gas)&lt;/li&gt;
+&lt;li&gt;Deposit @Liquidity Pools @Zapper, an all-in-one tool to handle your liquidity providing positions, more on this below ($3-5 + swap fees)&lt;/li&gt;
+&lt;li&gt;Deposit @Liquidity Pools &amp;ldquo;manually&amp;rdquo; ($0.3 (approve) + $2-3 as many times as tokens as in the pool)&lt;/li&gt;
+&lt;li&gt;Exiting also has a cost, as well as any token swap required (like selling your COMP while exiting your position) $1-3&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;a-cold-hard-look-at-gas-cost-impact-on-medium-capitals--2000&#34;&gt;A cold hard look at gas cost impact on medium capitals ($ 2000)
+&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;Let&amp;rsquo;s look at the returns over time of a 2 000 USDT Deposit @Compound&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;To keep this simple, we assume the current parameters will stay as such for the next year. &lt;strong&gt;This is obviously unrealistic - take this as a thought experiment.&lt;/strong&gt; Here were the parameters at the time of writing:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;4% APY on USDT on Compound = $80 for a year on the capital&lt;/li&gt;
+&lt;li&gt;0.66 COMP/year =~$150 produced by our capital&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In the table below, the &amp;ldquo;Actual Profits&amp;rdquo; column corresponds to a total exit of the position (back to USDT), which means effectively 3 transactions overall for the operation:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Supplying on Compound&lt;/li&gt;
+&lt;li&gt;Withdrawing on Compound&lt;/li&gt;
+&lt;li&gt;Selling the COMP tokens&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;So if we look at this position with these assumptions over several time frames, here is what we get:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Timeframe&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Total Return ($)&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Actual Profits ($)&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Effective % return over the timeframe&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1 day&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$0.63&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-$8.37&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-0.42%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1 week&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$4.42&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-$4.58&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-0.23%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1 month&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$23.00&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$14.00&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;0.70%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;3 months&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$57.50&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$48.50&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2.43%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;6 months&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$115.00&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$106.00&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;5.30%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;A year&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$230.00&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$221.00&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;11.05%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;em&gt;Please note: This simplistic scenario ignores the opportunity cost on ETH price. $5 of gas (=ETH) paid today might be worth $10 a year from now.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The learning here I wanted to share is that &lt;strong&gt;for such capitals, considering the current gas costs, it will probably be better to stick to a position for months instead of trying to chase the best currently available yield&lt;/strong&gt;. Decent profits (~0.81 % /month) starts around the 3-months timeframe.&lt;/p&gt;
+&lt;p&gt;So, remember Stani the farmer? You need to pick your crops wisely.&lt;/p&gt;
+&lt;h4 id=&#34;whales-playground---10-000&#34;&gt;Whale&amp;rsquo;s Playground (&amp;gt; $ 10 000)
+&lt;/h4&gt;&lt;p&gt;Now if you have more skin in the game and are willing to take more exposure, gas costs become less prohibitive and there are more options available to you. I won&amp;rsquo;t expand on these, some pointers will be enough:&lt;/p&gt;
+&lt;p&gt;For instance, you can leverage your Compound exposure to maximize your effective COMP mining (through supply/borrow). It obviously comes with a risk of liquidation. &lt;a class=&#34;link&#34; href=&#34;https://dsa.instadapp.io/compound&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;InstaDapp&lt;/a&gt; helps you maximize COMP returns by folding your position up to 4x.&lt;/p&gt;
+&lt;p&gt;In a previous article, I&amp;rsquo;ve detailed a strategy built on the Synthetix platform which included another form of small leverage. It observed impressive returns (~200% effectively) since &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/posts/2020/definancial-services-guide/#5-a-the-synthetixcurve-yieldstack-aka-the-4-steaks-yieldburger&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;introduced 5 weeks ago&lt;/a&gt; - mostly due to a significant appreciation of the price of SNX, the largest exposure in this strategy and the very high level of activity on the Curve sUSD pool.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/yieldburger.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;The Synthetix-Yieldbuger-TokenBrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Alright, enough prep - you are now an advised farmer - congrats! Let&amp;rsquo;s look at the tools used to plant your seed, secure your crops and harvest your yields.&lt;/p&gt;
+&lt;h3 id=&#34;getting-in-and-out-of-positions&#34;&gt;Getting in and out of positions
+&lt;/h3&gt;&lt;p&gt;You can get into liquidity pools “manually”, that is directly on each platform. It will require several transactions and a proportionate amount of a least two tokens, to begin with. If not, you will also have to swap accordingly beforehand, using a service like &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://paraswap.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ParaSwap&lt;/a&gt;&lt;/strong&gt;. ParaSwap also helps you get into tokens like cDAI (interest-bearing DAI from Compound) from any other ERC20 with gas and price-efficient paths.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: Balancer just add the option to enter a liquidity pool from &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/jbrukh/status/1276958110024896514?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;just one token&lt;/a&gt; (-&amp;gt; getting up to 8 tokens from 1, watch for slippage!).&lt;/em&gt; 🔥&lt;/p&gt;
+&lt;p&gt;If you’re not the most familiar with Ethereum yet, the easiest way for you to partake in this feast would be to use tools:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/defi-farmer-toolbox/zapper-fi.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Zapper.Fi-zap-in-liquidity-pools&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Getting in and out of pools&lt;/strong&gt;: &lt;a class=&#34;link&#34; href=&#34;https://zapper.fi&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Zapper.fi&lt;/a&gt;: in the Invest tab, Zapper lets you conveniently get into/out of pools on Balancer, Curve, and Uniswap, from ETH, DAI and a few other tokens.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Buying ETH &amp;amp; using DeFi services&lt;/strong&gt; like Aave (gas free on Aave for now!) - &lt;a class=&#34;link&#34; href=&#34;https://argent.xyz&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Argent&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Spending ETH &amp;amp; stablecoins&lt;/strong&gt; - &lt;a class=&#34;link&#34; href=&#34;https://monolith.xyz&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Monolith&lt;/a&gt;. Now with ParaSwap built-in for swaps and soon an on-ramp to buy ETH/ERC-20 from your bank account!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/defi-farmer-toolbox/monolith.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;monolith&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;While we’re at it, here’s a quick tip because I see this way too much.
+&lt;strong&gt;You should never claim on Compound.&lt;/strong&gt; It&amp;rsquo;s costly and your COMP tokens are automatically claimed every time you adjust your position by depositing or withdrawing assets (minimal amount of COMP claimable required).&lt;/p&gt;
+&lt;h2 id=&#34;the-definancial-farmers-essential-toolbox&#34;&gt;The DeFinancial Farmer&amp;rsquo;s Essential Toolbox
+&lt;/h2&gt;&lt;p&gt;Now that we’ve explained  the basics dear organic farmers, it’s time to finally have a look at that promised toolbox. You&amp;rsquo;ll find below tools that help you track your positions and the markets &amp;amp; analyse the potential returns of strategies you think about applying.&lt;/p&gt;
+&lt;p&gt;On top of helping you zap in/out of pools, &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://zapper.fi&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Zapper.fi&lt;/a&gt;&lt;/strong&gt; is an amazing all-in-one DeFi position tracker. Here&amp;rsquo;s &lt;a class=&#34;link&#34; href=&#34;https://www.zapper.fi/synthetix?address=0x4E60bE84870FE6AE350B563A121042396Abe1eaF&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the Zapper of the wallet&lt;/a&gt; of the legendary farmer &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/DegenSpartan&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DegenSpartan&lt;/a&gt; - seems like he took a bite into that juicy yieldburger:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/defi-farmer-toolbox/degen.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Zapper.fi - DegenSpartan&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;If you need to look at a wallet from a historical perspective, &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://zerion.co&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Zerion&lt;/a&gt;&lt;/strong&gt; is king.&lt;/p&gt;
+&lt;p&gt;For a more holistic market view, you can check:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;http://defimarketcap.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFiMarketCap&lt;/a&gt;&lt;/strong&gt; to see the main DeFi tokens and the prices&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;http://defipulse.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DefiPulse&lt;/a&gt;&lt;/strong&gt; to see the main platforms ranked by total assets locked&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.tokenterminal.xyz/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Token Terminal&lt;/a&gt;&lt;/strong&gt; for an overview of the earnings and P/E ratio of DeFi protocols&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://explore.duneanalytics.com/public/dashboards/c87JEtVi2GlyIZHQOR02NsfyJV48eaKEQSiKplJ7&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;This &lt;strong&gt;Dune Analytics&lt;/strong&gt; dashboard&lt;/a&gt; giving you an overview of the volume on DEXes:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/defi-farmer-toolbox/DEX.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;DEX volumes overview&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;⛽ You can also use &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/HAL_team&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;HAL&lt;/a&gt; to create notifications on different situations, like &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://medium.com/@mattiascaricato/get-notified-when-gas-price-is-cheap-%EF%B8%8F-2a157a3d18b9&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;when gas prices are below a certain threshold&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;platform-specific-resources&#34;&gt;Platform-specific resources
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Synthetix / Yearn&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;There are so many pools and opportunities, it can be hard to keep track! Luckily, some really neat yield farmer tools are being developped. For Synthetix and Yearn.Finance especially, &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://yieldfarming.info/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;yieldfarming.info&lt;/a&gt; is a neat ressource&lt;/strong&gt; to keep track of both platforms.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Compound&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You&amp;rsquo;ll find an &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://explore.duneanalytics.com/public/dashboards/JMB9bYfVUtMAPHM5moj7aIjLaDwos2k9JjJTtk64&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;overview of the COMP tokens mining &amp;amp; claims&lt;/a&gt;&lt;/strong&gt; here. Use this tool to &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;http://www.predictions.exchange/compound/None&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;calculate the expected COMP returns&lt;/a&gt;&lt;/strong&gt; obtained by supplying or borrowing tokens on Compound.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Balancer&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Just like Compound, you can estimate your BAL mining: &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;http://www.predictions.exchange/balancer/%5B%5D&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;BAL Distribution Calculator&lt;/a&gt;&lt;/strong&gt;. If you intend to use Balancer, I&amp;rsquo;d also recommend brushing up on the &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://thedailygwei.substack.com/p/striking-a-balancer-the-daily-gwei&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;BAL token distribution early shenanigans&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;RealT&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Liquidity mining returns are quite variable, so on the side you might want to consider tokenised real estate for more predictable returns with &lt;a class=&#34;link&#34; href=&#34;https://realt.co&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RealT&lt;/a&gt;. Here are two main helpful resources: &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://realt-dashboard.co/portfolio/0x51a7ead10340af963c3124b026b86dd2807c2b1c&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;see owners &amp;amp; earnings&lt;/a&gt;&lt;/strong&gt; + &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://realt.sigri44.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Amazing Google Sheets to help you track your profits&lt;/a&gt;&lt;/strong&gt; - both are made by the community so feel free to thank their creators.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Various&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You can &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://aavewatch.now.sh/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;follow Aave&amp;rsquo;s market using AaveWatch&lt;/a&gt;&lt;/strong&gt;. If you are a TokenSet user, &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;http://tokenviz.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;TokenViz&lt;/a&gt;&lt;/strong&gt; will help you make sense of the sets&amp;rsquo; performance.&lt;/p&gt;
+&lt;h3 id=&#34;keeping-track-with-the-defi-news&#34;&gt;Keeping track with the DeFi news
+&lt;/h3&gt;&lt;p&gt;To learn more on DeFi, here are a few resources I&amp;rsquo;d recommend:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://bankless.substack.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Bankless Newsletter&lt;/a&gt;&lt;/strong&gt;, Podcast, Livestream, discussions: all of it!&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://thedailygwei.substack.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;The Daily Gwei&lt;/a&gt;&lt;/strong&gt; - a short and sweet daily read on a key event/release
+-&amp;amp; you can find me discussing DeFi every week with my friend Abel here: &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://abelsabstracts.substack.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Abel Abstracts&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;parting-words&#34;&gt;Parting Words
+&lt;/h2&gt;&lt;p&gt;Finally, it&amp;rsquo;s Gitcoin grant season so please indulge this closure:&lt;/p&gt;
+&lt;p&gt;You&amp;rsquo;ve been in the space for a bit, hopefully even making some profits? How about sharing a small share back, let&amp;rsquo;s say 2 %, to critical infrastructure projects and to support your favourite DeFi services or content producers?&lt;/p&gt;
+&lt;p&gt;Your contributions are immensely appreciated and can have a great impact, even for just 1 DAI thanks to the CLR matching. So if you liked this piece or my contributions to the DeFi space overall, feel free to have a look at &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://gitcoin.co/grants/811/tokenbrice-shining-light-on-ethereums-defi-en-fr&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;my Gitcoin grant&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;It will help me fund more initiatives for the French community &amp;amp; help to go on with content production efforts like this one. Every contribution makes a difference, even 1 DAI (currently matched +5).&lt;/p&gt;
+&lt;p&gt;Now that you are on Gitcoin with a grant in your basket, why not add more? Feel free to look around and support critical initiatives, from vulgarisation efforts to core research. Remember the gas struggles? You can &lt;strong&gt;donate to the &lt;a class=&#34;link&#34; href=&#34;https://gitcoin.co/grants/946/project-title-eip-1559-community-fund&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;EIP 1559 Community Fund&lt;/a&gt;&lt;/strong&gt; to help on that front too!&lt;/p&gt;
+&lt;p&gt;Thank you for reading &amp;amp; happy farming!&lt;/p&gt;
+&lt;h3 id=&#34;thanks&#34;&gt;Thanks
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;To &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/jimmyragosa&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Jimmy&lt;/a&gt; who helped make sure this article is as clear as it can be.&lt;/li&gt;
+&lt;li&gt;To &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/OtherBright&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Jon&lt;/a&gt; for his help proofreading this article.&lt;/li&gt;
+&lt;li&gt;&amp;amp; To &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/AntoineMouran?s=09&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Antoine&lt;/a&gt; for his various suggestions to improve this content.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>How DeFi can pay for your lunches</title>
+        <link>http://localhost:1313/p/how-defi-can-pay-for-your-lunches/</link>
+        <pubDate>Tue, 03 Mar 2020 14:53:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/how-defi-can-pay-for-your-lunches/</guid>
+        <description>&lt;p&gt;&lt;code&gt;This tactic was first published in the Bankless newsletter and written with advice and support from Ryan.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;a class=&#34;link&#34; href=&#34;https://bankless.substack.com/p/how-defi-can-pay-for-your-lunches&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Link to the original publication&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Dear Crypto Natives,&lt;/p&gt;
+&lt;p&gt;Remember that guy &lt;a class=&#34;link&#34; href=&#34;https://www.forbes.com/sites/laurashin/2016/01/07/this-man-has-been-living-on-bitcoin-for-3-years/#3c9a747a2697&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;who tried to live on Bitcoin&lt;/a&gt; in 2013?&lt;/p&gt;
+&lt;p&gt;Living bankless was harder back then. No one accepted it. Lots of friction. But people kept saying that one day every Starbucks would accept Bitcoin.&lt;/p&gt;
+&lt;p&gt;But it didn’t stick.&lt;/p&gt;
+&lt;p&gt;It’s funny because the guy in that story is now &lt;a class=&#34;link&#34; href=&#34;https://fortune.com/2019/12/11/crypto-crown-prince-olaf-carlson-wee/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;a mega-millionaire&lt;/a&gt; much the result of…not spending his Bitcoin!&lt;/p&gt;
+&lt;p&gt;What does that teach us? It teaches to not to spend our BTC &amp;amp; ETH! Who wants to end up like &lt;a class=&#34;link&#34; href=&#34;https://www.investopedia.com/news/bitcoin-pizza-day-celebrating-20-million-pizza-order/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Bitcoin pizza guy&lt;/a&gt;?&lt;/p&gt;
+&lt;p&gt;But it’s time to check in again. New tools like stablecoins and DeFi protocols are now make going bankless easier…and even…better than a bank?&lt;/p&gt;
+&lt;p&gt;I asked &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/TokenBrice&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Brice&lt;/a&gt; to share his story. He’s uses an Ethereum address, a few protocols, and a wallet + visa card combo to get passive DeFi income to pay for his lunches.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/bankless-defi-lunches/paying.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;paying-lunch-with-DAI-from-DeFi&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;(Above—&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/TokenBrice/status/1225773317598187527?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;watch Brice pay for French cheese&lt;/a&gt; the bankless way)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;And he plans to do a whole lot more!&lt;/p&gt;
+&lt;p&gt;We’re closer than ever to the dream of a crypto money system yet hardy anyone’s talking about it. They will. The next 10 yrs is where crypto becomes useful in daily life.&lt;/p&gt;
+&lt;p&gt;This is the decade we go bankless.&lt;/p&gt;
+&lt;p&gt;Let’s dive in!&lt;/p&gt;
+&lt;p&gt;-RSA&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;🙏Sponsor:&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;https://aave.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Aave&lt;/a&gt;—earn &lt;a class=&#34;link&#34; href=&#34;https://app.aave.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;high yields&lt;/a&gt; on deposits &amp;amp; borrow at the best possible rate!&lt;/p&gt;
+&lt;h3 id=&#34;tactics-tuesday&#34;&gt;&lt;strong&gt;TACTICS TUESDAY:&lt;/strong&gt;
+&lt;/h3&gt;&lt;h2 id=&#34;tactic-26-how-defi-can-pay-for-your-lunches&#34;&gt;&lt;strong&gt;Tactic #26:&lt;/strong&gt; How DeFi can pay for your lunches
+&lt;/h2&gt;&lt;p&gt;Brice tells us his system for earning daily DAI to pay for expenses like lunch. He uses an Ethereum address as his bank, DAI as his stablecoin &lt;a class=&#34;link&#34; href=&#34;https://bankless.substack.com/p/how-to-get-a-dai-saving-account&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;and savings account&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://realt.co/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;tokenized real-estate&lt;/a&gt; to generate passive income, and a smart-contract wallet plus &lt;a class=&#34;link&#34; href=&#34;https://monolith.xyz/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Visa card&lt;/a&gt; for spending. Learn about his 5 DAI per day portfolio.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Goal: &lt;em&gt;Generate a stable return in DAI to cover for living expenses.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Skill: &lt;em&gt;Intermediate&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Effort: &lt;em&gt;An hour or two a week, sometimes less&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;ROI: &lt;em&gt;9-12% annual if fully passive&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;⚠️&lt;strong&gt;RSA’s note on risk&lt;/strong&gt;: In this bankless frontier Brice is taking on &lt;a class=&#34;link&#34; href=&#34;https://bankless.substack.com/p/how-to-assess-the-risk-of-lending&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;many risks&lt;/a&gt;—to name a few: failure of DAI, failure of protocols like aDAI, failure of smart-contract wallet, variable interest rates, failure of the entire Ethereum protocol. He could lose all or a portion of his funds in a worse case. The passive income opportunities he mentions should be adjusted for these risks.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Guest post:&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/TokenBrice&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Brice Berdah&lt;/a&gt;, Community at &lt;a class=&#34;link&#34; href=&#34;https://monolith.xyz/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Monolith&lt;/a&gt; &amp;amp; DeFiFrance Co-Organizer&lt;/p&gt;
+&lt;p&gt;My relationship with money has always been ambiguous. As a teen, I was your usual &amp;ldquo;get money it’s spent that day&amp;rdquo; kind of guy—I wasn&amp;rsquo;t really thinking or strategic about it, just looking forward to enjoying what money enables.&lt;/p&gt;
+&lt;h3 id=&#34;the-masterplan&#34;&gt;&lt;strong&gt;The masterplan&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;As I grew up and started earning money on my own, I began thinking more and more about money and personal finance. Shortly after my first proper job, I was already doing math on my expenses, my income, and how long I would need to work and save in order to not have to work anymore. The dream of freedom.&lt;/p&gt;
+&lt;p&gt;Quickly, this turned into a basic plan with two arbitrary choices:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I would aim to acquire $1.5M. I assumed this capital would earn 5% / year landing me around $75K/year of interest before taxes—enough to sustain my lifestyle if not too excessive.&lt;/li&gt;
+&lt;li&gt;And I’d get there by the time I&amp;rsquo;m 35 (giving 20-30 good years to do my things)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;It was obviously and predictably a failure&lt;/strong&gt;. Between the start of my plan at 21 years old and now (I’m 28), I was barely able to save a fraction of the required amount.&lt;/p&gt;
+&lt;h4 id=&#34;why-did-my-plan-fail&#34;&gt;&lt;strong&gt;Why did my plan fail?&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;As I was learning about decentralised finance, I took some time to reflect on the back-then current failure of my masterplan. Here are the main reasons I identified:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;I did not define steps to reach the end goal&lt;/strong&gt;: I wanted to jump straight from no passive income to full passive income, without planing any intermediary step to make it more realistic and achievable.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;I had little to no discipline&lt;/strong&gt; when it came to taming my expenses&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;I overlooked the &amp;ldquo;details&amp;rdquo;&lt;/strong&gt;. I had little to no idea of how I was actually going to produce a stable and consistent 5% return on such capital. I just assumed it would be attainable.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;enter-decentralised-finance&#34;&gt;&lt;strong&gt;Enter decentralised finance&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;So let&amp;rsquo;s jump to the current situation! I followed the development of the DeFi ecosystem very closely, thanks to my job at &lt;a class=&#34;link&#34; href=&#34;https://monolith.xyz/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Monolith&lt;/a&gt; and the &lt;a class=&#34;link&#34; href=&#34;https://www.meetup.com/DeFi-France/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;different meetups&lt;/a&gt; I co-organise.&lt;/p&gt;
+&lt;p&gt;At first, I used DeFi out of curiosity: the amount I engaged was marginal—most of my net worth was still in ETH/ERC-20 tokens. Like most, I was both curious and perplexed—is this magic internet money experiment really working?&lt;/p&gt;
+&lt;h3 id=&#34;my-aha-moment&#34;&gt;&lt;strong&gt;My &amp;ldquo;Aha!&amp;rdquo; moment&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;I started seriously using more DeFi services, like &lt;a class=&#34;link&#34; href=&#34;https://compound.finance/markets&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Compound&lt;/a&gt; &amp;amp; bZx and then later the &lt;a class=&#34;link&#34; href=&#34;https://oasis.app/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Dai Saving Rate&lt;/a&gt; &amp;amp; &lt;a class=&#34;link&#34; href=&#34;https://aave.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Aave&lt;/a&gt;. It was awesome and magical, but it wasn&amp;rsquo;t what lit the spark for me.&lt;/p&gt;
+&lt;p&gt;Nope.&lt;/p&gt;
+&lt;p&gt;The magic spark came from a piece a tokenised real estate I bought on Ethereum using &lt;a class=&#34;link&#34; href=&#34;http://realt.co/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RealT&lt;/a&gt;. You may already know RealT—it’s a platform for tokenized real-estate. You own property tokens and receive &lt;strong&gt;daily rental payments in DAI.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Why this? It got my mind racing. This was how it went:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;1st day of rent:&lt;/strong&gt; oh okay, this thing is real. &lt;em&gt;By this point, I started discussing RealT with other people in the scene.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;End of first week:&lt;/strong&gt; now I was checking my wallet balance every morning—seeing the list of rent paid was exhilarating but left me craving more!&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;End of first month:&lt;/strong&gt; at first I spent the DAI almost immediately using my &lt;a class=&#34;link&#34; href=&#34;https://monolith.xyz/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Monolith Visa card&lt;/a&gt;. It was so tempting—the DAI sitting there in my wallet, accumulating every day.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;After first month:&lt;/strong&gt; as the idea of daily DAI became a reality to me, I started rethinking about my masterplan: how much DAI do I need per day to live solely on that? How much capital would it represent? (&lt;em&gt;Hint: way less than $1.5M)&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;(Above: a &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/TokenBrice/status/1223641685898465282?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFi Milkshake&lt;/a&gt; I bought with my daily DAI passive income using &lt;a class=&#34;link&#34; href=&#34;https://monolith.xyz/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Visa card&lt;/a&gt;)&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;dai-per-day-as-a-framework&#34;&gt;&lt;strong&gt;DAI per day as a framework&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;What happened there? Why would RealT have this impact on me while Compound did not? (Huge respect for all the projects mentioned in this post, please keep going!)&lt;/p&gt;
+&lt;p&gt;I think the answer is more straightforward than what people expect:&lt;/p&gt;
+&lt;p&gt;We used to download movies or buy them to watch them. At some point, Netflix offered us streaming and 99% of us never looked back—&lt;strong&gt;I expect the same thing to happen with money.&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;money-that-empowers-people&#34;&gt;&lt;strong&gt;Money that empowers people&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;Simply put, daily DAI streaming is a paradigm shift that enables most of us to instantly become much smarter and efficient in the way we relate and manage our assets. It’s empowering to the individual.&lt;/p&gt;
+&lt;p&gt;Why? The concept of DAI per day reinforces two powerful ideas: first, streaming money and second, using DAI as the base monetary reference.&lt;/p&gt;
+&lt;p&gt;Why is streaming money a paradigm shift?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It makes it easy to break down significant objectives in small chunks&lt;/li&gt;
+&lt;li&gt;There is no wait time between the first initial investment and the first payout. Payouts are available instantly—and spendable anywhere that &lt;a class=&#34;link&#34; href=&#34;https://monolith.xyz/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;accepts Visa&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Why is DAI a paradigm shift?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DAI is a stablecoin—you don’t have to hoard it or worry about daily value lose&lt;/li&gt;
+&lt;li&gt;DAI is at a bridge: easy to spend in the real world but also a hop away from all other Ethereum-based assets (including passive income assets like RealT)&lt;/li&gt;
+&lt;li&gt;As DeFi grows sources of DAI/day are becoming more numerous and attractive&lt;/li&gt;
+&lt;li&gt;Finally, the tokens used for payouts are more diverse (consider liquidity pools). Bringing everything back in DAI/day gives you exhaustive visibility over all your crypto-passive income sources.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;that-daily-dai-lifestyle&#34;&gt;&lt;strong&gt;That Daily Dai Lifestyle&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;Enough context, let&amp;rsquo;s get practical: what can we do today with these shiny new financial levers?&lt;/p&gt;
+&lt;p&gt;I went back to my masterplan to give it a second try.&lt;/p&gt;
+&lt;p&gt;This time, instead of going straight for full financial independence, I decided to aim for something more practical. For me, it was straightforward: I have three lunches in London every week, costing me around $30 per week on average.&lt;/p&gt;
+&lt;p&gt;That means I need roughly &lt;strong&gt;4.3 DAI per day&lt;/strong&gt; to pay for them.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;I could also skip lunch, but I decided to have it for free thanks to DeFi!&lt;/strong&gt; I&amp;rsquo;m not there yet but getting close: according to my revised plan, I&amp;rsquo;ll be getting free lunches by the end of March.&lt;/p&gt;
+&lt;h3 id=&#34;starting-with-a-5-dai-per-day-portfolio&#34;&gt;&lt;strong&gt;Starting with a 5 DAI per day portfolio&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;I am currently exploring different possibilities in my portfolio, so let&amp;rsquo;s consider a simple one: one that nets you 5 DAI per day.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s what you can expect if you want a simple passive DAI strategy:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;8-9% APR with DAI: for instance, locking your &lt;a class=&#34;link&#34; href=&#34;https://bankless.substack.com/p/how-to-get-a-dai-saving-account&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DAI in the DSR&lt;/a&gt; is at 8%&lt;/li&gt;
+&lt;li&gt;9-12.5% APR with income assets: but with a higher risk, using RealT&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now that&amp;rsquo;s if you want to set it and forget about it. There are other opportunities with additional earning opportunities. For instance, if you own a RealT asset, you can:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Try to sell at a premium on Uniswap&lt;/li&gt;
+&lt;li&gt;Benefits from their liquidity incentive program&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;But let’s keep this simple and passive:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;We&amp;rsquo;ll stick with the Dai Saving Rate—the safest way to produce DAI interests right now—and RealT—a more risky bet that can offer higher returns&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;How much in assets values is required for 5 Daily DAI at the below rates?&lt;/p&gt;
+&lt;div align = &#34;center&#34;&gt;
+![earning-table](/img/2020/bankless-defi-lunches/earning-table.png)
+&lt;/div&gt;
+&lt;h4 id=&#34;going-farther&#34;&gt;&lt;strong&gt;Going farther&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;While this is a simple framework to get started it suffers from some limits. For instance, if you&amp;rsquo;re looking to generate 100 DAI/day from this approach, RealT will not cut it. You&amp;rsquo;ll run into issues of liquidity (not enough estate available) or systemic risk (you&amp;rsquo;d be owning a sizeable share of ALL RealT estates).&lt;/p&gt;
+&lt;p&gt;With my current understanding, I intend to maintain a similar strategy up to roughly 10 DAI/day. My current portfolio also includes aDAI.&lt;/p&gt;
+&lt;p&gt;As I blast through the 10 DAI/day, this year, that is if the plan stands, I will be diversifying more and more. I think liquidity pools &amp;amp; staking (SNX, for instance) can be a way to go. However, I&amp;rsquo;m not familiar enough with these topics &amp;amp; haven&amp;rsquo;t started committing serious amounts of money to it—so I&amp;rsquo;m not the best one to talk about it right now: maybe in a few months?&lt;/p&gt;
+&lt;p&gt;Wonder how this looks in practice? &lt;a class=&#34;link&#34; href=&#34;https://etherscan.io/address/tokenbrice.eth&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;See for yourself at tokenbrice.eth.&lt;/a&gt;&lt;/p&gt;
+&lt;div align = &#34;center&#34;&gt;
+![zerion-preview](/img/2020/bankless-defi-lunches/wallet.png)
+&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;(Above: see Brice’s DAI earnings &amp;amp; spending in real-time—&lt;a class=&#34;link&#34; href=&#34;https://app.zerion.io/0x030de46c333dfd602442a103919412a7987d0ac7/lend?utm_campaign=aw&amp;amp;utm_medium=header_button&amp;amp;utm_source=landing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;plug tokenbrice.eth into Zerion&lt;/a&gt;)&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;-on-projections&#34;&gt;** On projections…**
+&lt;/h3&gt;&lt;p&gt;Allow me to loop back to my masterplan. While the DAI per day approach is fantastic it has one main downside: it makes yearly projections harder.&lt;/p&gt;
+&lt;p&gt;Take a minute now and try to guess how much daily DAI you need to produce 50k DAI per year? Did you do it?&lt;/p&gt;
+&lt;p&gt;How close were you to 137, the actual answer? Most people tend to overestimate.&lt;/p&gt;
+&lt;p&gt;So while DAI/day is my base, I also look at two other levels to not lose track of the big picture: the DAI per month and the DAI per year.&lt;/p&gt;
+&lt;h3 id=&#34;going-bankless-in-the-real-world&#34;&gt;&lt;strong&gt;Going bankless in the real world&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;I hope you found value in this tactic—my goal is practical DeFi: demonstrating what you can do harnessing DeFi today. This post was written down &amp;amp; translated adaptation of my &lt;a class=&#34;link&#34; href=&#34;https://www.meetup.com/DeFi-France/events/268374027/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;last talk at DeFi France.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Late last year &lt;a class=&#34;link&#34; href=&#34;https://slideslive.com/38920018/living-on-defi-how-i-survive-argentinas-50-inflation&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Mariano Conti’s talk&lt;/a&gt; sent an &lt;a class=&#34;link&#34; href=&#34;https://bankless.substack.com/p/straddling-two-worlds-crypto-and&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;electro-shock to the crypto world&lt;/a&gt;: he reminded us that DeFi is already used for very real situations, such as avoiding losing 50% of your net worth to inflation.&lt;/p&gt;
+&lt;p&gt;It was the perfect demonstration of someone living in the real world using the opportunities offered by DeFi. My goal was to provide the European version of it.&lt;/p&gt;
+&lt;p&gt;Mariano survived inflation using DeFi.&lt;/p&gt;
+&lt;p&gt;I, on the opposite, want to live my best life, thanks to DeFi.&lt;/p&gt;
+&lt;p&gt;Here’s the magic: &lt;strong&gt;both of us are acting in our own best interest and in doing so, we are supporting the development of a fairer &amp;amp; more accessible financial system for all.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This is a clear illustration of how fast the industry is evolving: hop on &amp;amp; enjoy the ride!&lt;/p&gt;
+&lt;h3 id=&#34;author-blub&#34;&gt;&lt;em&gt;&lt;strong&gt;Author Blub&lt;/strong&gt;&lt;/em&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;em&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/TokenBrice&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Brice Berdah&lt;/a&gt; is the community manager at &lt;a class=&#34;link&#34; href=&#34;https://monolith.xyz/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Monolith&lt;/a&gt; and co-organizer of DeFi France. He’s an active crypto user and leader in the grassroots movement for decentralized finance in the EU.&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;action-steps&#34;&gt;&lt;strong&gt;Action steps&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;What are the passive income opportunities in DeFi and what are the risks?&lt;/li&gt;
+&lt;li&gt;Get a Visa card for daily DAI spending (&lt;a class=&#34;link&#34; href=&#34;https://monolith.xyz/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Monolith&lt;/a&gt; if in EU or &lt;a class=&#34;link&#34; href=&#34;https://bankless.substack.com/p/how-to-get-your-first-crypto-visa&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;other options&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Go &lt;a class=&#34;link&#34; href=&#34;https://bankless.substack.com/about&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Bankless&lt;/a&gt;. $12 / mo. Includes &lt;a class=&#34;link&#34; href=&#34;https://bankless.substack.com/archive?utm_source=menu-dropdown&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;archive access&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://bankless.substack.com/p/welcome-to-the-inner-circle-wave&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Inner Circle&lt;/a&gt; &amp;amp; &lt;a class=&#34;link&#34; href=&#34;https://bankless.substack.com/p/the-deal-sheet&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Deals&lt;/a&gt;—[(pay w/ crypto)](&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Free coffees ☕, thanks to DeFi</title>
+        <link>http://localhost:1313/p/free-coffees-thanks-to-defi/</link>
+        <pubDate>Thu, 20 Feb 2020 14:53:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/free-coffees-thanks-to-defi/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2020/freecoffees/cover.png" alt="Featured image of post Free coffees ☕, thanks to DeFi" /&gt;&lt;p&gt;&lt;em&gt;Overview of the passive income-earning opportunities enabled by decentralised finance&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Sometimes, it feels like the world of money is upside down: while the returns offered by banks keep getting lower (if not negative!), innovative techs enabled the emergence of an alternative financial system that is already delivering incredible value.&lt;/p&gt;
+&lt;p&gt;To put it short: Ethereum created money on steroids while regular finance simply fails at delivering anything else than surface-level innovations.&lt;/p&gt;
+&lt;p&gt;While the money you have sitting at the bank has barely seen a one-digit interest rate for years, the yearly return enabled by decentralised finance frequently prints 2 digits.&lt;/p&gt;
+&lt;p&gt;How can this situation even be real? It seems like decentralised finance (DeFi) is still a little too intimidating for outsiders. Or more like used to! After reading this, you’ll have no excuse!&lt;/p&gt;
+&lt;p&gt;I wouldn’t want you scratching your head at the fifth line, so let’s clear the air on DeFi before we go on. Decentralised Finance is a term used to refer to the nascent &amp;amp; novel new financial ecosystem, built on Ethereum.&lt;/p&gt;
+&lt;p&gt;In this parallel finance ecosystem, thousands of users from around the globe borrow, lend and exchange tokens with one another. They do so using uncensorable and unstoppable services, such as &lt;a class=&#34;link&#34; href=&#34;https://uniswap.exchange/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Uniswap&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;free-coffees-thanks-to-strangers-from-theinternet&#34;&gt;Free coffees, thanks to strangers from the Internet
+&lt;/h3&gt;&lt;p&gt;Fully harnessing the capabilities of Ethereum, those new financial services are able to (potentially) operate in a decentralised, trustless and transparent manner — making the system &lt;strong&gt;more accessible and inclusive&lt;/strong&gt; overall (no credit check!).&lt;/p&gt;
+&lt;p&gt;Another key aspect of DeFi is its composability, often referred as “money lego”: projects built using Ethereum’s DeFi follow standards (such as ERC-20 for basic token definitions) enabling “permission-less interoperability” — it’s possible to integrate any project one with the other, without even requiring the help of its creators.&lt;/p&gt;
+&lt;p&gt;If you are curious about the topic, you’ll find &lt;a class=&#34;link&#34; href=&#34;https://www.notion.so/defifrance/DeFi-Onboarding-Guide-a0713cfe5d844ff28bc829006625b118&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;an exhaustive DeFi onboarding guide&lt;/a&gt; here that introduces many articles, podcasts and videos to learn more about DeFi.&lt;/p&gt;
+&lt;p&gt;Now, I know DeFi can be a lot, so I develop a very practical approach to it: &lt;strong&gt;we’ll talk only about LIVE, working services&lt;/strong&gt; that have been paying interests to their users for several months at least.&lt;/p&gt;
+&lt;h3 id=&#34;earning-returns-on-a-stablecoin&#34;&gt;Earning returns on a stablecoin
+&lt;/h3&gt;&lt;p&gt;&lt;em&gt;ℹ A stablecoin (such as DAI) is a token with stable value. It&amp;rsquo;s usually achieved by tracking the value of a stable asset, like the dollar: 1 DAI = $1.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The decentralised finance ecosystem is structuring itself as a more credible alternative every day. Strong &amp;amp; resilient services emerged as basic tools used by most:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://makerdao.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Maker&lt;/a&gt;: Borrow against ETH&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://makerdao.com/da/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DAI&lt;/a&gt;: Avoid price volatility &amp;amp; earn interest (Dai Saving Rate)&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://uniswap.exchange/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Uniswap&lt;/a&gt;: tokens exchange&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://compound.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Compound Finance&lt;/a&gt;: borrow or lend &amp;amp; earn interest&lt;/li&gt;
+&lt;li&gt;Other services exist to produce a passive income thanks to Ethereum, such as &lt;a class=&#34;link&#34; href=&#34;http://realt.co/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RealT&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://aave.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Aave&lt;/a&gt;, or &lt;a class=&#34;link&#34; href=&#34;https://fulcrum.trade/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;bZx&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;With the help of these new services, you can:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Have your assets in $ — &lt;strong&gt;DAI is a cryptocurrency tracking the price of $1&lt;/strong&gt; — so that you’re &lt;strong&gt;not exposed to the markets’ volatility&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Earn a &lt;strong&gt;5–8% yearly return&lt;/strong&gt;, on that $: your DAI will either be lent or locked directly in the Maker system (Dai Saving Rate) to help stabilize the price of DAI.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;how-does-a-wallet-earning-5-daiday-looklike&#34;&gt;How does a wallet earning 5 DAI/day look like?
+&lt;/h3&gt;&lt;p&gt;To keep it simple here, we’re considering only 3 investments strategy matching different risk profiles, using only two different services:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/freecoffees/5DAI.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;Dai Saving Rate is arguably the safest way to earn a return on your DAI&lt;/strong&gt;. The risk is minimal because you’re not lending your money to anyone. To keep it short, you lock your DAI in the Maker system, and the system pays you a premium because you’re helping DAI to maintain its peg.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;🖊 Edit: Please note that the earning rates presented for specific protocols are no longer accurate. However, similar results can still be achieved with alternative methods.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/freecoffees/defiscore.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;👆 DeFiscore is a community project offering a comprehensive rating of the risks associated with different lending protocols. What you see above is an overview of their ranking of DAI lending opportunities.&#34;
+	
+	
+&gt;
+&lt;em&gt;👆&lt;/em&gt; &lt;a class=&#34;link&#34; href=&#34;https://defiscore.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;em&gt;DeFiscore&lt;/em&gt;&lt;/a&gt; &lt;em&gt;is a community project offering a comprehensive rating of the risks associated with different lending protocols. What you see above is an overview of their ranking of DAI lending opportunities.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;On the other hand, the other solution used, RealT, is a &lt;strong&gt;little more novel and risky&lt;/strong&gt;. RealT tokenises real estate on Ethereum &amp;amp; allow anyone to become an owner. If you own a share of RealT estate, you’ll receive &lt;strong&gt;your share of the rent, paid in DAI, daily&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;ℹ Since RealT tokens are securities, you will have to through a KYC to purchase them.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;While the level of risk is higher with RealT than Maker, RealT does have one advantage — so far, the returns are stable. On the other hand, Maker’s DSR rate is still changing quite often:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;(&lt;em&gt;Nov 18 2019)&lt;/em&gt; DSR  Launched at 2%&lt;/li&gt;
+&lt;li&gt;➡ &lt;em&gt;(3 Jan)&lt;/em&gt; 4 %&lt;/li&gt;
+&lt;li&gt;➡ &lt;em&gt;(8 Jan)&lt;/em&gt; 6 %&lt;/li&gt;
+&lt;li&gt;➡ &lt;em&gt;(26 Jan 2020)&lt;/em&gt; 7.75%&lt;/li&gt;
+&lt;li&gt;➡ &lt;em&gt;(4 Feb)&lt;/em&gt; 8.75%&lt;/li&gt;
+&lt;li&gt;➡ &lt;em&gt;(9 Feb)&lt;/em&gt; 7.5%&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;from-dai-tocoffees&#34;&gt;From DAI to coffees
+&lt;/h3&gt;&lt;p&gt;Now that we have a clearer picture as to how we can generate a passive income using cryptocurrencies, you might wonder: what about the coffees?&lt;/p&gt;
+&lt;p&gt;Well, thanks to Monolith (disclaimer: I work there) it’s easy as ABC. We provide you with a non-custodial Ethereum wallet, paired with a Visa Debit Card. You can go from DAI in your wallet to a €/£ balance ready to be spent on your card in 30 seconds.&lt;/p&gt;
+&lt;p&gt;That was step 1. We’ve shared recently about a &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/monolith_web3/status/1223597132952887302?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;significant upcoming update&lt;/a&gt;, that will let you exchange tokens and access decentralised lending services straight from your Monolith app:&lt;/p&gt;
+&lt;h3 id=&#34;before-you-jumpin&#34;&gt;Before you jump in
+&lt;/h3&gt;&lt;p&gt;If you are seriously considering investing amounts close to those presented in the table above, &lt;strong&gt;please ensure that you know the basics&lt;/strong&gt;: such as using &amp;amp; &lt;a class=&#34;link&#34; href=&#34;https://medium.com/monolith/5-rules-you-need-to-know-to-stay-safe-on-ethereum-2447244cdcb3&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;securing&lt;/a&gt; an Ethereum wallet, understanding threats and choosing an &lt;a class=&#34;link&#34; href=&#34;https://medium.com/monolith/the-usability-of-security-the-choice-of-a-contract-wallet-1e32f92ea9a1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;appropriate security model&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;You do not need an account on any exchange to use DeFi.&lt;/strong&gt; It is much safer to access DeFi services directly from your wallet. Using a centralised service generates additional risks for your assets.&lt;/p&gt;
+&lt;p&gt;Ready to make the jump? Deploy your first contract wallet today and order your Visa debit card &lt;a class=&#34;link&#34; href=&#34;https://monolith.app.link/ETH-IS-MONEY&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;with the Monolith app&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/freecoffees/card.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://monolith.app.link/ETH-IS-MONEY&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🆓 &lt;strong&gt;Get your Monolith card for free&lt;/strong&gt; | 🇪🇺 Shipping to 31 countries in Europe | 💸 Spend DAI in a flash with minimal fees | 🔐 Advanced security model | 💱 Built-in DEX Aggregator (soon)&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;disclaimer&#34;&gt;DISCLAIMER
+&lt;/h3&gt;&lt;p&gt;&lt;em&gt;This article represents my personal view only — and is written free of any professional affiliation. Facts &amp;amp; data are sourced as much as possible, but my views are my own.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;It does not constitute an offer to sell, a solicitation of an offer to buy, or a recommendation of any cryptocurrency, digital token, investment, security or any other product or service.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Furthermore, nothing in this article is intended to provide legal or investment advice and nothing in this article should be construed as a recommendation to buy, sell, or hold any cryptocurrency, digital token, investment or security, or to engage in any investment strategy or financial transaction.&lt;/em&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

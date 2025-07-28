@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>VeMAV on TokenBrice</title>
+        <link>http://localhost:1313/tags/vemav/</link>
+        <description>Recent content in VeMAV on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Fri, 07 Jul 2023 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/vemav/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Staying Ahead of the Curve: the shift from Liquidity Mining to Liquidity Shaping</title>
+        <link>http://localhost:1313/maverick-liquidity-shaping/</link>
+        <pubDate>Fri, 07 Jul 2023 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/maverick-liquidity-shaping/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2023/liquidity-shaping-maverick/cover.png" alt="Featured image of post Staying Ahead of the Curve: the shift from Liquidity Mining to Liquidity Shaping" /&gt;&lt;p&gt;It&amp;rsquo;s been four months since Maverick is out, and a few days since the MAV token joined the fray. Yet, most of DeFi is still scratching its head regarding how Maverick delivers 2-3x the capital efficiency of its top competitor, Uniswap.&lt;/p&gt;
+&lt;p&gt;So the time was right for a deep dive into the innovations brought by the model and the new paradigm it fosters regarding liquidity management: &lt;strong&gt;liquidity shaping&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;innovations-on-dex-more-like-tools-for-lp-to-express-themselves&#34;&gt;Innovations on DEX? More like tools for LP to express themselves
+&lt;/h2&gt;&lt;p&gt;Fundamentally, a decentralized exchange can innovate at two levels:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;The liquidity structure&lt;/strong&gt;: the options offered to liquidity providers to design the supply activity that best matches their thesis.&lt;/li&gt;
+&lt;li&gt;And/or &lt;strong&gt;the incentivization model&lt;/strong&gt;: the tools and modalities enabling DAOs &amp;amp; projects to incentivize customized or not liquidity structures.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Most new DEX being released recycle an existing infrastructure and focus on innovating on only one dimension - usually the incentivization model - as seen recently with the wave of Solidly/Velodrome forks - &lt;strong&gt;[ve(3,3), the logical next step after veCRV?](&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2023/solidly-velodrome-template.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://tokenbrice.xyz/content/posts/2023/solidly-velodrome-template.md&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;There are, however, a few critical moments in the industry when a new DEX was released and provided &lt;strong&gt;critical innovation on both fronts:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/uniswap-v2/ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Uniswap V1/V2&lt;/a&gt;&lt;/strong&gt; established a solid infrastructure for &lt;code&gt;x*y=k&lt;/code&gt; pools &amp;amp; basic incentivization model: 30 bps fees auto compounded &amp;amp; the possibility of having Liquidity Mining programs on the staked LP tokens (ERC20).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Curve&lt;/strong&gt; provided an innovative and efficient liquidity model for pegged assets (stableswap) while pioneering a ve/gauge-based model for liquidity provider incentivization introducing a revenue capture at the token level (admin fee).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/uniswap-v3/ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;UniswapV3&lt;/a&gt;&lt;/strong&gt; delivered the tools to manage a more advanced liquidity structure harnessing concentrated liquidity efficiently and providing more flexibility fee-wise (1, 5, 30, 100 bps fees, not auto-compounded)&lt;/li&gt;
+&lt;li&gt;And finally came &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/maverick-v2/ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Maverick&lt;/a&gt;&lt;/strong&gt;, which goes even further than UniswapV3 in the customization of the liquidity structure it provides, offers streamlined position management (native rebalancing) and an unprecedented level of control regarding incentivization options, marking the birth of a new paradigm: liquidity shaping.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Each core innovations &lt;strong&gt;enable more expressivity for LPs: they get access to increasingly refined and customized tools enabling even the most intricate thesis to find a proper medium to be expressed onchain&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Yet, before diving into the depth of liquidity shaping, some pointers on Maverick are necessary. Indeed, to fully understand the impact of liquidity shaping on Maverick, you first need to master its liquidity structures and their consequences.&lt;/p&gt;
+&lt;h2 id=&#34;mavericks-liquidity-structures&#34;&gt;MAVERICK&amp;rsquo;S LIQUIDITY STRUCTURES
+&lt;/h2&gt;&lt;p&gt;Indeed, one of Maverick&amp;rsquo;s critical innovations is its liquidity structures, enabling the exchange to reach an unprecedented level of capital efficiency.&lt;/p&gt;
+&lt;p&gt;Maverick offers four options to LP that could be regrouped into two categories for simplicity:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The static mode is similar to a UNIv3 liquidity providing across a custom range, with &lt;strong&gt;immensely more flexibility&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;And three dynamic modes offer &lt;strong&gt;various flavors of rebalancing to LP&lt;/strong&gt; to optimize further their earning: left (follows price to the left), right (follows price to the right), and both (follows price both ways).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;why-mavericks-static-mode-is-a-game-changer&#34;&gt;Why Maverick&amp;rsquo;s Static Mode is a game changer
+&lt;/h3&gt;&lt;p&gt;Many still have to understand how much of an improvement Maverick&amp;rsquo;s static mode is over UNIv3, so let us focus on it for a minute. Here&amp;rsquo;s a quick table recapping the main difference to get started:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Item&lt;/th&gt;
+&lt;th&gt;Uniswap v3&lt;/th&gt;
+&lt;th&gt;Maverick Static Pools&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Supply liquidity in an arbitrary custom range, even potentially only with one token&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Support an uneven liquidity distribution within that range&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Supports customized fees and width&lt;/td&gt;
+&lt;td&gt;4 fees tiers, 1 width&lt;/td&gt;
+&lt;td&gt;Near-infinite fee/width tiers&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Supports the creation of ERC-20-wrapped LP tokens to ease LP onboarding &amp;amp; incentivization&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;✅ (Boosted Pools)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Supports natively the distribution of rewards (Liquidity Mining)&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Supports natively the weighted &amp;amp; customized distribution of rewards to LP (Liquidity Shaping)&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Like UniswapV3, Maverick supports supplying liquidity in &lt;strong&gt;an arbitrary custom range,&lt;/strong&gt; even potentially only with one token, for instance, an LP on ETH/USDC from $2000 to $2400.&lt;/p&gt;
+&lt;p&gt;If the current price is below $2000 (at the time of writing: $1900), the LP will be supplied purely with ETH and progressively rebalances to USDC as the price moves upwards, ending entirely in USDC at $2400.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2023/liquidity-shaping-maverick/eth-lp-univ3.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;eth-lp-univ3.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;But what about LPs that have an even more refined thesis? What about the LP that sees ETH in that range for a week but mainly in the $2150-2250 area? Wouldn&amp;rsquo;t it be nice for him to be able to express this thesis through the liquidity structure he chooses? It is precisely what Maverick enables:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2023/liquidity-shaping-maverick/eth-lp-mav.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;eth-lp-mav.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;In the screenshot above, you see a distribution from $2000 to $2400 on the ETH/USDC pair; however, &lt;strong&gt;unlike Uniswap, which necessarily distributes liquidity evenly across the range, Maverick enables LPs to choose&lt;/strong&gt;. To better fit our LP thesis, most of the liquidity is concentrated over the three ticks covering the $2150-2250 price zone.&lt;/p&gt;
+&lt;h3 id=&#34;maximizing-the-expressivity-offered-to-lps&#34;&gt;Maximizing the expressivity offered to LPs
+&lt;/h3&gt;&lt;p&gt;The expressivity offered to LP on Maverick is virtually infinite. I expect to see some interesting use cases emerge soon, especially for the protocols that will harness Maverick from the get-go (&amp;ldquo;Maverick-native&amp;rdquo; protocols). For instance, y&lt;strong&gt;ou could envision Maverick as a price stabilization mechanism for a stablecoin or a pegged asset&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Assuming the stablecoin project controls some liquidity, it could supply it in very expressive ways in times of need to constraint the price range. Here&amp;rsquo;s a &amp;ldquo;buy wall&amp;rdquo; liquidity structure on LUSD: the whole liquidity of this LP is supplied on a single tick, the first one where LUSD is worth below 1.00 USDC.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2023/liquidity-shaping-maverick/mav-buy-wall.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;mav-buy-wall.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;With a current price &amp;gt;1.00 USDC, this LP is supplied 100% in USDC and acts like a buying reserve: if the price of LUSD falls, the LP will rebalance. Such positions are promising, as they can exert buy/sell pressure helping to better constrain peg assets within narrower ranges, which massively reduces the cost of their liquidity incentivization.&lt;/p&gt;
+&lt;h3 id=&#34;what-about-the-dynamic-modes&#34;&gt;What about the dynamic modes?
+&lt;/h3&gt;&lt;p&gt;Maverick dynamic modes offer a convenient and easy solution for LPs who maximize their exposure to market prices to maximize the volume processed. All three modes essentially harness the same structure but give different options to LP:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Follow the price just one way (left or right) - there are tons of pairs where it makes a lot of sense, like wstETH/ETH (wstETH being &amp;ldquo;up-only&amp;rdquo; against ETH thanks to the staking yield)&lt;/li&gt;
+&lt;li&gt;Follow the price both ways, a good match for LP looking to maximize adequate liquidity and fees collected at the expense of increased IL risk on the principal. It&amp;rsquo;s particularly suited for stable and pegged asset pairs, but not only.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2023/liquidity-shaping-maverick/mav-both.gif&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;mav-both.gif&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The key thing to understand here is that &lt;strong&gt;Maverick delivers native rebalancing to its LP&lt;/strong&gt;, and here again, it goes above and beyond what preceded in terms of customization options. &amp;ldquo;Native&amp;rdquo; is the keyword here, meaning the rebalancing can be &lt;strong&gt;done cleverly and gas-efficiently&lt;/strong&gt;. While this is not new by itself, here again, the devil lies in the details:&lt;/p&gt;
+&lt;p&gt;On Curve, LPs have no options: their liquidity is concentrated, but all LPs of a given pair are under the same regime. It eases the management, but kills the expressivity. With Uniswap, LPs can dynamically rebalance their position using third-party tools like Arrakis; it comes with sizable trust assumptions, potential fees, and hefty gas costs. It allows more expressivity but requires more active management.&lt;/p&gt;
+&lt;p&gt;While there are some limits to Maverick&amp;rsquo;s liquidity rebalancing, based on a TWAP and with some delays to avoid manipulations, it remains a crucial tool to help LPs maximize the time effectively spent in range / in the current price tick.&lt;/p&gt;
+&lt;h2 id=&#34;mavericks-incentivization-model-liquidity-shaping&#34;&gt;MAVERICK&amp;rsquo;S INCENTIVIZATION MODEL: LIQUIDITY SHAPING
+&lt;/h2&gt;&lt;p&gt;With a better understanding of the first fundamental innovation brought by Maverick - the unprecedented expressivity offered to LP in the design and management of their position - we can now explore Maverick&amp;rsquo;s second leg: its novel incentivization model.&lt;/p&gt;
+&lt;p&gt;The story here is both short and long. &lt;strong&gt;In short, Maverick provides the same level of customization at the incentivization layer as at the pool creation level.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;It leads us to a longer story, with examples to be more explicit. Replicating most existing liquidity structures and incentivization models on Maverick is possible. But what&amp;rsquo;s even more interesting are the new ones previously never tried because they were not technically feasible before Maverick: it&amp;rsquo;s time to explore and experiment!&lt;/p&gt;
+&lt;h3 id=&#34;dynamic-contract-triggered-buysell-walls&#34;&gt;Dynamic contract-triggered buy/sell walls
+&lt;/h3&gt;&lt;p&gt;Remember the example from earlier about the stablecoin project posting liquidity as a buying wall to constrain the price? &lt;strong&gt;The project does not even needs its liquidity to do it&lt;/strong&gt;, as the same process can be replicated with a boosted pool:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The project creates a boosted pool where all the liquidity is distributed on one tick below the price like above.&lt;/li&gt;
+&lt;li&gt;The project supplies incentives to the boosted pool for the duration of its choice &amp;amp; apes will do the rest.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This whole process can be automated and triggered entirely through smart contracts, meaning another contract could dynamically manage the incentives.&lt;/p&gt;
+&lt;h3 id=&#34;the-case-of-cvxcrvcrv&#34;&gt;The case of cvxCRV/CRV
+&lt;/h3&gt;&lt;p&gt;Let&amp;rsquo;s study another checkmate case, the one of cvxCRV. Indeed, the cvxCRV/CRV Curve pool is the absolute worst offender:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It harnesses a &lt;strong&gt;a regular structure, absolutely sub-optimal for an asset trading in a constrained range like cvxCRV&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;It harnesses a &lt;strong&gt;&amp;ldquo;dumb&amp;rdquo; liquidity mining model where all LPs are paid equally&lt;/strong&gt;, leading to cvxCRV deposits, which make 75% of the pool, earning 75% of the rewards - while being close to useless liquidity-wise (as there are already too much cvxCRV in that pool).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;so-what-can-be-done-better&#34;&gt;So what can be done better?
+&lt;/h4&gt;&lt;p&gt;First, the concentration could be finetuned much more at the liquidity structure level. cvxCRV is a &amp;ldquo;one-way asset&amp;rdquo;: you can wrap CRV to cvxCRV 1:1 through the Convex contracts, but converting cvxCRV to CRV is done on a DEX at a discount.&lt;/p&gt;
+&lt;p&gt;=&amp;gt; This means cvxCRV has a price ceiling against CRV: in no world, cvxCRV could be worth &amp;gt;1 CRV, and the current price is around 0.95 CRV per cvxCRV.&lt;/p&gt;
+&lt;p&gt;==&amp;gt; The ideal structure for such a pool could be &lt;strong&gt;a concentration going from 1cvxCRV = 0.9 CRV to 1 cvxCRV = 0.99 CRV, offering vastly superior liquidity efficiency&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Now, for the incentivization layer, massive gains are to be made with a switch. Instead of paying all LPs equally while the pool is massively unbalanced, why not focus on those who bring the most value to the pool, aka the CRV component?&lt;/p&gt;
+&lt;p&gt;=&amp;gt; I&amp;rsquo;d go with two joint pools to best cover that pair incentivize-wise: &lt;strong&gt;first, a static LP over ten bins&lt;/strong&gt; centered around the current price - it provides room for the price to express itself with sufficient liquidity &amp;amp; this structure is already &amp;gt;100x more efficient than the existing Curve V2 pool.&lt;/p&gt;
+&lt;p&gt;==&amp;gt; For the nail in the coffin, we can &lt;strong&gt;add a one-tick left-right pool one top to maximize liquidity efficiency&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The details of this example help you understand that if you take this pool to Maverick, the compounded effect of the superior liquidity structure with a vastly more efficient incentivization model leads to results from a different league.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2023/liquidity-shaping-maverick/curve-cvxcrv-crv.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;curve-cvxcrv-crv.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;There are currently $54M TVL in Curve cvxCRV/CRV pool for a daily volume of around $300k daily (0.5% utilization). With a base incentive of 12% CRV, ~&lt;strong&gt;$6M of CRV tokens are expanded yearly to maintain this liquidity&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;On Maverick, a ~$500K  properly structured pool&lt;/strong&gt; ($250k static broad range + $250k left-right) &lt;strong&gt;would be sufficient to consistently process the $300k daily volume&lt;/strong&gt; with better prices than on Curve. Assuming the same incentivization intensity, &lt;strong&gt;it would cost $60k a year to maintain&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;proto-liquidity-shaping-with-bunni&#34;&gt;Proto Liquidity Shaping with Bunni?
+&lt;/h3&gt;&lt;p&gt;I hope that, at this point, you get a better sense of why liquidity shaping is genuinely revolutionary, as it will allow another order-of-magnitude leap regarding the efficiency of both the liquidity structures and the incentivization models.&lt;/p&gt;
+&lt;p&gt;There are earlier, less complete iterations on such a concept, provided by the liquidity manager built on top of UniswapV3 that allows incentivization on a customized range, for instance, rewards for LUSD/USDC LP, but only for the LUSD = 0.999 USDC to LUSD = 1.01 USDC range. &lt;a class=&#34;link&#34; href=&#34;https://bunni.pro/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Bunni&lt;/a&gt; is a good example of such services.&lt;/p&gt;
+&lt;p&gt;Those could be described as &amp;ldquo;proto liquidity shaping,&amp;rdquo; as they enable to force a specific price range but cannot apply different weights to each tick in that range: they are limited by the Uniswap V3 pool model that offers less flexibility than Maverick. In the end, both are quite complimentary as Bunni can be used to force a wide range, which can be further refined with a uneven static Maverick pool &amp;amp; finally maintained uber liquid at current price with a left-right on Maverick too.&lt;/p&gt;
+&lt;h2 id=&#34;mav-token&#34;&gt;MAV TOKEN
+&lt;/h2&gt;&lt;p&gt;With clear perspectives on both the novel pool structure and incentivization model and their consequences, we&amp;rsquo;re now ready to add the last piece of a puzzle, one you&amp;rsquo;re likely more familiar with, but here too, there are key differences: the MAV token.&lt;/p&gt;
+&lt;p&gt;Released just a few weeks ago, the MAV token has been airdropped to early liquidity providers and protocol users. The initial airdrop is just &lt;strong&gt;the first of many&lt;/strong&gt;, and more are planned, for LPs, but also protocols harnessing Maverick or building on top of it. For more details on the intended distribution, check this &lt;a class=&#34;link&#34; href=&#34;https://medium.com/maverick-protocol/maverick-ecosystem-incentive-program-95cf76dbfa5e&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Maverick Ecosystem Incentive Program&lt;/a&gt; article.&lt;/p&gt;
+&lt;p&gt;As readers of this blog, I imagine you are extensively familiar with the veCRV model and its implications. If not, you&amp;rsquo;ve got some reading to do:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/crv-wars.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;⚔ CRV wars: understanding the race to accumulate power to influence Curve Finance protocol&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;vemav--liquidity-directing-voting-vote-directed-liquidity-shaping&#34;&gt;veMAV &amp;amp; Liquidity Directing Voting (vote-directed liquidity shaping)
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2023/liquidity-shaping-maverick/vemav.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;vemav&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The launch of the MAV token is sequential, currently in phase 1, where users can claim their drop, LP MAV, or lock it to obtain veMAV. &lt;strong&gt;Stage 2 will introduce Maverick&amp;rsquo;s Liquidity Directing Voting and mark the true beginning of the MAV races.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The main difference here is, of course, the expressivity enabled by Maverick that will also impact the tokenomics: unlike on veCRV or veBAL, where projects allocate liquidity to a whole pool, here, with Maverick, &lt;strong&gt;protocols will be able to target their voting power to a specific part of the AMM distribution&lt;/strong&gt;. You&amp;rsquo;ll find more information on veMAV here: &lt;a class=&#34;link&#34; href=&#34;https://medium.com/maverick-protocol/introducing-maverick-protocols-voting-escrow-model-c29a60120339&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Introducing Maverick Protocol&amp;rsquo;s Voting-Escrow Model&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;maverick--vemav-x-chain-strategy&#34;&gt;Maverick &amp;amp; veMAV X-chain strategy
+&lt;/h3&gt;&lt;p&gt;Another critical thing to note with the MAV token is that it implements &lt;a class=&#34;link&#34; href=&#34;https://layerzero.gitbook.io/docs/evm-guides/layerzero-omnichain-contracts/oft&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Layer Zero&amp;rsquo;s Omnichain Fungible Token (OFT) standard&lt;/a&gt;, greatly facilitating cross-chain operations. It enables MAV to exist natively on every chain and should ease the operational overhard for the team to launch the gauge system on a new network.&lt;/p&gt;
+&lt;p&gt;It might not seem much at first glance, but it could make a massive difference. Indeed, Curve and Balancer have been slow to export their full gauge model to networks other than the mainnet they initially operate on. &lt;strong&gt;I expect Maverick to move much more quickly&lt;/strong&gt;, and the early empirical data validate it. In ~3 months of existence, Maverick has already launched two chains apart from mainnet: zkSync and BSC.&lt;/p&gt;
+&lt;h3 id=&#34;another-main-difference-with-vecrv&#34;&gt;Another main difference with veCRV
+&lt;/h3&gt;&lt;p&gt;veMAV implements several other changes compared to a base veCRV model, and I invite you to identify them all. Here are some other ones:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The veMAV per MAV weighting is not linear here, even if it still favors max lockers (4 years); the min lock of 1 week gives one veMAV/MAV, while max locking gives 5veMAV/MAV.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;There is no linear decay&lt;/strong&gt; like on veCRV - which is a significant UX improvement. It could also have very positive consequences for veMAV liquid wrappers, making it easier to keep close to the peg.&lt;/li&gt;
+&lt;li&gt;Yet there are still incentives to stay committed. Indeed, The veMAV/MAV ratio is computed with the formula &lt;code&gt;1.5^(lock end - contract launch)&lt;/code&gt;. With the lock end as the main parameter, veMAV lockers who want to maximize their power must extend their lock frequently.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Regarding wrappers, several existing projects have already expressed their intention of building on top of Maverick or veMAV, including Paladin, SpiralDAO, and StakeDAO. The MAV wars will be vicious, so read the fine print before locking your MAV somewhere else than in the veMAV contract.&lt;/p&gt;
+&lt;h2 id=&#34;forward-outlook--parting-words&#34;&gt;Forward outlook &amp;amp; parting words
+&lt;/h2&gt;&lt;p&gt;Maverick is currently live on mainnet, zkSync, and BSC. It&amp;rsquo;s interesting to remark on how much it dominates the volume on zkSync, even with a fraction of its competitor TVL:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2023/liquidity-shaping-maverick/zksync-dex-volume.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;zksync-dex-volume.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2023/liquidity-shaping-maverick/zksync-dex-tvl.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;zksync-dex-tvl.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;On mainnet, most of the success has been found with ETH-LSDs pairs (wstETH, swETH, etc.) and stablecoins. Maverick&amp;rsquo;s efficient liquidity structure is highly competitive with Curve, Uniswap, and Balancer.&lt;/p&gt;
+&lt;p&gt;On volatile tokens, LPs are a bit shy still, just like it took a few months for people to get used to the novelty brought in by Uniswap V3. Interestingly, LPs are experimenting more on zkSync, especially on pairs such as ETH/USDC, thanks to the lowered gas costs, leading to an overall capital efficiency even more significant than on mainnet, here are the stats for today (July 06 2023):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Uniswap V3 - mainnet: 0.23&lt;/li&gt;
+&lt;li&gt;Maverick - mainnet: 0.3&lt;/li&gt;
+&lt;li&gt;Maverick - zkSync: 0.93&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;getting-started-with-maverick-as-a-user&#34;&gt;Getting started with Maverick as a user
+&lt;/h3&gt;&lt;p&gt;There is a learning curve for Maverick, as understanding how to structure liquidity properly can be intimidating because of all the options provided. Yet more options mean more expressivity and, thus, more efficiency and returns when adequately harnessed.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;To make the most of Maverick as a user and discover the protocol in an environment with low fees, I&amp;rsquo;d recommend supplying your first LPs on zkSync&lt;/strong&gt; - as it will enable you to modify them at a low cost if needed. Like most new DeFi products, the best way to master it is to use it and see it behaves in various market conditions, so get at it: you might also be double-dipping on airdrops so that it can be quite a rewarding experience.&lt;/p&gt;
+&lt;p&gt;Don&amp;rsquo;t hesitate to check out the Boosted Pools, which - in addition to their incentives - have a pre-defined liquidity configuration, making them more accessible to LPs.&lt;/p&gt;
+&lt;h3 id=&#34;liquidity-managers-its-time-to-wake-up&#34;&gt;Liquidity Managers, it&amp;rsquo;s time to wake up!
+&lt;/h3&gt;&lt;p&gt;On the project side, &lt;strong&gt;it&amp;rsquo;s an absolute necessity for liquidity managers to understand and master Maverick&lt;/strong&gt;, as it&amp;rsquo;s by far the venue delivering the most liquidity efficiency. I&amp;rsquo;d be happy to help them in the process, since it has become a specialty of mine. Feel free to reach out if you&amp;rsquo;d like to discuss how your project could harness liquidity shaping.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;Disclosure: In case you missed the news, I&amp;rsquo;ve been advising the Maverick team since last year.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2023/maverickxtokenbrice.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Announcement: TokenBrice 🤝 Maverick&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;It will be interesting to see how the next few months of the DEX wars will unfold; with Maverick already consistently in the top 5 of Ethereum DEXes by volume processed, I think it&amp;rsquo;s no stretch to envision it breaking into the top 3 by the end of year latest as the veMAV gauges will be released.&lt;/p&gt;
+&lt;p&gt;I hope this article helped you better understand the paradigm shift that lies with the transition from liquidity mining / basic ve(3,3) to Maverick&amp;rsquo;s powerhouse implementing vote-directed liquidity shaping. Feel free to follow the events live, monitoring onchain data like as OGs do.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

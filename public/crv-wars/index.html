@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="A concise guide to tracking the CRV accumulation race by any means possible including vote buying (Bribes) and evaluating the Curve strategies of DeFi protocols">
+<title>⚔ CRV wars: understanding the race to accumulate power to influence Curve Finance protocol</title>
+
+<link rel='canonical' href='http://localhost:1313/crv-wars/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="⚔ CRV wars: understanding the race to accumulate power to influence Curve Finance protocol">
+<meta property='og:description' content="A concise guide to tracking the CRV accumulation race by any means possible including vote buying (Bribes) and evaluating the Curve strategies of DeFi protocols">
+<meta property='og:url' content='http://localhost:1313/crv-wars/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Finance décentralisée' /><meta property='article:tag' content='Curve Finance' /><meta property='article:tag' content='CRV' /><meta property='article:tag' content='Polygon' /><meta property='article:tag' content='Convex' /><meta property='article:tag' content='CVX' /><meta property='article:tag' content='Votium' /><meta property='article:tag' content='vlCVX' /><meta property='article:tag' content='veCRV' /><meta property='article:tag' content='bribe.crv' /><meta property='article:published_time' content='2021-09-28T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2021-09-28T01:13:50&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/2021/crv-wars/curve-wars-cover-tokenbrice.png' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="⚔ CRV wars: understanding the race to accumulate power to influence Curve Finance protocol">
+<meta name="twitter:description" content="A concise guide to tracking the CRV accumulation race by any means possible including vote buying (Bribes) and evaluating the Curve strategies of DeFi protocols"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/2021/crv-wars/curve-wars-cover-tokenbrice.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">TokenBrice</a></h1>
+            <h2 class="site-description">Brutally Honest DeFi</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" selected>English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" >Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#convex-and-the-vecrv-separation">Convex and the VeCRV separation</a>
+      <ol>
+        <li><a href="#cvxcrv--vecrv-yield">CvxCRV = VeCRV-yield++</a></li>
+        <li><a href="#vlcvx--vecrv-gov">vlCVX = VeCRV-gov++</a></li>
+        <li><a href="#bribes-a-not-so-clean-separation">Bribes: a not so clean separation</a></li>
+      </ol>
+    </li>
+    <li><a href="#the-battlefields">The battlefields</a>
+      <ol>
+        <li><a href="#bribe-v0--direct-incentive-on-pools">Bribe v0 : direct incentive on pools</a></li>
+        <li><a href="#bribecrv-by-cronje-with-vecrv">Bribe.crv by Cronje [with veCRV]</a></li>
+        <li><a href="#votium-with-vlcvx">Votium [with vlCVX]</a></li>
+      </ol>
+    </li>
+    <li><a href="#putting-it-into-practice-tactics-and-results">Putting it into practice: tactics and results</a>
+      <ol>
+        <li><a href="#the-spellmim-case">The Spell/MIM case</a></li>
+        <li><a href="#sdvecrv-vs-cvxcrv">sdveCRV VS cvxCRV</a>
+          <ol>
+            <li><a href="#sdvecrv-liquidity-plan-total-misunderstanding-and-abject-failure">sdveCRV liquidity plan: total misunderstanding and abject failure</a></li>
+            <li><a href="#cvxcrv-liquidity-plan-immediate-take-off">cvxCRV liquidity plan: immediate take-off</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/crv-wars/">
+                
+                    <img src="/img/2021/crv-wars/curve-wars-cover-tokenbrice.png" loading="lazy" alt="Featured image of post ⚔ CRV wars: understanding the race to accumulate power to influence Curve Finance protocol" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/defi/" style="background-color: #2a9d8f; color: #fff;">
+                DeFi
+            </a>
+        
+            <a href="/categories/understanding/" style="background-color: #2a9d8f; color: #fff;">
+                Understanding
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/crv-wars/">⚔ CRV wars: understanding the race to accumulate power to influence Curve Finance protocol</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            A concise guide to tracking the CRV accumulation race by any means possible including vote buying (Bribes) and evaluating the Curve strategies of DeFi protocols
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Sep 28, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    12 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+        <footer class="article-translations">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+            <div>
+                
+                    <a href="http://localhost:1313/fr/crv-wars/" class="link">Français</a>
+                
+            </div>
+        </footer>
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Since the early days of Curve Finance and the launch of the CRV token, we have been waiting, contemplating and assuming what the CRV war could bring. Now, with the launch of Convex, then Bribe.crv and finally Votium, everything is accelerating: VeCRV votes can now be bought! So let&rsquo;s see how this impacts Curve and DeFi as a whole.</p>
+<p>At first glance, the question is quite simple and straightforward:</p>
+<ol>
+<li>Curve is the largest decentralized DeFi exchange in terms of total value deposited.</li>
+<li>The CRV token provides access to 1/ a share of the fees collected 2/ <strong>a voting power to influence the issuance of future CRVs.</strong></li>
+<li>=&gt; Having control over a large CRV voting power makes it <strong>much easier to develop a Curve pool</strong>, since it offers the possibility to vote for large CRV returns on the pool in question.</li>
+</ol>
+<p>Nevertheless, as often in DeFi, everything is not so simple and the devil is in the details. To understand the stakes of the CRV war, you need to have <strong>a good understanding of the different tools built on it</strong>. This will allow you to judge the relevance of the strategies deployed by the different projects that seek to influence Curve.</p>
+<h2 id="convex-and-the-vecrv-separation">Convex and the VeCRV separation
+</h2><p>Before analyzing the battlefields - i.e. the different tools used in this CRV war - we need to look more deeply at one in particular: Convex. I&rsquo;ve already talked about it on this blog, explaining <a class="link" href="https://tokenbrice.xyz/content/posts/2021/defi-flywheel.md"  target="_blank" rel="noopener"
+    >the flywheel dimension of Convex with the CvxCRV</a>.</p>
+<p>The interactions of Convex with Curve go far beyond the CvxCRV, which is only one element.</p>
+<p>In fact, <strong>one could describe Convex as a separation between governance and returns on VeCRV</strong> by amplifying each of the elements on a separate token. Let me explain:</p>
+<h3 id="cvxcrv--vecrv-yield">CvxCRV = VeCRV-yield++
+</h3><p>CvxCRV corresponds to a VeCRV owned by Convex. They are locked in forever, but the liquidity available on CvxCRV/CRV allows depositors to close out their position.</p>
+<p><strong>In terms of governance, CvxCRV loses all its capabilities</strong> : VeCRV owner can vote on gauges (CRV issue) and governance votes. A CvxCRV owner has no other benefit than the return.</p>
+<p>Nevertheless, <strong>the return is amplified compared to a simple possession of VeCRV</strong>:</p>
+<ol>
+<li>Return in 3pool token - the share of fees collected on Curve - exactly like VeCRV</li>
+<li>Return in CRV (10% of all CRV farmed by Convex shared between all CvxCRV stakers)</li>
+<li>Virtually the same yield in CVX</li>
+<li>Potential airdrops like Ellipsis</li>
+</ol>
+<p>CvxCRV corresponds to a simple compromise compared to VeCRV: governance capabilities are lost (-&gt; vlCVX) but in return the performance is greatly amplified and diversified.</p>
+<h3 id="vlcvx--vecrv-gov">vlCVX = VeCRV-gov++
+</h3><p>At the other end of the spectrum, Convex offers another interesting abstraction from Curve. It is its native CVX token. Indeed, <strong>each CVX corresponds to a VeCRV</strong> voting capability (which comes from CvxCRV).</p>
+<p>To mobilize it, the depositor must &ldquo;vote lock&rdquo; his CVX in vlCVX. They are locked for 16 weeks + 3 days and so provide access to governance capacity. Currently, vlCVX is by far the most economically efficient way to accrue Curve voting capacity:</p>
+<div class="table-wrapper"><table>
+  <tr>
+   <td>
+   </td>
+   <td>Price
+   </td>
+   <td>Voting power
+   </td>
+   <td>VeCRV-vote/$
+   </td>
+   <td>Commitment
+   </td>
+  </tr>
+  <tr>
+   <td>VeCRV
+   </td>
+   <td>$2.42
+   </td>
+   <td>1 veCRV
+   </td>
+   <td>0.41
+   </td>
+   <td>4 years
+   </td>
+  </tr>
+  <tr>
+   <td>vlCVX
+   </td>
+   <td>$8.2
+   </td>
+   <td>12,75 VeCRV
+   </td>
+   <td>1.55
+   </td>
+   <td>16 weeks + 3 days
+   </td>
+  </tr>
+</table></div>
+<p>In addition to the increased profitability of CVX to influence Curve, the commitment is also less than on VeCRV. For the comparison table, I assumed a 4-year lock on CRV. The difference is even more in favor of vlCVX for shorter commitments.</p>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice warning" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#warning-notice"></use></svg></span>Warning</p><p>The vlCVX does have one drawback: after the initial 16 weeks of lock-in, penalties are applied to depositors if the tokens remain inactive for more than 4 weeks.</p></div>
+
+<p>If you want to further analyze the returns offered by the delegation of CVX and the associated vote buying, feel free to <a class="link" href="https://medium.com/@portiadog/convex-finance-1cc6c9c1c733"  target="_blank" rel="noopener"
+    >read this article</a> which offers more detailed calculations :</p>
+<p><img src="/img/2021/crv-wars/bribes-rewards.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="bribes-rewards"
+	
+	
+></p>
+<h3 id="bribes-a-not-so-clean-separation">Bribes: a not so clean separation
+</h3><p>The situation was clear, but it did not remain so for long. Indeed, it should first be noted that vlCVX is not without returns: <strong>vlCVX owners share 6% of all CRVs farmed by Convex, in the form of CvxCRV</strong>.</p>
+<p>Furthermore, this is potentially not the only return for which vlCVX owners are eligible. Indeed, <strong>governance capacity can also offer a substantial return via bribe mechanisms</strong> (vote buying).</p>
+<p>Different projects offer incentives for voting on the gauge of a given Pool Curve. For example, Alchemix offers rewards in ALCX, its native token, which can be claimed each week by all those who used their VeCRV to vote to increase the CRV allocation of the AlUSD pool.</p>
+<p>In the long run, it is not impossible that the initial separation planned by Convex is not the most honest. Currently, the yield on cvxCRV is about 60% while it is only 15% on CVX. Nevertheless, <strong>when you add the bribes into the equation, it is not impossible that the yield on vlCVX is much higher than on cvxCRV.</strong></p>
+<h2 id="the-battlefields">The battlefields
+</h2><p>&ldquo;Bribes&rdquo; services are an essential part of the Curve governance equation. However, before digging into them, we need to recall the basic path (veCRV) that defines the framework for all its variants.</p>
+<p>VeCRV is obtained by locking CRV for up to 4 years. The longer the lock, the closer the VeCRV/CRV ratio is to 1. <strong>The lock gradually depletes over time as does the voting capacity</strong>.</p>
+<p>This is why vaults built on VeCRV operate on a 4-year perpetual locking logic: in order to preserve a voting capacity that is always as close to the maximum possible, <strong>they &ldquo;refresh&rdquo; the locking frequently.</strong></p>
+<p><img src="/img/2021/crv-wars/vecrv-ecosystem-tokenbrice.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="vecrv-ecosystem-tokenbrice"
+	
+	
+></p>
+<h3 id="bribe-v0--direct-incentive-on-pools">Bribe v0 : direct incentive on pools
+</h3><p>Before we talk about bribes, it is worth remembering there is a primitive form that has been available since the early days of Curve: additional incentives (on top of CRVs) for liquidity providers. Synthetix pioneered this with the SNX liquidity mining program on the sUSD pool.</p>
+<p>Direct incentives can be combined with bribes, and are even recommended. We will see below how MIM, for example, obtained much more activity by sharing its budget between incentives and bribes (after an initial phase without bribes).</p>
+<h3 id="bribecrv-by-cronje-with-vecrv">Bribe.crv by Cronje [with veCRV]
+</h3><p>As you can see, the &ldquo;bribes&rdquo; are purchases of VeCRV votes. They are paid by the week, generally on Friday (the day the votes are taken into account).</p>
+<p>However, just as there are several systems for interacting with VeCRV, there are also several mechanisms for bribes. So we start with the one that was available first: <a class="link" href="http://bribe.crv.finance/"  target="_blank" rel="noopener"
+    >http://bribe.crv.finance/</a></p>
+<p>The basic unit is the VeCRV. Bribe.crv is a simple interface that summarizes the different offers and allows to collect its bribes. Voting is done directly on Curve.</p>
+<p>After a somewhat timid start, the service is being used more and more and many projects are now proposing bribes. The returns in the first few weeks have been excellent, it remains to be seen if they will last. For example, I got <strong>about 10% return on my VeCRV (/ current price) in 5 weeks</strong> by voting for the MIM pool and receiving SPELL tokens in bribes.</p>
+<p>We&rsquo;ll come back to the results below.</p>
+<h3 id="votium-with-vlcvx">Votium [with vlCVX]
+</h3><p>The alternative available is <a class="link" href="http://votium.app/"  target="_blank" rel="noopener"
+    >Votium</a>. Here, the basic unit is the vlCVX, so the two services are not competitors but complementary.</p>
+<p>Votium is more recent so the available bribes are more limited. On the other hand, <strong>Votium already controls an impressive voting power: about 8M CVX or more than 102M VeCRV</strong>.</p>
+<p>The system is potentially more passive than with bribe.crv since depositors can delegate to Votium who will take care of voting each week for them and collect the corresponding bribes.</p>
+<p>Even with an active delegation, a depositor can at any time take back control and vote for a given pool, directly on snapshot (-&gt; no gas cost). The system is therefore more flexible than bribe.crv in this respect</p>
+<p>Other services to handle bribes are also in development with a release in the near future. So far the bribe game has focused mainly on CRV, but <a class="link" href="https://www.paladin.vote/"  target="_blank" rel="noopener"
+    >Paladin</a>, for example, intends to offer a similar mechanism with other protocols as well.</p>
+<h2 id="putting-it-into-practice-tactics-and-results">Putting it into practice: tactics and results
+</h2><p>The conceptual bases are a bit heavy on this subject, but it is essential to understand them. To make it more explicit, let&rsquo;s move on to the practical side with concrete examples.</p>
+<h3 id="the-spellmim-case">The Spell/MIM case
+</h3><p><a class="link" href="http://abracadabra.money/"  target="_blank" rel="noopener"
+    >Abracadabra</a> is a Maker service. Various assets are accepted as collateral, including productive assets such as xSUSHI or cvx3pool.</p>
+<p>Just as Maker produces DAI, Abracadabra produces a stablecoin (on the dollar) called MIM. The liquidity available on MIM, as well as the opportunity for returns, is therefore a key factor in the platform&rsquo;s success.</p>
+<p>This is why Abracadabra has progressively gone through all forms of direct or indirect bribes on Curve :</p>
+<ol>
+<li>It started with a SPELL incentive (governance token) on the Curve/MIM pool.</li>
+<li>When bribe.crv arrived, <strong>a portion of that incentive was reallocated to bribe</strong> - thus distributed to veCRV owners who vote for the MIM gauge.</li>
+<li>Now, with the arrival of vlCVX, the team is considering reallocating the budget through this.</li>
+</ol>
+<p>In a few weeks, the MIM pool has exploded on Curve, at all levels:</p>
+<ul>
+<li>CRV yields were really good in some weeks</li>
+<li>This has attracted liquidity and volume, slightly reducing the yield but increasing the ability to boost the pool</li>
+<li>As a result of this momentum, MIM is now the fifth largest pool curve in terms of volume, with a nice volume/TVL ratio.</li>
+</ul>
+<p><img src="/img/2021/crv-wars/crv-pools.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="curve-pools"
+	
+	
+></p>
+<p>Moreover, the pool is now well balanced and rather dense (&gt; $700M total liquidity).</p>
+<p>The example of Abracadabra is extremely instructive, as it demonstrates the relevance of the abstractions built on VeCRV: <strong>without increasing its total budget, Abracadabra has been able to attract much more liquidity than at the time of the simple direct incentive in SPELL.</strong></p>
+<p>You therefore understand that DeFi projects that take advantage of the veCRV, cvxCRV and vlCVX mechanisms have an undeniable advantage (<strong>economic AND political</strong>) over those who have not yet grasped all their subtleties.</p>
+<h3 id="sdvecrv-vs-cvxcrv">sdveCRV VS cvxCRV
+</h3><p>Indeed, <strong>I now consider understanding Curve and the ability to effectively influence its governance to be an essential and required capability in most DeFi projects, especially for stablecoin projects.</strong></p>
+<p>No need to take my word for it though, let&rsquo;s compare in practice two approaches implemented by projects with similar issues: liquidity strategies on cvxCRV (from Convex) and sdveCRV (from StakeDAO) - two abstractions built on veCRV.</p>
+<p>Although the situations are similar, there are some important differences:</p>
+<ol>
+<li>Let&rsquo;s start by recalling that Convex controls more than 30 times the amount of CRV controlled by Stake (102M vs 3M).</li>
+<li>Furthermore, sdveCRV has serious problems with its peg: 1 sdveCRV ~= 0.5 CRV</li>
+</ol>
+<p><img src="/img/2021/crv-wars/sdvecrv-peg.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="sdvecrv-peg"
+	
+	
+></p>
+<h4 id="sdvecrv-liquidity-plan-total-misunderstanding-and-abject-failure">sdveCRV liquidity plan: total misunderstanding and abject failure
+</h4><p>So let&rsquo;s move on to the analysis. Initially the liquidity of sdveCRV was against ETH just like Yearn. Since Convex, the Stake team is trying to react to make sdveCRV more attractive.</p>
+<p>Nevertheless, the team clearly did not take the time to analyze the situation and rushed into what turned out to be <strong>one of the biggest governance failures ever seen on Curve</strong></p>
+<p>After creating an anemic sdveCRV/CRV pool via the Curve Factory, a vote was taken to add the gauge control (= CRV incentives). Not only was <a class="link" href="https://dao.curve.fi/vote/ownership/83"  target="_blank" rel="noopener"
+    >the vote overwhelmingly rejected</a> but also <strong>the sdveCRV pool is set up in an aberrant and absolutely dangerous way for depositors.</strong></p>
+<p>Indeed, the factor A (amplification parameter) of the pool is <a class="link" href="https://curve.fi/factory/34"  target="_blank" rel="noopener"
+    >set to 200</a> &mdash; a correct value for assets that follow the same peg, but <strong>delusional if one asset is worth twice the other</strong>.</p>
+<p><img src="/img/2021/crv-wars/sdvecrv-mim-crv-pools.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="sdvecrv-mim-crv-pools"
+	
+	
+></p>
+<p>To give you an idea, even the aforementioned absolutely massive MIM pool (7000x the liquidity of the sdveCRV pool) has not yet reached 200 of A factor (119 currently, increasing).</p>
+<p>Thus, not only did Stake fail to solve its liquidity problem on sdveCRV, but <strong>such a course of events clearly raises the question of the Stake team&rsquo;s understanding of the intricacies of Curve/Convex</strong>.</p>
+<p>To get sdveCRV back to peg and develop its liquidity, they will need a lot of effort, in order:</p>
+<ul>
+<li>Review the pool parameters</li>
+<li>Direct incentives in SDT on the pool?</li>
+</ul>
+<p>Once these steps are completed, the team would then have a chance to get the CRV gauge on this pool, but not before. So the current situation looks like a costly dead end: <strong>no way out unless the SDT board is heated (even more)</strong>.</p>
+<h4 id="cvxcrv-liquidity-plan-immediate-take-off">cvxCRV liquidity plan: immediate take-off
+</h4><p>On the contrary, the liquidity plan on cvxCRV demonstrates how effective the process can be. Initially (and still today), the main pool for cvxCRV is on Sushiswap, against CRV.</p>
+<p>This situation does not really make sense: <strong>Sushi is far from optimal for optimizing liquidity across assets that follow the same peg</strong>. So when Curve launched factory pools (V2), the <a class="link" href="https://curve.fi/factory/22"  target="_blank" rel="noopener"
+    >cvxCRV/CRV pool</a> was one of the first to emerge.</p>
+<p>(Note here the A Factor at 50 - while cvxCRV holds its peg much better than sdveCRV&hellip;)</p>
+<p><img src="/img/2021/crv-wars/cvxcrv-pool.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="cvxcrv-pool"
+	
+	
+></p>
+<p>Without any incentive from Convex or Curve, the pool has already seen significant volume flow through DEX aggregators like Paraswap. Soon, there was a vote to add the CRV gauge which passed - and this pool is now farmable directly through Convex.</p>
+<p>The pool remains slightly unbalanced (there is so much to do with CRVs, which are becoming increasingly rare&hellip;) but it already brings a competitive alternative to the SLP cvxCRV/CRV pool with still a fraction of its liquidity.</p>
+<h2 id="conclusion">Conclusion
+</h2><p>I hope this article has helped you grasp the intricacies of the extended veCRV ecosystem and their implications for the CRV battle.</p>
+<p>Before concluding, I would like to remind you that as usual the alpha is in the nooks and crannies. If you have understood this article, feel free to export the liquidity strategy analysis to other projects: I am sure it will be instructive!</p>
+<p>I tell you often, but it will never be enough: not only Curve is the most important DEX in DeFi but it is also <strong>the most advanced protocol in terms of governance and tokenomics by far compared to anything else</strong>. Even if you have no interest in Curve/Convex, it&rsquo;s essential to understand these protocols in order to properly consider what&rsquo;s going on in DeFi&hellip; Hopefully this article will help you!</p>
+<p><em>🙏 Huge thanks to HHK, Charles, Thomas, Erwan, <a class="link" href="https://twitter.com/phil_h"  target="_blank" rel="noopener"
+    >PhilH</a> &amp; FrenchTony for proofreading the French version of this article and translating it integrally into English.</em></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/defi/">DeFi</a>
+        
+            <a href="/tags/ethereum/">Ethereum</a>
+        
+            <a href="/tags/finance-d%C3%A9centralis%C3%A9e/">Finance Décentralisée</a>
+        
+            <a href="/tags/curve-finance/">Curve Finance</a>
+        
+            <a href="/tags/crv/">CRV</a>
+        
+            <a href="/tags/polygon/">Polygon</a>
+        
+            <a href="/tags/convex/">Convex</a>
+        
+            <a href="/tags/cvx/">CVX</a>
+        
+            <a href="/tags/votium/">Votium</a>
+        
+            <a href="/tags/vlcvx/">VlCVX</a>
+        
+            <a href="/tags/vecrv/">VeCRV</a>
+        
+            <a href="/tags/bribe.crv/">Bribe.crv</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Sep 28, 2021 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/crv-wars-l2/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/curve-wars-l2/curve-wars-l2-cover-tokenbrice.png" loading="lazy" data-key="" data-hash="/img/2022/curve-wars-l2/curve-wars-l2-cover-tokenbrice.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">⚔ Advanced CRV warfare: analysis of protocols built on top of Curve and Convex </h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/crv-vs-velo/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2024/crv-vs-velo/cover.png" loading="lazy" data-key="" data-hash="/img/2024/crv-vs-velo/cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Subtles nuances with great consequences: a cross analysis of Curve and Velodrome</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/solidly-velodrome-fork/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2023/solidly-velodrome-template/cover.png" loading="lazy" data-key="" data-hash="/img/2023/solidly-velodrome-template/cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ve(3,3), the logical next step after veCRV?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/defi-flywheel/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/defi-flywheel/defi-flywheel-cover-en.png" loading="lazy" data-key="" data-hash="/img/2021/defi-flywheel/defi-flywheel-cover-en.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🎡 DeFi Flywheel : engineering protocol to protocol synergies through tokens</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/defi-janus/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/defi-janus/defi-janus-cover-en.png" loading="lazy" data-key="" data-hash="/img/2021/defi-janus/defi-janus-cover-en.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Janus: the new sworn enemy of DeFi protocols?</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

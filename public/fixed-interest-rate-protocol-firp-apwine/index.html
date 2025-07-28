@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="An introduction to Fixed Interest Rate Protocols (FIRPs) through the lense of APWine to better understand what they enable and bring to DeFi.">
+<title>🍷 Yields are like fine wines, the secret lies in the brewing process</title>
+
+<link rel='canonical' href='http://localhost:1313/fixed-interest-rate-protocol-firp-apwine/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="🍷 Yields are like fine wines, the secret lies in the brewing process">
+<meta property='og:description' content="An introduction to Fixed Interest Rate Protocols (FIRPs) through the lense of APWine to better understand what they enable and bring to DeFi.">
+<meta property='og:url' content='http://localhost:1313/fixed-interest-rate-protocol-firp-apwine/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Decentralized finance' /><meta property='article:tag' content='DEX' /><meta property='article:tag' content='Money Markets' /><meta property='article:tag' content='Aave' /><meta property='article:tag' content='Compound' /><meta property='article:tag' content='ApWine' /><meta property='article:tag' content='88MPH' /><meta property='article:tag' content='Fixed Interest Rate Protocol' /><meta property='article:tag' content='FIRP' /><meta property='article:published_time' content='2021-02-11T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2021-02-11T01:13:50&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/2021/firp-apwine/pac-man.png' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="🍷 Yields are like fine wines, the secret lies in the brewing process">
+<meta name="twitter:description" content="An introduction to Fixed Interest Rate Protocols (FIRPs) through the lense of APWine to better understand what they enable and bring to DeFi."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/2021/firp-apwine/pac-man.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">TokenBrice</a></h1>
+            <h2 class="site-description">Brutally Honest DeFi</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" selected>English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" >Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#money-market--pacman">Money Market = PacMan</a></li>
+    <li><a href="#fixed-interest-rate-protocols-firps">Fixed Interest Rate Protocols (FIRPs)</a></li>
+    <li><a href="#apwine-fixed-yield-sauternes-">APWine: Fixed-yield Sauternes 🍷</a>
+      <ol>
+        <li><a href="#the-difference-between-apwine-and-88mph">The difference between APWine and 88MPH</a></li>
+        <li><a href="#apwine-instant-payday">APWine: Instant Payday?</a></li>
+      </ol>
+    </li>
+    <li><a href="#whats-next-for-apwine">What&rsquo;s next for APWine?</a>
+      <ol>
+        <li><a href="#the-endgame-a-yield-hedging-protocol">The Endgame: a yield hedging protocol</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/fixed-interest-rate-protocol-firp-apwine/">
+                
+                    <img src="/img/2021/firp-apwine/pac-man.png" loading="lazy" alt="Featured image of post 🍷 Yields are like fine wines, the secret lies in the brewing process" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/defi/" style="background-color: #2a9d8f; color: #fff;">
+                DeFi
+            </a>
+        
+            <a href="/categories/discovery/" style="background-color: #2a9d8f; color: #fff;">
+                Discovery
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/fixed-interest-rate-protocol-firp-apwine/">🍷 Yields are like fine wines, the secret lies in the brewing process</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            An introduction to Fixed Interest Rate Protocols (FIRPs) through the lense of APWine to better understand what they enable and bring to DeFi.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 11, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    6 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+        <footer class="article-translations">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+            <div>
+                
+                    <a href="http://localhost:1313/fr/fixed-interest-rate-protocol-firp-apwine/" class="link">Français</a>
+                
+            </div>
+        </footer>
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Yields are like fine wines, the secret lies in the brewing process. As DeFi is developing faster than ever, with now more than $ 50 billion of total value locked across all protocols, <strong>the yield offering is diversifying</strong>.</p>
+<p>Our topic today strikes at the heart of this trend, with a solution offering a potentially instant payout for deposits on DeFi protocols like Yearn or Aave: APWine. Before we get to this point however, we need to place back some context on money markets and FIRPs in general since they are still novel types of products for most DeFi users.</p>
+<hr>
+<h2 id="money-market--pacman">Money Market = PacMan
+</h2><p><img src="/img/2021/firp-apwine/pac-man.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="the interest bearing stablecoin pacman-tokenbrice"
+	
+	
+></p>
+<p>Tranching, insurance, and FIRPs are essentially like <strong>abstraction-layers built on top of a money market</strong> to provide additional features:</p>
+<ol>
+<li><strong>🔪 Tranching</strong> ➡ better separation of the different type of risks</li>
+<li><strong>🛡 Insurance</strong> ➡ coverage against technical failures (&amp; more!)</li>
+<li><strong>🔮 FIRPs</strong> ➡ &ldquo;coverage&rdquo; against variations of APY</li>
+</ol>
+<p>While they are interesting as a features by themselves, what fascinates me is what happens <strong>when/if they are integrated at the base level</strong>. It would enable other protocols to harness these features. For instance, Harvest could offer a &ldquo;de-risked&rdquo; USDC vault &amp; essentially bringing the whole DeFi to another level.</p>
+<p>Indeed, DeFi&rsquo;s different value set is not only a benefit for transparency and audibility: it&rsquo;s <strong>also at least <ins>an order of magnitude</ins> more efficient</strong> than the dying patchwork of finance it&rsquo;s bound to replace.</p>
+<hr>
+<h2 id="fixed-interest-rate-protocols-firps">Fixed Interest Rate Protocols (FIRPs)
+</h2><p>Before we start, let&rsquo;s define what Fixed Interest Rate Protocols are and what are their role within the broader ecosystem of decentralized finance on Ethereum.</p>
+<p>With DeFi, the goal for most is <strong>to produce yields from a given asset.</strong> Usually one of the easiest ways to achieve this will be to lend it for instance, for a return. Doing so means assuming several layers of risk you can insure yourself against (-&gt; Unslashed) or simply avoid taking with tranching (-&gt; Saffron).</p>
+<p>Even if you&rsquo;re super responsible and try to insure &amp; further protect your deposits, you are left with one sizable issue: <strong>the base return produced by the asset is usually volatile</strong>, making the pricing of the whole package (lended deposit + insurance + tranching) hard to navigate.</p>
+<p><img src="/img/2021/firp-apwine/coingecko-report.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="coingecko-crypto-2020-report"
+	
+	
+></p>
+<p>Check the <a class="link" href="https://assets.coingecko.com/reports/2020-Year-End-Report/CoinGecko-2020-Report.pdf"  target="_blank" rel="noopener"
+    >full report here</a>.</p>
+<p>This is precisely where FIRPs get a chance to shine: <strong>since they make the interest predictable, FIRPs help promote a more responsible attitude</strong> for the whole space - by making it easier to use all the meta-structure now available to protect deposits on money markets or DeFi asset managers.</p>
+<p>This article addresses fixed interest rate protocols only. For a broader perspective on risk management for DeFi deposits, <strong><a class="link" href="https://tokenbrice.xyz/content/posts/2021/risk-tranching.md"  target="_blank" rel="noopener"
+    >read my introduction piece touching on insurance, tranching and FIRPs</a></strong>. In there, we addressed how insurance, tranching, and fixed interest might eventually be integrated natively into money-markets, enabling to <strong><a class="link" href="https://tokenbrice.xyz/content/posts/2021/risk-tranching.md"  target="_blank" rel="noopener"
+    >envision &ldquo;risk-free&rdquo; interest bearing stablecoins</a></strong>.</p>
+<p>From now on, this article assume a minimal understanding of the topic. If something is still unclear, please refer to the previous article ☝</p>
+<h2 id="apwine-fixed-yield-sauternes-">APWine: Fixed-yield Sauternes 🍷
+</h2><p>So with the hell of an intro and without further ado, let&rsquo;s dive into today&rsquo;s matter: <strong>understanding what FIRPs are and what they bring to the table through the lense of APWine</strong>.</p>
+<p>🍷 Even better, it&rsquo;s wine-themed and Frenchies are involved - what&rsquo;s not to love already?</p>
+<h3 id="the-difference-between-apwine-and-88mph">The difference between APWine and 88MPH
+</h3><p>From a high-level perspective, both projects could be described as FIRPs, yet they achieve this result through different means:</p>
+<ul>
+<li>With 88MPH, the yield of your deposits are fixed thanks to a secondary prediction market built for it.</li>
+<li>With APWine, you can lock your assets for a month for instance to instantly earn the yield.</li>
+</ul>
+<p>So to be more explicit, both are not interchangeable nor operating on the same time frame: with 88MPH, the income becomes <strong>predictable but it&rsquo;s still an iterative process</strong>. With APWine, the income becomes <strong>predictable &amp; instantly delivered</strong>.</p>
+<p>It also means different tradeoffs on the risk management side. With 88MPH, the yield is calculated algorithmically - there&rsquo;s always a buyer, which is neat for convenience, but also means the protocol can accrue debt if there is a mismatch.</p>
+<p>The opposite is true for APWine: since it&rsquo;s market-based, no mismatch can occur (-&gt; no protocol debt), but it means there can be demand/offer issues (such as heavy discount on FYTs).</p>
+<p><img src="/img/2021/firp-apwine/apwine.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="apwine-deposit-process"
+	
+	
+></p>
+<h3 id="apwine-instant-payday">APWine: Instant Payday?
+</h3><p>With APWine, the logic is quite straightforward. It all starts by depositing a token earning some yield, such as a stablecoin deposited on Aave or a Yearn vault token onto the platform.</p>
+<p>At the beginning of each period, users receive FYT (Future Yield Tokens) representing their yields for the period. <strong>The FYT are standard ERC-20 tokens</strong> that will be tradable shortly after launch on APWine.</p>
+<p>The deposit is locked for the period, however users can withdraw early with a fee, by burning their FYT tokens. The slashing is deactivated for the beta period.</p>
+<p>Since the yield is instantly available and usable, APWine should provide ample opportunities for both hedging and arbitraging.</p>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>After several weeks of testnet, APWine is coming to mainet! The beta will start in a couple of weeks with a first period starting on March 1st for 30 days. The APW token and liquidity mining should could shortly after.</p>
+<p><strong><a class="link" href="https://apwine.medium.com/our-beta-is-live-on-the-ethereum-mainnet-3860491a365c"  target="_blank" rel="noopener"
+    >More information on APWine beta &amp; launch</a></strong>.</p></div>
+
+<h2 id="whats-next-for-apwine">What&rsquo;s next for APWine?
+</h2><p>In the short term, I&rsquo;ll be following closely the upcoming launch of the platform next week. Several upcoming releases have already been announced such as the arrival of more services and pools on the platform and the release of the APW token and its associated liquidity mining plan.</p>
+<p>Like always though, what gets me really excited is the endgame!</p>
+<h3 id="the-endgame-a-yield-hedging-protocol">The Endgame: a yield hedging protocol
+</h3><p>Before we envision the end-game here, first we need to see if the idea works and <strong>if there is a real fit.</strong> In the APWine case, <strong>success will be measured by looking at the health of the markets for FYT tokens</strong>. I don&rsquo;t expect them to settle at parity with expected yields, but if users can really get an <strong>instant payday even with a 20% fee</strong>, I&rsquo;m sure there will be demand.</p>
+<p>Achieving this means having really liquid FYT markets, which is perfectly doable especially if there is a liquidity mining plan in APW token to bootstrap them. Regarding the APW token itself, diving in the FAQ will give you a bit more insight into what the team envisions:</p>
+<blockquote>
+<p>At each future expiration, 10% of the generated yield is shared between all APW token holders (percentage subject to change in the future based on the market demand). The token will also enable them to participate in the governance mechanisms of APWine.</p>
+<ul>
+<li>Source: <a class="link" href="https://apwine.fi/faq"  target="_blank" rel="noopener"
+    >ApWine FAQ</a></li>
+</ul>
+</blockquote>
+<p>So on top of the usual governance right of the protocol, it seems like there is already a revenue stream considered for the APW token, on top of any potential liquidity mining plan involving an APW-based pair.</p>
+<hr>
+<p>French being the language of DeFi, it was about time we got some fine wine-makers involved in the yield brewing process! If you are interested in the protocol, you can <strong><a class="link" href="https://apwine.medium.com/our-beta-is-live-on-the-ethereum-mainnet-3860491a365c"  target="_blank" rel="noopener"
+    >read more about the beta here</a></strong>.</p>
+<p>I&rsquo;ll be following closely as I&rsquo;m having <strong><a class="link" href="https://www.youtube.com/watch?v=Zo0B64swtPI"  target="_blank" rel="noopener"
+    >a chat with Antoine</a></strong>, one of the persons involved with APWine next week (in French).</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/defi/">DeFi</a>
+        
+            <a href="/tags/ethereum/">Ethereum</a>
+        
+            <a href="/tags/decentralized-finance/">Decentralized Finance</a>
+        
+            <a href="/tags/dex/">DEX</a>
+        
+            <a href="/tags/money-markets/">Money Markets</a>
+        
+            <a href="/tags/aave/">Aave</a>
+        
+            <a href="/tags/compound/">Compound</a>
+        
+            <a href="/tags/apwine/">ApWine</a>
+        
+            <a href="/tags/88mph/">88mph</a>
+        
+            <a href="/tags/fixed-interest-rate-protocol/">Fixed Interest Rate Protocol</a>
+        
+            <a href="/tags/firp/">FIRP</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Feb 11, 2021 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/money-markets-risk/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/risk-tranching/cover.gif" loading="lazy" data-key="" data-hash="/img/2021/risk-tranching/cover.gif"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Assessing risk in decentralized finance: a handbook for money markets</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/money-market-innovations/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/money-market-innovations/cover-en.png" loading="lazy" data-key="" data-hash="/img/2021/money-market-innovations/cover-en.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Understanding innovations in money markets to envision their future</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/decentralized-exchange-value-capture/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/dex-value-capture/cover.png" loading="lazy" data-key="" data-hash="/img/2021/dex-value-capture/cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Volume begets fees: how are the main decentralized exchanges capturing value?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/risk-tranching-defi/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/risk-tranching/cover.gif" loading="lazy" data-key="" data-hash="/img/2021/risk-tranching/cover.gif"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🗡 Risk? Yes please, but exactly how I like it</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/yearnfinance-defi-on-autopilot/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2020/yearn-finance-YFI/wifeys.jpg" loading="lazy" data-key="" data-hash="/img/2020/yearn-finance-YFI/wifeys.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">YearnFinance - DeFi on autopilot?</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

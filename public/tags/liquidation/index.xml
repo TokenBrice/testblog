@@ -1,0 +1,1225 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Liquidation on TokenBrice</title>
+        <link>http://localhost:1313/tags/liquidation/</link>
+        <description>Recent content in Liquidation on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Mon, 10 May 2021 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/liquidation/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>🌽 Defi money markets cookbook</title>
+        <link>http://localhost:1313/money-market-recipes/</link>
+        <pubDate>Mon, 10 May 2021 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/money-market-recipes/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2021/money-market-recipes/money-market-recipes-cover.png" alt="Featured image of post 🌽 Defi money markets cookbook" /&gt;&lt;p&gt;On this blog, I frequently discuss about money markets and assets market in DeFi. Basically, they allow you to &lt;strong&gt;loan and borrow tokens&lt;/strong&gt;. These two actions have become like &lt;strong&gt;deFi verbs&lt;/strong&gt;: they are used directly or indirectly in almost every strategy.&lt;/p&gt;
+&lt;p&gt;So while it is crucial to understand the protocols you are using and especially &lt;strong&gt;the different &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/money-market-risks.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;money market risks&lt;/a&gt;&lt;/strong&gt;, Today, I would like to focus on the why and the how:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Which strategies can be implemented using money markets?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;How can they be deployed in practice?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;We&amp;rsquo;re going to break down different &amp;ldquo;recipes&amp;rdquo; to take advantage of the money markets. Take these recipes as &lt;strong&gt;inspiration to develop your own strategies&lt;/strong&gt;.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice warning&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Warning&lt;/p&gt;&lt;p&gt;&lt;strong&gt;This article does not constitute investment advice: I am not authorized to dispense it. Rather than mechanically reproducing the strategies presented as examples, I invite you to try to understand the approach.&lt;/strong&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;leveraged-bets-on-a-money-market-via-the-market-itself&#34;&gt;Leveraged bets on a money market via the market itself
+&lt;/h2&gt;&lt;p&gt;Every money markets have an associated token, for example the AAVE token for Aave. It is generally used for the governance of the protocol and sometimes also allows to capture part of the value it generates. With this strategy, we will &lt;strong&gt;use a money market to borrow assets that will then be used to gain exposure to the native token of the desired platform&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;⚙ Condition:&lt;/strong&gt; Optimism about the future of a given money market. It&amp;rsquo;s native token in this scenario is expected to appreciate in line with the growth of the market over the medium/long term.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📅 Time horizon:&lt;/strong&gt; 3 - 24 months. ~3 months is a recommended minimum so that gas fees and borrowing costs don&amp;rsquo;t impact the returns of the strategy too much.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔮 Expected result&lt;/strong&gt;: the acquired token appreciates, which allows to pay back the debt (+ possible interest) at term by reselling part of the initial position. Once the debt is repaid, part of the acquired tokens can be kept.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🃏 Bonus / Facilitator:&lt;/strong&gt; If the token in question can produce a return (e.g. AAVE in the Safety Module), this will allow the debt to be repaid even faster or to accumulate &amp;ldquo;free&amp;rdquo; tokens if the scenario of its price appreciation is verified.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Although this strategy is quite basic, it is one of my favorites. I recently shared with you on Twitter an example of how to put it into practice, which we will detail here:&lt;/p&gt;
+&lt;p&gt;Here, the concerned protocol is &lt;a class=&#34;link&#34; href=&#34;https://liquity.org&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liquity&lt;/a&gt; and the implementation of the strategy is quite simple, but has two variations:&lt;/p&gt;
+&lt;h3 id=&#34;direct-exposure-to-the-native-token&#34;&gt;Direct exposure to the native token
+&lt;/h3&gt;&lt;p&gt;Either by directly exposing yourself to the LQTY token, which is of course more risky:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-recipes/mm-long-token-tokenbrice-en.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;mm-long-tokenbrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li&gt;Deposit ETH on &lt;a class=&#34;link&#34; href=&#34;https://www.liquity.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liquity&lt;/a&gt; via one of the frontends, they will serve as collateral for the position.&lt;/li&gt;
+&lt;li&gt;Borrow LUSD&lt;/li&gt;
+&lt;li&gt;Swap LUSD (via ParaSwap for the best rate!) for LQTY, the native token of Liquity&lt;/li&gt;
+&lt;li&gt;Stake LQTY, which generates LUSD and some ETH&lt;/li&gt;
+&lt;li&gt;Eventually repayment of debt (2) via LUSD yield (4) and resale of some of the LQTY acquired in step 3 after price appreciation.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Or more conservatively, with a strategy using Liquity to borrow LUSDs and make them productive:&lt;/p&gt;
+&lt;h3 id=&#34;exposure-mainly-in-stablecoins&#34;&gt;Exposure mainly in stablecoins
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-recipes/mm-long-tokenbrice-en.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;mm-long-token-tokenbrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Deposit ETH on &lt;a class=&#34;link&#34; href=&#34;https://www.liquity.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liquity&lt;/a&gt; via one of the frontends, they will serve as collateral for the position.&lt;/li&gt;
+&lt;li&gt;Borrow LUSD&lt;/li&gt;
+&lt;li&gt;Stake LUSD via either the Stability Pool (-&amp;gt; LQTY + ETH) or the LUSD pool on Curve Finance (-&amp;gt; Native + LQTY + CRV).&lt;/li&gt;
+&lt;li&gt;Eventually repayment of debt (2) via yield (3)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;Yearn Finance also offers a LUSD vault that automatically manages the position on Curve.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;investing-time-rather-than-money&#34;&gt;Investing time rather than money
+&lt;/h2&gt;&lt;p&gt;Alchemix arrival has opened up new perspectives in terms of strategy. On Alchemix, the debt repays itself over time. Indeed, &lt;strong&gt;the collateral used (yDAI) is a stablecoin that produces a return (via Yearn)&lt;/strong&gt;. Thus with the current conditions the loan is self-repaying in three years.&lt;/p&gt;
+&lt;p&gt;I suggest a simple strategy to take advantage of Alchemix to make a profit. The main drawback is that &lt;strong&gt;only half of the amount of DAI initially placed in Alchemix can be borrowed in AlUSD&lt;/strong&gt; and then invested.
+Nevertheless, as this strategy is based on stablecoins, it does not - (⚠ oracles) - involve any price risk and therefore does not require daily monitoring.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;⚙ Condition:&lt;/strong&gt; DAI that will be locked in for ~3 years. Only half of the deposited amount is mobilizable.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📅 Time horizon:&lt;/strong&gt; ~3 years (depends on DAI return rate on Yearn).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔮 Expected result&lt;/strong&gt;: In 3 years, the AlUSD debt is fully repaid and the DAI initially mobilized on Alchemix are free again. It remains to be seen what happened with the investment made with the borrowed AlUSD: it all depends on the choices made, I do not predict the future.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🃏 Bonus / Facilitator:&lt;/strong&gt; Use the borrowed AlUSD to invest in a token that can produce a return. This allows you to make a compound investment or even pay off Alchemix debt faster.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;long-alcx-via-alchemix&#34;&gt;Long ALCX via Alchemix
+&lt;/h3&gt;&lt;p&gt;To illustrate the concept, I propose another simple strategy which is equivalent to long Alchemix via its token ALCX :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-recipes/alchemix-investment-tokenbrice-en.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;alchemix-investment-tokenbrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Deposit DAI as collateral on Alchemix. Alchemix deploys it on Yearn Finance to generate a return.&lt;/li&gt;
+&lt;li&gt;Borrow up to 50% of the initial value deposited in AlUSD, a stablecoin.&lt;/li&gt;
+&lt;li&gt;Invest the AlUSD in the desired token. Here for the example it is ALCX the native governance token of Alchemix.&lt;/li&gt;
+&lt;li&gt;Stake the acquired token to produce a return&lt;/li&gt;
+&lt;li&gt;The repayment of the debt in AlUSD contracted on Alchemix is done automatically with time. It is possible to repay in advance thanks to the generated returns (4).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;putting-a-hodl-collateral-to-work-over-the-long-term&#34;&gt;Putting a &amp;ldquo;hodl&amp;rdquo; collateral to work over the long term
+&lt;/h2&gt;&lt;p&gt;I came to DeFi several years ago with a simple ambition: I wanted to put my Ethers to work. At the time it was not an easy task but nowadays there are many very interesting solutions. I will focus on one of them, Aave, for two reasons.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Aave has launched &lt;strong&gt;a liquidity mining&lt;/strong&gt; program paid in StkAave&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; (Aave V2 - Mainnet).&lt;/li&gt;
+&lt;li&gt;Aave is accessible on the &lt;strong&gt;sidechain Polygon&lt;/strong&gt; where the low fees allow to deploy DeFi strategies efficiently even with small capital. There is also a liquidity mining program there, in MATIC &lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;To make this strategy as accessible as possible, we will develop the example on the Polygon sidechain. It is therefore possible to use any of the tokens supported as collateral on the Aave/Polygon market: MATIC, AAVE, wETH, wBTC, USDC, and DAI.&lt;/p&gt;
+&lt;h3 id=&#34;how-to&#34;&gt;How-to
+&lt;/h3&gt;&lt;p&gt;The strategy is to &lt;strong&gt;produce returns through the borrowing of stablecoins used to provide liquidity on the Curve exchange service&lt;/strong&gt;. With the liquidity mining program on Aave, every step of the process is potentially lucrative at least in MATIC.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;⚙ Condition:&lt;/strong&gt; Having tokens accepted as collateral on Aave, and bring them back to Polygon for example using &lt;a class=&#34;link&#34; href=&#34;https://wallet.matic.network/bridge/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the POS bridge&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📅 Time horizon:&lt;/strong&gt; Short / medium term.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔮 Expected outcome:&lt;/strong&gt; Returns in MATIC, stablecoins and ETH.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🃏 Bonus / Facilitator:/&lt;/strong&gt;. Prospective: mining CRV &amp;amp; potential leverage when LP Curve Polygon tokens are accepted as collateral on Aave.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;putting-eth-to-work-on-polygon&#34;&gt;Putting ETH to work on Polygon
+&lt;/h3&gt;&lt;p&gt;To illustrate this strategy, I start with the assumption of generating a return from ETH.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-recipes/polygon-aave-curve-eth-farming-tokenbrice-en.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;polygon-aave-curve-eth-farming-tokenbrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;ETH deposit as collateral on Aave/Polygon (+native +MATIC)&lt;/li&gt;
+&lt;li&gt;Borrowing stablecoins (-APR +MATIC)&lt;/li&gt;
+&lt;li&gt;Deposit and staking of stablecoins on Curve/Polygon (+natif +MATIC)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Note that Curve LP Polygon tokens are being considered for potential addition as collateral in the Aave market. We can also expect potential CRV rewards on Polygon LP positions if the DAO decides to do so.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;It is possible to implement this strategy by keeping the tokens used as collateral on the L1 Aave in order to benefit from the mining of StkAAVE. It will be necessary to migrate the borrowed stablecoins from the Ethereum network to Polygon using for example &lt;a class=&#34;link&#34; href=&#34;https://wallet.matic.network/bridge/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Matic&amp;rsquo;s POS bridge&lt;/a&gt;.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;protect-yourself-against-the-price-risk-of-the--farming-in-&#34;&gt;Protect yourself against the price risk of the $: farming in €.
+&lt;/h2&gt;&lt;p&gt;In DeFi, everything is done in dollars. It makes sense, everyone knows, but for a European user it is a significant additional  risk. Indeed, if your ambition is to generate enough to live on with DeFi, then this means your output will eventually be in Euro.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-recipes/eur-usd-1y.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;eur-usd-1y&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;For a European farmer, it may therefore be &lt;strong&gt;interesting to have a DeFi exposure in € to avoid this risk&lt;/strong&gt;. At the moment, there are simply no Euro borrowing options other than &lt;a class=&#34;link&#34; href=&#34;https://mimo.capital/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Mimo Capital&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This service allows you to borrow PAR from ETH, wBTC or USDC. The MIMO governance token is also distributed to owners of active vaults as well as to liquidity providers on the PAR/ETH and PAR/USDC Balancer pools.&lt;/p&gt;
+&lt;p&gt;Nevertheless, the protocol is still recent and the PAR token is not yet supported in the ecosystem, as a collateral on Aave or in a Curve pool for example. So the situation is not yet ideal but it has the merit to exist!&lt;/p&gt;
+&lt;p&gt;Other DeFi-€ solutions are in development. MakerDAO, for example, has mentioned a Euro-DAI, while Jarvis Network is working on a synthetic stablecoin €, the jEUR.&lt;/p&gt;
+&lt;h3 id=&#34;how-to-1&#34;&gt;How-to
+&lt;/h3&gt;&lt;p&gt;To farm natively in Euros, the best option is still what you can do with EURS. Since the launch of the pool on Curve, there are many options.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;⚙ Condition:&lt;/strong&gt; Owning EURS / sEUR&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📅 Time horizon:&lt;/strong&gt; 1 month - years&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔮 Expected result:&lt;/strong&gt; Growing a capital in Euro-stable&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🃏 Bonus / Enabler:&lt;/strong&gt; Owning VeCRVs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-recipes/EURS-farming-tokenbrice-en.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;EURS-farming-tokenbrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;strong&gt;pool Curve&lt;/strong&gt; directly offers an attractive yield in CRV even when it is not boosted.&lt;/li&gt;
+&lt;li&gt;To automatically sell the farmed CRVs to compound the return, a vault is ideal. &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://yearn.finance&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Yearn&lt;/a&gt; offers a vault on EURS&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Farming is also possible via the EURS vault of &lt;a class=&#34;link&#34; href=&#34;https://stakedao.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;StakeDAO&lt;/a&gt;, in order to accumulate SDT as well.&lt;/li&gt;
+&lt;li&gt;Or &lt;a class=&#34;link&#34; href=&#34;https://harvest.finance&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Harvest&lt;/a&gt; also offers a vault that makes up the bulk of the returns while paying in FARM.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;I hope these different recipes will inspire you. Make sure you are &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/money-market-risks.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;aware of the different money market risks&lt;/a&gt;&lt;/strong&gt;, used for all these strategies.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;🙏 Huge thanks to HHK, Charles, Thomas, Erwan, &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/phil_h&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PhilH&lt;/a&gt; &amp;amp; FrenchTony for proofreading the French version of this article and translating it integrally into English.&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;The liquidity mining program StkAAVE was launched on Mars 26 following a governance vote. &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/AaveAave/status/1386753673104134155?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;More info here&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;Polygon sponsors a liquidity mining program in MATIC, both on &lt;a class=&#34;link&#34; href=&#34;https://blog.polygon.technology/defiforall-kicking-off-l2-defi-summer-with-40-million-usd-in-liquidity-mining-rewards-from-4937d7c6e287&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Aave&lt;/a&gt; and &lt;a class=&#34;link&#34; href=&#34;https://blog.polygon.technology/continuing-scalability-defi-summer-with-5-million-usd-in-liquidity-mining-rewards-from-polygon-e73a76c5a8ad?gi=9a7b7e130606&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Curve&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
+        <title>Understanding innovations in money markets to envision their future</title>
+        <link>http://localhost:1313/money-market-innovations/</link>
+        <pubDate>Mon, 19 Apr 2021 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/money-market-innovations/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2021/money-market-innovations/cover-en.png" alt="Featured image of post Understanding innovations in money markets to envision their future" /&gt;&lt;p&gt;Money markets like &lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/aave/ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Aave&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/compound-v3/ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Compound&lt;/a&gt; or &lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/sky/ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Maker&lt;/a&gt; are the heart of the DeFi ecosystem. For the final user, these protocols have the same function than a classic bank : borrowing or putting sleepy money at work by lendind it.&lt;/p&gt;
+&lt;p&gt;Nevertheless, &lt;strong&gt;the analogy stops immediately at this functional comparison&lt;/strong&gt;. Indeed, the underlying logic of money markets has nothing to do with the functioning of a bank. Money markets benefit from all the advantages of DeFi and, in particular, the transparency and accessibility of all operations.&lt;/p&gt;
+&lt;p&gt;When a user borrows on Aave, &lt;strong&gt;the protocol does not need to know his age or identity&lt;/strong&gt;: validate all conditions is enough ! It means that you just have to put enough collateral.&lt;/p&gt;
+&lt;p&gt;In the same way, a user who deposits stablecoins on Aave to generate a return by lending them to others does not trust anyone: he can check at any time which amounts are borrowed by each address to &lt;strong&gt;ensure the solvency of the entire system.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This may seem basic to a DeFian, but it is a real paradigm shift. In traditional finance, we have no choice but to trust a third party (auditor, rating agency, etc.) to obtain this kind of information - with the reliability that we know.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;discovering-money-markets&#34;&gt;Discovering money markets
+&lt;/h2&gt;&lt;p&gt;We have already talked a lot about money markets on this blog, especially in the article that offers a qualitative methodology to evaluate their risks : &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/money-market-risks.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Assessing risk in decentralized finance: a handbook for money markets&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Or the one about the different services of abstraction and distribution of the inherent risks in money markets: &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/risk-tranching.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Risk? Yes please, but exactly how I like it&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;However, money markets are constantly evolving, both through their updates and through the contribution of third-party services built on top. In addition, new and more challenging money markets are being launched to cover needs that are still unsatisfied.&lt;/p&gt;
+&lt;p&gt;So this is precisely our purpose today: &lt;strong&gt;understanding the essential innovations underway in money markets in order to better envision their future development.&lt;/strong&gt; Rather than making an exhaustive list, I propose to look at a selection of projects that I think are relevant to understanding the industry evolution.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;innovations-built-on-existing-money-markets&#34;&gt;Innovations built on existing money markets
+&lt;/h2&gt;&lt;p&gt;Money markets may seem really complex at first glance. The curious are most often frightened by the risks of liquidating the collateral when its value is no longer sufficient to secure the borrowed amount.&lt;/p&gt;
+&lt;h3 id=&#34;easy-loan-positions-management-with-defisaver&#34;&gt;Easy loan positions management with DeFiSaver
+&lt;/h3&gt;&lt;p&gt;Many DeFi users have not yet fully understood the issues at stake here. Many still think that liquidation can be total and sudden. In addition to information and education, tools for managing one&amp;rsquo;s positions help users to feel more confident.&lt;/p&gt;
+&lt;p&gt;Fortunately, tools that facilitate and automate the management of borrowing positions on money markets have emerged very quickly, such as DeFi Saver. I already talked about it last year in this article &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/leveraging-ETH.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🎚 ETH exposure or DeFi yields: why choose?&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;DeFiSaver works as a proxy between the user and money markets. It allows new features such as the well-loved &amp;ldquo;Save&amp;rdquo;: when the position falls below a user-defined collateralization limit, DeFiSaver automatically rebalances the position with a flash loan.&lt;/p&gt;
+&lt;p&gt;In concrete terms, this function sells a part of the user&amp;rsquo;s collateral to pay off some debt and return to a collateralization ratio decided earlier. Such a tool allows the most aggressive or worried borrowers to sleep much more peacefully.&lt;/p&gt;
+&lt;h2 id=&#34;reclaiming-liquidation-with-bprotocol&#34;&gt;Reclaiming liquidation with B.Protocol
+&lt;/h2&gt;&lt;p&gt;Although DeFiSaver is very useful, it remains a tool that does not fundamentally change the way the underlying services work. Other projects go further, like &lt;a class=&#34;link&#34; href=&#34;https://www.bprotocol.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;BProtocol&lt;/a&gt; which I discovered recently.&lt;/p&gt;
+&lt;p&gt;The idea is very simple: instead of borrowing directly from Maker, the user goes through the BProtocol contract. Funds available to the protocol allows it to &lt;strong&gt;liquidate the user&amp;rsquo;s position (if necessary) before other liquidators do so.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-innovations/bprotocolexplainer.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;bprotocol explainer&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;What is usually a gas war between different liquidators becomes a more predictable operation. It also allows &lt;strong&gt;redistributing part of the liquidation premium to the user himself rather than to the miners.&lt;/strong&gt;&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;On money markets, users deposit collateral to borrow. If the value of the collateral is too low compared to the borrowed amount, a liquidation is necessary.&lt;/p&gt;
+&lt;p&gt;Usually this liquidation is at the expense of another type of user who gets paid (premium liquidation).&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;The idea, simple at a high level, is nonetheless very reassuring for users while allowing for &amp;ldquo;professionalization&amp;rdquo; of liquidations which become more predictable. There are now about $100M of assets managed by the protocol which already covers Maker and Compound (Aave is coming soon).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;innovations-of-the-makerdao-model&#34;&gt;Innovations of the MakerDAO model
+&lt;/h2&gt;&lt;p&gt;MakerDAO is probably the best-known money market, but it is also a special one. Indeed, MakerDAO serves a dual function: the service allows borrowing just like Aave or Compound, however &lt;strong&gt;no one lends you anything when you borrow on Maker - borrowers directly mint a currency (DAI) that corresponds to their debt.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Thus, while allowing borrowing, MakerDAO also produces a stable asset, the DAI, which is indexed on dollar. Although DAI has its limitations, it is less centralized and requires less trust than stablecoin models like USDC. This is why Maker&amp;rsquo;s model has been taken up many times to serve new purposes.&lt;/p&gt;
+&lt;h3 id=&#34;mimo-capital-down-with-the-dollar-up-with-the-euro&#34;&gt;Mimo Capital: down with the dollar, up with the euro!
+&lt;/h3&gt;&lt;p&gt;Until now, the dollar has been the reference fiat currency for DeFi. Almost all stablecoin projects aim to produce an asset that tracks the value of the dollar. In addition, it is also the dollar value of volatile assets that is considered by borrowing systems to determine the collateralization ratio, both on Maker and Compound or Aave.&lt;/p&gt;
+&lt;p&gt;The dollar being the most common and best known fiat currency, it made sense to start with but it is time to go beyond that to meet the needs of all types of users and make DeFi more accessible.&lt;/p&gt;
+&lt;p&gt;This is precisely what a project like Mimo Capital is looking for, as it proposes &lt;strong&gt;a system similar to MakerDAO but where the Euro is the base currency&lt;/strong&gt;, instead of the dollar. This means that the stablecoin produced by the borrowers - the PAR - follows the Euro, but also that the internal prices of the system are in €, as the value of the collateral used (ETH, wBTC or USDC).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-innovations/mimo-capital-par.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Mimo-Capital-PAR&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Mimo is not coming up in an empty market as Euro stablecoins are beginning to emerge. In addition to Mimo&amp;rsquo;s PAR, there is the EURS stablecoin which follows a centralized model: each EURS in circulation is backed by a Euro fiat owned by the issuer. Thus, &lt;strong&gt;yield opportunities are starting to emerge via Euro exposures&lt;/strong&gt;, for example the sEUR/EURS pool on Curve also accessible via vaults on StakeDAO or Harvest Finance.&lt;/p&gt;
+&lt;p&gt;The arrival of &lt;strong&gt;a protocol like Mimo allows European investors to consider a circuit with the Euro as the reference currency&lt;/strong&gt;. Using their ETH or wBTC as collateral, they can borrow PAR (stablecoin €) and make it productive via, for now, two liquidity pools on Balancer, but eventually, probably more.&lt;/p&gt;
+&lt;p&gt;Mimo is still a fairly new system with approximately €25 million of collateral deposited as collateral for approximately 12.5 million PARs issued (€). The governance token associated with the service - MIMO - is currently distributed to any active vault holder as well as to liquidity providers on the PAR/ETH and PAR/USDC pairs.&lt;/p&gt;
+&lt;h3 id=&#34;beyond-fiat-currencies-with-reflexer&#34;&gt;Beyond fiat currencies with Reflexer
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Switching from dollar to euro is good, going completely without a fiat currency reference is even better&lt;/strong&gt; This is exactly what Reflexer, another service inspired by the Maker model, offers.&lt;/p&gt;
+&lt;p&gt;There is no reference price here. The price of the RAI (borrower-generated asset) is governed directly by the market (average price on the RAI/ETH pair). The system also has its &amp;ldquo;internal&amp;rdquo; price, the &lt;em&gt;Redemption Price&lt;/em&gt; - the rate used when users directly mint RAI (by depositing ETH as collateral).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-innovations/raiprice.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;reflexer RAI price&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Various parameters in the Reflexer system adjust to &lt;strong&gt;converge the two prices over time, or at least keep them within a narrow range&lt;/strong&gt;. While this approach is much more difficult for the user to learn, it is completely uncorrelated with the dollar (or any other fiat currency), which is valuable in itself.&lt;/p&gt;
+&lt;p&gt;To better understand Reflexer, I recommend you to read my previous article on stable assets:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/pegged-assets.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Exploring stable assets on Ethereum: approaches &amp;amp; endgame?&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;new-generation-of-money-markets&#34;&gt;New generation of money markets
+&lt;/h2&gt;&lt;p&gt;So far, we have considered innovations built on the existing core money markets or directly inspired by their models. There is also a whole new wave of money markets exploring different approaches.&lt;/p&gt;
+&lt;p&gt;I therefore propose to consider two final projects that bring real fundamental changes.&lt;/p&gt;
+&lt;h2 id=&#34;alchemix-productive-assets-as-collateral&#34;&gt;Alchemix: productive assets as collateral?
+&lt;/h2&gt;&lt;p&gt;I couldn&amp;rsquo;t start this section with another project than Alchemix! The idea of this project is as simple as powerful:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;What if, instead of taking non-productive collateral, we only took productive collateral &lt;strong&gt;like a stablecoin that produces a return ?&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Our collateral now has a return: what if the return on the collateral &lt;strong&gt;was used to pay off the loan?&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;And there you have it: &lt;strong&gt;A loan that pays for itself over time!&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-innovations/alchemix.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Alchemix overview&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Alchemix launched by accepting yDAI (DAI deposited on Yearn Finance) as collateral. Depositors can borrow up to 50% of the value of their yDAI in AlUSD, another stablecoin dollar. T&lt;strong&gt;heir collateral is not at risk, and the loan pays for itself through the interest generated by the yDAI: it takes about 3 years at the current return rate.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Alchemix quickly became a very popular service, especially for &lt;strong&gt;proceeding large purchases without spending crypto&lt;/strong&gt;, it&amp;rsquo;s just a matter of patience. Let&amp;rsquo;s take an example.&lt;/p&gt;
+&lt;p&gt;This is Bob, a DeFi farmer who has worked hard: he now wants to enjoy the fruits of his labor. He wants to raise $50,000 to buy a car. Rather than taking $50,000 directly from his assets, Bob can achieve the same result without spending anything thanks to Alchemix :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Bob deposits 100,000 DAI on Alchemix, which are then deployed on Yearn&lt;/li&gt;
+&lt;li&gt;This allows him to borrow up to 50,000 AlUSD, which he can use to buy his car.&lt;/li&gt;
+&lt;li&gt;Bob just has to wait while the yDAI returns pay back his loan. In ~3 years, once the debt is paid off, he can get his original 100,000 DAI back.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Such flow allows to spend immediately without any other cost than the fact of locking about 2 times the amount mobilized within Alchemix.&lt;/strong&gt; The future of programmable money is live!&lt;/p&gt;
+&lt;p&gt;It is so powerful and innovative that many still find it hard to believe. The feedback from Alchemix users still attracts many skeptics:&lt;/p&gt;
+&lt;h3 id=&#34;liquity-efficiency-at-all-costs&#34;&gt;Liquity: efficiency at all costs
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.liquity.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liquity&lt;/a&gt; is another money market that innovates on several levels. The fundamental concept to understand here is that &lt;strong&gt;liquidations are automated and therefore much more predictable and quick.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This allows &lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/liquity/ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liquity&lt;/a&gt; to offer &lt;strong&gt;lower collateralization ratios&lt;/strong&gt; than other systems, or to put it another way: Liquity users can raise more dollars per ETH deposited than on a system like Maker:&lt;/p&gt;
+&lt;div class=&#34;notice info&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#info-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Info&lt;/p&gt;&lt;p&gt;The maximum loan-to-value ratio (maximum LTV) determines the borrowing power of a collateral. A maximum loan-to-value of 50% means that up to half of the dollar value of the deposited collateral can be borrowed.&lt;/p&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Maker : minimal ratio = 150% ⇒ approximately 66% max LTV&lt;/li&gt;
+&lt;li&gt;Liquidity : Collateralisation minimal ratio = 110% ⇒ approximately 90% max LTV&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Liquity also innovates on the fees side since &lt;strong&gt;the loans are interest free&lt;/strong&gt; unlike other systems. On Maker/ETH for example, the stability fee is 5.5%. If you borrow 10,000 DAI today, you will have to pay back 10,550 DAI in 1 year (if the fees do not change).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-innovations/liquity.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Liquity&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;On the other hand, there is no stability fee on Liquity. Instead, users pay &lt;strong&gt;a one-time, immediate fee when borrowing&lt;/strong&gt;. This fee depends on the &amp;ldquo;base rate&amp;rdquo; which is governed by the protocol directly. It is currently 0.5%.&lt;/p&gt;
+&lt;p&gt;On Liquity, those who deposit ETH to mint LUSD can then deploy them into the Stability Pool (LUSD) or the LUSD/ETH pair for remuneration in LQTY - the service&amp;rsquo;s native token.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; The LQTY can then be staked to &lt;strong&gt;get a share of the LUSD paid to the protocol when a loan is contracted&lt;/strong&gt; as well as the redemption fee (ETH ↔ LUSD).&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;Liquity is a so-called &amp;ldquo;governance mimized&amp;rdquo; platform - LQTY is therefore not a governance token.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Finally, Liquity also innovates in terms of decentralization since &lt;strong&gt;the interface used to access the service is not managed by the team behind the protocol&lt;/strong&gt;. Different frontends operated by third parties are offered while the team focuses on the protocol itself. This ensures that many mirrors exist so that the service is always easily accessible.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;the-next-step-to-understand-money-markets&#34;&gt;The next step to understand money markets
+&lt;/h2&gt;&lt;p&gt;I hope you have found this introduction to the latest innovations in the money markets informative. I&amp;rsquo;m delighted to see the offering growing and becoming denser to cover ever more varied needs. Money markets are essential elements of DeFi, and with the growth of the space, they will become more and more preponderant.&lt;/p&gt;
+&lt;p&gt;Finally, let me remind you that in addition to functionality, &lt;strong&gt;risk management is the essential element that differentiates each money market&lt;/strong&gt;. Before you start spending large sums of money on them, I invite you to familiarize yourself with the associated risks. It&amp;rsquo;s a good thing, I wrote what remains to this day &lt;strong&gt;the most exhaustive and comprehensible synthesis to understand the risks incurred in the money markets&lt;/strong&gt;, I invite you to read it:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/money-market-risks.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Assessing risk in decentralized finance: a handbook for money markets&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;🙏 Huge thanks to HHK, Charles, Thomas, Erwan, &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/phil_h&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PhilH&lt;/a&gt; &amp;amp; FrenchTony for proofreading the French version of this article and translating it integrally into English.&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;You&amp;rsquo;ll find more info &lt;a class=&#34;link&#34; href=&#34;https://docs.liquity.org/faq/lqty-distribution-and-rewards&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;regarding the LQTY token distribution&lt;/a&gt; in the official documentation.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
+        <title>Assessing risk in decentralized finance: a handbook for money markets</title>
+        <link>http://localhost:1313/money-markets-risk/</link>
+        <pubDate>Thu, 18 Feb 2021 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/money-markets-risk/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2021/risk-tranching/cover.gif" alt="Featured image of post Assessing risk in decentralized finance: a handbook for money markets" /&gt;&lt;p&gt;Money markets are at the heart of DeFi. From a high-level perspective, yes, they simply enable the borrowing and lending of various assets. Yet &lt;strong&gt;those functions are like the two primitive verbs of DeFi&lt;/strong&gt; at the base of pretty much all use cases.&lt;/p&gt;
+&lt;p&gt;There are three major money markets right now in DeFi: Aave, Compound &amp;amp; Cream. Yet all the following services use them, one way or another: Yearn Finance, Curve Finance, Alpha Finance, Harvest Finance, DeFiSaver, Saffron, 88MPH, Idle Finance, etc. To put it simply - &lt;strong&gt;money markets are one of the root-level of DeFi&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Money markets are amazing - simple yet very intricate. In this article, I try to provide a framework and some clues to assess the risk at different levels.&lt;/p&gt;
+&lt;p&gt;To dive more into the service layer currently being built on top of money markets, feel free to read.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;i-risk-scoring-is-broken&#34;&gt;I/ Risk Scoring is Broken
+&lt;/h2&gt;&lt;p&gt;Before we dive into the risk analysis framework, let&amp;rsquo;s quickly discuss the current leading solution used to evaluate risk in DeFi: Consensys CodeFi DeFiScore.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;DeFiScore is undisputedly compromised since it&amp;rsquo;s still giving DAI a higher rate on &lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/compound-v3/ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Compound&lt;/a&gt; than &lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/aave/ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Aave&lt;/a&gt;&lt;/strong&gt; even with the oracle failure on the Compound side and the arrival of the Safety Module on Aave&amp;rsquo;s side:&lt;/p&gt;
+&lt;p&gt;The Consensys CodeFi team was notified a few days ago&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;, acknowledged the issue&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; but yet &lt;strong&gt;refused any immediate to update the website even with just notice or disclaimer&lt;/strong&gt;. Instead, one of their members proposed a 500 USDC bounty open for anyone willing to update the formula&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;. It has yet to be claimed.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s no surprise that quantitative approaches so far have failed. They must achieve both sustainability (if the formula stays consistent it allows historical comparisons) and adaptability (yet the risk parameters are always evolving): it&amp;rsquo;s not an easy feat.&lt;/p&gt;
+&lt;p&gt;I will not delve into the depths of risk scoring, as there is a dedicated article exploring what a decent DeFi-native risk scoring system looks like coming out shortly on this blog (hint: it does not exist yet).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;ii-appreciating-the-safety-of-a-money-market&#34;&gt;II/ Appreciating the Safety of a Money Market
+&lt;/h2&gt;&lt;p&gt;I know it&amp;rsquo;s painful to hear, but since quantitative analysis is unhelpful, you have to resort to a qualitative approaches for each project. The good news is there aren&amp;rsquo;t many money markets in DeFi worth looking at:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Aave&lt;/li&gt;
+&lt;li&gt;Compound&lt;/li&gt;
+&lt;li&gt;Cream / Iron Bank&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;For each of these, you have to look at them holistically. I propose an approach that is &lt;strong&gt;purely mine&lt;/strong&gt;, using &lt;strong&gt;8 different dimensions all critical to the safety of assets&lt;/strong&gt; committed to the money market analyzed:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Protocol access &amp;amp; permissions&lt;/li&gt;
+&lt;li&gt;Oracles&lt;/li&gt;
+&lt;li&gt;Liquidation mechanisms&lt;/li&gt;
+&lt;li&gt;Collateral listing &amp;amp; risk analysis&lt;/li&gt;
+&lt;li&gt;Safety module&lt;/li&gt;
+&lt;li&gt;Expanded insurance ecosystem&lt;/li&gt;
+&lt;li&gt;Native token risk management&lt;/li&gt;
+&lt;li&gt;Community &amp;amp; Ecosystem&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;So what we have today is essentially a comprehensive framework you can use to assess the safety of a given money market. Feel free to challenge me on any item. Let&amp;rsquo;s dive in.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice warning&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Warning&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Necessary Disclaimer: This is not investment advice.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Almost no one is qualified to assess risks in DeFi: even &amp;ldquo;institutions&amp;rdquo; doing it like the DeFiscore are way off.&lt;/p&gt;
+&lt;p&gt;This content is intended to help you better understand and appreciate the risk &lt;strong&gt;&lt;span style=&#34;text-decoration:underline;&#34;&gt;by yourself&lt;/span&gt;&lt;/strong&gt;, the most reliable way to do so.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h3 id=&#34;iia-protocol-access--permissions&#34;&gt;II.A/ Protocol Access &amp;amp; Permissions
+&lt;/h3&gt;&lt;p&gt;At the very base level, you want to know who can update the protocol core parameters (-&amp;gt; the contracts), and the different limits associated with it.&lt;/p&gt;
+&lt;p&gt;For instance, there&amp;rsquo;s usually a &lt;strong&gt;timelock&lt;/strong&gt;, meaning that any significant change only applies after a set duration. For the administrative functions of the protocol, you need to make sure that they are &lt;strong&gt;community-owned&lt;/strong&gt;, which usually means &lt;strong&gt;governed by a multisig&lt;/strong&gt; of designed community members.&lt;/p&gt;
+&lt;p&gt;This section also includes everything related to &lt;strong&gt;the &amp;ldquo;opsec&amp;rdquo; of the wallets/people&lt;/strong&gt; governing the multisig. &amp;ldquo;Opsec&amp;rdquo; is short for &amp;ldquo;operations security&amp;rdquo; - it&amp;rsquo;s about the safety of everything digital interfaces related to the holders of these keys. Can they be hacked? Impersonated? Etc.&lt;/p&gt;
+&lt;p&gt;Such a matter is &lt;strong&gt;&lt;span style=&#34;text-decoration:underline;&#34;&gt;CRITICAL&lt;/span&gt;&lt;/strong&gt;, as we saw recently with the CEO of Nexus Mutual: his laptop was compromised, allowing the hacker to submit a fraudulent transaction on top of a real transaction he signed.&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;We have yet to see significant attacks based on social engineering in DeFi but expect them.&lt;/p&gt;
+&lt;p&gt;Transparency on the decisions of the protocol is key too: we address it below in the community &amp;amp; DAO section.&lt;/p&gt;
+&lt;p&gt;This article focuses on mature money markets like Aave or Compound. Newer projects might be less decentralized, and that can be a good thing - you might want some control and rollback options for a newer project.&lt;/p&gt;
+&lt;h4 id=&#34;assessing-the-protocol-accesses--decentralization&#34;&gt;Assessing the protocol accesses &amp;amp; decentralization
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🔮Likelihood of failure&lt;/strong&gt;: Assess on a protocol/team-basis&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥Loss of funds risk if failure&lt;/strong&gt;: Potentially all funds deposited on the market&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;❌Already happened?&lt;/strong&gt; Not yet 🤞&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;notice tip&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#tip-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Tip&lt;/p&gt;&lt;p&gt;When it comes to evalutating opsec and decentralization plan, &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/ChrisBlec&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Chris Blec&lt;/a&gt; is your guy. He&amp;rsquo;s uncompromising on opsec, and produced many helpful contributions on the topic:&lt;/p&gt;
+&lt;p&gt;You can find a &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.google.com/spreadsheets/d/13S7NRk1girTdQMajnVdU5JRlVO5BG_uJKhTO2Ef10b0/edit?usp=sharing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;summarized overview of the situation for the main DeFi projects here&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;So to wrap this up, here are some good questions to ask to assess the safety of a money market at the protocol &amp;amp; permission level:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Who can update the contracts?&lt;/li&gt;
+&lt;li&gt;Do they have a credible opsec?&lt;/li&gt;
+&lt;li&gt;Any drain function in the contracts?&lt;/li&gt;
+&lt;li&gt;What do the administrative functions do?&lt;/li&gt;
+&lt;li&gt;How decentralized is the process to create a new lending market?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;iib-oracles&#34;&gt;II.B/ Oracles
+&lt;/h3&gt;&lt;p&gt;Simply put, the oracles are the source for &amp;ldquo;outside truths&amp;rdquo;. &lt;strong&gt;Blockchains are only aware of themselves&lt;/strong&gt;, so for Ethereum, the price of ETH in dollars (or any other token) is technically an &amp;ldquo;outside truth&amp;rdquo; you need to bring on-chain in a &lt;strong&gt;safe and verifiable manner&lt;/strong&gt;: it&amp;rsquo;s precisely what oracles do!&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s essential, as the &lt;strong&gt;perceived price&lt;/strong&gt; delivered by the oracle is the &lt;strong&gt;source of truth for the protocol&amp;rsquo;s liquidation decisions&lt;/strong&gt;. If the oracle says DAI is worth 1.30, then you are liquidated even if your DAI-borrowing position was safe on a $1 DAI and DAI is still actually worth $1 on the markets: the oracle is the source of truth. It happened already with Compound, so it&amp;rsquo;s not a theoretical concern.&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;The good news here is that the answer is quite simple: &lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/chainlink-oracles/ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ChainLink&lt;/a&gt; is widely recognized as the most credible decentralized oracle solution, so any money market not using at least partly their price feeds is gambling with its users&amp;rsquo; money, as Compound did with significant lossses. It seems like the situation has not improved - despite the failure Compound still uses the same centralized oracle (Coinbase) and a proposal suggesting a switch to ChainLink was refused. &lt;sup id=&#34;fnref:7&#34;&gt;&lt;a href=&#34;#fn:7&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;7&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h4 id=&#34;assessing-oracles&#34;&gt;Assessing oracles
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🔮Likelihood of failure&lt;/strong&gt;: Significant (most impacting sub-theme to date).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥Loss of funds risk if failure&lt;/strong&gt;: market-based, potentially whole markets can be drained/affected.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;✅Already happened?&lt;/strong&gt; Yes, on Compound.&lt;sup id=&#34;fnref1:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can assess the oracles for a money market with the following question:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;What is the source of truth for prices?&lt;/li&gt;
+&lt;li&gt;How reliable is that source?&lt;/li&gt;
+&lt;li&gt;Any history of abusive liquidation (stemming from oracle issues)?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;iic-liquidation-mechanisms&#34;&gt;II.C/ Liquidation Mechanisms
+&lt;/h3&gt;&lt;p&gt;The liquidation mechanisms are critical too, but they only happen once a liquidation can be triggered - which depends on the price the oracle returns. So the &lt;strong&gt;liquidation mechanism cannot make up for a faulty oracle&lt;/strong&gt;. It&amp;rsquo;s essential to first understand that.&lt;/p&gt;
+&lt;p&gt;Then, different money markets handle liquidations differently. They have different delays, fees, and restrictions with their liquidations. For instance, the Maker oracle/liquidation (internal system) has a one-hour delay to prevent flash liquidations during unsustained flash crashes.&lt;/p&gt;
+&lt;p&gt;Moreover, liquidation is not sudden neither an all-or-nothing event. There are several buffers to your positions, for instance on Aave, every token has a &lt;strong&gt;maximum loan to value&lt;/strong&gt; and a &lt;strong&gt;liquidation threshold&lt;/strong&gt;at least slightly higher.&lt;/p&gt;
+&lt;p&gt;So with USDC as collateral, for instance, there is a 5% spread between the two - the max LTV is 80% (&lt;em&gt;max $8000 worth borrowed from a 10 000 USDC collateral&lt;/em&gt;), while the liquidation threshold is 85% (&lt;em&gt;= liquidation if collateral value &amp;lt; $8500&lt;/em&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-risks/aave-usdc.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Aave USDC collateral parameters&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;It gives borrowers using USDC as collateral another 5% margin so that even if the oracle reports $0.97 no abusive liquidations would occur. The situation is similar in other money markets.&lt;/p&gt;
+&lt;h4 id=&#34;assessing-liquidation-mechanisms&#34;&gt;Assessing liquidation mechanisms
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🔮Likelihood of failure&lt;/strong&gt;: Mostly depends on the collateral price action - a flash crash could trigger a chain of liquidations&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥Loss of funds risk if failure&lt;/strong&gt;: Significant (the money market can be potentially undercollateralized)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;✅Already happened?&lt;/strong&gt; Yes, on Maker where there were issues and delays with liquidations.&lt;sup id=&#34;fnref:8&#34;&gt;&lt;a href=&#34;#fn:8&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;8&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So here are some questions to ask yourself to assess the liquidation mechanisms:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;When liquidations are triggered; what is the flow?&lt;/li&gt;
+&lt;li&gt;Any additional delay?&lt;/li&gt;
+&lt;li&gt;What are the liquidation fees?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;notice info&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#info-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Info&lt;/p&gt;&lt;p&gt;There&amp;rsquo;s another massive subtopic here: the &lt;strong&gt;liquidations do not happen magically&lt;/strong&gt; - they are triggered by other users. So the incentives need to be on point there too so that liquidations do happen when needed and promptly. This topic is even more complex now in an age of high gas costs (liquidation profits vs gas costs of the tx). Skipping it for digestibility.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h3 id=&#34;iid-collateral-listing--risk-analysis&#34;&gt;II.D/ Collateral Listing &amp;amp; Risk Analysis
+&lt;/h3&gt;&lt;p&gt;Alright, now that we have a money market getting reliable prices and liquidating when needed, we can start looking at the tokens accepted as collateral and what is the process.&lt;/p&gt;
+&lt;p&gt;Assessing a token&amp;rsquo;s health and overall safety is &lt;strong&gt;one of the most complex tasks nowadays in DeFi&lt;/strong&gt; because figuring out the whole ecosystem around a token can be tricky.&lt;/p&gt;
+&lt;p&gt;Take the SNX token, for instance, a major ERC-20 token. It&amp;rsquo;s usable as collateral on Aave, but with quite a low maximum loan to value ratio (to be raised soon?) at 15%. Other ERC-20 tokens like LINK are in the 60-75% range.&lt;/p&gt;
+&lt;p&gt;Without diving too much into the details, this has to do with what you can do with each token and &lt;strong&gt;SNX usage as collateral on the Synthetix platform&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span style=&#34;text-decoration:underline;&#34;&gt;Aave&amp;rsquo;s risk parameters are conservative enough to essentially &amp;ldquo;front-run&amp;rdquo; Synthetix itself in the chain of liquidations if a black swan event was to happen &lt;/span&gt;on Synthetix. It seems wise: a money market should not want to take higher exposition on a given token than the native platform itself.&lt;/p&gt;
+&lt;p&gt;Another way to look at it is the other way around: assess the overall &amp;ldquo;health&amp;rdquo; of the latest tokens added as collateral on the platform: are they liquid? Credibly decentralized? Etc.&lt;/p&gt;
+&lt;p&gt;You can also look at the overall collateral usage for any suspicious mismatch, like on Cream where almost a third of the deposits are FTT tokens (FTX exchange).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-risks/cream.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Cream&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;assessing-the-collateral-listing-strategy&#34;&gt;Assessing the collateral listing strategy
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🔮Likelihood of failure&lt;/strong&gt;: Depends on the collateral listing strategy risk appetite&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥Loss of funds risk if failure&lt;/strong&gt;: If a dangerous token is accepted as collateral, the money market can potentially ends-up undercollateralized or even drained. For instance, Cream accepts COVER as collateral. The token suffered three infinite mint attacks already, exposing Cream to further risk.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;❌Already happened?&lt;/strong&gt; some tokens got minted to infinity, like COVER&lt;sup id=&#34;fnref:9&#34;&gt;&lt;a href=&#34;#fn:9&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;9&lt;/a&gt;&lt;/sup&gt;. But they were used as collateral on a money market yet.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I won&amp;rsquo;t expand more on this topic since Aave&amp;rsquo;s risk documentation is very well done - check &lt;a class=&#34;link&#34; href=&#34;https://docs.aave.com/risk/asset-risk/risk-parameters&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the risk parameters section&lt;/a&gt; for more information.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;How are the collateral listing decisions made?&lt;/li&gt;
+&lt;li&gt;What risk framework is used for collateral?&lt;/li&gt;
+&lt;li&gt;How is the money market adapting to the changing circumstances of the tokens it lists?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;iie-safety-module&#34;&gt;II.E/ Safety Module
+&lt;/h3&gt;&lt;p&gt;Even if the risk is known at every level, &lt;strong&gt;insurance is never an option and never supernumerary&lt;/strong&gt;. The first layer of defense is of course the platform-level if there is any compensation module.&lt;/p&gt;
+&lt;p&gt;The good news is that there is! Aave pioneered the field &amp;amp; even Compound has a reserve now. The second good news is that assessing the usefulness of this module is dead simple: it&amp;rsquo;s a simple ratio between the total $ value of the borrows made on the money market and the total $ that can be mobilized by the safety module.&lt;/p&gt;
+&lt;p&gt;Aave has roughly 2B in the Safety Module, of which up to 30% can be seized if needed = 600M. It covers both the V1 &amp;amp; V2 of the protocol. If the 30% on the slashing of the Safety Module is not sufficient, the safety module can mint additional AAVE tokens. Such a scenario is accounted for by neither Compound nor Cream.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-risks/aave-safety-module.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Aave&amp;rsquo;s Safety Module&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;On top of insurance, money markets can also have reserves. Compound is the pioneer here, with about $10M in reseve&lt;sup id=&#34;fnref:10&#34;&gt;&lt;a href=&#34;#fn:10&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;10&lt;/a&gt;&lt;/sup&gt;. Aave also has a reserve system that was recently launched, but I excluded it from the analysis considering the limited balance.&lt;sup id=&#34;fnref:11&#34;&gt;&lt;a href=&#34;#fn:11&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;11&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;So looking at the available numbers, here are our quick maths:
+&lt;code&gt;Safety Ratio = USD value of insurance / Total borrow on the money market&lt;/code&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;🛡 Aave =  53%&lt;/strong&gt; | $1.765 B (600M can be mobilized) in the Safety Module for $1.1B borrowed accross V1+V2 ($572M V1, $437M V2)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🕯 Compound = 0.24%&lt;/strong&gt; | $4.3B borrowed on a $10M safety capital.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;💀 Cream = 0%&lt;/strong&gt; | As far as I know, Cream has no or highly limited (low amounts) native insurance module.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;ℹ Note: While Compound currently has no safety module, the team/DAO is currently sitting on a large COMP reserve that could be used to that end&lt;sup id=&#34;fnref:12&#34;&gt;&lt;a href=&#34;#fn:12&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;12&lt;/a&gt;&lt;/sup&gt;. The maths were done on Feb 17 2021.&lt;/p&gt;
+&lt;h4 id=&#34;evaluating-the-native-insurance-module&#34;&gt;Evaluating the native insurance module
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🔮Likelihood of failure&lt;/strong&gt;: Non-null, but not as relevant here. The SM is here to provide compensations in case of failure.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥Loss of funds risk if failure&lt;/strong&gt;: Depositors know they can get slashed if needed.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;✅Already happened?&lt;/strong&gt; Aave&amp;rsquo;s pioneering the field. The slashing launched weeks ago. So far no events required Aave to harness the safety module, but it&amp;rsquo;s great to know it&amp;rsquo;s here!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To get a sense of how protecting the native safety and insurance modules are, here are some decent questions to ask:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Is there any native insurance module covering the platform?&lt;/li&gt;
+&lt;li&gt;How does it work?&lt;/li&gt;
+&lt;li&gt;What are the withdrawal delays &amp;amp; safeguards?&lt;/li&gt;
+&lt;li&gt;What&amp;rsquo;s the coverage ratio (USD TVL exposed / USD TVL of Safety Module)?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;iif-expanded-insurance-ecosystem&#34;&gt;II.F/ Expanded Insurance Ecosystem
+&lt;/h3&gt;&lt;p&gt;On top of the native insurance system of the money market, depositors and borrowers can &lt;strong&gt;cover their positions through a third party insurance service&lt;/strong&gt; like Nexus Mutual or Unslashed.&lt;/p&gt;
+&lt;p&gt;The &lt;span style=&#34;text-decoration:underline;&#34;&gt;most widely covered risk is the one of a technical failure of smart contracts&lt;/span&gt;. You will find covers for pretty much any widely used contract there is. Yet, &lt;strong&gt;smart contract failures are not the only event that can lead to a loss of funds on a money market&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Because of this, Robert Leshner the CEO of Compound can factually state the following&lt;sup id=&#34;fnref:13&#34;&gt;&lt;a href=&#34;#fn:13&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;13&lt;/a&gt;&lt;/sup&gt; while the protocol recently suffered 90M of abusive liquidations because of faulty oracles:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Compound has been operating for close to 2 years with ZERO smart contract bugs.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;It creates a false sense of security many are falling for, just like the period of operation of the protocol. Notice how I left it out of these 8 criteria? It&amp;rsquo;s because it has close to zero relevance despite services like DeFiScore giving it an absurdly important weight.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;I&amp;rsquo;m careful when I talk about &amp;ldquo;90M of abusive liquidations because of faulty oracles&amp;rdquo; but to be explicit - it affected negatively potentially any DAI borrower back then that might have gotten liquidated wrongly - losing a part of their deposit with &lt;strong&gt;no recourse and no compensation&lt;/strong&gt; since Compound operated as intended (smart-contract wise).&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;On top of risks of smart contract failures, please consider the following list of non-exhaustive other risks that can result in a loss of fund:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Failure or manipulation of an oracle,&lt;/li&gt;
+&lt;li&gt;An issue with the smart contract of a token used collateral (such as infinite mint),&lt;/li&gt;
+&lt;li&gt;A stablecoin used as collateral or borrowing asset on the market lose its peg&lt;/li&gt;
+&lt;li&gt;The device or wallet of the admin of a not-so-decentralized service is compromised&lt;/li&gt;
+&lt;li&gt;Issues or delays with liquidations, meaning the money market can potentially no longer meet its collateralization requirements&lt;/li&gt;
+&lt;li&gt;etc.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Most insurance services are unhelpful with all these risks but for the risks of smart contract failures. The market for other types of risk is barely getting started thanks to Unslashed Finance now providing &lt;strong&gt;coverage for the risk of stablecoins losing their peg&lt;/strong&gt; or custodian risk.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-risks/defiprime-insurance.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Defiprime insurance&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;To learn more about the different approaches for DeFi insurance, check &lt;a class=&#34;link&#34; href=&#34;https://defiprime.com/comparing-insurance-like-solutions-in-defi&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;this piece from DeFi Rate&lt;/a&gt;. However please keep in mind the &lt;strong&gt;massive bias here&lt;/strong&gt;: it was written more than two years ago by Hugh Karp, founder of Nexus Mutual. However, it&amp;rsquo;s still factual enough and insightful to understand the different models.&lt;/p&gt;
+&lt;h4 id=&#34;understanding-insurances-and-the-risk-they-truly-cover&#34;&gt;Understanding insurances and the risk they truly cover
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🎯Object&lt;/strong&gt;: Smart Contract Failure + stablecoin loss of peg.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;💰Utility&lt;/strong&gt;: Provides compensation if a failure is observed.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;✅Already happened?&lt;/strong&gt;: Nexus Mutual, one of the oldest insurance options already paid out on several situations.&lt;sup id=&#34;fnref:14&#34;&gt;&lt;a href=&#34;#fn:14&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;14&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So for the topic of extended insurances, you will want to look at services such as &lt;a class=&#34;link&#34; href=&#34;https://www.unslashed.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Unslashed Finance&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://nexusmutual.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Nexus Mutual&lt;/a&gt;, or &lt;a class=&#34;link&#34; href=&#34;https://www.coverprotocol.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Cover Protocol&lt;/a&gt; and the plans they offer.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;What are the options available through the ecosystem to cover a position on the money market?&lt;/li&gt;
+&lt;li&gt;What are their pricing and reliability (paid out already?)?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;iig-native-token-risk-management&#34;&gt;II.G/ Native Token Risk Management
+&lt;/h3&gt;&lt;p&gt;We discussed quite a bit about the various tokens used as collateral, but there is one you need to watch extra carefully: the &lt;strong&gt;native token of the money market&lt;/strong&gt;. So that&amp;rsquo;s the COMP token on Compound, AAVE on Aave, and CREAM on Cream.&lt;/p&gt;
+&lt;div class=&#34;notice info&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#info-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Info&lt;/p&gt;&lt;p&gt;The maximum Loan to Value (max LTV) dictates the borrowing power of collaterals. A 50% max LTV means one can borrow up to half to the dollar value of the collateral deposited.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;The very first layer is of course to make sure that there is no fool play: &lt;strong&gt;the money market must be neutral and not favor its own token&lt;/strong&gt;. It seems obvious, but it&amp;rsquo;s not a given. Cream allows an excessive 75% max LTV on CREAM, one of the highest of the whole protocol - as high as some stablecoins. Compound itself gives COMP a permissive 60% max LTV while Aave is more conservative at 50%.&lt;/p&gt;
+&lt;div class=&#34;notice tip&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#tip-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Tip&lt;/p&gt;&lt;p&gt;If the money market is healthy and the token well designed - people should be bullish on it, meaning some of them use it as collateral to long it - aka depositing AAVE on Aave to long AAVE.&lt;/p&gt;
+&lt;p&gt;Unsurprisingly, despite the permissive LTV, COMP&amp;rsquo;s and CREAM&amp;rsquo;s longs are rarer than AAVE&amp;rsquo;s.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h4 id=&#34;assessing-how-a-money-market-manage-its-native-token-risks&#34;&gt;Assessing how a money market manage its native token risks
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🔮Likelihood of failure&lt;/strong&gt;: It&amp;rsquo;s an all or nothing event: the money market can play with fire on its native token for months with no consequences before the situation eventually blow up and the token + the money market crumble together.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥Loss of funds risk if failure&lt;/strong&gt;: The loss can potentially be system-wide (whole money market affected).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;❌Already happened?&lt;/strong&gt; Not yet. But Cream is already way beyond any reasonable max LTV figure on the CREAM token.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And here are some considerations worth exploring:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Look at the health of the native token of the platform: token contract, liquidity, integrations, etc.&lt;/li&gt;
+&lt;li&gt;Look at the native token usage on the protocol &amp;amp; assess the health of its market&lt;/li&gt;
+&lt;li&gt;Ownership, distribution, and Gini coefficient of the governance token&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So far, we&amp;rsquo;ve focused on the money market themselves. Yet, they are community-driven &amp;amp; governed projects, so their community &amp;amp; integration within the ecosystem are an essential part of the assessment.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;iih-community--ecosystem&#34;&gt;II.H/ Community &amp;amp; Ecosystem
+&lt;/h3&gt;&lt;p&gt;In DeFi, communities are essential. It&amp;rsquo;s not a &amp;ldquo;nice-to-have&amp;rdquo; to make the protocol more attractive, it&amp;rsquo;s a &lt;strong&gt;core feature&lt;/strong&gt; and I assess it as such.&lt;/p&gt;
+&lt;p&gt;On such a topic, again, no metrics will help you just by themselves. The gist is to get a sense of how dynamic the community is. It usually translates into its core components: the DAO, the Discord, and the overall presence in the space.&lt;/p&gt;
+&lt;p&gt;Another consequence of a healthy community is &lt;strong&gt;widespread support and usage across the ecosystem&lt;/strong&gt;, with many services and products built &amp;ldquo;on top of&amp;rdquo; the protocol examined. Here despite Compound&amp;rsquo;s lead being the first mover, Aave is also now a prime choice for any new protocol building a new financial primitive.&lt;/p&gt;
+&lt;p&gt;Indeed, teams can purposely foster such an environment simply by having members accessible and involved in the space. Besides, Aave has an &lt;strong&gt;ecosystem grants&lt;/strong&gt;&lt;sup id=&#34;fnref:15&#34;&gt;&lt;a href=&#34;#fn:15&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;15&lt;/a&gt;&lt;/sup&gt; initiative helping to fund projects built on top of Aave such as &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/firp-apwine.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;APWine offering fixed yields&lt;/a&gt;. Other community-related initiatives are a healthy tell, such as hackathons, AMAs, livestreams, etc.&lt;/p&gt;
+&lt;p&gt;Again here - make sure to &lt;strong&gt;assess the quality, not the quantity&lt;/strong&gt;. It&amp;rsquo;s easy to rush out all the initiatives listed above. But doing it right, in a way that makes sense for the community and pushes it forward is much harder.&lt;/p&gt;
+&lt;p&gt;I don&amp;rsquo;t want to make this a case against Compound, but here again, it&amp;rsquo;s so obvious. While Compound community fundings are quite limited the grants program just launched&lt;sup id=&#34;fnref:16&#34;&gt;&lt;a href=&#34;#fn:16&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;16&lt;/a&gt;&lt;/sup&gt;, its founder Robert Leshner is an active venture capital investor, with the Robot Ventures funds&lt;sup id=&#34;fnref:17&#34;&gt;&lt;a href=&#34;#fn:17&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;17&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-risks/robovc.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Robovc&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;assessing-the-community--dao-of-a-money-market&#34;&gt;Assessing the community &amp;amp; DAO of a money market
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🔮Likelihood of failure&lt;/strong&gt;: The community is the most important feature of all for the long-term success of the money market.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥Loss of funds risk if failure&lt;/strong&gt;: Long-term risk. If a money market loses the community favors, it&amp;rsquo;s not gonna be a dramatic event but more of slow and painful threading into irrelevance for the given market.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;✅Already happened?&lt;/strong&gt; Yes, with Compound - they lost their top of mind position and preference for several reasons, such as their lack of support for the ecosystem, the DAI Market Oracle issue &amp;amp; the team reaction to it.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So here are some questions and clues to help you assess this last yet essential part:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;At the DAO-level:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;How does it work to submit a proposal?&lt;/li&gt;
+&lt;li&gt;How are they reviewed and improved?&lt;/li&gt;
+&lt;li&gt;What&amp;rsquo;s the delay between the vote and the execution?&lt;/li&gt;
+&lt;li&gt;Any proposal that was ignored or not implemented for a long time?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Core team members:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Are they legit? Involved in the space? Giving back? Advising?&lt;/li&gt;
+&lt;li&gt;Background-check: any involvement with a scam? What were they doing before?&lt;/li&gt;
+&lt;li&gt;Present-check: on top of their involvement with the money market, what are they doing? Any potential conflict of interest?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Ecosystem&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Documentation &amp;amp; support: how hard is it to build on top of this money market?&lt;/li&gt;
+&lt;li&gt;What are the services built on top of the money market? Are they widely used?&lt;/li&gt;
+&lt;li&gt;Are they communicating clearly on risk parameters? Do they have non-technical/non-dev risk-focused documentation?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;iii-a-note-on-defi-tribalism&#34;&gt;III/ A note on DeFi Tribalism
+&lt;/h2&gt;&lt;p&gt;Exploring such a topic was insanely insightful for me, at so many levels. I remain quite surprised by the tribalism of the space: apart from Aave, gathering the information presented in this article was not a trivial task.&lt;/p&gt;
+&lt;p&gt;Because of the question I asked and the observations I shared, I&amp;rsquo;ve been the target of personal attacks from founders of some of the teams mentioned in this article. Others were quite misleading and selective in their answers. I received no answers from both Cream &amp;amp; Compound official accounts or teams.&lt;/p&gt;
+&lt;p&gt;Such attitudes gave me even more will to push this article forward. &lt;strong&gt;Beyond the technicalities of each protocol, I think the attitude of the founding team is essential too&lt;/strong&gt;. On this front, there is a protocol that stands an order of magnitude above any other: surprise surprise, it also happens to be the most technically sound, secure, integrated, and exciting, and interesting. 👻&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;iiia-limitations-of-this-risk-assessment-approach&#34;&gt;III.A/ Limitations of this risk assessment approach
+&lt;/h3&gt;&lt;p&gt;I anticipate strong reactions already, so let me add a few more topics not addressed here:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;While we went quite deep, we did not discuss the tokenization process: the process used by the protocol to represent the assets deposited. On this front, &lt;strong&gt;both Compound and Cream are using an archaic approach&lt;/strong&gt; that was topped on all fronts by Aave with the first release of the aTokens in early 2020.&lt;sup id=&#34;fnref:18&#34;&gt;&lt;a href=&#34;#fn:18&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;18&lt;/a&gt;&lt;/sup&gt; Aave V2 further improved the tokenization process.&lt;/li&gt;
+&lt;li&gt;Cream by itself is a small market, but &lt;strong&gt;through the Iron Bank other protocols can borrow from Cream&lt;/strong&gt;. Assessing the risk on such a market is even harder - and it was excluded from this analysis. To learn more about the real risk already posed and manifested by such an approach, you can check the &lt;a class=&#34;link&#34; href=&#34;https://www.rekt.news/alpha-finance-rekt/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;latest Rekt on Alpha Homora&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;While MakerDAO provides a service functionally equivalent to lending, the process is significantly different since each borrower is minting DAI. So for the sake of simplicity, I&amp;rsquo;ve mostly excluded MakerDAO from this analysis, but for a few meaningful examples.&lt;/li&gt;
+&lt;li&gt;I have no affiliation whatsoever with the Aave, Compound, Cream, or any other money market. However, I do own AAVE tokens (that I purchased myself on the markets) and stake them in the Safety Module. All the content hosted on my blog is made accessible for free - I am the sole editor.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I hope this article helped you get a better grasp of the scope of risks in money markets. I want to stress again that it&amp;rsquo;s non-exhaustive, nor absolute truth but I do firmly believe provides clear and useful contributions to make sure risks in DeFi are broadly understood, better than what currently exists.&lt;/p&gt;
+&lt;p&gt;If you do not agree with this statement, feel free to challenge me. &lt;strong&gt;I&amp;rsquo;m eager for facts disproving my observations: it would mean DeFi is safer than I thought.&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Reminder: this blog is &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/hello-world.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;one of the few websites of the space not pillaging your data&lt;/a&gt;&lt;/strong&gt; through the usage of Google Analytics and the likes.&lt;/p&gt;
+&lt;h2 id=&#34;iv-notes--references&#34;&gt;IV. Notes &amp;amp; References
+&lt;/h2&gt;&lt;p&gt;You can find additional information on each fact, event or figure mentioned in the article through the footnotes:&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;From the get go, the formula used was abitrary, suffered dozens of obvious flaws and was rigged in favor of Compound through the ridiculous importance given to the time of operations. In my humble opinion, the &lt;a class=&#34;link&#34; href=&#34;https://defiscore.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFiScore&lt;/a&gt;&amp;rsquo;s main goal was Consensys&amp;rsquo; promotion. If at least, they had done the work&amp;hellip;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;I pinged them on Twitter and &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/TokenBrice/status/1360296967939772423?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;suggested many obvious improvements&lt;/a&gt; anyone with some DeFi experience could have provided.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;Jack, one of their engineer recognized that &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/jack_clancy93/status/1360304560846364672?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the case of Compound DAI score &amp;gt; Aave is not defensible.&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;Feel free to reach out to him if you want to claim the 500 USDC bounty! &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/jack_clancy93/status/1360305374033682436?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Here is the tweet&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:5&#34;&gt;
+&lt;p&gt;To learn more about this attack or any other in the DeFi space, &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.rekt.news/nxm-hugh-speaks-out/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;check the Rekt&lt;/a&gt;&lt;/strong&gt;&amp;#160;&lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:6&#34;&gt;
+&lt;p&gt;Find &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://decrypt.co/49657/oracle-exploit-sees-100-million-liquidated-on-compound&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;more info about the 89M DAI oracle abitrage on Compound here&lt;/a&gt;&lt;/strong&gt;&amp;#160;&lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref1:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:7&#34;&gt;
+&lt;p&gt;Despite the attack occuring several weeks ago because of their reliance on Coinbase centralized oracles, it seems like &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/ChainLinkGod/status/1362132404484198401?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the situation has not been fixed yet&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:7&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:8&#34;&gt;
+&lt;p&gt;The MakerDAO team published a &lt;a class=&#34;link&#34; href=&#34;https://blog.makerdao.com/the-market-collapse-of-march-12-2020-how-it-impacted-makerdao/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;write-up&lt;/a&gt; after the events explaining what happened.&amp;#160;&lt;a href=&#34;#fnref:8&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:9&#34;&gt;
+&lt;p&gt;Cover is an insurance protocol unable to secure their own token contract and liquidity mining program. They got attaked three times already. Here are &lt;a class=&#34;link&#34; href=&#34;https://coingape.com/cover-becomes-latest-defi-protocol-to-get-exploited-price-crashes-by-77-within-an-hour/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;some info on the last one&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:9&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:10&#34;&gt;
+&lt;p&gt;Each cToken stores reserves (insurance), there&amp;rsquo;s $9.4m (and growing by over $100k/day) &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/rleshner/status/1358566161361821696&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Robert Leshner Tweet&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:10&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:11&#34;&gt;
+&lt;p&gt;There are around $450K worth of tokens collected in the reserve as of now: &lt;a class=&#34;link&#34; href=&#34;https://docs.aave.com/risk/asset-risk/risk-parameters#reserve-factor&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Aave&amp;rsquo;s reserve factor documentation&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:11&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:12&#34;&gt;
+&lt;p&gt;Compound is also sitting on a 4 million COMP (roughly $1.8b) chest that could be allocated for insurance &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/rleshner/status/1358569634618867714?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Robert Leshner Tweet&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:12&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:13&#34;&gt;
+&lt;p&gt;Yes he&amp;rsquo;s factual since the contract never failed so far. However for less technically-savy people, it can read like Compound never suffered any loss, which is not the case. &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/rleshner/status/1358566161361821696?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Robert Leshner Tweet&lt;/a&gt;&lt;/strong&gt;&amp;#160;&lt;a href=&#34;#fnref:13&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:14&#34;&gt;
+&lt;p&gt;You can follow the &lt;a class=&#34;link&#34; href=&#34;https://app.nexusmutual.io/claim-assessment&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;claims and payouts on Nexus Mutual here&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:14&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:15&#34;&gt;
+&lt;p&gt;The first round of &lt;a class=&#34;link&#34; href=&#34;https://medium.com/aave/aave-ecosystem-grants-88260ede1485&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Aave Ecosystem grants started about a year ago&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:15&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:16&#34;&gt;
+&lt;p&gt;The proposal for Compound Ecopsystem Grants was &lt;a class=&#34;link&#34; href=&#34;https://compound.finance/governance/proposals/30&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;executed two months ago&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:16&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:17&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://robvc.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RoboVC&lt;/a&gt;: It funded several services harnessing Compound (like InstaDapp or Multis) &amp;amp; Compound itself.&amp;#160;&lt;a href=&#34;#fnref:17&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:18&#34;&gt;
+&lt;p&gt;The case for aTokens&amp;rsquo; technical superiority could be the topic on an article by itself but here is the gist of it:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Simpler&lt;/strong&gt;: aTokens maintain a 1:1 ratio against the base asset while cTokens have an increasing exchange rate against their base assets.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Easier accounting &amp;amp; integrations&lt;/strong&gt;: aTokens 1:1 correspondence makes them much easier to interact with - there is no need to fetch any additional data. With Compound, any service interacting with cTokens needs to fetch the corresponding the cToken/BaseToken exchange rate.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dynamic and understandable interest&lt;/strong&gt;: both a &amp;amp; c tokens accrue interest dynamically. However, here again, because of aTokens&amp;rsquo; more elegant and straightforward design, the experience is more fluid with aTokens (deposit, reassured by 1:1 correspondence, number go up)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;More potent integrations&lt;/strong&gt;: aToken allows for novel use cases, especially if you take into account the other features of Aave. For instance, there is a Yearn vault harnessing aLINK to borrow USDC from users&amp;rsquo; deposits to farm with them and settle the income for more aLINK.&lt;/li&gt;
+&lt;/ol&gt;
+&amp;#160;&lt;a href=&#34;#fnref:18&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
+        <title>📖 How to make DeFinancial products work for you</title>
+        <link>http://localhost:1313/p/how-to-make-definancial-products-work-for-you/</link>
+        <pubDate>Wed, 20 May 2020 10:53:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/how-to-make-definancial-products-work-for-you/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2020/definancial-services-guide/cover.jpeg" alt="Featured image of post 📖 How to make DeFinancial products work for you" /&gt;&lt;p&gt;Welcome to the new economic paradigm!&lt;/p&gt;
+&lt;p&gt;If you landed here, you probably already have heard about Ethereum and even decentralised finance (DeFi). That&amp;rsquo;s great - today we take it to the next step: how to use DeFi to better your personal finance.&lt;/p&gt;
+&lt;p&gt;This article walks you through 6 base strategies and their variants that harness the most relevant DeFinancial services. We start with the &amp;ldquo;set and forget&amp;rdquo; strategies and progressively move down the stack towards the more complex but also lucrative ones.&lt;/p&gt;
+&lt;p&gt;Before we dive into the strategies, I URGE you to read attentively the primer on gas below &amp;amp; as well as the disclaimers.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;This article is not investment advice. I am not an accredited investor or asset manager. I am just a 27 year old dude using DeFinancial services abundantly and highly active in the space.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;YOU ARE THE ONLY ONE RESPONSIBLE FOR YOUR INVESTMENT DECISIONS.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;a-primer-on-gas&#34;&gt;A primer on gas
+&lt;/h2&gt;&lt;p&gt;&lt;em&gt;ℹ If you know what gas is, feel free to ignore, else - please read this:&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;All strategies described here are enabled thanks to decentralised finance services and executed on the Ethereum network. &lt;strong&gt;To interact with DeFi services, you&amp;rsquo;ll have to pay for the commons of the Ethereum network - and that&amp;rsquo;s what gas costs are.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Gas costs are paid in gwei, a subunit of ETH (1 gwei =  0.000000001 ETH). Most Ethereum wallets will suggest a default gas price. That&amp;rsquo;s usually enough to get started.&lt;/p&gt;
+&lt;p&gt;However, as you dive deeper into the arcane of DeFi, you&amp;rsquo;ll find yourself coming back to gas to understand it better and optimise your transaction costs. Indeed, depending on the gas cost you pick (vs network observed one), your transaction will clear quickly, slowly, or not at all.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/gas-station.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;eth-gas-station&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;You can &lt;a class=&#34;link&#34; href=&#34;https://ethgasstation.info/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;check recommended gas prices on ⛽ EthGasStation&lt;/a&gt;,&lt;/p&gt;
+&lt;p&gt;Or read &lt;a class=&#34;link&#34; href=&#34;https://docs.ethhub.io/using-ethereum/transactions/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;📑 EthHub Docs on Ethereum Transactions&lt;/a&gt; to learn more about gas.&lt;/p&gt;
+&lt;p&gt;Note: Some strategies listed below (1, 3 &amp;amp; 4) are applicable without having to worry about gas, using &lt;a class=&#34;link&#34; href=&#34;https://argent.xyz/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Argent&lt;/a&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;We&amp;rsquo;re almost ready to go in! I just have some necessary disclaimers to share with you to make sure we&amp;rsquo;re on the same level &amp;amp; you understand the content presented below for what it is:&lt;/p&gt;
+&lt;h3 id=&#34;necessary-reminders---please-read&#34;&gt;Necessary reminders - PLEASE READ
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;All returns discussed in the articles are yearly APR (Annual Percentage Rate)&lt;/strong&gt; - to realise these APR (assuming the estimation is accurate), you need to hold your position for a year.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;There are no objective measurements of complexity or risk&lt;/strong&gt; - the parameters I present you with while introducing a strategy are here for understanding only.&lt;/li&gt;
+&lt;li&gt;What does &amp;ldquo;&lt;strong&gt;risk&lt;/strong&gt;&amp;rdquo; represent? A chance of losing your assets due to market events or your own shortcomings (usually stemming from a lack of understanding)  &lt;br&gt;
+The &amp;ldquo;&lt;strong&gt;complexity&lt;/strong&gt;&amp;rdquo; score gives you an idea of how technical and hard the risk is to understand and estimate.
+&lt;br&gt; &lt;em&gt;Please note: the risk of a failure at the Ethereum network-level is not equal to 0. I do not mention this risk again below - it&amp;rsquo;s implied as a base-level of risk.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;There are no free lunches: be sensible with your decisions, here&amp;rsquo;s a &lt;strong&gt;quick rule of  thumb &amp;ldquo;the higher the APR, the higher the risk&amp;rdquo;&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;When markets go wild (either way), some products are affected more than others. While a sudden ETH price variation doesn&amp;rsquo;t impact RealT&amp;rsquo;s APR (2) - it can translate into significant losses for users of TokenSets or liquidity providers.&lt;/li&gt;
+&lt;li&gt;Finally, keep in mind that most of the APR mentioned below change quite often. Don&amp;rsquo;t take them as such, especially if you read this piece weeks after its release: double check by yourself.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;If you&amp;rsquo;re considering committing capital to a given project, &lt;strong&gt;I URGE YOU&lt;/strong&gt; to check the following ressources to learn more on their risk model &lt;a class=&#34;link&#34; href=&#34;https://app.defiscore.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFiScore&lt;/a&gt; &amp;amp; &lt;a class=&#34;link&#34; href=&#34;https://defiwatch.net/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFiWatch&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/defiscore.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;defi-score&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;passive-definancial-services&#34;&gt;PASSIVE DEFINANCIAL SERVICES
+&lt;/h2&gt;&lt;p&gt;&lt;em&gt;Products 1-4 are &amp;ldquo;set and forget&amp;rdquo; (please monitor your positions still). What&amp;rsquo;s meant is that entry is usually done through a simple purchase/swap - and so is the exit.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Meanwhile, in between the two, you have nothing to do to earn your yield - it&amp;rsquo;s paid to you without requiring any intervention (claim or other).&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;with-stable-assets&#34;&gt;With Stable Assets
+&lt;/h3&gt;&lt;p&gt;Some passive investment products involve only stablecoins - these are tokens tracking the price of a stable currency, usually the dollar. Considering the minimal amount of work required to use them, and the lower overall risk (mostly technical failure) these products are the best to get you started with decentralised finance.&lt;/p&gt;
+&lt;h4 id=&#34;1-stablecoins-yield&#34;&gt;1/ Stablecoins Yield
+&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;You own an Ethereum-based asset tracking the price of the dollar (ex: DAI). You find a way for this asset to earn interest: lending (ex: aDAI) or liquidity providing.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;(1 = lowest, 5 = highest)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/subh/1-stablecoin-yield.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1-stablecoin-yield&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Yield-bearing stablecoins are the gateway drug.&lt;/p&gt;
+&lt;p&gt;They can provide decent returns (up to 8-9% APR), are convenient to use and also not too complex so they are a good start to understand some fundamentals about DeFi.&lt;/p&gt;
+&lt;p&gt;Getting in and out is as easy as swapping a token. So, if while considering this approach, you only have three things to keep in mind:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Risk: base stablecoin risk (on DAI) + any service on top of it (ex: Aave for aDAI)&lt;/li&gt;
+&lt;li&gt;Return: there are some neat ressources to keep track with the yields, check &lt;a class=&#34;link&#34; href=&#34;https://loanscan.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;LoanScan&lt;/a&gt; for instance.&lt;/li&gt;
+&lt;li&gt;Gas costs to get in &amp;amp; out (especially &lt;strong&gt;if you invest small amounts, or while the network is busy&lt;/strong&gt;).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;To implement this first strategy, you have several options: &lt;a class=&#34;link&#34; href=&#34;https://compound.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Compound&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://aave.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Aave&lt;/a&gt;, etc. You can acquire their corresponding tokens (cDAI, aDAI, iDAI) using a service like &lt;a class=&#34;link&#34; href=&#34;https://paraswap.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ParaSwap&lt;/a&gt;. In terms of APR, historically, aDAI has been consistently topping the charts.&lt;/p&gt;
+&lt;p&gt;If you want to expand on top of the base concept, you have several options offering better returns (meaning more risk):&lt;/p&gt;
+&lt;h5 id=&#34;1-a-implementing-a-basic-stablecoin-yield-based-strategy&#34;&gt;1-A/ Implementing a basic stablecoin-yield based strategy
+&lt;/h5&gt;&lt;p&gt;&lt;strong&gt;RECAP: You own an Ethereum-based asset dynamically rebalancing between several stablecoins providing yields to optimise your return.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;As said above, there are several services offering stablecoins providing returns thanks to lending pools. You can manually chase the best rate yourself, but will require you to monitor the rates and do the rebalances yourself.&lt;/p&gt;
+&lt;p&gt;So instead, why not use an Ethereum native service to do that for you in full transparency? &lt;a class=&#34;link&#34; href=&#34;https://idle.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Idle Finance&lt;/a&gt; is the leading solution:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/idle-dai.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;idle-dai&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h5 id=&#34;1-b-stablecoins-liquidity-providing-curve-pools&#34;&gt;1-B/ Stablecoins Liquidity Providing: Curve Pools
+&lt;/h5&gt;&lt;blockquote&gt;
+&lt;p&gt;You own several Ethereum-based stablecoins and help facilitate trades on Curve (= liquidity provider). You earn a commission on each trade corresponding to the prorata of your share of the pool.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;We will have a dedicated section about liquidity pools below but I had to mention the Curve Pools here. In a gist, &lt;a class=&#34;link&#34; href=&#34;https://curve.fi&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Curve&lt;/a&gt; is a service made to optimize stablecoin swaps. Providing liquidity on Curve can be quite attractive since the base assets are all stablecoins &amp;amp; the returns provided by the commissions collected on the swaps (&amp;amp; lending) are decent.&lt;/p&gt;
+&lt;h5 id=&#34;1-c--no-loss-lottery-pool-together&#34;&gt;1-C / No loss lottery: Pool Together
+&lt;/h5&gt;&lt;blockquote&gt;
+&lt;p&gt;You lock a stablecoin (DAI or USDC) for a week or a month. They are pooled with other users&amp;rsquo; to generate interest (-&amp;gt;Compound). At the end of the week/month, the winner gets all the interests.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I love this one because it&amp;rsquo;s both surprising to see it here and amazing. So first, let me clear the air: &lt;a class=&#34;link&#34; href=&#34;https://www.pooltogether.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PoolTogether&lt;/a&gt; is not a financial product per-se - their vision is more pedagogic: PoolTogether is a money game.&lt;/p&gt;
+&lt;p&gt;The concept is quite simple, as described in the recap. Since all the profits of the winner are generated on the interests of all players, nobody loses any money with PoolTogether.&lt;/p&gt;
+&lt;p&gt;However please rest assured, the addition of PoolTogether in this list is not ideological: **average returns are superior to Compound. &lt;strong&gt;The reason why is quite simple: PoolTogether uses Compound to generate its return (= same APR) + each pool has some &amp;ldquo;sponsored&amp;rdquo; ticket - tickets contributing to the interest accrual, but without winning chances.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/pt-sponsored.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;pool-together-sponsored-balances&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Finally, with the average APR is higher, please bear in mind that PoolTogether is much less regular - most of the time you&amp;rsquo;ll get nothing, but if you win you get the equivalent of years of interest on your capital.&lt;/p&gt;
+&lt;p&gt;PoolTogether essentially provides a new flavor of interest distribution on top of Compound&amp;rsquo;s return: PT&amp;rsquo;s returns are much more random but also potentially massive (if lucky).&lt;/p&gt;
+&lt;p&gt;Last month, &lt;a class=&#34;link&#34; href=&#34;https://medium.com/pooltogether/winning-more-prizes-185bad7f6d63&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PoolTogether released the pods&lt;/a&gt; - a new option for users to play as a group. Users can now share their odds and their gains - which makes the wins less significant but much more frequent.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.pooltogether.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;You can play the PoolTogether lottery directly from their website.&lt;/a&gt; You&amp;rsquo;ll need some DAI or USDC.&lt;/p&gt;
+&lt;h4 id=&#34;2-tokenized-real-estate---realt&#34;&gt;2/ Tokenized Real Estate - RealT
+&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;You own shares of tokenized properties (securities). You earn your share of the rent daily (currently in USDC) + extra earning opportunities (liquidity providing, incentive programs).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/subh/2-tokenised-real-estate.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;2-realt-tokenised-real-estate&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://realt.co&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RealT&lt;/a&gt; is a totally different beast from anything else in that list, at several levels&lt;/strong&gt;. Since RealT tokens represents real estate in the real world, the risk profile is also totally different (~~&amp;gt;  less Ethereum risk, more real-word risk).&lt;/p&gt;
+&lt;p&gt;Before we dive into what makes RealT tokens so interesting, let&amp;rsquo;s make sure we are clear. &lt;strong&gt;RealT tokens are securities - you have to go through a KYC process to be able to purchase them&lt;/strong&gt; (whitelist + lease agreement).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/realt.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;RealT-tokenised-real-estate&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s a bit more work than for interest-bearing stablecoins, but you have several benefits to gain here compared to strategy 1:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Returns&lt;/strong&gt;: depending on the property, APR ranges from 8% to 12.5%.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Daily payment of returns&lt;/strong&gt;: once you have some RealT tokens in your wallet, you will receive your corresponding** share of the rent, daily, in USDC**.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hedging&lt;/strong&gt;: you have a yield based on real estate - AKA less correlated to the rest of the crypto markets&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Additional opportunities&lt;/strong&gt;: you can add more to this strategy to increase the return. To do so, consider providing liquidity on Uniswap - generating some returns. &lt;a class=&#34;link&#34; href=&#34;https://medium.com/realtplatform/announcing-the-uniswap-incentive-program-f82f721cf63a&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Providing liquidity on RealT tokens is currently incentivised&lt;/a&gt; - landing even more returns.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;with-volatile-assets&#34;&gt;With Volatile Assets
+&lt;/h3&gt;&lt;h4 id=&#34;3-automated-trading-strategies---tokensets&#34;&gt;3/ Automated Trading Strategies - TokenSets
+&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;You own a &amp;ldquo;set&amp;rdquo; representing a stake in an automated trading strategy based on a technical indicator or another trader (social sets) a.k.a. &amp;ldquo;Holding on autopilot&amp;rdquo;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/subh/3-tokensets.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;3-tokensets-automated-strategies&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.tokensets.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;TokenSets&lt;/a&gt; are the holders&amp;rsquo; best friend&lt;/strong&gt;. While the service is definitely not the easiest to understand or the less risky, it currently provides significant utility. Indeed, if you are a long term holder of ETH for instance, TokenSets is one of your best options to grow your ETH stash (against ETH).&lt;/p&gt;
+&lt;p&gt;Sets are automated trading strategies represented by a token. Each set trades a given pair (ex: ETH/cUSDC) following a pre-set of rebalancing rules triggered by the cross with the set technical indicator.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/tokenviz.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Tokensets performance visualised with TokenViz&#34;
+	
+	
+&gt;
+Wondering which set to pick? &lt;a class=&#34;link&#34; href=&#34;https://tokenviz.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;TokenViz&lt;/a&gt; provides a neat dashboard to help you chose.&lt;/p&gt;
+&lt;p&gt;So as a user who is not willing to look at charts all day, TokenSets is an excellent option. Indeed, most people trying to trade tend to lose money. &lt;strong&gt;With the sets, the emotions are out &amp;amp; machines rule.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;On top of the regular sets following a technical indicator (such as ETH 20 Days Moving Average), there are now social sets. It&amp;rsquo;s the same mechanism, but your set will follow another&amp;rsquo;s trader strategy instead of simple technical indicators: aka &amp;ldquo;copy-trader&amp;rdquo; feature.&lt;/p&gt;
+&lt;h4 id=&#34;4-simple-yields-to-chase-on-erc20-tokens&#34;&gt;4/ Simple yields to chase on ERC20 tokens
+&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;This is essentially the ERC-20 version of strategy 1: you own an ERC-20 (non-stable) token producing some form of returns, usually through lending or liquidity providing.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/subh/4-erc20-yields.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;4-erc20-yields&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Before we explore the more active approaches, allow me to introduce one more passive approach, this time based on ERC20 tokens (not stablecoins.)&lt;/p&gt;
+&lt;p&gt;Since Aave offers aTokens on up to 15 different ERC-20 tokens, it might be worth for you to keep an eye on them - with a tool like &lt;a class=&#34;link&#34; href=&#34;https://aavewatch.now.sh/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;AaveWatch&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/aavewatch.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;AaveWatch - overview of lending opportunities offered on Aave&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Among them, I think the following are the most interesting:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;aSNX: base rate around 7%, can spike quite high for a bit - keep a very close eye to this one on Wednesdays, especially if prices of ETH/SNX crashed during the week: we observe SNX borrowing surges during certain claim periods.&lt;/li&gt;
+&lt;li&gt;asUSD: can spikes quite hard too, especially lately (~12% APR over the last month)&lt;/li&gt;
+&lt;li&gt;aZRX: rates can spike, read more about ZRX to know when&lt;/li&gt;
+&lt;li&gt;aMANA: same here - decentish rate (1-2%)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;active-definancial-services&#34;&gt;ACTIVE DEFINANCIAL SERVICES
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Doing nothing is amazing - and when it comes to investing it’s a strategy that can be surprisingly effective&lt;/strong&gt;. Being able to stand still and do nothing, even in the middle of a marketstorm is truly an art you would gain to master. However, and it shouldn&amp;rsquo;t come as a surprise for you: the best yield will require effort.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/nothing.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Doing nothing - the best strategy of them all?&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Notice how I didn&amp;rsquo;t say work? Sometimes, the &amp;ldquo;efforts&amp;rdquo; can simply be that you accept to stomach a risk others wouldn&amp;rsquo;t, and get paid nicely for it &amp;mdash; &lt;strong&gt;the investor equivalent of a stunt double.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The next strategies will require a more precise understanding of what you are doing. Indeed, at their core, all strategies would benefit immensely from your market acumen. So before we explore such strategies, allow me some reminders:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Information is power.&lt;/strong&gt; More specifically for DeFi investing: the information you have &amp;amp; understand is the main thing driving the alpha (returns) you&amp;rsquo;re extracting from the markets.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Take it slow, be safe, it&amp;rsquo;s not a race&lt;/strong&gt;. Despite writing this article (with many people advising), I have yet to use strategy 6 with serious amounts of capital for instance. It&amp;rsquo;s wise to double-check your understanding of a given platform every time you increase your stake.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Want to quickstart the process? Go in with $50.&lt;/strong&gt; Small amounts are amazing to help you understand a protocol and be involved without taking too many risks and stressing about it.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;some-pointers-on-passive-vs-active-styles&#34;&gt;Some pointers on passive vs active styles
+&lt;/h3&gt;&lt;p&gt;It’s impossible to give an accurate representation of the potential earning spread between an average DeFi passive investor and an active one. However, a combination of services reproduces a similar situation:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Synthetix: SNX staking model to collateralise synthetic assets.&lt;/li&gt;
+&lt;li&gt;Aave + Synthetix = aSNX Passive (type 4) investment asset&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table align = &#34;center&#34;&gt;
+  &lt;tr&gt;
+   &lt;td&gt;
+   &lt;/td&gt;
+   &lt;td&gt;
+&lt;div align = &#34;center&#34;&gt; &lt;b&gt;Actions Required&lt;/b&gt;&lt;/div&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;div align = &#34;center&#34;&gt; &lt;b&gt;Expected Yearly Return &lt;/b&gt;&lt;/div&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;div align = &#34;center&#34;&gt; &lt;b&gt;Passive Style (aSNX)&lt;/b&gt;&lt;/div&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;div align = &#34;center&#34;&gt;None (once you own aSNX)&lt;/div&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;div align = &#34;center&#34;&gt;~10%&lt;/div&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;div align = &#34;center&#34;&gt; &lt;b&gt;Active Style (SNX stake managed through mintr)&lt;/b&gt;&lt;/div&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;div align = &#34;center&#34;&gt;Weekly claim of reward (1y escrowed) + sUSD + synths management strategy (trading, liquidity+staking)&lt;/div&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;div align = &#34;center&#34;&gt;~80% &amp; more (up to you)&lt;/div&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;5-synthetix&#34;&gt;5/ Synthetix
+&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;You start with a stake of SNX (Synthetix token). You stake (lock) them which already generates a neat SNX return but vested for a year (+weekly sUSD non-vested). Thanks to your stake, you can then mint synthetic tokens - that expose yourself for up to 1/8 of the initial SNX value &amp;amp; offer additional earning opportunities.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/subh/5-synthetix.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;5-synthetix&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Before anything else: what I say below is NOT ENOUGH to understand Synthetix+SNX if you are just discovering it. &lt;strong&gt;Do not rush it!&lt;/strong&gt; Synthetix is definitely a next step in terms of complexity, here&amp;rsquo;s an overview of all the new things you will have to do:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Have a secured wallet - &lt;strong&gt;will you be able to access your wallet in a year?&lt;/strong&gt;  &lt;br&gt;
+SNX rewards are escrowed a year: you claim them today, but you can only move them out of Mintr (Synthetix platform) a year after the claim date.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Claim reward weekly&lt;/strong&gt; (SNX vested for a year + sUSD)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Monitor&lt;/strong&gt; your collateralization ratio and adjust when need to be able to claim&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Decide&lt;/strong&gt; which Synth you&amp;rsquo;re exposing yourself to and when&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Since Synthetix is really flexible, allow me to stick to a strategy I&amp;rsquo;ve successfully implemented. Other approaches are possible, and my choice is suggestive. However, I think this strategy does a good job at highlighting the different synergies available with Synthetix.&lt;/p&gt;
+&lt;h5 id=&#34;5-a-the-synthetixcurve-yieldstack-aka-the-4-steaks-yieldburger&#34;&gt;5-A/ The Synthetix/Curve YieldStack (a.k.a. &amp;ldquo;the 4-steaks yieldburger&amp;rdquo;)
+&lt;/h5&gt;&lt;blockquote&gt;
+&lt;p&gt;You use Synthetix (+SNX) to mint sUSD, a stablecoin, and supply this stablecoin to an incentivised liquidity pool for extra returns.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Let&amp;rsquo;s not beat around the bush: this is much harder, much more work than 1-4, but the returns are an order of magnitude higher if done right. Your position is also more complex to monitor since you are exposed to several types of assets, getting returns in several kinds of assets too, and the timeline of the returns are not the same either.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/yieldburger.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;The Synthetix-Yieldbuger-TokenBrice&#34;
+	
+	
+&gt;
+&lt;em&gt;Stake? Steak? Does it matter as long as there is meat on the bone?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s have a look at the base of the yield stack:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Staking SNX + SNX reward&lt;/strong&gt; ~ 50% APR, in SNX, paid weekly (claim required) &amp;amp; vested for a year&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sUSD Staking reward&lt;/strong&gt; - variable sUSD reward (based on exchanges volume), paid weekly, claim required, no vesting period.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Liquidity Provider Curve sUSD pool&lt;/strong&gt; - 3 to 5% APR, earned while exiting the pool.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Incentive Program&lt;/strong&gt; for that pool (accessed by staking the pool token)-  25% APR, in SNX, paid weekly (claim required), no vesting period&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;Note: The Curve sUSD pool ran into some issues, and the current live version is not the most optimised one for returns. A new version of the sUSD pool is coming up, harnessing Aave to optimize it even farther. This strategy might get even more compelling as soon as this ships!&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Curious ? Here is a &lt;a class=&#34;link&#34; href=&#34;https://synthetix.community/docs/intro&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;comprehensive overview to get started with Synthetix&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;6-liquidity-provider-not-on-stablecoins&#34;&gt;6/ Liquidity Provider (not on stablecoins)
+&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;You use a capital equally split into to tokens (ex 50% ETH 50% DAI) to supply a liquidity pool, which generates commissions on the trade you help facilitate.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/subh/6-liquidity-provider.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;6-liquidity-provider&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;This is essentially a riskier variant of the strategy 1-B. In this scenario, you are still providing liquidity but this time you move to another kind of pair - the ETH based ones.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;While you provide liquidity on a decentralised exchange, the main risk you face (on top of the usual) is what we call &amp;ldquo;impermanent losses&lt;/strong&gt;&amp;rdquo;. (confusing name, they are very permanent)&lt;/p&gt;
+&lt;p&gt;I can&amp;rsquo;t explain the full concept here, but here&amp;rsquo;s a quick recap: &lt;strong&gt;impermanent losses usually stem from a sudden variation between the relative prices of the two assets you&amp;rsquo;re providing liquidity to&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;So if the two assets are tracking the same price (ex ETH/sETH), the impermanent loss risk is minimized&lt;/strong&gt;. So, from the lower level of risk, to greater, you have:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Providing liquidity on stablecoins: both assets prices are relatively stable, and they track the same price =&amp;gt; the impermanent losses risk is minimized.&lt;/li&gt;
+&lt;li&gt;Providing liquidity on assets that are not stable but tracking the same price, such as ETH/sETH.&lt;/li&gt;
+&lt;li&gt;Providing liquidity on an ETH/stable pair.&lt;/li&gt;
+&lt;li&gt;Providing liquidity on a ETH/ERC20 (both non stable &amp;amp; not tracking the same price) - this is where the risk is greater, since both assets can move - if both assets price were to suddenly move in opposite directions you can suffer significant impermanent losses.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;If you are considering providing liquidity on AMMs, please read more on the topic: &lt;a class=&#34;link&#34; href=&#34;https://blog.bancor.network/beginners-guide-to-getting-rekt-by-impermanent-loss-7c9510cb2f22&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Risk/Reward of liquidity provision in AMMs&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Edit (07/16)&lt;/em&gt; - If you are curious about liquidity providing, here is another guide covering the main incentivised opportunities: &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/yield-farmer-tier-list.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;💦 The Yield Farmer Tier List&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion
+&lt;/h2&gt;&lt;p&gt;I think this is a good place to call it a run and keep this guide digestible.&lt;/p&gt;
+&lt;p&gt;If you&amp;rsquo;re ready to jump-in, here are some solutions that will make it easier for you:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://argent.xyz/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Argent Wallet&lt;/a&gt; Secure wallet offering one tap access to Aave tokens, PoolTogether &amp;amp; TokenSets presented in this article.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://monolith.xyz&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Monolith Visa Debit Card&lt;/a&gt; You&amp;rsquo;ve made some profits in DeFi you&amp;rsquo;d like to cash out in the real world? This is the only no-compromise solution allowing you to do so.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;And if you&amp;rsquo;re wondering what could be your next steps, here is are some of your potential ones:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Opening vaults on &lt;a class=&#34;link&#34; href=&#34;http://makerdao.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Maker&lt;/a&gt; or using &lt;a class=&#34;link&#34; href=&#34;https://aave.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Aave&lt;/a&gt; to get leverage (⚠ liquidation risk).&lt;/li&gt;
+&lt;li&gt;Using options like &lt;a class=&#34;link&#34; href=&#34;https://opyn.co/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Opyn&lt;/a&gt; or insurance service such as &lt;a class=&#34;link&#34; href=&#34;https://nexusmutual.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Nexus Mutual&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://aave.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Aave&amp;rsquo;s&lt;/a&gt; Flash loans&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I hope this was an insightful read and you&amp;rsquo;ve figured a few ways to make DeFinancial services work for you. If you have any questions, feel free to reach out to the &lt;a class=&#34;link&#34; href=&#34;https://t.me/de_fi&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFi community on Telegram&lt;/a&gt;, or their variants in your native language.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;This article was made possible thanks to a tremendous amount of support from people in the community who shared their suggestions, insights and proofread it.&lt;/p&gt;
+&lt;p&gt;Thanks to these amazing people:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/jimmyragosa&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Jimmy Ragosa - follow him on Twitter&lt;/a&gt;, his meme game is woke 👌&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/lemiscate&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Marc Zeller&lt;/a&gt; - dev advocate @Aave, do I need to say anything more?&lt;/li&gt;
+&lt;li&gt;Marouane - he&amp;rsquo;s coming after your risks, &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/UnslashedF&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;watch out!&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;mailto:victor@function.media&#34; &gt;Viktor&lt;/a&gt; who worked on the graphics of this article and indulged my terrifying napkin diagrams.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As well as people who did not contribute directly to this specific article but were key in helping me understand DeFinancial services better - allowing me to be in a position to write this guide:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/pscltllrd&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Pascal Tallarida&lt;/a&gt;: founder of Jarvis Netowrk, proeminent onboarder and vulgariser in the French community. He&amp;rsquo;s the one who helped me (and MANY others) grasp their heard around synthetic assets.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/mounibec&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Mounir&lt;/a&gt;: founder of Paraswap.io, the OG-est of DEX aggregator and still the only one that can fetch a price &amp;lt;1-2s without melting your laptop. Mounir is a one-man-army and an incredibly helpful actor in the French &amp;amp; international communities.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/AbelsAbstracts&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Abel&lt;/a&gt;: this guy keeps up with everything and he&amp;rsquo;s my go-to person to discuss new releases and see through the marketing. Check &lt;a class=&#34;link&#34; href=&#34;https://open.spotify.com/show/6NO8M2R4u9YSgAdz5TA4ZA&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;his amazing podcast&lt;/a&gt; - we do a DeFi catchup every week together.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

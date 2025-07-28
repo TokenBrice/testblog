@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>GHO on TokenBrice</title>
+        <link>http://localhost:1313/tags/gho/</link>
+        <description>Recent content in GHO on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Thu, 08 Feb 2024 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/gho/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Farewell to the GHO Liquidity Committee and reflections on the rise of DeFi newspeak</title>
+        <link>http://localhost:1313/farewell-glc/</link>
+        <pubDate>Thu, 08 Feb 2024 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/farewell-glc/</guid>
+        <description>&lt;p&gt;I’ve resigned from the GHO Liquidity Committee and would like, in this blog post, to share more context on its adventures and the learning we can draw from it.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://etherscan.io/verifySig/35543&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Onchain message from tokenbrice.eth&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://etherscan.io/tx/0x39760c8cd33beba102cbcb6a3c50489a24b1a50d8290de7c42c09845cf814dba&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Signer removal transaction&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For those whose first reaction will be “ain’t ready all of that,” here is a recap of the main shortcoming I see in the committee that led to my decision:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The committee&amp;rsquo;s operating model is inefficient and prevents a coherent vision from emerging and being delivered.&lt;/li&gt;
+&lt;li&gt;The committee&amp;rsquo;s scope of responsibilities is unclear, leading to a passive attitude (towards governance mishaps) assumed by most members.&lt;/li&gt;
+&lt;li&gt;The committee mainly comprises governance professionals who lack any serious expertise in the topic at play – liquidity management. It results in inefficient operations, conflicts of interest because of their numerous other commitments, and subpar use of the Committee’s resources.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Governance is always a challenge. Indeed, it can seem insane to give power to random people on the internet, and it often is. There is a built-in democratic assumption in governance operations – although most governances are purely plutocratic – that severely hinders any serious structuration that would enable delivering upon commonly agreed goals. The GHO Liquidity Committee was appointed by the Aave governance precisely because it recognized – in a flash of lucidity – its incompetence and ineptitude in directional liquidity management.&lt;/p&gt;
+&lt;p&gt;Yet, I’ll tell you what’s even crazier: giving power to people that the crowds perceive as “experts” on a topic. It’s all a show: the most recognized and mediatic expert of a given field is never the one actually the most informed on the topic. I, for one, would know quite a bit on the matter, with my own field of specialization — liquidity management, shaping, and incentivization — a topic prone to public perception manipulation more than any other because of the financial stakes inherently associated with it.&lt;/p&gt;
+&lt;h2 id=&#34;the-case-of-the-crv-wars&#34;&gt;The case of the CRV Wars
+&lt;/h2&gt;&lt;p&gt;Let’s illustrate: regarding liquidity, the word on the street is that Curve is the best model, and all pros and experts use Curve, right? &lt;strong&gt;It’s so good that over the last round (62), projects are spending $1 to receive $0.7 of incentives to their pools&lt;/strong&gt;: an instant donation of 30% of the amount they spend on bribes to veCRV/vlCVX holders. It means that if projects which bribed would have allocated the same amount to direct liquidity mining instead, they would have delivered 30% more $ to their LPs and thus attracted more liquidity for the same cost, all of which without assuming the price risk associated with CRV fluctuations for a week.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2024/farewell-glc/votium-round-62.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;curve-bribes&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;So what’s happening there? Quite a few things, and it’s not the main course on today’s menu, just the appetizer, so I’ll go over this quickly:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Most projects have no one internally competent with liquidity&lt;/strong&gt;, so they often do random wastes like these. Many prominent DeFi projects recognized for the liquidity games are big spenders but not exactly savvy.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Curve Wars have been a meme for a while&lt;/strong&gt;: there have been no genuine new entrants in these wars for ages – simply because it’s not worth it financially for most players, especially those without ties to the Curve ecosystem. Moreover, the liquidity structures available on Curve (stableswap and V2) are suboptimal compared to Uniswap or Maverick for many very common types of DeFi tokens – LSDs, LRTs, loosely pegged stablecoins, and liquid wrappers. You can confidently mark any protocol outputting a token of this type building liquidity primarily on Curve as inapt in liquidity management.&lt;/li&gt;
+&lt;li&gt;What you are left with are &lt;strong&gt;“insider protocols,”&lt;/strong&gt; teams building on top of the Curve ecosystem who usually own sizeable veCRV/vlCVX positions, allowing them to recoup a large share of their bribes (1. Own veCRV/vlCVX ⇒ 2. Post a bribe ⇒ 3. Vote on the pool you just bribed ⇒ 4. Collect and repeat next round). This tactic manipulates public perception into thinking that real money is being spent on these Curve wars. Some of these now insiders are originally external protocols, such as Inverse or Alchemix, which decided to kiss the llama ring for the better and the worse.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Don’t take my word for it; simply look at the top spenders: Frax, Convex, Alchemix, CLever (Aladin), Prisma, Conic, Inverse, etc. &lt;strong&gt;To make it easy to visualize, here are the top spenders of the last round, ranked by amount spent, with the insider protocols highlighted in red&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2024/farewell-glc/top-bribers.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;curve-bribes&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Enough with Curve, llamas already hate me; I just wanted to highlight the example of Curve, “the king of liquidity,” being a poorly efficient venue to build and sustain liquidity. Curve, “maker or breaker of stablecoins,” as the DEX with arguably subpar liquidity structures for most stablecoin pools: &lt;strong&gt;Newspeak arrived in DeFi, and public perception/words used are often entirely at odds with the onchain observable reality&lt;/strong&gt;. Sadly, a similar pattern has been observed with the GHO Liquidity Committee, today&amp;rsquo;s topic, so let’s get to it.&lt;/p&gt;
+&lt;h2 id=&#34;the-case-of-the-gho-liquidity-committee&#34;&gt;The case of the GHO Liquidity Committee
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;The GHO Liquidity Committee is a prime example of expertise misplacement&lt;/strong&gt;, as it was composed of an unhealthy mix of professionals “DeFi politicians” (more on this below), people with low expertise and vested interest in a given DEX, and people close to the Aave’s DAO / ex Aave team but devoid of any expertise on the topic of liquidity.&lt;/p&gt;
+&lt;p&gt;It led to a waste of resources, baseless struggles, and heavily misinformed decisions. At the end of the day, the &lt;strong&gt;GLC is like a big bag of cash everyone was trying to pull from to direct to protocol they have an interest in&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;So let’s dive in: what were its limitations, and what anyone interested in governance, whether committee-based or not, can learn from it?&lt;/p&gt;
+&lt;h3 id=&#34;operating-model-of-the-glc&#34;&gt;Operating model of the GLC
+&lt;/h3&gt;&lt;p&gt;In its first months, the GLC operated erratically, sometimes leading several initiatives that were at odds with each other and needed a more coherent vision. It was simply a bunch of degens with a large amount of GHO in a multisig &lt;strong&gt;spraying and praying&lt;/strong&gt;. The pinnacle was reached when bribes were allocated to a pool whose liquidity shape was detrimental to the repegging efforts, which, luckily for the Committee, ended out of range before the emissions began, enabling its prompt termination: a net burn of GHO.&lt;/p&gt;
+&lt;p&gt;I was eventually elected head of the committee and &lt;a class=&#34;link&#34; href=&#34;https://x.com/TokenBrice/status/1719328410479059227?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;assumed a temporary and objective-based dictatorship&lt;/a&gt;. It enabled the committee to stop allocating resources on liquidity support that were doing a disservice to the cause of repegging GHO and &lt;strong&gt;focus the energy, resources, and efforts where it actually mattered.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Yet the story also raised eyebrows and attracted media attention (&lt;a class=&#34;link&#34; href=&#34;https://www.coindesk.com/business/2023/11/28/aaves-gho-stablecoin-nears-elusive-dollar-peg/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;CoinDesk&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://thedefiant.io/benevolent-dictator-succeeds-in-bringing-aave-s-stablecoin-gho-near-parity-with-usd&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFiant&lt;/a&gt;, etc.) as it highlighted the failure of governance by itself – at least from the perspective of said media. &lt;strong&gt;During my two mandates, two targets were set: the first was missed by a few basis points (after an increase of ~200 bps), and the second was missed by a few days&lt;/strong&gt;. My targets were ambitious, especially considering that they relied as much on deliverables external to the liquidity committee (interest rate management, single-sided staking for GHO, etc.). After two terms, I let go of the leading role early in January.&lt;/p&gt;
+&lt;p&gt;⇒ When governance elects a committee to handle a specific task, it acknowledges its inefficiency on the matter. &lt;strong&gt;Such committees should not shy away from appointing a leadership, as ownership and responsibility can be very healthy,&lt;/strong&gt; especially in “decentralized” governances where the eminences are often gray, and thus ownership and responsibility often lacking.&lt;/p&gt;
+&lt;h3 id=&#34;scope-of-the-glc&#34;&gt;Scope of the GLC
+&lt;/h3&gt;&lt;p&gt;The GLC inherited several “governance debts”: decisions made by the governance that prove absolutely indefensible in the current state of affairs and operations. It failed even to find the will to challenge them and instead decided to enforce them despite the warning of a couple of committee members.&lt;/p&gt;
+&lt;p&gt;Example: Mobilizing the CRV of the committee as sdCRV, a subpar option at the technical level, as it requires weekly voting of the committee (no vote carry-over), has low liquidity, and strips the committee of its due CRV gauge voting power unless it owns veSDT / benefits from a veSDT boost delegation, all of that in a lovely ethical mess, as it strengthens ties with a protocol/team that operates with many questionable practices and several committee members are veSDT holders and in proximity with the said team.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;⇒ The scope of any appointed committee must be clearly defined – and the committee should be able and willing to challenge decisions previously enacted by governance on its matter of expertise.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;what-professionalism-means-in-defi-newspeak&#34;&gt;What “professionalism” means in DeFi newspeak
+&lt;/h3&gt;&lt;p&gt;Participants in groups such as the GHO Liquidity Committee are expected to be “professionals” — you, dear readers, and I would understand by that: master of their topic, accurate, always trying to serve the committee&amp;rsquo;s purpose, and available for their mission.&lt;/p&gt;
+&lt;p&gt;But we’re misplaced, as in DeFi newspeak, “professionalism” has an entirely different meaning; it’s actually the opposite, as DeFi “professional” profiles tend to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Make no waves, and avoid anything perceived as “political”, even if that means associating with scammers: you cannot put business partners in a tough spot.&lt;/li&gt;
+&lt;li&gt;Silence truths that are hard to swallow but would be of public interest to enable the community to learn from previous mistakes. For instance, &lt;strong&gt;the failure of the developers of GHO to anticipate the depeg is never discussed&lt;/strong&gt;. However, it had been expected by many – myself included — up to one year before GHO’s launch. The interest rate model and the absence of a GHO single staking option at the launch were both apparent lacks that any competent stablecoin developer should have anticipated and resolved &lt;strong&gt;before launch&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Harness structures such as the GLC to promote the protocol they have vested interests in by all means possible, even if that means arriving at situations that, if described honestly, would qualify as conflicts of interest.&lt;/li&gt;
+&lt;li&gt;Demonstrate, by their onchain initiatives and the communication they share in private groups, an approximate, if not missing, understanding of the topic of their expertise.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;⇒ Participants in governance should learn how to place their trust better. Thanks to their existing platforms, the most publicly visible figures are usually selected when committees are elected.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;My presence in this committee was an oddity that emerged out of necessity, as governance knew that a deep understanding of liquidity shaping, especially Maverick, was needed to give the GLC the best chances of success. Many actual experts hanging around governance forums and Discords remain powerless despite their knowledge and good intentions simply because they are not well-known figures in DeFi.&lt;/p&gt;
+&lt;h3 id=&#34;the-rise-of-defi-politicians-and-its-consequences&#34;&gt;The rise of DeFi politicians and its consequences
+&lt;/h3&gt;&lt;p&gt;Governance is a theater. Anyone involved in DeFi knows that, but even myself was surprised to realize the extent of the scenarization of governance interactions. Just like IRL politics, where we have professional politicians devoid of expertise about the topics they are handling, we’re observing the same phenomenon in DeFi, where a caste of politicians is assuming an increasing responsibility over various DAOs.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Such profiles specialize in governance-related operations and operate exactly like the IRL PR specialists: their primary care is about public perception and how to manipulate it to achieve their purpose&lt;/strong&gt; (usually obtaining the allocation of a sizeable budget from the DAO to their governance structure). Governance discussion is not happening publicly on the forum — the forum is just a stage. The actual discussions are happening backstage: in calls, IRL meetings, and DMs. Discussions on the forum are avoided as much as possible, especially if they are anticipated to be controversial. The forum is simply here to record previously and privately discussed matters: look at the conversations on most proposals: they look so fake that, at this point, one could suspect bots are talking to one another, which once again reminds me of IRL politics. It happened to me several times that such a profile contacted me as I was typing an answer to their governance post, trying to avoid any form of public discourse:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2024/farewell-glc/gov-typing.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;typing&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;⇒ Confirmed DeFi politicians (= those who earn their money mostly/only through governance-related activities) should simply be banned from participating in any structure having even a remote power – as they are the bane of decentralization, the devil in Prada of DeFi. The professionalization of governance is synonymous with its capture and thus centralization.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;parting-words&#34;&gt;Parting Words
+&lt;/h2&gt;&lt;p&gt;As &lt;a class=&#34;link&#34; href=&#34;https://x.com/haydenzadams/status/1710510768469237827?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Hayden puts it&lt;/a&gt;, &lt;strong&gt;governance stands at the bottom of the tier list in terms of decentralization and thus should be a solution of last resort.&lt;/strong&gt; Not only is it inefficient, but it’s also simply too prone to be manipulated, and the probability of it happening increases with the power and resources the governance manages. &lt;strong&gt;Once a given governance has grown enough, its corruption is simply unavoidable&lt;/strong&gt;, at least under the current dominant plutocratic governance model: 1 token = 1 vote, hello stone age of governance we’ve been seemingly stuck at for five years.&lt;/p&gt;
+&lt;p&gt;To wrap this up, allow me one last analogy with IRL politics since we’ve established that similar actors participate in DeFi’s governance. Governance professionals love to dismiss ideas because they deem them “too political.” It enables them to appear as reasonable, non-aligned figures. Yet, &lt;strong&gt;non-alignment does not exist: every decision is political&lt;/strong&gt;. Those who say otherwise usually tend to be positioned at the “extreme-center” end of the spectrum: a brutal profit maximalist alignment wrapped in a costume of gentle neutrality, aka the DeFi equivalent of an Emmanuel Macron.&lt;/p&gt;
+&lt;p&gt;When it comes to committees appointed by governance, I am unlikely to participate in any other after this one – unless its scope is clearly defined and it&amp;rsquo;s given the means to challenge governance&amp;rsquo;s suboptimal decisions.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>The Maurauder&#39;s Map of Decentralized Stablecoins</title>
+        <link>http://localhost:1313/stablecoin-marauder-map/</link>
+        <pubDate>Fri, 15 Sep 2023 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/stablecoin-marauder-map/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2023/stablecoin-marauder-map/stablecoin-marauder-map-cover.png" alt="Featured image of post The Maurauder&#39;s Map of Decentralized Stablecoins" /&gt;&lt;p&gt;Wild new stablecoins are constantly appearing, and with the multiplication of chains, layers, and viable stablecoin models the trend is not stopping anytime soon. &lt;strong&gt;Navigating the stablecoin landscape is turning into a critical skill for DeFi&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;While centralized stablecoin models are easier to evaluate, decentralized stablecoins harness various complex mechanisms, making it harder to compare their data face to face. Yet, dozens of relevant new decentralized stablecoins are appearing yearly, and I don’t expect the trend to stop anytime soon.&lt;/p&gt;
+&lt;p&gt;Thus, this article intends to provide a marauder map to help navigate the landscape of decentralized stablecoin designs. Before combing through the innovations for decentralized stablecoins, allow one more minute to the context: why do we care so much about (decentralized) stablecoins in the first place?&lt;/p&gt;
+&lt;h2 id=&#34;size-matters&#34;&gt;Size matters
+&lt;/h2&gt;&lt;p&gt;Simply put, &lt;strong&gt;stablecoins are cryptocurrency’s top product-market fit by a wide margin&lt;/strong&gt;. DeFi is cool, right? We love it on this blog. Yet size-wise, there are about 3 times more value locked in stablecoins than in DeFi protocols.&lt;/p&gt;
+&lt;p&gt;Currently, the total TVL in DeFi is around $38B for $124B of stablecoins circulating, serviced mainly by centralized options: USDT makes 66% of the total, and USDC is another 20%.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;Remember that there is a lot of redundancy between the two metrics as stablecoins are widely used across DeFi, so the effective spread is even higher.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Now, let’s dive in! As we consider the various designs harnessed to deliver decentralized stablecoins, I’ll illustrate the mechanisms discussed using examples from live projects: picture this article as recipe book meets marauder map on the topic of decentralized stablecoins.&lt;/p&gt;
+&lt;h2 id=&#34;how-to-build-a-decentralized-stablecoin&#34;&gt;HOW TO BUILD A DECENTRALIZED STABLECOIN
+&lt;/h2&gt;&lt;p&gt;There is a virtually infinite range of designs that can be harnessed to output decentralized stablecoins; however, they all rely on two essential core needs:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Stablecoin Price Stabilization&lt;/strong&gt; | Finding an effective way to stabilize the stablecoin price without too much compromise.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Stablecoin Liquidity&lt;/strong&gt; | The active management of the liquidity on the stablecoin to maximize its effectiveness.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;While both themes address the same need: ensuring that the stablecoin can be traded at peg whatever the circumstances, they operate on different time frames. Stabilization mechanisms are built so that stablecoins tend to their peg over the mid/long time-frames. Liquidity strategies are here to ensure even sizable amounts of the stablecoin can be bought/sold as close as possible to the peg.&lt;/p&gt;
+&lt;p&gt;Those are two prerequisites for a stablecoin design to be relevant and have a chance at gathering traction. Faults on those two dimensions jeopardize the whole design, so let’s look at the leading price stabilization mechanisms harnessed and their consequences.&lt;/p&gt;
+&lt;h3 id=&#34;price-stabilization-mechanisms&#34;&gt;PRICE STABILIZATION MECHANISMS
+&lt;/h3&gt;&lt;p&gt;When faced with sizable demand, decentralized stablecoins can depeg - that is, divert from the peg, usually $1, either upwards or downwards. While similar, the two depegs stem from vastly different design challenges. Let’s start with the most common, the depeg when a $ stable is worth less than $1.&lt;/p&gt;
+&lt;h4 id=&#34;underpegging-illustrated-with-gho&#34;&gt;Underpegging illustrated with GHO
+&lt;/h4&gt;&lt;p&gt;It usually happens when the stablecoin is mainly used for leverage and lacks significant direct use cases – &lt;strong&gt;a current prime example is Aave’s GHO, trading around $0.97&lt;/strong&gt;. GHO is one of the cheapest stablecoins to borrow (1.5% max APY), creating a lot of initial demand for it. Yet, there is not much to do with GHO directly apart from providing liquidity. Thus, many borrowers swap their GHO for something else, for instance, DAI, to harness the 5% yield from the DSR.&lt;/p&gt;
+&lt;p&gt;Besides, the AaveDAO has been slow to take action to support GHO. Despite the stablecoin being live since mid-July, there are still very few incentives directed to growing GHO’s liquidity, and they are poorly allocated as most of them focus on stableswap pools where GHO is overweight because of its price. Since these pools are 80% composed of GHO, they provide little adequate liquidity at the current price:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2023/stablecoin-marauder-map/gho-balancer-pool.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;gho-balancer-pool&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Right now, the only pressure for GHO to repeg comes from the existing borrowers who could consider repaying their debt with a ~3% discount if they could borrow and swap GHO around $1.&lt;/p&gt;
+&lt;p&gt;GHO will need attractive earning options directly available in GHO to approach the peg again, such as liquidity-providing options. Still, a GHO-based staking module with revenue sharing would fit the task nicely. Overall, we need more GHO-sinks: mechanisms resulting in GHO being minted and held as such for long periods. Right now, it seems like governance is pushing forward increased support for GHO’s liquidity incentives and a potential GHO PSM (Peg Stability Module): more on this design is below while we address Maker/DAI.&lt;/p&gt;
+&lt;p&gt;Since it was launched a few weeks ago, most of GHO’s current challenges come from its young age, coupled with a lack of preparation for the launch on the DAO side. The DAO is improving in that regard, with many propositions pushed forward to address the situation, including establishing &lt;a class=&#34;link&#34; href=&#34;https://governance.aave.com/t/arfc-treasury-management-gho-liquidity-strategy-update/14801&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;a liquidity committee for GHO&lt;/a&gt; I should contribute to.&lt;/p&gt;
+&lt;h4 id=&#34;overpegging-illustrated-with-lusd&#34;&gt;Overpegging illustrated with LUSD
+&lt;/h4&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/liquity/ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liquity&lt;/a&gt; utilizes a unique mechanism called Redemptions to maintain its price stability. In Liquity, users deposit their ETH as collateral to borrow and mint stablecoins (LUSD). The key innovation lies in the redemption mechanism, which enables users to redeem LUSD for the underlying collateral (ETH) at a fixed ratio, even if the market price of ETH drops significantly.&lt;/p&gt;
+&lt;p&gt;This mechanism incentivizes users to stabilize the price of LUSD by redeeming it when ETH prices are low, thereby reducing the circulating supply of LUSD and supporting its peg to the USD. It provides &lt;strong&gt;immediate and immutable access to LUSD’s collateral to LUSD holders&lt;/strong&gt; without the need for liquidity on a decentralized exchange.&lt;/p&gt;
+&lt;p&gt;Redemptions provide an additional layer of guarantee to LUSD holders but add complexity on the borrowing side, pushing borrowers to monitor and adjust their LTV against other protocol users and market conditions.&lt;/p&gt;
+&lt;p&gt;Collateral redemptions provide the most direct access to the underlying backing of a stablecoin. Centralized stablecoins like USDC or USDT use a similar, although permissioned, mechanism to enable redeemability to USD.&lt;/p&gt;
+&lt;p&gt;LUSD traded at a premium for most of its existence, even though the situation has improved recently. Indeed, several factors contributed to enhancing the liquidity and the peg pressure: the success of the &lt;a class=&#34;link&#34; href=&#34;https://chickenbonds.net/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Chicken Bonds&lt;/a&gt;, advanced liquidity strategies on novel DEXes like &lt;a class=&#34;link&#34; href=&#34;https://mav.xyz/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Maverick&lt;/a&gt;, or the accumulation of LUSD by DAOs and treasuries.&lt;/p&gt;
+&lt;p&gt;The why of the premium still needs to be pinpointed precisely. One of the likely main factors is that &lt;strong&gt;LUSD is servicing a unique niche&lt;/strong&gt;, the resilience-maximized stablecoin, where there is usually more demand (people wanting to hold LUSD) than offer (ETH holders borrowing LUSD and selling it). &lt;a class=&#34;link&#34; href=&#34;https://www.liquity.org/blog/the-premium-of-resiliency#:~:text=LUSD%20is%20a%20stablecoin%20fully,also%20comes%20with%20scalability%20challenges.&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;This topic was covered in depth last year on Liquity’s blog&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;While underpegging is usually more concerning, overpegging can have real consequences, too, as it can make effective borrowing costs less predictable for the users.&lt;/p&gt;
+&lt;p&gt;LUSD’s overpeg stems from mostly psychological mechanisms: the worst case of sustained overpegging was observed during movements of market panic, especially when a prominent centralized stablecoin is perceived at risk.&lt;/p&gt;
+&lt;p&gt;Indeed, thanks to its resilience, LUSD is seen as a &lt;strong&gt;safe haven stablecoin&lt;/strong&gt;. A remarkable feat, but it comes with a price: crowds rush to LUSD when other stablecoins are at fault, such as when USDC depegged 10% following the bank run on Silicon Valley Bank. LUSD saw an incredible trading volume that day, with sizeable purchases above $1.03, $1.04, and $1.05 as the market panicked. Amid the panic, some users are willing to pay a high price to fly to safety.&lt;/p&gt;
+&lt;h4 id=&#34;dai-and-the-psm-solving-overpegging-for-a-price&#34;&gt;DAI and the PSM: solving overpegging, for a price
+&lt;/h4&gt;&lt;p&gt;In its early days, before the Mutli Collateral Dai update, DAI had similar challenges to LUSD: it tended to overpeg. With the update, Maker introduced the Peg Stability Module (PSM) to manage the price stability of its stablecoin DAI. The PSM acts as a buffer between the market and the DAI ecosystem. It allows users to swap stable assets like USDC for DAI at a fixed exchange rate.&lt;/p&gt;
+&lt;p&gt;By adjusting the exchange rate in response to market dynamics, MakerDAO can influence the supply of DAI in the market and keep its price close to the USD peg. It helped MakerDAO resolve the DAI problem over pegging, observed before the PSM. Still, it came with a cost: an accumulation of USDC and other centralized stablecoins as DAI’s collateral.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2023/stablecoin-marauder-map/maker-psm.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;maker-psm&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;fraxs-amo-algorithmic-market-operations-scale-liquidity-and-risk-to-infinity&#34;&gt;FRAX&amp;rsquo;s AMO (Algorithmic Market Operations): scale liquidity and risk to infinity
+&lt;/h4&gt;&lt;p&gt;FRAX is a decentralized stablecoin that utilizes Algorithmic Market Operations to maintain its peg. FRAX employs an adaptive mechanism that adjusts its collateralization ratio based on market conditions. When the FRAX price trades above its peg, the system mints new FRAX and buys back collateral, increasing the stability of the peg.&lt;/p&gt;
+&lt;p&gt;Conversely, when the FRAX price falls below the peg, it reduces the collateralization ratio to encourage users to mint FRAX, which helps restore the peg. AMOs come with additional risks, mainly depending on the usage of the assets minted without collateral: the riskier their exposure, the bigger the threat.&lt;/p&gt;
+&lt;p&gt;The principal risks of such a design manifest when an issue with one of the services harnessed (usually money markets or DEX) arises. Say 10M FRAX are minted by the AMO and deposited into a money market to be borrowed by users. Now, the money market suffers an issue with one of its collateral and gets drained: there are now 10M more FRAX in open circulation with 0 collateral.&lt;/p&gt;
+&lt;p&gt;Mitigating this requires very active management of the AMOs - by humans, through a multisig, which is not ideal from a security perspective, as AMOs can mint FRAX at will with no backing.&lt;/p&gt;
+&lt;h4 id=&#34;crvusd-pegkeeper-a-better-psm&#34;&gt;crvUSD pegKeeper: a better PSM?
+&lt;/h4&gt;&lt;p&gt;To ensure the peg-stability of crvUSD, Curve explored a path similar to the PSM, but slightly improved. Indeed, here, the need for users’ input is removed:&lt;/p&gt;
+&lt;p&gt;With Maker PSM, it’s still user-driven: when overpeg, users supply USDC as collateral to Maker PSM and mint DAI, helping to push its price back. If DAI was to underpeg, users could similarly buy DAI (below $1) to redeem it for 1 USDC, helping to restore its price to peg.&lt;/p&gt;
+&lt;p&gt;crvUSD works similarly at a high level (if crvUSD&amp;gt;$1 =&amp;gt; mint, if crvusd&amp;lt;$1 =&amp;gt; burn) but does not require any input: the system stabilizes itself thanks to its pegKeepers contract. These special contracts can mint non-collateralized crvUSD under certain conditions and for specific use cases only.&lt;/p&gt;
+&lt;p&gt;There are 4 pegKeepers, each plugged into a different pool of crvUSD paired against a redeemable centralized stablecoin: USDC. USDT, USDP &amp;amp; TUSD. When crvUSD is overpeg, they can mint crvUSD to trade into the associated pool, helping to push crvUSD price back to $1. When crvUSD is underpeg, the pegKeeper can repurchase crvUSD on their associated pool (using centralized stable balances accumulated during overpeg) and burn it to push crvUSD’s price back to peg.&lt;/p&gt;
+&lt;p&gt;Thus, pegKeepers accumulate a crvUSD debt to the protocol when the stablecoin is overpegged, to be ideally resorbed once crvUSD is underpeg. The key here lies in the balance, ensuring that the spread between the supply of crvUSD (incl. Pegkeeper debt) and the borrowed supply does not grow too big.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2023/stablecoin-marauder-map/pegkeeper.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;pegkeeper&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;While pegKeepers still pose a decent threat to the protocol, just like the FRAX’s AMO or Maker’s PSM, the risk seems more mitigated there. Yet, crvUSD is still quite a young stablecoin, and only time will tell.&lt;/p&gt;
+&lt;h3 id=&#34;liquidity-management&#34;&gt;LIQUIDITY MANAGEMENT
+&lt;/h3&gt;&lt;p&gt;Liquidity management, even just for a stablecoin, could be a good topic for a thesis. It’s one of the most misunderstood topics across the space. I wanted you, dear reader, to be aware of its importance.&lt;/p&gt;
+&lt;h4 id=&#34;liquidity-management-as-a-non-topic&#34;&gt;Liquidity management as a non-topic
+&lt;/h4&gt;&lt;p&gt;If you read this blog, you’ve likely already internalized that &lt;strong&gt;liquidity strategies are the heart of the storm of the stablecoin wars.&lt;/strong&gt; Yet, many teams have yet to attain this realization. They picture it as something of low criticality that the DAO will handle later, which is incredibly dangerous.&lt;/p&gt;
+&lt;p&gt;Indeed, DAOs are not the best structure to manage liquidity, they tend to harness suboptimal solutions, overpay, and simply need more velocity to match the fast pace of the liquidity games. No surprise here; we’ve already established ages ago that &lt;strong&gt;DAOs/governance are a good fit for strategical (long-term) orientations but inapt at mid/short term (tactics) management,&lt;/strong&gt; thanks to the example of MakerDAO (where, despite the absurdity of it, MKR holders are still voting on the vault’s interest rate, a purely operational parameter).&lt;/p&gt;
+&lt;p&gt;The obvious solution would be for the DAO to &lt;strong&gt;appoint a liquidity committee&lt;/strong&gt; - a small team of liquidity specialists provided with a budget they can mobilize autonomously. The committee could be hired for a set term, while the DAO retains the right not to renew the committee or even revoke it similarly to other service providers.&lt;/p&gt;
+&lt;p&gt;I invite you to look at the main stablecoin projects run by DAOs and see which one has a committee yet. As far as I know, &lt;a class=&#34;link&#34; href=&#34;https://governance.aave.com/t/temp-check-treasury-management-create-and-fund-gho-liquidity-committee/14800&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;only Aave is finally considering it for GHO&lt;/a&gt;. Besides the increased agility and operational capacity provided by the committee, it also enables the DAO to be more structured and forward-planning in its liquidity approach, allowing it to explore partnerships and collaboration with more relevant actors, such as supporting an innovative DEX from day one at launch, instead of the many months required to explain the relevancy of the innovation to the DAO’s stakeholders and have a budget being voted and implemented.&lt;/p&gt;
+&lt;h4 id=&#34;competence-is-scarce&#34;&gt;Competence is scarce
+&lt;/h4&gt;&lt;p&gt;The hard truth about liquidity management is that competence is extremely scarce. This could explain why the topic needs to be better understood and rarely prioritized at the project&amp;rsquo;s design stage or later in the governance discussions. An apt liquidity manager must have an accurate understanding of the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Base liquidity structure model, x*y=k&lt;/li&gt;
+&lt;li&gt;Custom liquidity structures like stableswap&lt;/li&gt;
+&lt;li&gt;Basic concentrated liquidity, UNIv3 style&lt;/li&gt;
+&lt;li&gt;Uniswap liquidity management layer (Bunni, Merkl, etc.)&lt;/li&gt;
+&lt;li&gt;CL liquidity manager model (Gamma, Arrakis, etc.)&lt;/li&gt;
+&lt;li&gt;veCRV tokenomics &amp;amp; ecosystem // veBAL&lt;/li&gt;
+&lt;li&gt;Vote marketplaces and bribe culture&lt;/li&gt;
+&lt;li&gt;Advanced concentrated liquidity, Maverick style&lt;/li&gt;
+&lt;li&gt;Maverick incentives model (Boosted Pool)&lt;/li&gt;
+&lt;li&gt;Maverick tokenomics (veMAV)&lt;/li&gt;
+&lt;li&gt;DEX Aggregator landscape and pathing logic&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;The scope of tools, services, and protocols used for liquidity management is increasing exponentially, and very few actors are following closely&lt;/strong&gt;. It’s frequent to observe absurd spreads between the liquidity spending of two similar projects, with sometimes spreads of several orders of magnitude of difference in terms of $ invested / results.&lt;/p&gt;
+&lt;h2 id=&#34;how-to-attract-piles-of-ethlsds-onchain&#34;&gt;How to attract piles of ETH&amp;amp;LSDs onchain?
+&lt;/h2&gt;&lt;p&gt;So far, we focused on stablecoins harnessing the CDP (Collateralized Debt Position) model, such as Maker, Liquity, or Reflexer, where users must deposit collateral to contract debt directly against the protocol (every borrower on a CDP protocol mints their “own” debt). It’s an elegant design that enables the protocol to implement various devices to absorb the volatility of the collateral, thus maximizing the price inertia of the stablecoin.&lt;/p&gt;
+&lt;h3 id=&#34;the-limits-of-cdp-based-stablecoin&#34;&gt;The limits of CDP-based stablecoin
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Yet, CDP-based stablecoins come with one main downside: the over-collateralization requirement.&lt;/strong&gt; Indeed, it’s difficult, if not impossible, to dampen the volatility of collateral such as ETH without any margin of error. For instance, on Liquity, the minimum collateralization ratio tolerated is 110%, yet the average ratio observed on the protocol is 226.3%.&lt;/p&gt;
+&lt;p&gt;Overcollateralization is the central limit of the CDP model, and is hard to overcome. Indeed, lowering the collateralization requirement could attract more borrowers, increasing the risk scope of the stablecoin outputted. Thus, scaling a CDP-based stablecoin is a tough job. There are other relevant ideas to attract more borrowers, such as diversifying the collateral offering, as shown below. But here again, it comes with increased risks on the stablecoin, as seen with DAI, which observed a sizeable collateral degradation over the last years.&lt;/p&gt;
+&lt;p&gt;Nevertheless, many projects are exploring approaches that could result in a stablecoin with fewer compromises than DAI while achieving a similar scale. Let’s consider a few directions currently explored to scale decentralized stablecoin further.&lt;/p&gt;
+&lt;h4 id=&#34;expand-the-collateral--chain-offering-liquity-forks&#34;&gt;Expand the collateral &amp;amp; chain offering: Liquity forks
+&lt;/h4&gt;&lt;p&gt;2023 is the year of the Liquity fork: many protocols were launched this year, harnessing a model more or less similar to Liquity, with some twists. These include Gravita, Prisma, Lybra, and more.&lt;/p&gt;
+&lt;h5 id=&#34;gravita&#34;&gt;Gravita
+&lt;/h5&gt;&lt;p&gt;Let’s start with &lt;a class=&#34;link&#34; href=&#34;https://www.gravitaprotocol.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Gravita&lt;/a&gt;, probably the closest to the base Liquity model. Here, the focus is put on making the protocol more attractive to borrowers, with several welcome additions, including the possibility of borrowing using liquid staked ETH like stETH or rETH as collateral or the protocol being made available on L2 like Arbitrum. Of course, it’s a game of balance here, as the rule specified above still applies.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;&lt;strong&gt;The conditions enforced on the borrowers dictate the guarantees provided to stablecoin holders&lt;/strong&gt;.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h5 id=&#34;prisma-finance&#34;&gt;Prisma Finance
+&lt;/h5&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://prismafinance.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Prisma Finance&lt;/a&gt; is also exploring a similar approach, another Liquity fork enabling the usage of ETH-LSD as collateral, built by a team close to the Curve/Llama ecosystem. Components of the veTokenomics are also envisioned on the fee-sharing/governance token PRISMA, but they still need to be made live.&lt;/p&gt;
+&lt;h5 id=&#34;lybra-finance&#34;&gt;Lybra Finance
+&lt;/h5&gt;&lt;p&gt;Another team, &lt;a class=&#34;link&#34; href=&#34;https://lybra.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Lybra&lt;/a&gt;, experimented with a lock/escrow model on their governance token LBR. While it seems to have initially worked nicely to attract a sizeable amount of capital, the challenge with such tactics is to sustain them over time…&lt;/p&gt;
+&lt;h5 id=&#34;dyad&#34;&gt;DYAD
+&lt;/h5&gt;&lt;p&gt;Finally, let&amp;rsquo;s talk about &lt;a class=&#34;link&#34; href=&#34;https://dyadstable.xyz/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DYAD&lt;/a&gt;. This one is technically not a Liquity-fork per se, but more of a Liquity-inspired protocol, especially regarding the price stabilization mechanism of their stablecoin.&lt;/p&gt;
+&lt;p&gt;The main challenge they are trying to solve is onboarding new collateral on a live CDP protocol without expanding the risk scope of the base protocol more than it needs to. To do so, DYAD introduces a &amp;ldquo;Social Licensing Layer,&amp;rdquo; essentially the governance layer.&lt;/p&gt;
+&lt;p&gt;Yet, it looks like none of the governance we&amp;rsquo;re used to: here, there is no governance token, so that it won&amp;rsquo;t be your usual plutocracy. Instead, governance power lies directly within the dNFT needed to use the protocol:  each dNFT gets to control a single &amp;ldquo;switch&amp;rdquo; for each proposed collateral type.&lt;/p&gt;
+&lt;p&gt;They can change the position of this switch at any time from off to on or on to off and back again, as often as they want. A given collateral can comprise part of DYAD&amp;rsquo;s collateral basket if it maintains a 2/3 supermajority of &amp;ldquo;on&amp;rdquo; switches. The only way to increase your governance power is to control more dNFTs.&lt;/p&gt;
+&lt;p&gt;DYAD also gets bonus points for preserving immutability as much as possible. While the protocol can be changed since it can onboard new collateral, the whole governance layer is immutable. DYAD is not fully live yet, only dNFTs are, but I&amp;rsquo;m eager to see how it goes!&lt;/p&gt;
+&lt;p&gt;I’m keeping with the majors here: LSDfi was all the rage a few months ago, and we’ve seen many protocols providing options to leverage ETH-LSD launching lately. While this sub-market is likely already crowded, there’s room for a CDP-based model delivering a stablecoin slightly less resilient than LUSD but with additional features. The question is which?&lt;/p&gt;
+&lt;h4 id=&#34;be-gentle-with-your-borrowers-llamacrvusd&#34;&gt;Be gentle with your borrowers: LLAMA/crvUSD
+&lt;/h4&gt;&lt;p&gt;Another way to create a sink for ETH/ETH-LSD: make the conditions more attractive to borrowers / soften the liquidation penalties. Indeed, one of the main innovations behind crvUSD lies with the liquidation model that differs vastly from other services providing leverage.&lt;/p&gt;
+&lt;p&gt;LLAMA (Lending Liquidating AMM Algorithm) replaces the usual liquidations with “soft liquidations”, where underwater borrowers are rebalanced across “bands,” each representing a different price segment.&lt;/p&gt;
+&lt;p&gt;It provides a sizeable protection against liquidations stemming from brutal but unsustained market movements. Instead of the sudden liquidations we’ve been used to, LLAMA&amp;rsquo;s soft liquidations are more gradual, as the collateral is progressively adjusted in proportion to its market price.&lt;/p&gt;
+&lt;h4 id=&#34;make-it-rain-dai-saving-rate--variants&#34;&gt;Make it rain: Dai Saving Rate &amp;amp; variants
+&lt;/h4&gt;&lt;p&gt;Why even bother improving your design when there are more direct paths forward? MakerDAO pioneered this idea of offering a “risk-free” yield to stablecoin holders to drive the demand: the DAI Saving Rate, currently at 5%.&lt;/p&gt;
+&lt;p&gt;Sustaining it proves very costly for the DAO, which is increasingly pushed towards riskier but more lucrative collateral to keep afloat. A sizeable share of the collateral are now real-world assets (RWA) managed by custodians, some of which are slow or even fail to meet their yield or reporting obligations or simply sub-optimal (MakerDAO is currently earning 3% on its USDC while &lt;a class=&#34;link&#34; href=&#34;https://cryptoslate.com/coinbase-raises-usdc-interest-rate-to-5/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;retail can score 5% with Circle&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Nevertheless, surprise, surprise: incentives work, at least at first. Thus, this brutal, low effort, and poorly efficient design over the long term is now spreading:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://mirror.xyz/0xa486d3a7679D56D545dd5d357469Dd5ed4259340/1qSAAQtVdNCW_xn9cObEjwrQzFpwEshNrm0sjX0nkG8&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Raft launched a similar concept at 6%.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Frax is also working on &lt;a class=&#34;link&#34; href=&#34;https://gov.frax.finance/t/fip-2xx-sfrax-governance-proposal/2585&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;sFRAX / Frax Saving Rate targeting 5%&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2023/stablecoin-marauder-map/maker-dsr-impact.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;maker-dsr-impact&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Now, time will tell for the impact of such design over the long run. The way I see it, these protocols are &lt;strong&gt;depleting most of their revenues to pay for acquisition on an ongoing basis&lt;/strong&gt; — they will lose most of the users acquired with DSR the minute they stop. They would have burned a massive amount of money to sustain the charade, money that could have been spent on strategic assets providing life-long incentives to the liquidity providers of their stablecoin, for instance. &lt;strong&gt;This design is a great tactic but one of the most short-sighted strategies I have ever seen&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;a-shift-to-reserve-backed-stablecoin&#34;&gt;A shift to reserve-backed stablecoin?
+&lt;/h2&gt;&lt;p&gt;A shift is brewing! While CDP-based models, such as Maker, Liquity, or Reflexer, are flourishing, &lt;strong&gt;reserve-backed stablecoins&lt;/strong&gt; are also getting increasingly considered.&lt;/p&gt;
+&lt;p&gt;Indeed, as we highlighted above, there is an inherent tension in purely borrow–based / CDP stablecoins. To put it simply:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Scaling a decentralized lending-based stablecoin requires attracting and retraining a sizeable amount of ETH / ETH-LSDs.&lt;/li&gt;
+&lt;li&gt;But the more permissive the protocol is to borrowers, the less desirable the stablecoin its output will become.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The state of a CDP-based stablecoin depends entirely on its users&amp;rsquo; actions. Under the reserve model, the protocol directly manages the reserve and minting of stablecoins instead of individual positions. Thus, reserve-based models seem to offer a credible answer to CDP-based stable shortcomings, enabling the stablecoin supply to potentially scale more thanks to the native protocol reserve providing increased price inertia.&lt;/p&gt;
+&lt;p&gt;Let’s summarize this article by examining two prime examples of implementing a reserve-backed stablecoin model. I’ll keep it short and digestible and add resources for diving further.&lt;/p&gt;
+&lt;h3 id=&#34;fx-leverage-with-no-fundind-costs--90-volatility-dampened-eth&#34;&gt;f(x): leverage with no fundind costs &amp;amp; 90% volatility dampened ETH
+&lt;/h3&gt;&lt;p&gt;F(x) is a fascinating protocol freshly released! It’s a dual product, enabling stETH depositors to expose themselves to two types of assets in the proportion they desire:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;xETH: a “high-volatility leveraged ETH”&lt;/li&gt;
+&lt;li&gt;fETH: a “low-volatility floating stablecoin”&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Similarly to a CDP protocol, users deposit ETH (or stETH) to mint fETH or xETH. However, unlike Liquity/Maker/Other CDP, the user does not manage its position (a Trove). Instead, the protocol directly manages the stETH reserve. A redemption feature enables holders of fETH or xETH to reclaim the underlying stETH. However, how much they redeem depends on the system&amp;rsquo;s state, most notably its Net Asset Value: the overall value of stETH in reserve.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2023/stablecoin-marauder-map/protocolfx.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;protocolfx&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Launched just a few weeks ago, the protocol is still in its early stages with about 1300 ETH of TVL, and the liquidity on fETH is still being worked on. A third token, FXN, the governance token of the protocol, is also planned.&lt;/p&gt;
+&lt;p&gt;The value proposition of both xETH and fETH is relevant to me and should be met with demand once the protocol is more mature. In my view, along with crvUSD, it’s one of the most exciting releases we got stablecoin-wise this year: I’m just waiting for the right time to experiment-ape into xETH.&lt;/p&gt;
+&lt;h3 id=&#34;liquity-v2-protected-lsd-leveraging&#34;&gt;Liquity v2: protected LSD leveraging
+&lt;/h3&gt;&lt;p&gt;“Liquity v2” (codename) is not live yet but has been &lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=Zps__IMxtTs&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;introduced by Robert Lauko at the last Stable Summit in June&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Like fETH, v2 will offer non-liquidatable leverage on ETH-LSD with no funding fee and even add downside protection. The novel, reserve-backed stablecoin the protocol will output is optimized for scaling. Its liquidity needs are also minimized since the protocol acts as a primary AMM for the stablecoin: users can mint and redeem the stablecoin for $1 of staked ETH.&lt;/p&gt;
+&lt;p&gt;V2 is being built in public: if you’d like to learn more about it or even get involved, make sure to come by the &lt;a class=&#34;link&#34; href=&#34;https://discord.gg/RCRp2CJR2S&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liquity’s Discord dedicated v2 channel&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;learn-more-on-aladindaos-fx--liquity-v2&#34;&gt;Learn more on AladinDAO’s F(x) &amp;amp; Liquity V2
+&lt;/h3&gt;&lt;p&gt;I kept it short on the reserve-backed stablecoins, as I will likely publish several articles focusing on this topic over the coming months. Meanwhile, feel free to get your alpha directly from the builder’s mouth — here’s a selection of articles &amp;amp; interviews to learn more about both protocols:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/aladdindao/status/1684141750900736000?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;A recent community call, when Robert and I joined the AladinDAO/Protocol F(x) team to discuss decentralized stablecoins more broadly [60min]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=_xA6AFufGoQ&amp;amp;t=3871s&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Community Call - Deep Dive into f(x) [30min]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=Nzy7xO09SFw&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;f(x) protocol with Kmets and Crouger from AladinDAO (Leviathan News) [28min]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.liquity.org/blog/introducing-liquity-v2&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Introducing Liquity v2 — Liquity Blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=KOnGCPE5gaU&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liquity v2 with Colin Platt (Leviathan News)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;key-takeaways&#34;&gt;KEY TAKEAWAYS
+&lt;/h2&gt;&lt;p&gt;Liquidity management is the nerve of the stablecoin wars: observe &amp;amp; analyze the strategies deployed by the projects you monitor – their effectiveness is one of the main drivers of the success of the underlying protocol.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;👉️ TODO:&lt;/strong&gt; Follow the event surrounding GHO’s liquidity management on &lt;a class=&#34;link&#34; href=&#34;https://governance.aave.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Aave Governance Forum&lt;/a&gt; and try to articulate your thesis. If you can anticipate the repeg accurately, you get 3% of free profit waiting for your (GHO ~$0.97 to $1.00).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;👉️ BONUS-TODO:&lt;/strong&gt; GRAI, another stablecoin (Liquity fork), is currently trading at ~$0.985 with its redemption ceiling increasing over the next few weeks; a similar play can be considered there.&lt;/p&gt;
+&lt;p&gt;LSD-FI (protocols to leverage LSD) has been overcrowded over the last few months. Most protocols in the vertical are losing traction:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;👉️ TODO:&lt;/strong&gt; Look at the incentive structure of protocols like Gravita, Raft, or Lybra, and confront it with their growth metrics — try to evaluate the incentive structure that seems persistent versus the ones losing steam.&lt;/p&gt;
+&lt;p&gt;After ~4 years of going autistic with the CDP-based model, it seems like the most savvy teams started to look another way.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;👉️ TODO:&lt;/strong&gt; Prepare for the future! Thanks to the resources shared above, deep-dive the reserve-based stablecoin models by getting familiar with protocols like f(x) or v2.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Can Aave&#39;s GHO stablecoin help the protocol further grow and overtake MakerDAO and DAI?</title>
+        <link>http://localhost:1313/aave-gho-stablecoin/</link>
+        <pubDate>Mon, 22 Aug 2022 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/aave-gho-stablecoin/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2022/aave-gho-stablecoin/aave-gho-stablecoin-cover.png" alt="Featured image of post Can Aave&#39;s GHO stablecoin help the protocol further grow and overtake MakerDAO and DAI?" /&gt;&lt;p&gt;A few weeks ago, the concept for the GHO stablecoin was introduced on the Aave Governance Forum and triggered a wave of excitement across DeFi. Indeed, the idea of a decentralized, collateral-backed stablecoin, pegged to USD and native to the Aave DAO makes a lot of sense as a next step for the protocol.&lt;/p&gt;
+&lt;p&gt;In this article, we&amp;rsquo;ll examine the design introduced before considering how the Aave DAO and team could bring it to market and turn it into a stablecoin potentially as significant as DAI. Of course, the information is still scarce, so the second part of the article will be primarily extrapolations stemming from my DeFi experience.&lt;/p&gt;
+&lt;h2 id=&#34;introduction-to-gho-aaves-native-stablecoin&#34;&gt;Introduction to GHO, Aave&amp;rsquo;s native stablecoin
+&lt;/h2&gt;&lt;p&gt;Since its early days, one of &lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/aave/ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Aave&lt;/a&gt;&amp;rsquo;s main challenges has been attracting sufficient stablecoin deposits since it&amp;rsquo;s a preferred choice for most borrowers. Thus, creating a stablecoin native to the DAO is a natural next step and should also allow lowering costs for borrowers. Since this stablecoin is minted, there is no need to pay the APR of the depositors on the other side.&lt;/p&gt;
+&lt;p&gt;So let&amp;rsquo;s dive into the main characteristics of GHO as presented on the governance forum.&lt;/p&gt;
+&lt;h3 id=&#34;an-overcollateralized-usd-pegged-stablecoin&#34;&gt;An overcollateralized USD-pegged stablecoin
+&lt;/h3&gt;&lt;p&gt;GHO will be an overcollateralized stablecoin, minted using aTokens as collateral. So in a sense, it&amp;rsquo;s similar to MakerDAO but slightly more efficient since all collateral will be productive assets generating some interest (aTokens) – depending on their borrowing demand.&lt;/p&gt;
+&lt;p&gt;Regarding the naming, it&amp;rsquo;s also interesting to see Aave not including &amp;ldquo;USD&amp;rdquo; in the name. Considering how aggressive the US regulators can be, it&amp;rsquo;s probably a net benefit from a legal perspective. Still, it doesn&amp;rsquo;t seem to be the only driver of the decision, as Aave&amp;rsquo;s founder Stani hinted at a potential peg swap further down the line:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The reference to a currency has limitations over long term, potentially you might want to swap the peg from one underlying asset to another (for various reasons) or track something else and being bound to a USD in the ticker would be a limiting factor. On top of that everyone is doing that already which makes it a bit repetitive and restrictive from the messaging perspective. DAI follows the same path actually and has been helpful to build a narrative over the years.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Stani on &lt;a class=&#34;link&#34; href=&#34;https://governance.aave.com/t/introducing-gho/8730/27&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Aave&amp;rsquo;s GHO introduction post&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;interest-model-and-stkaave-discount&#34;&gt;Interest model and stkAAVE discount
+&lt;/h3&gt;&lt;p&gt;The interest rate model for GHO is currently its most underwhelming component, as the initial post envisioned an interest rate directly determined by the Aave DAO, just like how it works on Maker. However, that would be inefficient and add unnecessary bloat to the governance.&lt;/p&gt;
+&lt;p&gt;The community feedback will dictate where it goes. Still, I genuinely hope for Aave that the final call lands on a model where the interest rate is algorithmically determined by market conditions, just like with other tokens on Aave where the supply/demand on the pool dictates the interest rate.&lt;/p&gt;
+&lt;p&gt;If the Aave community feels like it is a necessity to involve the DAO in determining the interest rate — an absurdity in my book since a DAO is absolutely unfit to manage the operational parameters of a system — then a hybrid model could be envisioned with a fixed base rate voted on by the DAO, and modulated within a range depending on the market condition.&lt;/p&gt;
+&lt;p&gt;Indeed, having the interest rate evolve dynamically can help protect GHO&amp;rsquo;s peg by deterring against massive minting events, just like &lt;a class=&#34;link&#34; href=&#34;https://docs.liquity.org/faq/lusd-redemptions#how-is-the-baserate-calculated&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;how the baseRate works on Liquity&lt;/a&gt; to protect LUSD from de-pegging downward. Initially, at 0.5%, the fee rises when demand surges to progressively decays back to 0.5% as the demand stabilizes.&lt;/p&gt;
+&lt;p&gt;The post also mentions a discount for GHO borrowers staking AAVE tokens, creating further synergies. Finally, 100% of the interest rates paid by depositors will go to the Aave DAO (vs. a Reserve Factor in the ~10% range for most other tokens), meaning that if GHO grows to a significant market cap, it could turn into a goldmine for the DAO. &lt;strong&gt;With a market cap similar&amp;rsquo;s to DAI, and an average interest rate of 3.5% (high-end), AaveDAO would earn close to $150K daily from GHO&amp;rsquo;s interest rate.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Here are some quick napkin maths with different GHO market cap and interest rate assumptions to give you an idea:&lt;/p&gt;
+&lt;table&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;p style=&#34;text-align: center&#34;&gt;GHO Marketcap&lt;/p&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;p style=&#34;text-align: center&#34;&gt;Avg. Interest Rate&lt;/p&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;p style=&#34;text-align: center&#34;&gt;DAO Yearly Earning&lt;/p&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;p style=&#34;text-align: center&#34;&gt;DAO Daily Earning&lt;/p&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;p style=&#34;text-align: center&#34;&gt;
+$1.5B (FRAX market cap)&lt;/p&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;p style=&#34;text-align: center&#34;&gt;
+1%&lt;/p&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;p style=&#34;text-align: center&#34;&gt;
+$15,000,000.00&lt;/p&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;p style=&#34;text-align: center&#34;&gt;
+$41,095.89&lt;/p&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;p style=&#34;text-align: center&#34;&gt;
+$6.6B (DAI market cap) &lt;/p&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;p style=&#34;text-align: center&#34;&gt;
+1%&lt;/p&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;p style=&#34;text-align: center&#34;&gt;
+$66,000,000.00&lt;/p&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;p style=&#34;text-align: center&#34;&gt;
+$180,821.92&lt;/p&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;p style=&#34;text-align: center&#34;&gt;
+$52B (USDC market cap)&lt;/p&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;p style=&#34;text-align: center&#34;&gt;
+1%&lt;/p&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;p style=&#34;text-align: center&#34;&gt;
+$520,000,000.00&lt;/p&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;p style=&#34;text-align: center&#34;&gt;
+$1,424,657.53&lt;/p&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;p style=&#34;text-align: center&#34;&gt;
+$1.5B&lt;/p&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;p style=&#34;text-align: center&#34;&gt;
+3.50%&lt;/p&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;p style=&#34;text-align: center&#34;&gt;
+$52,500,000.00&lt;/p&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;p style=&#34;text-align: center&#34;&gt;
+$143,835.62&lt;/p&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;p style=&#34;text-align: center&#34;&gt;
+$6.6B&lt;/p&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;p style=&#34;text-align: center&#34;&gt;
+3.50%&lt;/p&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;p style=&#34;text-align: center&#34;&gt;
+$231,000,000.00&lt;/p&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;p style=&#34;text-align: center&#34;&gt;
+$632,876.71&lt;/p&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;p style=&#34;text-align: center&#34;&gt;
+$52B&lt;/p&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;p style=&#34;text-align: center&#34;&gt;
+3.50%&lt;/p&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;p style=&#34;text-align: center&#34;&gt;
+$1,820,000,000.00&lt;/p&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;p style=&#34;text-align: center&#34;&gt;
+$4,986,301.37&lt;/p&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;Table references:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;GHO Marketcap: 1.5B = FRAX&amp;rsquo;s current supply, 6.6B is DAI&amp;rsquo;s, and 52B is USDC — one can dream.&lt;/li&gt;
+&lt;li&gt;GHO Average Interest Rate: 1% would be highly competitive, 3.5% in the higher-end of the usual rates.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;facilitators-and-rwa&#34;&gt;Facilitators and RWA
+&lt;/h3&gt;&lt;p&gt;GHO&amp;rsquo;s design envisions &amp;ldquo;Facilitators,&amp;rdquo; onboarded by Aave&amp;rsquo;s governance, that would be able to mint GHO. The first facilitator would be the Aave protocol itself, but others will follow suit, be they protocols or entities. This part is exciting, as it widely opens up GHO&amp;rsquo;s design space. Following the release, we could see other protocols applying to become facilitators and building on top of Aave and GHO.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/aave-gho-stablecoin/gho-facilitators.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;gho-facilitators&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;There are also explicit mentions of undercollateralized positions based on credentials such as a credit score. Each facilitator will have a maximal GHO minting capacity determined by the DAO.&lt;/p&gt;
+&lt;h3 id=&#34;decentralization-and-absence-of-censorship-resistance&#34;&gt;&amp;ldquo;Decentralization&amp;rdquo; and absence of censorship resistance
+&lt;/h3&gt;&lt;p&gt;GHO is presented as a decentralized stablecoin by the Aave team, with even some mentions of censorship resistance. However, it&amp;rsquo;s never directly associated with GHO:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The usage of stablecoins will only continue to grow as cryptoassets become further integrated with a user base that is less crypto-native. Decentralized stablecoins provide censorship-resistant fiat-denominated currency on the blockchain. Introducing, GHO, a decentralized multi-collateral stablecoin that is fully backed and native to the Aave Protocol.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Unless I&amp;rsquo;ve misunderstood the design, GHO will be &lt;strong&gt;as &amp;ldquo;decentralized&amp;rdquo; as DAI and have weak censorship resistance&lt;/strong&gt; because of its collateral composition. Indeed, assuming that all aTokens that can be currently used as collateral to borrow on Aave will also be used to borrow GHO, GHO&amp;rsquo;s collateral composition will be mostly made of censorable tokens such as USDC:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/aave-gho-stablecoin/aave-collateral.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;aave-collateral&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Source: &lt;a class=&#34;link&#34; href=&#34;https://defillama.com/protocol/aave-v2&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFiLlama&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Indeed excluding stETH used as collateral to leverage the ETH staking yield (borrowing ETH), USDC is the top collateral used on Aave, with another trusted token (wBTC) not far behind. &lt;strong&gt;Still, the collateral composition would be much better than DAI,&lt;/strong&gt; which is &amp;gt;50% backed by pure USDC.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/aave-gho-stablecoin/dai-collateral.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;dai-collateral&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Another ~25% of the backing comes from other trust-required collateral or reflexive liquity providing positions (such as DAI/USDC LP used as collateral to mint DAI).&lt;/p&gt;
+&lt;p&gt;For more information on the envisioned design for GHO, feel free to read &lt;a class=&#34;link&#34; href=&#34;https://governance.aave.com/t/introducing-gho/8730&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the governance forum post&lt;/a&gt; and the replies.&lt;/p&gt;
+&lt;h2 id=&#34;gho-to-market-what-could-aave-with-gho-look-like&#34;&gt;GHO to market: What could Aave with GHO look like?
+&lt;/h2&gt;&lt;p&gt;Now that the stage is set regarding GHO, we can move into a more speculative territory and consider how the GHO release could unfold in practice.&lt;/p&gt;
+&lt;p&gt;Indeed, the interaction between the Aave protocol and GHO is quite exciting to consider: while the initial post mention Aave x GHO, as well as the enablement of the eMode (enabling significant leverage on selected pairs such as USDC/DAI) on GHO, it quite scarce in details, so let me share instead how I envision it.&lt;/p&gt;
+&lt;p&gt;aGHO would be fascinating collateral on Aave, but it could also create significant reflexive risks if allowed to borrow GHO. Thus, &lt;strong&gt;I expect aGHO to be blocked from minting GHO&lt;/strong&gt; to prevent reflexive backing like we&amp;rsquo;re currently seeing on DAI.&lt;/p&gt;
+&lt;p&gt;Still, it would allow for exciting stablecoin arbitrage loops, such as aUSDC &amp;gt; Mint GHO &amp;gt; aGHO &amp;gt; Borrow another stablecoin. With the eMode, this would make Aave &amp;amp; GHO a very effective protocol for stablecoin arbitrage. Besides, the GHO interest rate would become a kind of &amp;ldquo;base stablecoin interest rate&amp;rdquo; and maybe help keep the interest rate of other stablecoins like USDC in check.&lt;/p&gt;
+&lt;h3 id=&#34;ghos-liquidity-strategy&#34;&gt;GHO&amp;rsquo;s Liquidity Strategy
+&lt;/h3&gt;&lt;p&gt;Another critical and essential part of any stablecoin&amp;rsquo;s design is its liquidity strategy. Since CRV, CVX, and BAL are accepted as collateral on Aave, there could be exciting things done with the CRV, CVX, and BAL accumulated by the treasury, thanks to the Reserve Factor. Locking them into their native protocols would enable the Aave DAO to direct incentives to GHO-related pools.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/aave-gho-stablecoin/aaveDAO-treasury.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;aaveDAO-treasury&#34;
+	
+	
+&gt;
+Source: &lt;a class=&#34;link&#34; href=&#34;https://governance.aave.com/t/aave-treasury-report/5575/37&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Aave’s Treasury Report&lt;/a&gt; (July 2022)&lt;/p&gt;
+&lt;p&gt;Just like Frax is currently pivoting away from USDT and DAI and trying to establish the Frax Basepool (FRAX/USDC) as a pairing currency on Curve for other stablecoins, we could envision a similar move from Aave. Moreover, many projects currently exposed to USDC and DAI are looking to diversify their liquidity away from them. GHO might arrive with perfect timing to enable DeFi to be less reliant on USDC.&lt;/p&gt;
+&lt;p&gt;However, while Frax controls sizeable governance and gauge-voting power in the Curve Wars, this is not the case for the Aave DAO. Current treasury CRV/CVX balances will clearly be insufficient to incentivize pools to grow into the billion dollar range, so it could drive the AaveDAO to look into acquiring more liquidity-incentive-driver tokens. With the significant revenues that the DAO will collect from GHO&amp;rsquo;s interest rate, it should have sufficient means to support appropriate liquidity, whatever GHO&amp;rsquo;s market cap ends up being.&lt;/p&gt;
+&lt;p&gt;Finally, Aave has been historically close to Balancer, with the 80% AAVE / 20% wETH Balancer Pool used in the Safety Module since the transition to the AAVE token. The treasury currently owns 200k BAL and &lt;a class=&#34;link&#34; href=&#34;https://governance.aave.com/t/arc-strategic-partnership-with-balancer-part-2/7813&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;another acquisition is planned&lt;/a&gt;. Thus we could expect an exciting play for GHO on Balancer. Yet when it comes to stablecoin, Curve remains both the king and king-maker: I don&amp;rsquo;t see how Aave could sufficiently grow GHO&amp;rsquo;s liquidity without getting involved one way or another in &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/crv-wars.md%22&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the CRV wars&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;On top of the base protocol incentives (such as the dynamic or DAO-governed borrowing interest rate) and liquidation mechanism, the liquidity strategy is probably one of the most crucial element for a stablecoin since it also has an impact on how well the peg is held.&lt;/p&gt;
+&lt;h2 id=&#34;parting-words&#34;&gt;Parting Words
+&lt;/h2&gt;&lt;p&gt;I hope this article helped you better understand what is at stake in the stablecoin wars. The end of the year will be interesting, with the GHO release approaching and Curve&amp;rsquo;s stablecoin, also overcollateralized, which was hinted to release before the end of this year. The multiplication of stablecoin is a natural next step for DeFi, as most established protocols see their design converge:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Frax started as a stablecoin only, now has FraxSwap and soon FraxLend.&lt;/li&gt;
+&lt;li&gt;Aave started as a money market, soon with its own native stablecoin.&lt;/li&gt;
+&lt;li&gt;Curve started as a DEX, but the addition of its own stablecoin soon could enable efficient borrowing for liquidity providers.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;At the end of the day, as shown with my napkin maths earlier, the main reason for a protocol to create its stablecoin is quite apparent: it&amp;rsquo;s where there is the most money to be made, as well as massive demand and product/market fit.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;The &amp;ldquo;artist&amp;rdquo; of the cover image for this article is an impressive (and slightly scary) AI called &lt;a class=&#34;link&#34; href=&#34;https://www.midjourney.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Midjourney&lt;/a&gt;. It was given the following prompt: &lt;code&gt;a cute and friendly glowing ghost minting the coins of his own currency in a cyberpunk environement, 4k,cartoon,fully details,high contracts,unreal engine. --ar 19:10&lt;/code&gt;&lt;/p&gt;&lt;/div&gt;
+
+</description>
+        </item>
+        
+    </channel>
+</rss>

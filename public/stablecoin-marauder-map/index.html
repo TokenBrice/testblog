@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="New stables are launching weekly, so keeping track of the relevant innovations is challenging. AMO? PSM? DSR? pegKeeper? This article examines the various mechanisms harnessed by stablecoin projects and evaluates their relevance.">
+<title>The Maurauder&#39;s Map of Decentralized Stablecoins</title>
+
+<link rel='canonical' href='http://localhost:1313/stablecoin-marauder-map/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="The Maurauder's Map of Decentralized Stablecoins">
+<meta property='og:description' content="New stables are launching weekly, so keeping track of the relevant innovations is challenging. AMO? PSM? DSR? pegKeeper? This article examines the various mechanisms harnessed by stablecoin projects and evaluates their relevance.">
+<meta property='og:url' content='http://localhost:1313/stablecoin-marauder-map/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Decentralized Finance' /><meta property='article:tag' content='Stablecoins' /><meta property='article:tag' content='Stable Assets' /><meta property='article:tag' content='Money Markets' /><meta property='article:tag' content='Aave' /><meta property='article:tag' content='GHO' /><meta property='article:tag' content='crvUSD' /><meta property='article:tag' content='LUSD' /><meta property='article:tag' content='GRAI' /><meta property='article:tag' content='Reserve-Backed Stablecoin' /><meta property='article:tag' content='fETH' /><meta property='article:tag' content='xETH' /><meta property='article:tag' content='Interest Rate' /><meta property='article:published_time' content='2023-09-15T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2023-09-15T01:13:50&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/2023/stablecoin-marauder-map/stablecoin-marauder-map-cover.png' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="The Maurauder's Map of Decentralized Stablecoins">
+<meta name="twitter:description" content="New stables are launching weekly, so keeping track of the relevant innovations is challenging. AMO? PSM? DSR? pegKeeper? This article examines the various mechanisms harnessed by stablecoin projects and evaluates their relevance."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/2023/stablecoin-marauder-map/stablecoin-marauder-map-cover.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">TokenBrice</a></h1>
+            <h2 class="site-description">Brutally Honest DeFi</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" selected>English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" >Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#size-matters">Size matters</a></li>
+    <li><a href="#how-to-build-a-decentralized-stablecoin">HOW TO BUILD A DECENTRALIZED STABLECOIN</a>
+      <ol>
+        <li><a href="#price-stabilization-mechanisms">PRICE STABILIZATION MECHANISMS</a>
+          <ol>
+            <li><a href="#underpegging-illustrated-with-gho">Underpegging illustrated with GHO</a></li>
+            <li><a href="#overpegging-illustrated-with-lusd">Overpegging illustrated with LUSD</a></li>
+            <li><a href="#dai-and-the-psm-solving-overpegging-for-a-price">DAI and the PSM: solving overpegging, for a price</a></li>
+            <li><a href="#fraxs-amo-algorithmic-market-operations-scale-liquidity-and-risk-to-infinity">FRAX&rsquo;s AMO (Algorithmic Market Operations): scale liquidity and risk to infinity</a></li>
+            <li><a href="#crvusd-pegkeeper-a-better-psm">crvUSD pegKeeper: a better PSM?</a></li>
+          </ol>
+        </li>
+        <li><a href="#liquidity-management">LIQUIDITY MANAGEMENT</a>
+          <ol>
+            <li><a href="#liquidity-management-as-a-non-topic">Liquidity management as a non-topic</a></li>
+            <li><a href="#competence-is-scarce">Competence is scarce</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#how-to-attract-piles-of-ethlsds-onchain">How to attract piles of ETH&amp;LSDs onchain?</a>
+      <ol>
+        <li><a href="#the-limits-of-cdp-based-stablecoin">The limits of CDP-based stablecoin</a>
+          <ol>
+            <li><a href="#expand-the-collateral--chain-offering-liquity-forks">Expand the collateral &amp; chain offering: Liquity forks</a></li>
+            <li><a href="#be-gentle-with-your-borrowers-llamacrvusd">Be gentle with your borrowers: LLAMA/crvUSD</a></li>
+            <li><a href="#make-it-rain-dai-saving-rate--variants">Make it rain: Dai Saving Rate &amp; variants</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#a-shift-to-reserve-backed-stablecoin">A shift to reserve-backed stablecoin?</a>
+      <ol>
+        <li><a href="#fx-leverage-with-no-fundind-costs--90-volatility-dampened-eth">f(x): leverage with no fundind costs &amp; 90% volatility dampened ETH</a></li>
+        <li><a href="#liquity-v2-protected-lsd-leveraging">Liquity v2: protected LSD leveraging</a></li>
+        <li><a href="#learn-more-on-aladindaos-fx--liquity-v2">Learn more on AladinDAO’s F(x) &amp; Liquity V2</a></li>
+      </ol>
+    </li>
+    <li><a href="#key-takeaways">KEY TAKEAWAYS</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/stablecoin-marauder-map/">
+                
+                    <img src="/img/2023/stablecoin-marauder-map/stablecoin-marauder-map-cover.png" loading="lazy" alt="Featured image of post The Maurauder&#39;s Map of Decentralized Stablecoins" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/defi/" style="background-color: #2a9d8f; color: #fff;">
+                DeFi
+            </a>
+        
+            <a href="/categories/understanding/" style="background-color: #2a9d8f; color: #fff;">
+                Understanding
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/stablecoin-marauder-map/">The Maurauder&#39;s Map of Decentralized Stablecoins</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            New stables are launching weekly, so keeping track of the relevant innovations is challenging. AMO? PSM? DSR? pegKeeper? This article examines the various mechanisms harnessed by stablecoin projects and evaluates their relevance.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Sep 15, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    21 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+        <footer class="article-translations">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+            <div>
+                
+                    <a href="http://localhost:1313/fr/stablecoin-marauder-map/" class="link">Français</a>
+                
+            </div>
+        </footer>
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Wild new stablecoins are constantly appearing, and with the multiplication of chains, layers, and viable stablecoin models the trend is not stopping anytime soon. <strong>Navigating the stablecoin landscape is turning into a critical skill for DeFi</strong>.</p>
+<p>While centralized stablecoin models are easier to evaluate, decentralized stablecoins harness various complex mechanisms, making it harder to compare their data face to face. Yet, dozens of relevant new decentralized stablecoins are appearing yearly, and I don’t expect the trend to stop anytime soon.</p>
+<p>Thus, this article intends to provide a marauder map to help navigate the landscape of decentralized stablecoin designs. Before combing through the innovations for decentralized stablecoins, allow one more minute to the context: why do we care so much about (decentralized) stablecoins in the first place?</p>
+<h2 id="size-matters">Size matters
+</h2><p>Simply put, <strong>stablecoins are cryptocurrency’s top product-market fit by a wide margin</strong>. DeFi is cool, right? We love it on this blog. Yet size-wise, there are about 3 times more value locked in stablecoins than in DeFi protocols.</p>
+<p>Currently, the total TVL in DeFi is around $38B for $124B of stablecoins circulating, serviced mainly by centralized options: USDT makes 66% of the total, and USDC is another 20%.</p>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>Remember that there is a lot of redundancy between the two metrics as stablecoins are widely used across DeFi, so the effective spread is even higher.</p></div>
+
+<p>Now, let’s dive in! As we consider the various designs harnessed to deliver decentralized stablecoins, I’ll illustrate the mechanisms discussed using examples from live projects: picture this article as recipe book meets marauder map on the topic of decentralized stablecoins.</p>
+<h2 id="how-to-build-a-decentralized-stablecoin">HOW TO BUILD A DECENTRALIZED STABLECOIN
+</h2><p>There is a virtually infinite range of designs that can be harnessed to output decentralized stablecoins; however, they all rely on two essential core needs:</p>
+<ol>
+<li><strong>Stablecoin Price Stabilization</strong> | Finding an effective way to stabilize the stablecoin price without too much compromise.</li>
+<li><strong>Stablecoin Liquidity</strong> | The active management of the liquidity on the stablecoin to maximize its effectiveness.</li>
+</ol>
+<p>While both themes address the same need: ensuring that the stablecoin can be traded at peg whatever the circumstances, they operate on different time frames. Stabilization mechanisms are built so that stablecoins tend to their peg over the mid/long time-frames. Liquidity strategies are here to ensure even sizable amounts of the stablecoin can be bought/sold as close as possible to the peg.</p>
+<p>Those are two prerequisites for a stablecoin design to be relevant and have a chance at gathering traction. Faults on those two dimensions jeopardize the whole design, so let’s look at the leading price stabilization mechanisms harnessed and their consequences.</p>
+<h3 id="price-stabilization-mechanisms">PRICE STABILIZATION MECHANISMS
+</h3><p>When faced with sizable demand, decentralized stablecoins can depeg - that is, divert from the peg, usually $1, either upwards or downwards. While similar, the two depegs stem from vastly different design challenges. Let’s start with the most common, the depeg when a $ stable is worth less than $1.</p>
+<h4 id="underpegging-illustrated-with-gho">Underpegging illustrated with GHO
+</h4><p>It usually happens when the stablecoin is mainly used for leverage and lacks significant direct use cases – <strong>a current prime example is Aave’s GHO, trading around $0.97</strong>. GHO is one of the cheapest stablecoins to borrow (1.5% max APY), creating a lot of initial demand for it. Yet, there is not much to do with GHO directly apart from providing liquidity. Thus, many borrowers swap their GHO for something else, for instance, DAI, to harness the 5% yield from the DSR.</p>
+<p>Besides, the AaveDAO has been slow to take action to support GHO. Despite the stablecoin being live since mid-July, there are still very few incentives directed to growing GHO’s liquidity, and they are poorly allocated as most of them focus on stableswap pools where GHO is overweight because of its price. Since these pools are 80% composed of GHO, they provide little adequate liquidity at the current price:</p>
+<p><img src="/img/2023/stablecoin-marauder-map/gho-balancer-pool.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="gho-balancer-pool"
+	
+	
+></p>
+<p>Right now, the only pressure for GHO to repeg comes from the existing borrowers who could consider repaying their debt with a ~3% discount if they could borrow and swap GHO around $1.</p>
+<p>GHO will need attractive earning options directly available in GHO to approach the peg again, such as liquidity-providing options. Still, a GHO-based staking module with revenue sharing would fit the task nicely. Overall, we need more GHO-sinks: mechanisms resulting in GHO being minted and held as such for long periods. Right now, it seems like governance is pushing forward increased support for GHO’s liquidity incentives and a potential GHO PSM (Peg Stability Module): more on this design is below while we address Maker/DAI.</p>
+<p>Since it was launched a few weeks ago, most of GHO’s current challenges come from its young age, coupled with a lack of preparation for the launch on the DAO side. The DAO is improving in that regard, with many propositions pushed forward to address the situation, including establishing <a class="link" href="https://governance.aave.com/t/arfc-treasury-management-gho-liquidity-strategy-update/14801"  target="_blank" rel="noopener"
+    >a liquidity committee for GHO</a> I should contribute to.</p>
+<h4 id="overpegging-illustrated-with-lusd">Overpegging illustrated with LUSD
+</h4><p><a class="link" href="https://www.defiscan.info/protocols/liquity/ethereum"  target="_blank" rel="noopener"
+    >Liquity</a> utilizes a unique mechanism called Redemptions to maintain its price stability. In Liquity, users deposit their ETH as collateral to borrow and mint stablecoins (LUSD). The key innovation lies in the redemption mechanism, which enables users to redeem LUSD for the underlying collateral (ETH) at a fixed ratio, even if the market price of ETH drops significantly.</p>
+<p>This mechanism incentivizes users to stabilize the price of LUSD by redeeming it when ETH prices are low, thereby reducing the circulating supply of LUSD and supporting its peg to the USD. It provides <strong>immediate and immutable access to LUSD’s collateral to LUSD holders</strong> without the need for liquidity on a decentralized exchange.</p>
+<p>Redemptions provide an additional layer of guarantee to LUSD holders but add complexity on the borrowing side, pushing borrowers to monitor and adjust their LTV against other protocol users and market conditions.</p>
+<p>Collateral redemptions provide the most direct access to the underlying backing of a stablecoin. Centralized stablecoins like USDC or USDT use a similar, although permissioned, mechanism to enable redeemability to USD.</p>
+<p>LUSD traded at a premium for most of its existence, even though the situation has improved recently. Indeed, several factors contributed to enhancing the liquidity and the peg pressure: the success of the <a class="link" href="https://chickenbonds.net/"  target="_blank" rel="noopener"
+    >Chicken Bonds</a>, advanced liquidity strategies on novel DEXes like <a class="link" href="https://mav.xyz/"  target="_blank" rel="noopener"
+    >Maverick</a>, or the accumulation of LUSD by DAOs and treasuries.</p>
+<p>The why of the premium still needs to be pinpointed precisely. One of the likely main factors is that <strong>LUSD is servicing a unique niche</strong>, the resilience-maximized stablecoin, where there is usually more demand (people wanting to hold LUSD) than offer (ETH holders borrowing LUSD and selling it). <a class="link" href="https://www.liquity.org/blog/the-premium-of-resiliency#:~:text=LUSD%20is%20a%20stablecoin%20fully,also%20comes%20with%20scalability%20challenges."  target="_blank" rel="noopener"
+    >This topic was covered in depth last year on Liquity’s blog</a>.</p>
+<p>While underpegging is usually more concerning, overpegging can have real consequences, too, as it can make effective borrowing costs less predictable for the users.</p>
+<p>LUSD’s overpeg stems from mostly psychological mechanisms: the worst case of sustained overpegging was observed during movements of market panic, especially when a prominent centralized stablecoin is perceived at risk.</p>
+<p>Indeed, thanks to its resilience, LUSD is seen as a <strong>safe haven stablecoin</strong>. A remarkable feat, but it comes with a price: crowds rush to LUSD when other stablecoins are at fault, such as when USDC depegged 10% following the bank run on Silicon Valley Bank. LUSD saw an incredible trading volume that day, with sizeable purchases above $1.03, $1.04, and $1.05 as the market panicked. Amid the panic, some users are willing to pay a high price to fly to safety.</p>
+<h4 id="dai-and-the-psm-solving-overpegging-for-a-price">DAI and the PSM: solving overpegging, for a price
+</h4><p>In its early days, before the Mutli Collateral Dai update, DAI had similar challenges to LUSD: it tended to overpeg. With the update, Maker introduced the Peg Stability Module (PSM) to manage the price stability of its stablecoin DAI. The PSM acts as a buffer between the market and the DAI ecosystem. It allows users to swap stable assets like USDC for DAI at a fixed exchange rate.</p>
+<p>By adjusting the exchange rate in response to market dynamics, MakerDAO can influence the supply of DAI in the market and keep its price close to the USD peg. It helped MakerDAO resolve the DAI problem over pegging, observed before the PSM. Still, it came with a cost: an accumulation of USDC and other centralized stablecoins as DAI’s collateral.</p>
+<p><img src="/img/2023/stablecoin-marauder-map/maker-psm.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="maker-psm"
+	
+	
+></p>
+<h4 id="fraxs-amo-algorithmic-market-operations-scale-liquidity-and-risk-to-infinity">FRAX&rsquo;s AMO (Algorithmic Market Operations): scale liquidity and risk to infinity
+</h4><p>FRAX is a decentralized stablecoin that utilizes Algorithmic Market Operations to maintain its peg. FRAX employs an adaptive mechanism that adjusts its collateralization ratio based on market conditions. When the FRAX price trades above its peg, the system mints new FRAX and buys back collateral, increasing the stability of the peg.</p>
+<p>Conversely, when the FRAX price falls below the peg, it reduces the collateralization ratio to encourage users to mint FRAX, which helps restore the peg. AMOs come with additional risks, mainly depending on the usage of the assets minted without collateral: the riskier their exposure, the bigger the threat.</p>
+<p>The principal risks of such a design manifest when an issue with one of the services harnessed (usually money markets or DEX) arises. Say 10M FRAX are minted by the AMO and deposited into a money market to be borrowed by users. Now, the money market suffers an issue with one of its collateral and gets drained: there are now 10M more FRAX in open circulation with 0 collateral.</p>
+<p>Mitigating this requires very active management of the AMOs - by humans, through a multisig, which is not ideal from a security perspective, as AMOs can mint FRAX at will with no backing.</p>
+<h4 id="crvusd-pegkeeper-a-better-psm">crvUSD pegKeeper: a better PSM?
+</h4><p>To ensure the peg-stability of crvUSD, Curve explored a path similar to the PSM, but slightly improved. Indeed, here, the need for users’ input is removed:</p>
+<p>With Maker PSM, it’s still user-driven: when overpeg, users supply USDC as collateral to Maker PSM and mint DAI, helping to push its price back. If DAI was to underpeg, users could similarly buy DAI (below $1) to redeem it for 1 USDC, helping to restore its price to peg.</p>
+<p>crvUSD works similarly at a high level (if crvUSD&gt;$1 =&gt; mint, if crvusd&lt;$1 =&gt; burn) but does not require any input: the system stabilizes itself thanks to its pegKeepers contract. These special contracts can mint non-collateralized crvUSD under certain conditions and for specific use cases only.</p>
+<p>There are 4 pegKeepers, each plugged into a different pool of crvUSD paired against a redeemable centralized stablecoin: USDC. USDT, USDP &amp; TUSD. When crvUSD is overpeg, they can mint crvUSD to trade into the associated pool, helping to push crvUSD price back to $1. When crvUSD is underpeg, the pegKeeper can repurchase crvUSD on their associated pool (using centralized stable balances accumulated during overpeg) and burn it to push crvUSD’s price back to peg.</p>
+<p>Thus, pegKeepers accumulate a crvUSD debt to the protocol when the stablecoin is overpegged, to be ideally resorbed once crvUSD is underpeg. The key here lies in the balance, ensuring that the spread between the supply of crvUSD (incl. Pegkeeper debt) and the borrowed supply does not grow too big.</p>
+<p><img src="/img/2023/stablecoin-marauder-map/pegkeeper.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="pegkeeper"
+	
+	
+></p>
+<p>While pegKeepers still pose a decent threat to the protocol, just like the FRAX’s AMO or Maker’s PSM, the risk seems more mitigated there. Yet, crvUSD is still quite a young stablecoin, and only time will tell.</p>
+<h3 id="liquidity-management">LIQUIDITY MANAGEMENT
+</h3><p>Liquidity management, even just for a stablecoin, could be a good topic for a thesis. It’s one of the most misunderstood topics across the space. I wanted you, dear reader, to be aware of its importance.</p>
+<h4 id="liquidity-management-as-a-non-topic">Liquidity management as a non-topic
+</h4><p>If you read this blog, you’ve likely already internalized that <strong>liquidity strategies are the heart of the storm of the stablecoin wars.</strong> Yet, many teams have yet to attain this realization. They picture it as something of low criticality that the DAO will handle later, which is incredibly dangerous.</p>
+<p>Indeed, DAOs are not the best structure to manage liquidity, they tend to harness suboptimal solutions, overpay, and simply need more velocity to match the fast pace of the liquidity games. No surprise here; we’ve already established ages ago that <strong>DAOs/governance are a good fit for strategical (long-term) orientations but inapt at mid/short term (tactics) management,</strong> thanks to the example of MakerDAO (where, despite the absurdity of it, MKR holders are still voting on the vault’s interest rate, a purely operational parameter).</p>
+<p>The obvious solution would be for the DAO to <strong>appoint a liquidity committee</strong> - a small team of liquidity specialists provided with a budget they can mobilize autonomously. The committee could be hired for a set term, while the DAO retains the right not to renew the committee or even revoke it similarly to other service providers.</p>
+<p>I invite you to look at the main stablecoin projects run by DAOs and see which one has a committee yet. As far as I know, <a class="link" href="https://governance.aave.com/t/temp-check-treasury-management-create-and-fund-gho-liquidity-committee/14800"  target="_blank" rel="noopener"
+    >only Aave is finally considering it for GHO</a>. Besides the increased agility and operational capacity provided by the committee, it also enables the DAO to be more structured and forward-planning in its liquidity approach, allowing it to explore partnerships and collaboration with more relevant actors, such as supporting an innovative DEX from day one at launch, instead of the many months required to explain the relevancy of the innovation to the DAO’s stakeholders and have a budget being voted and implemented.</p>
+<h4 id="competence-is-scarce">Competence is scarce
+</h4><p>The hard truth about liquidity management is that competence is extremely scarce. This could explain why the topic needs to be better understood and rarely prioritized at the project&rsquo;s design stage or later in the governance discussions. An apt liquidity manager must have an accurate understanding of the following:</p>
+<ul>
+<li>Base liquidity structure model, x*y=k</li>
+<li>Custom liquidity structures like stableswap</li>
+<li>Basic concentrated liquidity, UNIv3 style</li>
+<li>Uniswap liquidity management layer (Bunni, Merkl, etc.)</li>
+<li>CL liquidity manager model (Gamma, Arrakis, etc.)</li>
+<li>veCRV tokenomics &amp; ecosystem // veBAL</li>
+<li>Vote marketplaces and bribe culture</li>
+<li>Advanced concentrated liquidity, Maverick style</li>
+<li>Maverick incentives model (Boosted Pool)</li>
+<li>Maverick tokenomics (veMAV)</li>
+<li>DEX Aggregator landscape and pathing logic</li>
+</ul>
+<p><strong>The scope of tools, services, and protocols used for liquidity management is increasing exponentially, and very few actors are following closely</strong>. It’s frequent to observe absurd spreads between the liquidity spending of two similar projects, with sometimes spreads of several orders of magnitude of difference in terms of $ invested / results.</p>
+<h2 id="how-to-attract-piles-of-ethlsds-onchain">How to attract piles of ETH&amp;LSDs onchain?
+</h2><p>So far, we focused on stablecoins harnessing the CDP (Collateralized Debt Position) model, such as Maker, Liquity, or Reflexer, where users must deposit collateral to contract debt directly against the protocol (every borrower on a CDP protocol mints their “own” debt). It’s an elegant design that enables the protocol to implement various devices to absorb the volatility of the collateral, thus maximizing the price inertia of the stablecoin.</p>
+<h3 id="the-limits-of-cdp-based-stablecoin">The limits of CDP-based stablecoin
+</h3><p><strong>Yet, CDP-based stablecoins come with one main downside: the over-collateralization requirement.</strong> Indeed, it’s difficult, if not impossible, to dampen the volatility of collateral such as ETH without any margin of error. For instance, on Liquity, the minimum collateralization ratio tolerated is 110%, yet the average ratio observed on the protocol is 226.3%.</p>
+<p>Overcollateralization is the central limit of the CDP model, and is hard to overcome. Indeed, lowering the collateralization requirement could attract more borrowers, increasing the risk scope of the stablecoin outputted. Thus, scaling a CDP-based stablecoin is a tough job. There are other relevant ideas to attract more borrowers, such as diversifying the collateral offering, as shown below. But here again, it comes with increased risks on the stablecoin, as seen with DAI, which observed a sizeable collateral degradation over the last years.</p>
+<p>Nevertheless, many projects are exploring approaches that could result in a stablecoin with fewer compromises than DAI while achieving a similar scale. Let’s consider a few directions currently explored to scale decentralized stablecoin further.</p>
+<h4 id="expand-the-collateral--chain-offering-liquity-forks">Expand the collateral &amp; chain offering: Liquity forks
+</h4><p>2023 is the year of the Liquity fork: many protocols were launched this year, harnessing a model more or less similar to Liquity, with some twists. These include Gravita, Prisma, Lybra, and more.</p>
+<h5 id="gravita">Gravita
+</h5><p>Let’s start with <a class="link" href="https://www.gravitaprotocol.com/"  target="_blank" rel="noopener"
+    >Gravita</a>, probably the closest to the base Liquity model. Here, the focus is put on making the protocol more attractive to borrowers, with several welcome additions, including the possibility of borrowing using liquid staked ETH like stETH or rETH as collateral or the protocol being made available on L2 like Arbitrum. Of course, it’s a game of balance here, as the rule specified above still applies.</p>
+<div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p><strong>The conditions enforced on the borrowers dictate the guarantees provided to stablecoin holders</strong>.</p></div>
+
+<h5 id="prisma-finance">Prisma Finance
+</h5><p><a class="link" href="https://prismafinance.com/"  target="_blank" rel="noopener"
+    >Prisma Finance</a> is also exploring a similar approach, another Liquity fork enabling the usage of ETH-LSD as collateral, built by a team close to the Curve/Llama ecosystem. Components of the veTokenomics are also envisioned on the fee-sharing/governance token PRISMA, but they still need to be made live.</p>
+<h5 id="lybra-finance">Lybra Finance
+</h5><p>Another team, <a class="link" href="https://lybra.finance/"  target="_blank" rel="noopener"
+    >Lybra</a>, experimented with a lock/escrow model on their governance token LBR. While it seems to have initially worked nicely to attract a sizeable amount of capital, the challenge with such tactics is to sustain them over time…</p>
+<h5 id="dyad">DYAD
+</h5><p>Finally, let&rsquo;s talk about <a class="link" href="https://dyadstable.xyz/"  target="_blank" rel="noopener"
+    >DYAD</a>. This one is technically not a Liquity-fork per se, but more of a Liquity-inspired protocol, especially regarding the price stabilization mechanism of their stablecoin.</p>
+<p>The main challenge they are trying to solve is onboarding new collateral on a live CDP protocol without expanding the risk scope of the base protocol more than it needs to. To do so, DYAD introduces a &ldquo;Social Licensing Layer,&rdquo; essentially the governance layer.</p>
+<p>Yet, it looks like none of the governance we&rsquo;re used to: here, there is no governance token, so that it won&rsquo;t be your usual plutocracy. Instead, governance power lies directly within the dNFT needed to use the protocol:  each dNFT gets to control a single &ldquo;switch&rdquo; for each proposed collateral type.</p>
+<p>They can change the position of this switch at any time from off to on or on to off and back again, as often as they want. A given collateral can comprise part of DYAD&rsquo;s collateral basket if it maintains a 2/3 supermajority of &ldquo;on&rdquo; switches. The only way to increase your governance power is to control more dNFTs.</p>
+<p>DYAD also gets bonus points for preserving immutability as much as possible. While the protocol can be changed since it can onboard new collateral, the whole governance layer is immutable. DYAD is not fully live yet, only dNFTs are, but I&rsquo;m eager to see how it goes!</p>
+<p>I’m keeping with the majors here: LSDfi was all the rage a few months ago, and we’ve seen many protocols providing options to leverage ETH-LSD launching lately. While this sub-market is likely already crowded, there’s room for a CDP-based model delivering a stablecoin slightly less resilient than LUSD but with additional features. The question is which?</p>
+<h4 id="be-gentle-with-your-borrowers-llamacrvusd">Be gentle with your borrowers: LLAMA/crvUSD
+</h4><p>Another way to create a sink for ETH/ETH-LSD: make the conditions more attractive to borrowers / soften the liquidation penalties. Indeed, one of the main innovations behind crvUSD lies with the liquidation model that differs vastly from other services providing leverage.</p>
+<p>LLAMA (Lending Liquidating AMM Algorithm) replaces the usual liquidations with “soft liquidations”, where underwater borrowers are rebalanced across “bands,” each representing a different price segment.</p>
+<p>It provides a sizeable protection against liquidations stemming from brutal but unsustained market movements. Instead of the sudden liquidations we’ve been used to, LLAMA&rsquo;s soft liquidations are more gradual, as the collateral is progressively adjusted in proportion to its market price.</p>
+<h4 id="make-it-rain-dai-saving-rate--variants">Make it rain: Dai Saving Rate &amp; variants
+</h4><p>Why even bother improving your design when there are more direct paths forward? MakerDAO pioneered this idea of offering a “risk-free” yield to stablecoin holders to drive the demand: the DAI Saving Rate, currently at 5%.</p>
+<p>Sustaining it proves very costly for the DAO, which is increasingly pushed towards riskier but more lucrative collateral to keep afloat. A sizeable share of the collateral are now real-world assets (RWA) managed by custodians, some of which are slow or even fail to meet their yield or reporting obligations or simply sub-optimal (MakerDAO is currently earning 3% on its USDC while <a class="link" href="https://cryptoslate.com/coinbase-raises-usdc-interest-rate-to-5/"  target="_blank" rel="noopener"
+    >retail can score 5% with Circle</a>).</p>
+<p>Nevertheless, surprise, surprise: incentives work, at least at first. Thus, this brutal, low effort, and poorly efficient design over the long term is now spreading:</p>
+<ul>
+<li><a class="link" href="https://mirror.xyz/0xa486d3a7679D56D545dd5d357469Dd5ed4259340/1qSAAQtVdNCW_xn9cObEjwrQzFpwEshNrm0sjX0nkG8"  target="_blank" rel="noopener"
+    >Raft launched a similar concept at 6%.</a></li>
+<li>Frax is also working on <a class="link" href="https://gov.frax.finance/t/fip-2xx-sfrax-governance-proposal/2585"  target="_blank" rel="noopener"
+    >sFRAX / Frax Saving Rate targeting 5%</a>.</li>
+</ul>
+<p><img src="/img/2023/stablecoin-marauder-map/maker-dsr-impact.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="maker-dsr-impact"
+	
+	
+></p>
+<p>Now, time will tell for the impact of such design over the long run. The way I see it, these protocols are <strong>depleting most of their revenues to pay for acquisition on an ongoing basis</strong> — they will lose most of the users acquired with DSR the minute they stop. They would have burned a massive amount of money to sustain the charade, money that could have been spent on strategic assets providing life-long incentives to the liquidity providers of their stablecoin, for instance. <strong>This design is a great tactic but one of the most short-sighted strategies I have ever seen</strong>.</p>
+<h2 id="a-shift-to-reserve-backed-stablecoin">A shift to reserve-backed stablecoin?
+</h2><p>A shift is brewing! While CDP-based models, such as Maker, Liquity, or Reflexer, are flourishing, <strong>reserve-backed stablecoins</strong> are also getting increasingly considered.</p>
+<p>Indeed, as we highlighted above, there is an inherent tension in purely borrow–based / CDP stablecoins. To put it simply:</p>
+<ul>
+<li>Scaling a decentralized lending-based stablecoin requires attracting and retraining a sizeable amount of ETH / ETH-LSDs.</li>
+<li>But the more permissive the protocol is to borrowers, the less desirable the stablecoin its output will become.</li>
+</ul>
+<p>The state of a CDP-based stablecoin depends entirely on its users&rsquo; actions. Under the reserve model, the protocol directly manages the reserve and minting of stablecoins instead of individual positions. Thus, reserve-based models seem to offer a credible answer to CDP-based stable shortcomings, enabling the stablecoin supply to potentially scale more thanks to the native protocol reserve providing increased price inertia.</p>
+<p>Let’s summarize this article by examining two prime examples of implementing a reserve-backed stablecoin model. I’ll keep it short and digestible and add resources for diving further.</p>
+<h3 id="fx-leverage-with-no-fundind-costs--90-volatility-dampened-eth">f(x): leverage with no fundind costs &amp; 90% volatility dampened ETH
+</h3><p>F(x) is a fascinating protocol freshly released! It’s a dual product, enabling stETH depositors to expose themselves to two types of assets in the proportion they desire:</p>
+<ol>
+<li>xETH: a “high-volatility leveraged ETH”</li>
+<li>fETH: a “low-volatility floating stablecoin”</li>
+</ol>
+<p>Similarly to a CDP protocol, users deposit ETH (or stETH) to mint fETH or xETH. However, unlike Liquity/Maker/Other CDP, the user does not manage its position (a Trove). Instead, the protocol directly manages the stETH reserve. A redemption feature enables holders of fETH or xETH to reclaim the underlying stETH. However, how much they redeem depends on the system&rsquo;s state, most notably its Net Asset Value: the overall value of stETH in reserve.</p>
+<p><img src="/img/2023/stablecoin-marauder-map/protocolfx.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="protocolfx"
+	
+	
+></p>
+<p>Launched just a few weeks ago, the protocol is still in its early stages with about 1300 ETH of TVL, and the liquidity on fETH is still being worked on. A third token, FXN, the governance token of the protocol, is also planned.</p>
+<p>The value proposition of both xETH and fETH is relevant to me and should be met with demand once the protocol is more mature. In my view, along with crvUSD, it’s one of the most exciting releases we got stablecoin-wise this year: I’m just waiting for the right time to experiment-ape into xETH.</p>
+<h3 id="liquity-v2-protected-lsd-leveraging">Liquity v2: protected LSD leveraging
+</h3><p>“Liquity v2” (codename) is not live yet but has been <a class="link" href="https://www.youtube.com/watch?v=Zps__IMxtTs"  target="_blank" rel="noopener"
+    >introduced by Robert Lauko at the last Stable Summit in June</a>.</p>
+<p>Like fETH, v2 will offer non-liquidatable leverage on ETH-LSD with no funding fee and even add downside protection. The novel, reserve-backed stablecoin the protocol will output is optimized for scaling. Its liquidity needs are also minimized since the protocol acts as a primary AMM for the stablecoin: users can mint and redeem the stablecoin for $1 of staked ETH.</p>
+<p>V2 is being built in public: if you’d like to learn more about it or even get involved, make sure to come by the <a class="link" href="https://discord.gg/RCRp2CJR2S"  target="_blank" rel="noopener"
+    >Liquity’s Discord dedicated v2 channel</a>.</p>
+<h3 id="learn-more-on-aladindaos-fx--liquity-v2">Learn more on AladinDAO’s F(x) &amp; Liquity V2
+</h3><p>I kept it short on the reserve-backed stablecoins, as I will likely publish several articles focusing on this topic over the coming months. Meanwhile, feel free to get your alpha directly from the builder’s mouth — here’s a selection of articles &amp; interviews to learn more about both protocols:</p>
+<ul>
+<li><a class="link" href="https://twitter.com/aladdindao/status/1684141750900736000?s=20"  target="_blank" rel="noopener"
+    >A recent community call, when Robert and I joined the AladinDAO/Protocol F(x) team to discuss decentralized stablecoins more broadly [60min]</a></li>
+<li><a class="link" href="https://www.youtube.com/watch?v=_xA6AFufGoQ&amp;t=3871s"  target="_blank" rel="noopener"
+    >Community Call - Deep Dive into f(x) [30min]</a></li>
+<li><a class="link" href="https://www.youtube.com/watch?v=Nzy7xO09SFw"  target="_blank" rel="noopener"
+    >f(x) protocol with Kmets and Crouger from AladinDAO (Leviathan News) [28min]</a></li>
+<li><a class="link" href="https://www.liquity.org/blog/introducing-liquity-v2"  target="_blank" rel="noopener"
+    >Introducing Liquity v2 — Liquity Blog</a></li>
+<li><a class="link" href="https://www.youtube.com/watch?v=KOnGCPE5gaU"  target="_blank" rel="noopener"
+    >Liquity v2 with Colin Platt (Leviathan News)</a></li>
+</ul>
+<h2 id="key-takeaways">KEY TAKEAWAYS
+</h2><p>Liquidity management is the nerve of the stablecoin wars: observe &amp; analyze the strategies deployed by the projects you monitor – their effectiveness is one of the main drivers of the success of the underlying protocol.</p>
+<p><strong>👉️ TODO:</strong> Follow the event surrounding GHO’s liquidity management on <a class="link" href="https://governance.aave.com/"  target="_blank" rel="noopener"
+    >Aave Governance Forum</a> and try to articulate your thesis. If you can anticipate the repeg accurately, you get 3% of free profit waiting for your (GHO ~$0.97 to $1.00).</p>
+<p><strong>👉️ BONUS-TODO:</strong> GRAI, another stablecoin (Liquity fork), is currently trading at ~$0.985 with its redemption ceiling increasing over the next few weeks; a similar play can be considered there.</p>
+<p>LSD-FI (protocols to leverage LSD) has been overcrowded over the last few months. Most protocols in the vertical are losing traction:</p>
+<p><strong>👉️ TODO:</strong> Look at the incentive structure of protocols like Gravita, Raft, or Lybra, and confront it with their growth metrics — try to evaluate the incentive structure that seems persistent versus the ones losing steam.</p>
+<p>After ~4 years of going autistic with the CDP-based model, it seems like the most savvy teams started to look another way.</p>
+<p><strong>👉️ TODO:</strong> Prepare for the future! Thanks to the resources shared above, deep-dive the reserve-based stablecoin models by getting familiar with protocols like f(x) or v2.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/defi/">DeFi</a>
+        
+            <a href="/tags/ethereum/">Ethereum</a>
+        
+            <a href="/tags/decentralized-finance/">Decentralized Finance</a>
+        
+            <a href="/tags/stablecoins/">Stablecoins</a>
+        
+            <a href="/tags/stable-assets/">Stable Assets</a>
+        
+            <a href="/tags/money-markets/">Money Markets</a>
+        
+            <a href="/tags/aave/">Aave</a>
+        
+            <a href="/tags/gho/">GHO</a>
+        
+            <a href="/tags/crvusd/">CrvUSD</a>
+        
+            <a href="/tags/lusd/">LUSD</a>
+        
+            <a href="/tags/grai/">GRAI</a>
+        
+            <a href="/tags/reserve-backed-stablecoin/">Reserve-Backed Stablecoin</a>
+        
+            <a href="/tags/feth/">FETH</a>
+        
+            <a href="/tags/xeth/">XETH</a>
+        
+            <a href="/tags/interest-rate/">Interest Rate</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Sep 15, 2023 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/lending-protocol-renaissance/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2024/lending-protocol-renaissance/0-lending-protocol-renaissance-cover.png" loading="lazy" data-key="" data-hash="/img/2024/lending-protocol-renaissance/0-lending-protocol-renaissance-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Is this a Lending Protocol Renaissance?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/aave-gho-stablecoin/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/aave-gho-stablecoin/aave-gho-stablecoin-cover.png" loading="lazy" data-key="" data-hash="/img/2022/aave-gho-stablecoin/aave-gho-stablecoin-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Can Aave&#39;s GHO stablecoin help the protocol further grow and overtake MakerDAO and DAI?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/unstoppable-defi/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/unstoppable-defi/unstoppable-defi-tokenbrice-cover.png" loading="lazy" data-key="" data-hash="/img/2022/unstoppable-defi/unstoppable-defi-tokenbrice-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Behind the scene of the decentralization theater: a study of the inalterability of DeFi protocols</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/lusd-chicken-bonds/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/lusd-chicken-bonds/lusd-chicken-bonds-cover-tokenbrice.png" loading="lazy" data-key="" data-hash="/img/2022/lusd-chicken-bonds/lusd-chicken-bonds-cover-tokenbrice.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Chicken Bonds: an NFT-powered hatching factory to beat DeFi’s liquidity chicken and egg problem</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/defi-vs-inflation/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/defi-vs-inflation/defi-vs-inflation-tokenbrice-cover.jpg" loading="lazy" data-key="" data-hash="/img/2022/defi-vs-inflation/defi-vs-inflation-tokenbrice-cover.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">How to build an inflation-proof DeFi portfolio?</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

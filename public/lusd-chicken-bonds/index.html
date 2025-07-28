@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="How can a new experiment pioneering dynamic NFTs evolving based on the user's interactions help Liquity grow LUSD's liquidity and reduce the stablecoin premium?">
+<title>Chicken Bonds: an NFT-powered hatching factory to beat DeFi’s liquidity chicken and egg problem</title>
+
+<link rel='canonical' href='http://localhost:1313/lusd-chicken-bonds/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Chicken Bonds: an NFT-powered hatching factory to beat DeFi’s liquidity chicken and egg problem">
+<meta property='og:description' content="How can a new experiment pioneering dynamic NFTs evolving based on the user's interactions help Liquity grow LUSD's liquidity and reduce the stablecoin premium?">
+<meta property='og:url' content='http://localhost:1313/lusd-chicken-bonds/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Decentralized Finance' /><meta property='article:tag' content='Stablecoins' /><meta property='article:tag' content='Stable Assets' /><meta property='article:tag' content='Money Markets' /><meta property='article:tag' content='Liquity' /><meta property='article:tag' content='LUSD' /><meta property='article:tag' content='Chicken Bonds' /><meta property='article:tag' content='NFT' /><meta property='article:tag' content='NFTfi' /><meta property='article:published_time' content='2022-10-17T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2022-10-17T01:13:50&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/2022/lusd-chicken-bonds/lusd-chicken-bonds-cover-tokenbrice.png' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="Chicken Bonds: an NFT-powered hatching factory to beat DeFi’s liquidity chicken and egg problem">
+<meta name="twitter:description" content="How can a new experiment pioneering dynamic NFTs evolving based on the user's interactions help Liquity grow LUSD's liquidity and reduce the stablecoin premium?"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/2022/lusd-chicken-bonds/lusd-chicken-bonds-cover-tokenbrice.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">TokenBrice</a></h1>
+            <h2 class="site-description">Brutally Honest DeFi</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" selected>English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" >Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#the-context-lusd-price-premium">The context: LUSD price premium</a>
+      <ol>
+        <li><a href="#impact-of-the-lusd-premium">Impact of the LUSD premium</a></li>
+      </ol>
+    </li>
+    <li><a href="#enter-lusd-chicken-bonds">Enter LUSD Chicken Bonds</a>
+      <ol>
+        <li><a href="#so-what-exactly-are-chicken-bonds">So, what exactly are Chicken Bonds?</a></li>
+        <li><a href="#the-story-of-a-bond-through-its-nft">The story of a bond through its NFT</a>
+          <ol>
+            <li><a href="#going-deeper-into-the-chicken-bonds-nft">Going deeper into the Chicken Bonds NFT</a></li>
+          </ol>
+        </li>
+        <li><a href="#boostedlusd-blusd-a-yield-enhanced-auto-compounded-lusd">boostedLUSD (bLUSD): a yield-enhanced auto-compounded LUSD</a>
+          <ol>
+            <li><a href="#base-yield-source">Base yield source</a></li>
+            <li><a href="#auto-compounded">Auto compounded</a></li>
+            <li><a href="#yield-amplification">Yield Amplification</a></li>
+          </ol>
+        </li>
+        <li><a href="#bootstrap-period--next-steps">Bootstrap period &amp; next steps</a></li>
+      </ol>
+    </li>
+    <li><a href="#chicken-bonds-impact-on-lusds-price-and-liquidity">Chicken Bonds’ impact on LUSD’s price and liquidity</a>
+      <ol>
+        <li><a href="#an-engine-to-capture-liquity-over-time">An engine to capture liquity over time</a></li>
+        <li><a href="#growing-blusd-liquidity-hands-in-hand-with-lusd">Growing bLUSD liquidity hands in hand with LUSD</a></li>
+      </ol>
+    </li>
+    <li><a href="#additional-solutions-to-grow-lusds-liquidity">Additional solutions to grow LUSD’s liquidity</a>
+      <ol>
+        <li><a href="#vecrv-position-and-bribes">veCRV position and bribes</a></li>
+        <li><a href="#powerpools-lucy-interest-bearing-lusd-lp-position">PowerPool’s LUCY: interest-bearing LUSD LP position</a>
+          <ol>
+            <li><a href="#1-balancer-boosted-aave-usd">1/ Balancer Boosted Aave USD</a></li>
+            <li><a href="#2-lusd--bprotocol">2/ LUSD + b.protocol</a></li>
+          </ol>
+        </li>
+        <li><a href="#lusd-integrations-into-other-lending-protocols">LUSD integrations into other lending protocols</a></li>
+        <li><a href="#lusd-on-optimism-velodrome-and-stargate">LUSD on Optimism: Velodrome and Stargate</a></li>
+      </ol>
+    </li>
+    <li><a href="#learn-more-about-chicken-bonds">Learn more about Chicken Bonds</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/lusd-chicken-bonds/">
+                
+                    <img src="/img/2022/lusd-chicken-bonds/lusd-chicken-bonds-cover-tokenbrice.png" loading="lazy" alt="Featured image of post Chicken Bonds: an NFT-powered hatching factory to beat DeFi’s liquidity chicken and egg problem" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/defi/" style="background-color: #2a9d8f; color: #fff;">
+                DeFi
+            </a>
+        
+            <a href="/categories/understanding/" style="background-color: #2a9d8f; color: #fff;">
+                Understanding
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/lusd-chicken-bonds/">Chicken Bonds: an NFT-powered hatching factory to beat DeFi’s liquidity chicken and egg problem</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            How can a new experiment pioneering dynamic NFTs evolving based on the user&#39;s interactions help Liquity grow LUSD&#39;s liquidity and reduce the stablecoin premium?
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Oct 17, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    19 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+        <footer class="article-translations">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+            <div>
+                
+                    <a href="http://localhost:1313/fr/lusd-chicken-bonds/" class="link">Français</a>
+                
+            </div>
+        </footer>
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Liquity recently released the LUSD Chicken Bonds, a <strong>game-theory experiment merging DeFi and NFT elements to grow LUSD’s liquidity and reduce its price premium</strong>.</p>
+<p>Although Chicken Bonds are building on top of existing protocols, such as Yearn, b.protocol, or Curve, it also instigates novel mechanisms, the two leading ones being:</p>
+<ol>
+<li><strong>No maturity principal-protected bonding</strong>: Chicken Bonds use a new type of bonding offering strong guarantees to the depositor, including the possibility to recoup the entire initially supplied capital at no cost (Chicken Out).</li>
+<li><strong>Participate to Earn dynamic NFT</strong>: While interacting with the LUSD Chicken Bonds protocol, users obtain a <strong>dynamic NFT</strong> that evolves depending on their choices and previous onchain interactions.</li>
+</ol>
+<p>Chicken Bonds tackle one of the core challenges of DeFi, the sustainable growth of liquidity pools, first for the LUSD token only. Still, eventually, the model will be made available in a generalizable permissionless version for any protocol in need of liquidity to use.</p>
+<p>This post explores how <a class="link" href="https://chickenbonds.org"  target="_blank" rel="noopener"
+    >LUSD Chicken Bonds</a> work and what they achieve. However, before answering these questions, additional context is needed on LUSD: let’s get started!</p>
+<h2 id="the-context-lusd-price-premium">The context: LUSD price premium
+</h2><p>One of the most misunderstood dimensions of Liquity’s model is <strong>LUSD pegging mechanisms</strong>. Indeed, while LUSD has strong guarantees (hard peg) than LUSD&gt;$1.00 (redemption) and &lt;$1.10 (110% minimal collateralization ratio), in between the equilibrium is more based on a <strong>game of incentives (soft peg)</strong>.</p>
+<p>In the wake of <a class="link" href="https://blog.chainalysis.com/reports/tornado-cash-sanctions-challenges/"  target="_blank" rel="noopener"
+    >OFAC’s crackdown on Tornado Cash</a> back in August, there has been an <strong>increased demand</strong> for censorship-resistant stablecoins. Yet, the <strong>appetite for leverage is low</strong> because of the deteriorated market conditions. Thus, will the demand for LUSD is high, a significant share of its adopters purchase it at a premium on the markets instead of minting it by leveraging their ETH.</p>
+<p>Both factors have converged over the last few months, leading to a <strong>sustained price premium</strong> for LUSD, often trading in the $1.02 to $1.04 range. I won’t expand too deeply into this topic here, as it has already been covered on Liquity’s blog: <strong><a class="link" href="https://www.liquity.org/blog/the-premium-of-resiliency"  target="_blank" rel="noopener"
+    >The Premium of Resiliency</a></strong>. However, let’s discuss <strong>the impact of the premium on Liquity users</strong> since it has real consequences.</p>
+<p><img src="/img/2022/lusd-chicken-bonds/lusd-peg-incentives.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="lusd-peg-incentives"
+	
+	
+></p>
+<h3 id="impact-of-the-lusd-premium">Impact of the LUSD premium
+</h3><p>The impact of a price premium on borrowers <strong>can be positive or negative</strong>, depending on their timing and actions. Borrowers worried about LUSD price volatility can use Chicken Bonds, or b.protocol to preserve a pure LUSD exposure while earning yields.</p>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>It is worth noting that borrowers who preserve a 100% LUSD exposure do not suffer any consequence from its price fluctuations since they do not need to buy it back when repaying their debt.</p></div>
+
+<p>However, having LUSD fluctuates can also benefit informed users that can arbitrage the discrepancies:</p>
+<ol>
+<li><strong>Profit margin</strong> | The more LUSD goes over $1, the more profitable it is to take an arbitrage trade on its peg: at $1.01, shorting the peg returns $0.01 per LUSD if successful. At $1.09, the profits jump to $0.09 per LUSD.</li>
+<li><strong>Likelihood of profits being realized</strong> | The farther away LUSD strands from $1.00, and the closer it gets to $1.10, the more likely it is for peg arbitrageurs to outweigh LUSD buyers and thus push the price downward.</li>
+</ol>
+<p>Thus arbitraging LUSD is a game of balance between maximizing profits (1) and their odds of realizing (2). To put it simply: past a certain price point, the arbitrage trade becomes <strong>too profitable and too likely to realize for arbitrageurs to ignore</strong>. It has helped to ensure that LUSD stayed in the lower bond of its soft peg, the $1.00-$1.05 range, even during phases of peak demand.</p>
+<p>For users who do not monitor the situation continuously, though, it can translate into a loss of capital — for instance, if one borrows LUSD while the price is at $1.02, invest it into something else, and then weeks later try to buy back LUSD to repay its debt, only to find the price at $1.04.</p>
+<p>Thus, LUSD’s fluctuations in the $1.00-1.10 range add <strong>an additional layer of uncertainty for borrowers</strong>. Growing the liquidity of LUSD and stabilizing its peg will help restore the borrowers’ confidence and streamline interactions with the protocol.</p>
+<h2 id="enter-lusd-chicken-bonds">Enter LUSD Chicken Bonds
+</h2><p><img src="/img/2022/lusd-chicken-bonds/chicken-bonds.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="lusd-chicken-bonds"
+	
+	
+></p>
+<p>To solve LUSD’s liquidity challenge, the Liquity team worked on a <strong>brand new protocol</strong>, first tried out with LUSD: Chicken Bonds. If successful, the model will be generalized with an LQTY instance. As a final step, the generalized model could be made ready to be harnessed by any DAO with the Chicken Bond Factory.</p>
+<p>Last Tuesday, <a class="link" href="https://www.chickenbonds.org/blog-posts/chicken-bonds-is-live"  target="_blank" rel="noopener"
+    >the LUSD Chicken Bonds were released</a>, offering <strong>a novel proposition merging DeFi and NFTs&rsquo; elements providing optimized yield-producing opportunities to LUSD holders</strong>. It will also fuel the growth of LUSD’s liquidity on the LUSD/3CRV Curve pool.</p>
+<p>There are two protagonists interacting with Chicken Bonds:</p>
+<ol>
+<li><strong>The depositors (users)</strong> enjoy a gamified experience delivering <strong>amplified and auto-compounded yields on LUSD</strong>.</li>
+<li><strong>The deployer (protocol)</strong> sets up an <strong>engine enabling the sustained growth and capture of liquidity on its token</strong> while actively engaging its holders.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></li>
+</ol>
+<h3 id="so-what-exactly-are-chicken-bonds">So, what exactly are Chicken Bonds?
+</h3><p>As a consequence, Chicken Bonds fulfill the function of different types of products depending on the perspective. <strong>For users, Chicken Bonds act like an NFT-enhanced yield optimizer</strong>. Bonding enables them to maximize their returns on LUSD by optimizing the compounding frequency and amplifying the existing yields. From their perspective, they could compare the utility of Chicken Bonds to the one already delivered by a protocol like Yearn, lacking the NFT element. It maximizes and streamlines yield-producing activities on LUSD.</p>
+<p>From the deployer (protocol) perspective, Chicken Bonds are a <strong>cost-effective solution to develop the available liquidity on their token</strong>. Alternative solutions to achieve a similar goal would include liquidity mining, POL-capture solution like Olympus Pro, acquiring liquidity-driver tokens (CRV, BAL, VELO, etc.)<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>, or bribing liquidity-driver token owner votes.</p>
+<p><img src="/img/2022/lusd-chicken-bonds/chicken-egg.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="chicken-egg"
+	
+	
+></p>
+<p>While each existing solution has its own tradeoffs, they all share a similar profile: they <strong>require recurring expenses to grow and sustain liquidity</strong>. Only the acquisition of liquidity-driver tokens can provide continuous incentives to support liquidity, but it’s also the most costly approach as it requires significant investments from projects.</p>
+<p>On the other hand, Chicken Bonds have no cost as they harness existing yield sources: <strong>all it needs to capture and grow liquidity is time</strong>. They harness a novel form of <strong>no-maturity principal-protected bonding</strong>, offering amplified yields and strong protections for the depositors.</p>
+<p>To explain the model of LUSD Chicken Bonds, let’s jump to the depositor perspective by looking at the lifecycle of a bond and its impact on the associated NFT.</p>
+<h3 id="the-story-of-a-bond-through-its-nft">The story of a bond through its NFT
+</h3><p><img src="/img/2022/lusd-chicken-bonds/3chickens-static.gif"
+	
+	
+	
+	loading="lazy"
+	
+		alt="3chickens"
+	
+	
+></p>
+<p><strong>To create a bond, a user deposits LUSD. In exchange, he receives an 🥚 Egg NFT representing his deposit</strong>. The NFT contains the claim on the underlying bonded LUSD and can be sold or transferred. From thereon, the user has two mutually exclusive options that will transform his NFT too:</p>
+<ul>
+<li>🐔 Chicken In</li>
+<li>or 🐣 Chicken Out.</li>
+</ul>
+<p>The Egg NFTs have four attributes: a card, egg, and background colors rolled randomly, and an egg-size scaling with the deposited LUSD amount.</p>
+<p>When an egg is created, it starts progressively accruing bLUSD. As the bond matures, it becomes profitable for the users to claim it, forgoing their LUSD to obtain the bLUSD accumulated — It’s the “<strong>Chicken In</strong>” option and makes the visual of the NFT evolve accordingly: the Egg turns into a 🐔 <strong>Proud Chicken</strong>.</p>
+<p>A user can recover the full invested amount at any time during the process. Still, he will renounce the bLUSD accumulated so far — it’s the “<strong>Chicken Out</strong>” option and also leads to an evolution of the NFT from the Egg to a 🐣 <strong>Scared Chick</strong>.</p>
+<p><img src="/img/2022/lusd-chicken-bonds/3chickens.gif"
+	
+	
+	
+	loading="lazy"
+	
+		alt="3chickens"
+	
+	
+></p>
+<h4 id="going-deeper-into-the-chicken-bonds-nft">Going deeper into the Chicken Bonds NFT
+</h4><p>While Chickening In, the NFT gains additional attributes rolled at random (comb, tail, beak, and wings) and special attributes depending on the wallet onchain activities. Wallets engaged in the following activities are eligible for special attributes or boosted chances at rolling rarer ones:</p>
+<ol>
+<li>Owning a Liquity Trove with ongoing debt,</li>
+<li>Owning LQTY, or staking it either directly or with Pickle,</li>
+<li>Voting for the LUSD/3CRV gauge (veCRV holders).<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></li>
+</ol>
+<p>The NFT collection also harnesses interesting mechanisms, such as the <strong>affinity</strong> to generate the coolest chickens possible; read the dedicated article on Liquity’s blog for more information on the topic:</p>
+<p><img src="/img/2022/lusd-chicken-bonds/egg-variants-overview.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="egg-variants-overview"
+	
+	
+></p>
+<p>All NFTs are part of the same collection and can be traded on the usual venues, such as <a class="link" href="https://looksrare.org/collections/0xa8384862219188a8f03c144953Cf21fc124029Ee/"  target="_blank" rel="noopener"
+    >LooksRare</a> or <a class="link" href="https://x2y2.io/collection/lusd-chicken-bonds-nfts/items"  target="_blank" rel="noopener"
+    >X2Y2</a>. Chicken Bonds is a generative NFT collection as much as a DeFi protocol: both are intrinsically tied together. The art and initial generation script were made by the NFT artist <a class="link" href="https://luchadores.io"  target="_blank" rel="noopener"
+    >Luchador</a>, creator of the eponym game.</p>
+<div class="notice info" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span>Info</p><p>For an explainer of all the attributes and modifiers taken into account, read the article dedicated to the NFTs on the Chicken Bonds blog:<br>
+<strong><a class="link" href="https://www.chickenbonds.org/blog-posts/nft-x-defi-deep-dive-into-lusd-chicken-bonds-dynamic-nft"  target="_blank" rel="noopener"
+    >NFT x DeFi: Deep dive into LUSD Chicken Bonds&rsquo; Dynamic NFT</a></strong></p></div>
+
+<h3 id="boostedlusd-blusd-a-yield-enhanced-auto-compounded-lusd">boostedLUSD (bLUSD): a yield-enhanced auto-compounded LUSD
+</h3><p>By bonding and eventually Chickening In, depositors can accumulate bLUSD, but you might wonder at this point why this token can be desirable: let’s dive into the beefy DeFi side of Chicken Bonds!</p>
+<p><img src="/img/2022/lusd-chicken-bonds/blusd.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="blusd"
+	
+	
+></p>
+<p>The short story is that <strong>owning bLUSD provides access to auto-compounded and amplified yields on LUSD</strong>. bLUSD is a standard ERC-20 token backed by LUSD thanks to the redemption mechanism, with a rising price floor thanks to the yield amplification.</p>
+<p><img src="/img/2022/lusd-chicken-bonds/user-flow-overview.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="user-flow-overview"
+	
+	
+></p>
+<h4 id="base-yield-source">Base yield source
+</h4><p>As a protocol, Chicken Bonds collect LUSD and deploy them into two potential yield sources:</p>
+<ol>
+<li><strong>Liquity Stability Pool</strong>, where LUSD can be deposited to earn LQTY as well as variable ETH liquidation premiums.</li>
+<li><strong>The Curve LUSD/3CRV</strong>, where LUSD can be supplied against USDC/USDT/DAI to earn trading fees as well as CRV tokens.</li>
+</ol>
+<div class="notice info" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span>Info</p><p>If you are not familiar with how Liquity works yet, you can get up to date with this dedicated article: <br>
+<strong><a class="link" href="https://tokenbrice.xyz/content/posts/2021/liquity-protocol.md"  target="_blank" rel="noopener"
+    >⚖️ Liquity: an unstoppable, efficient and innovative borrowing service</a></strong></p></div>
+
+<h4 id="auto-compounded">Auto compounded
+</h4><p>Instead of plugging into the yield sources directly, middleware solutions are used to provide various benefits.</p>
+<ol>
+<li>Deposits into the Liquity Stability Pool are managed using the <strong><a class="link" href="https://bprotocol.org/"  target="_blank" rel="noopener"
+    >B.Protocol vault</a></strong>, which handles the frequent harvesting and compounding of ETH and LQTY obtained into LUSD.</li>
+<li>For the Curve Pool, the <strong><a class="link" href="https://yearn.finance/#/vault/0x5fA5B62c8AF877CB37031e0a3B2f34A78e3C56A6"  target="_blank" rel="noopener"
+    >Yearn vault</a></strong> is used to optimize the yields obtained by harnessing Convex.</li>
+</ol>
+<p>So far, so good: streamlined solutions to simple problems. Yet, the yield amplification, one of the biggest feats of the Chicken Bonds, is a bit trickier.</p>
+<h4 id="yield-amplification">Yield Amplification
+</h4><p>To understand how it can achieve this, we must start peeling the onion that is the internal accounting tool of the protocol: the Buckets.</p>
+<p>There are three buckets enabling the Chicken bonds to guarantee the three core features of the protocol: the option to Chicken Out (Pending), the yield amplification (Reserve), and the growth of liquidity (Permanent).</p>
+<p><img src="/img/2022/lusd-chicken-bonds/3buckets.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="3buckets"
+	
+	
+></p>
+<p>The <strong>Pending Bucket</strong> has a simple job: it must be able to repay investors fully if they were to Chicken Out. To ensure it’s always possible, the Pending Bucket harnesses a yield source free of impermanent loss: the Stability Pool.</p>
+<p>When users Chicken In a bond, the corresponding LUSD balances are split between the Reserve and Permanent Bucket.</p>
+<p><strong>The Reserve Bucket backs bLUSD</strong>. With redemptions, bLUSD holders can burn their tokens to obtain a pro-rata share of the LUSD contained in the Reserve Bucket —  securing a price floor for bLUSD. Funds in reserve are also producing a yield harnessing the Stability Pool.</p>
+<p><strong>Finally, the Permanent Bucket grows the liquidity of LUSD</strong>. Thanks to its shifting function, triggerable by anyone when LUSD is overpeg, the Permanent Bucket can pull its liquidity out of the b.protocol vault to single supply the Curve LUSD/3CRV pool instead. It helps reduce the LUSD price and secures a favorable entry point in the pool since the deposit rebalances it.</p>
+<p>The <strong>yield produced by the Pending and Permanent buckets is redirected to the Reserve Bucket</strong>, which creates the yield amplification and rising price floor of bLUSD.</p>
+<p><img src="/img/2022/lusd-chicken-bonds/lusd-cb-user-timeline.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="lusd-cb-user-timeline"
+	
+	
+></p>
+<h3 id="bootstrap-period--next-steps">Bootstrap period &amp; next steps
+</h3><p>LUSD Chicken Bonds have been live since Tuesday, October 4, 2022. During the first two weeks of the system, until Oct 19, it’s still in the <strong>bootstrap period</strong>: Chicken Ins are not possible, which means the supply of bLUSD is still 0. It means that all the LUSD are in the Pending Bucket, except the yield already produced that is being redirected to the Reserve Bucket.</p>
+<p>Once the bootstrap period is over, the Chicken In option will be available, enabling depositors to start accessing bLUSD. To facilitate getting in and out of bLUSD, a <strong>bLUSD liquidity pool will be incentivized on Curve Finance, using a 3% fee paid while Chickening In</strong>. It will enable the liquidity to develop progressively as the first batch of bonds reaches their break-even point (~Oct 19) and optimal rebond time (~Nov 4).</p>
+<p>The next section will discuss the chosen liquidity structure and its impact.</p>
+<h2 id="chicken-bonds-impact-on-lusds-price-and-liquidity">Chicken Bonds’ impact on LUSD’s price and liquidity
+</h2><p>If you read me up to this point, you are now in the know regarding LUSD’s price premium and the model introduced by the Chicken Bonds. Let’s connect the dots then and consider how the LUSD Chicken Bonds will <strong>contribute to LUSD’s overall liquidity and help to contain its premium</strong>.</p>
+<p>Chicken Bonds have two impacts on LUSD liquidity:</p>
+<ol>
+<li>With the growth of the Permanent Bucket, the liquidity supplied to the LUSD/3CRV will grow as long as the LUSD price still has a premium.</li>
+<li>The liquidity pool structure was chosen for bLUSD to help further grow liquidity on the LUSD/3CRV.</li>
+</ol>
+<div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>In a short time frame, the release of LUSD Chicken Bonds lead to more demand for LUSD and an increase in its price. However, LUSD deposited into the Chicken Bonds proves beneficial to LUSD’s liquidity in the long run, as we highlight in this section.</p></div>
+
+<h3 id="an-engine-to-capture-liquity-over-time">An engine to capture liquity over time
+</h3><p>As deposits into the LUSD Chicken Bonds accrue, the potential impact on the LUSD peg grows. Indeed, when a user Chickens In, the underlying LUSD are distributed between the Reserve and the Permanent Bucket.</p>
+<p>By default, all three buckets produce yield by deploying the LUSD into the b.protocol vault. However, the Permanent Bucket also features a <strong>shifting function</strong> triggerable by anyone as long as LUSD trades at a premium. It shifts the LUSD of the Permanent Bucket to <strong>provide liquidity on Curve</strong> (single asset supply), helping to progressively rebalance the pool while also growing its liquidity.</p>
+<p>The share of the total amount of LUSD deposited into Chicken Bonds allocated to the Permanent Bucket is hard to predict, as it depends on users&rsquo; behaviors. Here are some napkin maths using a conservative estimate of 10% of the total assets in the Permanent Bucket, with the 5M LUSD currently available in the LUSD/3CRV to estimate the Chicken Bonds impact:</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:left">Chicken Bonds TVL</th>
+<th style="text-align:left">Directly Added Liquity</th>
+<th style="text-align:left">Added Liquity (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">7M (Current)</td>
+<td style="text-align:left">700K LUSD</td>
+<td style="text-align:left">14.00%</td>
+</tr>
+<tr>
+<td style="text-align:left">10M</td>
+<td style="text-align:left">1M LUSD</td>
+<td style="text-align:left">20.00%</td>
+</tr>
+<tr>
+<td style="text-align:left">20M</td>
+<td style="text-align:left">2M LUSD</td>
+<td style="text-align:left">40.00%</td>
+</tr>
+<tr>
+<td style="text-align:left">50M</td>
+<td style="text-align:left">5M LUSD</td>
+<td style="text-align:left">100.00%</td>
+</tr>
+</tbody>
+</table></div>
+<p>The added liquidity percentage could be a good proxy indicator of how much of the price premium can be reduced. Keep in mind that it remains approximative, as it only considers the LUSD/3CRV main pool.</p>
+<p>Nonetheless, with $10M TVL into the Chicken Bonds by the end of the first cycle, the impact could already be palpable with an increase of ~20% of the LUSD amount available in the Curve pool.</p>
+<div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>The shifting function is disabled for the first 45 days of the system, i.e. until November 19. After this date, anyone will be able to move the Permanent Bucket liquidity from Curve &lt;-&gt; B.Protocol if <strong><a class="link" href="https://liquity.gitbook.io/chicken-bonds/faq/lusd-peg-stability#_vowf7444yzdt"  target="_blank" rel="noopener"
+    >conditions</a></strong> are met.</p></div>
+
+<h3 id="growing-blusd-liquidity-hands-in-hand-with-lusd">Growing bLUSD liquidity hands in hand with LUSD
+</h3><p>There is another indirect beneficial effect of the Chicken Bonds, stemming from the chosen structure for bLUSD liquidity, incentivized by the protocol.</p>
+<p>Indeed, a <strong>3% Chicken In fee is collected and redirected to incentivize liquidity providers of the bLUSD/LUSD-3CRV pool</strong>. This pool is a meta pool made of bLUSD paired with the LP token of the existing LUSD/3CRV. At perfect equilibrium, the asset exposure would be: 50% bLUSD / 25% LUSD + 25% 3pool (8.33% USDC / 8.33% USDT / 8.33% DAI).<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></p>
+<p>This liquidity structure ensures that <strong>50% of the deposits made into the bLUSD LP pool directly contribute to growing the liquidity of the main LUSD/3CRV</strong>. Moreover, because this pool has its own incentive budget (Chicken In fee), it will provide an attractive LUSD yield to stakers on top of the base yield generated by swaps.</p>
+<p>As the Chicken Bonds mature, the bLUSD/LUSD-3CRV pool could get its own gauge, securing additional CRV (and potentially CVX) rewards on top of the existing ones.</p>
+<p>This model was chosen over a bLUSD/LUSD pool which would have required a sizeable amount of LUSD without contributing to LUSD’s liquidity against other stablecoins. The main downside of the chosen model is that it makes the deposit and withdrawal interactions more complex for liquidity providers. However, this concern will be lifted with <strong>zaps enabling the supply and withdrawal from LUSD and bLUSD directly</strong>.</p>
+<p>Depending on the bLUSD/LUSD-3CRV pool equilibrium, supplying it single-sided with either LUSD or bLUSD can result in a premium:</p>
+<ul>
+<li>If there is too much LUSD-3CRV in the pool, providing bLUSD rebalances the pool and results in a premium.</li>
+<li>If there is too much bLUSD in the pool, then supplying it with LUSD will result in a <strong>double premium</strong> as both the bLUSD/LUSD-3CRV and LUSD/3CRV pools are rebalanced in the process.</li>
+</ul>
+<p>Learn more about the bLUSD/LUSD-3CRV in the dedicated article on the Chicken Bonds blog <a class="link" href="https://www.chickenbonds.org/blog-posts/game-of-chickens-the-end-of-the-bootstrap-period-and-what-it-means-for-blusd"  target="_blank" rel="noopener"
+    ><strong>Game of Chickens!</strong> The end of the bootstrap period and what it means for bLUSD</a></p>
+<h2 id="additional-solutions-to-grow-lusds-liquidity">Additional solutions to grow LUSD’s liquidity
+</h2><p>Chicken Bonds are the main ongoing initiatives attempting to grow LUSD’s liquidity, yet, other projects and solutions are being explored too. Here’s an overview.</p>
+<h3 id="vecrv-position-and-bribes">veCRV position and bribes
+</h3><p>The Liquity treasury entered the Curve Wars months ago, acquiring and locking CRV tokens to support the bLUSD/LUSD-3CRV gauge. To maximize the impact of the LUSD Chicken Bonds, <strong>a bribing campaign</strong> is also synchronized with the release to increase the CRV APY of LUSD/3CRV pool depositors.</p>
+<p>Using Warden Quest, LQTY tokens are awarded to veCRV and vlCVX voters on the LUSD/3CRV CRV gauge. The bribing campaign secured <strong>5M veCRV votes (~1% of total votes)</strong>, which led to a sharp increase in the APY, bringing it to parity with a basic Stability Pool deposit.</p>
+<div class="notice info" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span>Info</p><p>Are you out of the loop with the Curve Wars? Start here: <br>
+<strong><a class="link" href="https://tokenbrice.xyz/content/posts/2021/crv-wars.md"  target="_blank" rel="noopener"
+    >⚔ CRV wars: the race to accumulate the ability to influence the Curve Finance protocol</a></strong></p></div>
+
+<h3 id="powerpools-lucy-interest-bearing-lusd-lp-position">PowerPool’s LUCY: interest-bearing LUSD LP position
+</h3><p>The PowerPool team has been working on an interesting <strong>novel type of Balancer pool</strong> suited for LUSD, and it’s now close to being released: the LUSD-a-bb-USD pool, also known under the sweet name of <strong>LUCY</strong>.</p>
+<p>Like the Chicken Bonds, this pool <strong>harnesses b.protocol to provide an auto-compounded earning opportunity on LUSD</strong>. Indeed, the main innovation of this pool is to involve interest-bearing assets and constantly <strong>rebalances between yield-bearing and liquidity-providing activities</strong>. The pool is made of two wrapper tokens:</p>
+<h4 id="1-balancer-boosted-aave-usd">1/ Balancer Boosted Aave USD
+</h4><p>This pool is essentially the <strong>Balancer’s equivalent of Curve’s 3 pool</strong>, the main stablecoin pool of the decentralized exchange. The key difference here is that the pool involves <strong>interest-bearing wrappers</strong> of each stablecoin. Depending on the pool’s liquidity needs, each stablecoin rebalances between liquidity-providing or yield-bearing through Aave:</p>
+<p><img src="/img/2022/lusd-chicken-bonds/bbaUSD-pool-composition.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="bbaUSD-pool-composition"
+	
+	
+></p>
+<h4 id="2-lusd--bprotocol">2/ LUSD + b.protocol
+</h4><p>The bb-a-USD tokens are paired against LUSD, which also <strong>rebalances yield-bearing (Stability Pool with b.protocol) and liquidity-providing</strong> depending on the needs.</p>
+<p>Thus, the LUCY pool should be interesting to grow LUSD’s available liquidity, as it could provide an interest yield-stacking option for liquity providers, earning:</p>
+<ol>
+<li>The <strong>swap fees APR</strong>, collected on exchanges involving the pool’s tokens.</li>
+<li>The <strong>base yield</strong> on each pool token (Aave’s yield for USDC/USDT/DAI, Stability Pool’s yields for LUSD)</li>
+<li>[If a BAL gauge is obtained] the <strong>LP token BAL staking APY</strong>, which can be further increased with gauge votes and bribing campaigns.</li>
+</ol>
+<p>This novel pool will mark the arrival of LUSD on Balancer, diversifying its liquidity source further, as the main venues to trade LUSD are currently Curve, Uniswap, and Velodrome on Optimism.</p>
+<h3 id="lusd-integrations-into-other-lending-protocols">LUSD integrations into other lending protocols
+</h3><p>Over the last few months, LUSD has been increasingly integrated across various DeFi protocols, providing <strong>additional options to LUSD holders and arbitrageurs</strong>.</p>
+<p>The <a class="link" href="https://app.aave.com/reserve-overview/?underlyingAsset=0x5f98805a4e8be255a32880fdec7f6728c6568ba0&amp;marketName=proto_mainnet"  target="_blank" rel="noopener"
+    >addition of LUSD as a borrowable asset on Aave</a> marked the first time the stablecoin could be borrowed using collateral other than ETH to secure the position. As the liquidity available on the market grows, it opens LUSD arbitrage to non-ETH holders.</p>
+<p><img src="/img/2022/lusd-chicken-bonds/lusd-aave-market.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="lusd-aave-market"
+	
+	
+></p>
+<p>Meanwhile, <strong>LUSD was also added as collateral on two €-based lending protocols</strong>: <a class="link" href="https://angle.money/"  target="_blank" rel="noopener"
+    >Angle Money</a> and <a class="link" href="https://mimo.capital/"  target="_blank" rel="noopener"
+    >Mimo</a>. Both enable LUSD holders to enter a short position on €, using their LUSD as collateral.</p>
+<p>Finally, <a class="link" href="https://gearbox.fi/"  target="_blank" rel="noopener"
+    >GearBox</a> is gearing up to release its V2 shortly, enabling users to get leverage according to a pre-determined and smart-contract-enforced set of rules. Amongst the options available at release, <strong>liquidity providers of the LUSD/3CRV will be able to leverage their position</strong>.</p>
+<p>Growing the lending market of LUSD beyond Liquity grows the stablecoin utility while enabling more various types of users to arbitrage its price fluctuations. Paired with the ongoing efforts to grow LUSD’s liquidity on DEX, it will help stabilize its price.</p>
+<h3 id="lusd-on-optimism-velodrome-and-stargate">LUSD on Optimism: Velodrome and Stargate
+</h3><p>LUSD also <strong>has a strong presence on Optimism</strong>, thanks to Liquity being one of the protocols involved in the Velodrome races. With a respectable veVELO position, Liquity has been able to grow several LUSD-related pools to sizeable TVL. Moreover, pools on Velodrome tend to be more balanced than the mainnet pools:</p>
+<p><img src="/img/2022/lusd-chicken-bonds/lusd-velodrome.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="lusd-velodrome"
+	
+	
+></p>
+<p>However, bridging LUSD to Optimism is currently a bit of a one-way trip. Bridging LUSD to Optimism is easy and only takes 5-10 min using the official bridge. However bridging back to the mainnet takes 7 days with the official bridge, and no alternative options with decent liquidity are available yet.</p>
+<p>The situation is about to change, enabling LUSD’s strong liquidity on Optimism to positively impact the mainnet situation: Stargate, the omnichain liquidity transport protocol, recently voted to <strong>add support for LUSD</strong> (<a class="link" href="https://snapshot.org/#/stgdao.eth/proposal/0xe6fef4aa9c8e9d162f694ab764b11c06918b9f199aafe43e0d85b12d8271011c"  target="_blank" rel="noopener"
+    >SIP#16</a>), which will enable its fast bridging from and to Optimism once implemented. If Stargate can provide a reliable solution to fast bridge LUSD from Optimism to mainnet, it could positively impact mainnet’s LUSD liquidity pools balance.</p>
+<h2 id="learn-more-about-chicken-bonds">Learn more about Chicken Bonds
+</h2><p>I hope this article piqued your curiosity about Chicken Bonds and LUSD. If that’s the case, many resources are available for you to explore the model further; here are some recommendations:</p>
+<ol>
+<li>The <a class="link" href="https://www.chickenbonds.org/"  target="_blank" rel="noopener"
+    >Chicken Bonds website</a> is a great starting point — you’ll find <a class="link" href="https://www.chickenbonds.org/lusd-bonds#front-ends"  target="_blank" rel="noopener"
+    >the list of the front ends</a> you can use to interact with LUSD Chicken Bonds.</li>
+<li>To go deeper, feel free to <a class="link" href="https://www.chickenbonds.org/blog"  target="_blank" rel="noopener"
+    >check the blog</a> available on the website: it features several articles deep diving into critical dimensions of the Chicken Bonds.</li>
+<li>Finally, the most comprehensive resource about Chicken Bonds is <a class="link" href="https://liquity.gitbook.io/chicken-bonds/faq/table-of-content"  target="_blank" rel="noopener"
+    >the user documentation</a>, so feel free to check it if some of your questions are left unanswered.</li>
+</ol>
+<p>To keep track of what is happening with the Chicken Bonds, you&rsquo;ll find stats in the UI of the front-end you use. Else, a community member has made a neat <a class="link" href="https://dune.com/nemoventures/chicken-bonds"  target="_blank" rel="noopener"
+    >Chicken Bonds Dune Analytics</a> that will be helpful. For further discussion, you can <a class="link" href="https://discord.gg/WQMEcgHBpc"  target="_blank" rel="noopener"
+    >join the Liquity Discord</a>, where a brand new section is dedicated to Chicken Bonds.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Right now, Liquity is the only &ldquo;deployer.&rdquo; This concept will gain relevance with the Generalized version of the Chicken Bonds, where other protocols can harness the model to benefit their tokens.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Liquidity driver tokens enable direct incentives to selected liquidity or lending pairs, usually through a locking system. They allow projects which lock them to direct emissions to pools of their choosing to attract liquidity.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>As far as I know, this is the first time this kind of bribery has been attempted on Curve voters (or any other DeFi token holders): NFT-attribute-based bribes; here we come!&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>The pool is <a class="link" href="https://curve.fi/factory-crypto/134"  target="_blank" rel="noopener"
+    >already live</a> but cannot be supplied before the end of the bootstrap period.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/defi/">DeFi</a>
+        
+            <a href="/tags/ethereum/">Ethereum</a>
+        
+            <a href="/tags/decentralized-finance/">Decentralized Finance</a>
+        
+            <a href="/tags/stablecoins/">Stablecoins</a>
+        
+            <a href="/tags/stable-assets/">Stable Assets</a>
+        
+            <a href="/tags/money-markets/">Money Markets</a>
+        
+            <a href="/tags/liquity/">Liquity</a>
+        
+            <a href="/tags/lusd/">LUSD</a>
+        
+            <a href="/tags/chicken-bonds/">Chicken Bonds</a>
+        
+            <a href="/tags/nft/">NFT</a>
+        
+            <a href="/tags/nftfi/">NFTfi</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Oct 17, 2022 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/unstoppable-defi/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/unstoppable-defi/unstoppable-defi-tokenbrice-cover.png" loading="lazy" data-key="" data-hash="/img/2022/unstoppable-defi/unstoppable-defi-tokenbrice-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Behind the scene of the decentralization theater: a study of the inalterability of DeFi protocols</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/lending-protocol-renaissance/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2024/lending-protocol-renaissance/0-lending-protocol-renaissance-cover.png" loading="lazy" data-key="" data-hash="/img/2024/lending-protocol-renaissance/0-lending-protocol-renaissance-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Is this a Lending Protocol Renaissance?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/stablecoin-marauder-map/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2023/stablecoin-marauder-map/stablecoin-marauder-map-cover.png" loading="lazy" data-key="" data-hash="/img/2023/stablecoin-marauder-map/stablecoin-marauder-map-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">The Maurauder&#39;s Map of Decentralized Stablecoins</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/defi-vs-inflation/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/defi-vs-inflation/defi-vs-inflation-tokenbrice-cover.jpg" loading="lazy" data-key="" data-hash="/img/2022/defi-vs-inflation/defi-vs-inflation-tokenbrice-cover.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">How to build an inflation-proof DeFi portfolio?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/aave-gho-stablecoin/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/aave-gho-stablecoin/aave-gho-stablecoin-cover.png" loading="lazy" data-key="" data-hash="/img/2022/aave-gho-stablecoin/aave-gho-stablecoin-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Can Aave&#39;s GHO stablecoin help the protocol further grow and overtake MakerDAO and DAI?</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Morpho on TokenBrice</title>
+        <link>http://localhost:1313/tags/morpho/</link>
+        <description>Recent content in Morpho on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Mon, 01 Jul 2024 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/morpho/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Is this a Lending Protocol Renaissance?</title>
+        <link>http://localhost:1313/lending-protocol-renaissance/</link>
+        <pubDate>Mon, 01 Jul 2024 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/lending-protocol-renaissance/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2024/lending-protocol-renaissance/0-lending-protocol-renaissance-cover.png" alt="Featured image of post Is this a Lending Protocol Renaissance?" /&gt;&lt;p&gt;In the last few months, we’ve seen a flurry of novel and exciting lending protocols come to market, such as Morpho, DYAD, Fluid, or Tapioca; even more are expected in the coming months, such as Liquity V2 (Bold) or Euler V2. All are innovative, in the arena, trying things to the point that I wonder if we’re not experiencing a lending protocol renaissance after a few years of rehashing the same concepts.&lt;/p&gt;
+&lt;p&gt;Thus, in this article, I’d like to give you a tour of the interesting ideas I’ve seen being explored — we’ll go through some of the protocols mentioned above and, for each, focus on understanding their main innovation.&lt;/p&gt;
+&lt;h2 id=&#34;collateralized-debt-position-cdp-protocols-vs-money-market&#34;&gt;Collateralized Debt Position (CDP) protocols vs Money Market
+&lt;/h2&gt;&lt;p&gt;Let’s dive in, starting with a primer on the differences between CDP protocols (e.g., Maker or Liquity) and money markets (e.g., Aave or Morpho). It will come in handy as we will discuss both in this article and even finish with a project merging the two models into one protocol.&lt;/p&gt;
+&lt;table&gt;
+  &lt;tr&gt;
+   &lt;td&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;strong&gt;&lt;em&gt;CDP (ex: Liquity)&lt;/em&gt;&lt;/strong&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;strong&gt;&lt;em&gt;Money Market (ex: Aave)&lt;/em&gt;&lt;/strong&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;em&gt;Borrower Interest Rate&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Predictable, can even be fixed or initiation fee only&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Volatile, entirely dependent on pool usage&lt;/em&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;em&gt;Collateral accepted&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Usually limited options, cannot mix collateral&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Various collateral: a given position can mix several collaterals at once&lt;/em&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;em&gt;Assets that can be borrowed&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Only the protocol stablecoin (DAI on Marker, LUSD on Liquity)&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Diverse – any asset enabled as a borrowable asset&lt;/em&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;em&gt;Collateral re-hypothecation&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;None&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Collateral are deposited in a pool and thus potentially re-lent to other users&lt;/em&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;em&gt;Protocol core challenge&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Stabilizing the stablecoin outputted &amp; securing enough liquidity on it&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Attracting sufficient borrowable assets (USDC, ETH) to fulfill borrowing demand&lt;/em&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;em&gt;Protocol main risk&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Oracle failure ⇒ collateral value not accurately evaluated ⇒ some users can borrow more than their collateral worth ⇒ stablecoin death spiral&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Oracle failure ⇒ collateral value not accurately evaluated ⇒ some users can borrow more than their collateral worth ⇒ all borrowable assets are drained&lt;/em&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;CDP protocols stand out for their ability to facilitate cheaper borrowing costs, thereby stimulating more borrowing-side demand, a challenging feat to achieve. This is due to the unique feature of CDPs, where the user directly contracts debt against the protocol, eliminating the need to source and pay an external stablecoin depositor demanding a competitive interest rate, as is the case with a money market like Aave. The primary challenge with CDPs lies in the stability and liquidity of the stablecoin that is produced.&lt;/p&gt;
+&lt;p&gt;On the other hand, money markets tend to be more flexible. Thanks to their structure, they allow users to mix and match collateral and can quickly onboard new ones. Yet, they tend to require more maintenance, as collateral parameters must be constantly adjusted to reflect the realities of the market. This creates quite the load for governance, as seen on Aave, where &lt;a class=&#34;link&#34; href=&#34;https://boardroom.io/aave/overview&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;over a thousand proposals&lt;/a&gt; were already processed in four and a half years: approximately 22 per month. It works, but it seems overengineered; surely there must be a better way.&lt;/p&gt;
+&lt;h2 id=&#34;dyad-flirting-with-the-endogenous-collateral-taboo&#34;&gt;DYAD: Flirting with the endogenous collateral taboo
+&lt;/h2&gt;&lt;p&gt;Dyad is a CDP protocol that implements several novel ideas, such as delivering free borrowing to its users, who must own an NFT to partake (Note). It also serves as the protocol&amp;rsquo;s base coordination layer. I invite you to &lt;a class=&#34;link&#34; href=&#34;https://dyad.gitbook.io/dyad-docs-v2/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;read the documentation&lt;/a&gt; to become more familiar with it. Let’s zoom in on Dyad’s novel approach to handling a key topic for CDP protocols: overcollateralization.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice info&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#info-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Info&lt;/p&gt;&lt;p&gt;For stablecoins, we talk about endogenous vs exogenous collateral. To quickly tell, ask yourself this question: if the stablecoin fails, does the collateral also fail? If yes, your collateral is endogenous (ex: my beloved &amp;amp; defunct &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/posts/2021/seigniorage-basis-vs-esd/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;seigniorage-based stablecoins&lt;/a&gt;); if not, it’s exogenous (ex: ETH for Liquity).&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Stablecoins harnessing endogenous or no collateral can scale quickly, as seen with ESD, Basis Cash, or Terra/UST. However, they can and usually do explode even faster. For this reason, harnessing endogenous collateral is considered a risky practice – worthy of an instant Red Flag / F on the stablecoin rating agency &lt;a class=&#34;link&#34; href=&#34;https://bluechip.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Bluechip&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2024/lending-protocol-renaissance/1-endogenous-collateral-bluechip.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1-endogenous-collateral-bluechip&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;What I would like to focus on today regarding Dyad is its utility token, KEROSENE, which is a mechanism for allocating the right to mint against existing surplus collateral in the system. By default, the system&amp;rsquo;s minimal collateralization ratio is 150%. However, KEROSENE holders can deposit it into their Notes to reduce their exogenous collateral ratio to 100%.&lt;/p&gt;
+&lt;p&gt;Thus, KEROSENE is not technically an endogenous collateral but a mechanism to price and enable users to harness the protocol&amp;rsquo;s exogenous over-collateralization. KEROSENE’s utility gives it a “deterministic value” corresponding to its utility while deposited into a Note. Since KEROSENE is mostly farmed by supplying liquidity on DYAD, it could entertain an interesting flywheel.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2024/lending-protocol-renaissance/2-dyad-defillama.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;2-dyad-defillama&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Launched at the end of the year, the protocol has seen gentle and steady growth, although still limited. The rollout is progressive: the base functionalities are live (Note, DYAD minting, LP incentives, KEROSENE utility), yet much more is coming: sDYAD, momentum (a mechanism to better align protocol participants), a lending market, etc. It’s worth following for any stablecoin enjoyer such as myself.&lt;/p&gt;
+&lt;h2 id=&#34;liquity-v2--the-base-rate-of-defi&#34;&gt;Liquity v2 – The base rate of DeFi
+&lt;/h2&gt;&lt;p&gt;Liquity’s LUSD remains one of the most successful genuinely decentralized stablecoins on the mainnet, so when v2 was announced, it gathered a lot of attention. After researching a novel approach harnessing a reserve model, the team pivoted back to a CDP protocol, growing from learning the first iteration. V2 is expected to be released by the end of the year.&lt;/p&gt;
+&lt;p&gt;Today, I want to focus on one, in particular, on interest rate management.&lt;/p&gt;
+&lt;p&gt;Interest-rate management is crucial for all lending protocols, even CDP protocols. The rate can be easily defined based on the market utilization rate in money markets. For CDP protocols, replicating a similar approach is impossible, and other venues must be explored; several were:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Governance-defined (ex: Maker / DAI): while this approach provides flexibility, it generates uncertainty for borrowers and challenges in governance.&lt;/li&gt;
+&lt;li&gt;Algorithmic (ex: Liquity / LUSD): no governance is always better, when possible; however, it doesn’t come without shortcomings either. In the case of Liquity, the set initiation fee proved inflexible, which led to the protocol adjusting to a higher interest rate environment with redemptions and, thus, through a lowering of the overall LUSD supply.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;With v2, the protocol switches to an interest rate model (no more initiation fee), which should already provide more agility. What’s more interesting is &lt;a class=&#34;link&#34; href=&#34;https://www.liquity.org/blog/liquity-v2-why-user-set-interest-rates&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;how this interest rate is decided: directly by the users&lt;/a&gt;. The team introduces another protocol-level game with straightforward parameters: redemptions will be processed based on the interest rate paid by the user, from lowest to highest.&lt;/p&gt;
+&lt;p&gt;Thus, users who choose a very low interest will put themselves first in line for redemptions, while those who pick the highest interest will be maximally protected. To make it easy for any user to partake, interest rate delegation will be possible, with various delegates delivering different mandates expected at launch.&lt;/p&gt;
+&lt;p&gt;This will allow the protocol to rapidly adjust to all kinds of market environments, from low interest rates to high, avoiding the long redemption phases as seen in v1 while remaining immutable and delivering greater predictability to borrowers.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2024/lending-protocol-renaissance/3-bold-stability.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;3-bold-stability&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;As the protocol gains adoption, the average interest rate observed could even inform beyond Liquity v2 itself, as it will correspond to a base rate borrowers are willing to pay on a risk-minimized and immutable protocol. Riskier protocols will have to offer a lower interest rate to attract borrowers. The v2 packs many more interesting innovations. To get up to speed, I recommend checking out &lt;a class=&#34;link&#34; href=&#34;https://x.com/bjnpck/status/1772227278606389496&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Bojan’s thread of threads&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;tapioca--cdp-x-money-market-convergence&#34;&gt;Tapioca – CDP x Money Market Convergence
+&lt;/h2&gt;&lt;p&gt;Tapioca was launched just a few weeks ago and is still being progressively released, as some protocol components still need to be made live. In today’s highlight, I’d like to focus on two main items:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Convergence of the CDP and Money Market model with Tapioca&lt;/li&gt;
+&lt;li&gt;The innovative token lock model harnessed&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Let’s dive right in. For more context about Tapioca, as often, &lt;a class=&#34;link&#34; href=&#34;https://docs.tapioca.xyz/tapioca&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the official documentation&lt;/a&gt; is a great source.&lt;/p&gt;
+&lt;h3 id=&#34;convergence-of-cdp-and-money-market&#34;&gt;Convergence of CDP and Money Market
+&lt;/h3&gt;&lt;p&gt;CDP protocols face a challenge: they must deliver competitive yield on the stablecoin they output to drive demand. Liquity v2 will redirect most of the fees collected, thanks to the interest rate, to BOLD stakers, Maker has the DSR / sDAI, etc.&lt;/p&gt;
+&lt;p&gt;Yet, another way to ensure stablecoin minters can access competitive yields is to build a money market on top of the stablecoin: that’s precisely what Tapioca is doing. Indeed, Tapioca is essentially a double protocol.&lt;/p&gt;
+&lt;p&gt;First, there is the CDP—branded “Big Bang,” where users can mint USDO against selected collateral: gas tokens and LSDs. The collateral selection is purposely restrictive, as tokens accepted here directly affect USDO backing. Borrowers pay an interest rate and, depending on USDO’s peg situation, potentially an initiation fee of up to 1% (if underpeg). It enables users to loop-leverage their ETH / LSD exposure or simply harness their ETH / LSD as collateral to borrow some USDO.&lt;/p&gt;
+&lt;p&gt;Then, there is the money market — branded “Singularity,” which provides isolated markets where users can supply various types of collateral to borrow USDO, supplied by borrowers on the CDP side. This creates a native yield for USDO holders that is decorrelated from the CDP side, as well as offering an elegant approach to handle all types of collateral:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Censorship resistant majors ⇒ CDP collateral =backing USDO&lt;/li&gt;
+&lt;li&gt;Derivatives / more risky tokens ⇒ Singularity = yield to USDO holders without compromising USDO’s backing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This dual structure allows Tapioca to host various collateral, with appropriate risk-mitigation measures for each. Since singularity harnesses isolated markets, the risk for each collateral onboarded there is isolated, and it can be further managed with its parametrization (LTV, interest rate, and liquidation bonus) and limits.&lt;/p&gt;
+&lt;h3 id=&#34;twaml-an-innovative-token-locking-model&#34;&gt;twAML: an innovative token-locking model
+&lt;/h3&gt;&lt;p&gt;After following and commenting on the DEX evolutions, starting with veCRV and &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/crv-vs-velo/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the improvements we observed with Velodrome (veNFT)&lt;/a&gt;, I anticipated seeing token lock models harnessed on lending protocols too. It has been, but only in a primitive manner, with gauge-based emissions &amp;amp; governance token locking to allocate them, such as seen on Prisma.&lt;/p&gt;
+&lt;p&gt;Tapioca finally delivers with an exciting approach harnessing a new type of token locking (twAML), both for their governance token TAP and for the suppliers of the money market, to secure the supply side and thus drive more borrowing demand. Hence, after Velodrome improved the veCRV model and delivered the first credible improvement over veCRV, we might see its third iteration come to fruition. Here are the highlights:&lt;/p&gt;
+&lt;table&gt;
+  &lt;tr&gt;
+   &lt;td colspan=&#34;4&#34; &gt;&lt;strong&gt;&lt;em&gt;Main Locking Model Overview&lt;/em&gt;&lt;/strong&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;em&gt;Name&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;veCRV&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;veNFT (ex: veVELO)&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;twAML (ex: twTAP)&lt;/em&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;em&gt;Meaning&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Vote Escrowed&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Vote Escrowed NFT&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Time Weighted Average Magnitude Lock&lt;/em&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;em&gt;Locked Position Represented by&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;None&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;NFT&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;NFT&lt;/em&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;em&gt;Locked Position Transferable&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;No&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Yes&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Yes&lt;/em&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;em&gt;TKN &amp;lt;&gt; veTKN ratio&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Solely dependent on time duration, one veTKN per TKN if 4-year lock&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;same as veCRV&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Depends on twAML – the average lock duration of other lockers: if equal/above, then one veTKN per TKN&lt;/em&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;em&gt;veTKN &amp;lt;&gt; TKN Decay&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;Yes, linear over time (ex, after 2 years of lock, only 0.5 veTKN per TKN)&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;same as veCRV&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;em&gt;No Decay&lt;/em&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;em&gt;Revenues for lockers&lt;/em&gt;
+   &lt;/td&gt;
+   &lt;td&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;Pro-rata share of the fees collected on Curve&lt;/em&gt;
+&lt;li&gt;&lt;em&gt;Potential bribes&lt;/em&gt;
+&lt;li&gt;&lt;em&gt;LP boost revenue&lt;/em&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+   &lt;/td&gt;
+   &lt;td&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;Weekly rebase added to veNFT&lt;/em&gt;
+&lt;li&gt;&lt;em&gt;Fees from pool voted on&lt;/em&gt;
+&lt;li&gt;&lt;em&gt;Potential bribes&lt;/em&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+   &lt;/td&gt;
+   &lt;td&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;USDO Interest Accrued &lt;/em&gt;
+&lt;li&gt;&lt;em&gt;Liquidation Profit Shares&lt;/em&gt;
+&lt;li&gt;&lt;em&gt;USDO Creation Fees&lt;/em&gt;
+&lt;li&gt;&lt;em&gt;Flash Mint Fee&lt;/em&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;The main innovation lies in the flexibility and additional game theory layer this model implements. Instead of a linear veTKN to TKN correspondence, depending on the time locked and maxing at four years, like with veCRV and veAERO, twAML looks at other lockers&amp;rsquo; average lock time (magnitude weighted). In practice, achieving a 1:1 TKN&amp;lt;-&amp;gt;veTKN correspondence no longer requires a four-year lock but simply to lock for as much / longer than the existing locks. Thus, the lock time will rapidly increase during the first epoch, ramping up from the 4-week maximum initially set up until it finds an equilibrium point and potentially starts to decay.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2024/lending-protocol-renaissance/4-twTAP.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;4-twTAP&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Released for the first time with dynamic adjusting, the twAML was met with excessive degeneracy and quickly ramped up over four years. Thus, the team has returned to work and switched the adjustment to epoch-based. The new iteration is expected in the coming weeks, another development worth monitoring for stablecoin and lock tokens enjoyers.&lt;/p&gt;
+&lt;p&gt;Tapioca is quite the beefy protocol, two years in the work. I’ve barely scratched the surface there, as there are many other components worthy of commentary:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It’s natively omnichain harnessing Layer 0&amp;rsquo;s omnichain fungible token standard&lt;/li&gt;
+&lt;li&gt;Tapioca, like Liquity, will be one of the few CDP protocols redirecting fees generated from stablecoin minting to its token holders through the twTAP model.&lt;/li&gt;
+&lt;li&gt;Rewards for USDO lockers are distributed in oTAP, an option token connected to the twAML logic.&lt;/li&gt;
+&lt;li&gt;The protocol is keen on accruing Protocol-Owned Liquidity, both for TAP and USDO, which will enable it to lower its liquidity maintenance costs and potentially turn it into a profitable endeavor.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I wanted to cover more protocols, but this article is already beefy, so I’ll keep it there for today. There are many exciting developments for lending protocols worth discussing, such as the growth of isolated markets with protocols like Morpho or Silo. All of this and more leads me to believe that after years of Aave &amp;amp; Maker dominating the lending protocol landscape, we might see some challengers rising to a similar size, if not overtaking them in the coming years.&lt;/p&gt;
+&lt;p&gt;I’ll be watching, and so should you.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Thanks to Gray for the cover image.&lt;/em&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Within decentralized finance, a veritable open-air laboratory, governance issues are complex and often contradictory. In this article, I examine the potential antagonisms between the various stakeholders of a given protocol.">
+<title>Janus: the new sworn enemy of DeFi protocols?</title>
+
+<link rel='canonical' href='http://localhost:1313/defi-janus/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Janus: the new sworn enemy of DeFi protocols?">
+<meta property='og:description' content="Within decentralized finance, a veritable open-air laboratory, governance issues are complex and often contradictory. In this article, I examine the potential antagonisms between the various stakeholders of a given protocol.">
+<meta property='og:url' content='http://localhost:1313/defi-janus/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Decentralized Finance' /><meta property='article:tag' content='Money Markets' /><meta property='article:tag' content='Liquity' /><meta property='article:tag' content='Curve Finance' /><meta property='article:tag' content='CRV' /><meta property='article:tag' content='MakerDAO' /><meta property='article:tag' content='Convex' /><meta property='article:tag' content='CVX' /><meta property='article:tag' content='Yearn Finance' /><meta property='article:tag' content='Uniswap' /><meta property='article:published_time' content='2021-07-17T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2021-07-17T01:13:50&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/2021/defi-janus/defi-janus-cover-en.png' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="Janus: the new sworn enemy of DeFi protocols?">
+<meta name="twitter:description" content="Within decentralized finance, a veritable open-air laboratory, governance issues are complex and often contradictory. In this article, I examine the potential antagonisms between the various stakeholders of a given protocol."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/2021/defi-janus/defi-janus-cover-en.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">TokenBrice</a></h1>
+            <h2 class="site-description">Brutally Honest DeFi</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" selected>English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" >Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#complexity-and-governance-issues-fertile-ground-for-janus">Complexity and governance issues: fertile ground for Janus</a>
+      <ol>
+        <li><a href="#governance-and-voting-mechanisms">Governance and voting mechanisms</a></li>
+        <li><a href="#complexity-of-decisions">Complexity of decisions</a></li>
+        <li><a href="#governance-supports">Governance supports</a></li>
+      </ol>
+    </li>
+    <li><a href="#uniswap-1m-uni-here-1m-uni-there">Uniswap: 1M UNI here, 1M UNI there</a>
+      <ol>
+        <li><a href="#proposal-05-in-summary">Proposal 05 in summary</a></li>
+        <li><a href="#compression-of-governance">Compression of governance</a></li>
+        <li><a href="#transparency-maybe-control-hell-no-">Transparency? Maybe. Control? Hell no !</a></li>
+      </ol>
+    </li>
+    <li><a href="#makerdao-imbalance-of-competing-interests">MakerDAO: imbalance of competing interests</a>
+      <ol>
+        <li><a href="#abusive-user-fees">Abusive user fees</a></li>
+        <li><a href="#an-annuity-for-mkr-holders">An annuity for MKR holders?</a></li>
+      </ol>
+    </li>
+    <li><a href="#the-ambiguous-case-of-yearn-finance">The ambiguous case of Yearn Finance</a>
+      <ol>
+        <li><a href="#crazy-fees-for-users">Crazy fees for users</a></li>
+        <li><a href="#protocol-side-yearns-hug-of-death">Protocol side: Yearn&rsquo;s hug of Death</a></li>
+        <li><a href="#concerning-yearn-dao">Concerning Yearn DAO</a></li>
+      </ol>
+    </li>
+    <li><a href="#are-the-janus-defensible">Are the Janus defensible?</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/defi-janus/">
+                
+                    <img src="/img/2021/defi-janus/defi-janus-cover-en.png" loading="lazy" alt="Featured image of post Janus: the new sworn enemy of DeFi protocols?" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/defi/" style="background-color: #2a9d8f; color: #fff;">
+                DeFi
+            </a>
+        
+            <a href="/categories/understanding/" style="background-color: #2a9d8f; color: #fff;">
+                Understanding
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/defi-janus/">Janus: the new sworn enemy of DeFi protocols?</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Within decentralized finance, a veritable open-air laboratory, governance issues are complex and often contradictory. In this article, I examine the potential antagonisms between the various stakeholders of a given protocol.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jul 17, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    13 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+        <footer class="article-translations">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+            <div>
+                
+                    <a href="http://localhost:1313/fr/defi-janus/" class="link">Français</a>
+                
+            </div>
+        </footer>
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Mythology is often used to illustrate DeFi. For example, the Canaanite god Moloch is often mentioned to symbolize coordination issues. Today, I will identify with you a new deity from the DeFi pantheon: Janus.</p>
+<p>In this article, we analyze the mechanisms of open governance of DeFi protocols that can lead to the emergence of a new kind of challenge for DeFi, a sworn enemy that I propose to you to embody in the Roman deity Janus.</p>
+<p>Much like the two-faced god, <strong>a Janus protocol suffers from a deep ambivalence</strong>: although it can be an unquestionable success in terms of use, it faces serious antagonisms between its various stakeholders who involve the sustainability of the protocol (users, holders, investors, team and extended community).</p>
+<p>To understand the Janus, you have to understand the inherent complexity of DeFi and how it can accommodate <strong>consensus on decisions that are deleterious or not optimal</strong>. Once the context is set, we can analyze three Janus, each in their own way: MakerDAO, Yearn Finance and Uniswap.</p>
+<h2 id="complexity-and-governance-issues-fertile-ground-for-janus">Complexity and governance issues: fertile ground for Janus
+</h2><p>The emergence of Janus protocols in the current situation is due to many factors that are difficult to prioritize. I have grouped them into three themes:</p>
+<h3 id="governance-and-voting-mechanisms">Governance and voting mechanisms
+</h3><p>The governance of DeFi protocols takes place <strong>in an open and transparent</strong> way, in several stages.</p>
+<p>During discussions on different media such as Discord, the community converges on different ideas that can lead to proposals. Proposals are formalized, usually on governance forums and amended before reaching <strong>informal consensus</strong>.</p>
+<p><strong>Signaling</strong> mechanisms (Snapshot) make it possible to identify the most relevant proposals. They are then <strong>submitted to the vote of the token holders</strong> via the main governance mechanism.</p>
+<p>Most governance systems still operate on the logic of <strong>1 token = 1 vote</strong>, thus assigning the same weight to all token holders regardless of their attitude towards the project or level of commitment by compared to this one.</p>
+<p><img src="/img/2021/defi-janus/influence-governance.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="influence-governance"
+	
+	
+></p>
+<p><em>Measure the influence in the governance of DeFi protocols -<a class="link" href="https://twitter.com/Lsquaredleland/status/1411031620748943360"  target="_blank" rel="noopener"
+    >source</a></em></p>
+<p>However, some protocols have succeeded in challenging this approach by adding a logic of time commitment: interacting with Curve&rsquo;s DAO requires engaging its CRVs for a period ranging from 1 to 4 years. A long-term commitment increases the effective voting power obtained (vCRV).</p>
+<p>Still, <strong>participation is generally low</strong>, even when delegation mechanisms are used.</p>
+<h3 id="complexity-of-decisions">Complexity of decisions
+</h3><p>To evaluate governance proposals for a decentralized finance protocol, one must have <strong>an understanding of a whole set of basics relating to Ethereum</strong>, blockchain and DeFi.</p>
+<p>From there, ideally, you need a thorough understanding of the protocol in question, as well as its <strong>interactions with other protocols, synergies</strong>, etc. We can also now add to this all the additional complexity linked to the multiplication of scalability solutions: sidechains and L2.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p>In addition, the formulation of proposals on governance forums is generally quite technical, which <strong>makes their understanding</strong> difficult and opens the door to manipulation.</p>
+<p>Finally, governance suffers from a real mass effect: as protocols develop, the amount of information to digest to have an informed vote increases accordingly.</p>
+<p>A member of the MakerDAO governance forum estimated his weekly monitoring and participation work to be around 40 hours per week, steadily increasing:
+<img src="/img/2021/defi-janus/maker-governance-overhead.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="maker-governance-overhead"
+	
+	
+></p>
+<h3 id="governance-supports">Governance supports
+</h3><p>Although governance is open and transparent, <strong>it still often relies on various proprietary services and therefore administered</strong>, most often by the team itself. This causes serious problems.</p>
+<p>So governance-related discussions are usually done on Discord and the Governance Forum - both <strong>mediums are usually moderated directly by the project team</strong>.</p>
+<p>Additionally, the team may have <strong>control over reporting mechanisms</strong> like <a class="link" href="https://snapshot.org/"  target="_blank" rel="noopener"
+    >Snapshot</a>. The accumulation of all these limitations of decentralized governance systems can lead to situations observed recently, where token owners do not vote in their best interests.</p>
+<p>This quick tour of the current limits of governance systems was necessary to have the context for what follows. So let&rsquo;s see the three Janus that I spotted</p>
+<h2 id="uniswap-1m-uni-here-1m-uni-there">Uniswap: 1M UNI here, 1M UNI there
+</h2><h3 id="proposal-05-in-summary">Proposal 05 in summary
+</h3><p>A rushed vote which resulted in the signing of an almost blank check from 1M UNI for a group of legal directors of large decentralized projects responsible for deploying a DeFI lobbying strategy. Very few transparency mechanisms have been deployed and the influence of the UNI holder community on the funded group is limited.</p>
+<p><a class="link" href="https://gov.uniswap.org/t/governance-proposal-005-defi-education-fund/12963"  target="_blank" rel="noopener"
+    >Proposition 05 Uniswap Gouvernance - DeFi Education Fund</a></p>
+<h3 id="compression-of-governance">Compression of governance
+</h3><p>In the case of Uniswap, it was all there. It all started with a rushed vote as members of the community had <strong>many, many questions ignored</strong>. The community is concerned about the lack of control over the funds allocated without any conditions. Chris Blec has gathered the main questions and concerns in <a class="link" href="https://twitter.com/ChrisBlec/status/1409857319144394758"  target="_blank" rel="noopener"
+    >a letter</a> and managed to get some responses from the team in a <a class="link" href="https://odysee.com/@ChrisBlec:8/chrisblec-june24-twitterspace:9?r=DeLsAYctGhcLFvkGBKYgE2tN17fUXA9u"  target="_blank" rel="noopener"
+    >Twitter space</a>.</p>
+<p>In addition, <strong>the organization that will receive the 1M UNI is made up of close members of the Uniswap team</strong> and project investors such as a16z are also suspected of having been decisive in the adoption of the decision. The proposal also had direct support from the team.</p>
+<p>July 17 edit: quickly after receiving the funds, <a class="link" href="https://thedefiant.io/sale-of-usdc-raises-concerns-regarding-newly-formed-defi-education-fund/"  target="_blank" rel="noopener"
+    >the multisig sold half of the total balance (500 000 UNI)</a> for USDC, currently sitting idle in the wallet - not even farming!</p>
+<p>Finally, the proposal wants to be broader than Uniswap since they are officially mandated to lobby DeFi, but we can ask the question of the vision of DeFi carried by such profiles.</p>
+<h3 id="transparency-maybe-control-hell-no-">Transparency? Maybe. Control? Hell no !
+</h3><p>After the reactions to the first iterations of the proposal, different mechanisms have been added to bring more transparency to the actions of the DeFi Education Fund. The team is also committed to implementing <a class="link" href="https://github.com/withtally/safeguard"  target="_blank" rel="noopener"
+    >FailSafe</a> as soon as possible. This would allow the DAO (UNI holders) to be able to exercise a veto on the transactions carried out by the multisig.</p>
+<p>However at the present time <strong>the effective control of the DAO remains limited</strong>: the vote has passed and the 1M UNI are now allocated.</p>
+<p>This episode corresponds for me to the equivalent of an embezzlement of public funds, except that here the funds come from a DAO. The adventure and its adventures also shed light on the effective power exercised by the various stakeholders in the protocol.</p>
+<h2 id="makerdao-imbalance-of-competing-interests">MakerDAO: imbalance of competing interests
+</h2><p>The problem with Maker is more general and goes back much further. It is a common problem in DeFi of aligning the divergent interests of different participants. In addition, to respond quickly to the growing demand for DAI, <strong>the multiplication of collateral (MCD update) has greatly impacted the trustlessness and effective decentralization of DAI.</strong></p>
+<p>Over 60% of DAI collateral is tokens that require some form of trust like USDC, wBTC or TUSD. The problem has been around for a long time and is not going to be resolved, if ever. I have already discussed this problem on this blog, I refer you to this article</p>
+<p><strong><a class="link" href="https://tokenbrice.xyz/content/posts/2021/pegged-assets.md"  target="_blank" rel="noopener"
+    >Exploring stable assets on Ethereum: approaches &amp; endgame</a></strong></p>
+<h3 id="abusive-user-fees">Abusive user fees
+</h3><p>Here, we will rather dig into the problem of excessive fees which illustrates <strong>a classic case of rent maximization on customers thought to be captive</strong>. <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> DAI being a synthetic stablecoin struck directly by the user, its annual borrowing fees should not exceed 2-3% and this is still costly. <a class="link" href="http://liquity.org/"  target="_blank" rel="noopener"
+    >Liquity</a>, an alternative to Maker, charges 0.5% annually fees on borrowed LUSD.</p>
+<p>Prior to the last update, the main maker ETH vault (ETH-A) was charging 5.5% annual fees. It&rsquo;s now down to 3.5%, but the fees on the vault closest to Liquity&rsquo;s borrowing conditions (ETH-B, minimum collateralization = 130% // 110% on Liquity) remains at 9% annually, or <strong>18 times more expensive than its alternative</strong>.</p>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice info" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span>Info</p><p>Liquity is built with a governance minimization approach, unlike Maker, which may explain part of the huge gap observed between the fees charged by the two platforms.</p></div>
+
+<h3 id="an-annuity-for-mkr-holders">An annuity for MKR holders?
+</h3><p>MakerDAO fees are usually high, even though they&rsquo;ve been at zero or close for short periods of time to stimulate demand. So <strong>why does the DAO Maker systematically vote excessive fees</strong>? The answer is as simple as 1 + 1 = 2:</p>
+<ol>
+<li>
+<p>Fees taken from Maker vaults are used to buy MKR tokens in the markets and burn them, making the MKR token rarer.</p>
+</li>
+<li>
+<p>They are voted by Maker&rsquo;s DAO, in proportion to the MKR tokens owned.</p>
+</li>
+</ol>
+<p>The very design of the protocol thus encourages MKR owners to vote for <strong>extracting the maximum fees tolerated by users</strong>, and not a penny less. Indeed, each base point <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> in additional costs translates into more MKR burned and therefore a priori a capital which is appreciated for the owners of the token.</p>
+<p>It may sound fabulous in terms of tokenomics because it optimizes for the best possible price on MKR (theoretically), but <strong>it is done to the detriment of the users of the service</strong> that the platform offers - and therefore goes against the long-term interest- term of the protocol.</p>
+<p>You should also keep in mind that unlike most protocols, Maker has never implemented a mechanism to turn its users into holders (liquidity mining). So I hardly see how Maker can be competitive with such a structure.</p>
+<h2 id="the-ambiguous-case-of-yearn-finance">The ambiguous case of Yearn Finance
+</h2><p>Yearn is arguably the simplest and most straightforward example of a Janus. In barely a year, Yearn has become a <strong>major DeFi protocol with $ 4B in assets deposited</strong> and above all <strong>delusional profitability</strong> that the team likes to highlight.</p>
+<p>However, the story is not so rosy depending on your perspective. We are therefore going to study Yearn&rsquo;s situation from 3 angles: from a user&rsquo;s point of view, for another protocol and for the Yearn DAO itself.</p>
+<h3 id="crazy-fees-for-users">Crazy fees for users
+</h3><p>Yearn&rsquo;s success comes at what cost? Again, essentially <strong>users who are literally being robbed by Yearn</strong> - fees are among the highest seen for a DeFi asset manager, yet complex:</p>
+<ol>
+<li>Yearn takes <strong>2% annual management fee on the entire deposit</strong>.</li>
+<li>Yearn also takes a 20% performance fee: 20% of all farmed assets go into cash. <sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></li>
+</ol>
+<p>The first charge is the most problematic since it means that Yearn&rsquo;s excessively greedy charges lead to vaults that… lose money!</p>
+<p>Indeed, any vault that does not achieve a minimum of 2% annual return on Yearn ends up in the red once the management fees are taken, without even taking into account the performance fees &hellip;</p>
+<blockquote>
+</blockquote>
+<h3 id="protocol-side-yearns-hug-of-death">Protocol side: Yearn&rsquo;s hug of Death
+</h3><p>Yearn allows its users to farm different protocols like Curve by automatically managing the composition of their yields.</p>
+<p>This is practical for the user, but it also means that ** Yearn systematically sells all the tokens farmed ** by his vaults: we can therefore ask the question of the impact and relevance for the farmed protocol, which is therefore under selling pressure on its native token.</p>
+<p>The arrival of Convex has shown that a better structured protocol in terms of tokenomics and specific to Curve can offer a synergistic alternative where the returns are much higher, while avoiding the systematic sale of farmed tokens. I analyze the Convex &ldquo;flywheel&rdquo; in this article:<strong><a class="link" href="https://tokenbrice.xyz/content/posts/2021/defi-flywheel.md"  target="_blank" rel="noopener"
+    >🎡 DeFi Flywheel : engineering protocol to protocol synergies through tokens</a></strong></p>
+<p>Thereby, it confronted Yearn with its contradictions and Yearn essentially capitulated by integrating Convex to optimize the performance of its vaults. This now means that <strong>Yearn users pay a fee to Convex and help the protocol accumulate more VeCRV</strong> and thus widen its gap with Yearn - checkmate for Yearn on Curve.</p>
+<p><img src="/img/2021/defi-janus/vecrv-par-dao.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="vecrv-par-dao"
+	
+	
+></p>
+<p><em>Overview of the veCRVs owned by the different DAOs - source<a class="link" href="https://duneanalytics.com/banteg/misc"  target="_blank" rel="noopener"
+    >Dune Analytics / Banteg</a></em></p>
+<h3 id="concerning-yearn-dao">Concerning Yearn DAO
+</h3><p>Despite this rather worrying fundamental situation since Yearn now offers <strong>essentially non-competitive products</strong> (all Curve vaults), Yearn presents itself as one of the undeniable successes of DeFi.</p>
+<p>Indeed, the team seems to measure the success of the protocol by the volume of fees collected by it. The indicator is obviously dangerous since with the management fees at 2% per year, any deposit in Yearn systematically pays fees even if little or no profit is made.</p>
+<p>Rather than taking the fees charged as an indicator and therefore a measure of success, the protocol could be optimized on the basis of the profits generated for depositors.</p>
+<p>Finally, and even if it is a more subjective topic, the communication around the project is muddled or even almost disturbing at times, for example <a class="link" href="https://thedefiant.io/yearn-revenues-projected-to-surpass-tradfis-fueled-by-thriving-community/"  target="_blank" rel="noopener"
+    >when Yearn is compared</a> to traditional asset managers like WealthFront or BlackRock - I find that quite unbalanced since Yearn charges similar fees to these structures but operates in a much more dynamic market. In addition, are such companies really relevant models to have in DeFi?</p>
+<p><img src="/img/2021/defi-janus/yearn-comp.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="yearn-comp"
+	
+	
+></p>
+<p>If Yearn compares to asset managers, it may be because the comparison with its DeFi peers is clear:
+<img src="/img/2021/defi-janus/defi-asset-manager.jpeg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="defi-asset-manager"
+	
+	
+></p>
+<p>In addition, where Convex works to allow cvxCRV holders to vote in decisions of the DAO Curve, Yearn is taking control over the voting power associated with CRVs deposited by its users on the yveCRV. The same approach can be observed with the airdrops allocated to VeCRV holders: Yearn grants them to buy CRVs and sponsor their yveCRV vault, while Convex makes them accessible to its depositors.</p>
+<h2 id="are-the-janus-defensible">Are the Janus defensible?
+</h2><p>Now that we have set the scene with three Janus, the question of their defendability remains. All three have credible alternatives, often more recent and with more balanced tokenomics. So let&rsquo;s see how our Janus evolve in relation to these.</p>
+<p>In just two months of existence, Convex has already surpassed Yearn in terms of the total value of assets deposited. So far, Yearn&rsquo;s feedback has failed to turn the tide, and I think <strong>only a major overhaul of the model will allow the protocol to remain competitive in the long run</strong>.</p>
+<p>Nevertheless <strong>the machine is launched</strong>: Convex already has more than twice as many CRVs as Yearn and accumulates more quickly. And even though Yearn has lots of other protocols, it seems unlikely to me that he will ever be able to compete again on Curve.</p>
+<p>On the Marker side, more and more people are starting to point out the absurdity of the current situation on DAI, and the alternatives are gaining ground. In a few weeks and with only ETH as accepted collateral, Liquity has already attracted the equivalent of more than 40% of the total value deposited in MakerDAO:
+<img src="/img/2021/defi-janus/tokenterminal-tvl-maker-liquity.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="tokenterminal-tvl-maker-liquity"
+	
+	
+></p>
+<p>On Liquity, borrowing costs are much lower, clearer, and distributed directly to LQTY stakers. The service is thus more open and participatory than MakerDAO while being brutally more efficient. Here again, I think a major overhaul of MakerDAO would be necessary for the protocol to regain its relevance and competitiveness.</p>
+<p>Finally, for Uniswap, the competition is even fiercer. The protocol is evolving in the face of mature tokenomics like Curve, which has a protocol revenue sharing mechanism active for almost a year, while nothing is yet offered on UNI.</p>
+<p>On all three fronts, I think the situation will force Uniswap, Maker and Yearn to renew themselves. However, with the pace of the industry, the noose is tightening and their more open, efficient and synergistic alternatives are rapidly gaining ground.</p>
+<p>As the DAOs of the three protocols fell out of sync with their users, the latter reminded them where their interests lay in the simplest and most effective way we know of: with consistent capital movement. I can&rsquo;t wait to see what happens next!</p>
+<p><em>🙏 Huge thanks to HHK, Charles, Thomas, Erwan, <a class="link" href="https://twitter.com/phil_h"  target="_blank" rel="noopener"
+    >PhilH</a> &amp; FrenchTony for proofreading the French version of this article and translating it integrally into English.</em></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Take a look for example <a class="link" href="https://forum.makerdao.com/t/mip33-maker-stability-price-module/5943"  target="_blank" rel="noopener"
+    >this pre-proposal taken at random from the MakerDAO governance forum</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>DAI is still seen by many as a decentralized stablecoin that doesn&rsquo;t require trust, although it no longer does. There are still few stablecoins that rely only on trustless (ETH) and credibly decentralized (or on track) collateral: I know of two - Liquity&rsquo;s LUSD and Reflexer&rsquo;s RAI.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>Financial services fees are often measured in basis point (bps / basis point). A basis point is one hundredth of a percent: 1 bps = 0.01%.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p><a class="link" href="https://docs.yearn.finance/yearn-finance/yvaults/overview#yvault-fee-structure"  target="_blank" rel="noopener"
+    >Yearn Finance documentation - Fee structure</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/defi/">DeFi</a>
+        
+            <a href="/tags/ethereum/">Ethereum</a>
+        
+            <a href="/tags/decentralized-finance/">Decentralized Finance</a>
+        
+            <a href="/tags/money-markets/">Money Markets</a>
+        
+            <a href="/tags/liquity/">Liquity</a>
+        
+            <a href="/tags/curve-finance/">Curve Finance</a>
+        
+            <a href="/tags/crv/">CRV</a>
+        
+            <a href="/tags/makerdao/">MakerDAO</a>
+        
+            <a href="/tags/convex/">Convex</a>
+        
+            <a href="/tags/cvx/">CVX</a>
+        
+            <a href="/tags/yearn-finance/">Yearn Finance</a>
+        
+            <a href="/tags/uniswap/">Uniswap</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Jul 17, 2021 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/defi-flywheel/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/defi-flywheel/defi-flywheel-cover-en.png" loading="lazy" data-key="" data-hash="/img/2021/defi-flywheel/defi-flywheel-cover-en.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🎡 DeFi Flywheel : engineering protocol to protocol synergies through tokens</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/unstoppable-defi/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/unstoppable-defi/unstoppable-defi-tokenbrice-cover.png" loading="lazy" data-key="" data-hash="/img/2022/unstoppable-defi/unstoppable-defi-tokenbrice-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Behind the scene of the decentralization theater: a study of the inalterability of DeFi protocols</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/solidly-velodrome-fork/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2023/solidly-velodrome-template/cover.png" loading="lazy" data-key="" data-hash="/img/2023/solidly-velodrome-template/cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ve(3,3), the logical next step after veCRV?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/crv-wars-l2/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/curve-wars-l2/curve-wars-l2-cover-tokenbrice.png" loading="lazy" data-key="" data-hash="/img/2022/curve-wars-l2/curve-wars-l2-cover-tokenbrice.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">⚔ Advanced CRV warfare: analysis of protocols built on top of Curve and Convex </h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/defi-vs-inflation/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/defi-vs-inflation/defi-vs-inflation-tokenbrice-cover.jpg" loading="lazy" data-key="" data-hash="/img/2022/defi-vs-inflation/defi-vs-inflation-tokenbrice-cover.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">How to build an inflation-proof DeFi portfolio?</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

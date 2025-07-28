@@ -1,0 +1,873 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Pratique on TokenBrice</title>
+        <link>http://localhost:1313/fr/categories/pratique/</link>
+        <description>Recent content in Pratique on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>fr</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Thu, 29 Apr 2021 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/fr/categories/pratique/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>🌽 Livre de recettes pour les marchés d&#39;actifs DeFi</title>
+        <link>http://localhost:1313/fr/recettes-marches-actifs/</link>
+        <pubDate>Thu, 29 Apr 2021 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/recettes-marches-actifs/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2021/money-market-recipes/money-market-recipes-cover.png" alt="Featured image of post 🌽 Livre de recettes pour les marchés d&#39;actifs DeFi" /&gt;&lt;p&gt;Sur ce blog, je discute fréquemment des marchés monétaires ou marchés d&amp;rsquo;actifs en DeFi. Fondamentalement, ils vous permettent de &lt;strong&gt;prêter et d&amp;rsquo;emprunter des tokens&lt;/strong&gt;. Ces deux actions sont devenues comme &lt;strong&gt;des verbes de la DeFi&lt;/strong&gt; : ils sont mobilisés directement ou indirectement dans quasiment toutes les stratégies.&lt;/p&gt;
+&lt;p&gt;Ainsi, bien qu&amp;rsquo;il soit crucial de comprendre les protocoles que vous utilisez et surtout &lt;strong&gt;les différents &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/money-market-risks.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;risques encourus sur les marchés monétaires&lt;/a&gt;&lt;/strong&gt;, je vous propose aujourd&amp;rsquo;hui de nous concentrer plutôt sur le pourquoi et le comment :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Quelles stratégies peut-on mettre en place en utilisant les marchés d&amp;rsquo;actifs ?&lt;/li&gt;
+&lt;li&gt;Comment concrètement les déployer ?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Nous allons donc décortiquer différentes &amp;ldquo;recettes&amp;rdquo; pour tirer parti des marchés d&amp;rsquo;actifs. Prenez ces recettes comme &lt;strong&gt;des inspirations pour développer vos propres stratégies&lt;/strong&gt;.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice warning&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Avertissement&lt;/p&gt;&lt;p&gt;Cet article ne constitue pas du conseil en investissement : je ne suis pas habilité à en dispenser. Plutôt que de reproduire mécaniquement les stratégies présentées en exemple, je vous invite surtout à chercher à en comprendre la démarche.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;pari-avec-effet-de-levier-sur-un-marché-dactif-via-le-marché-dactif-lui-même&#34;&gt;Pari avec effet de levier sur un marché d&amp;rsquo;actif via le marché d&amp;rsquo;actif lui même
+&lt;/h2&gt;&lt;p&gt;Les marchés d&amp;rsquo;actifs ont tous un token associé, par exemple le token AAVE pour Aave. Il sert généralement pour la gouvernance du protocole et permet parfois également de capturer une partie de la valeur que celui-ci génère. Avec cette stratégie, on va donc &lt;strong&gt;utiliser un marché d&amp;rsquo;actif pour emprunter des actifs qui serviront ensuite à s&amp;rsquo;exposer au token natif de la plateforme désirée&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;⚙ Condition :&lt;/strong&gt; Optimisme sur l&amp;rsquo;avenir d&amp;rsquo;un marché d&amp;rsquo;actif donné. Il dispose d&amp;rsquo;un token natif qui dans ce scénario devrait s&amp;rsquo;apprécier parallèlement à la croissance du marché d&amp;rsquo;actifs sur moyen/long terme.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📅 Horizon temporel :&lt;/strong&gt; 3 - 24 mois. ~3 mois est un minimum recommandé pour que les frais en gas et les coûts d&amp;rsquo;emprunt n&amp;rsquo;impactent pas trop les retours de la stratégie.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔮 Résultat espéré&lt;/strong&gt; : le token acquis s&amp;rsquo;apprécie ce qui permet de rembourser la dette (+intérêts éventuels) à terme en revendant une partie de la position initiale. Une fois la dette remboursée, une partie des tokens acquis peut être conservée.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🃏 Bonus / Facilitateur :&lt;/strong&gt; Si le token en question peut produire un rendement (par ex AAVE dans le Safety Module), cela permettra de rembourser la dette encore plus rapidement ou d&amp;rsquo;accumuler &amp;ldquo;gratuitement&amp;rdquo; du token en question si le scénario d&amp;rsquo;appréciation de son prix se vérifie.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Bien que cette stratégie soit assez basique, il s&amp;rsquo;agit d&amp;rsquo;une de mes préférées. Je vous proposais récemment sur Twitter un exemple de sa mise en pratique que nous détaillerons ici :&lt;/p&gt;
+&lt;p&gt;Ici, le protocole en question c&amp;rsquo;est &lt;a class=&#34;link&#34; href=&#34;https://liquity.org&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liquity&lt;/a&gt; et la mise en place de la stratégie est assez simple, mais connaît deux variations :&lt;/p&gt;
+&lt;h3 id=&#34;exposition-directe-au-token-natif&#34;&gt;Exposition directe au token natif
+&lt;/h3&gt;&lt;p&gt;Soit en s&amp;rsquo;exposant directement au token LQTY, ce qui est bien sûr plus risqué :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-recipes/mm-long-token-tokenbrice.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;mm-long-tokenbrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Dépôt d&amp;rsquo;ETH sur &lt;a class=&#34;link&#34; href=&#34;https://www.liquity.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liquity&lt;/a&gt; via un des frontends, ils serviront de collatéral pour la position.&lt;/li&gt;
+&lt;li&gt;Emprunt de LUSD&lt;/li&gt;
+&lt;li&gt;Swap de LUSD (via ParaSwap pour le meilleur taux !) pour du LQTY, le token natif de Liquity&lt;/li&gt;
+&lt;li&gt;Staking du LQTY, qui génère des LUSD et un peu d&amp;rsquo;ETH&lt;/li&gt;
+&lt;li&gt;À terme remboursement de la dette (2) via le rendement LUSD (4) et la revente d&amp;rsquo;une partie des LQTY acquis à l&amp;rsquo;étape 3 après une appréciation de leur prix.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Ou alors de manière plus prudente, avec une stratégie qui revient à utiliser Liquity pour emprunter des LUSD et les rendre productifs :&lt;/p&gt;
+&lt;h3 id=&#34;exposition-essentiellement-en-stablecoins&#34;&gt;Exposition essentiellement en stablecoins
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-recipes/mm-long-tokenbrice.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;mm-long-token-tokenbrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Dépôt d&amp;rsquo;ETH sur &lt;a class=&#34;link&#34; href=&#34;https://www.liquity.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liquity&lt;/a&gt; via un des frontends, ils serviront de collatéral pour la position.&lt;/li&gt;
+&lt;li&gt;Emprunt de LUSD&lt;/li&gt;
+&lt;li&gt;Staking du LUSD via soit la Stability Pool (-&amp;gt; LQTY + ETH) ou encore la pool LUSD sur Curve Finance (-&amp;gt; Natif + LQTY + CRV).&lt;/li&gt;
+&lt;li&gt;À terme remboursement de la dette (2) via le rendement (3)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;Yearn Finance propose également un vault LUSD qui gère automatiquement la position sur Curve.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;investir-du-temps-plutôt-que-de-largent&#34;&gt;Investir du temps plutôt que de l&amp;rsquo;argent
+&lt;/h2&gt;&lt;p&gt;L&amp;rsquo;arrivée d&amp;rsquo;Alchemix a ouvert de nouvelles perspectives en termes de stratégie. Sur Alchemix, la dette se rembourse toute seule avec le temps. En effet, &lt;strong&gt;le collatéral utilisé (yDAI) est un stablecoin qui produit un rendement (via Yearn)&lt;/strong&gt;. Ainsi avec les conditions actuelles l&amp;rsquo;emprunt est auto-remboursé en trois ans.&lt;/p&gt;
+&lt;p&gt;Je vous propose donc une stratégie simple pour tirer profit d&amp;rsquo;Alchemix afin de réaliser un profit. Le principal inconvénient est que &lt;strong&gt;seulement la moitié de la quantité de DAI placées initialement dans Alchemix peut être empruntée en AlUSD&lt;/strong&gt; puis investie. Néanmoins comme cette stratégie s&amp;rsquo;appuie sur stablecoins, elle ne comporte - à priori (⚠ oracles) pas de risque de prix et ne nécessite donc pas de suivi quotidien.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;⚙ Condition :&lt;/strong&gt; Des DAI qui seront bloqués pendant ~3ans. Seulement la moitié de la somme déposée est mobilisable.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📅 Horizon temporel :&lt;/strong&gt; ~3 ans (dépend du taux de retour DAI sur Yearn)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔮 Résultat espéré&lt;/strong&gt; : Dans 3 ans, la dette en AlUSD est entièrement remboursée et les DAI initialement mobilisés sur Alchemix sont à nouveaux libres. Reste à voir ce qu&amp;rsquo;il s&amp;rsquo;est passé avec l&amp;rsquo;investissement réalisé avec les AlUSD empruntés : tout dépend des choix réalisés, je ne prédis pas le futur.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🃏 Bonus / Facilitateur :&lt;/strong&gt; Utiliser l&amp;rsquo;emprunt en AlUSD pour investir dans un token qui peut produire un rendement. Cela permet de réaliser un investissement composé ou bien encore de rembourser la dette Alchemix plus rapidement.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;long-alcx-via-alchemix&#34;&gt;Long ALCX via Alchemix
+&lt;/h3&gt;&lt;p&gt;Pour illustrer le concept, je vous propose à nouveau une stratégie simple qui revient à long Alchemix via son token ALCX :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-recipes/alchemix-investment-tokenbrice.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;alchemix-investment-tokenbrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Dépôt de DAI en collatéral sur Alchemix. Alchemix le déploie sur Yearn Finance pour produire un rendement.&lt;/li&gt;
+&lt;li&gt;Emprunt jusqu&amp;rsquo;à 50% de la valeur initiale déposée en AlUSD, un stablecoin.&lt;/li&gt;
+&lt;li&gt;Investissement des AlUSD dans le token désiré. Ici pour l&amp;rsquo;exemple c&amp;rsquo;est ALCX le token natif de gouvernance d&amp;rsquo;Alchemix.&lt;/li&gt;
+&lt;li&gt;Stake du token acquis pour produire un rendement&lt;/li&gt;
+&lt;li&gt;Le remboursement de la dette en AlUSD contracté sur Alchemix se fait automatiquement avec le temps. Il est possible de rembourser en avance grâce aux rendements générés (4).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;mettre-au-travail-un-collatéral-holdé-sur-le-long-terme&#34;&gt;Mettre au travail un collatéral holdé sur le long terme
+&lt;/h2&gt;&lt;p&gt;Je suis arrivé à la DeFi il y a plusieurs années avec une ambition simple : je voulais mettre au travail mes Ether. À l&amp;rsquo;époque ça n&amp;rsquo;était pas une mince affaire mais aujourd&amp;rsquo;hui il existe de nombreuses solutions très intéressantes. Je vais me concentrer sur l&amp;rsquo;une d&amp;rsquo;entre elles : Aave pour deux raisons.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Aave a lancé &lt;strong&gt;un programme de liquidity mining&lt;/strong&gt; payé en StkAave&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; sur le mainnet.&lt;/li&gt;
+&lt;li&gt;Aave est accessible sur la &lt;strong&gt;sidechain Polygon&lt;/strong&gt; où les frais minimes permettent de déployer des stratégies DeFi de manière efficace même avec des petits capitaux. Il y a là aussi un programme de liquidity mining, en MATIC.&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Pour que cette stratégie soit la plus accessible possible, on va développer l&amp;rsquo;exemple sur la sidechain Polygon. Elle est donc possible en utilisant n&amp;rsquo;importe lequel des tokens supportés en collatéral sur le marché Aave/Polygon : MATIC, AAVE, wETH, wBTC, USDC, et DAI.&lt;/p&gt;
+&lt;h3 id=&#34;conditions-dimplémentation&#34;&gt;Conditions d&amp;rsquo;implémentation
+&lt;/h3&gt;&lt;p&gt;La stratégie consiste à &lt;strong&gt;produire des rendements grâce à l&amp;rsquo;emprunt de stablecoins utilisés pour apporter de la liquidité sur le service d&amp;rsquo;échange Curve&lt;/strong&gt;. Grâce au programme de liquidity mining sur Aave, chaque étape du processus est potentiellement lucrative au moins en MATIC.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;⚙ Condition :&lt;/strong&gt; Avoir des tokens acceptés commes collatéral sur Aave, et les ramener sur Polygon par exemple en utilisant &lt;a class=&#34;link&#34; href=&#34;https://wallet.matic.network/bridge/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;le bridge POS&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📅 Horizon temporel :&lt;/strong&gt; Court / moyen terme.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔮 Résultat espéré&lt;/strong&gt; : Rendements en MATIC, stablecoins et ETH.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🃏 Bonus / Facilitateur : /&lt;/strong&gt;. Prospectif : mining CRV &amp;amp; effet de levier potentiel quand les tokens LP Curve Polygon sont acceptés en collatéral sur Aave.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;mettre-des-eth-au-travail-sur-polygon&#34;&gt;Mettre des ETH au travail sur Polygon
+&lt;/h3&gt;&lt;p&gt;Pour illustrer la stratégie, je pars de l&amp;rsquo;hypothèse de générer un rendement à partir d&amp;rsquo;ETH.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-recipes/polygon-aave-curve-eth-farming-tokenbrice.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;polygon-aave-curve-eth-farming-tokenbrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Dépôt d&amp;rsquo;ETH en collatéral sur Aave/Polygon (+natif +MATIC)&lt;/li&gt;
+&lt;li&gt;Emprunt de stablecoins (-APR +MATIC)&lt;/li&gt;
+&lt;li&gt;Dépôt et staking des stablecoins sur Curve/Polygon (+natif +MATIC)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;À noter que les tokens LP Curve Polygon sont considérés pour un ajout potentiel comme collatéral sur le marché Aave. On peut aussi s&amp;rsquo;attendre à un potentiel en CRV sur les positions LP sur Polygon si la DAO le décide.&lt;/p&gt;
+&lt;p&gt;Pour approfondir sur Aave, &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.twitch.tv/videos/994454624&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;je vous propose un live marathon récemment réalisé avec plusieurs membres de l&amp;rsquo;équipe&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;Il est possible de mettre en œuvre cette stratégie en gardant les tokens utilisés comme collatéraux sur le L1 Aave afin de bénéficier du mining de StkAAVE. Il faudra migrer les stablecoins empruntés du réseau Ethereum vers Polygon en utilisant par exemple &lt;a class=&#34;link&#34; href=&#34;https://wallet.matic.network/bridge/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;le bridge POS de Matic&lt;/a&gt;.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;se-prémunir-contre-le-risque-sur-le-prix-du---farming-en-&#34;&gt;Se prémunir contre le risque sur le prix du $ : farming en €
+&lt;/h2&gt;&lt;p&gt;En DeFi, tout se passe en dollar. Ça fait du sens, tout le monde connaît, mais pour un utilisateur européen cela peut poser un vrai risque. En effet, si votre ambition est de générer de quoi vivre avec la DeFi, alors cela signifie que votre sortie se fera éventuellement en Euro.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-recipes/eur-usd-1y.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;eur-usd-1y&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Pour un fermier Européen, il peut donc être &lt;strong&gt;intéressant d&amp;rsquo;avoir une exposition DeFi en € pour éviter ce risque supplémentaire&lt;/strong&gt;. Pour l&amp;rsquo;instant, il n&amp;rsquo;y a tout simplement aucune option d&amp;rsquo;emprunt en Euro autre que &lt;a class=&#34;link&#34; href=&#34;https://mimo.capital/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Mimo Capital&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Le service vous permet d&amp;rsquo;emprunter des PAR depuis ETH, wBTC ou USDC. Le token de gouvernance MIMO est également distribué aux possesseurs de vaults actifs ainsi qu&amp;rsquo;aux apporteurs de liquidité sur les pools Balancer PAR/ETH et PAR/USDC.&lt;/p&gt;
+&lt;p&gt;Néanmoins le protocole est encore récent et le token PAR n&amp;rsquo;est pas encore supporté dans l&amp;rsquo;écosystème, en tant que collatéral sur Aave ou dans une pool Curve par exemple. La situation n&amp;rsquo;est donc pas encore idéale mais elle a le mérite d&amp;rsquo;exister !&lt;/p&gt;
+&lt;p&gt;D&amp;rsquo;autres solutions DeFi-€ sont en cours de développement. MakerDAO par exemple a mentionné un Euro-DAI, tandis que Jarvis Network travaille sur un € stablecoin synthétique, le jEUR.&lt;/p&gt;
+&lt;h3 id=&#34;conditions-dimplémentation-1&#34;&gt;Conditions d&amp;rsquo;implémentation
+&lt;/h3&gt;&lt;p&gt;Pour farmer nativement en Euros, la meilleure option reste encore ce qu&amp;rsquo;il est possible de faire avec du EURS. Depuis le lancement de la pool sur Curve, les options sont multiples.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;⚙ Condition :&lt;/strong&gt; Posséder des EURS / sEUR&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📅 Horizon temporel :&lt;/strong&gt; 1 mois - années&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔮 Résultat espéré&lt;/strong&gt; : Faire fructifier un capital en Euro-stables&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🃏 Bonus / Facilitateur :&lt;/strong&gt; Posséder des VeCRV.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-recipes/EURS-farming-tokenbrice.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;EURS-farming-tokenbrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;La &lt;strong&gt;pool Curve&lt;/strong&gt; directement offre un rendement attractif en CRV même lorsqu&amp;rsquo;il n&amp;rsquo;est pas boosté.&lt;/li&gt;
+&lt;li&gt;Pour revendre automatiquement les CRV farmés afin de composer le rendement, un vault est idéal. &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://yearn.finance&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Yearn&lt;/a&gt; propose un vault sur EURS&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Le farming est également possible via le vault EURS de &lt;a class=&#34;link&#34; href=&#34;https://stakedao.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;StakeDAO&lt;/a&gt;, afin d&amp;rsquo;accumuler aussi des SDT.&lt;/li&gt;
+&lt;li&gt;Ou bien encore, &lt;a class=&#34;link&#34; href=&#34;https://harvest.finance&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Harvest&lt;/a&gt; propose également un vault qui compose l&amp;rsquo;essentiel des rendements tout en rémunérant en FARM.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;J&amp;rsquo;espère que ces différentes recettes sauront vous inspirer. Assurez-vous d&amp;rsquo;être &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/money-market-risks.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;conscient des différents risques liés aux marchés monétaires&lt;/a&gt;&lt;/strong&gt;, utilisés pour toutes ces stratégies.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;🙏 Un grand merci à HHK, Charles, Thomas, Erwan, &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/phil_h&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PhilH&lt;/a&gt; &amp;amp; FrenchTony pour leur relecture attentive de l&amp;rsquo;édition française de cet article et sa traduction en Anglais.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;ensemble-le--blé-foisonne&#34;&gt;Ensemble, le 🌾 Blé foisonne
+&lt;/h2&gt;&lt;p&gt;La DeFi, ça marche encore mieux en communauté ! Pour aller plus loin dans votre découverte, &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://discord.gg/3bWZcK2&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;rejoignez le Discord DeFi France&lt;/a&gt;&lt;/strong&gt;. Vous pourrez échanger avec plus de 1500 DeFians francophones de différentes expériences et horizons.&lt;/p&gt;
+&lt;p&gt;En outre, les contributions sont désormais reconnues - en 🌾 Blé ! La gouvernance de la communauté se décentralise, c&amp;rsquo;est un excellent moment pour s&amp;rsquo;impliquer.&lt;/p&gt;
+&lt;p&gt;Enfin pour mieux comprendre ce nouveau système communautaire, le replay de notre direct de présentation est disponible :&lt;/p&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;iframe loading=&#34;lazy&#34; 
+            src=&#34;https://www.youtube.com/embed/fMpYQYXBrfA&#34; 
+            allowfullscreen 
+            title=&#34;YouTube Video&#34;
+    &gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;Le programme de liquidity mining StkAAVE a été lancé le 26 Avril suite à vote de gouvernance. &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/AaveAave/status/1386753673104134155?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Plus d&amp;rsquo;infos ici&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;Polygon sponsorise un programme de liquidity mining en MATIC, à la fois &lt;a class=&#34;link&#34; href=&#34;https://blog.polygon.technology/defiforall-kicking-off-l2-defi-summer-with-40-million-usd-in-liquidity-mining-rewards-from-4937d7c6e287&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;sur Aave&lt;/a&gt; et sur &lt;a class=&#34;link&#34; href=&#34;https://blog.polygon.technology/continuing-scalability-defi-summer-with-5-million-usd-in-liquidity-mining-rewards-from-polygon-e73a76c5a8ad?gi=9a7b7e130606&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Curve&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
+        <title>🤖 Les vaults : stratégies d&#39;investissement DeFi accessibles ?</title>
+        <link>http://localhost:1313/fr/p/les-vaults-strat%C3%A9gies-dinvestissement-defi-accessibles/</link>
+        <pubDate>Wed, 30 Sep 2020 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/p/les-vaults-strat%C3%A9gies-dinvestissement-defi-accessibles/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2020/vaults/harvest.gif" alt="Featured image of post 🤖 Les vaults : stratégies d&#39;investissement DeFi accessibles ?" /&gt;&lt;p&gt;À mesure que l&amp;rsquo;écosystème des services financiers décentralisés sur Ethereum se développe et mûrit, l&amp;rsquo;offre de services devient plus dense et parfois difficile à comprendre. Si les utilisateurs les plus avertis sur le plan technique peuvent se tenir au courant des dernières sorties et couvrir leurs risques de manière appropriée, les investisseurs moins expérimentés peuvent se sentir largués.&lt;/p&gt;
+&lt;p&gt;Heureusement, il existe des services DeFi adaptés à la diversité des investisseurs qui explorent cet espace. Yearn Finance a été la première plateforme à lancer un type de produits d&amp;rsquo;investissement passif : les vaults.&lt;/p&gt;
+&lt;p&gt;L&amp;rsquo;idée de base est simple comme 1, 2, 3 :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Les vaults sont des &lt;strong&gt;stratégies d&amp;rsquo;investissement tokénisées&lt;/strong&gt; : votre dépôt est représenté par un token (par exemple, yCRV dans la chambre forte de Yearn -&amp;gt; yyCRV/yUSD)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Le vault récolte et réinvestit fréquemment les profits&lt;/strong&gt; (ici CRV) pour racheter  l&amp;rsquo;actif de base fourni, ce qui augmente les rendements.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Les frais sont simplifiés&lt;/strong&gt; : les déposants ne paient pas les frais de gaz de l&amp;rsquo;opération des vaults (comme la récolte). Les frais sont généralement facturés à la sortie du vault.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Donc si vous voulez &lt;strong&gt;éviter les maux de tête&lt;/strong&gt; liés à la chasse à la dernière ferme, à la gestion du claim des bénéfices que vous gagnez, au moment et à la manière de les réinvestir, sans oublier, bien sûr, de tenir compte des coûts du gaz de toutes ces opérations dans le calcul de vos bénéfices, les vaults sont une alternative crédible.&lt;/p&gt;
+&lt;p&gt;Les vaults sont faits pour &lt;strong&gt;abstraire la complexité pour les utilisateurs finaux&lt;/strong&gt;.  Vous déposez des tokens et attendez qu&amp;rsquo;ils élaborent une stratégie pour vous. Voyons donc quelles sont les options disponibles.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;Cet article va droit au but et met en évidence les différents vaults disponibles. Pour en savoir plus sur les débuts de Yearn Finance, &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/yearn-finance-YFI.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;lisez cet article&lt;/strong&gt;&lt;/a&gt;. Pour en savoir plus sur les forks de Yearn, &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/yearn-waifus.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;celui-ci&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;le-plus-simple--les-vaults-basiques&#34;&gt;Le plus simple : les vaults basiques
+&lt;/h2&gt;&lt;p&gt;Les vaults utilisent le token que vous déposez (DAI par exemple) pour mettre en place une stratégie donnée, produire un rendement et le réinvestir automatiquement.&lt;/p&gt;
+&lt;p&gt;Le pionnier est bien sûr Yearn avec la vaults yCRV, mais plusieurs options sont maintenant disponibles ou en cours de déploiement. Cet article donne un aperçu structuré des principales possibilités offertes par les vaults.&lt;/p&gt;
+&lt;p&gt;Ici, vous déposez un token donné pour en gagner davantage au fil du temps, et éventuellement une récompense supplémentaire. Les tokens que vous fournissez ne sont pas utilisés pour fournir des liquidités sur des échanges décentralisés, &lt;strong&gt;de sorte qu&amp;rsquo;il n&amp;rsquo;y a pas d&amp;rsquo;exposition à des pertes impermanentes&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Cependant, &lt;strong&gt;comme de plus en plus de produits de type vaults sont mis sur le marché, vous voulez prendre le temps de comprendre ce qui se passe avec celui que vous choisissez&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Vous trouverez ci-dessous des tableaux résumant les principaux vaults que je connais, avec les tokens qu&amp;rsquo;ils acceptent, le service qu&amp;rsquo;ils exploitent et la manière dont le retour est libellé.&lt;/p&gt;
+&lt;p&gt;La mention &amp;ldquo;retours composés&amp;rdquo; signifie que la stratégie génère un retour fréquemment vendu pour le token de base apporté - cette opération est parfois appelée &amp;ldquo;récolte&amp;rdquo; (harvest).&lt;/p&gt;
+&lt;div class=&#34;notice tip&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#tip-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Astuce&lt;/p&gt;&lt;p&gt;La fréquence de la récolte est importante car elle influencera le facteur de composabilité de la position globale, ainsi que le niveau de risque pris sur le prix du token farmé.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;vaults-stablecoins--btc&#34;&gt;Vaults Stablecoins &amp;amp; BTC
+&lt;/h3&gt;&lt;p&gt;En ce qui concerne les vaults, les tokens les plus couramment acceptés en dépôt sont les stablecoins. Ces vaults déploieront votre capital sur le pool Curve Finance pour gagner des tokens CRV, généralement le pool Y. Des projets plus récents, tels que Pickle Finance, permettent également d&amp;rsquo;exploiter le pool Curve sUSD.&lt;/p&gt;
+&lt;div align=&#34;center&#34;&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/vaults/pickle-pjar0.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;pickle-finance-pjar0&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Infographie détaillant le vault pJar0 de Pickle Finance &lt;a class=&#34;link&#34; href=&#34;https://medium.com/@picklefinance/introducing-picklejars-70a311ab65c5&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;source&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Enfin, certains services comme Harvest ou YFV ont un modèle incitatif en plus de leur vaults : les déposants gagnent le token de gouvernance de la plateforme (FARM ou YFV) en plus du rendement de base.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;TOKENS&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;SERVICE&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;FARME SUR&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;RETOURS&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DAI, USDC, USDT, TUSD&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Harvest.Finance&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Curve&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Retour Curve composé + FARM&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;USDC, USDT, DAI, TUSD, BUSD&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DFI.Money&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Curve&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Retour Curve composé&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DAI, USDC, USDT, TUSD&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;YFV (Seed Pool)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Value&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;YFV/VALUE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;yCRV, DAI, USDC, USDT, TUSD&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Yearn Finance&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Curve&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;CuRetour Curve composé&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;pJar 0 + psCRV pool (Curve sUSD)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Pickle Finance&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Curve/Pickle&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Retour Curve composé + PICKLE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Étant donné que Curve prend également en charge les pools tokenisés de BTC, il existe désormais des vaults pour la BTC également :&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;TOKEN&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;SERVICE&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;FARME SUR&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;RETOURS&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;wBTC, renBTC &amp;amp; CRVRENWBTC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Harvest.Finance&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Curve&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Retour Curve composé + FARM&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;hBTC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DFI.Money&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Curve?&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Retour composé&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;Avec Harvest.Finance, vous pouvez déposer directement le wBTC ou le renBTC, ou le token CRVRENwBTC, qui représente un dépôt dans le Curve&amp;rsquo;s Pool 5 (pool RenBTC &amp;amp; wBTC).&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;vaults-eth&#34;&gt;Vaults ETH
+&lt;/h3&gt;&lt;p&gt;Les vaults sur BTC et stablecoins sont intéressants mais peut-être aimeriez-vous conserver une exposition au prix de l&amp;rsquo;ETH ?&lt;/p&gt;
+&lt;p&gt;Vous pouvez obtenir un tel résultat par vous-même en tirant parti de votre ETH. Vous les utiliserez comme collateral pour générer ou emprunter des stablecoins / WBTC qui sont ensuite déployés pour produire un rendement supérieur à votre coût d&amp;rsquo;emprunt : voici un article que j&amp;rsquo;ai écrit et qui fournit des conseils et des outils pour tirer efficacement parti de l&amp;rsquo;ETH - &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/leveraging-ETH.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;🎚 ETH ou DeFi : pourquoi choisir?&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Toutefois, avec une telle position, vous pouvez être exposé à des liquidations si le prix de l&amp;rsquo;ETH devait baisser.&lt;/p&gt;
+&lt;p&gt;Une fois de plus, Yearn a été le pionnier dans ce domaine avec la libération du vault yETH qui a automatisé tout ce processus. Cependant, le volume des dépôts était énorme et le service s&amp;rsquo;est heurté à des problèmes techniques sur lesquels on travaille actuellement.&lt;/p&gt;
+&lt;p&gt;Alors, au lieu d&amp;rsquo;attendre la réouverture de la chambre forte WETH de Yearn, pourquoi ne pas envisager les &lt;strong&gt;options existantes&lt;/strong&gt; ? Elles ne sont pas aussi complexes que celles de Yearn, puisqu&amp;rsquo;elles n&amp;rsquo;ont pas d&amp;rsquo;effet de levier sur votre ETH ; l&amp;rsquo;ETH est simplement déposée quelque part pour produire un rendement.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;SERVICE&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;FARME SUR&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;RETOUR&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Yearn Finance&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Maker + Curve&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Retour composé (yDAI)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Harvest.Finance&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Dépôt sur Cream&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Retour Cream composé + FARM return (fwETH staking)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;YFV&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Soda&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Soda returns normalized to wETH + VALUE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DFI.Money&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;?&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Retour composé&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Jusqu&amp;rsquo;à présent, nous nous en sommes tenus à de &amp;ldquo;simples&amp;rdquo; vaults où vous déposez un token donné, le laissez reposer un moment et, avec un peu du bon sens, en sortez avec d&amp;rsquo;autres tokens (+éventuellement quelques tokens supplémentaires de gouvernance). Cependant, avec le lancement du token UNI d&amp;rsquo;Uniswap, un autre type de vaults plus risqué est disponible.&lt;/p&gt;
+&lt;h2 id=&#34;vaults-uniuniswap&#34;&gt;Vaults UNI/Uniswap
+&lt;/h2&gt;&lt;h3 id=&#34;les-bases-du-farming-de-luni&#34;&gt;Les bases du farming de l&amp;rsquo;UNI
+&lt;/h3&gt;&lt;p&gt;Avec le lancement du token UNI est venu un programme de distribution instaurant des incitations UNI sur des pools spécifiques :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;ETH/USDC&lt;/li&gt;
+&lt;li&gt;ETH/USDT&lt;/li&gt;
+&lt;li&gt;ETH/DAI&lt;/li&gt;
+&lt;li&gt;ETH/wBTC&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Si vous fournissez des liquidités sur l&amp;rsquo;un des pools énumérés ci-dessus, vous pouvez placer votre token de pool de liquidités pour un revenu UNI supplémentaire directement vers le site d&amp;rsquo;Uniswap. Vous gagnerez ainsi un revenu UNI en continu. Toutefois, vous devrez gérer la position vous-même, ce qui signifie que vous devrez réclamer l&amp;rsquo;UNI (et payer les frais de gaz associés), ainsi que les vendre et les réinvestir.&lt;/p&gt;
+&lt;p&gt;Ces stratégies sont plus risquées que les vaults de l&amp;rsquo;ETH/BTC/Stablecoins. En effet, en cultivant des tokens UNI, vous fournissez des liquidités sur l&amp;rsquo;Uniswap, ce qui comporte un risque de pertes impermanentes.&lt;/p&gt;
+&lt;p&gt;Mais pourquoi faire face aux tracas de l&amp;rsquo;&amp;ldquo;agriculture manuelle&amp;rdquo; quand vous pouvez &lt;strong&gt;laisser un vault faire le travail à votre place&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;lagriculture-uni-à-laide-dun-vault&#34;&gt;L&amp;rsquo;agriculture UNI à l&amp;rsquo;aide d&amp;rsquo;un Vault
+&lt;/h3&gt;&lt;p&gt;En effet, peu après le lancement d&amp;rsquo;Uniswap, plusieurs services ont commencé à proposer des produits de type vaults pour rationaliser l&amp;rsquo;agriculture de l&amp;rsquo;UNI. En voici un aperçu :&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;SERVICE&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;TOKENS&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;RETOUR&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Harvest&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ETH/USDC, ETH/DAI, ETH/USDT, ETH/wBTC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Retour UNI composé + FARM&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Pickle Finance&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ETH/DAI, ETH/USDC, ETH/USDT&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Retour UNI composé + PICKLE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;YFV&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ETH/USDC, ETH/wBTC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Retour UNI composé + VALUE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;Cette liste n&amp;rsquo;est pas exhaustive. Seuls les vaults sont inclus - des services qui réinvestissent automatiquement les bénéfices pour vous.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Il existe d&amp;rsquo;autres possibilités de cultiver l&amp;rsquo;UNI, mais elles nécessitent une plus grande intervention de votre part. Par exemple, avec &lt;a class=&#34;link&#34; href=&#34;http://sakeswap.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Sake Swap&lt;/a&gt;, vous pouvez placer vos tokens Uni-V2 LP de l&amp;rsquo;ETH-Stable pour gagner des tokens UNI et SAKE. Cependant, vous devrez réclamer et gérer vous-même les tokens SAKE &amp;amp; UNI que vous aurez gagnés.&lt;/p&gt;
+&lt;p&gt;Pour en savoir plus sur un vault donné et sur son fonctionnement, n&amp;rsquo;hésitez pas à consulter ses ressources. Yearn et Harvest Finance disposent d&amp;rsquo;une excellente documentation avec des infographies expliquant leurs vaults :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.learnyearn.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Learn Yearn&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://farm.chainwiki.dev/en/home&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Farm Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Avec Antoine, on a également réalisé une &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=XJS3hKU9Z2A&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;vidéo explicative sur Pickle Finance en français&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;notice warning&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Avertissement&lt;/p&gt;&lt;p&gt;Il ne s&amp;rsquo;agit pas de conseils en matière d&amp;rsquo;investissement, restez vigilant et faites vos propres recherches.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Services mentionnés :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://yearn.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Yearn Finance&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://harvest.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Harvest Finance&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://pickle.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Pickle Finance&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://dfi.money/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;DFI.Money&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://yfv.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;YFV&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Bonnes récoltes ! 🚜&lt;/p&gt;
+&lt;div class=&#34;notice tip&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#tip-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Astuce&lt;/p&gt;&lt;p&gt;Cet article a éveillé votre curiosité ? Vous êtes tombés au bon endroit — nous avons un ecosystème dynamique en français pour vous aider à suivre et comprendre la finance décentralisée. Du plus accessible au plus spécialisé :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://discord.gg/3bWZcK2&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;💬 Le serveur Discord DeFi France&lt;/a&gt;&lt;/strong&gt; pour échanger avec la communauté.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://thedailygweifr.substack.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;☕ La version française du Daily Gwei&lt;/a&gt;&lt;/strong&gt; pour des articles et résumés très accessibles.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://banklessfr.substack.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🗞 La newsletter BanklessFR&lt;/a&gt;&lt;/strong&gt; pour comprendre les concepts fondamentaux.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/channel/UCefQC4Y-X9MBRuYBKc2waiQ&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🎥 La chaine Youtube DeFi France&lt;/a&gt;&lt;/strong&gt; pour approfondir avec des lives pointus.&lt;/li&gt;
+&lt;li&gt;&amp;amp; Bien sûr &lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/fr/&#34; &gt;ce blog&lt;/a&gt; qui creuse des sujets spécifiques liés à la pratique de la DeFi.&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;
+
+</description>
+        </item>
+        <item>
+        <title>💦 Pools de Liquidité avec programmes d&#39;incitation - La Tier List</title>
+        <link>http://localhost:1313/fr/p/pools-de-liquidit%C3%A9-avec-programmes-dincitation-la-tier-list/</link>
+        <pubDate>Tue, 07 Jul 2020 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/p/pools-de-liquidit%C3%A9-avec-programmes-dincitation-la-tier-list/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2020/yield-farmer-tier-list/cover.png-" alt="Featured image of post 💦 Pools de Liquidité avec programmes d&#39;incitation - La Tier List" /&gt;&lt;p&gt;La DeFi est comme un gâteau à plusieurs étages. Lorsque vous passez sa porte pour la première fois, faire un dépôt sur Aave et voir votre solde augmenter vous laisse bouche bée. Peu de temps après, grâce à vos propres recherches ou à vos discussions avec la communauté, vous vous rendez compte qu&amp;rsquo;il y a plus que cela &lt;strong&gt;- il pourrait aussi y avoir une cerise sur le gâteau !&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Il existe de nombreuses façons d’obtenir des rendements sur un capital donné en utilisant la finance décentralisée sur Ethereum. &lt;strong&gt;Aujourd&amp;rsquo;hui, nous excluons toute stratégie impliquant un effet de levier&lt;/strong&gt; - la manière la plus simple de réaliser un tel exploit. Il y a encore beaucoup de cultures de haute qualité à planter !&lt;/p&gt;
+&lt;p&gt;En effet, l&amp;rsquo;efficacité du capital augmente à un rythme rapide dans la DeFi grâce à de nouvelles primitives financières comme Compound, Balancer ou Curve. &lt;strong&gt;Il est désormais possible d&amp;rsquo;atteindre jusqu&amp;rsquo;à trois niveaux de rendement&lt;/strong&gt;, et il existe des pools pour tous les différents profils de risque, allant d&amp;rsquo;une exposition à 100 % en stablecoin à une exposition à 100 % en ETH / tokens ERC-20.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;La guerre de la liquidité ne fait que commencer !&lt;/strong&gt; Suivez de près la gouvernance des protocoles dans lesquels vous êtes investi, c&amp;rsquo;est devenu encore plus crucial maintenant. En attendant, puisque la DeFi s&amp;rsquo;apparente de plus en plus à un jeu, permettez-moi d&amp;rsquo;importer un concept hérité de ce milieu : la tier list (liste des niveaux).&lt;/p&gt;
+&lt;p&gt;Dans les jeux de stratégies ou de combat, on utilise des tiers lists pour établir une typologie des personnages/classes et un classement. Aujourd&amp;rsquo;hui, je vais rapporter ce concept à la DeFi pour organiser les pools de liquidité les plus intéressants en groupes cohérents.&lt;/p&gt;
+&lt;h2 id=&#34;avant-de-commencer&#34;&gt;AVANT DE COMMENCER
+&lt;/h2&gt;&lt;p&gt;ℹ À noter - Ce contenu suppose une compréhension de base du monde de la finance décentralisée sur Ethereum. Lisez les ressources d&amp;rsquo;introduction si c&amp;rsquo;est la première fois que vous en entendez parler :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Ce document ne couvrira pas les stratégies d&amp;rsquo;investissement de base de DeFi, détaillées dans le &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/definancial-services-guide.fr.md%22&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;📖 Guide des services DeFinanciers&lt;/a&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Pour plus d&amp;rsquo;informations concernant les outils que vous pouvez utiliser pour mettre en œuvre et gérer ces stratégies, veuillez consulter la &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/defi-farmer-toolbox.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🧰 Trousse à outils du cultivateur DeFi&lt;/a&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Il ne s&amp;rsquo;agit pas de conseils en matière d&amp;rsquo;investissement et ce document ne doit pas être lu comme autre chose qu&amp;rsquo;une liste structurée de pools de liquidités avec programmes d&amp;rsquo;incitation.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;suggérez-les-vôtres-&#34;&gt;Suggérez les vôtres !
+&lt;/h3&gt;&lt;p&gt;Ce billet peut être un document vivant. N&amp;rsquo;hésitez pas à suggérer des pools avec incitation qui manqueraient. Si vous connaissez bien Github, &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/TokenBrice/blog/blob/master/content/posts/2020/yield-farmer-tier-list.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;vous pouvez faire une pull request&lt;/a&gt;&lt;/strong&gt;. Sinon, il vous suffit de prendre contact et de partager de la documentation sur le pool et son programme d&amp;rsquo;incitation.&lt;/p&gt;
+&lt;p&gt;Enfin, permettez-moi de faire la distinction entre :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Liquidity Mining&lt;/strong&gt; : une action de base de la plateforme (telle que l&amp;rsquo;approvisionnement en liquidité) est récompensée par le token natif de la plateforme (ex : BAL sur Balancer)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Programmes d&amp;rsquo;incitation à la liquidité&lt;/strong&gt; (Liquidity Incentive Program) : un pool de liquidité spécifique est éligible à des récompenses supplémentaires, par la mise en jeu des tokens du pool ou des distributions hebdomadaires (mercredi sur Balancer)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;La bonne nouvelle, c&amp;rsquo;est que vous pouvez cumuler les deux ! Voyons comment.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/yield-farmer-tier-list/yield-farmer-tier-list.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;TokenBrice-Yield-Farmer-Tier-List-DeFi&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;niveau-1--le-tiercé-defi&#34;&gt;Niveau 1 : Le tiercé DeFi
+&lt;/h2&gt;&lt;p&gt;Tout en vous présentant les principales possibilités de gains que j&amp;rsquo;ai trouvées, je vous ferai part de considérations plus générales sur l&amp;rsquo;apport de liquidités sur Balancer, telles que des réflexions sur la pondération du pool pour vous aider à prendre des décisions en connaissance de cause.&lt;/p&gt;
+&lt;p&gt;Avant de poursuivre notre rêve le plus fou, le trio de rendement tant attendu, prenons donc une minute pour réfléchir à ce que cela implique. En ce qui concerne les rendements, la crème de la crème est généralement un pool de liquidité avec programme d&amp;rsquo;incitation, ce qui signifie qu&amp;rsquo;il est éligible aux récompenses liquidity mining BAL, en plus du programme d&amp;rsquo;incitation aux liquidités (et des commissions sur les swaps).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Il y a exactement un pool Balancer qui répond à ces critères avec deux stablecoins&lt;/strong&gt; à ma connaissance, donc c&amp;rsquo;est par là que nous commençons :&lt;/p&gt;
+&lt;h3 id=&#34;pool-balancer-50-musd--50-usdc&#34;&gt;Pool Balancer 50% mUSD / 50% USDC
+&lt;/h3&gt;&lt;p&gt;mstable&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; est une méta-stablecoin. Vous pouvez aller sur leur application pour verrouiller vos USDT, USDC, DAI &amp;amp; TUSD pour frapper des mUSD. Une fois que vous possédez mUSD, plusieurs possibilités de retours sont disponibles.&lt;/p&gt;
+&lt;p&gt;La plus directe est la fonction &amp;ldquo;Save&amp;rdquo; de l&amp;rsquo;application mStable. Elle permet de verrouiller vos mUSD afin de générer un rendement grâce au prêt.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/yield-farmer-tier-list/mstable.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;mstable&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Il s&amp;rsquo;agit là d&amp;rsquo;un simple rendement qui ne méritera pas à lui seul un reportage ici.&lt;/p&gt;
+&lt;p&gt;Cependant, c&amp;rsquo;est l&amp;rsquo;introduction parfaite au pool Balancer mUSD/USDC, notre premier tiercé de la journée. Qu&amp;rsquo;est-ce qu&amp;rsquo;un tiercé gagnant ? C&amp;rsquo;est assez simple : 3 couches de rendements :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Commissions sur les swaps&lt;/strong&gt; : C&amp;rsquo;est un pool de liquidité qui facilite les transactions et qui rapporte des frais.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;BAL liquidity mining&lt;/strong&gt;- c&amp;rsquo;est un pool équilibré 50/50 avec une faible commission (5 bps) gagnant le montant maximum de BAL possible (facteur d&amp;rsquo;extraction = 1).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://medium.com/mstable/introducing-meta-mta-mstables-protocol-token-6e1032291ccf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Programme d&amp;rsquo;incitation pool MTA&lt;/a&gt;&lt;/strong&gt; programme sur ce pool.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;EXPOSITION&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;RÉCOMPENSES EN&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;DISPONIBLES DEPUIS&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L1 APR&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L2 APR&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L3 APR / BUDGET INCITATIF&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;50 % USDC&lt;br/&gt;50 %mUSD&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Native&lt;br/&gt;BAL&lt;br/&gt;MTA&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;26 juin 2020&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Variable&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;?? BAL&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;50 000 MTA/semaine&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;em&gt;Récompenses natives = gagnées dans le token que l&amp;rsquo;exposition de base (généralement une commission prélevée sur les transactions facilitées)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;À noter : Les ratios respectifs des quatre stablecoins soutenant le mUSD (la moitié de l&amp;rsquo;exposition) peuvent varier, allez à l&amp;rsquo;application m stable &lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; pour les visualiser :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/yield-farmer-tier-list/musd.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;mstable-asset-distribution&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Ce pool est particulièrement attractif car l&amp;rsquo;exposition est à 100% basée sur des stablecoins, malgré un rendement très solide grâce au ratio minier max BAL + le programme d&amp;rsquo;incitation payé dans le très attendu token MTA.&lt;/p&gt;
+&lt;p&gt;Note/Attention : 💬 Des discussions sont en cours dans le canal de gouvernance &lt;a class=&#34;link&#34; href=&#34;https://discord.com/invite/ARJWaeF&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Balancer Discord&lt;/a&gt; pour abaisser le ratio d&amp;rsquo;exploitation du BAL sur les paires stablecoin/stablecoin, de sorte que les rendements du BAL seront probablement moins élevés à l&amp;rsquo;avenir._&lt;/p&gt;
+&lt;h3 id=&#34;pools-9010-avec-programme-dincitation&#34;&gt;Pools 90/10 avec programme d&amp;rsquo;incitation
+&lt;/h3&gt;&lt;h4 id=&#34;pool-balancer-90-snx--10-usdc&#34;&gt;Pool Balancer 90% SNX / 10% USDC
+&lt;/h4&gt;&lt;p&gt;Vous avez l&amp;rsquo;impression d&amp;rsquo;avoir raté la montée du SNX ? Pour les capitaux moyen (&amp;amp;lt ; 5000 SNX), il est peu judicieux de staker si l&amp;rsquo;on tient compte des coûts du gaz. Ce pool est une excellente alternative pour une exposition aux SNX avec un bon potentiel de rendement.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;EXPOSITION&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;RÉCOMPENSES EN&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;DISPONIBLES DEPUIS&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L1 APR&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L2 APR&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L3 APR / BUDGET INCITATIF&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;90% SNX&lt;br/&gt;10% USDC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Native&lt;br/&gt;BAL&lt;br/&gt;SNX&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;5 juin 2020&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Variable&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;23 % pour un BAL à 10 $&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;FAIT&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Ici, comme le pool est fortement orienté vers le SNX, le retour du BAL n&amp;rsquo;est pas maximisé. Vous vous souvenez du facteur 1 pour l&amp;rsquo;exploitation du BAL sur la pool mUSD ? Ici, il est de 0,36 : vous obtenez environ un tiers de la quantité de BAL que vous gagnez dans un pool à 50/50 et à faible frais.&lt;/p&gt;
+&lt;p&gt;Cependant, les pools 90/10 sont très utiles pour minimiser fortement le risque de pertes impermanentes si vous pensez que le token a un grand potentiel d&amp;rsquo;appréciation.&lt;/p&gt;
+&lt;p&gt;Le &lt;a class=&#34;link&#34; href=&#34;https://blog.synthetix.io/balancer-snx-usdc-liquidity-trial/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;programme d&amp;rsquo;incitation sur ce pool est maintenant terminé&lt;/a&gt;, il est donc de nouveau un pool normal à deux-niveaux rendement.&lt;/p&gt;
+&lt;h4 id=&#34;pools-balancer-jrt&#34;&gt;Pools Balancer JRT
+&lt;/h4&gt;&lt;p&gt;Le réseau Jarvis propose un programme d&amp;rsquo;incitation sur trois pools, tous à 90 % JRT + 10 % DAI, ETH ou USDC. Le modèle de récompense est similaire à celui du pool précédent :&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;EXPOSITION&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;RÉCOMPENSES EN&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;DISPONIBLES DEPUIS&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L1 APR&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L2 APR&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L3 APR / BUDGET D&amp;rsquo;INCITATION&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;90% JRT&lt;br/&gt;10% ETH, DAI ou USDC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Native&lt;br/&gt;BAL&lt;br/&gt;JRT&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;17 juin 2020&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Variable&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;23 % pour un BAL à 10 $&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;70 000 JRT/semaine&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://medium.com/jarvis-network/liquidity-program-with-balancer-db23aa0ce10&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;📖 Introduction au programme d&amp;rsquo;incitation&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Note : le prix du token JRT a été assez actif ces derniers temps. Faites vos propres recherches.&lt;/p&gt;
+&lt;p&gt;⚡ Mise à jour (&lt;em&gt;08 Juillet&lt;/em&gt;): les JRT supplémentaires sont désormais distributés sur TOUTES les pools Balancer vérifiées (whitelisted):&lt;/p&gt;
+&lt;h3 id=&#34;ampl-geyser&#34;&gt;AMPL Geyser
+&lt;/h3&gt;&lt;p&gt;L&amp;rsquo;AMPL est une bête à part entière, je vous invite donc à en lire plus &lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; avant de vous plonger dans celui-ci. Ici, l&amp;rsquo;exposition est de 50 % d&amp;rsquo;ETH et 50 % d&amp;rsquo;AMPL. En plus de vos commissions, vous avez droit à des AMPL supplémentaires &amp;amp; ainsi qu&amp;rsquo;aux habituels rééquilibrages d&amp;rsquo;AMPL (sur vos AMPL = 50 % du capital total).&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;EXPOSITION&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;RÉCOMPENSES EN&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;DISPONIBLES DEPUIS&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L1 APR&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L2 APR&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L3 APR / BUDGET INCITATIF&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;50 % ETH&lt;br/&gt;50 % AMPL&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Native&lt;br/&gt;AMPL&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;21 avril 2020&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Variable&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Variable - Rééquilibrages AMPL&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;36 911 AMPL/mois&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.ampltalk.org/app/forum/ampl-geyser-19/topic/about-the-geyser-21/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;📖 AMPL Geyser Incentive Program Introduction&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;L&amp;rsquo;impact des rééquilibrages peut être difficile à calculer. Ce tableur a récemment été créé pour &lt;a class=&#34;link&#34; href=&#34;https://www.publish0x.com/canuhodl/ampleforth-dollar-ampl-calculator-spreadsheet-for-investors-xmdjxvy&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🧮 aider les investisseurs d&amp;rsquo;AMPL à calculer l&amp;rsquo;impact des rééquilibrages&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/yield-farmer-tier-list/ampl-geyser.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;ampleforth-geyser&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Le code du Geyser est audité &lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt; et assuré sur Nexus Mutual &lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;. Le calcul de la récompense tient ici compte du temps mis en jeu - ce pool est donc le mieux utilisé sur le long terme.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;niveau-2--combien-de-rendements-peut-il-y-avoir-&#34;&gt;Niveau 2 : Combien de rendements peut-il y avoir ?
+&lt;/h2&gt;&lt;h3 id=&#34;pools-synthetix-avec-programme-dincitation&#34;&gt;Pools Synthetix avec programme d&amp;rsquo;incitation
+&lt;/h3&gt;&lt;p&gt;Synthetix a été le pionnier des programmes d&amp;rsquo;incitation à la liquidité avec le premier pool Uniswap sETH/ETH (+SNX). Les pools Synthetix sont toujours très attractifs, nous allons considérer les deux pools les plus attractives :&lt;/p&gt;
+&lt;p&gt;Veuillez noter que le Curve token (CRV), l&amp;rsquo;une des récompenses pour l&amp;rsquo;exploitation des liquidités des deux pools présentés ci-dessous, n&amp;rsquo;est pas encore disponible. [Les mécanismes actuellement documentés du CRV] (&lt;a class=&#34;link&#34; href=&#34;https://github.com/curvefi/curve-dao-contracts/blob/master/doc/readme.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/curvefi/curve-dao-contracts/blob/master/doc/readme.pdf&lt;/a&gt;) peuvent être modifiés avant le lancement.&lt;/p&gt;
+&lt;h3 id=&#34;log--pool-curve-susd&#34;&gt;L&amp;rsquo;OG : Pool Curve sUSD
+&lt;/h3&gt;&lt;p&gt;Tout comme le pool mUSD/USDC, ce pool est exposée à 100 % à des stablecoins, mais les récompenses sont payées en SNX.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;EXPOSITION&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;RÉCOMPENSES EN&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;DISPONIBLE DEPUIS&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L1 APR&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L2 APR&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L3 APR / BUDGET D&amp;rsquo;INCITATION&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;31,58 % USDT&lt;br/&gt;30,67% USDC&lt;br/&gt;24,62% suSD&lt;br/&gt;13,13% DAI&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Native&lt;br/&gt;SNX&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;22 avril 2020&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;~5 %&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;CRV (pas encore en ligne)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;48 000 SNX / semaine&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.synthetix.io/new-curve-pool-launch/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;📖Information sur le programme&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Ce pool est l&amp;rsquo;un des premiers programmes d&amp;rsquo;extraction de liquidités qui existe encore, mais il est encore très compétitif. Si vous avez lu mes précédents guides, vous le savez déjà &lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;la-variante-btc-og--pool-curve-renbtcsbtcwbtc&#34;&gt;La variante BTC-OG : Pool Curve renBTC/sBTC/wBTC
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/img/2020/yield-farmer-tier-list/curve-btc.png&#34; &gt;curve-synthetix-balancer-ren-btc-pool&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Celui-ci est similaire au premier, avec des tokens différents. Ici, votre exposition aux prix est de 100 % en BTC, tandis que vos récompenses pour l&amp;rsquo;exploitation des liquidités sont constituées de quatre tokens DeFi : BAL, SNX, REN &amp;amp; CRV.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;EXPOSITION&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;RÉCOMPENSES EN&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;DISPONIBLES DEPUIS&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L1 APR&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L2 APR&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L3 APR / BUDGET INCITATIF&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;44,54% renBTC&lt;br/&gt;32,21% wBTC&lt;br/&gt;23,26% sBTC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Native&lt;br/&gt;SNX, REN, BAL &amp;amp; CRV&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;19 juin 2020&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;~5 %&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;BAL&lt;br/&gt;CRV&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;10 000 SNX/semaine&lt;br/&gt;25 000 REN/semaine&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.synthetix.io/btc-yield-farming-pool/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;📖Information sur le programme&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Comme ces deux pools Curve ont une exposition totale à des actifs stables (USD) ou relativement stables (BTC), ils constituent une excellente ressource pour &amp;ldquo;parquer&amp;rdquo; les bénéfices réalisés sur des pools plus risquées basés sur l&amp;rsquo;ERC-20. Vous conservez un taux de retour décent sur l&amp;rsquo;actif de base (~3-5%) tout en ayant un beau potentiel haussier sur les récompenses de l&amp;rsquo;exploitation des liquidités.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;niveau-3--deux-niveaux-de-rendement-cest-bien-aussi-&#34;&gt;Niveau 3 : Deux niveaux de rendement, c&amp;rsquo;est bien aussi !
+&lt;/h2&gt;&lt;h3 id=&#34;la-pool-balancer-de-votre-erc-20-préféré&#34;&gt;La Pool Balancer de votre ERC-20 préféré
+&lt;/h3&gt;&lt;p&gt;Balancer est assorti d&amp;rsquo;un programme intégré de liquidity mining en BAL. Il s&amp;rsquo;applique à tout pool impliquant des tokens figurants sur la liste blanche. Par conséquent, tout pool Balancer est déjà doublement gagnant : vous avez droit à des commissions sur les swaps facilités + les récompenses minières BAL.&lt;/p&gt;
+&lt;p&gt;Examinons le profil de rendement d&amp;rsquo;un pool Balancer ERC-20 générique (vérifié) :&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;EXPOSITION&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;RÉCOMPENSES EN&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;DISPONIBLES DEPUIS&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L1 APR&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L2 APR&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L3 APR / BUDGET INCITATIF&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;50% wETH&lt;br/&gt;50% ERC20&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Native&lt;br/&gt;BAL&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Juin&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Variable&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;~60% pour un Bal à 10$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Au-delà de l&amp;rsquo;équilibrage, les programmes d&amp;rsquo;incitation à la liquidité sont à la mode, attendez-vous à en voir d&amp;rsquo;autres, ainsi que plus de liquidity mining. Vous pouvez &lt;strong&gt;utiliser un service comme &lt;a class=&#34;link&#34; href=&#34;https://pools.fyi/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Pool FYI&lt;/a&gt;&lt;/strong&gt; qui possède désormais une balise &amp;ldquo;Incentive&amp;rdquo; pour trouver les meilleures opportunités**. Pour Balancer, utilisez &lt;a class=&#34;link&#34; href=&#34;http://www.predictions.exchange/balancer/%5B%5D&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ce site web&lt;/a&gt; pour explorer les pools et vérifier leur facteur d&amp;rsquo;exploitation BAL.&lt;/p&gt;
+&lt;h3 id=&#34;un-dépôt-simple-sur-compound&#34;&gt;Un dépôt simple sur Compound
+&lt;/h3&gt;&lt;p&gt;Depuis le lancement du COMP, un dépôt simple peut également être considéré comme un double rendement. En effet, en plus du retour de base que le dépôt rapporte, les utilisateurs peuvent désormais bénéficier des récompenses du COMP. Vous pouvez &lt;a class=&#34;link&#34; href=&#34;http://www.predictions.exchange/compound/None&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;les calculer ici&lt;/a&gt;.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;EXPOSITION&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;RÉCOMPENSES EN&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;DISPONIBLES DEPUIS&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L1 APR&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L2 APR&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L3 APR / BUDGET INCITATIF&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Dépend&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Native&lt;br/&gt;COMP&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Juin&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Variable&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Variable dans COMP&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;-risques-assumés---à-lire&#34;&gt;⚠ RISQUES ASSUMÉS - À LIRE
+&lt;/h2&gt;&lt;p&gt;Chaque pool comporte ses propres ensembles de risques, dont voici un aperçu pour vous aider à en tenir compte. Lorsque vous investissez dans un pool de liquidités, vous prenez les risques suivant :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;/TOUJOURS/ Le risque de base du réseau Ethereum (attaque 51%, etc.)&lt;/li&gt;
+&lt;li&gt;/TOUJOURS/ Vous assumez également le risque lié aux smart contracts de tous les tokens impliqués dans le pool.&lt;/li&gt;
+&lt;li&gt;/TOUJOURS/ Ainsi que le risque lié aux smart contracts de l&amp;rsquo;échange qui peuvent avoir des problèmes.&lt;/li&gt;
+&lt;li&gt;/TOUJOURS/ Un risque économique, les pertes impermanentes (pertes par rapport à la détention brute) - qui seront fortement affectées par vos choix de tokens et la pondération des pools.&lt;/li&gt;
+&lt;li&gt;/ENTRÉE &amp;amp; SORTIE/ Les risques associés à tout service que vous utilisez, tel que &lt;a class=&#34;link&#34; href=&#34;https://zapper.fi&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Zapper.fi&lt;/a&gt;, au moment de la transaction.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Je vous présente le profil de risque de l&amp;rsquo;un des pools pour vous aider à le modéliser : le pool mUSD/USDC. Tout comme les rendements, le profil de risque est un gâteau à plusieurs étages :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Je ne développerai pas sur le risque du réseau Ethereum&lt;/li&gt;
+&lt;li&gt;Ici, nous avons deux tokens dans le pool : mUSD &amp;amp; USDC. Pour calculer le risque, nous devons examiner la distribution actuelle de mUSD. Les tokens (USDC &amp;amp; USDT) comportent des risques réels, puisque par exemple &lt;a class=&#34;link&#34; href=&#34;https://support.usdc.circle.com/hc/en-us/articles/360001314526-Circle-USDC-Risk-Factors&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Circle peut geler les soldes USDC de n&amp;rsquo;importe quel compte&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Ici, nous utilisons Balancer. Leurs smart contrats ont été audités récemment par Trail of Bits&lt;sup id=&#34;fnref1:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt; Néanmoins, le protocole est assez récent.&lt;/li&gt;
+&lt;li&gt;Nous avons de la chance avec les pertes impermanentes - étant donné que le pool implique deux tokens stables, le risque est minimisé.&lt;/li&gt;
+&lt;li&gt;Tout dépend des outils que vous utilisez ici. Gardez à l&amp;rsquo;esprit que vous assumez également un risque associé à mUSD/Mstable.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice tip&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#tip-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Astuce&lt;/p&gt;&lt;p&gt;Cet article a éveillé votre curiosité ? Vous êtes tombés au bon endroit — nous avons un ecosystème dynamique en français pour vous aider à suivre et comprendre la finance décentralisée. Du plus accessible au plus spécialisé :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://discord.gg/3bWZcK2&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;💬 Le serveur Discord DeFi France&lt;/a&gt;&lt;/strong&gt; pour échanger avec la communauté.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://thedailygweifr.substack.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;☕ La version française du Daily Gwei&lt;/a&gt;&lt;/strong&gt; pour des articles et résumés très accessibles.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://banklessfr.substack.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🗞 La newsletter BanklessFR&lt;/a&gt;&lt;/strong&gt; pour comprendre les concepts fondamentaux.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/channel/UCefQC4Y-X9MBRuYBKc2waiQ&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🎥 La chaine Youtube DeFi France&lt;/a&gt;&lt;/strong&gt; pour approfondir avec des lives pointus.&lt;/li&gt;
+&lt;li&gt;&amp;amp; Bien sûr &lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/fr/&#34; &gt;ce blog&lt;/a&gt; qui creuse des sujets spécifiques liés à la pratique de la DeFi.&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;Merci à &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/gregoireljda&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Grégoire&lt;/a&gt; pour son aide dans la relecture de cet article.&lt;/em&gt;
+&lt;em&gt;&amp;amp; merci à &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/otherbright&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Jon&lt;/a&gt; pour sa dernière relecture très attentive de la version française.&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://mstable.org&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;mStable&lt;/a&gt; est un &amp;ldquo;meta stablecoin&amp;rdquo; regroupant plusieurs stablecoins (USDC, USDT, TUSD &amp;amp; DAI) sous le tokens mUSD, tandis que les stablecoins vérouillés sont mobilisés de manière similaire à Curve (prêt et apport de liquidité).&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;Vous pouvez consulter la distribution actuelle des tokens sous-jacent à mUSD sur l&amp;rsquo;application &lt;a class=&#34;link&#34; href=&#34;https://app.mstable.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;mStable app&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://ampleforth.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Ampleforth (AMPL)&lt;/a&gt; est une &amp;ldquo;monnaie adaptative fondée sur une économie solide&amp;rdquo;. Elle vise à fournir un nouveau type d&amp;rsquo;actif dont les mouvements de prix ne sont corrélés à aucun autre.&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/ampleforth/ampleforth-audits/blob/master/token-geyser/v1.0.0/CertiK_Verification_Report.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Certik - Rapport d&amp;rsquo;audit 28 février 2020&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref1:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:5&#34;&gt;
+&lt;p&gt;Il y a actuellement 51 643 NXM mis en jeu sur le contrat AMPL Geyser &lt;a class=&#34;link&#34; href=&#34;https://etherscan.io/address/0xd36132e0c1141b26e62733e018f12eb38a7b7678&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;code&gt;0xd36132e0c1141b26e62733e018f12eb38a7b7678&lt;/code&gt;&lt;/a&gt;. &lt;img src=&#34;http://localhost:1313/img/2020/yield-farmer-tier-list/ampl-geyser-insurance.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;AMPL-Geyser-Insurance&#34;
+	
+	
+&gt;&amp;#160;&lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:6&#34;&gt;
+&lt;p&gt;Le pool Curve sUSD a déjà été mentionné dans le cadre d&amp;rsquo;une stratégie d&amp;rsquo;investissement de DeFi basée sur une participation de SNX dans le &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/fr/posts/2020/definancial-services-guide/#5-a-le-synthetixcurve-kebb-alias-the-4-steaks-yieldburger&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Guide des services DeFinanciers&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

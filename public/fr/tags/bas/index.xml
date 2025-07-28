@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>BAS on TokenBrice</title>
+        <link>http://localhost:1313/fr/tags/bas/</link>
+        <description>Recent content in BAS on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>fr</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Sat, 16 Jan 2021 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/fr/tags/bas/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>⚖ L&#39;histoire de deux modèles de seigneuriage : Basis contre ESD</title>
+        <link>http://localhost:1313/fr/seigneuriage-basis-vs-esd/</link>
+        <pubDate>Sat, 16 Jan 2021 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/seigneuriage-basis-vs-esd/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2021/seigniorage-basis-vs-esd/cover.png" alt="Featured image of post ⚖ L&#39;histoire de deux modèles de seigneuriage : Basis contre ESD" /&gt;&lt;p&gt;Il y a quelques semaines, j&amp;rsquo;ai partagé mon premier billet sur les stablecoins algorithmiques en soulignant les principales caractéristiques qui rendaient de tels projets intéressants à mes yeux. Dans cet article, nous allons approfondir le sujet, avec une &lt;strong&gt;analyse comparative des deux principaux modèles&lt;/strong&gt; : le modèle Basis et le modèle ESD.&lt;/p&gt;
+&lt;p&gt;Tous deux sont utilisés avec succès par le projet qui portent leur nom mais aussi par de nombreux forks, plus ou moins pertinents. Alors que le domaine des stablecoins algorithmiques se structure, il semble y avoir un &lt;strong&gt;consensus autour de ces deux approches, désormais utilisés comme modèle&lt;/strong&gt; pour lancer rapidement de nouveaux projets essayant diverses modifications, comme l&amp;rsquo;ancrage du système à une autre monnaie que le dollar, telle que l&amp;rsquo;or ou l&amp;rsquo;euro.&lt;/p&gt;
+&lt;p&gt;La pléthore de forks existants autorise aux plus récents de s&amp;rsquo;inspirer des améliorations existantes ou à venir des systèmes en service, ce qui permet de faire un bond en avant dans l&amp;rsquo;innovation. Mais avant de plonger dans les arcanes du dernier token élastique en or, il est bon de s&amp;rsquo;assurer que vous comprenez les modèles sous-jacents. C&amp;rsquo;est la raison pour laquelle nous sommes ici aujourd&amp;rsquo;hui.&lt;/p&gt;
+&lt;h2 id=&#34;1-de-vastes-bases-pour-les-monnaies-élastiques&#34;&gt;1. De vastes bases pour les monnaies élastiques
+&lt;/h2&gt;&lt;p&gt;Pour dire les choses simplement, les deux modèles s&amp;rsquo;appuient sur le modèle Ampleforth précédent qui a été le premier à proposer des &amp;ldquo;monnaies élastiques&amp;rdquo; dont le total circulant réagit aux conditions du marché. Le principal problème avec Ampleforth est que tout le monde est exposé aux rebases, ce qui entrave l&amp;rsquo;utilisation de l&amp;rsquo;AMPL comme moyen d&amp;rsquo;échange.&lt;/p&gt;
+&lt;p&gt;Les deux nouvelles versions abordent donc ce problème sous un angle différent :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Avec le modèle de seigneuriage, &lt;strong&gt;le mécanisme de rebase est séparé sur un token différent&lt;/strong&gt;, la part - ouvrant la voie à un stablecoin plus utilisable.&lt;/li&gt;
+&lt;li&gt;Dans le modèle ESD, il n&amp;rsquo;y a toujours qu&amp;rsquo;un seul token mais le verrouillage DAO et LP aboutissent à un résultat similaire.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Les deux modèles introduisent également le mécanisme des obligations/coupons pour &lt;strong&gt;ajouter une incitation positive lorsque le prix est inférieur à l&amp;rsquo;ancrage&lt;/strong&gt;, ce qui contribue à stabiliser davantage le stablecoin.&lt;/p&gt;
+&lt;p&gt;Ainsi, aujourd&amp;rsquo;hui, après avoir rappelé les bases, nous allons comparer le modèle Basis (forké par MithCash, OneCoin, et plus) au modèle ESD (utilisé dans DSD, ZAI, DAIQ, etc.).&lt;/p&gt;
+&lt;p&gt;Je ne vais pas expliquer les modèles en détail mais ce tableau récapitule les principales différences :&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;/&lt;/th&gt;
+&lt;th&gt;MODÈLE BASIS&lt;/th&gt;
+&lt;th&gt;MODÈLE ESD&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;TOKENS&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;BAC = stablecoin &lt;br&gt; BAS = une part du protocole &lt;br&gt;BAB = 1  BAC réclamable pendant les phases d&amp;rsquo;expansion&lt;/td&gt;
+&lt;td&gt;ESD = stablecoin &lt;br&gt; ESDS = 1  ESD réclamable pendant les phases d&amp;rsquo;expansion&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;LIQUIDITÉ&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Paire BAC/DAI : incitations BAS continues (1an) &lt;br&gt;Pas de vérouillage&lt;/td&gt;
+&lt;td&gt;Incitations ESD/USDC seulement si ESD&amp;gt;1 &lt;br&gt; blocage de 5 epochs&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;MECANISME RETOUR AU PEG (&amp;lt;1)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Obligations (BAB) : BAB = BAC(twap)^2 &lt;br&gt; Pas de date d&amp;rsquo;expiration&lt;/td&gt;
+&lt;td&gt;Coupons (ESDS) La tarification basée sur un premium, expire après 90 epochs (30 jours)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;LORS DE L&amp;rsquo;EXPANSION (&amp;gt;1), QUI L&amp;rsquo;OBTIENT?&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Boardroom BAS (stake) + Trésorerie&lt;/td&gt;
+&lt;td&gt;Répartition dynamique entre LP et DAO en fonction de la dette protocolaire&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;AUTRES MÉCANISMES IMPORTANTS&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Paire Uni BAS/DAI avec les incitations BAS &lt;br&gt;BAS/DAI &amp;amp; BAC/DAI farmable par les vaults - Harvest, Pickle, etc.&lt;/td&gt;
+&lt;td&gt;DAO auto compound mais avec un long lockup&lt;br&gt;Lockups -&amp;gt; intégrations limitées par tiers&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;2--vue-densemble--lefficacité-en-gaz&#34;&gt;2. ⛽ Vue d&amp;rsquo;ensemble : l&amp;rsquo;efficacité en gaz
+&lt;/h2&gt;&lt;p&gt;Avant d&amp;rsquo;entrer dans les détails de chaque élément, voici un autre point clé des systèmes à prendre en compte si vous voulez y participer : quel coûts en gaz pour l&amp;rsquo;utilisateur ?&lt;/p&gt;
+&lt;p&gt;Vous trouverez ici quelques indications sur le nombre et les flux de transactions nécessaires pour participer aux différentes parties du système que nous avons décrit, vous aidant à évaluer si cela a un sens pour vous, en ce qui concerne le gaz.&lt;/p&gt;
+&lt;p&gt;Dans l&amp;rsquo;ensemble, les &lt;strong&gt;positions fournissant des liquidités sont celles qui nécessitent le plus de transactions&lt;/strong&gt;, en particulier dans le modèle ESD où vous devez lier et délier vos tokens LP et réclamer des récompenses.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Je garde la terminonolgie en anglais car c&amp;rsquo;est une boucherie incompréhensible en français. Referrez-vous à la note en bas de page si un terme vous manque.&lt;/em&gt; &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h4 id=&#34;21-lp---basis-cash-&#34;&gt;2.1. LP - Basis Cash ⭐⭐⭐
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Entrée : Stake token LP&lt;/li&gt;
+&lt;li&gt;Récompense : Réclamation (continu)&lt;/li&gt;
+&lt;li&gt;Sortie : Unstake le token LP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;22-lp---esd-&#34;&gt;2.2. LP - ESD ⭐
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Entrée : Stage -&amp;gt; Bound&lt;/li&gt;
+&lt;li&gt;Réclamation de récompense : Unstage-&amp;gt; Stage&amp;gt; (attendre 5 epochs) -&amp;gt; Claim&lt;/li&gt;
+&lt;li&gt;Sortie : Unstage -&amp;gt; (attendre 5 epochs) -&amp;gt; Unbound&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;En ce qui concerne la Boardroom et la DAO, &lt;strong&gt;le flux est moins lourd en termes de transactions&lt;/strong&gt;, donc plus avantageux pour les petits détenteurs :&lt;/p&gt;
+&lt;h4 id=&#34;23-boardroom---basis-cash-&#34;&gt;2.3. Boardroom - Basis Cash ⭐⭐⭐
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Entrée : Stake BAS&lt;/li&gt;
+&lt;li&gt;Récompense : Claim (après la fin d&amp;rsquo;une epoch &amp;gt;1,05)&lt;/li&gt;
+&lt;li&gt;Sortie : Unstake BAS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Remarque : pendant les phases d&amp;rsquo;expansion, vous pouvez laisser les BAC s&amp;rsquo;accumuler dans la boardroom et réclamer plusieurs jours de récompense en même temps.&lt;/p&gt;
+&lt;h4 id=&#34;24-esd---dao-&#34;&gt;2.4. ESD - DAO ⭐⭐⭐⭐
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Entrée : Stage ESD -&amp;gt; Bound ESD&lt;/li&gt;
+&lt;li&gt;Récompense : aucune transaction requise&lt;/li&gt;
+&lt;li&gt;Sortie : Unstage ESD -&amp;gt; (attendre 15 epochs) -&amp;gt; Unbond ESD&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note : Pendant les phases d&amp;rsquo;expansion, les récompenses produites par le DAO sont automatiquement composées (= bounded) sans qu&amp;rsquo;une action soit requise de la part de l&amp;rsquo;utilisateur final.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;3-analyse-algorithmique-comparative-des-stablecoins--basis-vs-esd&#34;&gt;3. Analyse algorithmique comparative des stablecoins : Basis vs ESD
+&lt;/h2&gt;&lt;p&gt;Vous trouverez l&amp;rsquo;essentiel de mon analyse dans le tableau suivant. Si vous connaissez bien les deux projets, cela devrait suffire, sinon vous pouvez lire les explications pour chaque avantage et inconvénient sous le tableau.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Modèle Basis&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Modèle ESD&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;👍Avantages&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Pool stablecoin plus liquides &lt;br&gt; La part est &amp;ldquo;fluide&amp;rdquo; &lt;br&gt;Meilleur système de coupons &lt;br&gt;Fermes (intégrations de tiers)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Détenteurs plus engagés &lt;br&gt;Cycles plus rapides : peuvent s&amp;rsquo;adapter de manière plus dynamique aux marchés&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;👎Inconvénients&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Utilité limité de BAS quand BAC&amp;lt;1 &lt;br&gt; Prix de BAS 100%  corrélé à BAC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Système moins accessible &lt;br&gt; Système de coupon plus risqué (expiration) &lt;br&gt; Lots massifs de nouveaux ESD&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice warning&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Avertissement&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Attention  : Il ne s&amp;rsquo;agit pas de conseil en investissement.&lt;/strong&gt;  Je ne suis pas qualifié pour en fournir. Il s&amp;rsquo;agit d&amp;rsquo;une simple analyse technique de deux systèmes de seigneuriage mis en œuvre sur le réseau Ethereum : le compte-rendu d&amp;rsquo;un agriculteur 🚜&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Maintenant que nous sommes à l&amp;rsquo;aise avec les bases de chaque modèle et de leur efficacité en matière de gaz, détaillons les avantages et les inconvénients de chacun :&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;31--avantages-du-modèle-basis&#34;&gt;3.1. 👍 Avantages du modèle Basis
+&lt;/h3&gt;&lt;h4 id=&#34;311-des-pools-plus-liquides&#34;&gt;3.1.1. Des pools plus liquides
+&lt;/h4&gt;&lt;p&gt;Dans le modèle de Basis, les apporteurs de liquidité sur &lt;strong&gt;BAC/DAI sont continuellement récompensés par des tokens BAS&lt;/strong&gt;. Comme la récompense BAS se poursuit même lorsque BAC est en phase de contraction, nous n&amp;rsquo;observons pas la même réduction composée de la liquidité que celle observée dans le modèle ESD : lorsque le prix de l&amp;rsquo;ESD est en baisse et que les fournisseurs de liquidité se retirent en même temps.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/seigniorage-basis-vs-esd/liquidity-esd-bac.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;liquidity-esd-bac-tokenbrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Nous pouvons voir que la liquidité de &lt;strong&gt;ESD est assez peu stable&lt;/strong&gt; alors que celle de BAC est principalement corrélée au prix de BAC (attendu).&lt;/p&gt;
+&lt;h4 id=&#34;312-part-fluide&#34;&gt;3.1.2. Part fluide
+&lt;/h4&gt;&lt;p&gt;La part est fluide en ce sens qu&amp;rsquo;il n&amp;rsquo;y a actuellement aucun engagement requis pour être éligible au BAC de la Boardroom. Bien que cela puisse également rendre le prix du BAS plus difficile à stabiliser, cela rend la composante de récompense de l&amp;rsquo;expansion du système plus largement accessible et moins manipulable.&lt;/p&gt;
+&lt;h4 id=&#34;313-de-meilleurs-coupons&#34;&gt;3.1.3. De meilleurs coupons
+&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;Les coupons de Basis (BAB - Bounds) n&amp;rsquo;ont pas de date d&amp;rsquo;expiration&lt;/strong&gt;. Ils peuvent être échangés contre 1 BAC tant que le BAC est &amp;gt; 1,05. Cela rend l&amp;rsquo;achat de coupons moins risqué que dans le cadre de l&amp;rsquo;ESD où ils expirent.&lt;/p&gt;
+&lt;h4 id=&#34;314-intégrable-par-un-tiers&#34;&gt;3.1.4. Intégrable par un tiers
+&lt;/h4&gt;&lt;p&gt;Les récompenses du modèle de base sont distribuées par le biais d&amp;rsquo;un &lt;strong&gt;contrat de staking standard&lt;/strong&gt;, permettant et facilitant l&amp;rsquo;intégration par des tiers. Il existe déjà des vaults Harvest &amp;amp; Pickle pour simplifier l&amp;rsquo;exploitation des pools BAC/DAI, BAS/DAI, MIC/USDT et MIS/USDT.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/seigniorage-basis-vs-esd/harvest.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;harvest-basis-cash-mith-cash&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;32--les-inconvénients-du-modèle-basis&#34;&gt;3.2. 👎 Les inconvénients du modèle Basis
+&lt;/h3&gt;&lt;h4 id=&#34;321-la-part-a-une-faible-utilité-lorsque-baclt1&#34;&gt;3.2.1. La part a une faible utilité lorsque BAC&amp;lt;1
+&lt;/h4&gt;&lt;p&gt;La principale faiblesse, et de loin la plus importante à ce jour, de la mise en œuvre actuelle du modèle Basis est la &lt;strong&gt;faible utilité de la part&lt;/strong&gt;. Dans les phases d&amp;rsquo;expansion, son prix s&amp;rsquo;apprécie généralement en raison du BAC nouvellement frappé auquel il donne accès.&lt;/p&gt;
+&lt;p&gt;Cependant, l&amp;rsquo;utilité du BAS est faible dans les phases de contraction, à l&amp;rsquo;exception de son pouvoir de gouvernance. En phase de contraction, la seule option de gain potentiel est de s&amp;rsquo;engager dans le pool BAS/DAI pour des BAS supplémentaires, mais c&amp;rsquo;est un jeu très risqué avec une action de prix BAS baissière (contraction).&lt;/p&gt;
+&lt;p&gt;Plusieurs projets travaillent déjà sur des solutions pour y remédier.&lt;/p&gt;
+&lt;h4 id=&#34;322-le-prix-de-laction-est-corrélé-à-100--au-prix-du-stablecoin&#34;&gt;3.2.2. Le prix de l&amp;rsquo;action est corrélé à 100 % au prix du stablecoin
+&lt;/h4&gt;&lt;p&gt;Le deuxième inconvénient est une conséquence directe du premier. En raison du manque d&amp;rsquo;utilité du BAS en dehors du BAC en expansion, &lt;strong&gt;son prix est directement corrélé au prix du BAC&lt;/strong&gt;. Une utilité supplémentaire sur le BAS pourrait permettre aux deux tokens d&amp;rsquo;avoir des cycles plus indépendants, apportant plus de stabilité au modèle dans son ensemble.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;33--avantages-du-modèle-desd&#34;&gt;3.3. 👍 Avantages du modèle d&amp;rsquo;ESD
+&lt;/h3&gt;&lt;h4 id=&#34;331-des-détenteurs-plus-engagés&#34;&gt;3.3.1. Des détenteurs plus engagés
+&lt;/h4&gt;&lt;p&gt;Dans le modèle d&amp;rsquo;ESD, il n&amp;rsquo;y a &lt;strong&gt;pas d&amp;rsquo;accès à l&amp;rsquo;ESD nouvellement créée sans s&amp;rsquo;engager pour plusieurs epochs&lt;/strong&gt;, au moins 5 avec le LP. Cela rend les grands détenteurs plus susceptibles d&amp;rsquo;être activement impliqués dans le processus de frappe et de stabilisation.&lt;/p&gt;
+&lt;h4 id=&#34;332-sadapter-de-manière-plus-dynamique-aux-conditions-du-marché&#34;&gt;3.3.2. S&amp;rsquo;adapter de manière plus dynamique aux conditions du marché
+&lt;/h4&gt;&lt;p&gt;Dans l&amp;rsquo;ensemble, le système d&amp;rsquo;ESD fonctionne sur une &lt;strong&gt;période trois fois plus courte que Basis&lt;/strong&gt;, ce qui permet des ajustements plus fluides et dynamiques. Le DSD va encore plus loin avec une epoch de 2 heures (= 12x le rythme de Basis).&lt;/p&gt;
+&lt;h3 id=&#34;34--les-inconvénients-du-modèle-esd&#34;&gt;3.4. 👎 Les inconvénients du modèle ESD
+&lt;/h3&gt;&lt;h4 id=&#34;341-complexité-globale-du-système&#34;&gt;3.4.1. Complexité globale du système
+&lt;/h4&gt;&lt;p&gt;En raison des vérouillages, stage, boundi et autres limites supplémentaires nécessaires pour mettre en œuvre la fonctionnalité de partage directement au niveau des stablecoins, les systèmes basés sur l&amp;rsquo;ESD ont tendance à être plus &lt;strong&gt;complexes à appréhender&lt;/strong&gt;, en particulier pour les nouveaux arrivants.&lt;/p&gt;
+&lt;p&gt;On peut même le constater dans les mèmes, où les joueurs ESD/DSD aiment se mimer avec un haut coefficient intellectuel. L&amp;rsquo;expiration des coupons rend le système de stabilisation extrêmement peu convivial pour les nouveaux arrivants, ce qui n&amp;rsquo;est pas nécessairement une mauvaise chose en soi, mais voyez le point suivant.&lt;/p&gt;
+&lt;h4 id=&#34;342-incitation-plus-faible-des-coupons&#34;&gt;3.4.2. Incitation plus faible des coupons
+&lt;/h4&gt;&lt;p&gt;Les coupons ESD ont une date d&amp;rsquo;expiration, ce qui transforme le système des coupons en un peu de roulette russe. En raison de cette conception, il existe de sérieux risques de perdre tout le capital engagé en brûlant l&amp;rsquo;ESD pour les coupons, même si le système ESD se maintient à long terme. En effet, une fois que l&amp;rsquo;ESD est transformée en coupon, le propriétaire dispose de &lt;strong&gt;90 epochs (~30 jours) pour les réclamer avant leur expiration.&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;343-lots-desd-nouvellement-frappés&#34;&gt;3.4.3. Lots d&amp;rsquo;ESD nouvellement frappés
+&lt;/h4&gt;&lt;p&gt;Enfin, la logique d&amp;rsquo;émission des systèmes basés sur l&amp;rsquo;ESD, associée aux vérouillages tend à produire des &lt;strong&gt;&amp;ldquo;raindrop epochs &amp;ldquo;&lt;/strong&gt; où la plus grande partie de l&amp;rsquo;ESD nouvellement frappée est déverrouillée, ce qui peut déclencher une violente action sur le prix du stablecoin.&lt;/p&gt;
+&lt;p&gt;Lors de la dernière phase d&amp;rsquo;expansion, la période autour de l&amp;rsquo;epoch 396 était célèbre et effrayante parce que la plupart des DSD nouvellement frappés y sont devenus transférables :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/seigniorage-basis-vs-esd/dsd-raindrop.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;DSD-epoch-396-397-tokenbrice&#34;
+	
+	
+&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Oui, il s&amp;rsquo;agit de DSD, mais des tendances similaires sont observées sur l&amp;rsquo;ESD. C&amp;rsquo;est dû au vérouillage dans la DAO et au calendrier d&amp;rsquo;émission.&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;4-la-boîte-à-outils-algostable&#34;&gt;4. La boîte à outils Algostable
+&lt;/h2&gt;&lt;p&gt;Avant de vous laisser partir, voici un rapide aperçu des principaux outils utiles au suivi et à la gestion des positions pour les quatre projets. Nous avons de la chance ! Il existe des outils communautaires supers conçus pour vous aider à suivre les stablecoins algorithmiques.&lt;/p&gt;
+&lt;div class=&#34;notice tip&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#tip-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Astuce&lt;/p&gt;&lt;p&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://vfat.tools/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Vfat en particulier&lt;/a&gt;&lt;/strong&gt; a été très réactif en mettant à jour ses outils de suivi et de gestion pour les projets les plus récents. Il inclut même un &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://vfat.tools/seigniorage/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;aperçu des tokens de seigneuriage&lt;/a&gt;&lt;/strong&gt; maintenant :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/seigniorage-basis-vs-esd/vfat.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;vfat-seigniorage-overview&#34;
+	
+	
+&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Pour l&amp;rsquo;ESD, votre tableau de bord principal est &lt;a class=&#34;link&#34; href=&#34;https://esd.tools/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ESDTools&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Pour DSD, &lt;a class=&#34;link&#34; href=&#34;https://dsd.tools/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DSDTools&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Pour Basis Cash, &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://bc.tools/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;BCTools&lt;/a&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Vous pouvez utiliser &lt;a class=&#34;link&#34; href=&#34;https://duneanalytics.com/tongnk/esd_1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ce tableau de bord pour suivre la sortie des ESD et DSD nouvellement frappés&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Enfin, les quatre projets sont supportés par &lt;a class=&#34;link&#34; href=&#34;https://zapper.fi/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Zapper&lt;/a&gt; et &lt;a class=&#34;link&#34; href=&#34;https://debank.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeBank&lt;/a&gt; pour suivre vos investissements. Vous pouvez également utiliser &lt;a class=&#34;link&#34; href=&#34;https://pickle.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Pickle&lt;/a&gt; ou &lt;a class=&#34;link&#34; href=&#34;https://harvest.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Harvest&lt;/a&gt; pour gérer votre position dans les pools BAC/DAI, BAS/DAI, MIC/USDT et MIS/USDT.&lt;/p&gt;
+&lt;h3 id=&#34;41-ressources-supplémentaires&#34;&gt;4.1. Ressources supplémentaires
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Pour en savoir plus sur le contexte des stablecoins algorithmiques, n&amp;rsquo;hésitez pas à &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/algorithmic-stablecoins.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;lire mon précédent article sur le sujet&lt;/a&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Pour en savoir plus, les francophones apprécieront cette &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=TuenkIZZEq0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🇫🇷 vidéo de 50 min expliquant les deux modèles&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Si vous lisez l&amp;rsquo;Anglais, cet article publié sur Derebit vaut la lecture : &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://insights.deribit.com/market-research/stability-elasticity-and-reflexivity-a-deep-dive-into-algorithmic-stablecoins/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Stabilité, élasticité et réflexivité : A Deep Dive into Algorithmic Stablecoins&lt;/a&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;notice tip&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#tip-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Astuce&lt;/p&gt;&lt;p&gt;Cet article a éveillé votre curiosité ? Vous êtes tombés au bon endroit — nous avons un ecosystème dynamique en français pour vous aider à suivre et comprendre la finance décentralisée. Du plus accessible au plus spécialisé :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://discord.gg/3bWZcK2&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;💬 Le serveur Discord DeFi France&lt;/a&gt;&lt;/strong&gt; pour échanger avec la communauté.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://thedailygweifr.substack.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;☕ La version française du Daily Gwei&lt;/a&gt;&lt;/strong&gt; pour des articles et résumés très accessibles.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://banklessfr.substack.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🗞 La newsletter BanklessFR&lt;/a&gt;&lt;/strong&gt; pour comprendre les concepts fondamentaux.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/c/DeFiFrance&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🎥 La chaine Youtube DeFi France&lt;/a&gt;&lt;/strong&gt; pour approfondir avec des lives pointus.&lt;/li&gt;
+&lt;li&gt;&amp;amp; Bien sûr &lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/fr/&#34; &gt;ce blog&lt;/a&gt; qui creuse des sujets spécifiques liés à la pratique de la DeFi.&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;Stage/Unstage est la première étape d&amp;rsquo;engagement avec le mecanisme, une forme de SAS. Un fois staged, vous pouvez &amp;ldquo;bound&amp;rdquo; pour etre éligible aux récompenses s&amp;rsquo;il y en an. Il vous faudra parfois &amp;ldquo;claim&amp;rdquo; c&amp;rsquo;est à dire signer une transaction pour récupérer les tokens gagnés.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
+        <title>L&#39;état et le futur des stablecoins algorithmiques</title>
+        <link>http://localhost:1313/fr/p/l%C3%A9tat-et-le-futur-des-stablecoins-algorithmiques/</link>
+        <pubDate>Mon, 28 Dec 2020 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/p/l%C3%A9tat-et-le-futur-des-stablecoins-algorithmiques/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2020/algorithmic-stablecoins/cover.pn" alt="Featured image of post L&#39;état et le futur des stablecoins algorithmiques" /&gt;&lt;p&gt;Depuis début décembre, une nouvelle tendance se dessine dans le DeFi : les stablecoins algorithmiques. Plusieurs projets ont été lancés et ont connu une croissance importante, suscitant encore plus d&amp;rsquo;intérêt pour ce sous-ensemble de l&amp;rsquo;espace.&lt;/p&gt;
+&lt;p&gt;Avant de nous plonger dans ce qu&amp;rsquo;ils sont et ce qu&amp;rsquo;ils impliquent, abordons d&amp;rsquo;abord les marchés envisageables. Les stablecoins sur Ethereum sont massifs : ils circulent autour de 20B USDT, 3.5B USDC &amp;amp; 1B DAI. Comme vous pouvez le constater, la majeure partie du volume est actuellement desservie par des stablecoins nécessitant une certaine forme de confiance, tels que &lt;strong&gt;USDC ou USDT : la société émettrice a le pouvoir de geler les actifs et de manipuler les soldes&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Maker a exploré une autre approche avec le DAI qui comporte beaucoup moins de compromis - cependant, l&amp;rsquo;extensibilité est réduite. En outre, il est difficile de considérer le DAI comme &amp;ldquo;suffisamment trustless&amp;rdquo; aujourd&amp;rsquo;hui alors que 60% des garanties utilisées pour le frapper ne le sont pas (USDC, wBTC, TUSD, etc.)&lt;/p&gt;
+&lt;p&gt;Il convient donc de rappeler que jusqu&amp;rsquo;à présent, il existe une demande insatisfaite évidente dans le domaine des stablecoins - ceux qui ont atteint un total circulant important l&amp;rsquo;ont fait avec des compromis significatifs, ce qui leur a permis de satisfaire les marchés bien qu&amp;rsquo;il s&amp;rsquo;agisse de services nécessitant de la confiance, et qui en sont plus ou moins dignes (en particulier USDT).&lt;/p&gt;
+&lt;p&gt;La raison pour laquelle j&amp;rsquo;écris cet article aujourd&amp;rsquo;hui est qu&amp;rsquo;après avoir suivi l&amp;rsquo;évolution de l&amp;rsquo;espace des stablecoins pendant des années, il semble que nous ayons atteint une percée passionnante avec une nouvelle génération de stablecoins capables d&amp;rsquo;offrir &lt;strong&gt;à la fois une évolutivité et une trustlessness&lt;/strong&gt;. Le sujet n&amp;rsquo;est ni simple ni facilement accessible, surtout pour les nouveaux arrivants. Je ferai de mon mieux pour vous guider pas à pas dans le processus de réflexion.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;pourquoi-avons-nous-besoin-de-stablecoins-trustless-&#34;&gt;Pourquoi avons-nous besoin de stablecoins trustless ?
+&lt;/h3&gt;&lt;p&gt;Avant de nous plonger dans quel projet  fait quoi et à quelle fin prenons un peu de recul. Nous avons établi qu&amp;rsquo;il existe une demande importante de stablecoins, et qu&amp;rsquo;aucune des offres phares actuelles n&amp;rsquo;est suffisamment trustless. Mais qu&amp;rsquo;est-ce que cela signifie exactement ?&lt;/p&gt;
+&lt;p&gt;En termes simples, la &lt;strong&gt;trustlessness signifie que l&amp;rsquo;ensemble du système ne nécessite aucun point de confiance central pour fonctionner correctement&lt;/strong&gt;. On parle souvent de &amp;ldquo;résistance à la censure&amp;rdquo;, une propriété différente qui découle de la trustlessness. D&amp;rsquo;un point de vue pratique, voici donc quelques questions pour vous aider à évaluer la trustlessness : plus les autorisations sont permissives, moins le projet a tendance à être trustless :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Est-ce que les tokens peuvent être saisis ou gelés ?&lt;/li&gt;
+&lt;li&gt;Le code ou les paramètres du protocole peuvent-ils être mis à jour ? Dans quelles conditions ? Par qui ?&lt;/li&gt;
+&lt;li&gt;Le protocole dépend-il de services tiers, tels qu&amp;rsquo;un flux de prix (oracle) qui pourrait être manipulé ?&lt;/li&gt;
+&lt;li&gt;Qui/quoi peut frapper de nouveaux tokens ? Est-ce à l&amp;rsquo;initiative de l&amp;rsquo;utilisateur (quelqu&amp;rsquo;un prend une action) ou du protocole (une décision que le protocole prend en fonction de paramètres donnés) ?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;La dernière question est particulièrement pertinente, car elle met en évidence un élément essentiel des stablecoins algorithmiques : &lt;strong&gt;leur &amp;ldquo;banque centrale&amp;rdquo; est un contrat intelligent&lt;/strong&gt; - personne ne la contrôle, elle réagit simplement aux paramètres du système. Nous y reviendrons plus loin.&lt;/p&gt;
+&lt;p&gt;Avec cette pièce, nous allons donc examiner les principaux modèles disponibles : Ampleforth, Basis Cash, Empty Set Dollar, et Dynamic Set Dollar. Je ne vais pas me plonger dans l&amp;rsquo;histoire de l&amp;rsquo;espace et les spécificités de chaque modèle, n&amp;rsquo;hésitez pas à consulter cet article de Deribit Insights si vous avez besoin de plus de contexte :&lt;/p&gt;
+&lt;p&gt;👉 &lt;a class=&#34;link&#34; href=&#34;https://insights.deribit.com/market-research/stability-elasticity-and-reflexivity-a-deep-dive-into-algorithmic-stablecoins/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Stabilité, élasticité et réflexivité : A Deep Dive into Algorithmic Stablecoins&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Donc, au lieu de plonger dans les détails de chaque système, je vais dessiner &lt;strong&gt;un croquis montrant les principes fondamentaux sur lesquels cette génération de stablecoins est construite&lt;/strong&gt;, en me basant sur les paramètres et les approches de conception communs à tous les projets.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;central-smart-contract&#34;&gt;Central Smart Contract
+&lt;/h3&gt;&lt;p&gt;La première dimension intéressante est la &amp;ldquo;banque centrale&amp;rdquo; du système - c&amp;rsquo;est-à-dire qui/quoi peut imprimer de nouveaux tokens et à quelles conditions ? &lt;strong&gt;L&amp;rsquo;USDC et l&amp;rsquo;USDT reproduisent à peu près une banque centrale&lt;/strong&gt; - une entité est chargée du projet et de l&amp;rsquo;émission de nouveaux tokens.&lt;/p&gt;
+&lt;p&gt;Comme Maker n&amp;rsquo;est qu&amp;rsquo;un contrat intelligent permettant à ses utilisateurs de frapper le DAI à partir de certaines garanties, l&amp;rsquo;approche est différente ici. Pour l&amp;rsquo;essentiel, &lt;strong&gt;Maker/DAI vous permet d&amp;rsquo;être votre propre banque centrale&lt;/strong&gt;. La banque centrale de Maker est donc un contrat intelligent, mais elle exige une intervention humaine pour frapper le DAI.&lt;/p&gt;
+&lt;p&gt;Les stablecoins algorithmiques vont encore plus loin, puisque &lt;strong&gt;l&amp;rsquo;apport humain est retiré du processus de frappe&lt;/strong&gt;. Dans ces systèmes, personne n&amp;rsquo;a la capacité de frapper des tokens - seul le contrat intelligent qui le gère le peut. C&amp;rsquo;est très élégant et minimal, mais cela nécessite un ensemble d&amp;rsquo;incitations soigneusement conçues pour s&amp;rsquo;assurer que les stablecoins finiront par se rapprocher de leur valeur nominale. Pour dire les choses simplement, &lt;strong&gt;avec des stablecoins algorithmiques, la banque centrale est un contrat intelligent autonome.&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;une-armée-de-stabilisateurs&#34;&gt;Une armée de stabilisateurs
+&lt;/h3&gt;&lt;p&gt;Avec les stablecoins algorithmiques, surtout à leurs débuts, les ruptures de peg sont fréquentes. Pour ramener le stablecoin à son point d&amp;rsquo;ancrage, les protocoles prévoient différents types d&amp;rsquo;incitations.&lt;/p&gt;
+&lt;p&gt;Lorsque le stablecoin vaut plus d&amp;rsquo;un dollar, &lt;strong&gt;le protocole frappe de nouveaux jetons et les distribue comme incitation&lt;/strong&gt; aux utilisateurs qui fournissent des liquidités ou qui verrouillent leur token, ce qui contribue à faire baisser le prix.&lt;/p&gt;
+&lt;p&gt;Lorsque le stablecoin se négocie en dessous de 1 $, le système des coupons (ou obligations) entre en jeu : &lt;strong&gt;Les utilisateurs peuvent brûler leurs stablecoins pour un coupon&lt;/strong&gt; le représentant + une prime. Toutefois, ils ne pourront réclamer le coupon qu&amp;rsquo;une fois que le prix sera de nouveau supérieur au dollar.&lt;/p&gt;
+&lt;p&gt;Comme vous pouvez le voir, à un niveau élevé, ces mécanismes sont simples. Ils comportent des subtilités que vous devez maîtriser si vous voulez participer au système. &lt;strong&gt;Les utilisateurs qui les comprennent et les suivent peuvent aider le protocole à se stabiliser&lt;/strong&gt;, et si c&amp;rsquo;est le cas, ils peuvent gagner de l&amp;rsquo;argent dans le processus. Ces règles simples conduisent donc à l&amp;rsquo;émergence d&amp;rsquo;une armée de stabilisateurs, qui utilisent tous les mécanismes pour stabiliser le prix :&lt;/p&gt;
+&lt;p&gt;Cette conception pousse la théorie du jeu et le jeu de mime à un autre niveau :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/algorithmic-stablecoins/dsd-meme.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;DSD Meme&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;phase-dexpansion-agressive&#34;&gt;Phase d&amp;rsquo;expansion agressive
+&lt;/h3&gt;&lt;p&gt;Comme l&amp;rsquo;approvisionnement en stablecoins algorithmiques est élastique, leur mécanisme est rapidement mis à l&amp;rsquo;épreuve. En effet, au moment du lancement, l&amp;rsquo;offre circulante de stablecoins est généralement faible et les incitations intéressantes créent une forte demande.&lt;/p&gt;
+&lt;p&gt;Par exemple, &lt;strong&gt;Basis Cash a été lancé avec 50 000 jetons BAC&lt;/strong&gt; distribués aux premiers participants. Environ un mois après, il y a maintenant &lt;strong&gt;40M de BAC en circulation&lt;/strong&gt; : ils ont été produits parce que le BAC s&amp;rsquo;est échangé à plus d&amp;rsquo;un dollar la plupart des jours depuis le lancement. Jusqu&amp;rsquo;à présent, il n&amp;rsquo;y a pas eu de phase où le BAC s&amp;rsquo;est négocié à &amp;gt;1$, donc le système de coupons de la base (BAB) n&amp;rsquo;a pas encore été testé.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice info&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#info-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Information&lt;/p&gt;&lt;p&gt;L&amp;rsquo;expansion et la contraction sont phasés dans des &amp;ldquo;epochs&amp;rdquo;. L&amp;rsquo;epoch de Basis Cash a une durée de 24 heures. ESD est de 8h et DSD est de 2h.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;En revanche, l&amp;rsquo;ESD et le DSD ont déjà connu plusieurs cycles d&amp;rsquo;expansion et de contraction chacun, le protocole fonctionnant comme prévu :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/algorithmic-stablecoins/dsd-mktcap.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;DSD Market Cap au cours des 7 derniers jours&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;exploiter-la-composabilité-du-defi&#34;&gt;Exploiter la composabilité du DeFi
+&lt;/h3&gt;&lt;p&gt;Un autre principe clé des stablecoins algorithmiques est la composabilité. On y pense souvent comme à &amp;ldquo;comment puis-je brancher mon produit/service fini sur d&amp;rsquo;autres&amp;rdquo;. Ces projets vont beaucoup plus loin, car &lt;strong&gt;ils utilisent d&amp;rsquo;autres protocoles comme Uniswap comme partie centrale de leur système dès le début.&lt;/strong&gt; Basis, ESD et DSD ont tous trois des composantes principales :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Un mécanisme interne de verrouillage/prise en charge des phases d&amp;rsquo;expansion (DAO ou Boardroom)&lt;/li&gt;
+&lt;li&gt;Un mécanisme de &amp;ldquo;burn&amp;amp;redeem&amp;rdquo; pour les phases de contraction&lt;/li&gt;
+&lt;li&gt;Une paire Uniswap (/USDC ou /DAI)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Leur structure même démontre une compréhension du DeFi et de sa composabilité. En plaçant la (les) paire(s) Uniswap au cœur du protocole, cela aide à bien des niveaux - puisque &lt;strong&gt;Uniswap est la base du DeFi que les utilisateurs connaissent bien.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Bien que l&amp;rsquo;Uniswap soit le principal pool, la liquidité des autres DEX est de plus en plus examinée. Avec le lancement d&amp;rsquo;Omakase, Sushi a ajouté deux nouveaux pools de stablecoins algorithmiques incitatifs : ESD/ETH &amp;amp; DSD/USDC.&lt;/p&gt;
+&lt;p&gt;La composabilité est essentielle pour les stablecoins algorithmiques et plusieurs projets prennent déjà des mesures pour s&amp;rsquo;intégrer davantage dans l&amp;rsquo;écosystème. Dans les prochains mois, nous devrions en voir les prochaines étapes avec l&amp;rsquo;arrivée de certains stablecoins algorithmiques comme garantie sur les plateformes de prêt.&lt;/p&gt;
+&lt;h3 id=&#34;oracle-minimaliste&#34;&gt;Oracle Minimaliste
+&lt;/h3&gt;&lt;p&gt;Les oracles sont utilisés comme paramètre de base dans le système algorithmique des stablecoins: : ils sont la &lt;strong&gt;source de vérité pour le prix du stablecoin&lt;/strong&gt;. Il est essentiel de s&amp;rsquo;assurer que l&amp;rsquo;oracle est résistant et ne peut pas être manipulé.&lt;/p&gt;
+&lt;p&gt;Pour ce faire, la génération précédente de projets, en particulier Maker, avait tendance à suringénierieser. Dans les premiers temps, le paramètre d&amp;rsquo;entrée de Maker était presque le prix pur et brut de l&amp;rsquo;ETH. Cependant, pour rendre le système moins sujet aux &amp;ldquo;liquidations éclair&amp;rdquo;, Maker a construit son propre oracle, et utilise plusieurs délais et moyennes avec le prix de liquidation pour &lt;strong&gt;ajouter une certaine inertie à son système&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;D&amp;rsquo;autre part, comme nous l&amp;rsquo;avons vu précédemment, nos stablecoins algorithmiques ont tendance à être minimalistes et à exploiter la composabilité du DeFi. &lt;strong&gt;Avec leurs paires Uniswap, ils ont déjà une un flux de prix décent avec une liquidité importante, ce qui le rend difficile à manipuler&lt;/strong&gt;. Le prix Uniswap est donc utilisé comme base, mais généralement calculé comme un TWAP (Time Weighted Average Price) afin d&amp;rsquo;éviter les manipulations de prix juste avant les rebases.&lt;/p&gt;
+&lt;p&gt;Tout en étant minimalistes, les systèmes sont efficaces et élégants : à mesure que ces projets de stablecoins se développent, leur liquidité sur l&amp;rsquo;Uniswap devrait augmenter, rendant l&amp;rsquo;oracle plus résistant et le prix plus difficile à manipuler.&lt;/p&gt;
+&lt;p&gt;Pour ma part, je suis enthousiaste quant à la direction que prend ce sous-ensemble de l&amp;rsquo;espace. Que vous ayez l&amp;rsquo;intention de participer ou non à la phase d&amp;rsquo;amorçage de ces stablecoins, je pense qu&amp;rsquo;il est très utile de vous documenter sur eux car ils sont un bon indicateur des principales tendances de l&amp;rsquo;espace.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-boîte-à-outils-pour-les-stablecoins-algorithmique&#34;&gt;🧰 Boîte à outils pour les stablecoins algorithmique
+&lt;/h3&gt;&lt;p&gt;Avant de nous séparer, permettez-moi de vous présenter quelques outils utiles pour suivre l&amp;rsquo;évolution de ces stablecoins. Tout d&amp;rsquo;abord, chaque projet possède son propre tracker qui fournit les principales mesures de l&amp;rsquo;époque actuelle :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://bc.tools/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Basis Cash Tools&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://esd.tools/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Outils de suivi ESD&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://dsd.tools/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Outils de suivi DSD&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Enfin, vous pouvez consulter des informations plus détaillées sur le système ESD et DSD sur ce tableau de bord : &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://duneanalytics.com/tongnk/esd_1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ESD/DSD Bonding&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;disclaimer&#34;&gt;Disclaimer
+&lt;/h3&gt;&lt;div class=&#34;notice warning&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Avertissement&lt;/p&gt;&lt;p&gt;&lt;strong&gt;CET ARTICLE NE CONSTITUE PAS UN CONSEIL EN INVESTISSEMENT.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Je ne suis pas un conseiller financier qualifié, mais qui en a vraiment quelque chose à foutre ? C&amp;rsquo;est de DeFi qu&amp;rsquo;on parle.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Je me suis senti légitime d&amp;rsquo;écrire cet article parce que j&amp;rsquo;ai suivi de près le Basis Cash, le Empty Set Dollar et le Dynamic Set Dollar, ainsi que le Basis Dollar &amp;amp; Share moins attentivement. Frax est un autre projet hybride qui mérite d&amp;rsquo;être examiné - je n&amp;rsquo;en ai pas parlé car je ne le connais pas encore assez.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;&lt;strong&gt;💰 Bag Disclosure&lt;/strong&gt; : Je possède des BAC/BAS (Basis Cash), ESD (Empty Set Dollar) et DSD (Dynamic Set Dollar).&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;J&amp;rsquo;espère que cette lecture vous a éclairé. Si c&amp;rsquo;est le cas, vous pouvez &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/tokenbrice/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;me suivre sur Twitter&lt;/a&gt;&lt;/strong&gt; ou ce blog par RSS (tout en bas de la page 👇) pour être informé de la publication des prochains articles.&lt;/p&gt;
+&lt;div class=&#34;notice tip&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#tip-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Astuce&lt;/p&gt;&lt;p&gt;Cet article a éveillé votre curiosité ? Vous êtes tombés au bon endroit — nous avons un ecosystème dynamique en français pour vous aider à suivre et comprendre la finance décentralisée. Du plus accessible au plus spécialisé :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://discord.gg/3bWZcK2&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;💬 Le serveur Discord DeFi France&lt;/a&gt;&lt;/strong&gt; pour échanger avec la communauté.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://thedailygweifr.substack.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;☕ La version française du Daily Gwei&lt;/a&gt;&lt;/strong&gt; pour des articles et résumés très accessibles.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://banklessfr.substack.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🗞 La newsletter BanklessFR&lt;/a&gt;&lt;/strong&gt; pour comprendre les concepts fondamentaux.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/channel/UCefQC4Y-X9MBRuYBKc2waiQ&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🎥 La chaine Youtube DeFi France&lt;/a&gt;&lt;/strong&gt; pour approfondir avec des lives pointus.&lt;/li&gt;
+&lt;li&gt;&amp;amp; Bien sûr &lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/fr/&#34; &gt;ce blog&lt;/a&gt; qui creuse des sujets spécifiques liés à la pratique de la DeFi.&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;
+
+</description>
+        </item>
+        
+    </channel>
+</rss>

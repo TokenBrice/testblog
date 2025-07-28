@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Pooltogether on TokenBrice</title>
+        <link>http://localhost:1313/fr/tags/pooltogether/</link>
+        <description>Recent content in Pooltogether on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>fr</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Wed, 18 May 2022 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/fr/tags/pooltogether/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Dans les coulisses du théâtre de la décentralisation : étude de l’inaltérabilité des protocoles DeFi</title>
+        <link>http://localhost:1313/fr/unstoppable-defi/</link>
+        <pubDate>Wed, 18 May 2022 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/unstoppable-defi/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2022/unstoppable-defi/unstoppable-defi-tokenbrice-cover.png" alt="Featured image of post Dans les coulisses du théâtre de la décentralisation : étude de l’inaltérabilité des protocoles DeFi" /&gt;&lt;p&gt;La finance décentralisée a permis l’émergence de protocoles autonomes dont les fonctionnalités sont assurées par des smart contracts parfois immuables, permettant à des individus du monde entier d’utiliser des services financiers tout à la fois souverains, accessibles mais aussi plus efficaces et résilients que ceux disponibles en finance classique. Voilà la belle histoire qu’on raconte aux nouveaux arrivants pour les endormir : la réalité est bien plus nuancée.&lt;/p&gt;
+&lt;p&gt;Effectivement, il y a bien &lt;strong&gt;une poignée de protocoles qui correspondent à cette réalité,&lt;/strong&gt; mais la plupart sont loin d’être à la hauteur. Quand les taureaux sont de sortie, l’intérêt pour la résilience des protocoles est généralement très faible : la seule chose qui importe ce sont les appréciations de prix. Mais les ours ont fait leur grand retour, et avec vient heureusement un regain d’intérêt pour ces sujets.&lt;/p&gt;
+&lt;p&gt;L’implosion récente de l’écosystème Luna et de son stablecoin associé, UST, aura, je l’espère, servi de piqûre de rappel pour certains. C’était hélas une catastrophe &lt;strong&gt;parfaitement évitable&lt;/strong&gt;. Le modèle utilisé pour ce stablecoin et ses défauts étaient déjà connus, avec de nombreuses précédentes instances couvertes à l’époque sur ce blog : BAC, MIC, ESD, DSD, etc. (au niveau applicatif sur Ethereum plutôt que protocolaire, mais avec les mêmes problèmes de fond). Tous ont connu la même fin : une spirale interminable qui les amène toujours plus proche du 0 absolu.&lt;/p&gt;
+&lt;p&gt;Face à cet événement, de nombreux investisseurs ont pris conscience que tous les stablecoins ne se valaient pas et cherchent à se renseigner davantage sur la résilience des nombreux stablecoins disponibles sur le marché ainsi que la robustesse de différents protocoles DeFi en général. Je saisis donc ce moment exceptionnel pour discuter de ce sujet essentiel pour la pérennité de la DeFi qui me passionne depuis longtemps.&lt;/p&gt;
+&lt;p&gt;En effet, l’année dernière je vous proposais déjà une analyse exhaustive des risques encourus sur les services d’emprunts en DeFi et comment les évaluer. &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/money-market-risks.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Cet article&lt;/a&gt;&lt;/strong&gt; est toujours d’actualité et sa lecture est fortement recommandée pour tout investisseur avisé.&lt;/p&gt;
+&lt;p&gt;Trêve d’introduction, venons au fait, en commençant par définir le terme &amp;ldquo;inarrêtable&amp;rdquo; et ce qu’il implique concrètement au niveau d’un protocole.&lt;/p&gt;
+&lt;h2 id=&#34;quest-ce-quun-protocole-defi-inarrêtable-&#34;&gt;Qu’est-ce qu’un protocole DeFi inarrêtable ?
+&lt;/h2&gt;&lt;p&gt;Au niveau le plus basique, on peut qualifier &lt;strong&gt;un protocole DeFi d’inarrêtable&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; lorsque ses fonctions essentielles sont assurées par des smart contracts qui ne sont pas modifiables et qu’il ne requiert pas d’intervention externe pour subsister.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;À cette définition plutôt simple et directe, je dois néanmoins ajouter de nombreuses notes et précisions pour couvrir la diversité des protocoles DeFi et des cas d’utilisation qu’ils desservent.&lt;/p&gt;
+&lt;h3 id=&#34;-dépendances-tierces-des-protocoles&#34;&gt;⚠️ Dépendances tierces des protocoles
+&lt;/h3&gt;&lt;p&gt;En DeFi, il est extrêmement rare qu’un protocole fasse tout par lui-même. Le plus souvent, un protocole donné s’appuie sur différents protocoles tiers. Le cas le plus courant et le plus connu est bien sûr celui de l’oracle – la source de prix pour les actifs – un élément essentiel pour les services d’emprunts notamment.&lt;/p&gt;
+&lt;h4 id=&#34;dépendance-aux-oracles-comme-chainlink&#34;&gt;Dépendance aux oracles comme ChainLink
+&lt;/h4&gt;&lt;p&gt;En la matière, l’oracle le plus utilisé est &lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/chainlink-oracles/ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ChainLink&lt;/a&gt;. Bien que techniquement robuste, l’industrie a eu récemment droit à un rappel grâce à Chris Blec et quelques autres acteurs soucieux de la résilience du service : les oracles de ChainLink sont susceptibles d’être manipulés ou censurés. Le vecteur d’attaque le plus risqué semble être &lt;strong&gt;la multisig 3/20&lt;/strong&gt; qui permet de changer immédiatement la source de prix pour un actif donné.&lt;/p&gt;
+&lt;p&gt;Concrètement, cela signifie que si 3 personnes se synchronisent parmi ces 20, ils pourraient changer l’oracle ETH/USD par exemple pour un oracle maison qui retourne un prix de $1 et quasiment tous les prêts DeFi seraient liquidés dans la foulée. Il semble assez peu probable néanmoins que des gens membres de l’équipe ChainLink ou proches de celle-ci réalisent une telle attaque.&lt;/p&gt;
+&lt;p&gt;Le plus gros risque semble donc être au niveau d’une attaque perpétrée par un acteur externe qui voudrait nuire à l’ensemble de la DeFi. En effet, avec une multisig aussi permissif, il “suffirait” d’identifier 3 membres ou plus de ce multisig, les kidnapper et les menacer pour changer une source de prix de ChainLink. C’est la fameuse “🔧 wrench attack” : qu’importe la sécurité des smart contracts, s’ils sont administrés par une multisig, ils sont vulnérables à ce type d’attaque qui passe par les personnes derrière les protocoles plutôt que le code directement.&lt;/p&gt;
+&lt;p&gt;L’essentiel du problème ici ce n’est pas l’existence de ce multisig, nécessaire pour mettre à jour et améliorer les services que ChainLink apporte, mais son paramétrage :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;3/20 c’est extrêmement permissif et plus risqué d’un point de vue 🔧 wrench attack que 3/6 par exemple (qui aurait moins de cibles potentielles pour réaliser l’attaque). Un nombre plus raisonnable et aligné avec ce qu’il se fait habituellement pour 20 signataires au total serait quelque chose entre 8 et 12 requis.&lt;/li&gt;
+&lt;li&gt;Absence de timelock : les changements sont donc immédiats.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;⚠️ Mise à jour - 27 Mai&lt;/strong&gt; : Le 23 Mai (5 jours après la publication de cet article), la paramétrage de la Multisig a évolué pour devenir 4/9, offrant une meilleure protection contre les 🔧 wrench attack, mais il n&amp;rsquo;y a toujours pas de timelock.&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;dépendance-à-dautres-protocoles-moins-résilients-que-le-protocole-de-base&#34;&gt;Dépendance à d’autres protocoles moins résilients que le protocole de base
+&lt;/h4&gt;&lt;p&gt;Un des éléments les plus fascinants en DeFi, c’est la composabilité : les protocoles s’intègrent et s’utilisent les uns et les autres. Si cela permet l’émergence de synergies et de cas d’utilisation innovants, cela vient également avec des risques additionnels.&lt;/p&gt;
+&lt;p&gt;Sans trop le détailler, puisqu’on y reviendra ensuite, on va prendre en exemple ici PoolTogether, un des protocoles les plus résilients de la DeFi et quasi–inarrêtable. Le quasi, il le doit à ses dépendances externes et plus précisément les sources de rendement utilisées : Compound ou Aave.&lt;/p&gt;
+&lt;p&gt;En effet, les smart contracts de PoolTogether sont totalement immuables sauf pour la partie qui gère l’allocation des prix (v4), mais les fonds sont déployés dans des protocoles qui sont eux alimentés par des smart contracts pouvant  être modifiés (nécessaire, par exemple, pour l&amp;rsquo;ajout d&amp;rsquo;un nouveau collatéral mais c&amp;rsquo;est aussi un vecteur d&amp;rsquo;attaque potentiel et un risque réel, cf xSUSHI sur Aave&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;La règle générale, c’est qu’un protocole est aussi résilient que le maillon le plus fragile de sa chaîne de composabilité&lt;/strong&gt;. Cette règle n’est pas absolue, car il reste possible de mitiger ou de contenir l’exposition prise avec une intégration, en implémentant par exemple de la redondance, comme on le verra plus bas lors des analyses détaillées.&lt;/p&gt;
+&lt;h3 id=&#34;-accès-aux-protocoles--la-question-des-sites-webs-front-end&#34;&gt;⚠️ Accès aux protocoles : la question des sites webs (front-end)
+&lt;/h3&gt;&lt;p&gt;Sur ce sujet, deux questions essentielles se posent :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Le point d’accès au protocole (= le site web / front-end) est-il résilient / peut-il être censuré, par exemple par un acteur étatique ?&lt;/li&gt;
+&lt;li&gt;Le site est-il sécurisé ? Peut-il être attaqué par un acteur malveillant ?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;risque-de-censure-des-front-end&#34;&gt;Risque de censure des front-end
+&lt;/h4&gt;&lt;p&gt;Ici, il faut commencer par rappeler un point absolument fondamental : un service DeFi existe grâce à un jeu de smart contracts. Il est &lt;strong&gt;tout à fait possible d’interagir avec n’importe quel service DeFi en passant directement par les contrats&lt;/strong&gt; – et donc, même si leur site venait à être inaccessible. Bien sûr, tous les utilisateurs de la DeFi n’ont pas la compétence technique pour interagir avec des smart contracts directement, et c’est pourquoi &lt;strong&gt;la question des front-end reste importante&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Ainsi, les protocoles qui tiennent à maximiser leur résilience se doivent de réfléchir à cette question. Il y a ici deux approches principales qui peuvent être cumulées.&lt;/p&gt;
+&lt;p&gt;Tout d’abord, un protocole peut avoir &lt;strong&gt;plusieurs points d’accès&lt;/strong&gt; qui permettent l’accès à son service : si l’un d’eux venait à être inaccessible, d’autres resteront en ligne, n’entraînant ainsi qu’un désagrément mineur pour les utilisateurs du service. Par exemple, &lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/aave/ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Aave&lt;/a&gt; peut être utilisé via le site principal app.aave.com, mais également grâce à des outils comme &lt;a class=&#34;link&#34; href=&#34;https://defisaver.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFiSaver&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://instadapp.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;InstaDapp&lt;/a&gt; et de nombreux autres.&lt;/p&gt;
+&lt;p&gt;Néanmoins, la plupart de ces sites restent hébergés par des &lt;strong&gt;services centralisés&lt;/strong&gt; qui pourraient tous être censurés en même temps : c’est plus de travail, mais c’est techniquement possible. Pour remédier à cette limite, il reste une autre option : avoir un ou plusieurs &lt;strong&gt;sites hébergés via une solution décentralisée comme &lt;a class=&#34;link&#34; href=&#34;https://ipfs.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;IPFS&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Pour finir, en matière de résilience du front-end, la palme de l’approche la plus originale, élégante et efficace déployée à ce jour reste sans doute celle du protocole &lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/liquity/ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liquity&lt;/a&gt;. En effet, Liquity n’a pas de site officiel pour son application déployé et géré directement par l’équipe. À la place, l’équipe fournit &lt;strong&gt;un kit pour déployer un front-end&lt;/strong&gt; de Liquity, utilisable par tous. Cela permet au projet d’avoir &lt;a class=&#34;link&#34; href=&#34;https://www.liquity.org/frontend&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;une myriade de sites différents permettant d’utiliser son service&lt;/a&gt;, dont certains sont hébergés sur IPFS :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/unstoppable-defi/liquity-frontend.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;some-liquity-frontends&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;risques-de-sécurité-des-front-end&#34;&gt;Risques de sécurité des front-end
+&lt;/h4&gt;&lt;p&gt;Enfin, il ne faut pas oublier qu’aussi résilient que les smart contracts puissent être, un front-end reste un site web qui même s’il n’est pas censuré &lt;strong&gt;peut être susceptible de subir des attaques&lt;/strong&gt; plus ou moins conséquentes : les sites des échanges décentralisés SpiritSwap ou bien encore QuickSwap ont par exemple récemment &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/QuickswapDEX/status/1525306033400188928?s=20&amp;amp;t=UKpcM2Gu6nZ9Kgl65kmp3w&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;fait les frais d’un tel scénario&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;En l’occurrence, le vecteur d’attaque est lié au gestionnaire de nom de domaine (GoDaddy) utilisé par le service. D’autres types d’attaques sont envisageables : par exemple, les injections de code par le biais d’un service tiers que le site intègre, comme on a également pu le voir très récemment sur EtherScan et de nombreux autres sites à la suite de la compromission du tracker publicitaire utilisé (CoinZilla).&lt;/p&gt;
+&lt;h3 id=&#34;ℹ-limites-des-protocoles-inarrêtables&#34;&gt;ℹ️ Limites des protocoles inarrêtables
+&lt;/h3&gt;&lt;p&gt;Tous les cas d’utilisation ne peuvent pas être couverts par des protocoles inarrêtables. En effet, en fonction de la complexité d’un protocole, il est parfois impossible d’éviter toute dépendance à un autre protocole lui-même censorable au moins en partie.&lt;/p&gt;
+&lt;p&gt;Enfin, il faut également garder en tête la contrepartie qui vient avec l’immutabilité des smart contracts des protocoles inarrêtables : &lt;strong&gt;une mise à jour de ceux-ci est techniquement impossible&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Ainsi, lorsqu’un protocole inarrêtable doit évoluer, il n’y a qu’un seul chemin possible : déployer une nouvelle version du protocole (avec son nouveau jeu de contrats immuables) et encourager la &lt;strong&gt;migration&lt;/strong&gt; de ses utilisateurs vers celle-ci. C’est par exemple ce qu’a fait Uniswap à deux reprises, avec la migration vers la version 2 en Mai 2020&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt; puis un nouvelle fois un an plus tard avec la sortie de Uniswap v3 en Mai 2021&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/unstoppable-defi/UNIv2-migration-tool.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;UNIv2-migration-tool&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;En fonction des différences entre les versions, le protocole peut également proposer un outil pour faciliter la migration comme ce fut le cas pour UNIv1⇒UNIv2, mais impossible pour UNIv2⇒UNIv3 principalement à cause de l’introduction de la concentration de la liquidité.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;Pour être exhaustif sur l’analyse coût/bénéfice des contrats immuables, rappelons qu’ils rendent les 🔧 wrench attack impossibles et peuvent également présenter un intérêt du point de vue réglémentaire.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;le-spectre-de-la-résilience&#34;&gt;Le spectre de la résilience
+&lt;/h2&gt;&lt;p&gt;Maintenant que la définition d&amp;rsquo;inarrêtable avec tout ce qu’elle implique a été détaillée, je vous propose d’en venir directement à l’analyse. Avant de creuser les protocoles pertinents, je vous propose un spectre qui met en lumière différents niveaux de résilience :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/unstoppable-defi/resilience-spectrum-fr.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;defi-spectre-resilience-tokenbrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Détailler des protocoles centralisés ou  “DINO” (Decentralized in Name Only), qui n’ont de décentralisé que le nom, n&amp;rsquo;est ni très excitant ni intéressant, je vous laisse donc creuser par vous-même. Analysons plutôt des protocoles qui se situent sur la partie la plus palpitante du spectre : à la droite de MakerDAO.&lt;/p&gt;
+&lt;h2 id=&#34;analyse-des-dex-les-plus-résilients&#34;&gt;Analyse des DEX les plus résilients
+&lt;/h2&gt;&lt;p&gt;Avant d’en venir à la résilience d’Uniswap et de Curve, il faut rappeler quelques éléments importants sur les échanges décentralisés. Concrètement, ils ont deux types d’utilisateurs qui assument des niveaux de risques bien différents :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Les utilisateurs qui échangent des tokens grâce aux DEX. Ceux-ci supportent les risques liés aux smart contracts des DEX pour le temps du swap seulement (ainsi que ceux lié aux “approve” illimité si le contrat du DEX venait à être compromis et que celui-ci est modulable)&lt;/li&gt;
+&lt;li&gt;Les apporteurs de liquidité, qui sont exposés tant que leur position est maintenue.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Sur Uniswap comme sur Curve, &lt;strong&gt;les contrats relatifs aux deux situations sont immuables&lt;/strong&gt; : il est par exemple techniquement impossible d’envisager un “rug” des apporteurs de liquidité, ce qui n’est pas le cas pour tous les DEX : une telle attaque était possible sur SushiSwap par exemple à une époque à cause de leur fonction de migration.&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Il faut noter également que les DEX s’appuyant sur un Automated Market Maker comme Uniswap ou Curve n’ont &lt;strong&gt;pas besoin d’oracle pour fonctionner&lt;/strong&gt;, ce qui réduit grandement leur dépendance à des services tiers potentiellement censorables.&lt;/p&gt;
+&lt;p&gt;Enfin, et ce sera le dernier point de contexte pour les DEX : même si les contrats sont immuables, le risque n’est pas nul pour les apporteurs de liquidité qui assument tous les risques liés aux tokens impliqués dans la paire. La règle générale ici est similaire à celle de la chaîne de composabilité : &lt;strong&gt;une position LP donnée est aussi risquée que son token le plus dangereux&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;La question du front-end pour les DEX est un peu moins critique puisque de nombreux points d’accès existent. Les utilisateurs les plus malins passent même par un agrégateur d’échanges décentralisés, comme &lt;a class=&#34;link&#34; href=&#34;https://paraswap.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ParaSwap&lt;/a&gt;.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;uniswap&#34;&gt;Uniswap
+&lt;/h3&gt;&lt;p&gt;Sur &lt;a class=&#34;link&#34; href=&#34;https://uniswap.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Uniswap&lt;/a&gt; v1, v2 et v3, les fonctions essentielles sont assurées par des contrats immuables. Depuis &lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/uniswap-v2/ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Uniswap V2&lt;/a&gt;, la gouvernance peut voter néanmoins l’introduction d’un frais administratif&lt;sup id=&#34;fnref:7&#34;&gt;&lt;a href=&#34;#fn:7&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;7&lt;/a&gt;&lt;/sup&gt; (= pas pour les LP mais pour le protocole), comme c’est déjà le cas sur Curve.&lt;/p&gt;
+&lt;p&gt;Ici, le cas est donc très simple. S’il y a certes une gouvernance, la bonne nouvelle (moins pour les possesseurs d’UNI), est que ce qu’elle peut faire est très limité. &lt;strong&gt;Aucune saisie ou migration des fonds n’est possible&lt;/strong&gt;. Outre le frais, elle gère des sujets tels que le déploiement d’Uniswap sur une nouvelle chaîne, l’ajout de nouveaux tiers de frais (1bps pour les stablecoins), ou encore l’utilisation de la trésorerie du protocole&lt;sup id=&#34;fnref:8&#34;&gt;&lt;a href=&#34;#fn:8&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;8&lt;/a&gt;&lt;/sup&gt;, par exemple pour financer des campagnes de liquidity mining ou encore pour distribuer des UNI à des gens sympathiques qui le demandent, sans aucune forme de limite ou comptabilité&lt;sup id=&#34;fnref:9&#34;&gt;&lt;a href=&#34;#fn:9&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;9&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;curve-finance&#34;&gt;Curve Finance
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://curve.fi/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Curve Finance&lt;/a&gt; est un autre exemple de DEX des plus résilient avec une approche tout aussi intéressante. Ici encore, les fonctions de base sont assurées par des contrats immuables. Néanmoins, Curve a aussi une “Emergency DAO” dont les membres sont élus par la gouvernance. Cette Emergency DAO peut “tuer” une pool (seulement celles qui ont moins de deux mois et ne sont pas des factory pools) : toutes les fonctions sauf le retrait sont désactivées. Cela permet d’éviter des pertes de fonds additionnels si un problème venait à émerger avec les contrats de Curve. L&amp;rsquo;Emergency DAO peut également &amp;ldquo;tuer&amp;rdquo; une jauge - le contrat qui gère les récompenses en CRV (et autres tokens potentiels) pour les apporteurs de liquidité. Les jauge &amp;ldquo;tuées&amp;rdquo; peuvent être ressucitées par la suite par la DAO principale.&lt;/p&gt;
+&lt;p&gt;Tout comme Uniswap, Curve a une gouvernance essentiellement centrée autour de la gestion des émissions du token CRV. Le modèle est néanmoins bien plus raffiné ici, je vous invite à lire mes précédents articles sur le sujet pour mieux le comprendre :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/crv-wars.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;⚔ Guerre du CRV : comprendre la course à l&amp;rsquo;accumulation de la capacité à influencer le protocole Curve Finance&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2022/crv-wars-l2.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;⚔ Guerre du CRV avancée : analyse des protocoles construits sur Curve et Convex &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Contrairement à Uniswap, la participation à la gouvernance de Curve requiert le verrouillage des tokens CRV ( ⇒veCRV) jusqu’à quatre ans pour ceux qui veulent maximiser leur influence. Cela permet ainsi de protéger la gouvernance de différents types d’attaques.&lt;/p&gt;
+&lt;p&gt;Enfin, la gouvernance gère également une liste blanche des smart contracts autorisés à interagir avec le contrat veCRV &lt;sup id=&#34;fnref:10&#34;&gt;&lt;a href=&#34;#fn:10&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;10&lt;/a&gt;&lt;/sup&gt;: des décisions lourdes de conséquences pour les apporteurs de liquidité sur Curve et possesseurs de CRV sur le long terme.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;La gouvernance de Curve est une des plus fascinantes à suivre en DeFi. Pour l’aider à prendre des décisions plus éclairées, &lt;a class=&#34;link&#34; href=&#34;https://substack.com/profile/66151946-crypto-risk-assessments&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;une newsletter proposant des analyses de risques des différents protocoles qui demandent une jauge&lt;/a&gt; s’est mise en place. Je vous en recommande chaudement la lecture, c’est une excellente source pour parfaire sa compréhension des risques en DeFi.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;analyse-approfondie-des-autres-protocoles-notables&#34;&gt;Analyse approfondie des autres protocoles notables
+&lt;/h2&gt;&lt;p&gt;Outre les échanges décentralisés, il y a d’autres types de protocoles qui s’approchent autant que possible de l’extrémité la plus résiliente du spectre. Néanmoins, les cas d’utilisations des protocoles que nous allons détailler maintenant sont plus complexes et ne peuvent pas être desservis, à ma connaissance, sans dépendances à d’autres services plus ou moins censorables.&lt;/p&gt;
+&lt;h3 id=&#34;liquity&#34;&gt;Liquity
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.liquity.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liquity&lt;/a&gt; est un projet opiniâtre qui vise à créer le système d’emprunt, ainsi que le stablecoin, le plus résilient tout en maintenant un système efficace économiquement pour les emprunteurs. Je ne vais pas trop m’étendre sur ce protocole ici, je vous invite à &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/liquity-protocol.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;lire l’article dédié&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Concentrons-nous donc sur les points pertinents pour notre sujet du jour :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Le code de Liquity est entièrement immuable.&lt;/li&gt;
+&lt;li&gt;Liquity n’a pas de gouvernance.&lt;/li&gt;
+&lt;li&gt;Néanmoins, comme tout service d’emprunt, Liquity dépend d’un oracle (prix de ETH en USD). Ici, c’est ChainLink qui est utilisé mais un système de secours est également mis en place. Des calculs permettent de déterminer si la donnée apportée par ChainLink est jugée fiable. Si ça n’est pas le cas, alors le système passe automatiquement sur une source de prix secondaire tant que cela est nécessaire : l’oracle Tellor.&lt;sup id=&#34;fnref:11&#34;&gt;&lt;a href=&#34;#fn:11&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;11&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;Enfin, comme je le mentionnais plus haut, Liquity a également une approche intéressante pour maximiser la décentralisation des front-end.&lt;sup id=&#34;fnref:12&#34;&gt;&lt;a href=&#34;#fn:12&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;12&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Grâce à cette approche, Liquity est le protocole d’emprunt le plus résilient disponible sur Ethereum ce qui permet également à LUSD de rafler le titre de stablecoin le plus solide et décentralisé.&lt;sup id=&#34;fnref:13&#34;&gt;&lt;a href=&#34;#fn:13&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;13&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h3 id=&#34;pooltogether&#34;&gt;PoolTogether
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pooltogether.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PoolTogether&lt;/a&gt; est un protocole fascinant qui explore un concept nouveau : le “sans-perte”. Concrètement, &lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/pool-together-v5/ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PoolTogether&lt;/a&gt; est une loterie où le joueur ne prend aucun risque financier sur son apport principal : le jeu s’appuie entièrement sur le rendement que le principal produit, et le redistribue au différents joueurs en fonction de leur chance au tirage.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/unstoppable-defi/pooltogether.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;pooltogether&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Pour en apprendre plus sur ce protocole, je vous invite une fois de plus à &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/pool-together.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;lire l’article dédié&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Analysons donc la résilience du protocole. Ici, le principal enjeu est &lt;strong&gt;la source de rendement initiale, qui est externe&lt;/strong&gt; :  elle provient de services comme Aave ou Compound, qui ne sont pas totalement inarrêtables. Ainsi, un joueur de PoolTogether assume ce risque sur l’ensemble de son dépôt : le principal ainsi que le rendement généré (avant qu’il soit collecté et redirigé).&lt;/p&gt;
+&lt;p&gt;Malgré cette dépendance tierce, le protocole PoolTogetger est particulièrement résilient. En effet, côté PoolTogether, &lt;strong&gt;les contrats sont aussi immuables que possible&lt;/strong&gt;. Concrètement, ils le sont tous (une pool donnée ne peut donc pas changer de source de rendement), sauf pour la partie relative à la distribution des prix, qui n’affecte que le rendement généré. En effet, le modèle de distribution des prix peut évoluer suite à un vote de gouvernance (mainnet) ou à une opération du multisig (Avalanche/Polygon), nécessaire car la gouvernance cross-chain n’est pas encore disponible.&lt;/p&gt;
+&lt;p&gt;Je trouve ce point fascinant et assez unique en DeFi : PoolTogether est une loterie sans perte, et ce principe de design (financier) se manifeste également au niveau des smart contracts : en excluant un problème avec Aave/Compound ou bug critique dans les contrats de PoolTogether, un joueur ne peut pas perdre son principal – c’est garanti par le code lui-même ; seul le rendement est potentiellement à risque. Et ce, même si l’équipe entière de PoolTogether subit une 🔧 wrench attack, ou que la gouvernance de PoolTogether est totalement capturée. Ainsi &lt;strong&gt;la promesse du no-loss est reflétée au niveau des contrats eux-mêmes&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;En matière de risques, il y a également des nuances et différences entre la V3 et V4 du protocole, le mieux reste encore de lire attentivement &lt;a class=&#34;link&#34; href=&#34;https://docs.pooltogether.com/security/risks&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;la documentation&lt;/a&gt; plutôt claire sur le sujet.&lt;/p&gt;
+&lt;h3 id=&#34;trustlessfi-&#34;&gt;TrustlessFi 🏗️
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://trustless.fi&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Trustless&lt;/a&gt; est un protocole qui me fascine dernièrement. Il n’est pas encore live, mais je pense que l’approche a beaucoup de mérites. Pour le décrire très simplement, &lt;strong&gt;TrustlessFi c’est un peu comme si Liquity et Reflexer faisaient un enfant ensemble, sur zkSync&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Ainsi, le but est, comme pour Liquity, de créer un protocole qui sera éventuellement aussi inarrêtable que possible, et le stablecoin associé (HUE) héritera de cette propriété. On retrouve d’autres mécanismes proches de Liquity, comme ETH comme seul collatéral, des liquidations immédiates ou encore la décentralisation des front-end (avec un mécanisme de validation communautaire cette fois-ci).&lt;/p&gt;
+&lt;p&gt;Côté gouvernance, on a ici une approche similaire au plan de dégouvernance de Reflexer/RAI mais plus engageante : 4 phases sont envisagées, et à chaque étape le contrôle de la Foundation et de la communauté décroît, rendant le protocole de plus en plus immuable. Ces &lt;strong&gt;phases seront implémentées au niveau du code des contrats eux-mêmes&lt;/strong&gt; : il est possible de retarder la transition vers une nouvelle phase de 45 jours jusqu&amp;rsquo;à trois fois si nécessaire, mais c’est impossible d’annuler totalement cette transition.&lt;/p&gt;
+&lt;p&gt;Il y a également un mécanisme similaire au Dai Saving Rate de Maker-MCD qui permet de participer au système sans avoir forcément besoin de générer de la dette. Les possesseurs de HUE pourront ainsi le staker pour obtenir un rendement provenant des taux d’intérêt payés par les emprunteurs.&lt;/p&gt;
+&lt;p&gt;Finalement, il y a également de véritables nouveautés fascinantes, comme par exemple le fait que les Troves/CDP seront tokenisés sous forme de NFT, permettant ainsi leur transfert. Ou bien encore, le déploiement de la liquidité en HUE sur Uniswap v3 avec une gestion assurée par le protocole lui-même (HUE/ETH). Au niveau de l’oracle également, on aurait ici enfin une source de prix inarrêtable avec l’utilisation d’Uniswap v3, mais cela vient sans doute avec des risques de manipulation accrus.[^^UNIv3-oracle]&lt;/p&gt;
+&lt;p&gt;Dans l’ensemble, l’approche part clairement dans la bonne direction, mais il y a de nombreux nouveaux concepts dans ce protocole, il n’est donc pas aisé de se projeter pour envisager le résultat une fois disponible en production pour l’instant.&lt;sup id=&#34;fnref:14&#34;&gt;&lt;a href=&#34;#fn:14&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;14&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h2 id=&#34;conclusion-et-dernières-précisions&#34;&gt;Conclusion et dernières précisions
+&lt;/h2&gt;&lt;p&gt;J’espère que cet article conséquent pourra servir de référence à tous ceux qui se posent des questions essentielles quant à la résilience des protocoles DeFi. Comme à mon habitude, plutôt que de vous livrer des analyses telles quelles, j’ai essayé de détailler autant que possible la méthodologie et le raisonnement afin de vous permettre d’étudier par vous-même la résilience de tout protocole non mentionné dans cet article.&lt;/p&gt;
+&lt;p&gt;Pour approfondir, je vous invite chaudement à lire un article que j’ai publié l’année dernière qui est le parfait complément de celui-ci : il se concentre sur les marchés monétaires et services d’emprunts et vous propose là aussi une méthode d’analyse pour évaluer les différents risques potentiels qu’ils impliquent :&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/money-market-risks.fr.md%22&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;De l&amp;rsquo;évaluation du risque sur les marchés monétaires en finance décentralisée&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;J’imagine qu’une analyse aussi limpide d’un sujet si critique pourrait susciter des émotions plus ou moins positives. Sachez que, comme toujours, mon intention est uniquement &lt;strong&gt;d’informer le plus grand nombre possible de DeFians sur des sujets que j’estime essentiels pour la DeFi en général.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Toutes mes actions éducatives et pédagogiques en DeFi n’ont pas d’autre objet que de maximiser la résilience et la pertinence de la finance décentralisée sur le long terme. J’espère que les développeurs ou promoteurs de protocoles situés à la gauche de mon spectre d’inaltérabilité suggéré sauront également comprendre et reconnaître ce mandat.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;🙏 Un immense merci à tous les relecteurs et contributeurs qui ont particié à l&amp;rsquo;élaboration de cet article:&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Relecture et clarté de l&amp;rsquo;expression : &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/C53300&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Charles&lt;/a&gt; et &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/disiaque_eth&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Disiaque&lt;/a&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Relecture technique et factuelle: &lt;a class=&#34;link&#34; href=&#34;https://www.radjaidjah.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Taz&lt;/a&gt; de DeFi France, &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/MTorgin&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MTorgin&lt;/a&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;notes-de-bas-de-page&#34;&gt;Notes de bas de page
+&lt;/h2&gt;&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;J’évoque tout au long de cet article l&amp;rsquo;inarrêtabilité de certains protocoles DeFi : on parle ici de l’immuabilité du code des smart contracts. L’ordre des transactions sur Ethereum peut malgré tout être manipulé (⇒ MEV) et les mineurs gardent un rôle important (jusqu’à la transition vers PoS). L&amp;rsquo;inarrêtabilité contractuelle évoquée dans cet article connaît donc des limites infrastructurelles.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;ChainLink a partagé plus d&amp;rsquo;information sur ce multisig &lt;a class=&#34;link&#34; href=&#34;https://docs.chain.link/docs/using-chainlink-reference-contracts/#updates-to-proxy-and-aggregator-contracts&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;dans leur documentation&lt;/a&gt; et vous pouvez vérifier le contrat &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://etherscan.io/address/0x21f73d42eb58ba49ddb685dc29d3bf5c0f0373ca#readProxyContract&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;directement sur EtherScan ici&lt;/a&gt;&lt;/strong&gt; &lt;img src=&#34;http://localhost:1313/img/2022/unstoppable-defi/chainlink-multisig-updated.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;chainlink-multisig-updated&#34;
+	
+	
+&gt;&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://governance.aave.com/t/analysis-of-xsushis-incident/6335&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Analyse de l&amp;rsquo;incident&lt;/a&gt; sur le forum de gouvernance Aave.&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://uniswap.org/blog/launch-uniswap-v2&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Annonce du lancement d’Uniswap V2&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:5&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://uniswap.org/blog/uniswap-v3&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Annonce du lancement d’Uniswap V3&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:6&#34;&gt;
+&lt;p&gt;Plus d’information sur cette fonction tant redoutée dans &lt;a class=&#34;link&#34; href=&#34;https://rugdoc.io/education/migrator/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;cet article dédié de Rugdoc&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:7&#34;&gt;
+&lt;p&gt;Vous pouvez suivre &lt;a class=&#34;link&#34; href=&#34;https://gov.uniswap.org/t/i-think-it-is-necessary-for-uniswap-concurrently-to-turn-on-the-fee-switch-and-liquidity-mining-incentive/15645&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;les dernières discussions en la matière&lt;/a&gt; sur le forum de gouvernance d’Uniswap.&amp;#160;&lt;a href=&#34;#fnref:7&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:8&#34;&gt;
+&lt;p&gt;Entièrement en token UNI, cette trésorerie est assez volatile. Néanmoins, il y a quand même plus de 227M UNI disponibles aujourd’hui, soit environ $1.1B. &lt;a class=&#34;link&#34; href=&#34;https://openorgs.info/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;OpenOrgs&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:8&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:9&#34;&gt;
+&lt;p&gt;C’est le tristement célèbre vote 005 “DeFi Education Fund”, lisez &lt;a class=&#34;link&#34; href=&#34;https://gov.uniswap.org/t/governance-proposal-005-defi-education-fund/12963&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;le sujet associé sur le forum de gouvernance&lt;/a&gt; pour plus de contexte.&amp;#160;&lt;a href=&#34;#fnref:9&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:10&#34;&gt;
+&lt;p&gt;Il y en a trois à l’heure actuelle : Yearn Finance (yveCRV), Convex (cvxCRV) et StakeDAO (sdCRV).&amp;#160;&lt;a href=&#34;#fnref:10&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:11&#34;&gt;
+&lt;p&gt;Cet article propose &lt;a class=&#34;link&#34; href=&#34;https://www.liquity.org/blog/price-oracles-in-liquity&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;une introduction claire au système de gestion d’oracles sur Liquity&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:11&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:12&#34;&gt;
+&lt;p&gt;Plus d’informations &lt;a class=&#34;link&#34; href=&#34;https://www.liquity.org/blog/liquity-runs-on-decentralized-frontends&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;sur le modèle technique et d’incitation pour les opérateurs de front-end Liquity&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:12&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:13&#34;&gt;
+&lt;p&gt;Comme vous l’avez sans doute déjà vu, je suis ravi d’avoir &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2022/tokenbrice-liquity.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;rejoint l’equipe de Liquity très récemment&lt;/a&gt;. Je mentionne Liquity dans cet article car c’est un exemple pertinent et instructif de protocole résilient, indépendamment de mes engagements professionnels.&amp;#160;&lt;a href=&#34;#fnref:13&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:14&#34;&gt;
+&lt;p&gt;Comme toujours, l&amp;rsquo;alpha est pour ceux qui creusent et lisent attentivement les footnotes ainsi que &lt;a class=&#34;link&#34; href=&#34;https://trustlessfi.notion.site/Trustless-4be753d947b040a89a46998eca90b2c9&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;les documentations&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:14&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
+        <title>🎲 PoolTogether : L&#39;histoire de la loterie sans perte où tout le monde (y) gagne</title>
+        <link>http://localhost:1313/fr/pool-together/</link>
+        <pubDate>Mon, 20 Dec 2021 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/pool-together/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2021/pool-together/cover.png" alt="Featured image of post 🎲 PoolTogether : L&#39;histoire de la loterie sans perte où tout le monde (y) gagne" /&gt;&lt;p&gt;La DeFi a permis l’émergence d’un système financier alternatif construit sur des bases fondamentalement différentes : transparence, open-source, composabilité et résistance à la censure. De nombreux cas d&amp;rsquo;utilisation ont émergé et il est désormais possible d’acheter et d’échanger des tokens sans intermédiaire centralisé, mais aussi prêter ou emprunter et bien plus encore !&lt;/p&gt;
+&lt;p&gt;Notre sujet du jour, &lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/pool-together-v5/ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PoolTogether&lt;/a&gt; fait lui un pas de plus : il utilise et assemble différents services DeFi pour proposer un “jeu d’argent” d’un type nouveau, qui se veut à la fois plus amusant, mais aussi plus instructif et bien moins dangereux et délétère que sa contrepartie classique.&lt;/p&gt;
+&lt;p&gt;Je vous propose donc d’explorer ce protocole dans le détail : on commence par son contexte, avant d’analyser son fonctionnement et les différents enjeux qu’il implique. C’est parti !&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;le-contexte--limites-et-dangers-de-la-loterie-classique&#34;&gt;Le contexte : limites et dangers de la loterie classique
+&lt;/h2&gt;&lt;p&gt;Ce chapitre me fait presque du mal à écrire tellement c’est une évidence mécanique pour moi, mais la réalisation n’est pas encore partagée. Concrètement d’un point de vue sociétal, la loterie est probablement aussi délétère que la cigarette. Il faut considérer :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Par sa structure même (jackpot possible et promu), la &lt;strong&gt;loterie cible les populations les plus vulnérables&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Malgré tout, &lt;strong&gt;l’espérance de gain est négative&lt;/strong&gt;: les joueurs perdent en moyenne de l’argent en jouant.&lt;/li&gt;
+&lt;li&gt;Il y a aussi de &lt;strong&gt;sérieuses conséquences pour les gagnants&lt;/strong&gt;, c’est une expérience complexe et nombreux finissent &lt;a class=&#34;link&#34; href=&#34;https://www.communique-presse-jeu.com/ads/loterie-ils-ont-gagne-mais-ont-tout-perdu/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;fauchés &lt;/a&gt;malgré tout quelques années plus tard. Les joueurs réguliers souffrent également de problèmes d’addiction.&lt;/li&gt;
+&lt;li&gt;La loterie était sauvagement taxée et possédée par l’Etat&amp;hellip; jusqu’à présent. &lt;strong&gt;La privatisation revient à donner les bénéfices générés par une activité nettement délétère pour la société à des entreprises privées&lt;/strong&gt; - la comparaison avec la cigarette prend encore plus de sens !&lt;/li&gt;
+&lt;li&gt;Enfin, et ça n&amp;rsquo;est pas propre à la loterie mais &lt;strong&gt;tout aussi misérable, dénonçable et pitoyable&lt;/strong&gt; : les jeux d’argent ciblent souvent les populations les plus vulnérables pour leur publicité, en jouant sur les émotions. On l&amp;rsquo;a vu récemment avec les très nombreuses &lt;a class=&#34;link&#34; href=&#34;https://www.vice.com/fr/article/n7wjjz/pourquoi-les-sites-de-paris-sportifs-ciblent-les-banlieusards&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;publicités pour du paris sportif qui ciblent les jeunes de banlieue&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/pool-together/winamax-pub.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;winamax-pub&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;addictions-dépendances--conséquences&#34;&gt;Addictions, dépendances : conséquences
+&lt;/h3&gt;&lt;p&gt;La suite est logique, mécanique et désespérante : en tendance longue, les mises explosent malgré un nombre de joueurs en berne :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/pool-together/evolution-2007-2017.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;stats-fdj&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Le sujet est complexe et comme pour la cigarette, souvent documenté et recherché par les prestataires de service de jeu/paris eux-mêmes. Les chiffres en disent long malgré tout : environ &lt;strong&gt;17% des joueurs sont potentiellement en risque de dépendance ou d’addiction&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/pool-together/addictions.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;addictions&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;Enfin, en 2017, la pratique des jeux d’argent sur Internet (jeux de loterie, paris hippiques ou sportifs et poker) représentait 11,2 % des dépenses totales, part en constante progression depuis son autorisation en 2010.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Observatoire Francais des Drogues et Toxicomanie - &lt;a class=&#34;link&#34; href=&#34;https://www.ofdt.fr/BDD/publications/docs/eftxjc2a6.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Les Francais et les jeux d’argent et de hasard&lt;/a&gt; et &lt;a class=&#34;link&#34; href=&#34;https://www.ofdt.fr/odj/Donn%C3%A9es%20d%27activit%C3%A9%20Fran%C3%A7aise%20des%20jeux%20%28FDJ%29%20economie.gouv.fr.htm&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;graphique ORDT&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;D’autres statistiques sont tout simplement désespérantes mais au final compréhensible : &lt;strong&gt;plus la misère sociale et économique augmente, plus la promesse du jackpot de la loterie attire les crédules&lt;/strong&gt;, augmentant ainsi les gains privatisés de la FDJ et autres, et détruisant toujours un peu plus le tissu social.&lt;/p&gt;
+&lt;p&gt;On s’arrête là mais vous l’aurez compris : quand on sort des études financées par la FDJ ou associées, on se rend vite compte de l’ampleur de la casse sociale que la loterie provoque. Les 22.7% renvoyés aux collectivités ne suffisent clairement pas à compenser les coûts réels de ce “jeu” (vies ruinées, addictions, suicides, familles brisées, etc.).&lt;/p&gt;
+&lt;h4 id=&#34;promotion-dun-roman-social-délétère-&#34;&gt;Promotion d’un roman social délétère ?
+&lt;/h4&gt;&lt;p&gt;Enfin, pour finir ce tableau qui dresse le contexte, je vous propose un dernier point plus subjectif : quid de l’impact de la loterie sur le &lt;strong&gt;roman social&lt;/strong&gt; ? Le roman social, c’est comme le rêve américain : une fable qui constitue un des fondements de la construction de l’identité nationale (en l&amp;rsquo;occurrence : tout le monde peut réussir aux US s’ils travaillent assez dur).&lt;/p&gt;
+&lt;p&gt;C’est un véritable délire collectif (quelques éléments sur la méritocratie &lt;a class=&#34;link&#34; href=&#34;https://www.cairn.info/revue-le-debat-2018-5-page-176.htm&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;par ici &lt;/a&gt;si vous en doutez encore), mais qui contribue malgré tout à &lt;strong&gt;définir l’imaginaire associé à la réussite dans une société donnée.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Permettez moi donc de poser la question : quel impact pour la loterie sur notre roman social ? Là encore c’est plutôt négatif je pense, car cela alimente la fable selon laquelle pour réussir il faut être né dans une bonne famille, ou bien “avoir de la chance” -&amp;gt; devenir une célébrité / pratique du sport de haut niveau ou loterie. &lt;strong&gt;La loterie classique alimente ainsi la vacuité de nos aspirations contemporaines :&lt;/strong&gt; un facteur de plus contribuant à la médiocrité ambiante.&lt;/p&gt;
+&lt;p&gt;Ça, c’est dit. Rentrons maintenant dans le vif du sujet pour voir comment PoolTogether redistribue les cartes.&lt;/p&gt;
+&lt;h2 id=&#34;lessentiel-pour-comprendre-le-concept&#34;&gt;L’essentiel pour comprendre le concept
+&lt;/h2&gt;&lt;p&gt;Le principe de PoolTogether est au fond assez simple mais il y a également de nombreux détails et subtilités à cerner pour réellement comprendre ce que le protocole ambitionne de faire.&lt;/p&gt;
+&lt;p&gt;En DeFi, il y a différentes sources de rendements, par exemple un possesseur d’USDC, un stablecoin, peut le prêter à d’autres personnes pour générer un retour via un service comme Aave ou Compound. &lt;strong&gt;Au fond, PoolTogether est une couche d’abstraction ludique construite au-dessus d’une telle source de rendements&lt;/strong&gt;. À haut niveau, cela donne quelque chose comme ça :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Des joueurs déposent de l’USDC dans la pool USDC sur PoolTogether - et reçoivent un token correspondant pour reconnaitre leur depot (PTaUSDC)&lt;/li&gt;
+&lt;li&gt;La pool (jeu de smart contracts) déploie les actifs dans différentes stratégies afin de produire un rendement. Le rendement est collecté et sert à alimenter le prix des gagnants.&lt;/li&gt;
+&lt;li&gt;Chaque USDC déposé dans la pool (⇒ PTaUSDC) correspond à un ticket de loterie potentiellement gagnant. Tous les jours, un tirage a lieu grâce à un mécanisme d’aléatoire auditable (ChainLink VRF) pour déterminer les nombreux gagnants, avec initialement 3 échelles de prix : 10 PTaUSDC, 100 PTaUSDC ou bien 2500 PTaUSDC le jackpot.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;C’est cette infrastructure qui produit un rendement - et met seulement le rendement en jeu qui permet de qualifier Pool Together de &lt;strong&gt;loterie&lt;/strong&gt; &lt;strong&gt;sans perte&lt;/strong&gt;. À tout moment, &lt;strong&gt;le joueur peut arrêter de jouer : il récupérera au minimum son capital initial engagé&lt;/strong&gt;, s’il n’a jamais gagné la loterie, ou alors plus.&lt;/p&gt;
+&lt;p&gt;Si on veut être très précis, le seul coût de Pool Together est le “opportunity cost of capital” : l’opportunité potentiellement perdue sur le capital mobilisé, qui pourrait théoriquement produire un meilleur rendement autrement.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;pooltogether-v3--token-pool-sponsors-et-pool-communautaires&#34;&gt;PoolTogether v3 : token POOL, sponsors et pool communautaires
+&lt;/h2&gt;&lt;p&gt;Deux versions de PoolTogether sont en ligne : v3 et v4. Le concept reste le même mais l’infrastructure a grandement évolué. Alors avant de voir ce que la v4 a apporté, commençons par la v3 toujours pertinente et &lt;a class=&#34;link&#34; href=&#34;https://app.pooltogether.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;accessible ici&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Cette mise à jour a été lancée &lt;a class=&#34;link&#34; href=&#34;https://defirate.com/pooltogether-v3/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;en Octobre 2020&lt;/a&gt; peu avant &lt;a class=&#34;link&#34; href=&#34;https://medium.com/pooltogether/introducing-pool-23b09f36db48&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;le token POOL&lt;/a&gt;, en Février 2021. Elle apporte de nombreuses améliorations à l’infrastructure de PoolTogether.&lt;/p&gt;
+&lt;h3 id=&#34;sponsoring-pools-et-reserve-factor&#34;&gt;Sponsoring Pools et Reserve Factor
+&lt;/h3&gt;&lt;p&gt;Ainsi, bien que l’explication schématique de tout à l’heure soit utile, il faut y ajouter deux premières subtilités : les sponsorship pools et le reserve factor contrôlé par la gouvernance.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Commençons par le plus simple : le &lt;strong&gt;sponsoring&lt;/strong&gt;. L’idée c’est de permettre d’avoir du “capital non-joueur” pour augmenter les gains des joueurs : ce capital contribue au rendement produit, mais n’a pas de chance de gagner. Au début, c’était envisagé dans une perspective plutôt bénévole, mais avec le lancement du token les sponsors sont désormais éligibles pour des récompenses en POOL.&lt;/li&gt;
+&lt;li&gt;Le système de &lt;strong&gt;réserve&lt;/strong&gt; est encore plus simple : chaque pool a un &lt;em&gt;Reserve Factor&lt;/em&gt; qui correspond à un % du rendement capturée par la pool directement. Ces fonds sont utilisés pour garantir la pérennité du protocole.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Avec la v3, on a également vu l’arrivée des &lt;em&gt;Community Pools&lt;/em&gt;, des pools créées par la communauté directement sur les tokens de leur choix, du moment qu’ils ont une source de rendement ainsi que de nombreuses autres additions qui ont eu plus ou moins de succès.&lt;/p&gt;
+&lt;h3 id=&#34;33t-lootboxes--pooltogether-sur-polygon&#34;&gt;3,3T, Lootboxes &amp;amp; PoolTogether sur Polygon
+&lt;/h3&gt;&lt;p&gt;Par exemple, Olympus DAO propose un &lt;em&gt;3,3 Together&lt;/em&gt;, où les joueurs mettent en jeu leur rebase OHM : tous les trois jours la rebase de tous les joueurs est distribuée aux trois gagnants.&lt;/p&gt;
+&lt;p&gt;Ils avaient également d’autres idées innovantes en v3 mais qui n’ont pas pris, principalement à cause des coûts en gas du mainnet. Par exemple, chaque pool a sa &lt;em&gt;Lootbox&lt;/em&gt; qui permet à n’importe qui de rajouter un token arbitraire en prix ou même un NFT ! Il suffit de l’envoyer à l’adresse de la lootbox et lorsque le prochain prix sera distribué le NFT/token est envoyé automatiquement au gagnant.&lt;/p&gt;
+&lt;p&gt;La v3 a également marqué l’arrivée du token POOL quelques mois plus tard et de son airdrop dont on reparlera plus bas.&lt;/p&gt;
+&lt;p&gt;Enfin, la v3 a également marqué l’arrivée de PoolTogether sur d’autres chaines comme Polygon ou BSC. Néanmoins cette logique connait ses limites car elle aboutit également à une fragmentation de la liquidité.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;pooltogether-v4--tsunami-avec-approche-cross-chain-novatrice&#34;&gt;PoolTogether v4 : Tsunami avec approche cross-chain novatrice
+&lt;/h2&gt;&lt;p&gt;La v4 constitue une itération très importante sur la base proposée en v3. Ici, l’expérience a été simplifiée et retravaillée pour la rendre la plus accessible et fun possible : et ça marche ! Voyons donc comment.&lt;/p&gt;
+&lt;h3 id=&#34;approche-cross-chain-égalitaire&#34;&gt;Approche cross-chain égalitaire
+&lt;/h3&gt;&lt;p&gt;On va bien détailler ce point car il est crucial, PoolTogether a été pionnier en la matière et c’est une dimension qu’on retrouve sur tous les projets : &lt;strong&gt;la stratégie cross-chain&lt;/strong&gt;. Elle a pour but d’offrir le même service, quelque soit la chaîne utilisée par l’utilisateur. J’y viens mais avant ça, prenons le temps de comprendre l’approche cross-chain classique de réplication et ses conséquences.&lt;/p&gt;
+&lt;h4 id=&#34;lapproche-basique--réplication&#34;&gt;L’approche basique : réplication
+&lt;/h4&gt;&lt;p&gt;La plupart des projets se contentent de &lt;strong&gt;répliquer leur service sur toutes les chaînes&lt;/strong&gt; : c’est le cas de Sushi par exemple présent sur plus de dix chaînes, mais aussi Pool Together v3 comme décrit plus haut.&lt;/p&gt;
+&lt;p&gt;Cette approche a le mérite de la simplicité et permet l’accès au service sur toutes les chaînes couvertes - mais elle aboutit à &lt;strong&gt;la fragmentation de la liquidité&lt;/strong&gt; ce qui peut rendre ce service moins qualitatif sur les “petites chaînes&amp;quot;. Ainsi les joueurs PT v3 Polygon USDC, désormais peu nombreux, jouent pour un prix hebdomadaire de $69. De l’autre coté les joueurs PT v4 USDC se partagent un prix journalier de plus de $100 000.&lt;/p&gt;
+&lt;h4 id=&#34;tsunami&#34;&gt;Tsunami
+&lt;/h4&gt;&lt;p&gt;Ainsi avec PoolTogether v4 arrive le modèle baptisé Tsunami où toutes les chaînes sont égales. Pour se faire, PoolTogether introduit une couche d’abstraction entre toutes les chaînes pour redistribuer les prix si nécessaire.&lt;/p&gt;
+&lt;p&gt;Cela permet de &lt;strong&gt;mutualiser les fonds des déposants sur toutes les chaînes&lt;/strong&gt; pour offrir un grand prix attractif plutôt que de multiplier les pools et diviser les prix. Une des conséquences est de permettre aux joueurs sur Polygon (où le coût en gas du dépôt est marginal) de jouer avec les mêmes chances et la même espérance de gain que les joueurs mainnet.&lt;/p&gt;
+&lt;p&gt;Alors bien sûr, cela nécessite plus de travail de développement et d&amp;rsquo;implémentation et il y a des conséquences aussi pour les joueurs, la plus notable étant &lt;strong&gt;un délai de un jour entre le dépôt initial et l’éligibilité pour le premier tirage&lt;/strong&gt;. Mais ça n’est pas un compromis trop lourd à supporter considérant le fait que PoolTogether se veut être un jeu promouvant l’épargne sur le long terme.&lt;/p&gt;
+&lt;h3 id=&#34;révision-du-modèle-de-prix&#34;&gt;Révision du modèle de prix
+&lt;/h3&gt;&lt;p&gt;Là où la v3 optait pour de la flexibilité, avec des pools ayant des tirages journaliers ou hebdomadaires, la pool unique v4 peut se permettre un &lt;strong&gt;tirage journalier&lt;/strong&gt; vu sa taille. En outre, la structure des prix a été revue afin d&amp;rsquo;allouer plus de petits prix pour rendre l’expérience un peu moins aléatoire sur le long-terme.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/pool-together/prize-breakdown-old.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;prize-breakdown-old&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;La logique du jackpot est préservée avec le premier et unique gagnant qui empoche $2500 tout de même, mais il y a également près de 720 autres gagnants potentiellement grâce aux prix de $100 et $10.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/pool-together/winning.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;tokenbrice-pooltogether-winning&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;En réalité, le nombre de joueurs gagnants est plus faible car il est possible de gagner plusieurs prix à la fois. Néanmoins cette approche permet également de lisser le revenu pour les gros déposants, qui remportent fréquemment des récompenses de $10 ou $100, potentiellement même tous les jours si le dépôt est assez conséquent.&lt;/p&gt;
+&lt;p&gt;Cette distribution permet ainsi de récompenser fréquemment les joueurs qui utilisent PoolTogether dans une logique d’épargne tout en préservant l’esprit du jeu :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Une chance décente (en fonction de la taille du dépôt) d’avoir de petits gains (prix $10 et $100)&lt;/li&gt;
+&lt;li&gt;&amp;amp; faible probabilité d’avoir un gain massif : le jackpot de $2500.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Au-delà du modèle de prix, c’est toute l’expérience autour de l’allocation des prix qui a été revue avec la v4. La gouvernance a d’ailleurs continué a itéré et récemment voté une refonte de la structure des prix : &lt;a class=&#34;link&#34; href=&#34;https://gov.pooltogether.com/t/ptip-47-prize-adjustments/1752&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PTIP-47: Prize Adjustments&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/pool-together/prize-breakdown.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;prize-breakdown&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;une-expérience-plus-satisfaisante&#34;&gt;Une expérience plus satisfaisante
+&lt;/h3&gt;&lt;p&gt;De nombreux paramètres et détails ont été ajustés pour rendre l’expérience de gain plus fun et agréable. La liste exhaustive est sur &lt;a class=&#34;link&#34; href=&#34;https://docs.pooltogether.com/faq/v3-to-v4-differences&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;la documentation de PoolTogether&lt;/a&gt;, on se contentera de l’essentiel.&lt;/p&gt;
+&lt;p&gt;Tout d’abord, les gains passent dans une &lt;strong&gt;logique de claim&lt;/strong&gt;, là où avant ils arrivaient directement dans le wallet. Pour les joueurs, cela rend les gains plus simples à comprendre et quantifier. En outre, ils sont désormais payés en PTaUSDC, le ticket de loterie PoolTogether v4 et sont donc &lt;strong&gt;composés automatiquement&lt;/strong&gt; : gagner augmente vos chances de gagner, avec un simple claim !&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/pool-together/comparaison.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;comparaison-pt-vs-epargne&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Les joueurs ont 60 jours pour réclamer leur récompense&lt;/strong&gt;, ce qui garantit une forme de suivi et d’engagement, mais permet également une interaction avec le protocole quasiment totalement passive pour ceux qui le souhaitent : dépôt &amp;gt; tous les 59j : claim &amp;gt; retrait quand désiré.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;On a mentionné le token POOL a plusieurs reprises sans le creuser : c’était volontaire. Maintenant que le système est clair pour vous, je vous propose de finir en analysant sa proposition de valeur.&lt;/p&gt;
+&lt;h2 id=&#34;le-token-pool&#34;&gt;Le token POOL
+&lt;/h2&gt;&lt;p&gt;On va parler airdrop bien sûr, mais aussi liquidité et bien évidemment gouvernance : c’est parti !&lt;/p&gt;
+&lt;h3 id=&#34;airdrop--tout-le-monde-a-gagné-&#34;&gt;Airdrop : tout le monde a gagné !
+&lt;/h3&gt;&lt;p&gt;Pour lancer le token le plus fun de la DeFi, il ne pouvait pas y avoir autre chose qu’un airdrop évidemment. C’est un des airdrops rétroactifs qui a suivi dans le sillage d’Uniswap, mais qui est arrivé encore assez tôt pour ne pas avoir été abusé à outrance par les infameux chasseurs d’airdrops.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;14 % du total supply de POOL&lt;/strong&gt; a été distribué aux joueurs qui ont participé avant le 14 janvier 2021, avec une pondération en fonction du montant et de la durée du dépôt. Les joueurs de la première heure, même avec de petits montants, ont ainsi eu une très belle surprise.&lt;/p&gt;
+&lt;h3 id=&#34;incitations-pool-et-lp-v3&#34;&gt;Incitations POOL et LP (v3)
+&lt;/h3&gt;&lt;p&gt;Qui dit token signifie également le plus souvent incitations : PoolTogether ne fait pas défaut à la règle.&lt;/p&gt;
+&lt;p&gt;Avec le token sont arrivées des incitations en POOL pour tous les joueurs; ainsi que des ajustements sur le modèle de sponsoring décrit plus haut. Il y a également un enjeu de liquidité sur le token POOL désormais.&lt;/p&gt;
+&lt;p&gt;Après avoir commencé par un modèle d’incitation classique pour les LPs, la gouvernance a décidé d’explorer un modèle qui permet au protocole de &lt;a class=&#34;link&#34; href=&#34;https://gov.pooltogether.com/t/ptip-40-olympus-lp-incentives-pool-pool-distribution/1638&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;contrôler sa propre liquidité (PTIP-40&lt;/a&gt; grâce au bonding (Ohm-like).&lt;/p&gt;
+&lt;h3 id=&#34;définir-le-fun-ensemble&#34;&gt;Définir le fun, ensemble
+&lt;/h3&gt;&lt;p&gt;Le POOL sert ainsi à prendre part aux décisions du protocole et aider à affiner le modèle. En outre, l’implémentation de la gouvernance elle-même est marrante elle aussi. Pour voter, il faut déposer ses tokens POOL dans la pool POOL sur PoolTogether : tout en ayant un rendement de base + des chances de gagner des prix, les joueurs peuvent ainsi se prononcer sur les décisions de gouvernance.&lt;/p&gt;
+&lt;p&gt;Je qualifie parfois PoolTogether de “protocole le plus fun de toute la DeFi”, une affirmation véridique mais qu’on peut pousser encore plus loin.&lt;/p&gt;
+&lt;p&gt;La gouvernance de PoolTogether, avec ses décisions, travaille à définir ce qu’est le “fun optimal”, avec des questions très concrètes, comme le nombre de prix ou leur distribution. Avec le lancement de la v4, le nombre de prix a grandement augmenté ce qui permet à plus de joueurs de gagner : plus de la moitié des wallets uniques qui jouent à PTv4 ont gagné au moins une fois :&lt;/p&gt;
+&lt;p&gt;C’est un bon début, mais il est sans doute possible d’affiner encore plus le modèle pour réjouir toujours plus de joueurs en promouvant l’épargne long terme positivement.&lt;/p&gt;
+&lt;h2 id=&#34;-pt-ensemble-tokenbrice-live&#34;&gt;🤗 PT Ensemble TokenBrice Live
+&lt;/h2&gt;&lt;p&gt;Je vous quitte sur une offre difficile à refuser : et &lt;strong&gt;si on jouait à PoolTogether ensemble&lt;/strong&gt; ? Les règles sont simples : j’ai effectué un dépôt PoolTogether v4 Polygon avec mon wallet public tokenbrice.eth. Toutes les 2 semaines je collecte les récompenses : la moitié repart dans le pot, l’autre moitié est gagnée en giveway par un membre de l’audience Twitch.&lt;/p&gt;
+&lt;p&gt;Le gagnant reçoit directement des PTaUSDC dans son wallet qu’il n’a plus qu’à activer pour lui aussi jouer de son côté : &lt;strong&gt;le cercle vertueux sans fin de la loterie sans perte&lt;/strong&gt; !&lt;/p&gt;
+&lt;p&gt;Ça se passe sur &lt;a class=&#34;link&#34; href=&#34;twitch.tv/tokenbrice&#34; &gt;ma chaîne Twitch chaque mardi à 17h &lt;/a&gt;: abonnez-vous et activez les notifications pour ne rater aucun live. Je les annonce également &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/TokenBrice&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;sur Twitter&lt;/a&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Si vous m’avez lu jusqu’ici, vous reprendrez bien un peu d’alpha ?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;La logique sans perte de PoolTogether s’exporte au-delà de la loterie / épargne&lt;/strong&gt;. De nombreux mécanismes sociaux et jeux autour de l’argent peuvent être concernés : paris sportifs, marchés prédictifs, assurance, etc. La famille sans perte sera grande, et PoolTogether connaît déjà un premier cousin qui s’attaque aux prédictions markets : &lt;a class=&#34;link&#34; href=&#34;https://docs.entropyfi.com/user-guide/game-explained&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;EntropyFi&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Pour aller plus loin, regardez le Marathon Pool Together avec Pierrick :&lt;/p&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;iframe loading=&#34;lazy&#34; 
+            src=&#34;https://www.youtube.com/embed/zzfQ289dhW4&#34; 
+            allowfullscreen 
+            title=&#34;YouTube Video&#34;
+    &gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;p&gt;Faites vos jeux,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;🎲 rien ne va plus [logique archaïque]&lt;/li&gt;
+&lt;li&gt;(🎲,🎲) tout ira bien [web3]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;🙏 Un grand merci à HHK, Charles, Thomas, Erwan, &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/phil_h&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PhilH&lt;/a&gt; &amp;amp; FrenchTony pour leur relecture attentive de l&amp;rsquo;édition française de cet article et sa traduction en Anglais.&lt;/em&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>La DeFi, au delà de la finance</title>
+        <link>http://localhost:1313/fr/p/la-defi-au-del%C3%A0-de-la-finance/</link>
+        <pubDate>Tue, 01 Dec 2020 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/p/la-defi-au-del%C3%A0-de-la-finance/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2020/defi-beyond-finance/cover.png" alt="Featured image of post La DeFi, au delà de la finance" /&gt;&lt;p&gt;La finance décentralisée d&amp;rsquo;Ethereum est prête à se développer au-delà de son bac à sable : avec un réseau dense de primitifs financiers, il est maintenant plus facile que jamais d&amp;rsquo;exploiter la DeFi à d&amp;rsquo;autres fins, par exemple pour remplacer une relique prédatrice de notre passé comme la loterie, toujours follement populaire et préjudiciable.&lt;/p&gt;
+&lt;p&gt;Avec cet article, j&amp;rsquo;aimerais prendre un peu de recul et adopter une perspective macro sur Ethereum. Jusqu&amp;rsquo;à présent, mon intérêt s&amp;rsquo;est surtout porté sur la finance décentralisée, qui a été le moteur de l&amp;rsquo;innovation ces dernières années.&lt;/p&gt;
+&lt;p&gt;Pourtant, je crois que nous atteignons la prochaine étape de la croissance de l&amp;rsquo;incroyable expérience de coordination humaine qu&amp;rsquo;est le réseau Ethereum : les blocs Lego fournis par DeFi sont maintenant suffisamment matures pour être exploités à d&amp;rsquo;autres fins.&lt;/p&gt;
+&lt;p&gt;En effet, nous voyons maintenant comment ces &lt;strong&gt;dispositifs de capture et d&amp;rsquo;échange de valeur&lt;/strong&gt; peuvent être exploités pour faciliter la création de communautés engagées ou pour soutenir les biens communs. Alors cette fois, au lieu de se demander quoi ou comment, demandons-nous pourquoi ? Après un bref rappel des principaux avantages offerts par les legos DeFi, nous examinerons quelques projets qui les exploitent pour faire basculer la table dans leurs domaines respectifs.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;les-légos-de-la-defi--les-éléments-de-base&#34;&gt;Les légos de la DeFi : Les éléments de base
+&lt;/h3&gt;&lt;p&gt;La myriade de services financiers décentralisés disponibles sur Ethereum a démontré les avantages de ce que j&amp;rsquo;aime appeler les &amp;ldquo;valeurs pragmatiques&amp;rdquo; : transparence, accessibilité,  et interopérabilité. Pourquoi pragmatiques ? Parce que les soutenir n&amp;rsquo;est pas une question de bonne volonté des participants au système, elles sont &lt;strong&gt;appliquées par défaut et en permanence tant que le réseau fonctionne.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Si vous demandez à votre banque comment votre argent est investi, vous obtenez une réponse à laquelle vous pouvez faire confiance ou non. La vérification implique des demandes de votre part. Au contraire, vous ne demandez pas à Yearn où se trouve votre argent : vous voyez ce qu&amp;rsquo;il fait à tout moment, et cette information est fiable et infalsifiable. Il s&amp;rsquo;agit d&amp;rsquo;un changement fondamental dans la relation - l&amp;rsquo;utilisateur d&amp;rsquo;un service DeFi n&amp;rsquo;est plus un simple &amp;ldquo;client&amp;rdquo;.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice info&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#info-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Information&lt;/p&gt;&lt;p&gt;☝ C&amp;rsquo;est ce que le terme &amp;ldquo;sans confiance&amp;rdquo; (&lt;em&gt;trustless&lt;/em&gt;) désigne habituellement.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Prenons donc une minute pour déballer ces valeurs pragmatiques fondamentales :&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;La transparence&lt;/strong&gt; : Par défaut, les transactions sur le réseau Ethereum sont publiques. Pour DeFi, cela se traduit par des avantages très concrets - par exemple, les volumes &lt;strong&gt;observés (sur la chaîne)&lt;/strong&gt; sur les échanges décentralisés ont tendance à être beaucoup plus réalistes que les volumes &lt;strong&gt;rapportés&lt;/strong&gt; par les échanges centralisés.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Accessibilité&lt;/strong&gt; : Pour utiliser un service DeFi, tel qu&amp;rsquo;un échange ou un système de gestion des actifs, il suffit d&amp;rsquo;avoir un portefeuille Ethereum et un appareil avec une connexion internet. Sur les services inarrêtables comme Uniswap il n&amp;rsquo;y a aucun moyen de mettre une adresse sur liste noire pour l&amp;rsquo;utiliser. Cela présente des avantages évidents pour les populations habituellement discriminées par les opérateurs de services financiers, comme les joueurs, les travailleurs du sexe ou les étrangers.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Interopérabilité&lt;/strong&gt; : Les services DeFi sont comme des blocs de Lego, ils sont open source, ce qui permet de les améliorer et de les développer. Ils permettent des innovations rapides car les nouveaux projets peuvent rapidement apporter de la valeur en assemblant plusieurs services existants de manière nouvelle. Chacun peut vérifier son code et contribuer facilement&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Minimalisme&lt;/strong&gt; : Ethereum est un réseau conçu pour la résilience et il a des conséquences intéressantes. Avec une infrastructure hautement redondante où la bande passante et la capacité de stockage sont limitées, les projets réussis sont généralement ceux qui parviennent à réduire ou à éviter une complexité inutile.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/defi-beyond-finance/defi-legos.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;DeFi-legos&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;L&amp;rsquo;écosystème DeFi a fourni une gamme de services grâce auxquels chacun peut acheter, vendre, sécuriser, échanger des jetons de manière décentralisée. Ils ont également &lt;strong&gt;normalisé des comportements qui étaient peu courants auparavant&lt;/strong&gt;, tels que la mise en jeu de jetons, l&amp;rsquo;emprunt, l&amp;rsquo;utilisation de l&amp;rsquo;effet de levier, la frappe d&amp;rsquo;actifs synthétiques, et de nombreuses autres options rendues possibles une fois les actifs mis en jeu.&lt;/p&gt;
+&lt;p&gt;Maintenant, comme je le disais dans l&amp;rsquo;introduction, jusqu&amp;rsquo;à présent, ces nouveaux légos ont été utilisés principalement de manière réflexive. Aujourd&amp;rsquo;hui, ils sont de plus en plus utilisés pour fournir des services innovants offrant encore plus de possibilités. C&amp;rsquo;est essentiel, car chaque nouvelle couche DeFi permet de nombreuses autres utilisations en dehors de la finance.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;réparer-une-institution-sociétale-nuisible-en-utilisant-les-légos-de-defi&#34;&gt;Réparer une institution sociétale nuisible en utilisant les légos de DeFi
+&lt;/h3&gt;&lt;p&gt;Commençons par l&amp;rsquo;évidence et, à partir d&amp;rsquo;ici, par un petit coup de pouce : réparer la loterie. Comme vous le savez probablement déjà, les loteries sont des pièges à pauvreté parfois décrits comme &lt;a class=&#34;link&#34; href=&#34;https://erlc.com/resource-library/articles/state-lotteries-are-an-exploitative-tax-on-the-poor/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;une taxe d&amp;rsquo;exploitation des pauvres&lt;/a&gt;. Leur public est majoritairement pauvre et, dans l&amp;rsquo;ensemble, la loterie ne contribue pas à leur budget. Même avec un résultat heureux, d&amp;rsquo;autres problèmes surgissent qui ramènent parfois au point de départ.&lt;/p&gt;
+&lt;p&gt;Le problème de la loterie a de nombreuses origines, notamment le fait qu&amp;rsquo;elle est généralement détenue ou gérée par les gouvernements nationaux. La bonne nouvelle est que DeFi peut fournir l&amp;rsquo;élément central de la loterie - le jackpot - d&amp;rsquo;une manière beaucoup plus durable.&lt;/p&gt;
+&lt;p&gt;En effet, pour décrocher le jackpot, il faut une certaine forme de prix. Les modèles de loterie actuels regroupent les contributions de chacun pour les remettre à un joueur, moins le coût des opérations et une redevance : l&amp;rsquo;argent est &amp;ldquo;brûlé&amp;rdquo; dans la boucle de base en raison de l&amp;rsquo;infrastructure nécessaire pour faire fonctionner la loterie.&lt;/p&gt;
+&lt;p&gt;La DeFi peut faire beaucoup mieux sur les deux fronts. Premièrement, pour le prix : au lieu d&amp;rsquo;un système de perte nette, PoolTogether propose une &amp;ldquo;loterie sans perte&amp;rdquo; à ses joueurs. L&amp;rsquo;essentiel est simple : ils n&amp;rsquo;achètent pas de billet mais déposent des pièces de monnaie stables dans un pool. Les actifs de tous les joueurs sont utilisés pour produire un rendement en utilisant les marchés de prêt décentralisés. Le &lt;strong&gt;gagnant gagne les intérêts générés par l&amp;rsquo;ensemble du capital sur la période, et chacun récupère son investissement initial.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Elle s&amp;rsquo;accompagne également de nombreuses améliorations par rapport à l&amp;rsquo;ancienne infrastructure des loteries : l&amp;rsquo;utilisation de jetons Ethereum pour représenter les billets de loterie présente des avantages supplémentaires :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Efficacité&lt;/strong&gt; - le tirage du gagnant et le paiement du prix sont beaucoup plus rapides, publics et vérifiables par tous.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Traçabilité&lt;/strong&gt; - chaque opération est publique et vérifiable, ce qui facilite la prévention des fraudes et des abus.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Accessibilité&lt;/strong&gt; - tout ce dont vous avez besoin, c&amp;rsquo;est d&amp;rsquo;un portefeuille !&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;L&amp;rsquo;exemple de la loterie est essentiel pour mieux comprendre les cas d&amp;rsquo;utilisation de &amp;ldquo;DeFi+&amp;rdquo;. La DeFi en lui-même est déjà bluffante. Mais &lt;strong&gt;utiliser le DeFi pour remplacer une infrastructure sociétale prédatrice&lt;/strong&gt; ? Encore meilleur ! Nous allons approfondir ce thème en nous penchant sur le financement des biens publics.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;permettre-des-biens-communs-durables--gitcoin&#34;&gt;Permettre des biens communs durables : Gitcoin
+&lt;/h3&gt;&lt;p&gt;Pour les projets décentralisés de la DeFi, la communauté est essentielle, comme nous l&amp;rsquo;avons vu avec &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/yearn-finance-YFI.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Yearn Finance&lt;/a&gt;. En plus de leur rôle de moteur du développement et de la croissance du projet, les communautés fournissent aussi fréquemment des ressources clés, telles que des tableaux de bord, des calculateurs et divers outils pour faciliter le suivi et la gestion des postes, comme &lt;a class=&#34;link&#34; href=&#34;https://zapper.fi/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Zapper&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://defisaver.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFiSaver&lt;/a&gt; ou &lt;a class=&#34;link&#34; href=&#34;https://zerion.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Zerion&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Au niveau macro, les principaux outils utilisés pour suivre la croissance globale du secteur proviennent également de la communauté, comme &lt;a class=&#34;link&#34; href=&#34;https://defillama.com/home&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFiLlama&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://yieldfarming.info/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;YieldFarmingInfo&lt;/a&gt; ou &lt;a class=&#34;link&#34; href=&#34;https://yieldfarmingtools.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;YieldFarmingTools&lt;/a&gt;. Le développement de ces services est généralement alimenté par les dons de la communauté.&lt;/p&gt;
+&lt;p&gt;Pour faciliter la découverte et le financement de tels projets, il existe une plateforme qui exploite les possibilités offertes par Ethereum pour améliorer le financement des biens publics : &lt;a class=&#34;link&#34; href=&#34;http://gitcoin.co/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Gitcoin&lt;/a&gt;. Gitcoin rationalise la création de &amp;ldquo;Subventions&amp;rdquo; pour collecter des dons pour des projets et des communautés donnés. Il tire le meilleur parti des attributs fondamentaux d&amp;rsquo;Ethereum :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/defi-beyond-finance/gitcoin-grants.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Gitcoin-grants-round7&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Tous les dons sont publics et transparents&lt;/strong&gt;, ce qui permet de mesurer et de suivre facilement les contributions.&lt;/li&gt;
+&lt;li&gt;Les projets peuvent être financés avec des jetons communs basés sur Ethereum, généralement des pièces stables telles que DAI.&lt;/li&gt;
+&lt;li&gt;Alors que la communauté est le principal moteur des contributions, Gitcoin utilise un système appelé financement quadratique pour équilibrer les contributions. À chaque tour, &lt;strong&gt;il égalise les dons des contributeurs&lt;/strong&gt; grâce à un budget supplémentaire.&lt;/li&gt;
+&lt;li&gt;Le budget est fourni par les donateurs de l&amp;rsquo;écosystème. Alors qu&amp;rsquo;auparavant il s&amp;rsquo;agissait principalement de grandes entreprises basées sur Ethereum, un nouveau type de sponsor émerge : les fonds de trésorerie des projets DeFi. En effet, certains acteurs clés des DeFi comme &lt;a class=&#34;link&#34; href=&#34;https://gov.yearn.finance/t/yip-direct-of-rewards-towards-ethereum-public-goods-funding/3699/22&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Yearn Finance a voté pour allouer une partie (1%)&lt;/a&gt; de leurs revenus protocolaires pour financer les subventions Gitcoin.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Bien qu&amp;rsquo;il y ait encore des possibilités d&amp;rsquo;amélioration - et Gitcoin s&amp;rsquo;améliore à chaque nouveau tour de table - c&amp;rsquo;est déjà une partie essentielle de l&amp;rsquo;infrastructure utilisée pour financer les biens communs sur Ethereum. Il simplifie réellement le processus de collecte des dons pour les projets communautaires. Nous l&amp;rsquo;utilisons pour la &lt;a class=&#34;link&#34; href=&#34;https://gitcoin.co/grants/1274/banklessfr&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;newsletter BanklessFR&lt;/a&gt; ainsi que pour d&amp;rsquo;autres sources, et c&amp;rsquo;est en partie ce qui nous permet de fournir une newsletter de haute qualité bien que gratuite.&lt;/p&gt;
+&lt;div class=&#34;notice info&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#info-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Information&lt;/p&gt;&lt;p&gt;Le prochain round des Gitcoin grants commence aujourd&amp;rsquo;hui et dure jusqu&amp;rsquo;au 17 Décembre. Il y a désormais des collections pour naviguer les projets plus facilement, alors permettez moi de vous recommander une sélection de &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://gitcoin.co/grants/collections?featured=true&amp;amp;collection_id=24&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;personnes qui documentent la DeFi dans leur langue locale&lt;/a&gt;&lt;/strong&gt; ainsi que &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://gitcoin.co/grants/1274/banklessfr-the-daily-gwei-fr&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;le grants pour BanklessFR et le Daily Gwei FR&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h3 id=&#34;ethereum-peut-il-aider-les-marchés-de-lart-à-être-plus-transparents-et-équitables-&#34;&gt;Ethereum peut-il aider les marchés de l&amp;rsquo;art à être plus transparents et équitables ?
+&lt;/h3&gt;&lt;p&gt;Un autre sous-ensemble de l&amp;rsquo;écosystème d&amp;rsquo;Ethereum offre depuis peu une valeur incroyable pour la création de communautés : les jetons non fongibles (NFT). Si le terme est un peu effrayant, l&amp;rsquo;idée de base est en fait assez simple : Les NFT représentent un autre niveau de rareté numérique.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;Vous trouverez un explicatif détaillé sur les NFTs d&amp;rsquo;il y a deux ans, toujours d&amp;rsquo;actualité et accessible pour les nouveaux arrivants : &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2018/nft.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;jetons non fongibles expliqués avec Blastoise et Charizard&lt;/a&gt;.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Associés à DeFi, les NFT permettent désormais de nouvelles formes d&amp;rsquo;interactions et de financements communautaires. Grâce à des plateformes en libre-service, les artistes et les communautés peuvent créer et vendre de manière autonome des NFTs avec des services qui rationalisent le processus comme &lt;a class=&#34;link&#34; href=&#34;https://rarible.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Rarible&lt;/a&gt;. Grâce à leur nature programmable, les NFT permettent de &lt;strong&gt;nouveaux modèles de redistribution&lt;/strong&gt; tels qu&amp;rsquo;une contribution sur les achats du marché secondaire. Enfin, puisqu&amp;rsquo;ils vivent sur la chaîne de distribution Ethereum, les NFTs fournissent également un historique transparent de la propriété et des prix antérieurs.&lt;/p&gt;
+&lt;p&gt;Une fois de plus, à l&amp;rsquo;initiative de Jon (&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/otherbright&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;@OtherBright&lt;/a&gt;), BanklessFR a également exploré cette nouvelle frontière. Grâce à une collaboration avec l&amp;rsquo;artiste Arke, &lt;a class=&#34;link&#34; href=&#34;https://app.rarible.com/token/0xd07dc4262bcdbf85190c01c996b4c06a461d2430:43413:0x6b40aca108fdb67a781ed4c6810f47f7f3764d00?tab=overview&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;nous avons publié un NFT&lt;/a&gt; lié au contenu de la newsletter. J&amp;rsquo;ai demandé à Jon de nous donner quelques indications sur cette expérience :&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Avec &lt;a class=&#34;link&#34; href=&#34;https://banklessfr.substack.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;BanklessFR&lt;/a&gt; et &lt;a class=&#34;link&#34; href=&#34;https://thedailygweifr.substack.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;The Daily Gwei FR&lt;/a&gt;, nous tentons différentes expériences.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/defi-beyond-finance/banklessfr-nft.gif&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;BanklessFR-NFT&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Avec &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/Arke56374430&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Arke&lt;/a&gt;, nous avons commencé par la vente d&amp;rsquo;un &lt;a class=&#34;link&#34; href=&#34;https://app.rarible.com/token/0xd07dc4262bcdbf85190c01c996b4c06a461d2430:43413:0x6b40aca108fdb67a781ed4c6810f47f7f3764d00?tab=overview&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;BanklessFR NFT&lt;/a&gt;, représentant la newsletter BanklessFR. Cette carte de collection, disponible en 40 exemplaires, a été vendue avec succès à 0,15 ETH pièce. Nous avons partagé les bénéfices avec l&amp;rsquo;artiste. Nous avons inclus un article qui peut être déverrouillé au moment de l&amp;rsquo;achat, 24 heures avant les lecteurs qui n&amp;rsquo;ont pas la carte. Ce modèle de distribution est clairement innovant, mais à mon avis, il doit être développé.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Notre &lt;a class=&#34;link&#34; href=&#34;https://app.rarible.com/token/0xd07dc4262bcdbf85190c01c996b4c06a461d2430:64356:0x6b40aca108fdb67a781ed4c6810f47f7f3764d00?tab=overview&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;deuxième vente&lt;/a&gt;, différente de la première, toujours pour BanklessFR, a illustré un article, et a offert 10 copies de la carte, à 0,3 ETH l&amp;rsquo;unité. Elle contenait également un article qui pouvait être débloqué 24 heures à l&amp;rsquo;avance. Cette dernière fonctionnait beaucoup moins, certainement en raison d&amp;rsquo;un prix relativement élevé, malgré une rareté 4 fois plus grande.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/defi-beyond-finance/the-daily-gwei-fr.gif&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;TheDailyGwei-FR-NFT&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;La &lt;a class=&#34;link&#34; href=&#34;https://app.rarible.com/token/0xd07dc4262bcdbf85190c01c996b4c06a461d2430:81692:0x83ac01254b0b8e9745492c5e73f5f32a05570a76?tab=overview&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;dernière vente&lt;/a&gt; concerne le lancement du Daily Gwei FR. Nous avons publié 50 exemplaires d&amp;rsquo;une carte représentant la newsletter. Nous n&amp;rsquo;en avons pas encore vendu un seul, 0,05 ETH par carte, 50 cartes disponibles. Nous modifierons cette vente pour poursuivre l&amp;rsquo;expérience.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Nous avons d&amp;rsquo;autres idées en tête, ici les expériences sont relativement simples, mais des systèmes beaucoup plus complexes devraient être mis en place. Je pense que nous devrions insister sur le financement de &lt;a class=&#34;link&#34; href=&#34;https://gitcoin.co/grants/1274/banklessfr&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;gitcoin&lt;/a&gt; et &lt;a class=&#34;link&#34; href=&#34;https://clr.fund/#/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;clr.fund&lt;/a&gt;, avant d&amp;rsquo;accélérer du côté des NFTs.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Ensemble, ces services fournissent des outils innovants pour construire et développer les communautés. Grâce à la désintermédiation, les NFTs remettent les artistes sur le devant de la scène. Nous voyons de plus en plus de cas de collaboration entre un artiste et une communauté, comme nous l&amp;rsquo;avons fait pour BanklessFR.&lt;/p&gt;
+&lt;p&gt;Alors que nous entrons dans une ère de renouveau, en particulier pour les personnes extérieures à l&amp;rsquo;espace, assurez-vous d&amp;rsquo;orienter les nouveaux arrivants vers des ressources fiables : que pensez-vous du &lt;a class=&#34;link&#34; href=&#34;https://bankless.substack.com/p/-guide-1-starting-with-bankless&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;guide de démarrage de Bankless&lt;/a&gt; ?&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;le-trou-noir-des-marchés&#34;&gt;Le trou noir des marchés
+&lt;/h3&gt;&lt;p&gt;Si l&amp;rsquo;on prend du recul, la trajectoire des deux dernières années de développement est encore plus logique. Les fonctions financières étaient les premières étapes nécessaires, car elles fonctionnent maintenant comme des primitives permettant des interactions plus complexes.&lt;/p&gt;
+&lt;p&gt;À leur base même, les &lt;strong&gt;marchés sont simplement des mécanismes de distribution/allocation&lt;/strong&gt;. Jusqu&amp;rsquo;à présent, dans le monde de la finance ancienne, nous avons laissé les technocrates les concevoir, au profit des participants les plus connectés et les plus riches. Avec la DeFi, nous avons expérimenté nos propres façons de créer des marchés. Nous avons déjà assisté à des migrations de capitaux de milliards de dollars pour poursuivre une incitation donnée, pour le UNI d&amp;rsquo;Uniswap ou l&amp;rsquo;incitation d&amp;rsquo;une semaine de mining YFI.&lt;/p&gt;
+&lt;p&gt;En bref, notre finance est déjà fortement supérieure à n&amp;rsquo;importe quel équivalent classique et centralisé. Nous pouvons créer des marchés immenses et sains en quelques jours. Leur apporter les produits dérivés et d&amp;rsquo;autres options le lendemain ; et les effets de levier le jour suivant. Le tout inarrêtable.&lt;/p&gt;
+&lt;p&gt;Si vous n&amp;rsquo;êtes pas un trader, cela peut sembler excessif. Ce n&amp;rsquo;est pas le cas. Imaginez la finance comme une couche de base sous-jacente à toutes les autres. Quel que soit votre objectif, votre système devra probablement gérer des ressources limitées, vous aurez donc besoin de marchés.&lt;/p&gt;
+&lt;p&gt;La bonne nouvelle, c&amp;rsquo;est que nos marchés - nos couches de base - sont plus efficaces que tous les autres, de sorte que nous pouvons raisonnablement nous attendre à ce que l&amp;rsquo;impact de cette efficacité accrue s&amp;rsquo;amplifie à mesure que nous descendons dans la pile. Pour dire les choses simplement, la finance est le premier champ de bataille que nous avons gagné : l&amp;rsquo;approche décentralisée a réussi et a permis d&amp;rsquo;obtenir une infrastructure supérieure sans équivalent. J&amp;rsquo;ai hâte de voir les prochaines !&lt;/p&gt;
+&lt;div class=&#34;notice tip&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#tip-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Astuce&lt;/p&gt;&lt;p&gt;Cet article a éveillé votre curiosité ? Vous êtes tombés au bon endroit — nous avons un ecosystème dynamique en français pour vous aider à suivre et comprendre la finance décentralisée. Du plus accessible au plus spécialisé :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://discord.gg/3bWZcK2&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;💬 Le serveur Discord DeFi France&lt;/a&gt;&lt;/strong&gt; pour échanger avec la communauté.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://thedailygweifr.substack.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;☕ La version française du Daily Gwei&lt;/a&gt;&lt;/strong&gt; pour des articles et résumés très accessibles.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://banklessfr.substack.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🗞 La newsletter BanklessFR&lt;/a&gt;&lt;/strong&gt; pour comprendre les concepts fondamentaux.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/channel/UCefQC4Y-X9MBRuYBKc2waiQ&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🎥 La chaine Youtube DeFi France&lt;/a&gt;&lt;/strong&gt; pour approfondir avec des lives pointus.&lt;/li&gt;
+&lt;li&gt;&amp;amp; Bien sûr &lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/fr/&#34; &gt;ce blog&lt;/a&gt; qui creuse des sujets spécifiques liés à la pratique de la DeFi.&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;
+
+</description>
+        </item>
+        
+    </channel>
+</rss>

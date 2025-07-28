@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="On examine le design de GHO et anticipe ses principaux défis pour croître ainsi que de la valeur qu'il peut apporter à la DAO d'Aave.">
+<title>Le stablecoin GHO d&#39;Aave peut-il aider le protocole à se développer davantage et à dépasser MakerDAO et DAI ?</title>
+
+<link rel='canonical' href='http://localhost:1313/fr/aave-gho-stablecoin/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Le stablecoin GHO d'Aave peut-il aider le protocole à se développer davantage et à dépasser MakerDAO et DAI ?">
+<meta property='og:description' content="On examine le design de GHO et anticipe ses principaux défis pour croître ainsi que de la valeur qu'il peut apporter à la DAO d'Aave.">
+<meta property='og:url' content='http://localhost:1313/fr/aave-gho-stablecoin/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Finance décentralisée' /><meta property='article:tag' content='Stablecoins' /><meta property='article:tag' content='Actifs stables' /><meta property='article:tag' content='Marchés monétaires' /><meta property='article:tag' content='Aave' /><meta property='article:tag' content='GHO' /><meta property='article:tag' content='Taux d&#39;intérêt' /><meta property='article:published_time' content='2022-08-22T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2022-08-22T01:13:50&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/2022/aave-gho-stablecoin/aave-gho-stablecoin-cover.png' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="Le stablecoin GHO d'Aave peut-il aider le protocole à se développer davantage et à dépasser MakerDAO et DAI ?">
+<meta name="twitter:description" content="On examine le design de GHO et anticipe ses principaux défis pour croître ainsi que de la valeur qu'il peut apporter à la DAO d'Aave."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/2022/aave-gho-stablecoin/aave-gho-stablecoin-cover.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Afficher le menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/fr/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/fr">TokenBrice</a></h1>
+            <h2 class="site-description">DeFi en brutale honnêteté</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/fr/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Accueil</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/%C3%A0-propos/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>À Propos</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Recherche</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/liens/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Liens</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" >English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" selected>Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Mode sombre</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table des matières</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#introduction-à-gho-le-stablecoin-natif-daave">Introduction à GHO, le stablecoin natif d&rsquo;Aave</a>
+      <ol>
+        <li><a href="#un-stablecoin-surcollatéralisé-peg-à-lusd">Un stablecoin surcollatéralisé peg à l&rsquo;USD</a></li>
+        <li><a href="#taux-dintérêt-et-remise-stkaave">Taux d&rsquo;intérêt et remise stkAAVE</a></li>
+        <li><a href="#facilitateurs-et-rwa">Facilitateurs et RWA</a></li>
+        <li><a href="#décentralisation-et-absence-de-résistance-à-la-censure">&ldquo;Décentralisation&rdquo; et absence de résistance à la censure</a></li>
+      </ol>
+    </li>
+    <li><a href="#a-quoi-pourrait-ressembler-aave-avec-gho-">A quoi pourrait ressembler Aave avec GHO ?</a>
+      <ol>
+        <li><a href="#stratégie-de-liquidité-du-gho">Stratégie de liquidité du GHO</a></li>
+      </ol>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/fr/aave-gho-stablecoin/">
+                
+                    <img src="/img/2022/aave-gho-stablecoin/aave-gho-stablecoin-cover.png" loading="lazy" alt="Featured image of post Le stablecoin GHO d&#39;Aave peut-il aider le protocole à se développer davantage et à dépasser MakerDAO et DAI ?" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/fr/aave-gho-stablecoin/">Le stablecoin GHO d&#39;Aave peut-il aider le protocole à se développer davantage et à dépasser MakerDAO et DAI ?</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            On examine le design de GHO et anticipe ses principaux défis pour croître ainsi que de la valeur qu&#39;il peut apporter à la DAO d&#39;Aave.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">août 22, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    10 minutes de lecture
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+        <footer class="article-translations">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+            <div>
+                
+                    <a href="http://localhost:1313/aave-gho-stablecoin/" class="link">English</a>
+                
+            </div>
+        </footer>
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Il y a quelques semaines, le concept du stablecoin GHO a été introduit sur le forum de gouvernance Aave et a déclenché une vague d&rsquo;excitation à travers la DeFi. En effet, l&rsquo;idée d&rsquo;un stablecoin décentralisé, sur-collatéralisé, peg à l&rsquo;USD et natif de la DAO d&rsquo;Aave est une prochaine étape logique pour le protocole.</p>
+<p>Dans cet article, nous examinerons le concept présenté avant de voir comment la DAO et l&rsquo;équipe d&rsquo;Aave pourraient le mettre sur le marché et en faire un stablecoin potentiellement aussi important que le DAI. Bien sûr, les informations sont encore rares, aussi la deuxième partie de l&rsquo;article est fondée sur des extrapolations s&rsquo;appuyant sur le modèle présenté et mon expérience en DeFi.</p>
+<h2 id="introduction-à-gho-le-stablecoin-natif-daave">Introduction à GHO, le stablecoin natif d&rsquo;Aave
+</h2><p>Depuis ses débuts, l&rsquo;un des principaux défis d&rsquo;<a class="link" href="https://www.defiscan.info/protocols/aave/ethereum"  target="_blank" rel="noopener"
+    >Aave</a> a été d&rsquo;attirer suffisamment de dépôts en stablecoin, car c&rsquo;est le choix préféré de la plupart des emprunteurs. Ainsi, la création d&rsquo;un stablecoin natif de la DAO est une prochaine étape naturelle et devrait également permettre de réduire les coûts pour les emprunteurs. Puisque ce stablecoin est minté, il devrait être plus économique à emprunter.</p>
+<p>Plongeons donc dans les principales caractéristiques du GHO telles que présentées sur le forum de la gouvernance.</p>
+<h3 id="un-stablecoin-surcollatéralisé-peg-à-lusd">Un stablecoin surcollatéralisé peg à l&rsquo;USD
+</h3><p>GHO sera un stablecoin surcollatéralisé, frappé en utilisant des aTokens comme garantie. Donc, dans un sens, c&rsquo;est similaire à MakerDAO mais légèrement plus efficace puisque toutes les collatéraux seront des actifs productifs générant des intérêts (aTokens) - en fonction de leur demande d&rsquo;emprunt.</p>
+<p>En ce qui concerne la dénomination, il est également intéressant de voir qu&rsquo;Aave n&rsquo;inclut pas &ldquo;USD&rdquo; dans le nom. Compte tenu de l&rsquo;agressivité des régulateurs américains, c&rsquo;est probablement un avantage net d&rsquo;un point de vue juridique. Cependant, cela ne semble pas être le seul facteur de décision, puisque le fondateur d&rsquo;Aave, Stani, a fait allusion à un échange potentiel de devises plus tard :</p>
+<blockquote>
+<p>La référence à une devise a des limites sur le long terme, vous pourriez potentiellement vouloir échanger la parité d&rsquo;un actif sous-jacent à un autre (pour diverses raisons) ou suivre quelque chose d&rsquo;autre et être lié à un USD dans le ticker serait un facteur limitant. En plus de cela, tout le monde fait déjà cela, ce qui rend la situation un peu répétitive et restrictive du point de vue de la communication. DAI suit le même chemin en fait et a été utile pour construire un récit au fil des ans.</p>
+<ul>
+<li>Stani sur <a class="link" href="https://governance.aave.com/t/introducing-gho/8730/27"  target="_blank" rel="noopener"
+    >le post d&rsquo;introduction de GHO d&rsquo;Aave</a></li>
+</ul>
+</blockquote>
+<h3 id="taux-dintérêt-et-remise-stkaave">Taux d&rsquo;intérêt et remise stkAAVE
+</h3><p>Le modèle de taux d&rsquo;intérêt pour GHO est actuellement son composant le plus décevant, car le post initial envisageait un taux d&rsquo;intérêt directement déterminé par la DAO d&rsquo;Aave, tout comme cela fonctionne sur Maker. Cependant, cela serait inefficace et ajouterait une charge inutile à la gouvernance.</p>
+<p>Les réactions de la communauté dicteront la direction à prendre. Néanmoins, j&rsquo;espère sincèrement pour Aave que le choix final se portera sur un modèle où le taux d&rsquo;intérêt est déterminé algorithmiquement par les conditions du marché, tout comme pour les autres jetons sur Aave où l&rsquo;offre et la demande sur le pool dictent le taux d&rsquo;intérêt.</p>
+<p>Si la communauté Aave estime qu&rsquo;il est nécessaire d&rsquo;impliquer la DAO dans la détermination du taux d&rsquo;intérêt - une absurdité à mon sens puisqu&rsquo;une DAO n&rsquo;est absolument pas apte à gérer les paramètres opérationnels d&rsquo;un système - alors un modèle hybride pourrait être envisagé avec un taux de base fixe voté par la DAO, et modulé dans une fourchette en fonction des conditions du marché.</p>
+<p>En effet, l&rsquo;évolution dynamique du taux d&rsquo;intérêt peut aider à protéger le peg de GHO en dissuadant les événements de génération massive, tout comme <a class="link" href="https://docs.liquity.org/faq/lusd-redemptions#how-is-the-baserate-calculated"  target="_blank" rel="noopener"
+    >comment le baseRate fonctionne sur Liquity</a> pour protéger LUSD d&rsquo;un dé-peg vers le bas. Initialement, à 0,5%, les frais augmentent lorsque la demande augmente et diminuent progressivement pour revenir à 0,5% lorsque la demande se stabilise.</p>
+<p>Le post mentionne également une réduction des frais pour les emprunteurs de GHO qui stakent des tokens AAVE, créant ainsi des synergies supplémentaires. Enfin, 100% des taux d&rsquo;intérêt payés par les déposants iront à la DAO Aave (contre un facteur de réserve de l&rsquo;ordre de ~10% pour la plupart des autres tokens), ce qui signifie que si GHO atteint une capitalisation significative, il pourrait devenir une mine d&rsquo;or pour la DAO. <strong>Avec une capitalisation similaire à celle de DAI, et un taux d&rsquo;intérêt moyen de 3,5 % (hypothèse haute), la DAO gagnerait près de 150 000 $ par jour grâce au taux d&rsquo;intérêt de GHO</strong>.</p>
+<p>J&rsquo;ai réalisé quelques calculs rapides et un peu schématiques pour estimer le revenu potentiel pour la DAO d&rsquo;Aave en fonction de la capitalisation de GHO et du taux d&rsquo;intérêt moyen :</p>
+<div class="table-wrapper"><table>
+  <tr>
+   <td><p style="text-align: center">Capitalisation de GHO</p>
+   </td>
+   <td><p style="text-align: center">Taux d'intérêt moyen</p>
+   </td>
+   <td><p style="text-align: center">Revenus annuels pour la DAO</p>
+   </td>
+   <td><p style="text-align: center">Revenus journaliers pour la DAO</p>
+   </td>
+  </tr>
+  <tr>
+   <td><p style="text-align: center">
+$1.5B (FRAX market cap)</p>
+   </td>
+   <td><p style="text-align: center">
+1%</p>
+   </td>
+   <td><p style="text-align: center">
+$15,000,000.00</p>
+   </td>
+   <td><p style="text-align: center">
+$41,095.89</p>
+   </td>
+  </tr>
+  <tr>
+   <td><p style="text-align: center">
+$6.6B (DAI market cap) </p>
+   </td>
+   <td><p style="text-align: center">
+1%</p>
+   </td>
+   <td><p style="text-align: center">
+$66,000,000.00</p>
+   </td>
+   <td><p style="text-align: center">
+$180,821.92</p>
+   </td>
+  </tr>
+  <tr>
+   <td><p style="text-align: center">
+$52B (USDC market cap)</p>
+   </td>
+   <td><p style="text-align: center">
+1%</p>
+   </td>
+   <td><p style="text-align: center">
+$520,000,000.00</p>
+   </td>
+   <td><p style="text-align: center">
+$1,424,657.53</p>
+   </td>
+  </tr>
+  <tr>
+   <td><p style="text-align: center">
+$1.5B</p>
+   </td>
+   <td><p style="text-align: center">
+3.50%</p>
+   </td>
+   <td><p style="text-align: center">
+$52,500,000.00</p>
+   </td>
+   <td><p style="text-align: center">
+$143,835.62</p>
+   </td>
+  </tr>
+  <tr>
+   <td><p style="text-align: center">
+$6.6B</p>
+   </td>
+   <td><p style="text-align: center">
+3.50%</p>
+   </td>
+   <td><p style="text-align: center">
+$231,000,000.00</p>
+   </td>
+   <td><p style="text-align: center">
+$632,876.71</p>
+   </td>
+  </tr>
+  <tr>
+   <td><p style="text-align: center">
+$52B</p>
+   </td>
+   <td><p style="text-align: center">
+3.50%</p>
+   </td>
+   <td><p style="text-align: center">
+$1,820,000,000.00</p>
+   </td>
+   <td><p style="text-align: center">
+$4,986,301.37</p>
+   </td>
+  </tr>
+</table></div>
+<p>Références du tableau :</p>
+<ol>
+<li>GHO Marketcap : 1,5 milliards = l&rsquo;offre actuelle de FRAX, 6,6 milliards celle de DAI, et 52 milliards celle de USDC - on peut rêver.</li>
+<li>Taux d&rsquo;intérêt moyen du GHO : 1% serait très compétitif, 3,5% dans la fourchette haute des taux habituels.</li>
+</ol>
+<h3 id="facilitateurs-et-rwa">Facilitateurs et RWA
+</h3><p>La conception de GHO prévoit des &ldquo;facilitateurs&rdquo;, embarqués par la gouvernance d&rsquo;Aave, qui seraient en mesure de frapper le GHO. Le premier facilitateur serait le protocole Aave lui-même, mais d&rsquo;autres suivront, qu&rsquo;il s&rsquo;agisse de protocoles ou d&rsquo;entités. Cette partie est passionnante, car elle ouvre largement l&rsquo;espace de conception du GHO. Après sa mise en circulation, nous pourrions voir d&rsquo;autres protocoles demander à devenir des facilitateurs et construire sur Aave et GHO.</p>
+<p><img src="/img/2022/aave-gho-stablecoin/gho-facilitators.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="gho-facilitators"
+	
+	
+></p>
+<p>Il y a également des mentions explicites de positions sous-collatéralisées basées sur des références telles qu&rsquo;un score de crédit. Chaque facilitateur aura une capacité maximale de frappe de GHO déterminée par la DAO.</p>
+<h3 id="décentralisation-et-absence-de-résistance-à-la-censure">&ldquo;Décentralisation&rdquo; et absence de résistance à la censure
+</h3><p>Le GHO est présenté comme un stablecoin décentralisé par l&rsquo;équipe d&rsquo;Aave, avec même quelques mentions de résistance à la censure. Cependant, elles ne sont jamais directement associée à GHO :</p>
+<blockquote>
+<p>L&rsquo;utilisation des stablecoins ne fera que croître à mesure que les crypto-monnaies s&rsquo;intègrent davantage à une base d&rsquo;utilisateurs moins crypto-natifs. Les stablecoins décentralisés fournissent une monnaie libellée en fiat résistante à la censure sur la blockchain. Voici GHO, une monnaie stable multi-collatérale décentralisée, entièrement garantie et native du protocole Aave.</p>
+</blockquote>
+<p>À moins que j&rsquo;aie mal compris la conception, GHO sera <strong>aussi &ldquo;décentralisé&rdquo; que DAI et aura une faible résistance à la censure</strong> en raison de la composition de son collatéral. En effet, en supposant que tous les aTokens qui peuvent actuellement être utilisés comme collatéral pour emprunter sur Aave seront également utilisables pour emprunter GHO, la composition du collatéral de GHO sera dominée par des tokens censurables tels que USDC :</p>
+<p><img src="/img/2022/aave-gho-stablecoin/aave-collateral.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="aave-collateral"
+	
+	
+></p>
+<p>Source : <a class="link" href="https://defillama.com/protocol/aave-v2"  target="_blank" rel="noopener"
+    >DeFiLlama</a></p>
+<p>En effet, si l&rsquo;on exclut les stETH utilisés comme collatéral pour emprunter des ETH et s&rsquo;exposer avec levier aux rendements du staking, l&rsquo;USDC est le principal collatéral utilisé sur Aave, avec un autre token nécessitant de la confiance (wBTC) non loin derrière. <strong>La composition du collatéral serait néanmoins bien meilleure que celle de DAI</strong>, qui est soutenu à plus de 50 % par des USDC purs.</p>
+<p><img src="/img/2022/aave-gho-stablecoin/dai-collateral.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="dai-collateral"
+	
+	
+></p>
+<p>Une autre tranche de ~25 % de la garantie provient d&rsquo;autres garanties requises par la confiance ou de positions fournissant de la liquidité réflexive (comme le DAI/USDC LP utilisé comme garantie pour frapper le DAI).</p>
+<p>Pour plus d&rsquo;informations sur la conception envisagée pour GHO, n&rsquo;hésitez pas à lire <a class="link" href="https://governance.aave.com/t/introducing-gho/8730"  target="_blank" rel="noopener"
+    >le message du forum sur la gouvernance</a> et les réponses.</p>
+<h2 id="a-quoi-pourrait-ressembler-aave-avec-gho-">A quoi pourrait ressembler Aave avec GHO ?
+</h2><p>Maintenant que le décor est planté en ce qui concerne le GHO, nous pouvons entrer dans un territoire plus spéculatif et examiner comment le lancement du GHO pourrait se dérouler en pratique.</p>
+<p>En effet, l&rsquo;interaction entre le protocole Aave et GHO est tout à fait passionnante à considérer : alors que le post initial mentionne Aave x GHO, ainsi que l&rsquo;activation de l&rsquo;eMode (permettant un effet de levier important sur des paires sélectionnées telles que USDC/DAI) sur GHO, il est assez maigre en détails, alors je vais devoir spéculer un peu.</p>
+<p>aGHO serait un collatéral fascinant sur Aave, mais il pourrait également créer des risques réflexifs importants s&rsquo;il est autorisé à emprunter GHO. Ainsi, <strong>Je m&rsquo;attends à ce que l&rsquo;aGHO soit empêché de frapper des GHO</strong> afin d&rsquo;éviter une collatéralisation réflexive comme nous le voyons actuellement sur DAI.</p>
+<p>Néanmoins, cela permettrait de créer des boucles d&rsquo;arbitrage de stablecoin intéressantes, comme aUSDC &gt; Mint GHO &gt; aGHO &gt; Emprunt d&rsquo;un autre stablecoin. Avec l&rsquo;eMode, cela ferait de Aave &amp; GHO un protocole très efficace pour l&rsquo;arbitrage de stablecoins. De plus, le taux d&rsquo;intérêt du GHO deviendrait une sorte de &ldquo;taux d&rsquo;intérêt de base des stablecoins&rdquo; et pourrait aider à contrôler le taux d&rsquo;intérêt d&rsquo;autres stablecoins comme l&rsquo;USDC.</p>
+<h3 id="stratégie-de-liquidité-du-gho">Stratégie de liquidité du GHO
+</h3><p>Une autre partie critique et essentielle de la conception de tout stablecoin est sa stratégie de liquidité. Puisque CRV, CVX, et BAL sont acceptés comme garantie sur Aave, il pourrait y avoir des choses passionnantes faites avec les CRV, CVX, et BAL accumulés par la trésorerie, grâce au facteur de réserve. Les verrouiller dans leurs protocoles natifs permettrait à la DAO d&rsquo;Aave de diriger les incitations vers les pools impliquant au GHO.</p>
+<p><img src="/img/2022/aave-gho-stablecoin/aaveDAO-treasury.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="aaveDAO-treasury"
+	
+	
+>
+Source : <a class="link" href="https://governance.aave.com/t/aave-treasury-report/5575/37"  target="_blank" rel="noopener"
+    >Rapport sur la trésorerie d&rsquo;Aave</a> (juillet 2022)</p>
+<p>Tout comme Frax s&rsquo;éloigne actuellement de USDT et DAI et tente d&rsquo;établir la Frax Basepool (FRAX/USDC) comme paire de base sur Curve pour d&rsquo;autres stablecoins, nous pourrions envisager un mouvement similaire de la part d&rsquo;Aave. De plus, de nombreux projets actuellement exposés à l&rsquo;USDC et au DAI cherchent à diversifier leurs liquidités. GHO pourrait arriver au bon moment pour permettre à DeFi d&rsquo;être moins dépendante de l&rsquo;USDC.</p>
+<p>Cependant, alors que Frax contrôle un pouvoir de gouvernance et de vote important dans les Curve Wars, ce n&rsquo;est pas le cas pour la DAO Aave. Les soldes actuels de la trésorerie CRV/CVX seront clairement insuffisants pour inciter les pools à atteindre le milliard de dollars, ce qui pourrait pousser la DAO Aave à envisager l&rsquo;acquisition de plus de tokens CRV/CVX. Avec les revenus importants que la DAO percevra du taux d&rsquo;intérêt de GHO, elle devrait avoir suffisamment de moyens pour soutenir une liquidité appropriée, quelle que soit la capitalisation de GHO.</p>
+<p>Enfin, Aave a été historiquement proche de Balancer, avec la pool Balancer 80% AAVE / 20% wETH utilisé dans le module de sécurité depuis la transition vers le token AAVE. La trésorerie possède déjà 200k BAL et <a class="link" href="https://governance.aave.com/t/arc-strategic-partnership-with-balancer-part-2/7813"  target="_blank" rel="noopener"
+    >un achat additionel de 100K BAL est prévu</a>. Nous pourrions donc nous attendre à un jeu passionnant pour GHO sur Balancer. Pourtant, lorsqu&rsquo;il s&rsquo;agit de stablecoin, Curve reste à la fois le roi et le faiseur de roi : Je ne vois pas comment Aave pourrait faire croître suffisamment la liquidité de GHO sans s&rsquo;impliquer d&rsquo;une manière ou d&rsquo;une autre dans <a class="link" href="https://tokenbrice.xyz/content/posts/2021/crv-wars.fr.md%22"  target="_blank" rel="noopener"
+    >la guerre du CRV</a>.</p>
+<p>En plus des incitations du protocole de base (comme le taux d&rsquo;intérêt d&rsquo;emprunt dynamique ou géré par la DAO) et du mécanisme de liquidation, la stratégie de liquidité est probablement l&rsquo;un des éléments les plus cruciaux pour un stablecoin, car elle a également un impact sur la façon dont l&rsquo;ancrage est maintenu.</p>
+<h2 id="conclusion">Conclusion
+</h2><p>J&rsquo;espère que cet article vous a permis de mieux comprendre les enjeux de la guerre des stablecoins. La fin de l&rsquo;année sera intéressante, avec la sortie du GHO qui approche et le stablecoin de Curve, également surcollatéralisé, dont la sortie a été annoncée avant la fin de cette année. La multiplication des stablecoins est une prochaine étape naturelle pour DeFi, car la plupart des protocoles établis voient leur conception converger :</p>
+<ul>
+<li>Frax a commencé comme un stablecoin seulement, a maintenant FraxSwap et bientôt FraxLend.</li>
+<li>Aave a commencé comme un marché monétaire, bientôt avec son propre stablecoin natif.</li>
+<li>Curve a commencé comme un DEX, mais l&rsquo;ajout de son propre stablecoin pourrait bientôt permettre des emprunts efficaces pour les fournisseurs de liquidités.</li>
+</ul>
+<p>En fin de compte, comme l&rsquo;ont montré mes calculs rapides plus haut, la principale raison pour laquelle un protocole crée son stablecoin est assez évidente : c&rsquo;est là où il y a le plus d&rsquo;argent à faire, ainsi qu&rsquo;une demande massive et une adéquation produit/marché.</p>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Remarque</p><p>L&rsquo;&ldquo;artiste&rdquo; de l&rsquo;image de couverture de cet article est une IA impressionnante (et légèrement effrayante) appelée <a class="link" href="https://www.midjourney.com/"  target="_blank" rel="noopener"
+    >Midjourney</a>. Elle a reçu le message suivant : Un fantôme lumineux, mignon et amical, frappant les pièces de sa propre monnaie dans un environnement cyberpunk, 4k, cartoon, détails complets, unreal engine. &ndash;ar 19:10`</p></div>
+
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/fr/tags/defi/">DeFi</a>
+        
+            <a href="/fr/tags/ethereum/">Ethereum</a>
+        
+            <a href="/fr/tags/finance-d%C3%A9centralis%C3%A9e/">Finance Décentralisée</a>
+        
+            <a href="/fr/tags/stablecoins/">Stablecoins</a>
+        
+            <a href="/fr/tags/actifs-stables/">Actifs Stables</a>
+        
+            <a href="/fr/tags/march%C3%A9s-mon%C3%A9taires/">Marchés Monétaires</a>
+        
+            <a href="/fr/tags/aave/">Aave</a>
+        
+            <a href="/fr/tags/gho/">GHO</a>
+        
+            <a href="/fr/tags/taux-dint%C3%A9r%C3%AAt/">Taux D&#39;intérêt</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Dernière mise à jour le août 22, 2022 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Contenus liés</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/fr/lusd-chicken-bonds/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/lusd-chicken-bonds/lusd-chicken-bonds-cover-tokenbrice.png" loading="lazy" data-key="" data-hash="/img/2022/lusd-chicken-bonds/lusd-chicken-bonds-cover-tokenbrice.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Chicken Bonds : synergie DeFi x NFT pour résoudre le problème de l&#39;oeuf et de la poule de la ĺiquidité en finance décentralisée</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/stablecoin-marauder-map/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2023/stablecoin-marauder-map/stablecoin-marauder-map-cover.png" loading="lazy" data-key="" data-hash="/img/2023/stablecoin-marauder-map/stablecoin-marauder-map-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">La carte du Maraudeur des stablecoins</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/defi-vs-inflation/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/defi-vs-inflation/defi-vs-inflation-tokenbrice-cover.jpg" loading="lazy" data-key="" data-hash="/img/2022/defi-vs-inflation/defi-vs-inflation-tokenbrice-cover.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Comment construire un portefeuille DeFi résistant à l&#39;inflation ?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/unstoppable-defi/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/unstoppable-defi/unstoppable-defi-tokenbrice-cover.png" loading="lazy" data-key="" data-hash="/img/2022/unstoppable-defi/unstoppable-defi-tokenbrice-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Dans les coulisses du théâtre de la décentralisation : étude de l’inaltérabilité des protocoles DeFi</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/liquity-protocol/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/liquity-protocol/cover-en.png" loading="lazy" data-key="" data-hash="/img/2021/liquity-protocol/cover-en.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">⚖️ Liquity : un service d&#39;emprunt inarrêtable, efficace et innovant</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Généré avec <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Thème <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> conçu par <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

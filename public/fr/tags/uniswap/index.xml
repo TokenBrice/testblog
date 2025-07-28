@@ -1,0 +1,1059 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Uniswap on TokenBrice</title>
+        <link>http://localhost:1313/fr/tags/uniswap/</link>
+        <description>Recent content in Uniswap on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>fr</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Tue, 08 Jul 2025 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/fr/tags/uniswap/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Les guerres des swaps sur les actifs pegged</title>
+        <link>http://localhost:1313/fr/pegged-assets-swap/</link>
+        <pubDate>Tue, 08 Jul 2025 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/pegged-assets-swap/</guid>
+        <description>&lt;img src="https://raw.githubusercontent.com/TokenBrice/blog/refs/heads/master/static/img/2025/pegged-assets-swap/pegged-assets-swap-cover.png" alt="Featured image of post Les guerres des swaps sur les actifs pegged" /&gt;&lt;p&gt;Chers lecteurs, cela fait un moment ! Comme vous le savez probablement, la gestion de la liquidité est à la fois ma passion et ma profession. Dans cet article, je souhaite revenir aux fondamentaux et offrir une brève histoire au travers du prisme des swaps d&amp;rsquo;actifs pegged. En détaillant la structure de liquidité et les plateformes qui soutiennent le mieux ces paires, nous approfondirons notre compréhension des concepts clés qui restent cruciaux. Nous aurons également l&amp;rsquo;opportunité de parler de Fluid DEX et EulerSwap, les deux lancements les plus intéressants de l&amp;rsquo;année pour la construction de liquidité, qui méritent définitivement plus d&amp;rsquo;attention ici.&lt;/p&gt;
+&lt;h2 id=&#34;les-débuts-des-swaps-dactifs-pegged-2018-2019&#34;&gt;Les débuts des swaps d&amp;rsquo;actifs pegged (2018-2019)
+&lt;/h2&gt;&lt;p&gt;Il était une fois, il y a plus de cinq ans, &lt;strong&gt;tout ce que nous avions pour échanger sur le mainnet était Uniswap, Bancor, et quelques DEX basés sur des carnets d&amp;rsquo;ordres maladroits comme EtherDelta.&lt;/strong&gt; Ainsi, pour les swaps d&amp;rsquo;actifs pegged, les options étaient limitées, et nous utilisions le pool USDC/USDT d&amp;rsquo;Uniswap V2, ce qui était presque de la folie pure.&lt;/p&gt;
+&lt;p&gt;Examinons cette anecdote historique pour comprendre &lt;strong&gt;le niveau de gaspillage atteint&lt;/strong&gt; à l&amp;rsquo;époque. En ce qui concerne les pools de liquidité, le paramètre clé est l&amp;rsquo;évolution relative des prix des deux actifs : si vous avez fait du LP volatile, vous êtes familier avec cela. Si vous fournissez de la liquidité pour, disons, LINK/ETH, la pire douleur pour vous, en termes de perte impermanente, serait, par exemple, que l&amp;rsquo;ETH monte en flèche pendant que LINK s&amp;rsquo;effondre : votre position de LP diminue en ETH (qui augmente en prix) et accumule du LINK (qui chute).&lt;/p&gt;
+&lt;p&gt;USDC/USDT est une autre histoire, car les deux actifs sont fortement corrélés, avec une différence de prix maximale jamais observée d&amp;rsquo;environ 10 % lors d&amp;rsquo;un événement spécifique (le dépeg de l&amp;rsquo;USDC lié à SVB) ; en temps normal, les deux ont une différence de prix de l&amp;rsquo;ordre des points de base. Cependant, UNIv2 distribue la liquidité sur toute la plage de prix, ce qui signifie qu&amp;rsquo;il alloue une quantité égale de liquidité partout, de 1 USDC = 0.0000000001 USDT à 1 USDC = 10000000000000 USDT. Pour le dire simplement : 99,9 % de la liquidité dans un UNIv2_USDC/USDT ne sera jamais utilisée. Je pense que c&amp;rsquo;est plus clair sur le graphique :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/TokenBrice/blog/refs/heads/master/static/img/2025/pegged-assets-swap/liquidity-structure.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;liquidity-structures&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;La seule liquidité utile là-dedans (en supposant 1 USDC ≃ 1 USDT) se trouve à l&amp;rsquo;intersection des deux lignes vertes, représentant une part très minime de la courbe de distribution de liquidité entière.&lt;/p&gt;
+&lt;p&gt;D&amp;rsquo;un autre côté, notez la distribution de liquidité StableSwap, affichée en bleu, sur le même graphique. Pour des actifs à des prix similaires, la zone couverte par la courbe est bien plus grande qu&amp;rsquo;avec l&amp;rsquo;invariant d&amp;rsquo;Uniswap.&lt;/p&gt;
+&lt;h2 id=&#34;la-révolution-stableswap-pour-les-swaps-dactifs-pegged-2020&#34;&gt;La révolution StableSwap pour les swaps d&amp;rsquo;actifs pegged (2020)
+&lt;/h2&gt;&lt;p&gt;Une fois que StableSwap fut disponible, la liquidité des stablecoins a rapidement migré vers cette solution, car elle était significativement plus efficace (on parle d&amp;rsquo;améliorations &amp;gt;100x en efficacité par rapport à UNIv2). C&amp;rsquo;était &lt;strong&gt;la première instance en direct de liquidité concentrée vue sur le mainnet, avant UNIv3&lt;/strong&gt;. Les deux sont difficiles à comparer, car UNIv3 est beaucoup plus flexible, tandis que Curve-StableSwap est plus spécialisé ; cependant, il faut rendre à César ce qui est à César. En plus de l&amp;rsquo;efficacité accrue, Curve a fourni un modèle d&amp;rsquo;incitation - veCRV+émissions CRV, qui a été &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/crv-wars/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;couvert plusieurs fois sur ce blog déjà&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Les incitations sont critiques pour les paires d&amp;rsquo;actifs pegged, car elles ont des caractéristiques spécifiques :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Elles ont tendance à être globalement &lt;strong&gt;à faible volume&lt;/strong&gt; (par rapport à une paire volatile)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Les frais que les LP peuvent facturer sont beaucoup plus faibles&lt;/strong&gt; (jusqu&amp;rsquo;à récemment, la convention était de 0,3 % à 1 % par transaction pour les actifs volatils, et 0,05 % pour les actifs pegged)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Leur volume vient par pics&lt;/strong&gt; corrélés à des événements associés à l&amp;rsquo;actif (par exemple, le dépeg de l&amp;rsquo;USDC fut l&amp;rsquo;un des jours de volume les plus élevés jamais enregistrés pour l&amp;rsquo;USDC)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;À cause de tout cela, je pensais jusqu&amp;rsquo;à récemment que les structures d&amp;rsquo;incitation étaient encore plus critiques pour les paires d&amp;rsquo;actifs pegged que pour les actifs volatils. Avec l&amp;rsquo;arrivée de Fluid DEX et EulerSwap, je ne pense plus que ce soit le cas. Cependant, avant d&amp;rsquo;approfondir ces derniers, nous devons d&amp;rsquo;abord aborder une autre étape historique significative dans la liquidité des actifs pegged : la sortie d&amp;rsquo;Uniswap V3.&lt;/p&gt;
+&lt;h2 id=&#34;larrivée-de-la-liquidité-concentrée-duniswap-v3-2021&#34;&gt;L&amp;rsquo;arrivée de la liquidité concentrée d&amp;rsquo;Uniswap V3 (2021)
+&lt;/h2&gt;&lt;p&gt;Uniswap V3 est sorti et a offert une liquidité concentrée personnalisable à pratiquement tous les types d&amp;rsquo;actifs, permettant des gains d&amp;rsquo;efficacité massifs pour tous les fournisseurs de liquidité. Cependant, comme ce n&amp;rsquo;était pas uniquement pour les actifs pegged, cela signifiait presque des pertes impermanentes amplifiées pour les LP d&amp;rsquo;actifs volatils. Compte tenu de la nouveauté de la structure de liquidité, ainsi que du manque d&amp;rsquo;infrastructure au début, le lancement d&amp;rsquo;UNIv3 fut initialement lent.&lt;/p&gt;
+&lt;p&gt;Cependant, la concentration personnalisable a apporté des avantages tangibles, en particulier pour une sous-catégorie d&amp;rsquo;actifs pegged que j&amp;rsquo;ai qualifiée de « actifs vaguement pegged » : pensez à des paires comme :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;wstETH/ETH (corrélés, mais wstETH est en hausse constante contre ETH),&lt;/li&gt;
+&lt;li&gt;LUSD/USDC (corrélés, mais LUSD peut légèrement sur/sous-peg)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Dans de tels cas, &lt;strong&gt;la liquidité concentrée d&amp;rsquo;UNIv3 a permis aux LP de reproduire une distribution similaire en efficacité à celle de StableSwap de Curve, mais ajustée aux particularités des prix des tokens&lt;/strong&gt;, et cela s&amp;rsquo;est traduit une fois de plus par des gains d&amp;rsquo;efficacité massifs. Cependant, le déverrouillage final (selon l&amp;rsquo;état actuel de l&amp;rsquo;industrie) n&amp;rsquo;est arrivé que des années plus tard avec l&amp;rsquo;arrivée de Fluid DEX et EulerSwap.&lt;/p&gt;
+&lt;h2 id=&#34;la-dette-comme-liquidité-2025&#34;&gt;La dette comme liquidité (2025)
+&lt;/h2&gt;&lt;p&gt;Je ne m&amp;rsquo;étendrai pas trop sur les modèles de Fluid et EulerSwap dans cet article pour des raisons de concision, car je veux me concentrer davantage sur ce que cela signifie pour la construction de liquidité. En résumé, Fluid a trouvé une manière créative de transformer la dette en liquidité avec la « Dette Intelligente » (Smart Debt).&lt;/p&gt;
+&lt;p&gt;Imaginez un utilisateur moyen fournissant un collatéral ETH et empruntant de l&amp;rsquo;USDC. Veut-il spécifiquement de l&amp;rsquo;USDC ? Très probablement, il s&amp;rsquo;en fiche tant qu&amp;rsquo;il emprunte un token stable et sûr indexée sur le dollar. Il prendrait probablement aussi de l&amp;rsquo;USDT.&lt;/p&gt;
+&lt;p&gt;C&amp;rsquo;est précisément ce que fait la dette intelligente. Dans un vault de dette intelligente, notre emprunteur emprunte un mélange d&amp;rsquo;USDC et d&amp;rsquo;USDT, qui évolue constamment : sa dette sert désormais de liquidité pour la paire USDC/USDT. Ce que cela signifie pour les emprunteurs, c&amp;rsquo;est &lt;strong&gt;une réduction des coûts d&amp;rsquo;emprunt, car ils gagnent maintenant des frais de trading&lt;/strong&gt;, ce qui peut potentiellement compenser les intérêts d&amp;rsquo;emprunt.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/TokenBrice/blog/refs/heads/master/static/img/2025/pegged-assets-swap/fluid-smart-debt.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;fluid-smart-debt&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;C&amp;rsquo;est du point de vue de l&amp;rsquo;emprunteur, mais passons maintenant à la perspective d&amp;rsquo;un protocole. Qu&amp;rsquo;est-ce que cela signifie pour Circle et Tether ? Essentiellement, &lt;strong&gt;une liquidité à un coût pratiquement nul, sans aucune forme d&amp;rsquo;incitation.&lt;/strong&gt; Rien de vraiment nouveau pour Circle, qui a été sponsorisé par tout l&amp;rsquo;écosystème pendant des années – mais pour un autre stablecoin, disons un GHO, BOLD, ou FRAX, c&amp;rsquo;est énorme.&lt;/p&gt;
+&lt;p&gt;Je me suis concentré sur Fluid ici, mais le raisonnement est similaire pour EulerSwap, bien que l&amp;rsquo;implémentation soit différente. EulerSwap est encore en mode test et génère déjà un volume sérieux sur USDC/USDT.&lt;/p&gt;
+&lt;p&gt;Si vous comprenez cela, vous pouvez saisir ma thèse, qui stipule simplement : « Je ne vois pas une DeFi où Euler/Fluid/Similaires ne dominent pas éventuellement les swaps d&amp;rsquo;actifs pegged. »&lt;/p&gt;
+&lt;p&gt;Vous ne le voyez pas encore ? Rappelez-vous ce qui suit :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Les paires d&amp;rsquo;actifs pegged ont généralement un faible volume ⇒ faibles frais&lt;/li&gt;
+&lt;li&gt;Ainsi, elles nécessitent une forte incitation pour être maintenues sur un DEX classique&lt;/li&gt;
+&lt;li&gt;Fluid et Euler peuvent maintenir cette liquidité à un coût proche de zéro.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;⇒ Si (cela a déjà commencé) il y a une course vers le bas en termes de frais pour les swaps d&amp;rsquo;actifs pegged, les DEX réguliers n&amp;rsquo;ont absolument aucune chance de la gagner.&lt;/p&gt;
+&lt;h3 id=&#34;0xorb-un-challenger-potentiel-2026-&#34;&gt;0xOrb, un challenger potentiel (~2026) ?
+&lt;/h3&gt;&lt;p&gt;Maintenant, pour vous donner une image précise de tout le paysage des swaps d&amp;rsquo;actifs pegged, je dois mentionner un autre projet pas encore en ligne, mais prometteur : &lt;a class=&#34;link&#34; href=&#34;https://orbswap.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;0xOrb&lt;/a&gt;. La promesse est simple : &lt;strong&gt;StableSwap, mais avec n actifs, n pouvant aller jusqu&amp;rsquo;à 1000&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Ainsi, pour les stablecoins, vous pourriez imaginer un méga-pool bien approvisionné en USDC et USDT, qui ensuite intègre des stablecoins « alternatifs » et leur offre une grande liquidité contre les majors. L&amp;rsquo;approche a du mérite pour la longue traîne des actifs pegged, mais je ne vois pas de tels pools dominer le volume principal (USDC&amp;lt;&amp;gt;USDT ou cbBTC&amp;lt;&amp;gt;wBTC).&lt;/p&gt;
+&lt;p&gt;En plus de cela, de tels pools pourraient être inter-chaînes, bien que je pense que l&amp;rsquo;avantage ici est absolument marginal, voire &lt;strong&gt;défavorable&lt;/strong&gt; (⇒ augmente les risques et la complexité de l&amp;rsquo;infrastructure sans avantages), &lt;strong&gt;puisque l&amp;rsquo;USDC et l&amp;rsquo;USDT sont de plus en plus transférables 1:1 rapidement entre les chaînes grâce à des produits comme &lt;a class=&#34;link&#34; href=&#34;https://www.circle.com/cross-chain-transfer-protocol&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;CCTP&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;quest-ce-que-cela-signifie-pour-les-acteurs-dex-purs-établis-&#34;&gt;Qu&amp;rsquo;est-ce que cela signifie pour les acteurs DEX purs établis ?
+&lt;/h3&gt;&lt;p&gt;Tout d&amp;rsquo;abord, la mise en garde la plus importante : nous parlons ici des swaps d&amp;rsquo;actifs pegged. Reproduire le même playbook sur des paires volatiles est beaucoup plus difficile, &lt;a class=&#34;link&#34; href=&#34;https://gov.fluid.io/t/current-issues-with-eth-usdc-pool/1606&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;comme on l&amp;rsquo;a vu avec le vault Smart Debt+Collateral ETH/USDC de Fluid et les pertes subies par ses LP&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Les DEX qui génèrent la majeure partie de leur volume et de leurs frais grâce à des paires volatiles, comme Aerodrome, ne seront probablement pas impactés par ces nouveaux entrants. &lt;strong&gt;La réalité est, cependant, beaucoup plus sombre pour les DEX axés sur les actifs pegged&lt;/strong&gt;, et je veux examiner deux d&amp;rsquo;entre eux pour conclure cet article :&lt;/p&gt;
+&lt;h3 id=&#34;curve--fin-de-partie-à-moins-de-changements-majeurs&#34;&gt;Curve : fin de partie à moins de changements majeurs
+&lt;/h3&gt;&lt;p&gt;Les swaps d&amp;rsquo;actifs pegged restent cruciaux pour Curve, toujours considéré comme le foyer de la liquidité des stablecoins. En effet, il y a eu des tentatives pour capturer du volume volatile avec CryptoSwap, mais cela s&amp;rsquo;est avéré infructueux.&lt;/p&gt;
+&lt;p&gt;Avec l&amp;rsquo;arrivée de Fluid et EulerSwap, je pense que Curve est le DEX qui a le plus à perdre, et je ne le vois pas maintenir un volume important (ils ont déjà été éjectés du top 10 il y a un moment) à moins que des changements significatifs ne se produisent :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Révision de veCRV&lt;/strong&gt; : tirer parti des apprentissages des modèles plus récents comme veAERO pour optimiser l&amp;rsquo;allocation des émissions CRV.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Augmentation de l&amp;rsquo;efficacité des DEX en exploitant crvUSD&lt;/strong&gt; : par exemple, en permettant des prêts crvUSD aux LP de Curve.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nouvelle structure de liquidité pour les actifs volatils&lt;/strong&gt; : afin de pouvoir prétendre à capturer le volume associé.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;ekubo--le-dernier-arrivé-confiant-qui-court-à-sa-perte&#34;&gt;Ekubo : le dernier arrivé confiant qui court à sa perte
+&lt;/h3&gt;&lt;p&gt;La situation d&amp;rsquo;Ekubo est sans doute encore pire, car ils sont arrivés récemment à la fête. À première vue, Ekubo sur Ethereum est un DEX à croissance rapide qui génère des volumes sérieux. Ekubo est essentiellement une alternative à UNIv4, avec un peu plus de personnalisation de la structure de liquidité et une DAO qui s&amp;rsquo;est révélée moins extractive que celle d&amp;rsquo;Uniswap (la barre la plus basse de toutes, mais quand même).&lt;/p&gt;
+&lt;p&gt;Le problème réside dans l&amp;rsquo;origine du volume : la grande majorité (&amp;gt;95 %) provient d&amp;rsquo;une paire USDC/USDT avec des frais de 0,00005 % et fortement incitée. Ekubo joue essentiellement une course vers le bas qu&amp;rsquo;il ne peut pas gagner, car Ekubo ne peut pas maintenir des frais extrêmement bas à long terme (les LP doivent vivre), tandis que Fluid/Euler le peuvent (si les emprunteurs reçoivent même un rendement de 0,1 % sur leur dette grâce à la dette intelligente, ils sont mieux lotis qu&amp;rsquo;avant et donc satisfaits).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/TokenBrice/blog/refs/heads/master/static/img/2025/pegged-assets-swap/ekubo.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;ekubo-stats&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Avec un pool de 2,6 M$ de TVL, traitant environ 130 M$ de volume quotidien pour 662 $ de frais collectés, incité à environ 8 % en EKUBO, ils approchent déjà rapidement la limite de ce qu&amp;rsquo;ils peuvent faire.&lt;/p&gt;
+&lt;p&gt;L&amp;rsquo;aspect le plus amusant de tout cela est qu&amp;rsquo;&lt;strong&gt;Ekubo lui-même a initié la course vers le bas avec les frais de swap USDC/USDT et sera spectaculairement vaincu à son propre jeu&lt;/strong&gt;. La DeFi ne cesse jamais de divertir.&lt;/p&gt;
+&lt;p&gt;Comme toujours, j&amp;rsquo;espère que cet article a été instructif et a approfondi votre compréhension du jeu des swaps d&amp;rsquo;actifs pegged. J&amp;rsquo;ai hâte de voir mon personnage se faire démolir par la communauté Ekubo simplement pour avoir exprimé une opinion basée sur des faits : leur réaction m&amp;rsquo;a donné une confiance extrême dans mon évaluation, car j&amp;rsquo;ai observé la même réponse lorsque :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;J&amp;rsquo;ai dénoncé les pratiques de sécurité absurdes de MAI, et il a été piraté + dépeggé peu après.&lt;/li&gt;
+&lt;li&gt;J&amp;rsquo;ai dénoncé le gaslighting et les mensonges de R/David Garai, et R a été piraté et est tombé l&amp;rsquo;oubli &amp;lt;6 mois plus tard.&lt;/li&gt;
+&lt;li&gt;J&amp;rsquo;ai critiqué le comportement de l&amp;rsquo;équipe de Prisma, et ils ont été piratés et ont fermé le protocole &amp;lt;12 mois plus tard.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Et la liste continue. Bonne chance à tous, en particulier aux détenteurs de bags EKUBO – essayez d&amp;rsquo;avoir un peu de classe dans votre désarroi, cela vous servira bien.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Dans les coulisses du théâtre de la décentralisation : étude de l’inaltérabilité des protocoles DeFi</title>
+        <link>http://localhost:1313/fr/unstoppable-defi/</link>
+        <pubDate>Wed, 18 May 2022 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/unstoppable-defi/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2022/unstoppable-defi/unstoppable-defi-tokenbrice-cover.png" alt="Featured image of post Dans les coulisses du théâtre de la décentralisation : étude de l’inaltérabilité des protocoles DeFi" /&gt;&lt;p&gt;La finance décentralisée a permis l’émergence de protocoles autonomes dont les fonctionnalités sont assurées par des smart contracts parfois immuables, permettant à des individus du monde entier d’utiliser des services financiers tout à la fois souverains, accessibles mais aussi plus efficaces et résilients que ceux disponibles en finance classique. Voilà la belle histoire qu’on raconte aux nouveaux arrivants pour les endormir : la réalité est bien plus nuancée.&lt;/p&gt;
+&lt;p&gt;Effectivement, il y a bien &lt;strong&gt;une poignée de protocoles qui correspondent à cette réalité,&lt;/strong&gt; mais la plupart sont loin d’être à la hauteur. Quand les taureaux sont de sortie, l’intérêt pour la résilience des protocoles est généralement très faible : la seule chose qui importe ce sont les appréciations de prix. Mais les ours ont fait leur grand retour, et avec vient heureusement un regain d’intérêt pour ces sujets.&lt;/p&gt;
+&lt;p&gt;L’implosion récente de l’écosystème Luna et de son stablecoin associé, UST, aura, je l’espère, servi de piqûre de rappel pour certains. C’était hélas une catastrophe &lt;strong&gt;parfaitement évitable&lt;/strong&gt;. Le modèle utilisé pour ce stablecoin et ses défauts étaient déjà connus, avec de nombreuses précédentes instances couvertes à l’époque sur ce blog : BAC, MIC, ESD, DSD, etc. (au niveau applicatif sur Ethereum plutôt que protocolaire, mais avec les mêmes problèmes de fond). Tous ont connu la même fin : une spirale interminable qui les amène toujours plus proche du 0 absolu.&lt;/p&gt;
+&lt;p&gt;Face à cet événement, de nombreux investisseurs ont pris conscience que tous les stablecoins ne se valaient pas et cherchent à se renseigner davantage sur la résilience des nombreux stablecoins disponibles sur le marché ainsi que la robustesse de différents protocoles DeFi en général. Je saisis donc ce moment exceptionnel pour discuter de ce sujet essentiel pour la pérennité de la DeFi qui me passionne depuis longtemps.&lt;/p&gt;
+&lt;p&gt;En effet, l’année dernière je vous proposais déjà une analyse exhaustive des risques encourus sur les services d’emprunts en DeFi et comment les évaluer. &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/money-market-risks.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Cet article&lt;/a&gt;&lt;/strong&gt; est toujours d’actualité et sa lecture est fortement recommandée pour tout investisseur avisé.&lt;/p&gt;
+&lt;p&gt;Trêve d’introduction, venons au fait, en commençant par définir le terme &amp;ldquo;inarrêtable&amp;rdquo; et ce qu’il implique concrètement au niveau d’un protocole.&lt;/p&gt;
+&lt;h2 id=&#34;quest-ce-quun-protocole-defi-inarrêtable-&#34;&gt;Qu’est-ce qu’un protocole DeFi inarrêtable ?
+&lt;/h2&gt;&lt;p&gt;Au niveau le plus basique, on peut qualifier &lt;strong&gt;un protocole DeFi d’inarrêtable&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; lorsque ses fonctions essentielles sont assurées par des smart contracts qui ne sont pas modifiables et qu’il ne requiert pas d’intervention externe pour subsister.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;À cette définition plutôt simple et directe, je dois néanmoins ajouter de nombreuses notes et précisions pour couvrir la diversité des protocoles DeFi et des cas d’utilisation qu’ils desservent.&lt;/p&gt;
+&lt;h3 id=&#34;-dépendances-tierces-des-protocoles&#34;&gt;⚠️ Dépendances tierces des protocoles
+&lt;/h3&gt;&lt;p&gt;En DeFi, il est extrêmement rare qu’un protocole fasse tout par lui-même. Le plus souvent, un protocole donné s’appuie sur différents protocoles tiers. Le cas le plus courant et le plus connu est bien sûr celui de l’oracle – la source de prix pour les actifs – un élément essentiel pour les services d’emprunts notamment.&lt;/p&gt;
+&lt;h4 id=&#34;dépendance-aux-oracles-comme-chainlink&#34;&gt;Dépendance aux oracles comme ChainLink
+&lt;/h4&gt;&lt;p&gt;En la matière, l’oracle le plus utilisé est &lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/chainlink-oracles/ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ChainLink&lt;/a&gt;. Bien que techniquement robuste, l’industrie a eu récemment droit à un rappel grâce à Chris Blec et quelques autres acteurs soucieux de la résilience du service : les oracles de ChainLink sont susceptibles d’être manipulés ou censurés. Le vecteur d’attaque le plus risqué semble être &lt;strong&gt;la multisig 3/20&lt;/strong&gt; qui permet de changer immédiatement la source de prix pour un actif donné.&lt;/p&gt;
+&lt;p&gt;Concrètement, cela signifie que si 3 personnes se synchronisent parmi ces 20, ils pourraient changer l’oracle ETH/USD par exemple pour un oracle maison qui retourne un prix de $1 et quasiment tous les prêts DeFi seraient liquidés dans la foulée. Il semble assez peu probable néanmoins que des gens membres de l’équipe ChainLink ou proches de celle-ci réalisent une telle attaque.&lt;/p&gt;
+&lt;p&gt;Le plus gros risque semble donc être au niveau d’une attaque perpétrée par un acteur externe qui voudrait nuire à l’ensemble de la DeFi. En effet, avec une multisig aussi permissif, il “suffirait” d’identifier 3 membres ou plus de ce multisig, les kidnapper et les menacer pour changer une source de prix de ChainLink. C’est la fameuse “🔧 wrench attack” : qu’importe la sécurité des smart contracts, s’ils sont administrés par une multisig, ils sont vulnérables à ce type d’attaque qui passe par les personnes derrière les protocoles plutôt que le code directement.&lt;/p&gt;
+&lt;p&gt;L’essentiel du problème ici ce n’est pas l’existence de ce multisig, nécessaire pour mettre à jour et améliorer les services que ChainLink apporte, mais son paramétrage :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;3/20 c’est extrêmement permissif et plus risqué d’un point de vue 🔧 wrench attack que 3/6 par exemple (qui aurait moins de cibles potentielles pour réaliser l’attaque). Un nombre plus raisonnable et aligné avec ce qu’il se fait habituellement pour 20 signataires au total serait quelque chose entre 8 et 12 requis.&lt;/li&gt;
+&lt;li&gt;Absence de timelock : les changements sont donc immédiats.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;⚠️ Mise à jour - 27 Mai&lt;/strong&gt; : Le 23 Mai (5 jours après la publication de cet article), la paramétrage de la Multisig a évolué pour devenir 4/9, offrant une meilleure protection contre les 🔧 wrench attack, mais il n&amp;rsquo;y a toujours pas de timelock.&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;dépendance-à-dautres-protocoles-moins-résilients-que-le-protocole-de-base&#34;&gt;Dépendance à d’autres protocoles moins résilients que le protocole de base
+&lt;/h4&gt;&lt;p&gt;Un des éléments les plus fascinants en DeFi, c’est la composabilité : les protocoles s’intègrent et s’utilisent les uns et les autres. Si cela permet l’émergence de synergies et de cas d’utilisation innovants, cela vient également avec des risques additionnels.&lt;/p&gt;
+&lt;p&gt;Sans trop le détailler, puisqu’on y reviendra ensuite, on va prendre en exemple ici PoolTogether, un des protocoles les plus résilients de la DeFi et quasi–inarrêtable. Le quasi, il le doit à ses dépendances externes et plus précisément les sources de rendement utilisées : Compound ou Aave.&lt;/p&gt;
+&lt;p&gt;En effet, les smart contracts de PoolTogether sont totalement immuables sauf pour la partie qui gère l’allocation des prix (v4), mais les fonds sont déployés dans des protocoles qui sont eux alimentés par des smart contracts pouvant  être modifiés (nécessaire, par exemple, pour l&amp;rsquo;ajout d&amp;rsquo;un nouveau collatéral mais c&amp;rsquo;est aussi un vecteur d&amp;rsquo;attaque potentiel et un risque réel, cf xSUSHI sur Aave&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;La règle générale, c’est qu’un protocole est aussi résilient que le maillon le plus fragile de sa chaîne de composabilité&lt;/strong&gt;. Cette règle n’est pas absolue, car il reste possible de mitiger ou de contenir l’exposition prise avec une intégration, en implémentant par exemple de la redondance, comme on le verra plus bas lors des analyses détaillées.&lt;/p&gt;
+&lt;h3 id=&#34;-accès-aux-protocoles--la-question-des-sites-webs-front-end&#34;&gt;⚠️ Accès aux protocoles : la question des sites webs (front-end)
+&lt;/h3&gt;&lt;p&gt;Sur ce sujet, deux questions essentielles se posent :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Le point d’accès au protocole (= le site web / front-end) est-il résilient / peut-il être censuré, par exemple par un acteur étatique ?&lt;/li&gt;
+&lt;li&gt;Le site est-il sécurisé ? Peut-il être attaqué par un acteur malveillant ?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;risque-de-censure-des-front-end&#34;&gt;Risque de censure des front-end
+&lt;/h4&gt;&lt;p&gt;Ici, il faut commencer par rappeler un point absolument fondamental : un service DeFi existe grâce à un jeu de smart contracts. Il est &lt;strong&gt;tout à fait possible d’interagir avec n’importe quel service DeFi en passant directement par les contrats&lt;/strong&gt; – et donc, même si leur site venait à être inaccessible. Bien sûr, tous les utilisateurs de la DeFi n’ont pas la compétence technique pour interagir avec des smart contracts directement, et c’est pourquoi &lt;strong&gt;la question des front-end reste importante&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Ainsi, les protocoles qui tiennent à maximiser leur résilience se doivent de réfléchir à cette question. Il y a ici deux approches principales qui peuvent être cumulées.&lt;/p&gt;
+&lt;p&gt;Tout d’abord, un protocole peut avoir &lt;strong&gt;plusieurs points d’accès&lt;/strong&gt; qui permettent l’accès à son service : si l’un d’eux venait à être inaccessible, d’autres resteront en ligne, n’entraînant ainsi qu’un désagrément mineur pour les utilisateurs du service. Par exemple, &lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/aave/ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Aave&lt;/a&gt; peut être utilisé via le site principal app.aave.com, mais également grâce à des outils comme &lt;a class=&#34;link&#34; href=&#34;https://defisaver.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFiSaver&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://instadapp.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;InstaDapp&lt;/a&gt; et de nombreux autres.&lt;/p&gt;
+&lt;p&gt;Néanmoins, la plupart de ces sites restent hébergés par des &lt;strong&gt;services centralisés&lt;/strong&gt; qui pourraient tous être censurés en même temps : c’est plus de travail, mais c’est techniquement possible. Pour remédier à cette limite, il reste une autre option : avoir un ou plusieurs &lt;strong&gt;sites hébergés via une solution décentralisée comme &lt;a class=&#34;link&#34; href=&#34;https://ipfs.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;IPFS&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Pour finir, en matière de résilience du front-end, la palme de l’approche la plus originale, élégante et efficace déployée à ce jour reste sans doute celle du protocole &lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/liquity/ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liquity&lt;/a&gt;. En effet, Liquity n’a pas de site officiel pour son application déployé et géré directement par l’équipe. À la place, l’équipe fournit &lt;strong&gt;un kit pour déployer un front-end&lt;/strong&gt; de Liquity, utilisable par tous. Cela permet au projet d’avoir &lt;a class=&#34;link&#34; href=&#34;https://www.liquity.org/frontend&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;une myriade de sites différents permettant d’utiliser son service&lt;/a&gt;, dont certains sont hébergés sur IPFS :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/unstoppable-defi/liquity-frontend.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;some-liquity-frontends&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;risques-de-sécurité-des-front-end&#34;&gt;Risques de sécurité des front-end
+&lt;/h4&gt;&lt;p&gt;Enfin, il ne faut pas oublier qu’aussi résilient que les smart contracts puissent être, un front-end reste un site web qui même s’il n’est pas censuré &lt;strong&gt;peut être susceptible de subir des attaques&lt;/strong&gt; plus ou moins conséquentes : les sites des échanges décentralisés SpiritSwap ou bien encore QuickSwap ont par exemple récemment &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/QuickswapDEX/status/1525306033400188928?s=20&amp;amp;t=UKpcM2Gu6nZ9Kgl65kmp3w&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;fait les frais d’un tel scénario&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;En l’occurrence, le vecteur d’attaque est lié au gestionnaire de nom de domaine (GoDaddy) utilisé par le service. D’autres types d’attaques sont envisageables : par exemple, les injections de code par le biais d’un service tiers que le site intègre, comme on a également pu le voir très récemment sur EtherScan et de nombreux autres sites à la suite de la compromission du tracker publicitaire utilisé (CoinZilla).&lt;/p&gt;
+&lt;h3 id=&#34;ℹ-limites-des-protocoles-inarrêtables&#34;&gt;ℹ️ Limites des protocoles inarrêtables
+&lt;/h3&gt;&lt;p&gt;Tous les cas d’utilisation ne peuvent pas être couverts par des protocoles inarrêtables. En effet, en fonction de la complexité d’un protocole, il est parfois impossible d’éviter toute dépendance à un autre protocole lui-même censorable au moins en partie.&lt;/p&gt;
+&lt;p&gt;Enfin, il faut également garder en tête la contrepartie qui vient avec l’immutabilité des smart contracts des protocoles inarrêtables : &lt;strong&gt;une mise à jour de ceux-ci est techniquement impossible&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Ainsi, lorsqu’un protocole inarrêtable doit évoluer, il n’y a qu’un seul chemin possible : déployer une nouvelle version du protocole (avec son nouveau jeu de contrats immuables) et encourager la &lt;strong&gt;migration&lt;/strong&gt; de ses utilisateurs vers celle-ci. C’est par exemple ce qu’a fait Uniswap à deux reprises, avec la migration vers la version 2 en Mai 2020&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt; puis un nouvelle fois un an plus tard avec la sortie de Uniswap v3 en Mai 2021&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/unstoppable-defi/UNIv2-migration-tool.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;UNIv2-migration-tool&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;En fonction des différences entre les versions, le protocole peut également proposer un outil pour faciliter la migration comme ce fut le cas pour UNIv1⇒UNIv2, mais impossible pour UNIv2⇒UNIv3 principalement à cause de l’introduction de la concentration de la liquidité.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;Pour être exhaustif sur l’analyse coût/bénéfice des contrats immuables, rappelons qu’ils rendent les 🔧 wrench attack impossibles et peuvent également présenter un intérêt du point de vue réglémentaire.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;le-spectre-de-la-résilience&#34;&gt;Le spectre de la résilience
+&lt;/h2&gt;&lt;p&gt;Maintenant que la définition d&amp;rsquo;inarrêtable avec tout ce qu’elle implique a été détaillée, je vous propose d’en venir directement à l’analyse. Avant de creuser les protocoles pertinents, je vous propose un spectre qui met en lumière différents niveaux de résilience :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/unstoppable-defi/resilience-spectrum-fr.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;defi-spectre-resilience-tokenbrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Détailler des protocoles centralisés ou  “DINO” (Decentralized in Name Only), qui n’ont de décentralisé que le nom, n&amp;rsquo;est ni très excitant ni intéressant, je vous laisse donc creuser par vous-même. Analysons plutôt des protocoles qui se situent sur la partie la plus palpitante du spectre : à la droite de MakerDAO.&lt;/p&gt;
+&lt;h2 id=&#34;analyse-des-dex-les-plus-résilients&#34;&gt;Analyse des DEX les plus résilients
+&lt;/h2&gt;&lt;p&gt;Avant d’en venir à la résilience d’Uniswap et de Curve, il faut rappeler quelques éléments importants sur les échanges décentralisés. Concrètement, ils ont deux types d’utilisateurs qui assument des niveaux de risques bien différents :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Les utilisateurs qui échangent des tokens grâce aux DEX. Ceux-ci supportent les risques liés aux smart contracts des DEX pour le temps du swap seulement (ainsi que ceux lié aux “approve” illimité si le contrat du DEX venait à être compromis et que celui-ci est modulable)&lt;/li&gt;
+&lt;li&gt;Les apporteurs de liquidité, qui sont exposés tant que leur position est maintenue.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Sur Uniswap comme sur Curve, &lt;strong&gt;les contrats relatifs aux deux situations sont immuables&lt;/strong&gt; : il est par exemple techniquement impossible d’envisager un “rug” des apporteurs de liquidité, ce qui n’est pas le cas pour tous les DEX : une telle attaque était possible sur SushiSwap par exemple à une époque à cause de leur fonction de migration.&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Il faut noter également que les DEX s’appuyant sur un Automated Market Maker comme Uniswap ou Curve n’ont &lt;strong&gt;pas besoin d’oracle pour fonctionner&lt;/strong&gt;, ce qui réduit grandement leur dépendance à des services tiers potentiellement censorables.&lt;/p&gt;
+&lt;p&gt;Enfin, et ce sera le dernier point de contexte pour les DEX : même si les contrats sont immuables, le risque n’est pas nul pour les apporteurs de liquidité qui assument tous les risques liés aux tokens impliqués dans la paire. La règle générale ici est similaire à celle de la chaîne de composabilité : &lt;strong&gt;une position LP donnée est aussi risquée que son token le plus dangereux&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;La question du front-end pour les DEX est un peu moins critique puisque de nombreux points d’accès existent. Les utilisateurs les plus malins passent même par un agrégateur d’échanges décentralisés, comme &lt;a class=&#34;link&#34; href=&#34;https://paraswap.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ParaSwap&lt;/a&gt;.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;uniswap&#34;&gt;Uniswap
+&lt;/h3&gt;&lt;p&gt;Sur &lt;a class=&#34;link&#34; href=&#34;https://uniswap.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Uniswap&lt;/a&gt; v1, v2 et v3, les fonctions essentielles sont assurées par des contrats immuables. Depuis &lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/uniswap-v2/ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Uniswap V2&lt;/a&gt;, la gouvernance peut voter néanmoins l’introduction d’un frais administratif&lt;sup id=&#34;fnref:7&#34;&gt;&lt;a href=&#34;#fn:7&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;7&lt;/a&gt;&lt;/sup&gt; (= pas pour les LP mais pour le protocole), comme c’est déjà le cas sur Curve.&lt;/p&gt;
+&lt;p&gt;Ici, le cas est donc très simple. S’il y a certes une gouvernance, la bonne nouvelle (moins pour les possesseurs d’UNI), est que ce qu’elle peut faire est très limité. &lt;strong&gt;Aucune saisie ou migration des fonds n’est possible&lt;/strong&gt;. Outre le frais, elle gère des sujets tels que le déploiement d’Uniswap sur une nouvelle chaîne, l’ajout de nouveaux tiers de frais (1bps pour les stablecoins), ou encore l’utilisation de la trésorerie du protocole&lt;sup id=&#34;fnref:8&#34;&gt;&lt;a href=&#34;#fn:8&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;8&lt;/a&gt;&lt;/sup&gt;, par exemple pour financer des campagnes de liquidity mining ou encore pour distribuer des UNI à des gens sympathiques qui le demandent, sans aucune forme de limite ou comptabilité&lt;sup id=&#34;fnref:9&#34;&gt;&lt;a href=&#34;#fn:9&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;9&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;curve-finance&#34;&gt;Curve Finance
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://curve.fi/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Curve Finance&lt;/a&gt; est un autre exemple de DEX des plus résilient avec une approche tout aussi intéressante. Ici encore, les fonctions de base sont assurées par des contrats immuables. Néanmoins, Curve a aussi une “Emergency DAO” dont les membres sont élus par la gouvernance. Cette Emergency DAO peut “tuer” une pool (seulement celles qui ont moins de deux mois et ne sont pas des factory pools) : toutes les fonctions sauf le retrait sont désactivées. Cela permet d’éviter des pertes de fonds additionnels si un problème venait à émerger avec les contrats de Curve. L&amp;rsquo;Emergency DAO peut également &amp;ldquo;tuer&amp;rdquo; une jauge - le contrat qui gère les récompenses en CRV (et autres tokens potentiels) pour les apporteurs de liquidité. Les jauge &amp;ldquo;tuées&amp;rdquo; peuvent être ressucitées par la suite par la DAO principale.&lt;/p&gt;
+&lt;p&gt;Tout comme Uniswap, Curve a une gouvernance essentiellement centrée autour de la gestion des émissions du token CRV. Le modèle est néanmoins bien plus raffiné ici, je vous invite à lire mes précédents articles sur le sujet pour mieux le comprendre :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/crv-wars.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;⚔ Guerre du CRV : comprendre la course à l&amp;rsquo;accumulation de la capacité à influencer le protocole Curve Finance&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2022/crv-wars-l2.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;⚔ Guerre du CRV avancée : analyse des protocoles construits sur Curve et Convex &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Contrairement à Uniswap, la participation à la gouvernance de Curve requiert le verrouillage des tokens CRV ( ⇒veCRV) jusqu’à quatre ans pour ceux qui veulent maximiser leur influence. Cela permet ainsi de protéger la gouvernance de différents types d’attaques.&lt;/p&gt;
+&lt;p&gt;Enfin, la gouvernance gère également une liste blanche des smart contracts autorisés à interagir avec le contrat veCRV &lt;sup id=&#34;fnref:10&#34;&gt;&lt;a href=&#34;#fn:10&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;10&lt;/a&gt;&lt;/sup&gt;: des décisions lourdes de conséquences pour les apporteurs de liquidité sur Curve et possesseurs de CRV sur le long terme.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;La gouvernance de Curve est une des plus fascinantes à suivre en DeFi. Pour l’aider à prendre des décisions plus éclairées, &lt;a class=&#34;link&#34; href=&#34;https://substack.com/profile/66151946-crypto-risk-assessments&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;une newsletter proposant des analyses de risques des différents protocoles qui demandent une jauge&lt;/a&gt; s’est mise en place. Je vous en recommande chaudement la lecture, c’est une excellente source pour parfaire sa compréhension des risques en DeFi.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;analyse-approfondie-des-autres-protocoles-notables&#34;&gt;Analyse approfondie des autres protocoles notables
+&lt;/h2&gt;&lt;p&gt;Outre les échanges décentralisés, il y a d’autres types de protocoles qui s’approchent autant que possible de l’extrémité la plus résiliente du spectre. Néanmoins, les cas d’utilisations des protocoles que nous allons détailler maintenant sont plus complexes et ne peuvent pas être desservis, à ma connaissance, sans dépendances à d’autres services plus ou moins censorables.&lt;/p&gt;
+&lt;h3 id=&#34;liquity&#34;&gt;Liquity
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.liquity.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liquity&lt;/a&gt; est un projet opiniâtre qui vise à créer le système d’emprunt, ainsi que le stablecoin, le plus résilient tout en maintenant un système efficace économiquement pour les emprunteurs. Je ne vais pas trop m’étendre sur ce protocole ici, je vous invite à &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/liquity-protocol.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;lire l’article dédié&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Concentrons-nous donc sur les points pertinents pour notre sujet du jour :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Le code de Liquity est entièrement immuable.&lt;/li&gt;
+&lt;li&gt;Liquity n’a pas de gouvernance.&lt;/li&gt;
+&lt;li&gt;Néanmoins, comme tout service d’emprunt, Liquity dépend d’un oracle (prix de ETH en USD). Ici, c’est ChainLink qui est utilisé mais un système de secours est également mis en place. Des calculs permettent de déterminer si la donnée apportée par ChainLink est jugée fiable. Si ça n’est pas le cas, alors le système passe automatiquement sur une source de prix secondaire tant que cela est nécessaire : l’oracle Tellor.&lt;sup id=&#34;fnref:11&#34;&gt;&lt;a href=&#34;#fn:11&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;11&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;Enfin, comme je le mentionnais plus haut, Liquity a également une approche intéressante pour maximiser la décentralisation des front-end.&lt;sup id=&#34;fnref:12&#34;&gt;&lt;a href=&#34;#fn:12&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;12&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Grâce à cette approche, Liquity est le protocole d’emprunt le plus résilient disponible sur Ethereum ce qui permet également à LUSD de rafler le titre de stablecoin le plus solide et décentralisé.&lt;sup id=&#34;fnref:13&#34;&gt;&lt;a href=&#34;#fn:13&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;13&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h3 id=&#34;pooltogether&#34;&gt;PoolTogether
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pooltogether.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PoolTogether&lt;/a&gt; est un protocole fascinant qui explore un concept nouveau : le “sans-perte”. Concrètement, &lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/pool-together-v5/ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PoolTogether&lt;/a&gt; est une loterie où le joueur ne prend aucun risque financier sur son apport principal : le jeu s’appuie entièrement sur le rendement que le principal produit, et le redistribue au différents joueurs en fonction de leur chance au tirage.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/unstoppable-defi/pooltogether.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;pooltogether&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Pour en apprendre plus sur ce protocole, je vous invite une fois de plus à &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/pool-together.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;lire l’article dédié&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Analysons donc la résilience du protocole. Ici, le principal enjeu est &lt;strong&gt;la source de rendement initiale, qui est externe&lt;/strong&gt; :  elle provient de services comme Aave ou Compound, qui ne sont pas totalement inarrêtables. Ainsi, un joueur de PoolTogether assume ce risque sur l’ensemble de son dépôt : le principal ainsi que le rendement généré (avant qu’il soit collecté et redirigé).&lt;/p&gt;
+&lt;p&gt;Malgré cette dépendance tierce, le protocole PoolTogetger est particulièrement résilient. En effet, côté PoolTogether, &lt;strong&gt;les contrats sont aussi immuables que possible&lt;/strong&gt;. Concrètement, ils le sont tous (une pool donnée ne peut donc pas changer de source de rendement), sauf pour la partie relative à la distribution des prix, qui n’affecte que le rendement généré. En effet, le modèle de distribution des prix peut évoluer suite à un vote de gouvernance (mainnet) ou à une opération du multisig (Avalanche/Polygon), nécessaire car la gouvernance cross-chain n’est pas encore disponible.&lt;/p&gt;
+&lt;p&gt;Je trouve ce point fascinant et assez unique en DeFi : PoolTogether est une loterie sans perte, et ce principe de design (financier) se manifeste également au niveau des smart contracts : en excluant un problème avec Aave/Compound ou bug critique dans les contrats de PoolTogether, un joueur ne peut pas perdre son principal – c’est garanti par le code lui-même ; seul le rendement est potentiellement à risque. Et ce, même si l’équipe entière de PoolTogether subit une 🔧 wrench attack, ou que la gouvernance de PoolTogether est totalement capturée. Ainsi &lt;strong&gt;la promesse du no-loss est reflétée au niveau des contrats eux-mêmes&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;En matière de risques, il y a également des nuances et différences entre la V3 et V4 du protocole, le mieux reste encore de lire attentivement &lt;a class=&#34;link&#34; href=&#34;https://docs.pooltogether.com/security/risks&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;la documentation&lt;/a&gt; plutôt claire sur le sujet.&lt;/p&gt;
+&lt;h3 id=&#34;trustlessfi-&#34;&gt;TrustlessFi 🏗️
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://trustless.fi&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Trustless&lt;/a&gt; est un protocole qui me fascine dernièrement. Il n’est pas encore live, mais je pense que l’approche a beaucoup de mérites. Pour le décrire très simplement, &lt;strong&gt;TrustlessFi c’est un peu comme si Liquity et Reflexer faisaient un enfant ensemble, sur zkSync&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Ainsi, le but est, comme pour Liquity, de créer un protocole qui sera éventuellement aussi inarrêtable que possible, et le stablecoin associé (HUE) héritera de cette propriété. On retrouve d’autres mécanismes proches de Liquity, comme ETH comme seul collatéral, des liquidations immédiates ou encore la décentralisation des front-end (avec un mécanisme de validation communautaire cette fois-ci).&lt;/p&gt;
+&lt;p&gt;Côté gouvernance, on a ici une approche similaire au plan de dégouvernance de Reflexer/RAI mais plus engageante : 4 phases sont envisagées, et à chaque étape le contrôle de la Foundation et de la communauté décroît, rendant le protocole de plus en plus immuable. Ces &lt;strong&gt;phases seront implémentées au niveau du code des contrats eux-mêmes&lt;/strong&gt; : il est possible de retarder la transition vers une nouvelle phase de 45 jours jusqu&amp;rsquo;à trois fois si nécessaire, mais c’est impossible d’annuler totalement cette transition.&lt;/p&gt;
+&lt;p&gt;Il y a également un mécanisme similaire au Dai Saving Rate de Maker-MCD qui permet de participer au système sans avoir forcément besoin de générer de la dette. Les possesseurs de HUE pourront ainsi le staker pour obtenir un rendement provenant des taux d’intérêt payés par les emprunteurs.&lt;/p&gt;
+&lt;p&gt;Finalement, il y a également de véritables nouveautés fascinantes, comme par exemple le fait que les Troves/CDP seront tokenisés sous forme de NFT, permettant ainsi leur transfert. Ou bien encore, le déploiement de la liquidité en HUE sur Uniswap v3 avec une gestion assurée par le protocole lui-même (HUE/ETH). Au niveau de l’oracle également, on aurait ici enfin une source de prix inarrêtable avec l’utilisation d’Uniswap v3, mais cela vient sans doute avec des risques de manipulation accrus.[^^UNIv3-oracle]&lt;/p&gt;
+&lt;p&gt;Dans l’ensemble, l’approche part clairement dans la bonne direction, mais il y a de nombreux nouveaux concepts dans ce protocole, il n’est donc pas aisé de se projeter pour envisager le résultat une fois disponible en production pour l’instant.&lt;sup id=&#34;fnref:14&#34;&gt;&lt;a href=&#34;#fn:14&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;14&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h2 id=&#34;conclusion-et-dernières-précisions&#34;&gt;Conclusion et dernières précisions
+&lt;/h2&gt;&lt;p&gt;J’espère que cet article conséquent pourra servir de référence à tous ceux qui se posent des questions essentielles quant à la résilience des protocoles DeFi. Comme à mon habitude, plutôt que de vous livrer des analyses telles quelles, j’ai essayé de détailler autant que possible la méthodologie et le raisonnement afin de vous permettre d’étudier par vous-même la résilience de tout protocole non mentionné dans cet article.&lt;/p&gt;
+&lt;p&gt;Pour approfondir, je vous invite chaudement à lire un article que j’ai publié l’année dernière qui est le parfait complément de celui-ci : il se concentre sur les marchés monétaires et services d’emprunts et vous propose là aussi une méthode d’analyse pour évaluer les différents risques potentiels qu’ils impliquent :&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/money-market-risks.fr.md%22&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;De l&amp;rsquo;évaluation du risque sur les marchés monétaires en finance décentralisée&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;J’imagine qu’une analyse aussi limpide d’un sujet si critique pourrait susciter des émotions plus ou moins positives. Sachez que, comme toujours, mon intention est uniquement &lt;strong&gt;d’informer le plus grand nombre possible de DeFians sur des sujets que j’estime essentiels pour la DeFi en général.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Toutes mes actions éducatives et pédagogiques en DeFi n’ont pas d’autre objet que de maximiser la résilience et la pertinence de la finance décentralisée sur le long terme. J’espère que les développeurs ou promoteurs de protocoles situés à la gauche de mon spectre d’inaltérabilité suggéré sauront également comprendre et reconnaître ce mandat.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;🙏 Un immense merci à tous les relecteurs et contributeurs qui ont particié à l&amp;rsquo;élaboration de cet article:&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Relecture et clarté de l&amp;rsquo;expression : &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/C53300&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Charles&lt;/a&gt; et &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/disiaque_eth&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Disiaque&lt;/a&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Relecture technique et factuelle: &lt;a class=&#34;link&#34; href=&#34;https://www.radjaidjah.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Taz&lt;/a&gt; de DeFi France, &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/MTorgin&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MTorgin&lt;/a&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;notes-de-bas-de-page&#34;&gt;Notes de bas de page
+&lt;/h2&gt;&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;J’évoque tout au long de cet article l&amp;rsquo;inarrêtabilité de certains protocoles DeFi : on parle ici de l’immuabilité du code des smart contracts. L’ordre des transactions sur Ethereum peut malgré tout être manipulé (⇒ MEV) et les mineurs gardent un rôle important (jusqu’à la transition vers PoS). L&amp;rsquo;inarrêtabilité contractuelle évoquée dans cet article connaît donc des limites infrastructurelles.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;ChainLink a partagé plus d&amp;rsquo;information sur ce multisig &lt;a class=&#34;link&#34; href=&#34;https://docs.chain.link/docs/using-chainlink-reference-contracts/#updates-to-proxy-and-aggregator-contracts&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;dans leur documentation&lt;/a&gt; et vous pouvez vérifier le contrat &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://etherscan.io/address/0x21f73d42eb58ba49ddb685dc29d3bf5c0f0373ca#readProxyContract&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;directement sur EtherScan ici&lt;/a&gt;&lt;/strong&gt; &lt;img src=&#34;http://localhost:1313/img/2022/unstoppable-defi/chainlink-multisig-updated.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;chainlink-multisig-updated&#34;
+	
+	
+&gt;&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://governance.aave.com/t/analysis-of-xsushis-incident/6335&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Analyse de l&amp;rsquo;incident&lt;/a&gt; sur le forum de gouvernance Aave.&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://uniswap.org/blog/launch-uniswap-v2&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Annonce du lancement d’Uniswap V2&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:5&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://uniswap.org/blog/uniswap-v3&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Annonce du lancement d’Uniswap V3&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:6&#34;&gt;
+&lt;p&gt;Plus d’information sur cette fonction tant redoutée dans &lt;a class=&#34;link&#34; href=&#34;https://rugdoc.io/education/migrator/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;cet article dédié de Rugdoc&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:7&#34;&gt;
+&lt;p&gt;Vous pouvez suivre &lt;a class=&#34;link&#34; href=&#34;https://gov.uniswap.org/t/i-think-it-is-necessary-for-uniswap-concurrently-to-turn-on-the-fee-switch-and-liquidity-mining-incentive/15645&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;les dernières discussions en la matière&lt;/a&gt; sur le forum de gouvernance d’Uniswap.&amp;#160;&lt;a href=&#34;#fnref:7&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:8&#34;&gt;
+&lt;p&gt;Entièrement en token UNI, cette trésorerie est assez volatile. Néanmoins, il y a quand même plus de 227M UNI disponibles aujourd’hui, soit environ $1.1B. &lt;a class=&#34;link&#34; href=&#34;https://openorgs.info/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;OpenOrgs&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:8&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:9&#34;&gt;
+&lt;p&gt;C’est le tristement célèbre vote 005 “DeFi Education Fund”, lisez &lt;a class=&#34;link&#34; href=&#34;https://gov.uniswap.org/t/governance-proposal-005-defi-education-fund/12963&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;le sujet associé sur le forum de gouvernance&lt;/a&gt; pour plus de contexte.&amp;#160;&lt;a href=&#34;#fnref:9&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:10&#34;&gt;
+&lt;p&gt;Il y en a trois à l’heure actuelle : Yearn Finance (yveCRV), Convex (cvxCRV) et StakeDAO (sdCRV).&amp;#160;&lt;a href=&#34;#fnref:10&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:11&#34;&gt;
+&lt;p&gt;Cet article propose &lt;a class=&#34;link&#34; href=&#34;https://www.liquity.org/blog/price-oracles-in-liquity&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;une introduction claire au système de gestion d’oracles sur Liquity&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:11&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:12&#34;&gt;
+&lt;p&gt;Plus d’informations &lt;a class=&#34;link&#34; href=&#34;https://www.liquity.org/blog/liquity-runs-on-decentralized-frontends&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;sur le modèle technique et d’incitation pour les opérateurs de front-end Liquity&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:12&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:13&#34;&gt;
+&lt;p&gt;Comme vous l’avez sans doute déjà vu, je suis ravi d’avoir &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2022/tokenbrice-liquity.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;rejoint l’equipe de Liquity très récemment&lt;/a&gt;. Je mentionne Liquity dans cet article car c’est un exemple pertinent et instructif de protocole résilient, indépendamment de mes engagements professionnels.&amp;#160;&lt;a href=&#34;#fnref:13&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:14&#34;&gt;
+&lt;p&gt;Comme toujours, l&amp;rsquo;alpha est pour ceux qui creusent et lisent attentivement les footnotes ainsi que &lt;a class=&#34;link&#34; href=&#34;https://trustlessfi.notion.site/Trustless-4be753d947b040a89a46998eca90b2c9&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;les documentations&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:14&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
+        <title>Janus : le nouvel ennemi juré des protocoles DeFi ?</title>
+        <link>http://localhost:1313/fr/defi-janus/</link>
+        <pubDate>Mon, 05 Jul 2021 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/defi-janus/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2021/defi-janus/defi-janus-cover-en.png" alt="Featured image of post Janus : le nouvel ennemi juré des protocoles DeFi ?" /&gt;&lt;p&gt;La mythologie est souvent utilisée pour illustrer la DeFi. Par exemple, on évoque souvent le dieu cananéen Moloch pour symboliser les enjeux de coordination. Aujourd&amp;rsquo;hui, je vais identifier avec vous une nouvelle divinité du panthéon DeFi : Janus.&lt;/p&gt;
+&lt;p&gt;Dans cet article, on analyse les mécanismes des gouvernances ouvertes des protocoles DeFi qui peuvent conduire à l&amp;rsquo;émergence d&amp;rsquo;un nouveau genre de défi pour la DeFi, un ennemi juré que je vous propose d&amp;rsquo;incarner dans la divinité romaine Janus.&lt;/p&gt;
+&lt;p&gt;Tout comme le dieu aux deux visages, &lt;strong&gt;un protocole Janus souffre d’une ambivalence profonde&lt;/strong&gt; : bien qu&amp;rsquo;il puisse être un succès incontestable en termes d&amp;rsquo;utilisation, il fait face à de sérieux antagonismes entre ses différentes parties prenantes qui mettent en jeu la pérennité du protocole (utilisateurs, holdeurs, investisseurs, équipe et communauté étendue).&lt;/p&gt;
+&lt;p&gt;Pour comprendre les Janus, il faut saisir la complexité inhérente de la DeFi et comment elle peut s’accommoder de  &lt;strong&gt;consensus sur des décisions pourtant délétères ou non optimales&lt;/strong&gt;. Une fois le contexte posé, on pourra analyser trois Janus, chacun à leur manière : MakerDAO, Yearn Finance et Uniswap.&lt;/p&gt;
+&lt;h2 id=&#34;complexité-et-enjeux-de-gouvernance--un-terreau-fertile-pour-janus&#34;&gt;Complexité et enjeux de gouvernance : un terreau fertile pour Janus
+&lt;/h2&gt;&lt;p&gt;L&amp;rsquo;émergence de protocoles Janus dans la situation actuelle est due à de nombreux facteurs difficiles à hiérarchiser. Je les ai regroupés en trois thématiques :&lt;/p&gt;
+&lt;h3 id=&#34;mécanismes-de-gouvernance-et-vote&#34;&gt;Mécanismes de gouvernance et vote
+&lt;/h3&gt;&lt;p&gt;La gouvernance des protocoles DeFi se fait &lt;strong&gt;de manière ouverte et transparente&lt;/strong&gt;, en plusieurs étapes.&lt;/p&gt;
+&lt;p&gt;Au fil des discussions sur différents supports comme Discord, la communauté converge vers différentes idées qui peuvent aboutir à des propositions. Les propositions sont formalisées, généralement sur les forums de gouvernance et amendées avant d&amp;rsquo;atteindre un &lt;strong&gt;consensus informel&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Des mécanismes de &lt;strong&gt;signalement&lt;/strong&gt; (Snapshot) permettent d&amp;rsquo;identifier les propositions les plus pertinentes. Elles sont par la suite &lt;strong&gt;soumises au vote des détenteurs des tokens&lt;/strong&gt; via le mécanisme de gouvernance principal.&lt;/p&gt;
+&lt;p&gt;La plupart des systèmes de gouvernance fonctionnent encore sur la logique du &lt;strong&gt;1 token = 1 vote&lt;/strong&gt;, attribuant ainsi le même poids à tous les possesseurs de tokens quelque soit leur attitude vis-à-vis du projet ou niveau d&amp;rsquo;engagement par rapport à celui-ci.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/defi-janus/influence-governance.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;influence-governance&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Mesurer l&amp;rsquo;influence dans la gouvernance des protocoles DeFi - &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/Lsquaredleland/status/1411031620748943360&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;source&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Certains protocoles ont pourtant réussi à remettre en cause cette approche en ajoutant une logique d&amp;rsquo;engagement temporel : interagir avec la DAO de Curve nécessite d&amp;rsquo;engager ses CRV pour une période allant de 1 à 4 ans. Un engagement de longue durée augmente le pouvoir de vote effectif obtenu (veCRV).&lt;/p&gt;
+&lt;p&gt;Malgré tout, la &lt;strong&gt;participation est généralement basse&lt;/strong&gt;, même lorsque des mécanismes de délégation sont utilisés.&lt;/p&gt;
+&lt;h3 id=&#34;complexité-des-décisions&#34;&gt;Complexité des décisions
+&lt;/h3&gt;&lt;p&gt;Pour évaluer des propositions de gouvernance d&amp;rsquo;un protocole de finance décentralisée, il faut avoir &lt;strong&gt;une compréhension de tout un ensemble de notions de base relative à Ethereum&lt;/strong&gt;, la blockchain et la DeFi.&lt;/p&gt;
+&lt;p&gt;À partir de là, il faut idéalement une compréhension approfondie du protocole en question, ainsi que ses &lt;strong&gt;interactions avec les autres protocoles, synergies&lt;/strong&gt;, etc. On peut également désormais rajouter à cela toute la complexité additionnelle liée à la multiplication des solutions de scalabilité : sidechains et L2.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;En outre, la formulation des propositions sur les forums de gouvernance est généralement assez technique, ce qui &lt;strong&gt;rend leur compréhension&lt;/strong&gt; difficile et ouvre la porte aux manipulations.&lt;/p&gt;
+&lt;p&gt;Enfin, la gouvernance souffre d&amp;rsquo;un véritable effet de masse : au fur et à mesure que les protocoles se développent, la quantité d&amp;rsquo;informations à digérer pour avoir un vote éclairé augmente en conséquence.&lt;/p&gt;
+&lt;p&gt;Un membre du forum de gouvernance MakerDAO a estimé son travail hebdomadaire de suivi et de participation à environ 40h par semaine, en augmentation constante :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/defi-janus/maker-governance-overhead.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;maker-governance-overhead&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;supports-de-la-gouvernance&#34;&gt;Supports de la gouvernance
+&lt;/h3&gt;&lt;p&gt;Bien que la gouvernance soit ouverte et transparente, &lt;strong&gt;elle s&amp;rsquo;appuie encore souvent sur différents services propriétaires et donc administrés,&lt;/strong&gt; le plus souvent par l&amp;rsquo;équipe elle-même. Cela pose de sérieux problèmes.&lt;/p&gt;
+&lt;p&gt;Ainsi, les discussions relatives à la gouvernance se font généralement sur Discord et sur le forum de gouvernance - les &lt;strong&gt;deux supports sont généralement modérés directement par l&amp;rsquo;équipe du projet&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;En outre, l&amp;rsquo;équipe peut avoir &lt;strong&gt;un contrôle sur les mécanismes de signalement&lt;/strong&gt; comme &lt;a class=&#34;link&#34; href=&#34;https://snapshot.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Snapshot&lt;/a&gt;. Le cumul de toutes ces limitations des systèmes de gouvernance décentralisée peut amener aux situations observées dernièrement, où les possesseurs de tokens ne votent pas dans leurs meilleurs intérêts.&lt;/p&gt;
+&lt;p&gt;Ce tour rapide des limites actuelles des systèmes de gouvernance était nécessaire pour avoir le contexte pour la suite. Voyons donc les trois Janus que j&amp;rsquo;ai repérés :&lt;/p&gt;
+&lt;h2 id=&#34;uniswap--1m-duni-par-ci-1m-duni-par-là&#34;&gt;Uniswap : 1M d&amp;rsquo;UNI par ci, 1M d&amp;rsquo;UNI par là
+&lt;/h2&gt;&lt;h3 id=&#34;la-proposition-05-en-résumé&#34;&gt;La proposition 05 en résumé
+&lt;/h3&gt;&lt;p&gt;Un vote précipité qui abouti à la signature d&amp;rsquo;un chèque quasiment en blanc de 1M UNI pour un groupe de directeurs juridiques de gros projets décentralisés chargés de déployer une stratégie de lobbying DeFI. Très peu de mécanismes de transparence ont été déployés et l&amp;rsquo;influence de la communauté des UNI holder sur le groupe financé est restreinte.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://gov.uniswap.org/t/governance-proposal-005-defi-education-fund/12963&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Proposition 05 Uniswap Gouvernance - DeFi Education Fund&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;compression-de-la-gouvernance&#34;&gt;Compression de la gouvernance
+&lt;/h3&gt;&lt;p&gt;Dans le cas d&amp;rsquo;Uniswap, tout y était. Tout commence avec un vote précipité alors que des membres de la communauté avaient de &lt;strong&gt;très nombreuses questions ignorées&lt;/strong&gt;. La communauté s&amp;rsquo;inquiète du manque de contrôle sur les fonds alloués sans aucune condition. Chris Blec a regroupé les principales questions et inquiétudes dans &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/ChrisBlec/status/1409857319144394758&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;une lettre&lt;/a&gt; et a réussi à obtenir quelques réponses de l&amp;rsquo;équipe dans un &lt;a class=&#34;link&#34; href=&#34;https://odysee.com/@ChrisBlec:8/chrisblec-june24-twitterspace:9?r=DeLsAYctGhcLFvkGBKYgE2tN17fUXA9u&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Twitter space&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;En outre, &lt;strong&gt;l&amp;rsquo;organisation qui va recevoir les 1M UNI est composée de membres proches de l&amp;rsquo;équipe Uniswap&lt;/strong&gt; et on suspecte également des investisseurs du projet comme a16z d&amp;rsquo;avoir été décisif dans l&amp;rsquo;adoption de la décision. La proposition bénéficiait également du soutien direct de l&amp;rsquo;équipe.&lt;/p&gt;
+&lt;p&gt;Finalement, la proposition se veut plus large qu&amp;rsquo;Uniswap puisqu&amp;rsquo;ils sont officiellement mandatés pour faire du lobbying DeFi, mais on peut se poser la question de la vision de la DeFi portée par de tels profils.&lt;/p&gt;
+&lt;h3 id=&#34;transparence--peut-être-contrôle--non-&#34;&gt;Transparence ? Peut être. Contrôle ? Non !
+&lt;/h3&gt;&lt;p&gt;Après les réactions aux premières itérations de la proposition, différents mécanismes ont été ajoutés pour apporter plus de transparence sur les agissements du DeFi Education Fund. L&amp;rsquo;équipe s&amp;rsquo;est également engagée à implémenter &lt;a class=&#34;link&#34; href=&#34;https://github.com/withtally/safeguard&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;FailSafe&lt;/a&gt; dès que possible. Cela permettrait à la DAO (holdeurs UNI) de pouvoir exercer un veto sur les transactions réalisées par le multisig.&lt;/p&gt;
+&lt;p&gt;Néanmoins à l&amp;rsquo;heure d&amp;rsquo;aujourd&amp;rsquo;hui &lt;strong&gt;le contrôle effectif de la DAO reste limité&lt;/strong&gt; : le vote est passé et &lt;a class=&#34;link&#34; href=&#34;https://etherscan.io/address/0x1C95930Dfc1139381265ce45B5f480F1EFae09A1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;les 1M UNI sont désormais alloués&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Edit du 17 Juillet : peu après avoir reçu les fonds, le multisig &lt;a class=&#34;link&#34; href=&#34;https://thedefiant.io/sale-of-usdc-raises-concerns-regarding-newly-formed-defi-education-fund/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;a déjà vendu la moitié de ceux-ci&lt;/a&gt; pour des stablecoins qui restent encore dans le wallet pour l&amp;rsquo;instant.&lt;/p&gt;
+&lt;p&gt;Cet épisode correspond pour moi à l&amp;rsquo;équivalent d&amp;rsquo;un détournement de fonds publics, sauf qu&amp;rsquo;ici les fonds proviennent d&amp;rsquo;une DAO. L&amp;rsquo;aventure et ses péripéties mettent également en lumière le pouvoir effectif exercé par les différentes parties prenantes du protocole.&lt;/p&gt;
+&lt;h2 id=&#34;makerdao--déséquilibre-dintérêts-antagonistes&#34;&gt;MakerDAO : déséquilibre d&amp;rsquo;intérêts antagonistes
+&lt;/h2&gt;&lt;p&gt;Le problème avec Maker est plus général et remonte bien plus loin. C&amp;rsquo;est un problème courant en DeFi d&amp;rsquo;alignement d&amp;rsquo;intérêts divergents de différents participants. En outre, pour répondre rapidement à la demande grandissante pour le DAI, &lt;strong&gt;la multiplication des collatéraux (mise à jour MCD) a grandement impacté la trustlessness et la décentralisation effective de DAI.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Plus de 60% des garanties du DAI sont des tokens qui nécessitent une forme de confiance comme USDC, wBTC ou TUSD. Le problème existe depuis longtemps et n&amp;rsquo;est pas prêt de se résoudre, si jamais. J&amp;rsquo;ai déjà discuté de ce problème sur ce blog, je vous renvoie vers cet article :
+&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/pegged-assets.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Actifs à vocation stable sur Ethereum : quelles approches et quels enjeux ?&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;des-frais-dutilisation-abusifs&#34;&gt;Des frais d&amp;rsquo;utilisation abusifs
+&lt;/h3&gt;&lt;p&gt;Ici, on va plutôt creuser le problème des frais excessifs qui illustre &lt;strong&gt;un cas classique de maximisation de rente sur une clientèle pensée captive&lt;/strong&gt;.&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; DAI étant un stablecoin synthétique frappé directement par l&amp;rsquo;utilisateur, son frais d&amp;rsquo;emprunt annuel ne devrait pas excéder 2-3% et cela reste encore coûteux. &lt;a class=&#34;link&#34; href=&#34;http://liquity.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liquity&lt;/a&gt;, une alternative à Maker, charge un frais qui revient à 0.5% annuel sur les LUSD empruntés.&lt;/p&gt;
+&lt;p&gt;Avant la dernière mise à jour, le principal vault ETH de maker (ETH-A) chargeait 5.5% de frais annuel. C&amp;rsquo;est désormais descendu à 3.5%, mais les frais sur le vault le plus proche des conditions d&amp;rsquo;emprunt de Liquity (ETH-B, collatéralisation minimale = 130% // 110% sur Liquity) reste à 9% annuel, soit &lt;strong&gt;18 fois plus coûteux que son alternative&lt;/strong&gt;.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice info&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#info-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Information&lt;/p&gt;&lt;p&gt;Liquity est construit avec une approche de minimisation de la gouvernance, contrairement à Maker, ce qui peut expliquer une partie de l&amp;rsquo;écart immense observé entre les frais appliqués par les deux plateformes.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;une-rente-pour-les-holdeurs-mkr-&#34;&gt;Une rente pour les holdeurs MKR ?
+&lt;/h3&gt;&lt;p&gt;Les frais de MakerDAO sont habituellement élevés, même s&amp;rsquo;ils ont été à zéro ou proches à de courtes périodes pour stimuler la demande. Alors &lt;strong&gt;pourquoi la DAO Maker vote systématiquement des frais excessifs&lt;/strong&gt; ? La réponse est aussi simple que 1+1=2 :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Les frais prélevés sur les vaults Maker sont utilisés pour acheter des MKR tokens sur les marchés et les brûler, rendant le token MKR plus rare.&lt;/li&gt;
+&lt;li&gt;Ils sont votés par la DAO de Maker, en proportion donc des tokens MKR possédés.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;La conception même du protocole incite ainsi les possesseurs de MKR à voter pour &lt;strong&gt;extraire les frais maximaux tolérés par les utilisateurs&lt;/strong&gt;, et pas un centime de moins. En effet, chaque point de base&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; en frais supplémentaire se traduit par plus de MKR brûlés et donc à priori un capital qui s&amp;rsquo;apprécie pour les possesseurs du token.&lt;/p&gt;
+&lt;p&gt;Ça peut sembler fabuleux en termes de tokenomics car cela optimise pour le meilleur prix possible sur MKR (théoriquement), mais &lt;strong&gt;cela se fait au détriment des utilisateurs du service&lt;/strong&gt; que la plateforme propose - et donc va contre l&amp;rsquo;intérêt long-terme du protocole.&lt;/p&gt;
+&lt;p&gt;Il faut également garder en tête que contrairement à la plupart des protocoles, Maker n&amp;rsquo;a jamais mis en place de mécanisme pour transformer ses utilisateurs en holdeurs (liquidity mining). Je vois donc difficilement comment Maker peut être compétitif avec une telle structure.&lt;/p&gt;
+&lt;h2 id=&#34;le-cas-ambigu-de-yearn-finance&#34;&gt;Le cas ambigu de Yearn Finance
+&lt;/h2&gt;&lt;p&gt;Yearn est sans doute l&amp;rsquo;exemple le plus simple et direct d&amp;rsquo;un Janus. En à peine un an, Yearn est devenu un &lt;strong&gt;protocole majeur de la DeFi avec $4B d&amp;rsquo;actifs déposés&lt;/strong&gt; et surtout &lt;strong&gt;une profitabilité délirante&lt;/strong&gt; que l&amp;rsquo;équipe aime mettre en avant.&lt;/p&gt;
+&lt;p&gt;Néanmoins, l&amp;rsquo;histoire n&amp;rsquo;est pas aussi rose en fonction de votre perspective. On va donc étudier la situation de Yearn sous 3 angles : du point de vue d&amp;rsquo;un utilisateur, pour un autre protocole et pour la DAO Yearn elle-même.&lt;/p&gt;
+&lt;h3 id=&#34;coté-utilisateurs--des-frais-délirants&#34;&gt;Coté utilisateurs : des frais délirants
+&lt;/h3&gt;&lt;p&gt;Le succès de Yearn s&amp;rsquo;obtient à quel prix ? Encore une fois, essentiellement &lt;strong&gt;des utilisateurs qui se font littéralement dépouiller par Yearn&lt;/strong&gt; - les frais comptent parmis les plus élevés observés pour un gestionnaire d&amp;rsquo;actif en DeFi, tout en étant complexe :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Yearn prend &lt;strong&gt;2% de frais de gestion annuel sur l&amp;rsquo;ensemble du dépôt&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Yearn prélève également un frais sur la performance de 20% : 20% de tous les actifs farmés partent vers la trésorerie.&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Les premier frais est le plus problématique puisque cela signifie que les frais excessivement gourmands de Yearn amène à des vaults qui… perdent de l&amp;rsquo;argent !&lt;/p&gt;
+&lt;p&gt;En effet, tout vault qui ne réalise pas au minimum 2% de retour annuel sur Yearn finit dans le rouge une fois les frais de gestion prélevés, sans même prendre en compte les frais de performance&amp;hellip;&lt;/p&gt;
+&lt;h3 id=&#34;coté-protocoles--le-câlin-de-la-mort-de-yearn&#34;&gt;Coté protocoles : le câlin de la mort de Yearn
+&lt;/h3&gt;&lt;p&gt;Yearn permet à ses utilisateurs de farmer différents protocoles comme Curve en gérant automatiquement la composition de leurs rendements.&lt;/p&gt;
+&lt;p&gt;C&amp;rsquo;est pratique pour l&amp;rsquo;utilisateur, mais cela signifie également que &lt;strong&gt;Yearn vend systématiquement tous les tokens farmés&lt;/strong&gt; par ses vaults : on peut donc se poser la question de l&amp;rsquo;impact et de la pertinence pour le protocole farmé, qui subit donc une pression vendeuse sur son token natif.&lt;/p&gt;
+&lt;p&gt;L&amp;rsquo;arrivée de Convex a démontré qu&amp;rsquo;un protocole mieux structuré en termes de tokenomics et spécifique à Curve peut proposer une alternative synergistique où les rendements sont largement supérieurs, tout en évitant la vente systématique des tokens farmés. J&amp;rsquo;analyse la &amp;ldquo;flywheel&amp;rdquo; de Convex dans cet article : &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/defi-flywheel.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🎡 Flywheel DeFi : synergies de protocoles à protocoles, par tokens interposés&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Ainsi, l&amp;rsquo;arrivée de Convex a mis Yearn face à ses contradictions et Yearn a essentiellement capitulé en intégrant Convex pour optimiser le rendement de ses vaults. Cela signifie désormais que &lt;strong&gt;les utilisateurs de Yearn paient des frais à Convex et aident le protocole à accumuler plus de VeCRV&lt;/strong&gt; et creuser ainsi son écart avec Yearn - échec et mat pour Yearn sur Curve.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/defi-janus/vecrv-par-dao.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;vecrv-par-dao&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Aperçu des veCRV possédés par les différentes DAO - source &lt;a class=&#34;link&#34; href=&#34;https://duneanalytics.com/banteg/misc&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Dune Analytics / Banteg&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;coté-yearn-dao&#34;&gt;Coté Yearn DAO
+&lt;/h3&gt;&lt;p&gt;Malgré cette situation fondamentale assez inquiétante puisque Yearn propose désormais des &lt;strong&gt;produits essentiellement non compétitifs&lt;/strong&gt; (tous les vaults Curve), Yearn se présente comme un des succès incontestables de la DeFi.&lt;/p&gt;
+&lt;p&gt;En effet, l&amp;rsquo;équipe semble mesurer le succès du protocole au volume des frais prélevés par celui-ci. L&amp;rsquo;indicateur est évidemment dangereux puisqu&amp;rsquo;avec les frais de gestion à 2% annuel, tout dépôt sur Yearn paie systématiquement des frais même si peu ou pas de profit n&amp;rsquo;est dégagé.&lt;/p&gt;
+&lt;p&gt;Plutôt que de prendre les frais prélevés comme un indicateur et donc une mesure de succès, le protocole pourrait être optimisé sur la base des profits générés pour les déposants.&lt;/p&gt;
+&lt;p&gt;Enfin, et même si c&amp;rsquo;est un sujet plus subjectif, la communication autour du projet est brouillone voire presque dérangeante parfois, par exemple &lt;a class=&#34;link&#34; href=&#34;https://thedefiant.io/yearn-revenues-projected-to-surpass-tradfis-fueled-by-thriving-community/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;quand Yearn est comparé&lt;/a&gt; aux gestionnaires d&amp;rsquo;actifs classiques comme WealthFront ou BlackRock - je trouve ça assez déséquilibré puisque Yearn charge des frais similaires à ces structures mais opère dans un marché bien plus dynamique. En outre, de telles sociétés sont-elles réellement des modèles pertinents à avoir en DeFi ?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/defi-janus/yearn-comp.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;yearn-comp&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Si Yearn se compare aux gestionnaires d&amp;rsquo;actifs, c&amp;rsquo;est peut-être parce que la comparaison avec ses pairs DeFi est sans appel :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/defi-janus/defi-asset-manager.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;defi-asset-manager&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;En outre, là où Convex travaille à permettre aux holdeurs cvxCRV de voter dans les décisions de la DAO Curve, Yearn s&amp;rsquo;octroie le contrôle sur la puissance de vote associée aux CRV déposés par ses utilisateurs sur le yveCRV. La même démarche s&amp;rsquo;observe sur les airdrops alloués aux holdeurs VeCRV : Yearn se les octroie pour acheter des CRV et sponsoriser son vault yveCRV tandis que Convex les rend accessibles à ses déposants.&lt;/p&gt;
+&lt;h2 id=&#34;les-janus-sont-ils-défendables-&#34;&gt;Les Janus sont-ils défendables ?
+&lt;/h2&gt;&lt;p&gt;Maintenant qu&amp;rsquo;on a posé le décor avec trois Janus, reste la question de leur défendabilité. Tous les trois ont des alternatives crédibles, souvent plus récentes et avec des tokenomics plus équilibrées. Voyons donc comment nos Janus évoluent par rapport à celles-ci.&lt;/p&gt;
+&lt;p&gt;En à peine deux mois d&amp;rsquo;existence, Convex a déjà dépassé Yearn en termes de valeur totale des actifs déposés. Pour l&amp;rsquo;instant, les réactions de Yearn n&amp;rsquo;ont pas réussi à inverser la tendance, et je pense que &lt;strong&gt;seule une révision profonde du modèle permettra au protocole de rester compétitif sur le long-terme&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Néanmoins &lt;strong&gt;la machine est lancée&lt;/strong&gt; : Convex possède déjà plus de deux fois plus de CRV que Yearn et en accumule bien plus rapidement. Et même si Yearn farme de nombreux autres protocoles, il me semble improbable qu&amp;rsquo;il puisse redevenir compétitif sur Curve.&lt;/p&gt;
+&lt;p&gt;Côté Marker, de plus en plus de personnes commencent à souligner l&amp;rsquo;absurdité de la situation actuelle sur DAI, et les alternatives gagnent du terrain. En quelques semaines et avec seulement ETH comme collatéral accepté, Liquity a déjà attiré l&amp;rsquo;équivalent de plus de 40% de la valeur total déposée dans MakerDAO :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/defi-janus/tokenterminal-tvl-maker-liquity.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;tokenterminal-tvl-maker-liquity&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Sur Liquity, les frais d&amp;rsquo;emprunt sont bien plus bas, plus clairs, et distribués directement aux stakers de LQTY. Le service est ainsi plus ouvert et participatif que MakerDAO tout en étant brutalement plus efficace. Là encore, je pense qu&amp;rsquo;une refonte d&amp;rsquo;ampleur de MakerDAO serait nécessaire pour que le protocole retrouve sa pertinence et sa compétitivité.&lt;/p&gt;
+&lt;p&gt;Enfin pour Uniswap, la concurrence est encore plus vive. Le protocole évolue face à des tokenomics matures comme Curve qui a un mécanisme de partage des revenus du protocoles actif depuis bientôt un an, tandis que rien n&amp;rsquo;est encore proposé sur UNI.&lt;/p&gt;
+&lt;p&gt;Sur les trois fronts, je pense que la situation forcera Uniswap, Maker et Yearn à se renouveler. Néanmoins avec le rythme de l&amp;rsquo;industrie, l&amp;rsquo;étau se resserre et leurs alternatives plus ouvertes, efficaces et synergiques gagnent rapidement du terrain.&lt;/p&gt;
+&lt;p&gt;Alors que les DAO des trois protocoles se sont désynchronisées de leurs utilisateurs, le meilleur intérêt de ceux-ci leur a été rappelé de la manière la plus simple et efficace que l&amp;rsquo;on connaisse : avec des mouvements de capitaux conséquents. J&amp;rsquo;ai hâte de voir ce qui arrive ensuite !&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;🙏 Un grand merci à HHK, Charles, Thomas, Erwan, &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/phil_h&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PhilH&lt;/a&gt; &amp;amp; FrenchTony pour leur relecture attentive de l&amp;rsquo;édition française de cet article et sa traduction en Anglais.&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;Regardez par exemple &lt;a class=&#34;link&#34; href=&#34;https://forum.makerdao.com/t/mip33-maker-stability-price-module/5943&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;cette pré-proposition prise au hasard sur le forum de gouvernance de MakerDAO&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;DAI est encore perçu par beaucoup comme un stablecoin décentralisé qui ne nécessite pas de confiance, bien que ce ne soit plus le cas. Il existe encore peu de stablecoins qui ne s&amp;rsquo;appuient que sur des collatérals trustless (ETH) et crédiblement décentralisés (ou en voie) : j&amp;rsquo;en connais deux - le LUSD de Liquity et le RAI de Reflexer.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;Les frais des services financiers sont souvent mesurés en point de base (bps / basis point). Un point de base est un centième de pourcent : 1 bps = 0,01%.&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.yearn.finance/yearn-finance/yvaults/overview#yvault-fee-structure&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Documentation Yearn Finance - Structure des frais&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
+        <title>Le volume appelle les frais : comment les principaux échanges décentralisés capturent-ils la valeur ?</title>
+        <link>http://localhost:1313/fr/dex-echanges-decentralis%C3%A9es-capture-valeur/</link>
+        <pubDate>Sat, 23 Jan 2021 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/dex-echanges-decentralis%C3%A9es-capture-valeur/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2021/dex-value-capture/cover.png" alt="Featured image of post Le volume appelle les frais : comment les principaux échanges décentralisés capturent-ils la valeur ?" /&gt;&lt;p&gt;J&amp;rsquo;ai partagé mon point de vue sur de nombreux protocoles DeFi sur ce blog, mais je me suis récemment rendu compte que je n&amp;rsquo;étais jamais revenu à l&amp;rsquo;essentiel : les DEX. C&amp;rsquo;est précisément ce que nous allons faire aujourd&amp;rsquo;hui, en abordant le sujet principalement en examinant les mécanismes de capture de la valeur.&lt;/p&gt;
+&lt;p&gt;Les DEX s&amp;rsquo;appuyant sur des AMM, comme Uniswap, Curve ou SushiSwap, ont tous connu cette année une croissance énorme, tant en termes de liquidités disponibles que de volume, tout comme les frais qu&amp;rsquo;ils ont perçus. Pour faire simple : &lt;strong&gt;ces DEX sont maintenant les principaux collecteurs de frais qu&amp;rsquo;il y a en crypto, juste après le réseau Bitcoin et Ethereum eux-mêmes&lt;/strong&gt; :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/dex-value-capture/fees.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;crypto-fees&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;C&amp;rsquo;est une réalisation impressionnante ! Aujourd&amp;rsquo;hui, nous allons donc examiner ce délicieux gâteau et comprendre comment il est divisé. Quelles sont les différentes approches ? À quoi sert leur token / comment établissent-ils leur modèle d&amp;rsquo;incitation ? Et ensuite, quel sera l&amp;rsquo;impact de l&amp;rsquo;arrivée des layer 2 sur tout cela ?&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;la-montée-en-puissance-des-market-maker-automatisés-amm&#34;&gt;La montée en puissance des Market Maker Automatisés (AMM)
+&lt;/h2&gt;&lt;p&gt;Avec toutes les discussions autour des teneurs de marché automatisés (AMM) ces derniers temps, je voulais, comme d&amp;rsquo;habitude, prendre du recul et examiner l&amp;rsquo;état actuel du marché, la position des principaux acteurs et ce qui va suivre.&lt;/p&gt;
+&lt;p&gt;Nous discuterons des AMM, mais je laisserai à d&amp;rsquo;autres le soin de régler les détails techniques des bonding curves. Nous aborderons plutôt le sujet sous l&amp;rsquo;angle de la saisie de la valeur et de la tokenomique.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;L&amp;rsquo;essor et le développement des AMM a fondamentalement changé le marché&lt;/strong&gt;. Avant leur domination, les approches basées sur le carnet d&amp;rsquo;ordres étaient encore largement utilisées. L&amp;rsquo;un des principaux mérites des AMM est de changer la logique du service, car il devient &lt;strong&gt;peer to contract&lt;/strong&gt; : il n&amp;rsquo;y a pas besoin d&amp;rsquo;un ordre correspondant de l&amp;rsquo;autre côté, grâce à la bonding curve, il y en a toujours un (dans les limites de liquidité et de slippage).&lt;/p&gt;
+&lt;p&gt;Je pense que c&amp;rsquo;est l&amp;rsquo;un des facteurs clés qui leur a permis de se développer en rationalisant tout ce qui concerne les échanges de tokens : de l&amp;rsquo;acte d&amp;rsquo;échange lui-même, mais aussi de l&amp;rsquo;apport de liquidité et même des choses comme la recherche d&amp;rsquo;un prix pour les actifs.&lt;/p&gt;
+&lt;p&gt;Nous avons donc notre beau gâteau de commissions DEX, plongeons maintenant dans le mécanisme de capture de la valeur des principaux services pour mieux comprendre leurs principales différences.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;Pour la simplicité de cet article, nous n&amp;rsquo;aborderons pas les modèles Balancer et Bancor. Ce pourrait être un bon article de suivi.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;mécanismes-de-capture-de-valeur-en-mode-découverte&#34;&gt;Mécanismes de capture de valeur en mode découverte
+&lt;/h2&gt;&lt;p&gt;Au fil des différentes itérations et versions des principaux DEX, leurs mécanismes de capture de la valeur ont évolué. Au départ, il n&amp;rsquo;y avait pas nécessairement de token et une part des frais d&amp;rsquo;échange perçus saisie par celui-ci.&lt;/p&gt;
+&lt;h3 id=&#34;uniswap--le-besoin-de-liquidité&#34;&gt;Uniswap : Le besoin de liquidité
+&lt;/h3&gt;&lt;p&gt;En effet, dans les premiers jours de l&amp;rsquo;AMM, la principale préoccupation était la liquidité - encore très rare à l&amp;rsquo;époque : Uniswap n&amp;rsquo;avait pas de token et n&amp;rsquo;en avait pas besoin pour être le pionnier du front de l&amp;rsquo;AMM. L&amp;rsquo;infrastructure initiale et toujours actuelle de distribution des commissions répond à cette exigence : une commission de &lt;strong&gt;30 bps (0,3 %) est prélevée sur chaque transaction et distribuée aux fournisseurs de liquidité&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;C&amp;rsquo;était la solution idéale pour commencer, car vous avez un problème de liquidité : une liquidité suffisante permettra de réaliser des swaps sans trop de slippage, d&amp;rsquo;augmenter le volume (s&amp;rsquo;il y a un besoin pour le token/marché donné) et donc les revenus pour les LP.&lt;/p&gt;
+&lt;p&gt;Il n&amp;rsquo;y a actuellement aucune redevance ou saisie de valeur au niveau du token mais il est &lt;strong&gt;prêt à être mis en œuvre&lt;/strong&gt; si le DAO devait le décider - la V2 du protocole expédié l&amp;rsquo;année dernière comprend une fonction de &amp;ldquo;redevance de protocole&amp;rdquo;&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;sushiswap--capture-de-valeur-au-niveau-du-token&#34;&gt;SushiSwap : Capture de valeur au niveau du token
+&lt;/h3&gt;&lt;p&gt;Depuis les premiers jours, l&amp;rsquo;un des principaux changements apportés au SushiSwap a été une légère réduction de cette redevance à 25 points de base pour &lt;strong&gt;réorienter les 5 points de base restants vers les stakers de SUSHI&lt;/strong&gt;, ce qui permet une exposition à une part des frais collectés sur l&amp;rsquo;ensemble de l&amp;rsquo;échange plutôt qu&amp;rsquo;une logique uniquement par paire comme sur Uniswap.&lt;/p&gt;
+&lt;p&gt;Depuis la phase initiale de distribution, plusieurs ajustements ont été apportés mais le mécanisme est à peu près le même. Onsen a introduit un système de récompense par rotation de nouveaux pools pertinents. Plus important encore pour la tokenomique, ⅔ des récompenses SUSHI gagnées par l&amp;rsquo;exploitation des liquidités sont désormais acquises sur une période de 6 mois (vesting).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/dex-value-capture/sushi-onsen.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;sushiswap-onsen&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Cette évolution réduit les incitations pour la &amp;ldquo;liquidité mercenaire&amp;rdquo;, en particulier pour les liquidités gérées par des vaults par exemple &amp;amp; permet de &lt;strong&gt;s&amp;rsquo;assurer que les grands fournisseurs de liquidités sont également détenteurs de SUSHI à tout moment&lt;/strong&gt; (même jusqu&amp;rsquo;à 6 mois après la fin de leur exploitation), ce qui permet de mieux aligner les intérêts.&lt;/p&gt;
+&lt;p&gt;Pour parvenir à cette répartition, SushiSwap distribue une commission de 0,25 % pour chaque swap aux LP, tout comme les 0,30 % d&amp;rsquo;Uniswap. En plus de cette commission, une autre commission de 0,05 % est perçue sur chaque swap sous forme de LP tokens, elle est fréquemment vendue pour des SUSHI distribuée aux stakers.&lt;/p&gt;
+&lt;p&gt;Les améliorations apportées par Sushi sont pertinentes, mais à mes yeux, le véritable changement de jeu est le modèle Curve, alors voyons voir.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;un-aperçu-de-la-fin-du-jeu--curve-finance--crv&#34;&gt;Un aperçu de la fin du jeu ? Curve Finance &amp;amp; CRV
+&lt;/h2&gt;&lt;p&gt;Le modèle de Curve est légèrement plus complexe que le précédent, mais il permet un alignement toujours meilleur des incitations entre les utilisateurs de la plate-forme et les détenteurs de tokens. Voyons comment.&lt;/p&gt;
+&lt;p&gt;Depuis le lancement du token CRV, les fournisseurs de liquidité sur Curve gagnent des tokens CRV en plus de leurs commissions habituelles (s&amp;rsquo;ils stakent). Et tout comme le SushiSwap, Curve a introduit une forme de capture de valeur au niveau du token CRV.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/dex-value-capture/curve-pools.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Pools de Curve&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Mais le modèle est plus complexe, alors discutons de chaque partie et voyons comment elles interagissent les unes avec les autres.&lt;/p&gt;
+&lt;h3 id=&#34;1-tutoriel--le-timelock&#34;&gt;1/ Tutoriel : Le timelock
+&lt;/h3&gt;&lt;p&gt;Pour utiliser les tokens CRV au sein de Curve, le premier choix à faire est la durée de son engagement. L&amp;rsquo;unité de base est le veCRV, un CRV verrouillé et pondéré dans le temps qui permet la gouvernance. Pour être explicite : &lt;strong&gt;pour pouvoir bénéficier des droits perçus et des autres caractéristiques décrites ci-dessous, vous devez verrouiller votre token CRV pendant au moins un an.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Le mécanisme est assez simple, vous pouvez verrouiller pendant 1 à 4 ans. 4 ans vous donneront 1 veCRV par CRV, diminuant linéairement jusqu&amp;rsquo;à 0,25 veCRV par CRV pour une période d&amp;rsquo;un an. Comme nous l&amp;rsquo;avons dit précédemment, la veCRV est l&amp;rsquo;unité de base du système - elle déterminera donc le montant des frais ainsi que le pouvoir de stimulation (boost) et de gouvernance auquel vous aurez accès.&lt;/p&gt;
+&lt;h3 id=&#34;2-zone-de-mise-à-niveau--votre-part-des-frais&#34;&gt;2/ Zone de mise à niveau : votre part des frais
+&lt;/h3&gt;&lt;p&gt;Il suffit de placer et de verrouiller des tokens CRV dans le DAO pour avoir droit à une part des frais perçus sur Curve, mais ce n&amp;rsquo;est que la première étape du voyage. Les commissions sont fréquemment perçues et réglées pour des tokens 3pool LP. Le mécanisme a récemment été lancé et a commencé à distribuer des récompenses.&lt;/p&gt;
+&lt;p&gt;Veuillez noter que le rendement effectif fluctue car il est lié au volume d&amp;rsquo;échange de Curve et au prix d&amp;rsquo;acquisition des tokens CRV. Au moment de la rédaction du présent document, il est d&amp;rsquo;environ &lt;strong&gt;0,29 $ par an pour 1 vecRV.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;Pour décrire la prochaine couche de l&amp;rsquo;oignon de Curve, j&amp;rsquo;aime utiliser une métaphore inspirée des jeux de rôle en ligne. En effet, il existe trois types de configurations qui conviennent pour décrire les trois prochaines étapes de Curve :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;PvE (Player vs Environment)&lt;/strong&gt; : où vous affrontez uniquement des monstres (mobs) contrôlés par l&amp;rsquo;IA&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PvP (contre les joueurs)&lt;/strong&gt; : lorsque vous vous battez contre d&amp;rsquo;autres joueurs dans un environnement déterminé (arène/champ de bataille)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RvR (Realm vs Realm)&lt;/strong&gt; : où vous vous battez contre d&amp;rsquo;autres joueurs potentiellement partout (factions)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Nous utiliserons ce cadre de référence pour analyser les trois couches suivantes de l&amp;rsquo;oignon qu&amp;rsquo;est Curve.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;3-le-pve-de-curve---stimulation-des-récompenses-crv&#34;&gt;3/ Le PvE de Curve - Stimulation des récompenses CRV
+&lt;/h3&gt;&lt;p&gt;Comme indiqué précédemment, les fournisseurs de liquidités peuvent mettre en jeu leurs tokens LP pour gagner des CRV en plus de leurs commissions habituelles. Mais ils peuvent également &lt;strong&gt;utiliser leurs tokens veCRV pour booster&lt;/strong&gt; un ou plusieurs de leurs pools, augmentant ainsi les CRV gagnée jusqu&amp;rsquo;à 2,5 fois.&lt;/p&gt;
+&lt;p&gt;Pour ce faire, il faut un montant de veCRV proportionnel à la valeur en dollars de la position de fourniture de liquidité renforcée. Le coût effectif (en veCRV) pour obtenir le maximum de stimulation n&amp;rsquo;est pas le même pour chaque pool, ce qui crée une première couche de jeux d&amp;rsquo;incitation/arbitrage.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/dex-value-capture/crv-boost.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Curve CRV boosting&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;C&amp;rsquo;est un mécanisme intéressant qui permet un meilleur alignement des incitations : &lt;strong&gt;Les personnes qui gagnent  beaucoup de CRV sont également des détenteurs de veCRV importants&lt;/strong&gt; (-&amp;gt; bloqués pendant 1 à 4 ans), ce qui permet un bon alignement des intérêts. Pourtant, ce n&amp;rsquo;est que la première et la plus amicale des couches du méta-jeu de Curve. Allons plus loin dans l&amp;rsquo;oignon.&lt;/p&gt;
+&lt;h3 id=&#34;4-le-pvp-de-curve---le-jeu-du-poids-des-jauges&#34;&gt;4/ Le PvP de Curve - Le jeu du poids des jauges
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;Si le pool-boosting est en PvE, les jauges sont l&amp;rsquo;arène PvP de Curve.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Les jauges sont un peu similaires au boosting, mais &lt;strong&gt;au niveau de la plate-forme&lt;/strong&gt;. Les détenteurs de VCRV peuvent voter pour &lt;strong&gt;décider de la part de CRV nouvellement frappés allouée à chaque pool&lt;/strong&gt;. Des restrictions supplémentaires s&amp;rsquo;appliquent ici pour empêcher la manipulation des votes :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Le VeCRV doit être verrouillé avec au moins 7 jours restants.&lt;/li&gt;
+&lt;li&gt;Le vote sur le poids des jauges ne peut être modifié par les utilisateurs que tous les 10 jours.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Il permet d&amp;rsquo;inciter de nouvelles pools, théoriquement sans l&amp;rsquo;impulsion nécessaire de l&amp;rsquo;équipe Curve.&lt;/p&gt;
+&lt;h3 id=&#34;5-le-rvr-de-curve---gouvernance-et-gouvernance-inter-protocolaire&#34;&gt;5/ Le RvR de Curve - Gouvernance et gouvernance inter-protocolaire
+&lt;/h3&gt;&lt;p&gt;La dernière couche de l&amp;rsquo;oignon réside dans la gouvernance de Curve : les détenteurs de veCRV peuvent voter sur les propositions de la DAO et avec au moins 2 500 veCRV, vous pouvez soumettre une proposition au DAO. Donc, pour résumer, une fois que vous détenez la veCRV, vous :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Gagnez une part des droits perçus par l&amp;rsquo;échange&lt;/li&gt;
+&lt;li&gt;Vous pouvez augmenter vos propres flux de CRV&lt;/li&gt;
+&lt;li&gt;Par le biais de jauges, influencer les futures émissions de CRV sur les pools de Curve.&lt;/li&gt;
+&lt;li&gt;Et enfin, en ce qui concerne la gouvernance, vous avez votre mot à dire sur les paramètres clés du système.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Alors que 1&amp;amp;2 est ce qui intéresse le plus les utilisateurs finaux, &lt;strong&gt;les points 3&amp;amp;4 peuvent être incroyablement précieux pour d&amp;rsquo;autres dApps, projets DeFi et politiciens inter-protocolaire&lt;/strong&gt;&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;À partir de là, les possibilités sont pratiquement infinies :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Par exemple, imaginez un projet introduisant un nouveau stablecoin. Ne serait-il pas intéressant pour eux d&amp;rsquo;avoir un pouvoir de gouvernance au sein de Curve pour éventuellement l&amp;rsquo;inclure dans un pool Curve avec bonus CRV ?&lt;/li&gt;
+&lt;li&gt;Encore plus loin dans l&amp;rsquo;oignon, les projets DeFi &lt;strong&gt;avec une trésorerie peuvent en allouer une partie au token CRV pour exploiter les avantages des 4 éléments&lt;/strong&gt; - 1&amp;amp;2 pour augmenter leurs flux de revenus de trésorerie et 3&amp;amp;4 pour rendre leur plateforme ou service plus attractif.&lt;/li&gt;
+&lt;li&gt;Une autre couche plus profonde : le &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://crv.ape.tax&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;vault yveCRV de Yearn&lt;/a&gt;&lt;/strong&gt;. Il offre de meilleurs rendements que si vous déposiez vos CRV vous-même (~1,3x), mais les déposants renoncent à la capacité de stimulation et de vote (3&amp;amp;4) en faveur de Yearn - qui peut alors utiliser cette capacité supplémentaire de stimulation/vote pour améliorer le rendement de ses produits.&lt;/li&gt;
+&lt;li&gt;Dernier niveau de profondeur : imaginez un service de crypto/DeFi de type relation presse dans quelques années. Je m&amp;rsquo;attends à ce qu&amp;rsquo;ils soient capables de &lt;strong&gt;fournir d&amp;rsquo;autres projets avec une puissance de proposition&lt;/strong&gt; sur les principales DAO comme Curve ou Aave.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;6-prochaines-étapes-pour-curve&#34;&gt;6/ Prochaines étapes pour Curve
+&lt;/h3&gt;&lt;p&gt;Enfin, nous devons considérer une dernière dimension de Curve, car ce n&amp;rsquo;est pas n&amp;rsquo;importe quel DEX. En effet, dès le départ, Curve s&amp;rsquo;est spécialisé dans les &lt;strong&gt;échanges d&amp;rsquo;actifs indexés&lt;/strong&gt; (pegged assets) et a été optimisé pour cela. L&amp;rsquo;échange a commencé avec les stablecoins uniquement, mais nous avons maintenant aussi des représentations de BTC et d&amp;rsquo;ETH.&lt;/p&gt;
+&lt;p&gt;Grâce à l&amp;rsquo;augmentation des liquidités disponibles, Curve exploite maintenant les synergies de DeFi (avec Synthetix) pour proposer des swaps entre les différents actifs pegged disponibles sur Curve, tels que DAI -&amp;gt; wBTC ou USDT -&amp;gt; EURS.&lt;/p&gt;
+&lt;p&gt;C&amp;rsquo;est une innovation significative car cela ouvre des marchés actuellement peu ou pas couverts ailleurs (EURS) et permet de minimiser le slippage pour les grandes transactions.&lt;/p&gt;
+&lt;p&gt;Pour rester concis, les bondings curve d&amp;rsquo;Uniswap et de Sushiswap sont bien adaptées pour &lt;strong&gt;supporter de nombreux swaps de petite ou moyenne taille, en particulier sur les grands pools&lt;/strong&gt; avec un faible glissement. Cependant, elles sont moins optimales pour les gros ordres car le slippage augmente proportionnellement à la part de liquidité du pool requise par la transaction.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;Un service comme &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://paraswap.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ParaSwap&lt;/a&gt;&lt;/strong&gt; vous aide à simplifier ce processus et à optimiser votre échange.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;perspectives-davenir--l2-et-ses-incitations&#34;&gt;Perspectives d&amp;rsquo;avenir : L2 et ses incitations
+&lt;/h2&gt;&lt;p&gt;Pour conclure cet article, n&amp;rsquo;oublions pas le prochain changement tectonique pour l&amp;rsquo;espace Ethereum : la disponibilité croissante des layers 2.&lt;/p&gt;
+&lt;p&gt;L&amp;rsquo;année dernière, nous avons vu la valeur des transactions sur l&amp;rsquo;AMM exploser au détriment des approches basées sur le carnet d&amp;rsquo;ordres. Les AMM ont rationalisé l&amp;rsquo;ensemble de l&amp;rsquo;expérience et se sont révélées très utiles pour le layer 1, de sorte que nous pouvons raisonnablement espérer qu&amp;rsquo;ils ouvrent la voie aux échanges décentralisés sur L2 aussi.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Loopring offre déjà un échange décentralisé en production:&lt;/strong&gt; un DEX L2 basé sur zk-Sync avec diverses incitations pour les fournisseurs de liquidité. Curve a également travaillé avec Zk-Sync, nous pouvons donc raisonnablement nous attendre à ce qu&amp;rsquo;ils livrent un produit L2 en direct cette année compte tenu des derniers développements avec Zk-Sync.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/dex-value-capture/loopring.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Loopring V2 Stats&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;D&amp;rsquo;autre part, Synthetix a récemment déployé son réseau principal Optimism L2 et la force semble forte autour d&amp;rsquo;un déploiement Uniswap x Optimism. Je plaisantais l&amp;rsquo;autre jour en disant&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Synthetix Optimism L2 est le testnet d&amp;rsquo;Uniswap.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Il ne serait pas surprenant de voir l&amp;rsquo;implémentation du L2 d&amp;rsquo;Uniswap se déployer d&amp;rsquo;ici quelques semaines ou quelques mois.&lt;/p&gt;
+&lt;p&gt;Pendant que nous y sommes, qu&amp;rsquo;en est-il de tokoenomics x L2 ? Je m&amp;rsquo;attends à voir les incitations &lt;strong&gt;LP aussi migrer vers la L2&lt;/strong&gt;, comme c&amp;rsquo;est déjà le cas avec Loopring. Synthetix accélère le démarrage de son L2 limité (stake/mint/burn uniquement) avec des incitations SNX.&lt;/p&gt;
+&lt;p&gt;Les services qui n&amp;rsquo;ont pas encore de token pourraient avoir un avantage ici car ils peuvent inciter directement le L2. D&amp;rsquo;autre part, les protocoles qui incitaient déjà fortement leur L1 pourraient manquer de puissance de feu (tokens) pour égaler les incitations offertes par les projets avec des tokens &amp;ldquo;L2-native&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;Il sera fascinant d&amp;rsquo;observer les sorties des différentes couches 2 et leur impact sur l&amp;rsquo;utilisation des protocoles et la tokenomique.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/dex-value-capture/defi-france-live-16.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;defi-france-live-16&#34;
+	
+	
+&gt;
+On ne reçoit pas moins qu&#39;0xMaki, une des principales figures derrière SushiSwap pour discuter du sujet ce lundi sur &lt;strong&gt;👉 &lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=JT8N7-gqTjA&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;la chaîne YouTube DeFi France&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;div class=&#34;notice tip&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#tip-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Astuce&lt;/p&gt;&lt;p&gt;Cet article a éveillé votre curiosité ? Vous êtes tombés au bon endroit — nous avons un ecosystème dynamique en français pour vous aider à suivre et comprendre la finance décentralisée. Du plus accessible au plus spécialisé :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://discord.gg/3bWZcK2&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;💬 Le serveur Discord DeFi France&lt;/a&gt;&lt;/strong&gt; pour échanger avec la communauté.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://thedailygweifr.substack.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;☕ La version française du Daily Gwei&lt;/a&gt;&lt;/strong&gt; pour des articles et résumés très accessibles.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://banklessfr.substack.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🗞 La newsletter BanklessFR&lt;/a&gt;&lt;/strong&gt; pour comprendre les concepts fondamentaux.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/c/DeFiFrance&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🎥 La chaine Youtube DeFi France&lt;/a&gt;&lt;/strong&gt; pour approfondir avec des lives pointus.&lt;/li&gt;
+&lt;li&gt;&amp;amp; Bien sûr &lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/fr/&#34; &gt;ce blog&lt;/a&gt; qui creuse des sujets spécifiques liés à la pratique de la DeFi.&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;notes-et-références&#34;&gt;Notes et références
+&lt;/h2&gt;&lt;p&gt;&lt;em&gt;🙏 Un grand merci à HHK, Charles, Thomas, Erwan, &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/phil_h&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PhilH&lt;/a&gt; &amp;amp; FrenchTony pour leur relecture attentive de l&amp;rsquo;édition française de cet article et sa traduction en Anglais.&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;Vous trouverez plus d&amp;rsquo;informations dans la &lt;a class=&#34;link&#34; href=&#34;https://uniswap.org/docs/v2/advanced-topics/fees/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Documentation Uniswap V2&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;Un concept &lt;a class=&#34;link&#34; href=&#34;[https://newsletter.banklesshq.com/p/the-life-of-a-protocol-politician]&#34; &gt;d&amp;rsquo;abord théorisé dans la lettre d&amp;rsquo;information Bankless&lt;/a&gt; qui fait référence à une personne ou une entité spécialisée dans l&amp;rsquo;obtention d&amp;rsquo;une influence sur divers protocoles décentralisés et qui offre ensuite un accès sur le terrain à cette influence en tant que service.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
+        <title>DeFi France X : De la ferme à la mine</title>
+        <link>http://localhost:1313/fr/p/defi-france-x-de-la-ferme-%C3%A0-la-mine/</link>
+        <pubDate>Thu, 01 Oct 2020 10:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/p/defi-france-x-de-la-ferme-%C3%A0-la-mine/</guid>
+        <description>&lt;img src="http://localhost:1313/img/others/defi-france/defifranceX.png" alt="Featured image of post DeFi France X : De la ferme à la mine" /&gt;&lt;p&gt;Hier soir nous nous sommes retrouvés la reprise des évènements avec DeFi France X. Avec des invités aux premières lignes de la finance décentralisée, nous avons fait le point sur les évènements impactants des trois derniers mois.&lt;/p&gt;
+&lt;h3 id=&#34;programme&#34;&gt;Programme
+&lt;/h3&gt;&lt;h4 id=&#34;compound--les-débuts-de-liquidity-mining-avec-comp&#34;&gt;Compound : les débuts de liquidity mining avec COMP
+&lt;/h4&gt;&lt;p&gt;Analyse du mécanisme de distribution innovant mis en place pour le token COMP et ses conséquences significatives pour l&amp;rsquo;ensemble du marché.&lt;/p&gt;
+&lt;p&gt;Présenté par &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/pscltllrd&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Pascal Tallarida (Jarvis Network)&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;yearn-finance--le-fair-launch-de-yfi&#34;&gt;Yearn Finance : le fair launch de YFI
+&lt;/h4&gt;&lt;p&gt;Présentation rapide de Yearn Finance et retour sur le concept du &amp;ldquo;fair launch&amp;rdquo; instigué avec le lancement du token YFI.&lt;/p&gt;
+&lt;p&gt;Présenté par moi-même, TokenBrice, auteur de ce blog.&lt;/p&gt;
+&lt;h4 id=&#34;curve-et-le-lancement-headless-du-crv&#34;&gt;Curve et le lancement &amp;ldquo;headless&amp;rdquo; du CRV
+&lt;/h4&gt;&lt;p&gt;Le lancement un peu chaotique de CRV, deployé par un anonyme et les enjeux de la gouvernance inter-protocolaire.&lt;/p&gt;
+&lt;p&gt;Présenté par &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/UnslashedF&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Marouane Haiji (Unslashed)&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;guerre-des-liquidités--vampire-mining-de-sushiswap&#34;&gt;Guerre des liquidités : &amp;ldquo;Vampire Mining&amp;rdquo; de SushiSwap
+&lt;/h4&gt;&lt;p&gt;Analyse du plan de Vampire Mining de SushiSwap pour attirer de la liquidité dès le lancement du nouvel échange et ses résultats.&lt;/p&gt;
+&lt;p&gt;Présenté par &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/moshemalawach&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Moshe Malawach (Aleph.IM)&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;la-réponse-de-la-licorne--uni&#34;&gt;La réponse de la licorne : UNI
+&lt;/h4&gt;&lt;p&gt;Détail du token UNI : distribution initiale à tous les utilisateurs, gouvernance et mécanisme d&amp;rsquo;incitation de certaines pools et impact sur la liquidité déposée sur Uniswap.&lt;/p&gt;
+&lt;p&gt;Présenté par &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/lemiscate&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Marc Zeller (Aave)&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;vidéo-du-meetuphttpsyoutuberf6wgkng_vat331&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/rf6WGKNg_vA?t=331&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Vidéo du meetup&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Tous les meetups sont accessibles sur la &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtube.com/c/defifrance&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;chaine YouTube DeFi France&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Pour revoir cette édition, c&amp;rsquo;est par ici : &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/rf6WGKNg_vA?t=331&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🎥 DeFi France X : De la ferme à la mine&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/others/defi-franceX.pdf&#34; &gt;Les slides sont disponibles en PDF par-là.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Un grand merci à tous les participants !&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>🤖 Les vaults : stratégies d&#39;investissement DeFi accessibles ?</title>
+        <link>http://localhost:1313/fr/p/les-vaults-strat%C3%A9gies-dinvestissement-defi-accessibles/</link>
+        <pubDate>Wed, 30 Sep 2020 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/p/les-vaults-strat%C3%A9gies-dinvestissement-defi-accessibles/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2020/vaults/harvest.gif" alt="Featured image of post 🤖 Les vaults : stratégies d&#39;investissement DeFi accessibles ?" /&gt;&lt;p&gt;À mesure que l&amp;rsquo;écosystème des services financiers décentralisés sur Ethereum se développe et mûrit, l&amp;rsquo;offre de services devient plus dense et parfois difficile à comprendre. Si les utilisateurs les plus avertis sur le plan technique peuvent se tenir au courant des dernières sorties et couvrir leurs risques de manière appropriée, les investisseurs moins expérimentés peuvent se sentir largués.&lt;/p&gt;
+&lt;p&gt;Heureusement, il existe des services DeFi adaptés à la diversité des investisseurs qui explorent cet espace. Yearn Finance a été la première plateforme à lancer un type de produits d&amp;rsquo;investissement passif : les vaults.&lt;/p&gt;
+&lt;p&gt;L&amp;rsquo;idée de base est simple comme 1, 2, 3 :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Les vaults sont des &lt;strong&gt;stratégies d&amp;rsquo;investissement tokénisées&lt;/strong&gt; : votre dépôt est représenté par un token (par exemple, yCRV dans la chambre forte de Yearn -&amp;gt; yyCRV/yUSD)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Le vault récolte et réinvestit fréquemment les profits&lt;/strong&gt; (ici CRV) pour racheter  l&amp;rsquo;actif de base fourni, ce qui augmente les rendements.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Les frais sont simplifiés&lt;/strong&gt; : les déposants ne paient pas les frais de gaz de l&amp;rsquo;opération des vaults (comme la récolte). Les frais sont généralement facturés à la sortie du vault.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Donc si vous voulez &lt;strong&gt;éviter les maux de tête&lt;/strong&gt; liés à la chasse à la dernière ferme, à la gestion du claim des bénéfices que vous gagnez, au moment et à la manière de les réinvestir, sans oublier, bien sûr, de tenir compte des coûts du gaz de toutes ces opérations dans le calcul de vos bénéfices, les vaults sont une alternative crédible.&lt;/p&gt;
+&lt;p&gt;Les vaults sont faits pour &lt;strong&gt;abstraire la complexité pour les utilisateurs finaux&lt;/strong&gt;.  Vous déposez des tokens et attendez qu&amp;rsquo;ils élaborent une stratégie pour vous. Voyons donc quelles sont les options disponibles.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;Cet article va droit au but et met en évidence les différents vaults disponibles. Pour en savoir plus sur les débuts de Yearn Finance, &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/yearn-finance-YFI.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;lisez cet article&lt;/strong&gt;&lt;/a&gt;. Pour en savoir plus sur les forks de Yearn, &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/yearn-waifus.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;celui-ci&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;le-plus-simple--les-vaults-basiques&#34;&gt;Le plus simple : les vaults basiques
+&lt;/h2&gt;&lt;p&gt;Les vaults utilisent le token que vous déposez (DAI par exemple) pour mettre en place une stratégie donnée, produire un rendement et le réinvestir automatiquement.&lt;/p&gt;
+&lt;p&gt;Le pionnier est bien sûr Yearn avec la vaults yCRV, mais plusieurs options sont maintenant disponibles ou en cours de déploiement. Cet article donne un aperçu structuré des principales possibilités offertes par les vaults.&lt;/p&gt;
+&lt;p&gt;Ici, vous déposez un token donné pour en gagner davantage au fil du temps, et éventuellement une récompense supplémentaire. Les tokens que vous fournissez ne sont pas utilisés pour fournir des liquidités sur des échanges décentralisés, &lt;strong&gt;de sorte qu&amp;rsquo;il n&amp;rsquo;y a pas d&amp;rsquo;exposition à des pertes impermanentes&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Cependant, &lt;strong&gt;comme de plus en plus de produits de type vaults sont mis sur le marché, vous voulez prendre le temps de comprendre ce qui se passe avec celui que vous choisissez&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Vous trouverez ci-dessous des tableaux résumant les principaux vaults que je connais, avec les tokens qu&amp;rsquo;ils acceptent, le service qu&amp;rsquo;ils exploitent et la manière dont le retour est libellé.&lt;/p&gt;
+&lt;p&gt;La mention &amp;ldquo;retours composés&amp;rdquo; signifie que la stratégie génère un retour fréquemment vendu pour le token de base apporté - cette opération est parfois appelée &amp;ldquo;récolte&amp;rdquo; (harvest).&lt;/p&gt;
+&lt;div class=&#34;notice tip&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#tip-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Astuce&lt;/p&gt;&lt;p&gt;La fréquence de la récolte est importante car elle influencera le facteur de composabilité de la position globale, ainsi que le niveau de risque pris sur le prix du token farmé.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;vaults-stablecoins--btc&#34;&gt;Vaults Stablecoins &amp;amp; BTC
+&lt;/h3&gt;&lt;p&gt;En ce qui concerne les vaults, les tokens les plus couramment acceptés en dépôt sont les stablecoins. Ces vaults déploieront votre capital sur le pool Curve Finance pour gagner des tokens CRV, généralement le pool Y. Des projets plus récents, tels que Pickle Finance, permettent également d&amp;rsquo;exploiter le pool Curve sUSD.&lt;/p&gt;
+&lt;div align=&#34;center&#34;&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/vaults/pickle-pjar0.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;pickle-finance-pjar0&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Infographie détaillant le vault pJar0 de Pickle Finance &lt;a class=&#34;link&#34; href=&#34;https://medium.com/@picklefinance/introducing-picklejars-70a311ab65c5&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;source&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Enfin, certains services comme Harvest ou YFV ont un modèle incitatif en plus de leur vaults : les déposants gagnent le token de gouvernance de la plateforme (FARM ou YFV) en plus du rendement de base.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;TOKENS&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;SERVICE&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;FARME SUR&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;RETOURS&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DAI, USDC, USDT, TUSD&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Harvest.Finance&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Curve&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Retour Curve composé + FARM&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;USDC, USDT, DAI, TUSD, BUSD&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DFI.Money&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Curve&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Retour Curve composé&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DAI, USDC, USDT, TUSD&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;YFV (Seed Pool)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Value&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;YFV/VALUE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;yCRV, DAI, USDC, USDT, TUSD&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Yearn Finance&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Curve&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;CuRetour Curve composé&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;pJar 0 + psCRV pool (Curve sUSD)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Pickle Finance&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Curve/Pickle&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Retour Curve composé + PICKLE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Étant donné que Curve prend également en charge les pools tokenisés de BTC, il existe désormais des vaults pour la BTC également :&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;TOKEN&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;SERVICE&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;FARME SUR&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;RETOURS&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;wBTC, renBTC &amp;amp; CRVRENWBTC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Harvest.Finance&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Curve&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Retour Curve composé + FARM&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;hBTC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DFI.Money&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Curve?&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Retour composé&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;Avec Harvest.Finance, vous pouvez déposer directement le wBTC ou le renBTC, ou le token CRVRENwBTC, qui représente un dépôt dans le Curve&amp;rsquo;s Pool 5 (pool RenBTC &amp;amp; wBTC).&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;vaults-eth&#34;&gt;Vaults ETH
+&lt;/h3&gt;&lt;p&gt;Les vaults sur BTC et stablecoins sont intéressants mais peut-être aimeriez-vous conserver une exposition au prix de l&amp;rsquo;ETH ?&lt;/p&gt;
+&lt;p&gt;Vous pouvez obtenir un tel résultat par vous-même en tirant parti de votre ETH. Vous les utiliserez comme collateral pour générer ou emprunter des stablecoins / WBTC qui sont ensuite déployés pour produire un rendement supérieur à votre coût d&amp;rsquo;emprunt : voici un article que j&amp;rsquo;ai écrit et qui fournit des conseils et des outils pour tirer efficacement parti de l&amp;rsquo;ETH - &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/leveraging-ETH.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;🎚 ETH ou DeFi : pourquoi choisir?&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Toutefois, avec une telle position, vous pouvez être exposé à des liquidations si le prix de l&amp;rsquo;ETH devait baisser.&lt;/p&gt;
+&lt;p&gt;Une fois de plus, Yearn a été le pionnier dans ce domaine avec la libération du vault yETH qui a automatisé tout ce processus. Cependant, le volume des dépôts était énorme et le service s&amp;rsquo;est heurté à des problèmes techniques sur lesquels on travaille actuellement.&lt;/p&gt;
+&lt;p&gt;Alors, au lieu d&amp;rsquo;attendre la réouverture de la chambre forte WETH de Yearn, pourquoi ne pas envisager les &lt;strong&gt;options existantes&lt;/strong&gt; ? Elles ne sont pas aussi complexes que celles de Yearn, puisqu&amp;rsquo;elles n&amp;rsquo;ont pas d&amp;rsquo;effet de levier sur votre ETH ; l&amp;rsquo;ETH est simplement déposée quelque part pour produire un rendement.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;SERVICE&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;FARME SUR&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;RETOUR&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Yearn Finance&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Maker + Curve&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Retour composé (yDAI)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Harvest.Finance&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Dépôt sur Cream&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Retour Cream composé + FARM return (fwETH staking)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;YFV&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Soda&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Soda returns normalized to wETH + VALUE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DFI.Money&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;?&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Retour composé&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Jusqu&amp;rsquo;à présent, nous nous en sommes tenus à de &amp;ldquo;simples&amp;rdquo; vaults où vous déposez un token donné, le laissez reposer un moment et, avec un peu du bon sens, en sortez avec d&amp;rsquo;autres tokens (+éventuellement quelques tokens supplémentaires de gouvernance). Cependant, avec le lancement du token UNI d&amp;rsquo;Uniswap, un autre type de vaults plus risqué est disponible.&lt;/p&gt;
+&lt;h2 id=&#34;vaults-uniuniswap&#34;&gt;Vaults UNI/Uniswap
+&lt;/h2&gt;&lt;h3 id=&#34;les-bases-du-farming-de-luni&#34;&gt;Les bases du farming de l&amp;rsquo;UNI
+&lt;/h3&gt;&lt;p&gt;Avec le lancement du token UNI est venu un programme de distribution instaurant des incitations UNI sur des pools spécifiques :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;ETH/USDC&lt;/li&gt;
+&lt;li&gt;ETH/USDT&lt;/li&gt;
+&lt;li&gt;ETH/DAI&lt;/li&gt;
+&lt;li&gt;ETH/wBTC&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Si vous fournissez des liquidités sur l&amp;rsquo;un des pools énumérés ci-dessus, vous pouvez placer votre token de pool de liquidités pour un revenu UNI supplémentaire directement vers le site d&amp;rsquo;Uniswap. Vous gagnerez ainsi un revenu UNI en continu. Toutefois, vous devrez gérer la position vous-même, ce qui signifie que vous devrez réclamer l&amp;rsquo;UNI (et payer les frais de gaz associés), ainsi que les vendre et les réinvestir.&lt;/p&gt;
+&lt;p&gt;Ces stratégies sont plus risquées que les vaults de l&amp;rsquo;ETH/BTC/Stablecoins. En effet, en cultivant des tokens UNI, vous fournissez des liquidités sur l&amp;rsquo;Uniswap, ce qui comporte un risque de pertes impermanentes.&lt;/p&gt;
+&lt;p&gt;Mais pourquoi faire face aux tracas de l&amp;rsquo;&amp;ldquo;agriculture manuelle&amp;rdquo; quand vous pouvez &lt;strong&gt;laisser un vault faire le travail à votre place&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;lagriculture-uni-à-laide-dun-vault&#34;&gt;L&amp;rsquo;agriculture UNI à l&amp;rsquo;aide d&amp;rsquo;un Vault
+&lt;/h3&gt;&lt;p&gt;En effet, peu après le lancement d&amp;rsquo;Uniswap, plusieurs services ont commencé à proposer des produits de type vaults pour rationaliser l&amp;rsquo;agriculture de l&amp;rsquo;UNI. En voici un aperçu :&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;SERVICE&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;TOKENS&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;RETOUR&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Harvest&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ETH/USDC, ETH/DAI, ETH/USDT, ETH/wBTC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Retour UNI composé + FARM&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Pickle Finance&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ETH/DAI, ETH/USDC, ETH/USDT&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Retour UNI composé + PICKLE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;YFV&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ETH/USDC, ETH/wBTC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Retour UNI composé + VALUE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;Cette liste n&amp;rsquo;est pas exhaustive. Seuls les vaults sont inclus - des services qui réinvestissent automatiquement les bénéfices pour vous.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Il existe d&amp;rsquo;autres possibilités de cultiver l&amp;rsquo;UNI, mais elles nécessitent une plus grande intervention de votre part. Par exemple, avec &lt;a class=&#34;link&#34; href=&#34;http://sakeswap.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Sake Swap&lt;/a&gt;, vous pouvez placer vos tokens Uni-V2 LP de l&amp;rsquo;ETH-Stable pour gagner des tokens UNI et SAKE. Cependant, vous devrez réclamer et gérer vous-même les tokens SAKE &amp;amp; UNI que vous aurez gagnés.&lt;/p&gt;
+&lt;p&gt;Pour en savoir plus sur un vault donné et sur son fonctionnement, n&amp;rsquo;hésitez pas à consulter ses ressources. Yearn et Harvest Finance disposent d&amp;rsquo;une excellente documentation avec des infographies expliquant leurs vaults :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.learnyearn.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Learn Yearn&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://farm.chainwiki.dev/en/home&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Farm Wiki&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Avec Antoine, on a également réalisé une &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=XJS3hKU9Z2A&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;vidéo explicative sur Pickle Finance en français&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;notice warning&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Avertissement&lt;/p&gt;&lt;p&gt;Il ne s&amp;rsquo;agit pas de conseils en matière d&amp;rsquo;investissement, restez vigilant et faites vos propres recherches.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Services mentionnés :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://yearn.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Yearn Finance&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://harvest.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Harvest Finance&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://pickle.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Pickle Finance&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://dfi.money/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;DFI.Money&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://yfv.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;YFV&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Bonnes récoltes ! 🚜&lt;/p&gt;
+&lt;div class=&#34;notice tip&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#tip-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Astuce&lt;/p&gt;&lt;p&gt;Cet article a éveillé votre curiosité ? Vous êtes tombés au bon endroit — nous avons un ecosystème dynamique en français pour vous aider à suivre et comprendre la finance décentralisée. Du plus accessible au plus spécialisé :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://discord.gg/3bWZcK2&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;💬 Le serveur Discord DeFi France&lt;/a&gt;&lt;/strong&gt; pour échanger avec la communauté.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://thedailygweifr.substack.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;☕ La version française du Daily Gwei&lt;/a&gt;&lt;/strong&gt; pour des articles et résumés très accessibles.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://banklessfr.substack.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🗞 La newsletter BanklessFR&lt;/a&gt;&lt;/strong&gt; pour comprendre les concepts fondamentaux.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/channel/UCefQC4Y-X9MBRuYBKc2waiQ&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🎥 La chaine Youtube DeFi France&lt;/a&gt;&lt;/strong&gt; pour approfondir avec des lives pointus.&lt;/li&gt;
+&lt;li&gt;&amp;amp; Bien sûr &lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/fr/&#34; &gt;ce blog&lt;/a&gt; qui creuse des sujets spécifiques liés à la pratique de la DeFi.&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;
+
+</description>
+        </item>
+        
+    </channel>
+</rss>

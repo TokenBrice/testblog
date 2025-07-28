@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Et si l'incitation constante n'était pas la meilleure façon de maintenir la liquidité, en particulier pour les actifs pegged ? Dans cet article, j'explore l'impact de la liquidité alimentée par la dette pour les swaps d'actifs pegged.">
+<title>Les guerres des swaps sur les actifs pegged</title>
+
+<link rel='canonical' href='http://localhost:1313/fr/pegged-assets-swap/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Les guerres des swaps sur les actifs pegged">
+<meta property='og:description' content="Et si l'incitation constante n'était pas la meilleure façon de maintenir la liquidité, en particulier pour les actifs pegged ? Dans cet article, j'explore l'impact de la liquidité alimentée par la dette pour les swaps d'actifs pegged.">
+<meta property='og:url' content='http://localhost:1313/fr/pegged-assets-swap/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Finance Décentralisée' /><meta property='article:tag' content='Curve Finance' /><meta property='article:tag' content='CRV' /><meta property='article:tag' content='Velodrome' /><meta property='article:tag' content='Velo' /><meta property='article:tag' content='veCRV' /><meta property='article:tag' content='veVELO' /><meta property='article:tag' content='Aerodrome' /><meta property='article:tag' content='veAERO' /><meta property='article:tag' content='Ekubo' /><meta property='article:tag' content='Uniswap' /><meta property='article:tag' content='Fluid' /><meta property='article:tag' content='EulerSwap' /><meta property='article:tag' content='Dette Intelligente' /><meta property='article:tag' content='Collatéral Intelligent' /><meta property='article:published_time' content='2025-07-08T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2025-07-08T01:13:50&#43;00:00'/><meta property='og:image' content='https://raw.githubusercontent.com/TokenBrice/blog/refs/heads/master/static/img/2025/pegged-assets-swap/pegged-assets-swap-cover.png' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="Les guerres des swaps sur les actifs pegged">
+<meta name="twitter:description" content="Et si l'incitation constante n'était pas la meilleure façon de maintenir la liquidité, en particulier pour les actifs pegged ? Dans cet article, j'explore l'impact de la liquidité alimentée par la dette pour les swaps d'actifs pegged."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://raw.githubusercontent.com/TokenBrice/blog/refs/heads/master/static/img/2025/pegged-assets-swap/pegged-assets-swap-cover.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Afficher le menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/fr/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/fr">TokenBrice</a></h1>
+            <h2 class="site-description">DeFi en brutale honnêteté</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/fr/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Accueil</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/%C3%A0-propos/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>À Propos</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Recherche</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/liens/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Liens</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" >English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" selected>Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Mode sombre</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table des matières</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#les-débuts-des-swaps-dactifs-pegged-2018-2019">Les débuts des swaps d&rsquo;actifs pegged (2018-2019)</a></li>
+    <li><a href="#la-révolution-stableswap-pour-les-swaps-dactifs-pegged-2020">La révolution StableSwap pour les swaps d&rsquo;actifs pegged (2020)</a></li>
+    <li><a href="#larrivée-de-la-liquidité-concentrée-duniswap-v3-2021">L&rsquo;arrivée de la liquidité concentrée d&rsquo;Uniswap V3 (2021)</a></li>
+    <li><a href="#la-dette-comme-liquidité-2025">La dette comme liquidité (2025)</a>
+      <ol>
+        <li><a href="#0xorb-un-challenger-potentiel-2026-">0xOrb, un challenger potentiel (~2026) ?</a></li>
+        <li><a href="#quest-ce-que-cela-signifie-pour-les-acteurs-dex-purs-établis-">Qu&rsquo;est-ce que cela signifie pour les acteurs DEX purs établis ?</a></li>
+        <li><a href="#curve--fin-de-partie-à-moins-de-changements-majeurs">Curve : fin de partie à moins de changements majeurs</a></li>
+        <li><a href="#ekubo--le-dernier-arrivé-confiant-qui-court-à-sa-perte">Ekubo : le dernier arrivé confiant qui court à sa perte</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/fr/pegged-assets-swap/">
+                
+                    <img src="https://raw.githubusercontent.com/TokenBrice/blog/refs/heads/master/static/img/2025/pegged-assets-swap/pegged-assets-swap-cover.png" loading="lazy" alt="Featured image of post Les guerres des swaps sur les actifs pegged" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/fr/categories/defi/" style="background-color: #2a9d8f; color: #fff;">
+                DeFi
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/fr/pegged-assets-swap/">Les guerres des swaps sur les actifs pegged</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Et si l&#39;incitation constante n&#39;était pas la meilleure façon de maintenir la liquidité, en particulier pour les actifs pegged ? Dans cet article, j&#39;explore l&#39;impact de la liquidité alimentée par la dette pour les swaps d&#39;actifs pegged.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">juil. 08, 2025</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    11 minutes de lecture
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+        <footer class="article-translations">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+            <div>
+                
+                    <a href="http://localhost:1313/pegged-assets-swap/" class="link">English</a>
+                
+            </div>
+        </footer>
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Chers lecteurs, cela fait un moment ! Comme vous le savez probablement, la gestion de la liquidité est à la fois ma passion et ma profession. Dans cet article, je souhaite revenir aux fondamentaux et offrir une brève histoire au travers du prisme des swaps d&rsquo;actifs pegged. En détaillant la structure de liquidité et les plateformes qui soutiennent le mieux ces paires, nous approfondirons notre compréhension des concepts clés qui restent cruciaux. Nous aurons également l&rsquo;opportunité de parler de Fluid DEX et EulerSwap, les deux lancements les plus intéressants de l&rsquo;année pour la construction de liquidité, qui méritent définitivement plus d&rsquo;attention ici.</p>
+<h2 id="les-débuts-des-swaps-dactifs-pegged-2018-2019">Les débuts des swaps d&rsquo;actifs pegged (2018-2019)
+</h2><p>Il était une fois, il y a plus de cinq ans, <strong>tout ce que nous avions pour échanger sur le mainnet était Uniswap, Bancor, et quelques DEX basés sur des carnets d&rsquo;ordres maladroits comme EtherDelta.</strong> Ainsi, pour les swaps d&rsquo;actifs pegged, les options étaient limitées, et nous utilisions le pool USDC/USDT d&rsquo;Uniswap V2, ce qui était presque de la folie pure.</p>
+<p>Examinons cette anecdote historique pour comprendre <strong>le niveau de gaspillage atteint</strong> à l&rsquo;époque. En ce qui concerne les pools de liquidité, le paramètre clé est l&rsquo;évolution relative des prix des deux actifs : si vous avez fait du LP volatile, vous êtes familier avec cela. Si vous fournissez de la liquidité pour, disons, LINK/ETH, la pire douleur pour vous, en termes de perte impermanente, serait, par exemple, que l&rsquo;ETH monte en flèche pendant que LINK s&rsquo;effondre : votre position de LP diminue en ETH (qui augmente en prix) et accumule du LINK (qui chute).</p>
+<p>USDC/USDT est une autre histoire, car les deux actifs sont fortement corrélés, avec une différence de prix maximale jamais observée d&rsquo;environ 10 % lors d&rsquo;un événement spécifique (le dépeg de l&rsquo;USDC lié à SVB) ; en temps normal, les deux ont une différence de prix de l&rsquo;ordre des points de base. Cependant, UNIv2 distribue la liquidité sur toute la plage de prix, ce qui signifie qu&rsquo;il alloue une quantité égale de liquidité partout, de 1 USDC = 0.0000000001 USDT à 1 USDC = 10000000000000 USDT. Pour le dire simplement : 99,9 % de la liquidité dans un UNIv2_USDC/USDT ne sera jamais utilisée. Je pense que c&rsquo;est plus clair sur le graphique :</p>
+<p><img src="https://raw.githubusercontent.com/TokenBrice/blog/refs/heads/master/static/img/2025/pegged-assets-swap/liquidity-structure.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="liquidity-structures"
+	
+	
+></p>
+<p>La seule liquidité utile là-dedans (en supposant 1 USDC ≃ 1 USDT) se trouve à l&rsquo;intersection des deux lignes vertes, représentant une part très minime de la courbe de distribution de liquidité entière.</p>
+<p>D&rsquo;un autre côté, notez la distribution de liquidité StableSwap, affichée en bleu, sur le même graphique. Pour des actifs à des prix similaires, la zone couverte par la courbe est bien plus grande qu&rsquo;avec l&rsquo;invariant d&rsquo;Uniswap.</p>
+<h2 id="la-révolution-stableswap-pour-les-swaps-dactifs-pegged-2020">La révolution StableSwap pour les swaps d&rsquo;actifs pegged (2020)
+</h2><p>Une fois que StableSwap fut disponible, la liquidité des stablecoins a rapidement migré vers cette solution, car elle était significativement plus efficace (on parle d&rsquo;améliorations &gt;100x en efficacité par rapport à UNIv2). C&rsquo;était <strong>la première instance en direct de liquidité concentrée vue sur le mainnet, avant UNIv3</strong>. Les deux sont difficiles à comparer, car UNIv3 est beaucoup plus flexible, tandis que Curve-StableSwap est plus spécialisé ; cependant, il faut rendre à César ce qui est à César. En plus de l&rsquo;efficacité accrue, Curve a fourni un modèle d&rsquo;incitation - veCRV+émissions CRV, qui a été <a class="link" href="https://tokenbrice.xyz/crv-wars/"  target="_blank" rel="noopener"
+    >couvert plusieurs fois sur ce blog déjà</a>.</p>
+<p>Les incitations sont critiques pour les paires d&rsquo;actifs pegged, car elles ont des caractéristiques spécifiques :</p>
+<ol>
+<li>Elles ont tendance à être globalement <strong>à faible volume</strong> (par rapport à une paire volatile)</li>
+<li><strong>Les frais que les LP peuvent facturer sont beaucoup plus faibles</strong> (jusqu&rsquo;à récemment, la convention était de 0,3 % à 1 % par transaction pour les actifs volatils, et 0,05 % pour les actifs pegged)</li>
+<li><strong>Leur volume vient par pics</strong> corrélés à des événements associés à l&rsquo;actif (par exemple, le dépeg de l&rsquo;USDC fut l&rsquo;un des jours de volume les plus élevés jamais enregistrés pour l&rsquo;USDC)</li>
+</ol>
+<p>À cause de tout cela, je pensais jusqu&rsquo;à récemment que les structures d&rsquo;incitation étaient encore plus critiques pour les paires d&rsquo;actifs pegged que pour les actifs volatils. Avec l&rsquo;arrivée de Fluid DEX et EulerSwap, je ne pense plus que ce soit le cas. Cependant, avant d&rsquo;approfondir ces derniers, nous devons d&rsquo;abord aborder une autre étape historique significative dans la liquidité des actifs pegged : la sortie d&rsquo;Uniswap V3.</p>
+<h2 id="larrivée-de-la-liquidité-concentrée-duniswap-v3-2021">L&rsquo;arrivée de la liquidité concentrée d&rsquo;Uniswap V3 (2021)
+</h2><p>Uniswap V3 est sorti et a offert une liquidité concentrée personnalisable à pratiquement tous les types d&rsquo;actifs, permettant des gains d&rsquo;efficacité massifs pour tous les fournisseurs de liquidité. Cependant, comme ce n&rsquo;était pas uniquement pour les actifs pegged, cela signifiait presque des pertes impermanentes amplifiées pour les LP d&rsquo;actifs volatils. Compte tenu de la nouveauté de la structure de liquidité, ainsi que du manque d&rsquo;infrastructure au début, le lancement d&rsquo;UNIv3 fut initialement lent.</p>
+<p>Cependant, la concentration personnalisable a apporté des avantages tangibles, en particulier pour une sous-catégorie d&rsquo;actifs pegged que j&rsquo;ai qualifiée de « actifs vaguement pegged » : pensez à des paires comme :</p>
+<ul>
+<li>wstETH/ETH (corrélés, mais wstETH est en hausse constante contre ETH),</li>
+<li>LUSD/USDC (corrélés, mais LUSD peut légèrement sur/sous-peg)</li>
+</ul>
+<p>Dans de tels cas, <strong>la liquidité concentrée d&rsquo;UNIv3 a permis aux LP de reproduire une distribution similaire en efficacité à celle de StableSwap de Curve, mais ajustée aux particularités des prix des tokens</strong>, et cela s&rsquo;est traduit une fois de plus par des gains d&rsquo;efficacité massifs. Cependant, le déverrouillage final (selon l&rsquo;état actuel de l&rsquo;industrie) n&rsquo;est arrivé que des années plus tard avec l&rsquo;arrivée de Fluid DEX et EulerSwap.</p>
+<h2 id="la-dette-comme-liquidité-2025">La dette comme liquidité (2025)
+</h2><p>Je ne m&rsquo;étendrai pas trop sur les modèles de Fluid et EulerSwap dans cet article pour des raisons de concision, car je veux me concentrer davantage sur ce que cela signifie pour la construction de liquidité. En résumé, Fluid a trouvé une manière créative de transformer la dette en liquidité avec la « Dette Intelligente » (Smart Debt).</p>
+<p>Imaginez un utilisateur moyen fournissant un collatéral ETH et empruntant de l&rsquo;USDC. Veut-il spécifiquement de l&rsquo;USDC ? Très probablement, il s&rsquo;en fiche tant qu&rsquo;il emprunte un token stable et sûr indexée sur le dollar. Il prendrait probablement aussi de l&rsquo;USDT.</p>
+<p>C&rsquo;est précisément ce que fait la dette intelligente. Dans un vault de dette intelligente, notre emprunteur emprunte un mélange d&rsquo;USDC et d&rsquo;USDT, qui évolue constamment : sa dette sert désormais de liquidité pour la paire USDC/USDT. Ce que cela signifie pour les emprunteurs, c&rsquo;est <strong>une réduction des coûts d&rsquo;emprunt, car ils gagnent maintenant des frais de trading</strong>, ce qui peut potentiellement compenser les intérêts d&rsquo;emprunt.</p>
+<p><img src="https://raw.githubusercontent.com/TokenBrice/blog/refs/heads/master/static/img/2025/pegged-assets-swap/fluid-smart-debt.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="fluid-smart-debt"
+	
+	
+></p>
+<p>C&rsquo;est du point de vue de l&rsquo;emprunteur, mais passons maintenant à la perspective d&rsquo;un protocole. Qu&rsquo;est-ce que cela signifie pour Circle et Tether ? Essentiellement, <strong>une liquidité à un coût pratiquement nul, sans aucune forme d&rsquo;incitation.</strong> Rien de vraiment nouveau pour Circle, qui a été sponsorisé par tout l&rsquo;écosystème pendant des années – mais pour un autre stablecoin, disons un GHO, BOLD, ou FRAX, c&rsquo;est énorme.</p>
+<p>Je me suis concentré sur Fluid ici, mais le raisonnement est similaire pour EulerSwap, bien que l&rsquo;implémentation soit différente. EulerSwap est encore en mode test et génère déjà un volume sérieux sur USDC/USDT.</p>
+<p>Si vous comprenez cela, vous pouvez saisir ma thèse, qui stipule simplement : « Je ne vois pas une DeFi où Euler/Fluid/Similaires ne dominent pas éventuellement les swaps d&rsquo;actifs pegged. »</p>
+<p>Vous ne le voyez pas encore ? Rappelez-vous ce qui suit :</p>
+<ul>
+<li>Les paires d&rsquo;actifs pegged ont généralement un faible volume ⇒ faibles frais</li>
+<li>Ainsi, elles nécessitent une forte incitation pour être maintenues sur un DEX classique</li>
+<li>Fluid et Euler peuvent maintenir cette liquidité à un coût proche de zéro.</li>
+</ul>
+<p>⇒ Si (cela a déjà commencé) il y a une course vers le bas en termes de frais pour les swaps d&rsquo;actifs pegged, les DEX réguliers n&rsquo;ont absolument aucune chance de la gagner.</p>
+<h3 id="0xorb-un-challenger-potentiel-2026-">0xOrb, un challenger potentiel (~2026) ?
+</h3><p>Maintenant, pour vous donner une image précise de tout le paysage des swaps d&rsquo;actifs pegged, je dois mentionner un autre projet pas encore en ligne, mais prometteur : <a class="link" href="https://orbswap.org/"  target="_blank" rel="noopener"
+    >0xOrb</a>. La promesse est simple : <strong>StableSwap, mais avec n actifs, n pouvant aller jusqu&rsquo;à 1000</strong>.</p>
+<p>Ainsi, pour les stablecoins, vous pourriez imaginer un méga-pool bien approvisionné en USDC et USDT, qui ensuite intègre des stablecoins « alternatifs » et leur offre une grande liquidité contre les majors. L&rsquo;approche a du mérite pour la longue traîne des actifs pegged, mais je ne vois pas de tels pools dominer le volume principal (USDC&lt;&gt;USDT ou cbBTC&lt;&gt;wBTC).</p>
+<p>En plus de cela, de tels pools pourraient être inter-chaînes, bien que je pense que l&rsquo;avantage ici est absolument marginal, voire <strong>défavorable</strong> (⇒ augmente les risques et la complexité de l&rsquo;infrastructure sans avantages), <strong>puisque l&rsquo;USDC et l&rsquo;USDT sont de plus en plus transférables 1:1 rapidement entre les chaînes grâce à des produits comme <a class="link" href="https://www.circle.com/cross-chain-transfer-protocol"  target="_blank" rel="noopener"
+    >CCTP</a></strong>.</p>
+<h3 id="quest-ce-que-cela-signifie-pour-les-acteurs-dex-purs-établis-">Qu&rsquo;est-ce que cela signifie pour les acteurs DEX purs établis ?
+</h3><p>Tout d&rsquo;abord, la mise en garde la plus importante : nous parlons ici des swaps d&rsquo;actifs pegged. Reproduire le même playbook sur des paires volatiles est beaucoup plus difficile, <a class="link" href="https://gov.fluid.io/t/current-issues-with-eth-usdc-pool/1606"  target="_blank" rel="noopener"
+    >comme on l&rsquo;a vu avec le vault Smart Debt+Collateral ETH/USDC de Fluid et les pertes subies par ses LP</a>.</p>
+<p>Les DEX qui génèrent la majeure partie de leur volume et de leurs frais grâce à des paires volatiles, comme Aerodrome, ne seront probablement pas impactés par ces nouveaux entrants. <strong>La réalité est, cependant, beaucoup plus sombre pour les DEX axés sur les actifs pegged</strong>, et je veux examiner deux d&rsquo;entre eux pour conclure cet article :</p>
+<h3 id="curve--fin-de-partie-à-moins-de-changements-majeurs">Curve : fin de partie à moins de changements majeurs
+</h3><p>Les swaps d&rsquo;actifs pegged restent cruciaux pour Curve, toujours considéré comme le foyer de la liquidité des stablecoins. En effet, il y a eu des tentatives pour capturer du volume volatile avec CryptoSwap, mais cela s&rsquo;est avéré infructueux.</p>
+<p>Avec l&rsquo;arrivée de Fluid et EulerSwap, je pense que Curve est le DEX qui a le plus à perdre, et je ne le vois pas maintenir un volume important (ils ont déjà été éjectés du top 10 il y a un moment) à moins que des changements significatifs ne se produisent :</p>
+<ul>
+<li><strong>Révision de veCRV</strong> : tirer parti des apprentissages des modèles plus récents comme veAERO pour optimiser l&rsquo;allocation des émissions CRV.</li>
+<li><strong>Augmentation de l&rsquo;efficacité des DEX en exploitant crvUSD</strong> : par exemple, en permettant des prêts crvUSD aux LP de Curve.</li>
+<li><strong>Nouvelle structure de liquidité pour les actifs volatils</strong> : afin de pouvoir prétendre à capturer le volume associé.</li>
+</ul>
+<h3 id="ekubo--le-dernier-arrivé-confiant-qui-court-à-sa-perte">Ekubo : le dernier arrivé confiant qui court à sa perte
+</h3><p>La situation d&rsquo;Ekubo est sans doute encore pire, car ils sont arrivés récemment à la fête. À première vue, Ekubo sur Ethereum est un DEX à croissance rapide qui génère des volumes sérieux. Ekubo est essentiellement une alternative à UNIv4, avec un peu plus de personnalisation de la structure de liquidité et une DAO qui s&rsquo;est révélée moins extractive que celle d&rsquo;Uniswap (la barre la plus basse de toutes, mais quand même).</p>
+<p>Le problème réside dans l&rsquo;origine du volume : la grande majorité (&gt;95 %) provient d&rsquo;une paire USDC/USDT avec des frais de 0,00005 % et fortement incitée. Ekubo joue essentiellement une course vers le bas qu&rsquo;il ne peut pas gagner, car Ekubo ne peut pas maintenir des frais extrêmement bas à long terme (les LP doivent vivre), tandis que Fluid/Euler le peuvent (si les emprunteurs reçoivent même un rendement de 0,1 % sur leur dette grâce à la dette intelligente, ils sont mieux lotis qu&rsquo;avant et donc satisfaits).</p>
+<p><img src="https://raw.githubusercontent.com/TokenBrice/blog/refs/heads/master/static/img/2025/pegged-assets-swap/ekubo.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="ekubo-stats"
+	
+	
+></p>
+<p>Avec un pool de 2,6 M$ de TVL, traitant environ 130 M$ de volume quotidien pour 662 $ de frais collectés, incité à environ 8 % en EKUBO, ils approchent déjà rapidement la limite de ce qu&rsquo;ils peuvent faire.</p>
+<p>L&rsquo;aspect le plus amusant de tout cela est qu&rsquo;<strong>Ekubo lui-même a initié la course vers le bas avec les frais de swap USDC/USDT et sera spectaculairement vaincu à son propre jeu</strong>. La DeFi ne cesse jamais de divertir.</p>
+<p>Comme toujours, j&rsquo;espère que cet article a été instructif et a approfondi votre compréhension du jeu des swaps d&rsquo;actifs pegged. J&rsquo;ai hâte de voir mon personnage se faire démolir par la communauté Ekubo simplement pour avoir exprimé une opinion basée sur des faits : leur réaction m&rsquo;a donné une confiance extrême dans mon évaluation, car j&rsquo;ai observé la même réponse lorsque :</p>
+<ul>
+<li>J&rsquo;ai dénoncé les pratiques de sécurité absurdes de MAI, et il a été piraté + dépeggé peu après.</li>
+<li>J&rsquo;ai dénoncé le gaslighting et les mensonges de R/David Garai, et R a été piraté et est tombé l&rsquo;oubli &lt;6 mois plus tard.</li>
+<li>J&rsquo;ai critiqué le comportement de l&rsquo;équipe de Prisma, et ils ont été piratés et ont fermé le protocole &lt;12 mois plus tard.</li>
+</ul>
+<p>Et la liste continue. Bonne chance à tous, en particulier aux détenteurs de bags EKUBO – essayez d&rsquo;avoir un peu de classe dans votre désarroi, cela vous servira bien.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/fr/tags/defi/">DeFi</a>
+        
+            <a href="/fr/tags/ethereum/">Ethereum</a>
+        
+            <a href="/fr/tags/finance-d%C3%A9centralis%C3%A9e/">Finance Décentralisée</a>
+        
+            <a href="/fr/tags/curve-finance/">Curve Finance</a>
+        
+            <a href="/fr/tags/crv/">CRV</a>
+        
+            <a href="/fr/tags/velodrome/">Velodrome</a>
+        
+            <a href="/fr/tags/velo/">Velo</a>
+        
+            <a href="/fr/tags/vecrv/">VeCRV</a>
+        
+            <a href="/fr/tags/vevelo/">VeVELO</a>
+        
+            <a href="/fr/tags/aerodrome/">Aerodrome</a>
+        
+            <a href="/fr/tags/veaero/">VeAERO</a>
+        
+            <a href="/fr/tags/ekubo/">Ekubo</a>
+        
+            <a href="/fr/tags/uniswap/">Uniswap</a>
+        
+            <a href="/fr/tags/fluid/">Fluid</a>
+        
+            <a href="/fr/tags/eulerswap/">EulerSwap</a>
+        
+            <a href="/fr/tags/dette-intelligente/">Dette Intelligente</a>
+        
+            <a href="/fr/tags/collat%C3%A9ral-intelligent/">Collatéral Intelligent</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Dernière mise à jour le juil. 08, 2025 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Contenus liés</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/fr/solidly-velodrome-fork/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2023/solidly-velodrome-template/cover.png" loading="lazy" data-key="" data-hash="/img/2023/solidly-velodrome-template/cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ve(3,3) : l&#39;étape logique après le modèle veCRV?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/maverick-liquidity-shaping/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2023/liquidity-shaping-maverick/cover.png" loading="lazy" data-key="" data-hash="/img/2023/liquidity-shaping-maverick/cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Maverick et la transition du Liquidity Mining au Liquidity Shaping</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/crv-wars-l2/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/curve-wars-l2/curve-wars-l2-cover-tokenbrice.png" loading="lazy" data-key="" data-hash="/img/2022/curve-wars-l2/curve-wars-l2-cover-tokenbrice.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">⚔ Guerre du CRV avancée : analyse des protocoles construits sur Curve et Convex </h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/crv-wars/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/crv-wars/curve-wars-cover-tokenbrice.png" loading="lazy" data-key="" data-hash="/img/2021/crv-wars/curve-wars-cover-tokenbrice.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">⚔ Guerre du CRV : comprendre la course à l&#39;accumulation de la capacité à influencer le protocole Curve Finance</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/defi-janus/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/defi-janus/defi-janus-cover-en.png" loading="lazy" data-key="" data-hash="/img/2021/defi-janus/defi-janus-cover-en.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Janus : le nouvel ennemi juré des protocoles DeFi ?</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Généré avec <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Thème <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> conçu par <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Des conseils et astuces pour comprendre ce qu'il se passe sous le capot avec les aggrégateurs d'échanges décentralisés et comment les utiliser au mieux.">
+<title>🐊 Immersion dans la mare aux swaps</title>
+
+<link rel='canonical' href='http://localhost:1313/post/2020/swap-swamp.fr/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="🐊 Immersion dans la mare aux swaps">
+<meta property='og:description' content="Des conseils et astuces pour comprendre ce qu'il se passe sous le capot avec les aggrégateurs d'échanges décentralisés et comment les utiliser au mieux.">
+<meta property='og:url' content='http://localhost:1313/post/2020/swap-swamp.fr/'>
+<meta property='og:site_name' content='TokenBrice - Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Swaps' /><meta property='article:tag' content='Token Exchange' /><meta property='article:tag' content='Swapping Tokens' /><meta property='article:tag' content='ParaSwap' /><meta property='article:tag' content='Uniswap' /><meta property='article:tag' content='Balancer' /><meta property='article:tag' content='Curve' /><meta property='article:tag' content='SushiSwap' /><meta property='article:tag' content='Aave' /><meta property='article:tag' content='Compound' /><meta property='article:published_time' content='2020-11-30T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2020-11-30T01:13:50&#43;00:00'/>
+<meta name="twitter:title" content="🐊 Immersion dans la mare aux swaps">
+<meta name="twitter:description" content="Des conseils et astuces pour comprendre ce qu'il se passe sous le capot avec les aggrégateurs d'échanges décentralisés et comment les utiliser au mieux.">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">TokenBrice - Blog</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About TokenBrice</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/-defi/" >
+                🌌 DeFi
+            </a>
+        
+            <a href="/categories/-pratique/" >
+                💸 Pratique
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/post/2020/swap-swamp.fr/">🐊 Immersion dans la mare aux swaps</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Des conseils et astuces pour comprendre ce qu&#39;il se passe sous le capot avec les aggrégateurs d&#39;échanges décentralisés et comment les utiliser au mieux.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Nov 30, 2020</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>L&rsquo;échange de tokens est-il aussi facile que ça ? Ne vous laissez pas tromper par l&rsquo;apparente simplicité : oui, il existe des interfaces accessibles où vous choisissez un token, un montant, et appuyez sur un bouton pour échanger. Mais sans une compréhension de base de la DeFi, vous risquez de faire des erreurs évitables.  Il devient de plus en plus critique de savoir <strong>ce qui se passe sous le capot pour en tirer parti</strong>.</p>
+<p>C&rsquo;est pourquoi, dans cet article, je souhaite discuter rapidement des échanges de tokens, en mettant l&rsquo;accent sur quelques conseils et considérations qui vous aideront à réduire l&rsquo;impact global des coûts du gaz sur vos échanges.</p>
+<h3 id="le-diable-est-dans-les-détails">Le diable est dans les détails
+</h3><p>Lorsqu&rsquo;il s&rsquo;agit d&rsquo;échanger des tokens, <strong>vérifiez les détails</strong> ! Si la plupart des gens surveillent attentivement le taux de change, de nombreux autres paramètres influencent également le rendement de l&rsquo;échange - comme les coûts du gaz ou le service utilisé.</p>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>L&rsquo;estimation est-elle fiable ?</p></div>
+
+<p>C&rsquo;est une véritable jungle ! Certains services assument le pire scénario, tandis que d&rsquo;autres sont plus optimistes. Cela signifie que sur certains services, vous pouvez parfois battre le taux affiché, alors que d&rsquo;autres ne le permettent pas. Uniswap a opté pour une approche intéressante, avec un tarif de base couplé à un &ldquo;minimum reçu&rdquo;.</p>
+<p>ParaSwap fonctionne actuellement sur la base d&rsquo;une hypothèse du pire scénario : les fluctuations de taux et les diverses optimisations peuvent entraîner une agréable surprise.</p>
+<div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>Qu&rsquo;en est-il du coût en gaz ?</p></div>
+
+<p>Le <strong>rendement du gaz</strong> de l&rsquo;agrégateur que vous utilisez peut varier considérablement selon la situation. Il y a deux principaux types d&rsquo;interactions : les agrégateurs effectuent des échanges (potentiellement groupés) et les interactions avec des contrats intelligents, comme avec Aave pour déposer des USDC pour aUSDC.</p>
+<p>Ces dernières peuvent avoir un impact maximal sur les coûts du gaz si elles ne sont pas correctement optimisées. Exploiter correctement la capacité des <strong>agrégateurs à regrouper plusieurs interactions en une seule transaction</strong> peut vous aider à réduire l&rsquo;impact des prix du gaz sur leurs stratégies.</p>
+<p>De plus, les coûts du gaz peuvent être calculés différemment selon les services. Certains services peuvent les réduire davantage en mettant en œuvre le Gas Token. Selon le service, le surplus d&rsquo;ETH économisé peut être restitué à l&rsquo;utilisateur, ou pris comme frais de service.</p>
+<p><img src="/img/2020/swap-swamps/debank.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Comparateur de taux de swap Debank"
+	
+	
+></p>
+<div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>Quel est votre plan ?</p></div>
+
+<p>Il est essentiel de considérer l&rsquo;ensemble de la situation tout en calculant les coûts du gaz. Comparer les coûts du gaz de deux transactions une à une n&rsquo;a guère de sens si l&rsquo;une des transactions est en fait une série d&rsquo;opérations alors que l&rsquo;autre ne l&rsquo;est pas.</p>
+<p><img src="/img/2020/swap-swamps/paraswap-aave-idle.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Paraswap-Aave-IdleFinance"
+	
+	
+></p>
+<p>En gardant cela à l&rsquo;esprit, essayez de <strong>réfléchir à l&rsquo;ensemble du contexte avant d&rsquo;effectuer un échange</strong>, par exemple si vous voulez utiliser les jetons achetés avec un service DeFi par la suite.</p>
+<p>Vous voulez vendre un token que vous utilisez actuellement comme collatéral sur Aave ou Compound ? Un agrégateur peut le faire en une seule transaction. Vous voulez encaisser les bénéfices réalisés sur un jeton ERC-20 dans un stablecoin produisant un retour ? Encore une seule transaction.</p>
+<h3 id="aller-de-lautre-côté-du-rideau">Aller de l&rsquo;autre côté du rideau
+</h3><p>L&rsquo;amélioration de l&rsquo;efficacité du gaz va au-delà de la course aux outils et aux services. Il vous faut également les comprendre. Dans cet esprit, j&rsquo;ai documenté la magie de ParaSwap sur <strong><a class="link" href="https://learn2swap.com/l2s/"  target="_blank" rel="noopener"
+    >Learn2Swap, son manuel d&rsquo;utilisation</a></strong>.</p>
+<p>Avec les développements techniques et le lancement fréquent de nouveaux DEX, la situation de l&rsquo;échange évolue presque quotidiennement. Pour vous aider à suivre l&rsquo;évolution de la situation, nous <strong><a class="link" href="https://learn2swap.com/l2s/links-and-resources/changelog-2020"  target="_blank" rel="noopener"
+    >maintenons un journal des modifications</a></strong> qui vous donne un résumé complet des ajouts et des améliorations apportés au service. Chaque mise à jour peut avoir un impact important :</p>
+<p><img src="/img/2020/swap-swamps/paraswap-october2020-changelog.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="paraswap-october2020-changelog"
+	
+	
+></p>
+<p>Par exemple, <a class="link" href="https://twitter.com/paraswap/status/1321417337703223304?s=20"  target="_blank" rel="noopener"
+    >une des dernières mises à jour</a> a amélioré le calcul des coûts en gaz lorsque l&rsquo;éxchange est acheminé sur plusieurs DEX. Cela permet à ParaSwap d&rsquo;éviter  de &ldquo;sur-optimiser&rdquo; les petits échanges, sans que l&rsquo;utilisateur ait activement à choisir entre obtenir le meilleur tarif ou optimiser l&rsquo;efficacité du gaz.</p>
+<p>Voici donc trois <strong>principaux points à retenir pour des échanges efficaces</strong> :</p>
+<div class="notice tip" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#tip-notice"></use></svg></span>Tip</p><ol>
+<li>Comparez les taux en utilisant un outil comme <strong><a class="link" href="https://debank.com/swap"  target="_blank" rel="noopener"
+    >Debank</a></strong>, mais ne vous y fiez pas aveuglément - n&rsquo;hésitez pas à revérifier.</li>
+<li>Gardez à l&rsquo;esprit l&rsquo;ensemble de votre situation : ce que vous comptez faire avec les jetons avant et après.</li>
+<li>Assurez-vous que vous êtes au courant du modèle de revenus des services que vous utilisez. Vous pouvez lire <strong><a class="link" href="https://app.gitbook.com/@paraswap-network/s/l2s/understanding-paraswap/fees"  target="_blank" rel="noopener"
+    >les détails sur la situation de ParaSwap ici</a></strong></li>
+</ol></div>
+
+<p>Alors la prochaine fois que vous échangez, réfléchissez à vos options ! Vous pouvez accéder à <strong><a class="link" href="https://paraswap.io/"  target="_blank" rel="noopener"
+    >ParaSwap</a></strong> directement par le site web, avec votre téléphone par le biais de vos portefeuilles Argent ou Monolith, et maintenant même avec MetaMask et Ledger Live qui agrége ParaSwap parmi d&rsquo;autres sources.</p>
+<div class="notice info" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span>Info</p><p>Pour approfondir votre compréhension, n&rsquo;hésitez pas également à lire la <strong><a class="link" href="https://banklessfr.substack.com/p/-la-pratique-du-mardi-comment-changer"  target="_blank" rel="noopener"
+    >Tactique du Mardi récemment publiée sur BanklessFR</a></strong>, qui détaille quelques situations tirant profit des optimisations offertes par ParaSwap.</p></div>
+
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/defi/">DeFi</a>
+        
+            <a href="/tags/ethereum/">Ethereum</a>
+        
+            <a href="/tags/swaps/">Swaps</a>
+        
+            <a href="/tags/token-exchange/">Token Exchange</a>
+        
+            <a href="/tags/swapping-tokens/">Swapping Tokens</a>
+        
+            <a href="/tags/paraswap/">ParaSwap</a>
+        
+            <a href="/tags/uniswap/">Uniswap</a>
+        
+            <a href="/tags/balancer/">Balancer</a>
+        
+            <a href="/tags/curve/">Curve</a>
+        
+            <a href="/tags/sushiswap/">Sushiswap</a>
+        
+            <a href="/tags/aave/">Aave</a>
+        
+            <a href="/tags/compound/">Compound</a>
+        
+    </section>
+
+
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Nov 30, 2020 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/post/2020/swap-swamp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🐊 Navigating the swap swamps</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/post/2020/defifrance10.fr/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">DeFi France X : De la ferme à la mine</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/post/2020/yearn-finance-yfi/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">YearnFinance - DeFi on autopilot?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/post/2020/yearn-finance-yfi.fr/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">YearnFinance - La DeFi avec pilote automatique ?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/post/2020/vaults.fr/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🤖 Les vaults : stratégies d&#39;investissement DeFi accessibles ?</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 TokenBrice - Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.e87374ab760d28dfa333a671a892b101964bde5a2dac9100a50c9b0d779b4505.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

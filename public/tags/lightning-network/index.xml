@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Lightning Network on TokenBrice</title>
+        <link>http://localhost:1313/tags/lightning-network/</link>
+        <description>Recent content in Lightning Network on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Tue, 07 May 2019 11:39:41 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/lightning-network/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Why is technocentrism killing blockchains?</title>
+        <link>http://localhost:1313/p/why-is-technocentrism-killing-blockchains/</link>
+        <pubDate>Tue, 07 May 2019 11:39:41 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/why-is-technocentrism-killing-blockchains/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2019/technocentrism/cover.jpeg" alt="Featured image of post Why is technocentrism killing blockchains?" /&gt;&lt;p&gt;From its very early days, the blockchain industry was a world for geeks. It really made sense at first: I think it was a conjunction of two main factors. First, technical profiles were already deeply involved in promoting the values (autonomy, privacy, trustless cooperation) that blockchains can deliver. Moreover, at the humble beginnings, the roadblocks were technical ones involving “hard science” fields: mathematics, cryptography, game theory, etc.&lt;/p&gt;
+&lt;p&gt;However, as the blockchains developed (Bitcoin is 10 years old!), the people involved did not get any more diverse. &lt;strong&gt;Right now everybody is so focused on the tech that the whole industry has a tunnel vision.&lt;/strong&gt; Go to meet-up and see it for yourself: it’s only tech talk. Every time you go to one, you’re left scratching your head wondering if we even need such a complex solution to a problem you’re not even sure exists.&lt;/p&gt;
+&lt;p&gt;I think &lt;strong&gt;that just like any major government institutions, “the blockchain industry” (if that’s even a thing) is already suffering from groupthink and lack of diversity.&lt;/strong&gt; The &lt;code&gt;15-35 years old, tech-focused, guy&lt;/code&gt; description matches 95% of the profiles.&lt;/p&gt;
+&lt;p&gt;From a high-level design perspective, we know it&amp;rsquo;s simply inefficient at best, if not profoundly detrimental: think about the decisions our &lt;code&gt;45-75 years old, male with elite education, rich, white&lt;/code&gt; politicians come up with. Diversity is not just a shiny cool thing to add to show you&amp;rsquo;re progressive: it&amp;rsquo;s actually the &lt;strong&gt;biggest success driver of success for any given group, even before education or expertise.&lt;/strong&gt;&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;We’re direly missing outsiders, people who will look at the systems being designed and ask the “naive” yet hard and insightful questions. I intend to demonstrate that to you with two very simple examples — I’ll explain the concepts I’m referring so you won’t need to be a tech lad or a blockchain-expert to follow my though process.&lt;/p&gt;
+&lt;h4 id=&#34;proof-of-stakethe-humans-are-rational-beings-assumption&#34;&gt;Proof of Stake — the “humans are rational beings” assumption
+&lt;/h4&gt;&lt;p&gt;&lt;em&gt;ℹ️ Blockchains need mechanisms for their different participants to reach a consensus. The most famous one is called Proof of Work and involve mining: people dedicating computational power to solve a mathematical challenge in order to verify transactions, and being rewarded for doing so. Proof of Stake (PoS) is another take to solve this problem: instead of the computing power, this time people lock “stakes” (coins of the given currency) in order to validate a transaction.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Essentially, &lt;strong&gt;we’re making with Proof of Stake the very same mistake economics — as an academic field — has been making from day one: assuming that we are all rational beings who behave logically, always trying to maximize our own best interest.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;More specifically, in the case of proof of stake, the whole system holds onto the premise that people don’t want to lose money: so if they start to misbehave (trying to game the system), they will have their “stake” slashed, potentially all of it.&lt;/p&gt;
+&lt;p&gt;The elephant in the room that is rarely accounted for, as you probably understand already, is that &lt;strong&gt;people are sometimes willing to lose money because they act on other motives&lt;/strong&gt;: love, hate, rage… I can picture dozens of scenarios where a group of people would be willing to burn millions if not billions of dollars just to destroy a chain, but one will be enough:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Let’s say a PoS protocol becomes increasingly popular, to the point where major banks are worried. Three of them realize that by banding together, and with a little disinformation/scare campaign, they can crash the price 30–40%, and then expand barely a fraction of their annual income to progressively take control of the chain. The coins they buy to destroy the chain are accounted as a cost. They’re not motivated by profit: they are motivated by fear, which is potentially the strongest human driver.&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;ℹ️ There are ways to protect a chain against such an attack and projects accounting for this, my point is more about the issue of making the assumption that humans are rational while designing this consensus mechanism.&lt;/em&gt;&lt;/p&gt;
+&lt;h4 id=&#34;layer-2getting-lost-in-the-tech-losing-sight-of-realusage&#34;&gt;Layer 2 — Getting lost in the tech, losing sight of real usage
+&lt;/h4&gt;&lt;p&gt;Maybe you’ve heard about what we call layer-2 solutions? They are essentially networks built on top of the base network (Bitcoin or Ethereum) to allow faster and fee-less transactions. The most prominent developments include Lightning network, Plasma, Casper and or other state chains. We’ll focus on Bitcoin’s Lightning network as its mains flaws are shared by most others.&lt;/p&gt;
+&lt;p&gt;The problem is simple: &lt;strong&gt;some layer 2 solutions somehow managed to provide a worse user experience than the base layer&lt;/strong&gt;. Here are the restrictions of the Lightning Network, that will never be lifted because they are due to protocol-level decisions:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A channel must be open to receive/send money (aka you must be “online” to send/receive).&lt;br&gt;
+ — You don’t have to, on the base layer.&lt;/li&gt;
+&lt;li&gt;A channel must be provided with some currency to be opened. &lt;strong&gt;It cannot allow the transit of more currency than what’s in it&lt;/strong&gt;. Say you open a channel with 1 BTC, someone sends you 10 BTC — doesn’t matter, you won’t be able to get more than 1 BTC out of it. &lt;br&gt;
+— The base layer knows no limitations to the amounts you can send (as long as you can face the transaction cost) and receive.&lt;/li&gt;
+&lt;li&gt;Most of the transactions are settled off-chain (except the state update — the settlement when you close a channel), which means they are low-fee and fast, but you also lose the security and accountability provided by on-chain settlements.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;So from a very high level perspective, &lt;strong&gt;the layer 2 tradoff is as follows: you loose most (if not all) benefits provided by blockchains + you have to face additional significant limitations but your transactions are faster and cost less.&lt;/strong&gt; Why such a need for speed? An Ethereum transaction currently takes &lt;a class=&#34;link&#34; href=&#34;https://etherscan.io/chart/blocktime&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;~20 second&lt;/a&gt;s.&lt;/p&gt;
+&lt;p&gt;Now, this is where it gets funny: this whole thing has been in development for more than 3 years. So far, there are no real usages or use cases provided by layer-2 solutions that you can’t do better with the appropriate base layer solution. There will never be. Yet we have hundreds of technical papers discussing its potential implementation and crowds getting hyped at the idea of the Lightning Network making small, incremental progress.&lt;/p&gt;
+&lt;p&gt;If you go a meetup talking layer-2 you’ll meet a crowd of semi-enthusiastic nerds discussing the highly technical details of the different implementations. You can ask them my very question: how do you expect this thing to ever be used if the UX is worse than layer 1? They’ll answer you 100% on the technical side, and miss the whole point completely — &lt;strong&gt;breaking through the tunnel vision requires diversity, from within and at an early stage of the development.&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;dont-leave-blockchains-to-thegeeks&#34;&gt;Don’t leave blockchains to the geeks!
+&lt;/h3&gt;&lt;p&gt;Blockchains are more than just cool technology. &lt;strong&gt;They are protocols to implement societal-wide change.&lt;/strong&gt; Mass adoption will disrupt the organization of the whole world, so we need people from all backgrounds and perspectives to make it happen.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;We need &lt;strong&gt;psychologists&lt;/strong&gt; to understand, at the individual level, the current worries people have with blockchains.&lt;/li&gt;
+&lt;li&gt;We need &lt;strong&gt;sociologists&lt;/strong&gt; to help us figure out how, at the macro-level, we can answer and articulate these concerns to initiate of change of habits.&lt;/li&gt;
+&lt;li&gt;We need &lt;strong&gt;literary profiles&lt;/strong&gt; to help us craft a narrative of change and tell an inclusive and compelling story.&lt;/li&gt;
+&lt;li&gt;We need &lt;strong&gt;magicians&lt;/strong&gt; to figure out how we can captivate audiences with that story.&lt;/li&gt;
+&lt;li&gt;We need &lt;strong&gt;artists&lt;/strong&gt; to give a body to the story of the Etherial world — one people can identify and resonate with.&lt;/li&gt;
+&lt;li&gt;We need &lt;strong&gt;philosophers&lt;/strong&gt; to consider the fundamental consequences of these changes and anticipate their impacts on how we see the world.&lt;/li&gt;
+&lt;li&gt;We need &lt;strong&gt;waiters, taxi drivers, and stewards&lt;/strong&gt; to keep a direct channel with every layer of our society, reminding us of its beautiful diversity.&lt;/li&gt;
+&lt;li&gt;We need &lt;strong&gt;social workers&lt;/strong&gt; to help us design systems adapted to the realities of everyone.&lt;/li&gt;
+&lt;li&gt;We need &lt;strong&gt;teachers&lt;/strong&gt; to sensitize students as to why privacy, autonomy and decentralization are necessary to be self-sovereign and truly exercise our free will.&lt;/li&gt;
+&lt;li&gt;Hell, we even need &lt;strong&gt;public servants&lt;/strong&gt; to understand how to jump from the protocol to the actual real-life implementation, with all its frustrations and the nitty-gritty.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Blockchain is the world of tomorrow, let’s make sure it lives by its standards: &lt;strong&gt;the people of tomorrow are diverse and inclusive, so why can’t we be?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Do you want to give involved in blockchains while not having a technical background? &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/TokenBrice&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Feel free to reach out&lt;/a&gt;, I’ll do everything I can to help you find your spot because you are a NECESSARY addition. Don’t leave the design of the base protocols of tomorrow to the nerds — they’ll do an awful job at it solely by themselves.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;⚠️ My opinions are solely my own — I’m expressing myself outside any professional quality or relationship. And yes, I mostly fit the blockchain mono-profile of a 15–35yo privileged white dude, except for my education not being science-focused, which is yet another proof of my whole point: we need diversity.&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://www.ijbhtnet.com/journals/Vol_7_No_2_June_2017/2.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Effects of Diversity in Teams and Workgroups: A Qualitative Systematic Review &lt;/a&gt;— Seyhan Güver&amp;amp;Renate Motschni for the &lt;em&gt;International Journal of Business, Humanities and Technology,&lt;/em&gt; June 2017_._&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.apa.org/pubs/journals/releases/bul-a0039729.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Appealing to Fear: A Meta-Analysis of Fear Appeal Effectiveness and Theories&lt;/a&gt; —Melanie B. Tannenbaum, Rick S. Zimmerman, Justin Helper, Lindsey Saul and Samantha Jacobs for the &lt;em&gt;American Psychology Association&lt;/em&gt;, 2015.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

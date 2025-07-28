@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Leveraging on TokenBrice</title>
+        <link>http://localhost:1313/tags/leveraging/</link>
+        <description>Recent content in Leveraging on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Tue, 11 Aug 2020 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/leveraging/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>YearnFinance - DeFi on autopilot?</title>
+        <link>http://localhost:1313/p/yearnfinance-defi-on-autopilot/</link>
+        <pubDate>Tue, 11 Aug 2020 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/yearnfinance-defi-on-autopilot/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2020/yearn-finance-YFI/wifeys.jpg" alt="Featured image of post YearnFinance - DeFi on autopilot?" /&gt;&lt;p&gt;A few weeks ago, Yearn v2 release and the launch of the YFI token (pronounced &amp;ldquo;Waifu&amp;rdquo;) shook decentralised finance. Indeed, the whole recipe was there: Yearn is like a robo advisor, it helps you save and grow a capital - obviously one of the most thought after use cases.&lt;/p&gt;
+&lt;p&gt;More than the product itself, core to defining what Yearn became was its founder Andre Cronje, &lt;strong&gt;his choice of fully opening the governance&lt;/strong&gt;, and the amazing community that soon federated around the project.&lt;/p&gt;
+&lt;p&gt;With this piece today, I want to share some pointers to understand why Yearn came to be, how it works, and why it matters.&lt;/p&gt;
+&lt;h2 id=&#34;what-is-yearn&#34;&gt;What is Yearn?
+&lt;/h2&gt;&lt;p&gt;The first version of Yearn started with a simple promise: it &lt;strong&gt;helped you get the best lending rate available at any time on a given stablecoin&lt;/strong&gt;. Indeed as there were more and more options to lend stablecoins (Compound, Aave, dYdX, etc.), yield optimization quickly became essential.&lt;/p&gt;
+&lt;p&gt;Yearn v2 already brought a new product to the market, the yVaults: they go beyond yield optimization (rebalancing stablecoins between several lending platforms) to provide more returns. Let’s see how this work:&lt;/p&gt;
+&lt;h3 id=&#34;end-user-perspective-deposit-wait-money-go-up&#34;&gt;End-User Perspective: Deposit, Wait, Money go Up
+&lt;/h3&gt;&lt;p&gt;Before we go in the specifics, here it&amp;rsquo;s how it works for an end-user:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;You own a token supported in the yVaults, such as LINK&lt;/li&gt;
+&lt;li&gt;You can deposit your LINK in the yVault to start earning. Entry and exit to the vaults are gas optimised (usually ~$2-3).&lt;/li&gt;
+&lt;li&gt;When you&amp;rsquo;re done, you exit the pool. 0.5% of the &lt;strong&gt;total&lt;/strong&gt; value is taken by the system to cover all the fees.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Given &lt;strong&gt;enough time spent in the vault to make up for the exit cost&lt;/strong&gt;, investors walk out with a profit paid in the token they entered (ex: more LINK).&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice info&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#info-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Info&lt;/p&gt;&lt;p&gt;&lt;em&gt;Note: yVaults are still highly experimental. Make sure you know what you are getting into. Andre has quite an interesting approach, stated in his twitter bio &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/AndreCronjeTech/status/1291252150635560960?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&amp;ldquo;I test in prod&lt;/a&gt;&amp;rdquo;.&lt;/em&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h3 id=&#34;whats-happening-under-the-hood&#34;&gt;What&amp;rsquo;s happening under the hood?
+&lt;/h3&gt;&lt;p&gt;yVaults are amazing because &lt;strong&gt;they abstract an immense amount of complexity for the users,&lt;/strong&gt; and do it better than most of us. Going back to our yLINK vault, here&amp;rsquo;s what happens to provide the yields:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;LINK are deposited on Aave (Credit Delegation) and used as collateral to open positions. The positions are maintained within a safe range using an safety mechanism (funded on the returns).&lt;/li&gt;
+&lt;li&gt;Stablecoins are borrowed and put to work to provide a return. The latest strategy farms the mUSD/USDC MTA Balancer Pool.&lt;/li&gt;
+&lt;li&gt;Any actual returns of the farming portion of the position (stablecoins earned above the debt) are sold for LINK, increasing the effective returns of the whole position.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The gist of yVaults is that &lt;strong&gt;they harness DeFi synergies to provide yields on autopilot.&lt;/strong&gt; They are designed to be flexible with their capital allocation - so that it can easily be re-allocated to follow a different strategy with better yields.&lt;/p&gt;
+&lt;p&gt;Each vault has a different strategy. Here&amp;rsquo;s a neat explainer graphics made to explain the yCRV vault strategy:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/yearn-finance-YFI/yCRV-vault.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Yearn Finance yCRV vault strategy explained&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Explaining this one would be another article by itself, so I&amp;rsquo;ll let you dig the graph and join the &lt;a class=&#34;link&#34; href=&#34;https://discord.gg/HFK5uea&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Yearn Discord&lt;/a&gt; if interested.&lt;/p&gt;
+&lt;h2 id=&#34;why-yearn-is-unlike-anything-else-before&#34;&gt;Why Yearn is unlike anything else before
+&lt;/h2&gt;&lt;p&gt;Yearn is DeFi on steroids, and made possible by developments that occurred over the last year. Yearn is harnessing synergies between several &amp;ldquo;DeFi legos&amp;rdquo;. Without going too deep in, here are the key ones:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Aave recently launched the Credit Delegation feature&lt;/strong&gt;, enabling a contract to open a position on your behalf. This feature was necessary for the yVaults to function as they do now, as they enable the first part of most strategies - getting leverage.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;DEX &amp;amp; Automated Market Makers - especially &lt;strong&gt;Curve.fi&lt;/strong&gt;, an obvious dependency for the yCRV Vault.&lt;/li&gt;
+&lt;li&gt;The overall &lt;strong&gt;dynamism of the stablecoins markets&lt;/strong&gt;, thanks to new entrants such as mStable or the COMP token release.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Yearn is the perfect example of DeFi composability!&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h3 id=&#34;building-as-little-as-possible--assembling-legos&#34;&gt;Building as little as possible &amp;amp; assembling legos
+&lt;/h3&gt;&lt;p&gt;Why am I focusing on this? Because as someone working in the DeFi space for two years, I can tell you that the biggest operational mistake I see ALL THE TIME - is simple: &lt;strong&gt;teams re-building the wheel - reinventing what already exists and working&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;I think DeFi projects (like most startups) would gain immensely from actively trying to reduce the scope of work they undertake - here are two amazing questions that should be asked more often:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&amp;ldquo;What is the unique value delivered by our product?&amp;rdquo; &amp;amp;&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;What do we need to deliver it? Can we harness existing solutions to achieve this?&amp;rdquo;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Yearn&amp;rsquo;s structural design demonstrates a keen eye to identify high-potential DeFi projects and harness their synergies. In short, by &lt;strong&gt;assembling several DeFi legos together in an unprecedented way&lt;/strong&gt;, Andre efficiently delivered a brand new use case if not a new subset of the whole industry.&lt;/p&gt;
+&lt;h2 id=&#34;the-first-defi-100-community-driven-project&#34;&gt;The first DeFi 100% community-driven project
+&lt;/h2&gt;&lt;p&gt;This headline is not at attention grab, I stand by it as there is meat on the bone!&lt;/p&gt;
+&lt;p&gt;So first, let us restress than &lt;strong&gt;Yearn has been a working product handling significant volumes for a while before the YFI token&lt;/strong&gt;. Now, you can add to it:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;100% of the tokens distributed to the community&lt;/li&gt;
+&lt;li&gt;Using a novel liquidity mining approach, pertinent to the product (yCRV pool).&lt;/li&gt;
+&lt;li&gt;The community was quick to step up and is booming with well-articulated ideas.&lt;/li&gt;
+&lt;li&gt;Andre relinquished control of the main contracts governing the service, in favour of a multisig with reputable actors of the space.&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;While I regard and value an open governance process as a net positive, at least in the long-run, this is also a risk - and &lt;strong&gt;this is usually how people in the industry reads it&lt;/strong&gt;. An open governance can be hijacked in a direction that does not match the best interest of the project.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;defiweb3---communities-hegemonize-brands&#34;&gt;DeFi/Web3 -&amp;gt; Communities Hegemonize Brands
+&lt;/h3&gt;&lt;p&gt;You might not be on board yet, but for me, building and growing communities - that’s essentially my life. In the years I&amp;rsquo;ve been doing it, I found no secret sauce yet I &lt;strong&gt;uncovered an obvious truth: communities &amp;raquo;&amp;gt; brands&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;In the case of DeFi, I can&amp;rsquo;t wait to see the &lt;strong&gt;clash of brands&lt;/strong&gt; we&amp;rsquo;re about to witness:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;On the one hand, VC-funded brand-companies tend to lack personality and have a harder time bolstering dynamic organic communities.&lt;/li&gt;
+&lt;li&gt;On the other hand, a community-driven project is &lt;strong&gt;a story writing itself every day.&lt;/strong&gt; And when it comes to Yearn&amp;rsquo;s brand, we see it growing fast: the swag is already there!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/yearn-finance-YFI/yearn-swag.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Yearn Finance Swag&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;feeling-the-yearn&#34;&gt;Feeling the Yearn
+&lt;/h2&gt;&lt;p&gt;Yearn is so much more than yVaults! I focused this explainer on them for clarity, but there are several other Yearn products being developed. Without diving too much in, here some promising ones:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://yborrow.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;yBorrow&lt;/a&gt;&lt;/strong&gt; - a generalised credit delegation interface using Aave. What makes it amazing is the synergy with the vaults, it will enable anyone to access vaults like yCRV from an ERC-20 token they like.&lt;/li&gt;
+&lt;li&gt;ySwap: a novel automated market maker&lt;/li&gt;
+&lt;li&gt;A mysterious leveraged stablecoin-farming solution&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;the-yearn-toolbox&#34;&gt;The Yearn ToolBox
+&lt;/h3&gt;&lt;p&gt;Here are some tools and resources developed by the community that proves super helpful if you are exploring or using Yearn:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.learnyearn.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;LearnYearn&lt;/a&gt;&lt;/strong&gt;: A comprehensive Yearn wiki frequently updated!&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://feel-the-yearn.vercel.app/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;FeelTheYearn&lt;/a&gt;&lt;/strong&gt;: A simple page to get the current status of the vaults: assets locked in, assets deployed and the strategy used for each vault.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://ycosystem.info/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;YCosystem&lt;/a&gt;&lt;/strong&gt;: A community aggregator to find all the useful links, from docs/YIP to where to purchase Yearn swag!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Whether or not you are interested in Yearn, I URGE YOU to give the &lt;a class=&#34;link&#34; href=&#34;https://gov.yearn.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;governance forum&lt;/a&gt; a read - you are forever invited to read and partake in the discussions shaping Yearn. This time, there is no VC, no BS - just a DAO and a one-man-army named &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/AndreCronjeTech&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Andre Cronje&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;the-wifeys-family&#34;&gt;The Wifeys Family
+&lt;/h3&gt;&lt;p&gt;Finally, it would be dishonest to cover Yearn/YFI &amp;amp; without mentioning that YFI sparked a whole movement - there are now dozens of forks, more or less credible. While the first few ones where just &amp;ldquo;miners fork&amp;rdquo;, adjusting a few parameters, we&amp;rsquo;re now seeing more creative approaches. Indeed, Yearn is open source so easily forkable, and Andre even invited the community to get creative with it&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;!&lt;/p&gt;
+&lt;p&gt;Some communities are forking YFI to create their own pooled earning system, with a longer-term vision. It&amp;rsquo;s just the beginning but I think we will see fascinating development in that space. I think we will see communities reappropriating themselves parts if not the whole YFI system - remember the Wifeys family earlier?&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s already starting! I&amp;rsquo;m following closely &lt;a class=&#34;link&#34; href=&#34;https://medium.com/yflink/the-idea-of-yflink-is-born-aa520921a4a3&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;YFLink&lt;/a&gt;, a YFI fork adjusted for the needs of the LINK community. Right now, it looks like a farming cooperative, but the end game might be a community staking node - the perfect match!&lt;/p&gt;
+&lt;p&gt;I can&amp;rsquo;t wait to the Yearn and its family grow!&lt;/p&gt;
+&lt;div class=&#34;notice warning&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Warning&lt;/p&gt;&lt;p&gt;Yearn vaults are novel DeFi products integrating many others meaning the failure risks are compounded. I am not a financial advisor - you make your own decision.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;I am NOT responsible for &lt;u&gt;YOUR INVESTMENT DECISIONS&lt;/u&gt;&lt;/strong&gt;, may they bring you Lambos or bankruptcy.&lt;/p&gt;&lt;/div&gt;
+
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/StaniKulechov/status/1280500969986498561?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Here&amp;rsquo;s Stani (Aave&amp;rsquo;s CEO) giving you a rundown of why this is big!&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;Andre himself is &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/AndreCronjeTech/status/1290845154430025731?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the first to acknowledge&lt;/a&gt; what made Yearn possible and the importance of composability.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;The protocol governance now lies in the hands of YFI holder. The access to the main contracts are held by a multi-sig, &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/AndreCronjeTech/status/1285427748761198594?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Andre doesn&amp;rsquo;t have a key&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/AndreCronjeTech/status/1289959986190147585?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&amp;ldquo;If you do clone /and you are welcome to/, please change a few things so we get new data from the experiment. Repeating the same experiment isn&amp;rsquo;t fun.&amp;rdquo;&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
+        <title>🎚 ETH exposure or DeFi yields: why choose?</title>
+        <link>http://localhost:1313/p/eth-exposure-or-defi-yields-why-choose/</link>
+        <pubDate>Mon, 03 Aug 2020 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/eth-exposure-or-defi-yields-why-choose/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2020/leveraging-ETH/leveraging-ETH.png" alt="Featured image of post 🎚 ETH exposure or DeFi yields: why choose?" /&gt;&lt;p&gt;As the Ether giant seems to be waking up, you might be considering your &lt;strong&gt;options to recenter your exposure on ETH&lt;/strong&gt;. This is precisely what I&amp;rsquo;ve been looking at and executed on lately, and now is the time for the feedback session!&lt;/p&gt;
+&lt;p&gt;Indeed, DeFi is heating up and yields are attractive. However, &lt;strong&gt;even crazy liquidity mining returns (on stablecoins) might not beat the ETH price appreciation once its time comes.&lt;/strong&gt; So, instead of having to choose, why not have not both?&lt;/p&gt;
+&lt;p&gt;With this one goal in mind, the most obvious solution was &lt;a class=&#34;link&#34; href=&#34;http://makerdao.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Maker&lt;/a&gt;. The position can, of course, be achieved using other services; I consider them at the end.&lt;/p&gt;
+&lt;p&gt;So there you have the base idea: instead of investing directly in ERC20 or stablecoins and putting them to work, you maintain an ETH base, use it to generate DAI and then diversify into your positions. This way, you maintain a healthy ETH exposure - the tradeoff being the additional risk, including liquidation that are discussed below.&lt;/p&gt;
+&lt;h2 id=&#34;re-investing-the-minted-dai&#34;&gt;Re-investing the minted DAI
+&lt;/h2&gt;&lt;p&gt;The options to re-invest your DAI are pretty much infinite, so I will focus on these that make the most sense - aka the best at harnessing the current DAI premium. Feel free to check my previous publications covering incentivised liquidity pools investment opportunities &amp;amp; the useful tools to harness them:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/yield-farmer-tier-list.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;💦 The Yield Farmer Tier List&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/defi-farmer-toolbox.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🧰 The DeFinancial Farming Toolbox&lt;/a&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;So essentially when it comes to what makes of the DAI, you have several options, here are the broad categories:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SIMPLE STABLECOIN RETURNS&lt;/strong&gt; - Put your DAI to work, with a simple deposit on Compound or Aave, or using a yield optimiser.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ADV. STABLECOIN RETURNS&lt;/strong&gt; - Invest in Curve Ypool for decent returns + extra earning opportunities on your pool tokens.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ERC20 EXPOSURE (+LP)&lt;/strong&gt; - Purchase ERC20 tokens and hold or purchase ERC20 tokens and provide liquidity.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MORE ETH LEVERAGE&lt;/strong&gt; - Use the DAI to buy more ETH. Can be potentially repeated for more leverage (CAREFUL). This obviously makes the most sense when you&amp;rsquo;re expecting positive price action on ETH.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;DAI is currently trading at a premium ($~1.03), some strategies are better than others to harness the impact of this spread. I detail them in the last section.&lt;/p&gt;
+&lt;h3 id=&#34;vault-management-how-to-increase-gas-efficiency&#34;&gt;Vault Management: How to Increase Gas Efficiency?
+&lt;/h3&gt;&lt;p&gt;When it comes to making sure you&amp;rsquo;re not burning yourself on the gas costs, I&amp;rsquo;ve already covered several critical tools that we won&amp;rsquo;t detail again, such as &lt;a class=&#34;link&#34; href=&#34;http://zapper.fi/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Zapper.Fi&lt;/a&gt;, or &lt;a class=&#34;link&#34; href=&#34;http://paraswap.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ParaSwap&lt;/a&gt; for some token swaps. Today, I want to discuss services that are helpful to manage Maker vaults.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;While interacting with your vaults, you&amp;rsquo;ll find yourself make series of transactions (deposit ETH -&amp;gt; mint DAI -&amp;gt; do something with the DAI). To reduce your gas costs, you can &lt;strong&gt;use &lt;a class=&#34;link&#34; href=&#34;https://furucombo.app/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;FuruCombo&lt;/a&gt; to build your series of operations and execute it in one transaction.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;You might find yourself in need of a &amp;ldquo;flash capital&amp;rdquo; to close a position somewhere and re-open it somewhere else. If that&amp;rsquo;s the case, an Aave flash loan will be useful. Now for the best part: &lt;strong&gt;flash loans are available on FuruCombo!&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/leveraging-ETH/furucombo.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Collateral swap using Furucombo&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Keep in mind that in these times of high gas cost, each interaction is costly. To reduce the impact of gas on your strategy, try to minimize the amount of operations you&amp;rsquo;re doing - FuruCombo is simply amazing for that!&lt;/p&gt;
+&lt;p&gt;If you have many positions to close/open, you might also want to wait for an opportunistic time to do so, where gas costs are low. The weekend evenings (Europe time) are usually best.&lt;/p&gt;
+&lt;h2 id=&#34;-please-read-how-to-not-get-liquidated&#34;&gt;🚨 PLEASE READ: How to not get liquidated?
+&lt;/h2&gt;&lt;h3 id=&#34;understanding-makers-liquidation-mechanism&#34;&gt;Understanding Maker&amp;rsquo;s Liquidation Mechanism
+&lt;/h3&gt;&lt;p&gt;When you get liquidated, (a part of) your collateral is seized to cover your debt. &lt;strong&gt;The existence of liquidation on Maker means you could lose potentially all of your ETH&lt;/strong&gt; if you are careless.&lt;/p&gt;
+&lt;p&gt;Here are my tips and recommendations to make sure this does not happen to you:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;If you are just starting with leverage, maintain a very healthy collateralization ratio&lt;/strong&gt;. I’d recommend &amp;gt; 300 % for new users, simply for peace of mind during your discovery phase.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Don&amp;rsquo;t put all of your eggs in one basket&lt;/strong&gt;: on Maker, you can open as many vaults as you want. While you don’t want to open hundreds of positions to keep the gas costs in check, you might also want to consider splitting your stash to not put all of your ETH under the same risk and be able to more gradually manage the positions as they grow.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Easy Vault Management&lt;/strong&gt;: if you&amp;rsquo;d like a less stressful approach, you can use &lt;a class=&#34;link&#34; href=&#34;https://defisaver.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFiSaver&lt;/a&gt; to make sure your vault is automatically kept at a certain ratio with the Save function.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/leveraging-ETH/defisaver-automation.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Automating Maker Vault Management with DeFi Saver&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;advanced-vault-management&#34;&gt;Advanced Vault Management
+&lt;/h3&gt;&lt;p&gt;If you have several vaults, you can use a tool to re-distribute capital between them in one transaction, again with FuruCombo:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Mint DAI on Vault1 (currently safe) 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; Burn DAI on Vault2 to lower its risk
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Using a flash loan, you can even fully close a vault “into” another vault for instance:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Flash loan DAI (=debt of Vault-1) 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; Burn on Vault-1, to free the ETH 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt;&amp;gt; Deposit the ETH in Vault-2 (the one you keep) 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt;&amp;gt;&amp;gt; Mint DAI on Vault2 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; Pay back the flash loan.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Be mindful with what you do with the DAI you mint: it&amp;rsquo;s a debt.&lt;/strong&gt; Prefer safer investment options. If you invest in something stupid &amp;amp; get rekt at the same time the ETH price is depreciating, you could be putting your ETH at risk.&lt;/p&gt;
+&lt;h2 id=&#34;why-maker-is-the-best-service-to-leverage-eth-right-now&#34;&gt;Why Maker is the best service to leverage ETH right now
+&lt;/h2&gt;&lt;p&gt;I decided to focus this article on Maker only, considering the angle is to leverage ETH and Maker is currently the best platform to do so, as well as probably the safest (running track record). Here are my main three reasons:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Fits the bill&lt;/strong&gt; - It enables you to keep an ETH exposure while generating extra DAI to re-invest.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;0 fee if not liquidated - (⚠ gas costs)&lt;/strong&gt; The current stability fee is 0 (on ETH) - it costs you nothing but gas to open a position on Maker.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DAI Premium -&lt;/strong&gt; DAI is frequently trading at $ 1.02-1.03 meaning minting DAI can result in a 2-3% instant profit on the amounts reinvested (more on this later - DAI premium section).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Please keep in mind that &lt;strong&gt;this is NOW&lt;/strong&gt;, several weeks from now there might be better options for such positions, as Aave implements its new tokenomics for instance. A similar position could already be achieved today using Compound, but it doesn&amp;rsquo;t seem profitable to do so right now (vs Maker).&lt;/p&gt;
+&lt;h2 id=&#34;who-is-this-strategy-for&#34;&gt;Who is this strategy for?
+&lt;/h2&gt;&lt;p&gt;Since it&amp;rsquo;s quite a flexible strategy, &lt;strong&gt;it can be used by pretty much anyone owning ETH and looking for a way to put them to work.&lt;/strong&gt; However, allow me to highlight some use case scenarios that should give you ideas:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;You&amp;rsquo;ve entered the markets recently (2019), and made profits but not really on ETH. While your ERC-20 positions are up, you might be wary about missing on ETH gains. To increase your exposure to ETH, you could settle some of your positions to ETH, open a vault, and reopen up to ⅔ of the closed ERC-20 positions.&lt;/li&gt;
+&lt;li&gt;You&amp;rsquo;ve been harnessing neat gains on the stablecoins farming lately, but even the best yields can&amp;rsquo;t beat a waking giant. You might consider buying ETH with your stablecoins, to then open a vault and reopen part of your stablecoin position - you keep some of your yields while adding a sweet exposure to ETH&amp;rsquo;s price.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;harnessing-the-dai-premium&#34;&gt;Harnessing the DAI Premium
+&lt;/h3&gt;&lt;p&gt;To conclude, let&amp;rsquo;s consider the best options if your goal is to make the most of the current DAI premium - what does it impact most?&lt;/p&gt;
+&lt;p&gt;Obviously, it&amp;rsquo;s very nice for ETH-leveraged long. Indeed, if DAI trades at $1.03, buying ETH from DAI is more efficient.&lt;/p&gt;
+&lt;p&gt;If you are considering investing in the Curve y pool, I&amp;rsquo;d recommend going 100% from DAI. You&amp;rsquo;ll save gas cost massively on the swaps that are not required (+ less deposit and approve tx). On top of these savings, entering the Curve y pool fully in DAI usually has a positive price slippage.&lt;/p&gt;
+&lt;p&gt;Currently it sits ~1.5% over 5000 DAI: that is 1.5% instant profit as you enter the position, quite attractive right?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/leveraging-ETH/curve-dai-premium.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Curve DAI Premium&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Depending on your risk preference and your capital, you might want to time your entry. I was able to harness up to a 3.5% positive bonus entering the ypool, so waiting can be worth it!&lt;/p&gt;
+&lt;p&gt;Thanks to Grégoire for proof reading this content &amp;amp; &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/jimmyragosa&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Jimmy&lt;/a&gt; for suggesting &lt;a class=&#34;link&#34; href=&#34;https://defisaver.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFiSaver&lt;/a&gt;, try it out!&lt;/p&gt;
+&lt;h2 id=&#34;key-takeaways&#34;&gt;Key Takeaways
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;You can &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;http://oasis.app/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;put your ETH to work&lt;/a&gt;&lt;/strong&gt;, without selling them! Try out with a first safe (&amp;gt;300%) position.&lt;/li&gt;
+&lt;li&gt;Liking it? Start exploring other strategies but remember to account for gas costs. Use &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://furucombo.app&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;FuruCombo&lt;/a&gt;&lt;/strong&gt; to build more complex flows.&lt;/li&gt;
+&lt;li&gt;Using vaults more and more? It might be a good time to consider &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://defisaver.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFiSaver&lt;/a&gt;&lt;/strong&gt; to reduce your risk and manage your vault without stress.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/MakerDaiBot/status/1290243544670785536&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;The Stability Fee is now = 0&lt;/a&gt; for all collaterals on Maker.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Échanges on Example Site</title>
+        <link>http://localhost:1313/tags/%C3%A9changes/</link>
+        <description>Recent content in Échanges on Example Site</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Fri, 28 Apr 2023 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%C3%A9changes/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>ve(3,3) : l&#39;étape logique après le modèle veCRV?</title>
+        <link>http://localhost:1313/solidly-velodrome-fork/</link>
+        <pubDate>Fri, 28 Apr 2023 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/solidly-velodrome-fork/</guid>
+        <description>&lt;p&gt;Les forks Solidly/Velodrome ont poussé comme des champignons, en particulier sur les layers 2 populaires comme Arbitrum ou zkSync. Solidly est maintenant le troisième protocole le plus forké en DeFi et l&amp;rsquo;un des rares cas où les forks (comme Velodrome) sont les leaders du marché. À première vue, on pourrait croire qu&amp;rsquo;il s&amp;rsquo;agit d&amp;rsquo;un nouveau train de hype, comme lorsque nous avons eu la saison des forks Uni/Sushi, la saison des forks Olympus, etc.&lt;/p&gt;
+&lt;p&gt;En effet, c&amp;rsquo;est exagéré : une quantité absurde de DEX sont lancés chaque semaine, et 95% d&amp;rsquo;entre eux ne seront plus d&amp;rsquo;actualité dans six mois. Cependant, comme dans la plupart des cas de hype similaire, il existe une innovation fondamentale dans la conception des échanges décentralisés qui vaut la peine d&amp;rsquo;être étudiée.&lt;/p&gt;
+&lt;p&gt;Cet article se penchera donc sur les modèles Solidly et Velodrome afin de comprendre pourquoi ils sont devenus un modèle de fork standard. Cela étant dit, nous serons dans une excellente position pour réfléchir aux prochaines étapes pour ces DEX et à ce à quoi ce marché pourrait ressembler dans quelques mois.&lt;/p&gt;
+&lt;p&gt;C&amp;rsquo;est parti !&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2023/solidly-velodrome-template/cover.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;cover-image&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;Cet article suppose une compréhension minimale de la finance décentralisée et une compréhension approfondie du modèle veCRV. Si vous avez besoin d&amp;rsquo;une remise à niveau, consultez : &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz%22/content/posts/2021/crv-wars.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;⚔ CRV Wars : comprendre la course à l&amp;rsquo;accumulation de CRV pour influencer le protocole Curve Finance&lt;/a&gt;.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;introduction-aux-dex-ve33&#34;&gt;Introduction aux DEX ve(3,3)
+&lt;/h2&gt;&lt;p&gt;Avant de nous plonger dans la manière dont Solidly s&amp;rsquo;est appuyé sur le modèle veCRV et a tenté de l&amp;rsquo;améliorer, prenons un peu de recul.&lt;/p&gt;
+&lt;h3 id=&#34;structure-de-lamm-vs-couche-dincitation&#34;&gt;Structure de l&amp;rsquo;AMM VS couche d&amp;rsquo;incitation
+&lt;/h3&gt;&lt;p&gt;Pour comprendre l&amp;rsquo;histoire des DEX ve(3,3), nous devons faire la distinction entre deux niveaux qui sont tout aussi importants pour un échange décentralisé :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;La structure de la liquidité&lt;/strong&gt; : les différents modèles d&amp;rsquo;AMM utilisés pour maintenir la liquidité, tels que x*y=k d&amp;rsquo;UNIv2 ou le stableswap de Curve.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Le modèle d&amp;rsquo;incitation&lt;/strong&gt; : les frais + toutes les autres incitations destinées au fournisseur de liquidités, y compris les émissions de jetons (comme dans le modèle CRV).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Si, en fin de compte, la première couche - la structure de la liquidité - est le cœur du jeu, la deuxième couche - les incitations - est cruciale pour attirer et maintenir une liquidité suffisante.&lt;/p&gt;
+&lt;p&gt;Curve a innové dans les deux domaines, mais les modèles dont nous allons parler aujourd&amp;rsquo;hui sont construits sur cette base et &lt;strong&gt;se concentrent entièrement sur l&amp;rsquo;amélioration de la couche d&amp;rsquo;incitation&lt;/strong&gt;. En effet, au stade actuel, la plupart des DEX ve(3,3) exploitant le modèle Solidly ou Velodrome n&amp;rsquo;offrent que deux types de structure de liquidité bien connus : x*y=k &amp;amp; stableswap.&lt;/p&gt;
+&lt;div class=&#34;notice info&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#info-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Info&lt;/p&gt;&lt;p&gt;Selon les DEX, ces deux modèles de liquidité sont appelés corrélé/volatile ou stable/volatile.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Parlons donc de ce qui était si intéressant dans le Solidly original d&amp;rsquo;Andre Cronje et des enseignements que nous pouvons tirer de son échec.&lt;/p&gt;
+&lt;h2 id=&#34;les-innovations-apportées-par-solidly&#34;&gt;Les innovations apportées par Solidly
+&lt;/h2&gt;&lt;p&gt;Solidly a été présenté au début de 2022 sur &lt;a class=&#34;link&#34; href=&#34;https://andrecronje.medium.com/ve-3-3-44466eaa088b&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;le medium de Andre Cronje&lt;/a&gt; ; la partie cruciale de la vision de Solidly était une amélioration significative de l&amp;rsquo;utilité pour ceux qui vérouillent des tokens - les lockers. Sur Curve, les lockers sont engagés pour quatre ans, sans aucun transfert possible. Bien que cela soit excellent pour l&amp;rsquo;alignement des incitations à long terme de tous les participants de l&amp;rsquo;écosystème Curve, cela crée également une barrière importante à l&amp;rsquo;entrée.&lt;/p&gt;
+&lt;p&gt;C&amp;rsquo;est ainsi qu&amp;rsquo;est né ve(3,3), avec en son cœur &lt;strong&gt;le veNFT&lt;/strong&gt;. Alors que les veCRV sont illiquides, les positions veSOLID sont représentées par le veNFT qui est lui liquide, ce qui permet leur transfert ou leur vente/achat de gré à gré. Cela permet de rendre le verrouillage moins effrayant. Pour l&amp;rsquo;encourager davantage, Cronje a introduit les &amp;ldquo;&lt;strong&gt;rebases anti-dilutives&lt;/strong&gt;&amp;rdquo;, un concept tiré d&amp;rsquo;Ampleforth/Olympus.&lt;/p&gt;
+&lt;p&gt;L&amp;rsquo;idée est simple : étant donné que le modèle Curve/Solidly DEX émet des jetons chaque semaine aux fournisseurs de liquidités, les détenteurs de jetons sont constamment dilués. Ils doivent constamment augmenter leur position afin de maintenir leur part de vote actuelle. Pour compenser cela, les détenteurs de veSOLID reçoivent un rebasement hebdomadaire proportionnel aux émissions. Cela leur permet de conserver leur part de vote même si aucun nouveau jeton n&amp;rsquo;est bloqué.&lt;/p&gt;
+&lt;p&gt;Hormis ces changements, Solidly a hérité de la plupart des éléments du modèle Curve, y compris &lt;strong&gt;la fonction LP boost&lt;/strong&gt;, qui permet aux détenteurs de vetokens d&amp;rsquo;obtenir des rendements accrus sur leur position de liquidité. Cette fonctionnalité a des conséquences réelles puisqu&amp;rsquo;elle &amp;ldquo;appelle pratiquement un Convex&amp;rdquo;. En effet, la conclusion logique d&amp;rsquo;une telle fonctionnalité est qu&amp;rsquo;un ou quelques acteurs s&amp;rsquo;emparent de quantités significatives de vetokens et fournissent leur LP boost aux déposants moyennant une commission.&lt;/p&gt;
+&lt;p&gt;La présence ou l&amp;rsquo;absence de cette caractéristique constitue la différence essentielle entre les modèles de Solidly et de Velodrome, et nous y reviendrons plus tard.&lt;/p&gt;
+&lt;p&gt;Enfin, il y a une dernière particularité essentielle sur le modèle d&amp;rsquo;incitation des votants. Sur Curve, les LP reçoivent la moitié des frais d&amp;rsquo;échange collectés + les émissions de CRV, alors que les votants ne sont pas exposés aux frais de la pool sur laquelle ils votent. Cela peut conduire à une situation où les veCRV holders votent pour des pools uniquement pour les incitations de vote, même si la pool ne fournit aucun volume à l&amp;rsquo;échange.&lt;/p&gt;
+&lt;p&gt;Sur Solidly, les LP ne sont récompensés que par l&amp;rsquo;émission SOLID, et les frais collectés sur la paire sont redirigés vers les votants de la pool. Ainsi, en tant que détenteur de veSOLID, pour optimiser vos gains, vous êtes incité à prendre en compte le volume de la pool sur lequel vous votez, et pas seulement les pots-de-vin. Cela abouti à un meilleur alignement des incitations des principaux participants du protocole (swapper, apporteur de liquidité, veHolder).&lt;/p&gt;
+&lt;p&gt;Solidly a aussi innové sur la stratégie de lancement, avec &lt;strong&gt;un airdrop ciblé sur les protocoles&lt;/strong&gt;, en fonction de leur activité onchain sur Fantom, où Solidly se trouvait. Ensemble, toutes ces innovations et le battage médiatique ont permis d&amp;rsquo;attirer rapidement une quantité massive de liquidités sur l&amp;rsquo;échange.&lt;/p&gt;
+&lt;p&gt;Mais la mise en œuvre initiale de Solidly présentait quelques faiblesses majeures, notamment une baisse agressive des émissions et une création de jauges entièrement sans permission qui permettait à n&amp;rsquo;importe quel pool de recevoir des récompenses SOLID. Il était possible de jouer, alors on a joué. Rapidement, des jetons ont été créés dans le seul but de farmer SOLID : le prix du SOLID s&amp;rsquo;est écroulé et la spirale de la mort s&amp;rsquo;est enclanchée.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2023/solidly-velodrome-template/solidly-tvl.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;cover-image&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;La TVL a disparu aussi rapidement qu&amp;rsquo;elle est apparue, et Solidly est entré dans l&amp;rsquo;histoire pour la plupart des gens. Mais ceux qui ont suivi les événements de près savaient que l&amp;rsquo;échec de Solidly ne provenait pas d&amp;rsquo;une faiblesse du modèle ve(3,3) mais plutôt d&amp;rsquo;un &lt;strong&gt;détail négligé de son implémentation&lt;/strong&gt;, ce qui signifie que même si Solidly n&amp;rsquo;existait plus, ve(3,3) referait probablement surface. Et c&amp;rsquo;est ce qui s&amp;rsquo;est passé, quelques mois plus tard, sur une autre chaîne, et conçu par une autre équipe : Velodrome.&lt;/p&gt;
+&lt;h2 id=&#34;les-améliorations-apportées-par-velodrome-au-modèle-solidly&#34;&gt;Les améliorations apportées par Velodrome au modèle Solidly
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/velodrome-v2/optimism&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Velodrome&lt;/a&gt; a exploité le modèle de Solidly et a résolu le problème des émissions en mettant en place une &lt;strong&gt;validation pour les jauges&lt;/strong&gt;, ce qui permet d&amp;rsquo;éviter la situation où les récompenses sont attribuées à des jetons inventés, comme c&amp;rsquo;est le cas sur Solidly.&lt;/p&gt;
+&lt;p&gt;Velodrome est allé bien au-delà d&amp;rsquo;un simple fork et a mis en œuvre d&amp;rsquo;autres améliorations, notamment un modèle d&amp;rsquo;émissions plus durable et la &lt;strong&gt;suppression de la fonction LP boost&lt;/strong&gt;, ce qui signifie qu&amp;rsquo;il n&amp;rsquo;y a pas de traitement préférentiel pour les détenteurs de veVELO en termes de rendement. Cela simplifie également l&amp;rsquo;expérience pour les nouveaux LP qui pourraient être déconcertés par la gamme de rendement que l&amp;rsquo;on voit sur les DEX avec la fonction LP boost.&lt;/p&gt;
+&lt;p&gt;Au-delà des caractéristiques techniques, une grande partie du succès de Velodrome est due à &lt;strong&gt;l&amp;rsquo;exécution et au soin apporté par l&amp;rsquo;équipe aux stratégies de développement commercial&lt;/strong&gt;, une partie essentielle du modèle ve(3,3). Construit sur Optimism, Velodrome a trouvé son PMF comme la source de liquidité de la chaîne. Grâce à son modèle, le maintien de la liquidité sur Velodrome est beaucoup plus rentable pour les projets que, par exemple, sur Uniswap.&lt;/p&gt;
+&lt;p&gt;Comme Solidly, &lt;strong&gt;Velodrome a airdrop plusieurs protocoles avec un NFT veVELO,&lt;/strong&gt; sans conditions, ce qui a énormément aidé à attirer l&amp;rsquo;activité initiale de vote et d&amp;rsquo;incitation. Le protocole a trouvé une bonne place, principalement auprès d&amp;rsquo;autres protocoles émettant des stablecoins ou des dérivés d&amp;rsquo;enjeux liquides ETH :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2023/solidly-velodrome-template/defiwars-velodrome.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;defiwars-velodrome&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Cela fait presque un an, et l&amp;rsquo;activité s&amp;rsquo;est maintenue, grâce à des ajustements prudents et progressifs des &lt;strong&gt;incitations OP attribuées sur le protocole&lt;/strong&gt;, connu sous le nom de &lt;a class=&#34;link&#34; href=&#34;https://medium.com/@VelodromeFi/tour-de-op-updates-631268181baa&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Tour de OP&lt;/a&gt;. La plupart d&amp;rsquo;entre eux sont utilisés pour encourager deux comportements essentiels pour soutenir la vélocité de la flywheel :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Les incitations au vote (bribes), qui sont encouragées grâce à un matching en OP.&lt;/li&gt;
+&lt;li&gt;Verrouillage de veVELO, encouragé par des OP bonus attribués aux lockers de VELO.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Le matching des bribes est encore augmentée pour les projets qui verrouillent veVELO ou déploient des quantités importantes de liquidité (Protocol Owned Liquidity), ce qui contribue à amplifier l&amp;rsquo;effet de renforcement : ceux qui veulent construire des liquidités soutenues à long terme sur Velodrome ont de bonnes raisons d&amp;rsquo;acheter veVELO, de verrouiller et de voter, de soumettre des incitations de vote et de fournir de la POL, &lt;strong&gt;idéalement tout cela en même temps&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Cela permet à Velodrome d&amp;rsquo;être en tête du classement des protocoles TVL sur Optimism et de traiter environ 30% du volume total de la chaîne, contre 50% pour Uniswap, qui a environ ¼ de la TVL de Velodrome.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2023/solidly-velodrome-template/optimism-volume.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;optimism-DEX-volume&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Alors, pourquoi un tel écart entre les deux ? C&amp;rsquo;est simple : Le ratio Volume/TVL d&amp;rsquo;Uniswap est ~9x supérieur à celui de Velodrome car la liquidité sur Uniswap est beaucoup plus concentrée et donc plus efficace. Mais cela est sur le point de changer car Velodrome V2 arrive bientôt.&lt;/p&gt;
+&lt;h3 id=&#34;présentation-de-velodrome-v2&#34;&gt;Présentation de Velodrome V2
+&lt;/h3&gt;&lt;p&gt;Bien qu&amp;rsquo;Uniswap ait eu une longueur d&amp;rsquo;avance avec la liquidité concentrée, cela va changer rapidement. La licence v3 &lt;a class=&#34;link&#34; href=&#34;https://docs.uniswap.org/contracts/v3/guides/governance/liscense-modifications&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;a expiré le 1er avril 2023&lt;/a&gt;, ce qui signifie que le modèle est maintenant beaucoup plus facile à réimplémenter. De nombreux DEX, y compris les forks Solidly/Velodrome, ont l&amp;rsquo;intention d&amp;rsquo;exploiter cette possibilité. Cependant, pour garder cet article concentré, nous ne couvrirons que ce qui est annoncé pour Velodrome V2, attendu dans les semaines/mois à venir.&lt;/p&gt;
+&lt;p&gt;En effet, Velodrome V2 ne marquera pas seulement &lt;strong&gt;l&amp;rsquo;introduction du style UNI-v3 de LP sur le DEX&lt;/strong&gt; mais aussi des améliorations significatives de l&amp;rsquo;UX/UI, un relayeur pour faciliter la gestion des veNFT, des illustrations pour les veNFT, et bien d&amp;rsquo;autres choses encore. Consultez l&amp;rsquo;&lt;a class=&#34;link&#34; href=&#34;https://medium.com/@VelodromeFi/velodrome-the-road-ah-43488531bb0e&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;article d&amp;rsquo;annonce de la V2&lt;/a&gt; pour plus de détails.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion
+&lt;/h2&gt;&lt;p&gt;J&amp;rsquo;espère que cet article vous a aidé à comprendre les avantages des modèles Solidly et Velodrome. Bien que je mentionne la myriade de forks dans l&amp;rsquo;introduction, j&amp;rsquo;ai gardé le cap dans cet article. Je pense que cela appelle une suite où je passe au peigne fin les principaux forks et les modifications qu&amp;rsquo;elles apportent au modèle : bientôt !&lt;/p&gt;
+&lt;h2 id=&#34;principaux-enseignements&#34;&gt;Principaux enseignements
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;L&amp;rsquo;importance des capacités humaines/commerciales de l&amp;rsquo;équipe&lt;/strong&gt; | ve(3,3), tout comme Curve, sont des protocoles pour des protocoles. Le professionnalisme de l&amp;rsquo;équipe et sa capacité à établir des priorités et à mettre en œuvre le développement commercial sont des facteurs de réussite importants pour le DEX à long terme.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;L&amp;rsquo;importance des bons partenaires&lt;/strong&gt;| Même si le BD est bien fait, un DEX ve(3,3) donné n&amp;rsquo;est bon que dans la mesure où ses meilleurs coureurs le sont. Oui, vous voulez qu&amp;rsquo;ils postent des incitations de vote, qu&amp;rsquo;ils apportent de la liquidité, qu&amp;rsquo;ils votent et qu&amp;rsquo;ils fassent connaître le marché, mais pas seulement. La qualité des liquidités acheminées vers le DEX est également importante (rapport volume/TVL &amp;amp; nature de la liquidité).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LP Boost et conséquences&lt;/strong&gt; | Si un ve(3,3) implémente le LP boost, il appelle des protocoles de type Convex. Le succès du ve(3,3) dépendra de l&amp;rsquo;ampleur et de la qualité des résultats obtenus par les protocoles Convex-like construits dessus. Pour suivre les statistiques clés des différents wrappers et des principaux détenteurs de jetons ve, consultez - &lt;a class=&#34;link&#34; href=&#34;https://www.defiwars.xyz/wars&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFiWars&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Impact de l&amp;rsquo;arrivée des liquidités concentrées&lt;/strong&gt; | Bien que ve(3,3) soit une innovation significative pour la couche d&amp;rsquo;incitation du DEX, il exploite actuellement des structures de liquidité basique. Une bonne adéquation entre le modèle d&amp;rsquo;incitation ve(3,3) et une structure de liquidité efficace de type UNIv3 permettra d&amp;rsquo;améliorer encore l&amp;rsquo;efficacité de la flywheel.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

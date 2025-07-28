@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="La quête de stabilité sur Ethereum : aperçu des différentes approches de stabilisation et indexation d'actifs pour en comprendre leurs enjeux.">
+<title>Actifs à vocation stable sur Ethereum : quelles approches et quels enjeux ?</title>
+
+<link rel='canonical' href='http://localhost:1313/actifs-stables-ethereum/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Actifs à vocation stable sur Ethereum : quelles approches et quels enjeux ?">
+<meta property='og:description' content="La quête de stabilité sur Ethereum : aperçu des différentes approches de stabilisation et indexation d'actifs pour en comprendre leurs enjeux.">
+<meta property='og:url' content='http://localhost:1313/actifs-stables-ethereum/'>
+<meta property='og:site_name' content='Example Site'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Finance décentralisée' /><meta property='article:tag' content='DEX' /><meta property='article:tag' content='Marchés Monétaires' /><meta property='article:tag' content='Aave' /><meta property='article:tag' content='Compound' /><meta property='article:tag' content='Reflexer' /><meta property='article:tag' content='Stablecoin' /><meta property='article:tag' content='MakerDAO' /><meta property='article:tag' content='Basis Cash' /><meta property='article:tag' content='Empty Set Dollar' /><meta property='article:tag' content='Dynamic Set Dollar' /><meta property='article:published_time' content='2021-03-23T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2021-03-23T01:13:50&#43;00:00'/>
+<meta name="twitter:title" content="Actifs à vocation stable sur Ethereum : quelles approches et quels enjeux ?">
+<meta name="twitter:description" content="La quête de stabilité sur Ethereum : aperçu des différentes approches de stabilisation et indexation d'actifs pour en comprendre leurs enjeux.">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Example Site</a></h1>
+            <h2 class="site-description">Example description</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about-tokenbrice/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About TokenBrice</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" selected>English</option>
+                                
+                                    <option value="http://localhost:1313/zh-cn/" >中文</option>
+                                
+                                    <option value="http://localhost:1313/ar/" >عربي</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#représentation-dactifs-sur-la-chaîne-ethereum">Représentation d&rsquo;actifs sur la chaîne Ethereum</a>
+      <ol>
+        <li><a href="#pourquoi-les-emprunts-se-font-essentiellement-en-stablecoins-">Pourquoi les emprunts se font essentiellement en stablecoins ?</a></li>
+        <li><a href="#production-de-rendement-avec-des-stablecoins">Production de rendement avec des stablecoins</a></li>
+        <li><a href="#explosion-de-lutilisation-des-pegged-assets-en-2020">Explosion de l&rsquo;utilisation des pegged-assets en 2020</a></li>
+      </ol>
+    </li>
+    <li><a href="#les-différentes-approches-pour-produire-des-pegged-assets">Les différentes approches pour produire des pegged-assets</a>
+      <ol>
+        <li><a href="#la-correspondance-11-avec-un-intermédiaire-de-confiance">La correspondance 1:1 avec un intermédiaire de confiance</a></li>
+        <li><a href="#stablecoin-produit-par-sur-collatéralisation--maker-dai">Stablecoin produit par sur-collatéralisation : Maker DAI</a></li>
+        <li><a href="#les-approches-plus-innovantes">Les approches plus innovantes</a>
+          <ol>
+            <li><a href="#un-smart-contract-comme-banque-centrale">Un smart contract comme &ldquo;banque centrale&rdquo;</a></li>
+            <li><a href="#approches-algorithmiques">Approches algorithmiques</a></li>
+            <li><a href="#approches-hybrides">Approches hybrides</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#zoom-sur-le-rai-de-reflexer">Zoom sur le RAI de Reflexer</a>
+      <ol>
+        <li><a href="#collatéral-résistant-à-la-censure">Collatéral résistant à la censure</a></li>
+        <li><a href="#au-delà-du-dollar">Au-delà du dollar</a></li>
+        <li><a href="#all-hail-the-money-god">All Hail the Money God</a></li>
+        <li><a href="#le-plan-de-dégouvernance">Le plan de dégouvernance</a></li>
+      </ol>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/-defi/" >
+                🌌 DeFi
+            </a>
+        
+            <a href="/categories/-comprendre/" >
+                ⚙ Comprendre
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/actifs-stables-ethereum/">Actifs à vocation stable sur Ethereum : quelles approches et quels enjeux ?</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            La quête de stabilité sur Ethereum : aperçu des différentes approches de stabilisation et indexation d&#39;actifs pour en comprendre leurs enjeux.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 23, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    17 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Aujourd&rsquo;hui, je veux traiter un sujet essentiel pour Ethereum et les autres blockchains et souvent mal compris : <strong>les actifs &ldquo;stables&rdquo;</strong>, qui suivent le prix d&rsquo;un actif de référence. Avant d&rsquo;étudier les différentes approches qui permettent de produire un tel actif, on va d&rsquo;abord commencer par un niveau d&rsquo;analyse plus élevé :</p>
+<ol>
+<li>Pourquoi a-t-on besoin de tels actifs ?</li>
+<li>Quels usages en sont faits ?</li>
+<li>Pourquoi veut-on représenter des actifs non-natifs d&rsquo;Ethereum sur cette chaîne ?</li>
+</ol>
+<p>Une fois ces bases établies, on aura le nécessaire pour <strong>étudier les différentes approches et comprendre leurs enjeux</strong>. Je finirai avec une analyse plus détaillée d&rsquo;un projet qui me semble très pertinent et innovant sur la question : le RAI de Reflexer Labs.</p>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>Dans cet article, faute de traduction satisfaisante je vais parler de &ldquo;pegged-assets&rdquo; c&rsquo;est-à-dire des actifs indexés sur un autre, au sens large. Ils ne sont pas tous indexés sur le dollar, par exemple il y a aussi des pegged-assets BTC sur la chaîne Ethereum, comme wBTC ou RenBTC.</p></div>
+
+<hr>
+<p><img src="/img/2021/pegged-assets/money-god-meme.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="reflexer-money-god-meme"
+	
+	
+></p>
+<p>Si vous connaissez déjà bien les différents mécanismes de pegging, vous pouvez sauter <a class="link" href="#zoom-sur-le-rai-de-reflexer" >directement vers la section sur Reflexer</a>.</p>
+<h2 id="représentation-dactifs-sur-la-chaîne-ethereum">Représentation d&rsquo;actifs sur la chaîne Ethereum
+</h2><p>Le volume d&rsquo;émission et d&rsquo;utilisation des pegged-assets (actifs indexés) a explosé l&rsquo;année dernière, mais avant de voir concrètement à quoi ils servent, comprenons pourquoi. Le cas d&rsquo;usage le plus simple est celui qui vise à produire un actif stable, le plus souvent indexé sur le dollar.</p>
+<p>Pour se faire, <strong>l&rsquo;approche utilisé à un haut niveau est la tokénisation</strong> : on représente un actif qui vient d&rsquo;une autre chaîne / d&rsquo;un autre monde sur Ethereum, comme par exemple wBTC (correspondant à 1 BTC sur la chaîne Bitcoin) ou encore USDC (correspondant à 1 USD dans le compte en banque de Circle, en très bref).</p>
+<p>Cela permet de <strong>répondre à une des inquiétudes les plus communes pour le grand public : <a class="link" href="https://tokenbrice.xyz/content/posts/2018/stablecoins.fr.md"  target="_blank" rel="noopener"
+    >les cryptos sont des actifs volatiles</a></strong>.</p>
+<p>En outre, <strong>l&rsquo;essor des stablecoins est allé de pair avec l&rsquo;essor de la DeFi</strong>, pourquoi ? Il y a pour moi de nombreuses raisons dont voici les principales :</p>
+<ol>
+<li>Les emprunts</li>
+<li>Les actifs stables peuvent être très productifs en DeFi</li>
+</ol>
+<h3 id="pourquoi-les-emprunts-se-font-essentiellement-en-stablecoins-">Pourquoi les emprunts se font essentiellement en stablecoins ?
+</h3><p><a class="link" href="https://tokenbrice.xyz/content/posts/2021/money-market-risks.fr.md"  target="_blank" rel="noopener"
+    >Les marchés monétaires</a> permettent à leur utilisateurs d&rsquo;emprunter des actifs en utilisant d&rsquo;autres actifs comme garanties (collatéral). Le cas d&rsquo;usage le plus fréquent correspond au schéma suivant :</p>
+<ol>
+<li>L&rsquo;utilisateur dépose un actif volatile, comme ETH, wBTC ou encore LINK</li>
+<li>Il l&rsquo;utilise comme collatéral pour <strong>emprunter un actif stable, comme USDC ou DAI</strong>.</li>
+</ol>
+<p>Pourquoi est-ce ainsi ? Pour le dire simplement, peu de gens sont friands des risques liés aux variations de prix. <strong>Emprunter un actif, si vous le mobilisez ensuite revient à le shorter</strong>. Pas de problème avec les stablecoins — à priori donc, mais la réalité est tout autre avec un actif non stable : si le prix diminue, tant mieux pour vous : la dette n&rsquo;en sera que moins chère à rembourser.</p>
+<p>Néanmoins dans l&rsquo;autre sens le scénario peut être effrayant puisque <strong>vous pouvez vous retrouver avec une dette qui augmente</strong>. Je m&rsquo;explique : mettons que vous empruntez 1000 UNI quand il vaut $20. Vous les vendez pour un autre token, par exemple des stablecoins. Vous voilà donc avec $20 000 DAI que vous mobilisez en DeFi par exemple.</p>
+<p>Vous gardez votre dette plusieurs mois et vous souhaitez désormais la rembourser. Sauf que l&rsquo;UNI vaut maintenant $30 et vous n&rsquo;en avez plus : vous devez en racheter sur les marchés pour rembourser la dette et clôturer la position. <strong>La dette se paie toujours dans l&rsquo;actif emprunté</strong> : vous devez donc 1000 UNI à $30 l&rsquo;unité soit 30 000 DAI.</p>
+<div class="notice warning" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#warning-notice"></use></svg></span>Warning</p><p>J&rsquo;ignore ici totalement les intérêts du prêt par simplicité. En réalité vous devriez rembourser légèrement plus d&rsquo;UNI, en fonction du taux d&rsquo;intérêt et de la durée d&rsquo;exposition.</p></div>
+
+<h3 id="production-de-rendement-avec-des-stablecoins">Production de rendement avec des stablecoins
+</h3><p>Avec le premier point compris, le second coule de source : <strong>de très nombreuses personnes empruntent des stablecoins</strong>, cela signifie donc que de l&rsquo;autre côté du marché des gens les prêtent, pour des taux d&rsquo;intérêt attractifs vu la demande. Par exemple sur Aave, un des principaux marchés monétaires, on constate <strong>une crise de liquidité (<em>liquidity crunch</em>) sur les stablecoins</strong> quasiment depuis le lancement de la v2. Les déposants bénéficient d&rsquo;un retour moyen annualisé de 10% environ.</p>
+<p>La situation est assez similaire ailleurs avec des différences dues aux spécificités de chaque marché monétaire. Néanmoins, la crise de liquidité sur les stablecoins dépasse largement Aave : elle s&rsquo;étend potentiellement à toute la DeFi.</p>
+<p>En effet, <strong>les opportunités pour produire un retour avec des stablecoins ne manquent pas</strong>. Je vous parle ici de prêts, mais il est également possible d&rsquo;apporter de la liquidité sur les paires de stablecoins voire de cumuler les deux approches pour augmenter le rendement avec un produit comme Curve :</p>
+<p><img src="/img/2021/pegged-assets/curve-yield-pool.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="curve-yield-pool"
+	
+	
+></p>
+<h3 id="explosion-de-lutilisation-des-pegged-assets-en-2020">Explosion de l&rsquo;utilisation des pegged-assets en 2020
+</h3><p>On a ainsi observé une véritable explosion de l&rsquo;émission et de l&rsquo;utilisation des pegged-assets en 2020. D&rsquo;un côté, de plus en plus de projets se lancent pour proposer de <strong>nouveaux types d&rsquo;actifs ou de nouvelles approches pour les représenter</strong>. De l&rsquo;autre, les scénarios d&rsquo;utilisation de ces pegged-assets se multiplient grâce à la croissance des marchés monétaires de Curve, des vaults comme ceux proposés par Yearn ou Harvest et d&rsquo;autres produits DeFi plus complexes encore.</p>
+<p>Pour n&rsquo;en citer qu&rsquo;un, parlons un peu<a class="link" href="https://alchemix.fi/"  target="_blank" rel="noopener"
+    > d&rsquo;Alchemix</a>, un nouveau service d&rsquo;actif synthétique qui permet <strong>des emprunts sécurisés par votre futur rendement</strong>. Je m&rsquo;explique : avec Alchemix, tout débute avec un actif stable qui produit un rendement. Ils ont choisi le yDAI pour commencer (DAI productif grâce au vault Yearn).</p>
+<p>L&rsquo;utilisateur donc commencer par déposer des yDAI. Il peut ensuite <strong>renoncer à son futur rendement</strong> pour emprunter jusqu&rsquo;à 50% de la valeur déposée. Son prêt est <strong>remboursé automatiquement grâce aux intérêts produits par le yDAI</strong>. En outre, comme il a accès à 50% de la valeur déposée immédiatement (emprunté en alUSD), il peut la mettre au travail pour augmenter le retour de l&rsquo;ensemble de la stratégie.</p>
+<p>Ce type de produits permet un arbitrage temporel intéressant et entraîne une demande encore plus conséquente pour les stablecoins : lors du lancement d&rsquo;Alchemix, les dépôts dans le vault yDAI ont décollé au point d&rsquo;atteindre la capacité maximale pendant un moment.</p>
+<p>Je vous ai parlé jusqu&rsquo;à présent plutôt des stablecoins, mais un scénario similaire s&rsquo;est déroulé sur d&rsquo;autres pegged-assets comme les BTC tokénisés sur Ethereum.</p>
+<p><img src="/img/2021/pegged-assets/stablecoin-growth.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="stablecoin-growth-ethereum-messari"
+	
+	
+></p>
+<p>Face à la croissance impressionnante de la DeFi, on ne peut s&rsquo;attendre qu&rsquo;à une augmentation toujours plus rapide de la demande pour ce type d&rsquo;actifs. Voyons donc les différentes approches utilisées pour les produire afin de comprendre leur compromis.</p>
+<hr>
+<h2 id="les-différentes-approches-pour-produire-des-pegged-assets">Les différentes approches pour produire des pegged-assets
+</h2><p>Jusqu&rsquo;à présent, la très large majorité de cette demande pour des actifs stables est adressée avec des solutions s&rsquo;appuyant sur une correspondance 1:1 nécessitant de la confiance. Ainsi, ce sont <strong>essentiellement USDT ($38.5 B émis) et USDC ($9.4 B) qui mènent la danse</strong>, bien devant DAI ($2.7 B). Idem côté Bitcoin, sans rentrer dans les détails, toutes les solutions les plus utilisées nécessitent de la confiance.</p>
+<div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>En anglais on parle de &ldquo;pegged-assets&rdquo; (actifs indéxés). Ce sont des actifs qui suivent le prix d&rsquo;un autre via un mécanisme dit de &ldquo;pegging&rdquo;. Le &ldquo;peg&rdquo; est donc la valeur que l&rsquo;actif doit maintenir, par exemple $1 pour les stablecoins qui suivent le dollar.</p></div>
+
+<p>Une diversité d&rsquo;approches grandissantes sont donc explorées pour produire un pegged-asset avec moins de compromis. On les regroupe généralement dans des grandes familles qui correspondent à la principale méthode utilisée pour maintenir le peg. Néanmoins au fur et à mesure du développement de ces approches, les limites entre elles se confondent vu que plusieurs projets explorent <strong>des approches hybrides mêlant plusieurs éléments de chaque</strong>. On commence du plus simple à comprendre pour aller progressivement vers le plus complexe.</p>
+<h3 id="la-correspondance-11-avec-un-intermédiaire-de-confiance">La correspondance 1:1 avec un intermédiaire de confiance
+</h3><ul>
+<li><strong>👍 Avantages :</strong> Le peg est maintenu facilement et plutôt stable. Le système est solvable à tout moment (-&gt; 1 USD en banque pour 1 USDC émis par ex)</li>
+<li><strong>👎 Inconvénients / Risques :</strong> Le système nécessite un intermédiaire de confiance central — l&rsquo;organisme émetteur. Ce même organisme repose sur un autre intermédiaire, la banque où les USD sont déposés. En outre, la présence d&rsquo;un intermédiaire de confiance crée un risque : est-il fiable ? transparent ? Le risque va au-delà de l&rsquo;image, il peut aussi être légal.</li>
+</ul>
+<p>On a déjà assez détaillé cette approche, je passe donc directement aux méthodes plus complexes.</p>
+<h3 id="stablecoin-produit-par-sur-collatéralisation--maker-dai">Stablecoin produit par sur-collatéralisation : Maker DAI
+</h3><ul>
+<li><strong>👍 Avantages :</strong> Le système n&rsquo;implique plus d&rsquo;intermédiaire de confiance central (en tout cas initialement) &amp; arrive malgré tout à plus ou moins maintenir le peg.</li>
+<li><strong>👎 Inconvénients / Risques :</strong> Il faudra <strong>toujours plus de collatéral en $ que de $ (DAI) produit (sur-collatéralisation)</strong>. Risques de gouvernance. Risques aux niveaux des liquidations, effectués par des tiers. Le système est aussi trustless que ses collatéraux les plus utilisés. Maker accepte désormais des collatéraux censurables (wBTC, USDC, etc.) ce qui réintroduit un risque de confiance dans le système.</li>
+</ul>
+<p>Bien avant les stablecoins algorithmiques, MakerDAO est un pionnier quand on réfléchit à comment <strong>produire un actif stable avec moins de confiance nécessaire dans le système que les approches 1:1</strong>. Maker est un service plus complexe car au-delà du DAI — le stablecoin émis par le système, il permet également à ses utilisateurs d&rsquo;utiliser différents actifs pour emprunter (techniquement battre / <em>mint</em>) des DAI.</p>
+<p>En outre, cela recrée des risques et dangers pour maintenir le peg du DAI. De nombreuses améliorations ont été proposées et implémentées depuis le début, ce qui permet à DAI d&rsquo;être désormais beaucoup plus stable que dans ses premiers jours. Néanmoins, la mise à l&rsquo;échelle du DAI s&rsquo;est faite avec des compromis additionnels en termes de confiance.</p>
+<hr>
+<h3 id="les-approches-plus-innovantes">Les approches plus innovantes
+</h3><p>Ici, les approches sont plus diversifiées — je les regroupe en deux familles : les approches algorithmiques déjà bien étudiées sur mon blog ainsi que les approches hybrides. Toutes deux s&rsquo;appuient sur un concept essentiel à comprendre : la &ldquo;banque centrale&rdquo; de ces systèmes est un smart contract.</p>
+<h4 id="un-smart-contract-comme-banque-centrale">Un smart contract comme &ldquo;banque centrale&rdquo;
+</h4><div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>J&rsquo;utilise le mot &ldquo;banque centrale&rdquo; car il évoque bien le concept essentiel ici : l&rsquo;organisme émetteur de la monnaie et qui applique la politique monétaire du système est un smart contract. Cela permet d&rsquo;avoir une grande transparence et visibilité sur les actions relatives à la politique monétaire.</p></div>
+
+<p>Donc pour comprendre les systèmes présentés plus bas, il faut vraiment saisir ça : <strong>les décisions de création ou de destruction de nouveaux stablecoins sont &ldquo;prises&rdquo; par un smart contract</strong> — lui seul à cette capacité d&rsquo;émettre (et de détruire dans certains systèmes) des jetons.</p>
+<p>Quand je dis que le smart contract prend des &ldquo;décisions&rdquo; il faut aussi expliciter : pour être plus précis, on pourrait dire qu&rsquo;<strong>il réagit à l&rsquo;évolution de différents paramètres mesurables</strong>. Les décisions du smart contract sont donc transparentes et prédictibles. Un changement des règles qui le régissent est possible mais uniquement via un vote de gouvernance.</p>
+<p>Le plus souvent, le principal paramètre pris en compte est tout simplement <strong>le prix du stablecoin</strong>. Par exemple dans les premiers systèmes algorithmiques comme Basis (BAC est le stablecoin), les règles sont simples :</p>
+<ul>
+<li>Si BAC &gt; $1, alors le système émet et distribue de nouveaux BAC pour essayer de ramener le prix vers $1.</li>
+<li>Lorsque BAC &lt; $1 le système détruit des BAC pour créer une pression haussière. La destruction n&rsquo;est pas directe mais volontaire : les acteurs du système sont incités à brûler leur BAC pour un coupon (BAB) correspondant à 1 BAC + premium, qu&rsquo;ils pourront collecter seulement lorsque BAC aura un cours soutenu au-dessus du dollar.</li>
+</ul>
+<p>Pour plus de contexte sur cette idée de &ldquo;smart contract banque centrale&rdquo;, vous pouvez lire mon premier article sur les stablecoins algorithmiques :</p>
+<p><strong><a class="link" href="https://tokenbrice.xyz/content/posts/2020/algorithmic-stablecoins.fr.md"  target="_blank" rel="noopener"
+    >L&rsquo;état et le futur des stablecoins algorithmiques</a></strong></p>
+<h4 id="approches-algorithmiques">Approches algorithmiques
+</h4><ul>
+<li><strong>👍 Avantages :</strong> Cela rend possible des systèmes sans intermédiaire central de confiance et donc ouvre la voie à des pegged-assets réellement trustless. Gouvernance communautaire possible.</li>
+<li><strong>👎 Inconvénients / Risques :</strong> Perte de peg soutenue ou difficulté à maintenir le peg. Possible attaque de gouvernance.</li>
+</ul>
+<p>J&rsquo;analyse les principales approches pour produire des stablecoins algorithmiques dans un article dédié :</p>
+<p><strong><a class="link" href="https://tokenbrice.xyz/content/posts/2021/seigniorage-basis-vs-esd.fr.md"  target="_blank" rel="noopener"
+    >⚖ L&rsquo;histoire de deux modèles de seigneuriage : Basis contre ESD</a></strong></p>
+<p>Ainsi, des projets comme ESD, DSD, ou encore Basis Cash ont été les pionniers des stablecoins algorithmiques. Néanmoins tous ces systèmes sont aujourd&rsquo;hui un peu dans une abysse : cela fait <strong>bien longtemps que leur &ldquo;stablecoin&rdquo; vaut largement moins d&rsquo;un dollar</strong>.</p>
+<p><img src="/img/2021/pegged-assets/bac-90days.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="bac-price-90d"
+	
+	
+></p>
+<p>Leurs utilisateurs sont plutôt dans l&rsquo;expectative d&rsquo;une V2 qui arriverait comme le messie à ramener le stablecoin au dollar.</p>
+<h4 id="approches-hybrides">Approches hybrides
+</h4><ul>
+<li><strong>👍 Avantages :</strong> Le meilleur des deux mondes ?</li>
+<li><strong>👎 Inconvénients / Risques :</strong> Un nouveau point potentiellement central et potentiellement intermédiaire de confiance apparaît dans le système. Vous connaissez la suite…</li>
+</ul>
+<p>Face aux limites actuelles des stablecoins algorithmiques de première génération, une autre approche a émergé avec succès : l&rsquo;approche hybride. Il s&rsquo;agit de systèmes algorithmiques par essence qui <strong>incluent néanmoins une réserve en stablecoin</strong> (différent de celui du système) utilisé pour maintenir le peg : <a class="link" href="https://samkazemian.medium.com/frax-v2-algorithmic-market-operations-b84521ed7133"  target="_blank" rel="noopener"
+    >plus d&rsquo;info ici (en anglais)</a>.</p>
+<p>Le pionnier en la matière, c&rsquo;est Frax. Avec Frax, <strong>lorsque le FRAX s&rsquo;échange au-dessus du dollar le système lui-même en vend pour accumuler des USDC</strong>. Cela permet de ramener le prix vers le bas tout en constituant une réserve en stablecoins non exposés au système lui-même. Ainsi, si le FRAX s&rsquo;échange <strong>au-dessous du dollar, le système peut acheter des FRAX directement</strong> sur le marché (grâce à son stock d&rsquo;USDC) pour ramener le prix vers $1.</p>
+<p><img src="/img/2021/pegged-assets/frax-price.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="frax-price-90d"
+	
+	
+></p>
+<p>Bien que cette approche a le <strong>mérite de l&rsquo;efficacité</strong> (FRAX a très bien maintenu son peg depuis le lancement), elle réintroduit un intermédiaire de confiance dans le mécanisme. Certes, ce n&rsquo;est pas une banque comme avec Tether, mais ça reste de la confiance nécessaire dans le système. Que se passe-t-il si la balance en USDC de Frax est saisie ou gelée : est-ce que le système pourrait y survivre ? Pour ceux qui ne le savent pas, oui c&rsquo;est tout à fait possible techniquement parlant (et légalement).</p>
+<div class="notice info" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span>Info</p><p>Je reste très haut-niveau sur FRAX et décrit le système surtout tel qu&rsquo;il était au début. De nombreuses intégrations ont été implémentées ou sont envisagées, comme la possibilité de battre le FRAX directement dans le FRAX-Tornado anonymity set (directement dans TornadoCash) pour proposer un stablecoin potentiellement plus confidentiel.</p></div>
+
+<hr>
+<h2 id="zoom-sur-le-rai-de-reflexer">Zoom sur le RAI de Reflexer
+</h2><p>Pour finir cet article que j&rsquo;espère instructif, je vous propose d&rsquo;analyser un système novateur : Reflexer RAI. C&rsquo;est une approche similaire à celle de Marker, dans le sens où l&rsquo;actif à vocation stable est produit par sur-collatéralisation. Néanmoins, il apporte de nombreuses améliorations par rapport au modèle Maker :</p>
+<ol>
+<li><strong>Collatéraux trustless</strong>: Jusqu&rsquo;à présent, RAI n&rsquo;accepte que ETH en collatéral. Cela signifie donc que 100% des collatéraux du système ne sont pas censurables.</li>
+<li><strong>Au-delà du dollar</strong> : l&rsquo;actif produit par le système ne suit pas le dollar (qui n&rsquo;est lui-même pas vraiment stable). Le prix du RAI est déterminé par un consensus établi par le marché.</li>
+<li><strong>Le Money God</strong> : tout comme les stablecoins algorithmiques, le système réagit à différents paramètres observés. Néanmoins tout comme Maker, ici ce sont les utilisateurs eux-mêmes qui frappent directement le RAI.</li>
+<li><strong>Dégouvernance</strong> : le token du système Reflexer (FLX), qui sera distribué aux utilisateurs a pour vocation de servir à décentraliser progressivement la gouvernance.</li>
+</ol>
+<p>Pas de panique si vous n&rsquo;avez pas immédiatement compris pourquoi ce système est innovant et significatif, on va explorer chacun de ces points plus en détail.</p>
+<h3 id="collatéral-résistant-à-la-censure">Collatéral résistant à la censure
+</h3><p><strong>Initialement, MakerDAO n&rsquo;acceptait que l&rsquo;Ether en collatéral</strong>. Avec la première mise à jour significative du système — le <a class="link" href="https://makerdao.com/whitepaper/White%20Paper%20-The%20Maker%20Protocol_%20MakerDAO%E2%80%99s%20Multi-Collateral%20Dai%20%28MCD%29%20System-FINAL-%20021720.pdf"  target="_blank" rel="noopener"
+    >Multi Collateral DAI</a> — de nouveaux tokens ont été acceptés. La communauté est restée perplexe face à cette décision, surtout à cause du choix des tokens acceptés. Ainsi, BAT a été l&rsquo;un des premiers nouveaux collatéraux tandis que LINK, un token au volume et à la liquidité déjà largement supérieure à BAT à l&rsquo;époque n&rsquo;est arrivé que bien plus tard.</p>
+<p>Au-delà de cette <strong>priorisation difficilement compréhensible</strong>, le nœud du problème c&rsquo;est surtout que <strong>de nombreux collatéraux désormais acceptés sont censurables</strong>: wBTC, RenBTC, USDC, TUSD, etc. Cela réduit ainsi la trustlessness de MakerDAO puisque en fonction des moments, jusqu&rsquo;à 50% de tous les DAI étaient frappés depuis des collatéraux censurables.</p>
+<p>Le chiffre est désormais réduit, mais l&rsquo;inquiétude persiste. En outre, l&rsquo;addition d&rsquo;un vault spécial USDC a été critiqué lors du Black Thursday pour aider le DAI à retrouver son peg — mais cela a également rendu MakerDAO encore plus dépendant de ce type de collatéraux.</p>
+<p>Ainsi, Reflexer s&rsquo;inscrit aussi comme <strong>une réaction à cette &ldquo;dérive&rdquo; de MakerDAO</strong> : pour l&rsquo;instant, seulement ETH est accepté pour ouvrir un vault. Je serai surpris de voir l&rsquo;équipe ou la DAO voter pour accepter des collatéraux censurables.</p>
+<h3 id="au-delà-du-dollar">Au-delà du dollar
+</h3><p>En outre, Reflexer va bien plus loin que DAI dans sa quête de stabilité. En effet, le dollar en lui même n&rsquo;a pas de valeur stable, à cause de la production continue de nouvelles unités qui entraîne une inflation : ainsi $10 000 de 1950 sont équivalent en pouvoir d&rsquo;achat à presque $110 000 de 2021 (3.42% inflation par an en moyenne sur la période).</p>
+<p><strong>Un actif qui a pour vocation d&rsquo;être stable se doit donc de dépasser les limitations du dollar et c&rsquo;est précisément ce que fait RAI</strong> : il ne suit pas le prix du dollar. Le prix du RAI est déterminé par un pur consensus social : le système prend en compte le prix observé sur la paire ETH/RAI (market price) ainsi qu&rsquo;un objectif de prix interne (redemption rate).</p>
+<p>Il y a souvent des écarts entre les deux, ce qui crée une forme d&rsquo;incitation à battre du RAI :</p>
+<p><img src="/img/2021/pegged-assets/reflexer-spread.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="reflexer-spread"
+	
+	
+></p>
+<p><strong>RAI n&rsquo;est donc bien évidemment pas un stablecoin. Ce n&rsquo;est pas non plus un pegged-asset.</strong> Les mots manquent pour décrire fidèlement ce qu&rsquo;est RAI mais permettez moi d&rsquo;essayer. RAI c&rsquo;est une abstraction sur l&rsquo;ETH qui a vocation d&rsquo;être plus stable que celui-ci, tout en maintenant sa trustlessness (à terme).</p>
+<h3 id="all-hail-the-money-god">All Hail the Money God
+</h3><p>Le &ldquo;Money God&rdquo;, c&rsquo;est le terme utilisé pour faire référence à l&rsquo;ensemble des règles qui régissent le système Reflexer. Le potentiel mémétique est également énorme. Pour rester assez synthétique, le Money God est clément envers ceux qui s&rsquo;inscrivent dans une logique pérenne et long terme sur le protocole.</p>
+<p>Par exemple, le mécanisme de distribution du token Reflexer, le FLX, a récemment été modifié pour mieux aligner les incitations (<a class="link" href="https://medium.com/reflexer-labs/introducing-flx-20755214a465"  target="_blank" rel="noopener"
+    >plus d&rsquo;info ici</a>). L&rsquo;essentiel du changement est de mieux rémunérer ceux qui pérennisent le système, c&rsquo;est à dire :</p>
+<ol>
+<li>Déposent des ETH pour frapper du RAI</li>
+<li>Déposent <strong>tous</strong> les RAI frappés + l’équivalent en ETH dans la pool de liquidité sur Uniswap.</li>
+</ol>
+<p>Depuis le 8 Mars, 100% des FLX sont distribués à ceux qui suivent ce scénario.<a class="link" href="https://gist.github.com/stefanionescu/e66204be990f4bc113a022341cb39186"  target="_blank" rel="noopener"
+    > L&rsquo;historique des stratégies de distribution rétroactive du FLX est ici.</a></p>
+<h3 id="le-plan-de-dégouvernance">Le plan de dégouvernance
+</h3><p>Outre l&rsquo;innovation technique importante sur Reflexer, à peine explorée ici, j&rsquo;apprécie tout particulièrement <strong>leur approche de la gouvernance et décentralisation du protocole</strong>, comme décrit par Stefan l&rsquo;un de ses architectes :</p>
+<p>&ldquo;Le principe de la &ldquo;dégouvernance&rdquo; vient de notre volonté de progressivement retirer les mécanismes de contrôle individuel (humain) du système RAI afin de lui permettre de se développer et le rendre évolutif via un consensus social.&rdquo;</p>
+<p>L&rsquo;équipe a établi <strong>un plan avec des objectifs concrets et datés</strong> pour arriver à cette fin. La première étape consiste à rendre &ldquo;governance minimized&rdquo; les mécanismes de liquidation et de taxation du système — seuls quelques paramètres resteront modifiables via la gouvernance (vote des FLX holders) à partir de ce moment. La date visée est le 17 Avril 2022 soit un peu plus d&rsquo;un an après le lancement initial de RAI.</p>
+<p>À chaque étape, le scénario est similaire : un mécanisme critique du système est &ldquo;governance-minimized&rdquo; avant qu&rsquo;il soit remis entièrement sous contrôle des holders de FLX.</p>
+<p>Vous pouvez retrouver<a class="link" href="https://medium.com/reflexer-labs/introducing-flx-20755214a465"  target="_blank" rel="noopener"
+    > le détail de ce plan ici</a>.</p>
+<p>Pour approfondir, n&rsquo;hésitez pas à lire <strong><a class="link" href="https://github.com/reflexer-labs/whitepapers/blob/master/French/rai-french.pdf"  target="_blank" rel="noopener"
+    >le whitepaper de RAI traduit en français traduit par PhilH et BenDuPeloux</a></strong>.</p>
+<hr>
+<h2 id="conclusion">Conclusion
+</h2><p>Je suivais et attendais Reflexer depuis plus d&rsquo;un an, je suis ravi d&rsquo;enfin vous en parler et excusez-moi pour le délai : je voulais le mettre en contexte pour s&rsquo;assurer que tout le monde saisisse l&rsquo;innovation apportée par ce protocole.</p>
+<div class="notice warning" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#warning-notice"></use></svg></span>Warning</p><p>Cet article <strong>ne constitue pas un conseil en investissement</strong>. Je n&rsquo;ai aucune accréditation en la matière : elles n&rsquo;existent pas encore pour la DeFi.</p>
+<p>Je discute des mécanismes de plusieurs protocoles et ce qu&rsquo;ils permettent de faire ou d&rsquo;envisager dans le futur. Même si je mentionne des tokens, idem : je discute de leur utilité ou tokenomics mais <strong>jamais de leur pertinence en tant qu&rsquo;investissement</strong>. Sur ce sujet, c&rsquo;est à vous de voir !</p></div>
+
+<p>J&rsquo;espère que cet article vous aidera à mieux comprendre l&rsquo;essor des pegged-assets sur Ethereum — c&rsquo;est essentiel. Il est également critique de comprendre les différents jeux de compromis associés à chaque approche : elles sont toutes potentiellement plus ou moins pertinentes, tout dépend de votre situation et de vos besoins !</p>
+<p>Enfin, que vous soyez convaincu par Reflexer ou non, je vous invite grandement à creuser ce système, tout comme je vous invite régulièrement à explorer le fonctionnement d&rsquo;Aave, de Curve ou d&rsquo;Unslashed. Tous les quatre sont des systèmes très pertinents et innovants : les comprendre en profondeur vous permettra d&rsquo;internaliser de nombreuses choses essentielles pour comprendre la finance décentralisée en général.</p>
+<p><em>🙏 Un grand merci à HHK, Charles, Thomas, Erwan, <a class="link" href="https://twitter.com/phil_h"  target="_blank" rel="noopener"
+    >PhilH</a> &amp; FrenchTony pour leur relecture attentive de l&rsquo;édition française de cet article et sa traduction en Anglais.</em></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/defi/">DeFi</a>
+        
+            <a href="/tags/ethereum/">Ethereum</a>
+        
+            <a href="/tags/finance-d%C3%A9centralis%C3%A9e/">Finance Décentralisée</a>
+        
+            <a href="/tags/dex/">DEX</a>
+        
+            <a href="/tags/march%C3%A9s-mon%C3%A9taires/">Marchés Monétaires</a>
+        
+            <a href="/tags/aave/">Aave</a>
+        
+            <a href="/tags/compound/">Compound</a>
+        
+            <a href="/tags/reflexer/">Reflexer</a>
+        
+            <a href="/tags/stablecoin/">Stablecoin</a>
+        
+            <a href="/tags/makerdao/">MakerDAO</a>
+        
+            <a href="/tags/basis-cash/">Basis Cash</a>
+        
+            <a href="/tags/empty-set-dollar/">Empty Set Dollar</a>
+        
+            <a href="/tags/dynamic-set-dollar/">Dynamic Set Dollar</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Mar 23, 2021 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/ethereum-stable-assets/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Exploring stable assets on Ethereum: approaches &amp; endgame</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/defi-vs-inflation/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Comment construire un portefeuille DeFi résistant à l&#39;inflation ?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/marche-monetaire-risque/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">De l&#39;évaluation du risque sur les marchés monétaires en finance décentralisée</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/l%C3%A9tat-et-le-futur-des-stablecoins-algorithmiques/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">L&#39;état et le futur des stablecoins algorithmiques</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/reflexer-rai/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🗿 Pourquoi, comment et qu&#39;est-ce que le RAI ?</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.e87374ab760d28dfa333a671a892b101964bde5a2dac9100a50c9b0d779b4505.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

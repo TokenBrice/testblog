@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Une analyse des principes fondamentaux de la DeFi qui souligne les options ouvertes dans d'autres domaines comme l'art ou le financement des biens communs.">
+<title>La DeFi, au delà de la finance</title>
+
+<link rel='canonical' href='http://localhost:1313/posts/2020/defi-beyond-finance.fr/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="La DeFi, au delà de la finance">
+<meta property='og:description' content="Une analyse des principes fondamentaux de la DeFi qui souligne les options ouvertes dans d'autres domaines comme l'art ou le financement des biens communs.">
+<meta property='og:url' content='http://localhost:1313/posts/2020/defi-beyond-finance.fr/'>
+<meta property='og:site_name' content='TokenBrice - Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='PoolTogether' /><meta property='article:tag' content='Rarible' /><meta property='article:tag' content='Gitcoin' /><meta property='article:tag' content='Communs' /><meta property='article:tag' content='NFT' /><meta property='article:tag' content='BanklessFR' /><meta property='article:published_time' content='2020-12-01T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2020-12-01T01:13:50&#43;00:00'/>
+<meta name="twitter:title" content="La DeFi, au delà de la finance">
+<meta name="twitter:description" content="Une analyse des principes fondamentaux de la DeFi qui souligne les options ouvertes dans d'autres domaines comme l'art ou le financement des biens communs.">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">TokenBrice - Blog</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/-defi/" >
+                🌌 DeFi
+            </a>
+        
+            <a href="/categories/-d%C3%A9couverte/" >
+                🔮 Découverte
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/2020/defi-beyond-finance.fr/">La DeFi, au delà de la finance</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Une analyse des principes fondamentaux de la DeFi qui souligne les options ouvertes dans d&#39;autres domaines comme l&#39;art ou le financement des biens communs.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Dec 01, 2020</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    12 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>La finance décentralisée d&rsquo;Ethereum est prête à se développer au-delà de son bac à sable : avec un réseau dense de primitifs financiers, il est maintenant plus facile que jamais d&rsquo;exploiter la DeFi à d&rsquo;autres fins, par exemple pour remplacer une relique prédatrice de notre passé comme la loterie, toujours follement populaire et préjudiciable.</p>
+<p>Avec cet article, j&rsquo;aimerais prendre un peu de recul et adopter une perspective macro sur Ethereum. Jusqu&rsquo;à présent, mon intérêt s&rsquo;est surtout porté sur la finance décentralisée, qui a été le moteur de l&rsquo;innovation ces dernières années.</p>
+<p>Pourtant, je crois que nous atteignons la prochaine étape de la croissance de l&rsquo;incroyable expérience de coordination humaine qu&rsquo;est le réseau Ethereum : les blocs Lego fournis par DeFi sont maintenant suffisamment matures pour être exploités à d&rsquo;autres fins.</p>
+<p>En effet, nous voyons maintenant comment ces <strong>dispositifs de capture et d&rsquo;échange de valeur</strong> peuvent être exploités pour faciliter la création de communautés engagées ou pour soutenir les biens communs. Alors cette fois, au lieu de se demander quoi ou comment, demandons-nous pourquoi ? Après un bref rappel des principaux avantages offerts par les legos DeFi, nous examinerons quelques projets qui les exploitent pour faire basculer la table dans leurs domaines respectifs.</p>
+<p><img src="/img/2020/defi-beyond-finance/cover.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="DeFi-legos-beyond-defi-cover"
+	
+	
+></p>
+<hr>
+<h3 id="les-légos-de-la-defi--les-éléments-de-base">Les légos de la DeFi : Les éléments de base
+</h3><p>La myriade de services financiers décentralisés disponibles sur Ethereum a démontré les avantages de ce que j&rsquo;aime appeler les &ldquo;valeurs pragmatiques&rdquo; : transparence, accessibilité,  et interopérabilité. Pourquoi pragmatiques ? Parce que les soutenir n&rsquo;est pas une question de bonne volonté des participants au système, elles sont <strong>appliquées par défaut et en permanence tant que le réseau fonctionne.</strong></p>
+<p>Si vous demandez à votre banque comment votre argent est investi, vous obtenez une réponse à laquelle vous pouvez faire confiance ou non. La vérification implique des demandes de votre part. Au contraire, vous ne demandez pas à Yearn où se trouve votre argent : vous voyez ce qu&rsquo;il fait à tout moment, et cette information est fiable et infalsifiable. Il s&rsquo;agit d&rsquo;un changement fondamental dans la relation - l&rsquo;utilisateur d&rsquo;un service DeFi n&rsquo;est plus un simple &ldquo;client&rdquo;.</p>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice info" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span>Info</p><p>☝ C&rsquo;est ce que le terme &ldquo;sans confiance&rdquo; (<em>trustless</em>) désigne habituellement.</p></div>
+
+<p>Prenons donc une minute pour déballer ces valeurs pragmatiques fondamentales :</p>
+<p><strong>La transparence</strong> : Par défaut, les transactions sur le réseau Ethereum sont publiques. Pour DeFi, cela se traduit par des avantages très concrets - par exemple, les volumes <strong>observés (sur la chaîne)</strong> sur les échanges décentralisés ont tendance à être beaucoup plus réalistes que les volumes <strong>rapportés</strong> par les échanges centralisés.</p>
+<p><strong>Accessibilité</strong> : Pour utiliser un service DeFi, tel qu&rsquo;un échange ou un système de gestion des actifs, il suffit d&rsquo;avoir un portefeuille Ethereum et un appareil avec une connexion internet. Sur les services inarrêtables comme Uniswap il n&rsquo;y a aucun moyen de mettre une adresse sur liste noire pour l&rsquo;utiliser. Cela présente des avantages évidents pour les populations habituellement discriminées par les opérateurs de services financiers, comme les joueurs, les travailleurs du sexe ou les étrangers.</p>
+<p><strong>Interopérabilité</strong> : Les services DeFi sont comme des blocs de Lego, ils sont open source, ce qui permet de les améliorer et de les développer. Ils permettent des innovations rapides car les nouveaux projets peuvent rapidement apporter de la valeur en assemblant plusieurs services existants de manière nouvelle. Chacun peut vérifier son code et contribuer facilement</p>
+<p><strong>Minimalisme</strong> : Ethereum est un réseau conçu pour la résilience et il a des conséquences intéressantes. Avec une infrastructure hautement redondante où la bande passante et la capacité de stockage sont limitées, les projets réussis sont généralement ceux qui parviennent à réduire ou à éviter une complexité inutile.</p>
+<p><img src="/img/2020/defi-beyond-finance/defi-legos.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="DeFi-legos"
+	
+	
+></p>
+<p>L&rsquo;écosystème DeFi a fourni une gamme de services grâce auxquels chacun peut acheter, vendre, sécuriser, échanger des jetons de manière décentralisée. Ils ont également <strong>normalisé des comportements qui étaient peu courants auparavant</strong>, tels que la mise en jeu de jetons, l&rsquo;emprunt, l&rsquo;utilisation de l&rsquo;effet de levier, la frappe d&rsquo;actifs synthétiques, et de nombreuses autres options rendues possibles une fois les actifs mis en jeu.</p>
+<p>Maintenant, comme je le disais dans l&rsquo;introduction, jusqu&rsquo;à présent, ces nouveaux légos ont été utilisés principalement de manière réflexive. Aujourd&rsquo;hui, ils sont de plus en plus utilisés pour fournir des services innovants offrant encore plus de possibilités. C&rsquo;est essentiel, car chaque nouvelle couche DeFi permet de nombreuses autres utilisations en dehors de la finance.</p>
+<hr>
+<h3 id="réparer-une-institution-sociétale-nuisible-en-utilisant-les-légos-de-defi">Réparer une institution sociétale nuisible en utilisant les légos de DeFi
+</h3><p>Commençons par l&rsquo;évidence et, à partir d&rsquo;ici, par un petit coup de pouce : réparer la loterie. Comme vous le savez probablement déjà, les loteries sont des pièges à pauvreté parfois décrits comme <a class="link" href="https://erlc.com/resource-library/articles/state-lotteries-are-an-exploitative-tax-on-the-poor/"  target="_blank" rel="noopener"
+    >une taxe d&rsquo;exploitation des pauvres</a>. Leur public est majoritairement pauvre et, dans l&rsquo;ensemble, la loterie ne contribue pas à leur budget. Même avec un résultat heureux, d&rsquo;autres problèmes surgissent qui ramènent parfois au point de départ.</p>
+<p>Le problème de la loterie a de nombreuses origines, notamment le fait qu&rsquo;elle est généralement détenue ou gérée par les gouvernements nationaux. La bonne nouvelle est que DeFi peut fournir l&rsquo;élément central de la loterie - le jackpot - d&rsquo;une manière beaucoup plus durable.</p>
+<p>En effet, pour décrocher le jackpot, il faut une certaine forme de prix. Les modèles de loterie actuels regroupent les contributions de chacun pour les remettre à un joueur, moins le coût des opérations et une redevance : l&rsquo;argent est &ldquo;brûlé&rdquo; dans la boucle de base en raison de l&rsquo;infrastructure nécessaire pour faire fonctionner la loterie.</p>
+<p>La DeFi peut faire beaucoup mieux sur les deux fronts. Premièrement, pour le prix : au lieu d&rsquo;un système de perte nette, PoolTogether propose une &ldquo;loterie sans perte&rdquo; à ses joueurs. L&rsquo;essentiel est simple : ils n&rsquo;achètent pas de billet mais déposent des pièces de monnaie stables dans un pool. Les actifs de tous les joueurs sont utilisés pour produire un rendement en utilisant les marchés de prêt décentralisés. Le <strong>gagnant gagne les intérêts générés par l&rsquo;ensemble du capital sur la période, et chacun récupère son investissement initial.</strong></p>
+<p>Elle s&rsquo;accompagne également de nombreuses améliorations par rapport à l&rsquo;ancienne infrastructure des loteries : l&rsquo;utilisation de jetons Ethereum pour représenter les billets de loterie présente des avantages supplémentaires :</p>
+<ul>
+<li><strong>Efficacité</strong> - le tirage du gagnant et le paiement du prix sont beaucoup plus rapides, publics et vérifiables par tous.</li>
+<li><strong>Traçabilité</strong> - chaque opération est publique et vérifiable, ce qui facilite la prévention des fraudes et des abus.</li>
+<li><strong>Accessibilité</strong> - tout ce dont vous avez besoin, c&rsquo;est d&rsquo;un portefeuille !</li>
+</ul>
+<p>L&rsquo;exemple de la loterie est essentiel pour mieux comprendre les cas d&rsquo;utilisation de &ldquo;DeFi+&rdquo;. La DeFi en lui-même est déjà bluffante. Mais <strong>utiliser le DeFi pour remplacer une infrastructure sociétale prédatrice</strong> ? Encore meilleur ! Nous allons approfondir ce thème en nous penchant sur le financement des biens publics.</p>
+<hr>
+<h3 id="permettre-des-biens-communs-durables--gitcoin">Permettre des biens communs durables : Gitcoin
+</h3><p>Pour les projets décentralisés de la DeFi, la communauté est essentielle, comme nous l&rsquo;avons vu avec <a class="link" href="https://tokenbrice.xyz/content/posts/2020/yearn-finance-YFI.fr.md"  target="_blank" rel="noopener"
+    >Yearn Finance</a>. En plus de leur rôle de moteur du développement et de la croissance du projet, les communautés fournissent aussi fréquemment des ressources clés, telles que des tableaux de bord, des calculateurs et divers outils pour faciliter le suivi et la gestion des postes, comme <a class="link" href="https://zapper.fi/"  target="_blank" rel="noopener"
+    >Zapper</a>, <a class="link" href="https://defisaver.com/"  target="_blank" rel="noopener"
+    >DeFiSaver</a> ou <a class="link" href="https://zerion.io/"  target="_blank" rel="noopener"
+    >Zerion</a>.</p>
+<p>Au niveau macro, les principaux outils utilisés pour suivre la croissance globale du secteur proviennent également de la communauté, comme <a class="link" href="https://defillama.com/home"  target="_blank" rel="noopener"
+    >DeFiLlama</a>, <a class="link" href="https://yieldfarming.info/"  target="_blank" rel="noopener"
+    >YieldFarmingInfo</a> ou <a class="link" href="https://yieldfarmingtools.com/"  target="_blank" rel="noopener"
+    >YieldFarmingTools</a>. Le développement de ces services est généralement alimenté par les dons de la communauté.</p>
+<p>Pour faciliter la découverte et le financement de tels projets, il existe une plateforme qui exploite les possibilités offertes par Ethereum pour améliorer le financement des biens publics : <a class="link" href="http://gitcoin.co/"  target="_blank" rel="noopener"
+    >Gitcoin</a>. Gitcoin rationalise la création de &ldquo;Subventions&rdquo; pour collecter des dons pour des projets et des communautés donnés. Il tire le meilleur parti des attributs fondamentaux d&rsquo;Ethereum :</p>
+<p><img src="/img/2020/defi-beyond-finance/gitcoin-grants.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Gitcoin-grants-round7"
+	
+	
+></p>
+<ul>
+<li><strong>Tous les dons sont publics et transparents</strong>, ce qui permet de mesurer et de suivre facilement les contributions.</li>
+<li>Les projets peuvent être financés avec des jetons communs basés sur Ethereum, généralement des pièces stables telles que DAI.</li>
+<li>Alors que la communauté est le principal moteur des contributions, Gitcoin utilise un système appelé financement quadratique pour équilibrer les contributions. À chaque tour, <strong>il égalise les dons des contributeurs</strong> grâce à un budget supplémentaire.</li>
+<li>Le budget est fourni par les donateurs de l&rsquo;écosystème. Alors qu&rsquo;auparavant il s&rsquo;agissait principalement de grandes entreprises basées sur Ethereum, un nouveau type de sponsor émerge : les fonds de trésorerie des projets DeFi. En effet, certains acteurs clés des DeFi comme <a class="link" href="https://gov.yearn.finance/t/yip-direct-of-rewards-towards-ethereum-public-goods-funding/3699/22"  target="_blank" rel="noopener"
+    >Yearn Finance a voté pour allouer une partie (1%)</a> de leurs revenus protocolaires pour financer les subventions Gitcoin.</li>
+</ul>
+<p>Bien qu&rsquo;il y ait encore des possibilités d&rsquo;amélioration - et Gitcoin s&rsquo;améliore à chaque nouveau tour de table - c&rsquo;est déjà une partie essentielle de l&rsquo;infrastructure utilisée pour financer les biens communs sur Ethereum. Il simplifie réellement le processus de collecte des dons pour les projets communautaires. Nous l&rsquo;utilisons pour la <a class="link" href="https://gitcoin.co/grants/1274/banklessfr"  target="_blank" rel="noopener"
+    >newsletter BanklessFR</a> ainsi que pour d&rsquo;autres sources, et c&rsquo;est en partie ce qui nous permet de fournir une newsletter de haute qualité bien que gratuite.</p>
+<div class="notice info" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span>Info</p><p>Le prochain round des Gitcoin grants commence aujourd&rsquo;hui et dure jusqu&rsquo;au 17 Décembre. Il y a désormais des collections pour naviguer les projets plus facilement, alors permettez moi de vous recommander une sélection de <strong><a class="link" href="https://gitcoin.co/grants/collections?featured=true&amp;collection_id=24"  target="_blank" rel="noopener"
+    >personnes qui documentent la DeFi dans leur langue locale</a></strong> ainsi que <strong><a class="link" href="https://gitcoin.co/grants/1274/banklessfr-the-daily-gwei-fr"  target="_blank" rel="noopener"
+    >le grants pour BanklessFR et le Daily Gwei FR</a></strong>.</p></div>
+
+<hr>
+<h3 id="ethereum-peut-il-aider-les-marchés-de-lart-à-être-plus-transparents-et-équitables-">Ethereum peut-il aider les marchés de l&rsquo;art à être plus transparents et équitables ?
+</h3><p>Un autre sous-ensemble de l&rsquo;écosystème d&rsquo;Ethereum offre depuis peu une valeur incroyable pour la création de communautés : les jetons non fongibles (NFT). Si le terme est un peu effrayant, l&rsquo;idée de base est en fait assez simple : Les NFT représentent un autre niveau de rareté numérique.</p>
+<div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>Vous trouverez un explicatif détaillé sur les NFTs d&rsquo;il y a deux ans, toujours d&rsquo;actualité et accessible pour les nouveaux arrivants : <a class="link" href="https://tokenbrice.xyz/content/posts/2018/nft.fr.md"  target="_blank" rel="noopener"
+    >jetons non fongibles expliqués avec Blastoise et Charizard</a>.</p></div>
+
+<p>Associés à DeFi, les NFT permettent désormais de nouvelles formes d&rsquo;interactions et de financements communautaires. Grâce à des plateformes en libre-service, les artistes et les communautés peuvent créer et vendre de manière autonome des NFTs avec des services qui rationalisent le processus comme <a class="link" href="https://rarible.com/"  target="_blank" rel="noopener"
+    >Rarible</a>. Grâce à leur nature programmable, les NFT permettent de <strong>nouveaux modèles de redistribution</strong> tels qu&rsquo;une contribution sur les achats du marché secondaire. Enfin, puisqu&rsquo;ils vivent sur la chaîne de distribution Ethereum, les NFTs fournissent également un historique transparent de la propriété et des prix antérieurs.</p>
+<p>Une fois de plus, à l&rsquo;initiative de Jon (<a class="link" href="https://twitter.com/otherbright"  target="_blank" rel="noopener"
+    >@OtherBright</a>), BanklessFR a également exploré cette nouvelle frontière. Grâce à une collaboration avec l&rsquo;artiste Arke, <a class="link" href="https://app.rarible.com/token/0xd07dc4262bcdbf85190c01c996b4c06a461d2430:43413:0x6b40aca108fdb67a781ed4c6810f47f7f3764d00?tab=overview"  target="_blank" rel="noopener"
+    >nous avons publié un NFT</a> lié au contenu de la newsletter. J&rsquo;ai demandé à Jon de nous donner quelques indications sur cette expérience :</p>
+<p><em>Avec <a class="link" href="https://banklessfr.substack.com/"  target="_blank" rel="noopener"
+    >BanklessFR</a> et <a class="link" href="https://thedailygweifr.substack.com/"  target="_blank" rel="noopener"
+    >The Daily Gwei FR</a>, nous tentons différentes expériences.</em></p>
+<p><img src="/img/2020/defi-beyond-finance/banklessfr-nft.gif"
+	
+	
+	
+	loading="lazy"
+	
+		alt="BanklessFR-NFT"
+	
+	
+></p>
+<p><em>Avec <a class="link" href="https://twitter.com/Arke56374430"  target="_blank" rel="noopener"
+    >Arke</a>, nous avons commencé par la vente d&rsquo;un <a class="link" href="https://app.rarible.com/token/0xd07dc4262bcdbf85190c01c996b4c06a461d2430:43413:0x6b40aca108fdb67a781ed4c6810f47f7f3764d00?tab=overview"  target="_blank" rel="noopener"
+    >BanklessFR NFT</a>, représentant la newsletter BanklessFR. Cette carte de collection, disponible en 40 exemplaires, a été vendue avec succès à 0,15 ETH pièce. Nous avons partagé les bénéfices avec l&rsquo;artiste. Nous avons inclus un article qui peut être déverrouillé au moment de l&rsquo;achat, 24 heures avant les lecteurs qui n&rsquo;ont pas la carte. Ce modèle de distribution est clairement innovant, mais à mon avis, il doit être développé.</em></p>
+<p><em>Notre <a class="link" href="https://app.rarible.com/token/0xd07dc4262bcdbf85190c01c996b4c06a461d2430:64356:0x6b40aca108fdb67a781ed4c6810f47f7f3764d00?tab=overview"  target="_blank" rel="noopener"
+    >deuxième vente</a>, différente de la première, toujours pour BanklessFR, a illustré un article, et a offert 10 copies de la carte, à 0,3 ETH l&rsquo;unité. Elle contenait également un article qui pouvait être débloqué 24 heures à l&rsquo;avance. Cette dernière fonctionnait beaucoup moins, certainement en raison d&rsquo;un prix relativement élevé, malgré une rareté 4 fois plus grande.</em></p>
+<p><img src="/img/2020/defi-beyond-finance/the-daily-gwei-fr.gif"
+	
+	
+	
+	loading="lazy"
+	
+		alt="TheDailyGwei-FR-NFT"
+	
+	
+></p>
+<p><em>La <a class="link" href="https://app.rarible.com/token/0xd07dc4262bcdbf85190c01c996b4c06a461d2430:81692:0x83ac01254b0b8e9745492c5e73f5f32a05570a76?tab=overview"  target="_blank" rel="noopener"
+    >dernière vente</a> concerne le lancement du Daily Gwei FR. Nous avons publié 50 exemplaires d&rsquo;une carte représentant la newsletter. Nous n&rsquo;en avons pas encore vendu un seul, 0,05 ETH par carte, 50 cartes disponibles. Nous modifierons cette vente pour poursuivre l&rsquo;expérience.</em></p>
+<p><em>Nous avons d&rsquo;autres idées en tête, ici les expériences sont relativement simples, mais des systèmes beaucoup plus complexes devraient être mis en place. Je pense que nous devrions insister sur le financement de <a class="link" href="https://gitcoin.co/grants/1274/banklessfr"  target="_blank" rel="noopener"
+    >gitcoin</a> et <a class="link" href="https://clr.fund/#/"  target="_blank" rel="noopener"
+    >clr.fund</a>, avant d&rsquo;accélérer du côté des NFTs.</em></p>
+<p>Ensemble, ces services fournissent des outils innovants pour construire et développer les communautés. Grâce à la désintermédiation, les NFTs remettent les artistes sur le devant de la scène. Nous voyons de plus en plus de cas de collaboration entre un artiste et une communauté, comme nous l&rsquo;avons fait pour BanklessFR.</p>
+<p>Alors que nous entrons dans une ère de renouveau, en particulier pour les personnes extérieures à l&rsquo;espace, assurez-vous d&rsquo;orienter les nouveaux arrivants vers des ressources fiables : que pensez-vous du <a class="link" href="https://bankless.substack.com/p/-guide-1-starting-with-bankless"  target="_blank" rel="noopener"
+    >guide de démarrage de Bankless</a> ?</p>
+<hr>
+<h3 id="le-trou-noir-des-marchés">Le trou noir des marchés
+</h3><p>Si l&rsquo;on prend du recul, la trajectoire des deux dernières années de développement est encore plus logique. Les fonctions financières étaient les premières étapes nécessaires, car elles fonctionnent maintenant comme des primitives permettant des interactions plus complexes.</p>
+<p>À leur base même, les <strong>marchés sont simplement des mécanismes de distribution/allocation</strong>. Jusqu&rsquo;à présent, dans le monde de la finance ancienne, nous avons laissé les technocrates les concevoir, au profit des participants les plus connectés et les plus riches. Avec la DeFi, nous avons expérimenté nos propres façons de créer des marchés. Nous avons déjà assisté à des migrations de capitaux de milliards de dollars pour poursuivre une incitation donnée, pour le UNI d&rsquo;Uniswap ou l&rsquo;incitation d&rsquo;une semaine de mining YFI.</p>
+<p>En bref, notre finance est déjà fortement supérieure à n&rsquo;importe quel équivalent classique et centralisé. Nous pouvons créer des marchés immenses et sains en quelques jours. Leur apporter les produits dérivés et d&rsquo;autres options le lendemain ; et les effets de levier le jour suivant. Le tout inarrêtable.</p>
+<p>Si vous n&rsquo;êtes pas un trader, cela peut sembler excessif. Ce n&rsquo;est pas le cas. Imaginez la finance comme une couche de base sous-jacente à toutes les autres. Quel que soit votre objectif, votre système devra probablement gérer des ressources limitées, vous aurez donc besoin de marchés.</p>
+<p>La bonne nouvelle, c&rsquo;est que nos marchés - nos couches de base - sont plus efficaces que tous les autres, de sorte que nous pouvons raisonnablement nous attendre à ce que l&rsquo;impact de cette efficacité accrue s&rsquo;amplifie à mesure que nous descendons dans la pile. Pour dire les choses simplement, la finance est le premier champ de bataille que nous avons gagné : l&rsquo;approche décentralisée a réussi et a permis d&rsquo;obtenir une infrastructure supérieure sans équivalent. J&rsquo;ai hâte de voir les prochaines !</p>
+<div class="notice tip" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#tip-notice"></use></svg></span>Tip</p><p>Cet article a éveillé votre curiosité ? Vous êtes tombés au bon endroit — nous avons un ecosystème dynamique en français pour vous aider à suivre et comprendre la finance décentralisée. Du plus accessible au plus spécialisé :</p>
+<ol>
+<li><strong><a class="link" href="https://discord.gg/3bWZcK2"  target="_blank" rel="noopener"
+    >💬 Le serveur Discord DeFi France</a></strong> pour échanger avec la communauté.</li>
+<li><strong><a class="link" href="https://thedailygweifr.substack.com/"  target="_blank" rel="noopener"
+    >☕ La version française du Daily Gwei</a></strong> pour des articles et résumés très accessibles.</li>
+<li><strong><a class="link" href="https://banklessfr.substack.com/"  target="_blank" rel="noopener"
+    >🗞 La newsletter BanklessFR</a></strong> pour comprendre les concepts fondamentaux.</li>
+<li><strong><a class="link" href="https://www.youtube.com/channel/UCefQC4Y-X9MBRuYBKc2waiQ"  target="_blank" rel="noopener"
+    >🎥 La chaine Youtube DeFi France</a></strong> pour approfondir avec des lives pointus.</li>
+<li>&amp; Bien sûr <a class="link" href="/fr/" >ce blog</a> qui creuse des sujets spécifiques liés à la pratique de la DeFi.</li>
+</ol></div>
+
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/defi/">DeFi</a>
+        
+            <a href="/tags/ethereum/">Ethereum</a>
+        
+            <a href="/tags/pooltogether/">Pooltogether</a>
+        
+            <a href="/tags/rarible/">Rarible</a>
+        
+            <a href="/tags/gitcoin/">Gitcoin</a>
+        
+            <a href="/tags/communs/">Communs</a>
+        
+            <a href="/tags/nft/">NFT</a>
+        
+            <a href="/tags/banklessfr/">BanklessFR</a>
+        
+    </section>
+
+
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Dec 01, 2020 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/posts/2020/defi-beyond-finance/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">DeFi is a toolbox reaching beyond finance</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2020/swap-swamp.fr/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🐊 Immersion dans la mare aux swaps</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2020/swap-swamp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🐊 Navigating the swap swamps</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2020/next-steps.fr/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">La prochaine étape de mon aventure : un engagement encore plus communautaire</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2020/next-steps/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">One step closer towards working for and answering to the Ethereum &amp; DeFi community</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 TokenBrice - Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.e87374ab760d28dfa333a671a892b101964bde5a2dac9100a50c9b0d779b4505.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

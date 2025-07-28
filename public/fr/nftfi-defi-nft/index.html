@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="La DeFi apporte aux projets NFTs des outils pour résoudre leurs principales limites (comme la liquidité) tandis que les NFTs permettent de rendre la DeFi plus fun et digeste : un mariage parfait ?">
+<title>NFTfi : repousser les limites de NFTs grâce à la DeFi</title>
+
+<link rel='canonical' href='http://localhost:1313/fr/nftfi-defi-nft/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="NFTfi : repousser les limites de NFTs grâce à la DeFi">
+<meta property='og:description' content="La DeFi apporte aux projets NFTs des outils pour résoudre leurs principales limites (comme la liquidité) tandis que les NFTs permettent de rendre la DeFi plus fun et digeste : un mariage parfait ?">
+<meta property='og:url' content='http://localhost:1313/fr/nftfi-defi-nft/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Finance décentralisée' /><meta property='article:tag' content='NFT' /><meta property='article:tag' content='Forgotten Wizard' /><meta property='article:tag' content='Luchadores' /><meta property='article:tag' content='NFTX' /><meta property='article:tag' content='Spectre' /><meta property='article:tag' content='NTFfi' /><meta property='article:published_time' content='2022-03-29T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2022-03-29T01:13:50&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/2022/nft-defi-infrastructure/nft-defi-infrastructure-tokenbrice.png' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="NFTfi : repousser les limites de NFTs grâce à la DeFi">
+<meta name="twitter:description" content="La DeFi apporte aux projets NFTs des outils pour résoudre leurs principales limites (comme la liquidité) tandis que les NFTs permettent de rendre la DeFi plus fun et digeste : un mariage parfait ?"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/2022/nft-defi-infrastructure/nft-defi-infrastructure-tokenbrice.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Afficher le menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/fr/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/fr">TokenBrice</a></h1>
+            <h2 class="site-description">DeFi en brutale honnêteté</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/fr/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Accueil</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/%C3%A0-propos/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>À Propos</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Recherche</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/liens/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Liens</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" >English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" selected>Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Mode sombre</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table des matières</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#defi--nft--nftfi--un-monde-de-possibles-pour-vos-jpegs">DeFi + NFT =&gt; NFTfi : un monde de possibles pour vos JPEGs</a>
+      <ol>
+        <li><a href="#les-services-dachat-et-vente-de-nfts">Les services d’achat et vente de NFTs</a></li>
+        <li><a href="#la-tokénisation-expliquée-avec-la-partialisation-de-nfts">La tokénisation expliquée avec la partialisation de NFTs</a></li>
+        <li><a href="#tokénisation-pour-développer-la-liquidité--les-vaults">Tokénisation pour développer la liquidité : les vaults</a></li>
+        <li><a href="#idol--des-ntfs-pour-tokéniser-un-rendement-defi">Idol : des NTFs pour tokéniser un rendement DeFi</a></li>
+        <li><a href="#agrégation-de-diverses-sources-de-liquidité">Agrégation de diverses sources de liquidité</a></li>
+      </ol>
+    </li>
+    <li><a href="#nft--defi--des-jeux-avec-de-vrais-enjeux">NFT + DeFi =&gt; Des jeux avec de vrais enjeux</a></li>
+    <li><a href="#et-après-">Et après ?</a>
+      <ol>
+        <li><a href="#floordao--nft-x-defi-x-dao">FloorDAO : NFT x DeFi x DAO</a></li>
+        <li><a href="#nft-pour-collatéraliser-des-emprunts-sans-passer-par-un-erc20vault">NFT pour collatéraliser des emprunts (sans passer par un ERC20/vault)</a></li>
+        <li><a href="#évaluation-du-prix-de-nfts--oracle">Évaluation du prix de NFTs / oracle</a></li>
+        <li><a href="#location-de-nft">Location de NFT</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/fr/nftfi-defi-nft/">
+                
+                    <img src="/img/2022/nft-defi-infrastructure/nft-defi-infrastructure-tokenbrice.png" loading="lazy" alt="Featured image of post NFTfi : repousser les limites de NFTs grâce à la DeFi" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/fr/categories/nft/" style="background-color: #2a9d8f; color: #fff;">
+                NFT
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/fr/nftfi-defi-nft/">NFTfi : repousser les limites de NFTs grâce à la DeFi</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            La DeFi apporte aux projets NFTs des outils pour résoudre leurs principales limites (comme la liquidité) tandis que les NFTs permettent de rendre la DeFi plus fun et digeste : un mariage parfait ?
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">mars 29, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    16 minutes de lecture
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+        <footer class="article-translations">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+            <div>
+                
+                    <a href="http://localhost:1313/nftfi-defi-nft/" class="link">English</a>
+                
+            </div>
+        </footer>
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>La finance décentralisée a ouvert un monde de possibles : une myriade d’intermédiaires auparavant nécessaires sont désormais surnuméraires. Malgré tout, elle intimide par sa potentielle complexité et sa transdisciplinarité. Outre la dimension technique évidente, la DeFi invoque également des notions issues de disciplines diverses: économie, sciences sociales, “mémétique”, etc.</p>
+<p>Ainsi, depuis des années déjà, les NFTs ont servi de porte d’entrée vers le monde décentralisé, démontrant les bénéfices de la tokénisation et de la désintermédiation à une population encore peu friande de DeFi.</p>
+<p>Je vous propose donc aujourd’hui de faire converger les deux thèmes principaux de ce blog en un sujet captivant : l’émergence de l’infrastructure DeFi pour les NFTs, ou encore l’arrivée des NFTs/gamification dans la DeFi - c’est une question de perspective.</p>
+<h2 id="defi--nft--nftfi--un-monde-de-possibles-pour-vos-jpegs">DeFi + NFT =&gt; NFTfi : un monde de possibles pour vos JPEGs
+</h2><p>Les cas d&rsquo;utilisation à la croisée de la DeFi et des NFTs sont nombreux et en plein développement. Plutôt qu&rsquo;une liste exhaustive, je vous propose d&rsquo;analyser quelques projets emblématiques pour comprendre comment ils assemblent des éléments des deux univers pour offrir un service pertinent.</p>
+<p>Cette infographie est un bon point de départ pour approfondir votre analyse de la NFTfi si cet article éveille votre curiosité :</p>
+<p><img src="/img/2022/nft-defi-infrastructure/nftfi-landscape.jpeg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="nftfi-landscape"
+	
+	
+></p>
+<p>On commence par le plus intuitif pour ceux qui sont déjà un peu à jour avec la DeFi : l’arrivée d&rsquo;une infrastructure financière pour échanger, mais aussi prêter, rendre productif ou encore fractionnaliser des NFTs. Pour attaquer ce vaste sujet, partons de la première couche : l’infrastructure utilisée pour acheter et vendre des NFTs.</p>
+<h3 id="les-services-dachat-et-vente-de-nfts">Les services d’achat et vente de NFTs
+</h3><p>Jusqu’à peu, les NFTs vivaient une drôle de situation d’entre deux. Par essence, les NFTs permettent la désintermédiation et une interaction plus directe entre les cŕéateurs et leur audience. Cette désintermédiation s’accompagne d’une réduction massive des frais engagés pour mettre une œuvre sur le marché et de nouvelles possibilités, comme leur interactivité.</p>
+<p>Seulement voilà, les NFTs restent échangés principalement sur un service qui n’est pas  à leur hauteur, j’ai nommé OpenSea - qui reste encore dominant bien que la situation évolue rapidement depuis l’arrivée de LooksRare.</p>
+<p>Sans trop s’étendre, OpenSea connaît de nombreuses limites :</p>
+<ul>
+<li>Un frais proche de l’usure pour chaque échange - 2.5% - et qui est réservé exclusivement à l’équipe.</li>
+<li>Un manque de respect des plus basiques pour la communauté NFT : violation de leur vie privée, manipulation, etc.</li>
+<li>Un certain mépris pour les projets NFTs les plus communautaires : les mécanismes de vérification sur OpenSea sont assez peu transparents et ne dépendent pas réellement du volume. Des projets pitoyables, mais portés par des célébrités, se sont ainsi vu vérifiés rapidement tandis que les Luchadores, par exemple, attendent encore.</li>
+<li>Un manque d’investissement dans son propre développement : la plateforme est lente à évoluer et n’écoute pas ses utilisateurs.</li>
+<li>Une approche 100% business : <a class="link" href="https://www.crunchbase.com/organization/opensea/company_financials"  target="_blank" rel="noopener"
+    >OpenSea a réalisé 9 levées de fonds</a> jusqu’à présent, et ce, malgré les profits gargantuesques qu’ils génèrent via le frais excessif prélevé : $100M de volume <strong>sur 1 jour</strong> ⇒ $2.5M dans les poches de la team (- frais opérationnels, mais quand même…)</li>
+</ul>
+<p>On obtient ainsi une situation proche des fournisseurs d’accès internet américains : OpenSea est utilisé par tous dans le monde des NFTs, mais également <strong>viscéralement détesté par une part non négligeable de ses utilisateurs</strong>.</p>
+<p>Commençons donc par regarder les données qui sont éloquentes :</p>
+<p><img src="/img/2022/nft-defi-infrastructure/looksrare-vs-opensea.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="looksrare-vs-opensea"
+	
+	
+></p>
+<p>On regarde ici simplement le volume. En termes de nombre d’utilisateurs et de transactions OpenSea domine encore largement. Vous pouvez retrouver toute la donnée sur le super dashboard <a class="link" href="https://twitter.com/hildobby_"  target="_blank" rel="noopener"
+    >d’Hildoby</a> : <a class="link" href="https://dune.xyz/hildobby/LooksRare-VS-OpenSea"  target="_blank" rel="noopener"
+    >LooksRare VS Opensea (Dune Analytics)</a>.</p>
+<p>On était nombreux à attendre une alternative crédible, et heureusement elle est arrivée : LooksRare. Le cas vaut la peine d’être creusé, mais en résumé LooksRare c’est l’exact inverse d’OpenSea :</p>
+<ul>
+<li>Les frais de transaction sont réduits à 2% et <strong>redistribués entièrement</strong> aux stakers du token LOOKS.</li>
+<li>L’équipe LooksRare se montre très à l’écoute de la communauté et en deux mois d’existence, ils ont déjà implémenté de très nombreuses fonctionnalités demandées par leurs utilisateurs.</li>
+<li>Le token LOOKS a été airdrop aux utilisateurs d’OpenSea. Il s’obtient désormais en achetant ou vendant des NFT sur Looksrare : <strong>une distribution directe</strong> aux utilisateurs du service.</li>
+<li>Une stratégie de POL (Protocol Owned Liquidity) est mise en place par le protocole : une part non négligeable de la liquidité sur LOOKS est possédée directement par celui-ci.</li>
+</ul>
+<p>Le protocole possède ainsi déjà près de $13M en ETH+LOOK déployé sur UniswapV3 pour soutenir la liquidité - voici <a class="link" href="https://debank.com/profile/0xc8c57e4c73c71f72ca0a7e043e5d2d144f98ef13"  target="_blank" rel="noopener"
+    >le wallet de LooksRare</a> pour vérifier par vous même. Les frais collectés sur le LP sont utilisés pour… apporter toujours plus de liquidité !</p>
+<p><img src="/img/2022/nft-defi-infrastructure/looksrare-pol.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="looksrare-pol"
+	
+	
+></p>
+<p>Ce nouveau jeu de règles permet à LooksRare d’être extrêmement compétitif par rapport à Opensea, puisque le frais est 20% plus bas, et que chaque achat/vente est également rémunéré en LOOKS. Le résultat est sans appel : acheteur comme vendeur gagnent tous deux à préférer LooksRare à Opensea.</p>
+<p><img src="/img/2022/nft-defi-infrastructure/looksrare-vs-opensea-cost.jpeg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="looksrare-vs-opensea-cost"
+	
+	
+></p>
+<h3 id="la-tokénisation-expliquée-avec-la-partialisation-de-nfts">La tokénisation expliquée avec la partialisation de NFTs
+</h3><p>Échanger des NFTs, c’est top : encore faut-il comprendre ce qu’il y a dans la boîte ! On va donc détailler les enjeux de la tokénisation avec plusieurs exemples. En effet, les possibilités offertes par cette dernière sont immenses, alors illustrons les !</p>
+<p>Prenons donc le temps de bien expliquer le concept. Tokéniser, c’est l’action de créer un token (token qui <strong>représente</strong> quelque chose). À première vue comme ça, l’intérêt peut être dur à concevoir. Néanmoins, tokéniser permet également une forme “d’alchimie” : une transmutation - un changement du type de token du fongible à non-fongible, et vice-versa.</p>
+<p>Prenons un exemple qui illustre bien les bénéfices de la tokénisation - le cas de <strong>la fractionalisation d’un NFT</strong>.</p>
+<ol>
+<li>On part donc d’un token non fongible spécifique, le CryptoPunk #666 par exemple.</li>
+<li>On le verrouille dans un contrat qui émet 10 000 PUNK tokens, des tokens ERC-20.</li>
+<li>On a maintenant un token qui représente 1/10 000 du CryptoPunk #666 original. Ce token est un ERC-20 classique et donc échangeable facilement via Uniswap ou autre (⚠️ Liquidité)</li>
+</ol>
+<p>⇒ La tokénisation permet ici <strong>la possession collective d’un bien unique</strong> (le NFT CryptoPunk #666).</p>
+<p>Ce concept, tout en illustrant les bénéfices de la tokénisation correspond également à un cas d’usage réel. La réalité est bien sûr plus complexe, puisque nous avons décrit ici seulement le mécanisme de collectivisation (1 NFT ⇒ 10 000 ERC20). Le chemin inverse est aussi possible pour récupérer l’accès au NFT verrouillé : 10 000 PUNK ⇒ NFT CryptoPunk #666 : c’est la privatisation.</p>
+<p>Ce modèle, c’est celui de <a class="link" href="https://spectre.xyz/litepaper"  target="_blank" rel="noopener"
+    >Spectre.xyz</a>, un service qui permet de gérer la collectivisation et privatisation de NFTs.</p>
+<p><img src="/img/2022/nft-defi-infrastructure/spectre.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="spectre"
+	
+	
+></p>
+<p>Outre la possession collective, une telle solution a aussi un intérêt en terme de liquidité : le token obtenu (PUNK) est un ERC20 classique, il est donc bien plus aisé de développer des solutions permettant son achat et sa vente immédiate qu’avec un NFT, qui nécessite la rencontre d’une demande et d’une offre simultanée.</p>
+<h3 id="tokénisation-pour-développer-la-liquidité--les-vaults">Tokénisation pour développer la liquidité : les vaults
+</h3><p>Une fois la tokénisation bien comprise, le prochain chapitre - les vaults NFT - est presque une évidence. Un des enjeux sur les NFTs, c’est la liquidité des marchés. La non fongibilité c’est chouette pour faire des collections de 10 000 pièces toutes uniques bien que similaires - mais <em>quid</em> de la valorisation et de l’échange de celles-ci?</p>
+<p>Outre LooksRare et Opensea précédemment mentionné, il existe d’autres places de marché pour les NFTs qui s’appuient sur une logique différente : c’est <strong>le modèle des vaults NFT</strong> - qui a de nombreux intérêts, mais aussi des limites - la principale étant que cette approche n’est possible qu’avec des grosses collections (plusieurs centaines d’unités) et/ou assez populaires (forte demande).</p>
+<ol>
+<li>[MINT] Un “vault” (smart contract) spécifique à une collection est créé ; les utilisateurs peuvent déposer leur NFTs dans celui-ci.</li>
+<li>Lorsqu’un utilisateur dépose un NFT dans le vault, sa contribution est reconnue par l’émission d’un token ERC20.</li>
+<li>[REDEEM] À tout moment, le token ERC20 peut être échangé contre n’importe quel NFT du vault. Le token ERC20 est alors détruit.</li>
+</ol>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice warning" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#warning-notice"></use></svg></span>Avertissement</p><p>⚠️ Vous l’aurez compris, le vault assume que tous les NFTs sont équivalents : mieux vaut donc rentrer dans un vault avec un NFT parmi les moins rares de la collection donnée.</p></div>
+
+<p>Le leader en la matière, c’est probablement <a class="link" href="https://nftx.io/vault/0x87931e7ad81914e7898d07c68f145fc0a553d8fb/info/"  target="_blank" rel="noopener"
+    >NFTX</a>, mais il y a aussi <a class="link" href="https://nft20.io/"  target="_blank" rel="noopener"
+    >NFT20</a>. Cette méthode permet d’obtenir un token ERC20 - par exemple le WIZARD - qui correspond à un claim sur n’importe quel NFT du vault, en l&rsquo;occurrence n’importe lequel des 215 Forgotten Wizard Cult (NFTs) contenu dans <a class="link" href="https://nftx.io/vault/0x87931e7ad81914e7898d07c68f145fc0a553d8fb/info/"  target="_blank" rel="noopener"
+    >le vault.</a></p>
+<p><img src="/img/2022/nft-defi-infrastructure/nftx-wizard-list.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="nftx-wizard-list"
+	
+	
+></p>
+<p>La liquidité sur le token WIZARD peut être développée contre ETH par exemple, permettant ainsi l’achat immédiat de n’importe quel wizard contenu dans le vault. L’inverse est également possible : tout possesseur d’un Forgotten Wizard Cult peut le déposer dans le vault afin d’obtenir 1 WIZARD qu’il pourra ensuite vendre pour de l’ETH.</p>
+<p>Et enfin NFTX va même plus loin puisque le token natif de la plateforme ainsi que les frais collectés sont utilisés pour proposer des incitations à deṕoser dans le vault et développer la liquidité. <strong>Les utilisateurs qui</strong> <strong>déposent des NFTs dans le vault sont ainsi éligibles à une rémunération de staking</strong> - et des rendements plus élevés sont possible pour ceux qui déposent + LP : la financiarisation des NFTs est lancée !</p>
+<p><img src="/img/2022/nft-defi-infrastructure/nftx-wizard.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="alt_text"
+	
+	
+></p>
+<p>On se concentre ici sur la liquidité, mais il faut garder en tête que le passage d’un NFT à un ERC-20 vient avec de nombreux autres avantages :</p>
+<ol>
+<li>Si la liquidité sur la paire est suffisante - alors elle devient également <strong>une source de prix</strong>.</li>
+<li>Qui dit source de prix (oracle) + liquidité dit… collatéral évidemment ! Avec ces deux éléments, rien n’empêche d’envisager le WIZARD comme <strong>collatéral pour emprunter</strong> d’autres tokens comme des stablecoins. C’est faisable mais bien plus complexe en partant directement du NFT.</li>
+<li>Enfin, gardez en tête qu’il n’y a pas de limite à la tokénisation, tant qu’il y a un intérêt. On est resté ici sur des cas de tokénisation unique, mais des <strong>scénarios de tokénisations enchevêtrées</strong> sont également envisageables.</li>
+</ol>
+<p>Un token ERC-20 qui représente un claim sur un Wizard donné, c’est top. Maintenant imaginez que vous ayez la même chose pour les CryptoPunks, le BAYC et ainsi de suite - c’est le cas sur NFTX. Rien n’empêche d’envisager une étape de tokénisation supplémentaire pour créer un <strong>index NFT</strong> représenté par un token ERC20 mais qui serait lui meme** échangeable contre les tokens représentants les actifs sous-jacents:** :</p>
+<p>On pourrait ainsi imaginer le NFT-Bluechip-Index, un token ERC-20 créé en verrouillant 1 WIZARD + 1 PUNK + 1 BAYC. Ce token serait facilement liquide, et permettrait ainsi de s’exposer facilement aux trois collections en une seule transaction. En outre, le token resterait entièrement collatéralisé à tout moment par 1 NFT de chaque collection. Un possesseur du NFT-Bluechip-Index pourrait tout à fait faire la marche inverse à tout moment, c’est à dire :</p>
+<ol>
+<li>[Avec le contrat NFT-Bluechip] : burn de 1 NFT-Bluechip-Index pour récupérer 1 WIZARD + 1 PUNK + 1 BAYC</li>
+<li>[En utilisant les contrats/vaults de NFTX] burn de 1 WIZARD + 1 PUNK + 1 BAYC pour récupérer un NFT (au choix parmi ceux qui sont dans le vault) de chaque collection sous-jacente.</li>
+</ol>
+<h3 id="idol--des-ntfs-pour-tokéniser-un-rendement-defi">Idol : des NTFs pour tokéniser un rendement DeFi
+</h3><p>Pour continuer et finir sur la tokénisation, sachez  qu’elle permet également de faire le lien entre les deux mondes - les NFTs et la DeFi : l’exemple parfait ici c’est le projet <a class="link" href="https://www.theidols.io/"  target="_blank" rel="noopener"
+    >IdolsNFT</a>.</p>
+<p>Les IdolsNFT ont été vendus initialement via une bonding curve pour un prix entre 0.25 et 0.5 ETH. Tous les ETH collectés durant la vente sont stakés via Lido (StETH). Posséder un Idol vous rend éligible à la part correspondante des rendements. Ici, c’est donc le rendement généré par les StETH qui est tokenisé.</p>
+<p><img src="/img/2022/nft-defi-infrastructure/idol-nfts.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="idols-nft"
+	
+	
+></p>
+<p>Et le projet va même plus loin ! En effet, il y a aussi un ERC-20 dans l’histoire, le VIRTUE, initialement distribué aux premiers acheteurs. Désormais pour obtenir du VIRTUE, il faut bond des stETH (-&gt; ce qui augmente le capital productif du projet).</p>
+<p>Le VIRTUE correspond à une exposition par proxy sur les IdolsNFT : pour chaque vente d’un NFT Idol, un frais de 7.5% est prélevé et reversé aux stakers de VIRTUE.</p>
+<p><img src="/img/2022/nft-defi-infrastructure/idol-cycle.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="idolnfts-virtue-cycle"
+	
+	
+></p>
+<p>Ainsi, les Idols, “Gardiens d’Ethereum” utilisent les NFTs pour rendre le staking d’ETH plus fun et interactif. En outre, la capture des frais sur le token VIRTUE permet d’éviter une “capture externe” des frais générés par les échanges de IdolsNFT comme c’est le cas pour les NFTs échangés sur NFTX par exemple.</p>
+<p>Enfin, les gros possesseurs de la collection ont un chemin tout tracé pour composer leur rendement si leur conviction est forte :</p>
+<ol>
+<li>Possession de plusieurs IdolsNFT ⇒ Yield en stETH</li>
+<li>Composition des stETH farmés via bonding ⇒ VIRTUE</li>
+<li>Stake des VIRTUE ⇒ Yield en ETH</li>
+<li>Staking ETH avec Lido ⇒ StETH ⇒ Bonding pour des VIRTUE puis stake</li>
+</ol>
+<p>Quoi qu&rsquo;il arrive avec cette collection, je pense qu’elle a posé les bases de ce que peuvent être les collections NFTs augmentées par et synergétique avec la DeFi. Je m’attends à voir de nombreuses autres variations pertinentes sur ce modèle.</p>
+<h3 id="agrégation-de-diverses-sources-de-liquidité">Agrégation de diverses sources de liquidité
+</h3><p>Dans cet article, on a déjà mentionné trois plateformes différentes pour acheter ou vendre des NFTs : OpenSea, LooksRare et NFTX. La réalité est encore plus dense, il existe une armada de places de marché pour les NFTs, plus ou moins réussies et plus ou moins spécialisées, en voici quelques autres : <a class="link" href="https://rarible.com/"  target="_blank" rel="noopener"
+    >Rarible</a>, <a class="link" href="https://superrare.com/"  target="_blank" rel="noopener"
+    >Superrare</a>, <a class="link" href="https://foundation.app/"  target="_blank" rel="noopener"
+    >Foundation</a>, <a class="link" href="https://nft20.io/"  target="_blank" rel="noopener"
+    >NFT20</a>, etc.</p>
+<p>Face à cette myriade d’options, les acheteurs n’ont pas forcément le temps, l’envie, l’énergie ou bien encore la connaissance pour explorer toutes leurs options avant de conclure une transaction. La situation est très similaire à l’achat/vente d’un token ERC20 en DeFi : la liquidité est très fragmentée. Logiquement, la solution est donc similaire à celle déployée en DeFi : l&rsquo;agrégation.</p>
+<p><img src="/img/2022/nft-defi-infrastructure/gem-xyz.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="gem.xyz"
+	
+	
+></p>
+<p>Il existe ainsi plusieurs services capables de diriger les “ordres” vers différentes places de marché, voire de ŕealiser un “swipe” sur plusieurs plateformes avec une seule transaction : il s’agit de <a class="link" href="https://genie.xyz"  target="_blank" rel="noopener"
+    >Genie</a> et <a class="link" href="https://gem.xyz"  target="_blank" rel="noopener"
+    >Gem</a>.</p>
+<p>Là encore, c&rsquo;est la réactivité de l’équipe et la composabilité du service qui feront la différence sur le long terme : Gem semble avoir pris de l’avance grâce à son intégration avancée de LooksRare (claim LOOKS possible pour les acheteurs via Gem).</p>
+<hr>
+<h2 id="nft--defi--des-jeux-avec-de-vrais-enjeux">NFT + DeFi =&gt; Des jeux avec de vrais enjeux
+</h2><p>Si la DeFi a découvert le marché énorme qu’est les NFTs récemment, la marche inverse s’observe aussi : <strong>l’arrivée de composantes DeFi dans des projets NFTs</strong> - on parle souvent de GameFi pour décrire cette tendance.</p>
+<p>Cela fait plusieurs années déjà que les premières itérations de GameFi sont apparues, avec des jeux qui peuvent devenir une source de revenu crédible pour leurs joueurs : le plus célèbre est bien sûr <a class="link" href="https://axieinfinity.com/"  target="_blank" rel="noopener"
+    >Axie Infinity</a>, mais il en existe quantité d’autres : <a class="link" href="https://www.aavegotchi.com/"  target="_blank" rel="noopener"
+    >AaveGotchi</a>, <a class="link" href="https://cryptoraiders.xyz/"  target="_blank" rel="noopener"
+    >CryptoRaiders</a>, etc.</p>
+<p>Hélas je ne suis moi-même pas très actif sur ces projets, je vous propose donc de détailler un qui m’est plus familier : les Luchadores. Ici encore, on retrouve des composantes DeFi qui se greffent sur le projet NFT :</p>
+<ul>
+<li>Posséder un Luchador (NFT) donne le droit à un rendement en LUCHA (token ERC20).</li>
+<li>Le protocole possède environ <a class="link" href="https://debank.com/profile/0x0cb11b92fa5c30eafe4ae84b7bb4df3034c38b9d"  target="_blank" rel="noopener"
+    >60% de la liquidité sur les deux paires LUCHA</a>, grâce aux fonds levés pendant la vente des premières pinatas.</li>
+</ul>
+<div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Remarque</p><p>Les 🪅 sont des tokens ERC-1155 qui contiennent 1 accessoire pour Luchadores, dont la rareté est déterminée par un aléatoire vérifiable (<a class="link" href="https://blog.chain.link/vrf-v2-mainnet-launch/"  target="_blank" rel="noopener"
+    >Chainlink VRF</a>).</p></div>
+
+<ul>
+<li>Le protocole possède également une trentaine de Luchadores (⇒Yield en LUCHA) acheté avec une partie des profits de la première pinata : l’achat a été effectué en utilisant un agrégateur.</li>
+<li>Une place de marché est disponible pour les accessoires, avec paiement en LUCHA : une redistribution des frais collectés est également envisageable.</li>
+</ul>
+<p><img src="/img/2022/nft-defi-infrastructure/luchadores.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="luchadores"
+	
+	
+></p>
+<p>Le jeu n’est pas encore disponible (Alpha d’ici la fin Mars !), mais les interactions de ce type ne vont que se densifier au fur et à mesure de son développement. Avec l’arrivée du jeu, viendront de nouvelles fonctionnalités : staker ses tokens LUCHA permettra d’obtenir des MASK, un token non-transférable mais nécessaire pour acheter différents objets servant à augmenter la puissance de ses Luchadores.</p>
+<p>Dès le lancement du jeu, les joueurs gagneront des LUCHA à chaque victoire. En fonction de leur classement, la quantité de LUCHA obtenus augmente : les meilleurs joueurs pourront ainsi dégager des retours intéressants, pour un coût initial très modéré (1 Luchador, potentiellement minté pour ~0.03 ETH). Soyez prêts !</p>
+<p>Si vous découvrez les Luchadores avec cet article, n&rsquo;hésitez pas à lire cette introduction : <strong><a class="link" href="https://tokenbrice.xyz/content/posts/2021/luchadores-nft.fr.md"  target="_blank" rel="noopener"
+    >🤼 Vive la lutte libre (et vérifiable onchain)</a></strong></p>
+<hr>
+<h2 id="et-après-">Et après ?
+</h2><p>Dans cet article, on est encore resté sur la partie visible de l’iceberg. À la croisée de la DeFi et des NFTs, il reste quantité de nouveaux cas d’utilisation possibles. Je vous propose d’en faire une liste accompagnée des principaux services qui explorent ces champs :</p>
+<h3 id="floordao--nft-x-defi-x-dao">FloorDAO : NFT x DeFi x DAO
+</h3><p><a class="link" href="https://floor.xyz/"  target="_blank" rel="noopener"
+    >FloorDAO</a> c’est en quelque sorte une couche supplémentaire construite sur NFTX. FloorDAO utilise le modèle OlympusDAO mais adapté pour les NFTs. L&rsquo;objectif est d&rsquo;assurer un rendement et soutenir la liquidité sur les collections concernées (Punk et Wizard pour l&rsquo;instant). Comment ? Simple : pour les collections concernées, les possesseurs du token NFTX correspondant (ex WIZARD pour les Forgotten Wizards) ainsi que le LP (WIZARD/ETH) peuvent le bond pour obtenir des tokens FLOOR.</p>
+<p><img src="/img/2022/nft-defi-infrastructure/floordao-bond.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="floordao-bond"
+	
+	
+></p>
+<p>Les tokens et LP collectés sont utilisés par FloorDAO pour produire un rendement (staking NFTX). La communauté (holders de gFLOOR) vote pour décider les prochains actifs à acquérir. Olympus utilise l&rsquo;inflation de son token de gouvernance pour acquérir des actifs stratégiques commme DAI, LUSD, ou CRV ; FloorDAO fait la même chose mais avec pour cible des tokens NFTX et donc backés par un NFT.</p>
+<p>Là encore, le protocole possède une part de la liquidité sur FLOOR/ETH (sur Uniswap) et les frais générés par la position contribuent au rendement de la trésorerie.</p>
+<h3 id="nft-pour-collatéraliser-des-emprunts-sans-passer-par-un-erc20vault">NFT pour collatéraliser des emprunts (sans passer par un ERC20/vault)
+</h3><p>La principale limite à surmonter ici est bien sûr le fait que la vente de NFT se fait dans une logique bid/ask et n’est donc pas immédiate. Plusieurs projets s’attaquent malgré tout au problème :</p>
+<ul>
+<li><a class="link" href="https://drops.co"  target="_blank" rel="noopener"
+    >DropsDAO</a> : qui importe la logique des lending pools, pour des collections NFTs</li>
+<li><a class="link" href="https://www.arcade.xyz/"  target="_blank" rel="noopener"
+    >Arcade.xyz</a> : les OGs se souviennent d’ETHLend, l’ancêtre d’Aave. Arcade c’est la même logique mais pour des NFTs : un service d’emprunt sans pool, qui marche par offre/demande.</li>
+<li><a class="link" href="https://twitter.com/JPEGd_69"  target="_blank" rel="noopener"
+    >JPEGd'69</a> - qui devrait bientôt se lancer et permettre d&rsquo;utiliser les CryptoPunks comme collatéral.</li>
+<li>Ou encore <a class="link" href="https://www.nftfi.com/"  target="_blank" rel="noopener"
+    >NFTfi</a>.</li>
+</ul>
+<h3 id="évaluation-du-prix-de-nfts--oracle">Évaluation du prix de NFTs / oracle
+</h3><p>Pour les emprunts, il faut une source de prix afin de déterminer si la position est solvable. Là encore plusieurs projets s’y collent :</p>
+<ul>
+<li><a class="link" href="https://abacus.wtf/"  target="_blank" rel="noopener"
+    >Abacus</a> - un service décentralisé pour évaluer le prix d’un NFT</li>
+<li><a class="link" href="https://pilgrim.money/"  target="_blank" rel="noopener"
+    >Pilgrim</a> - un AMM / méthode de valorisation pour les NFTs</li>
+</ul>
+<h3 id="location-de-nft">Location de NFT
+</h3><p>La location permet par exemple d’emprunter un NFT pour jouer à un jeu sans avoir à le posséder. Elle crée aussi des opportunités pour les gros possesseurs de NFT d’une collection GameFi.</p>
+<ul>
+<li><a class="link" href="https://beta.rentable.world/"  target="_blank" rel="noopener"
+    >Rentable</a>, un protocol généraliste pour la location.</li>
+<li>Prêt de vaisseau + partage de revenus générés avec sur <a class="link" href="https://www.cometh.io/"  target="_blank" rel="noopener"
+    >Cometh</a></li>
+<li><a class="link" href="https://axie.fr/tutoriel-scholarship-axie-quest-ce-quun-scholarship-et-comment-postuler/"  target="_blank" rel="noopener"
+    >Modèle scholarship Axie Infinity</a></li>
+</ul>
+<hr>
+<p>Enfin, pour aller plus loin dans votre exploration de l&rsquo;infrastructure DeFinancière NFT / la NFTfi, n’hésitez pas à voir ou revoir le live réalisé avec CookingCrypto où on nous en discutons et revenons sur son expérience après plus d’un an dans les tranchées du minting/flipping de NFTs :</p>
+<div class="video-wrapper">
+    <iframe loading="lazy" 
+            src="https://www.youtube.com/embed/cdj-wXvIuwU" 
+            allowfullscreen 
+            title="YouTube Video"
+    >
+    </iframe>
+</div>
+
+<p><em>Merci à Charles, FrenchTony, Disiaque et Arthursw pour la relecture et correction de cet article.</em></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/fr/tags/defi/">DeFi</a>
+        
+            <a href="/fr/tags/ethereum/">Ethereum</a>
+        
+            <a href="/fr/tags/finance-d%C3%A9centralis%C3%A9e/">Finance Décentralisée</a>
+        
+            <a href="/fr/tags/nft/">NFT</a>
+        
+            <a href="/fr/tags/forgotten-wizard/">Forgotten Wizard</a>
+        
+            <a href="/fr/tags/luchadores/">Luchadores</a>
+        
+            <a href="/fr/tags/nftx/">NFTX</a>
+        
+            <a href="/fr/tags/spectre/">Spectre</a>
+        
+            <a href="/fr/tags/ntffi/">NTFfi</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Dernière mise à jour le mars 29, 2022 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Contenus liés</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/fr/lusd-chicken-bonds/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/lusd-chicken-bonds/lusd-chicken-bonds-cover-tokenbrice.png" loading="lazy" data-key="" data-hash="/img/2022/lusd-chicken-bonds/lusd-chicken-bonds-cover-tokenbrice.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Chicken Bonds : synergie DeFi x NFT pour résoudre le problème de l&#39;oeuf et de la poule de la ĺiquidité en finance décentralisée</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/p/les-tokens-non-fongibles-expliqu%C3%A9s-par-tortank-et-dracaufeu/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2018/nft/cover.png" loading="lazy" data-key="" data-hash="/img/2018/nft/cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Les tokens non fongibles expliqués par Tortank et Dracaufeu</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/leverage-sir/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2025/leverage-sir/leverage-sir-cover.jpg" loading="lazy" data-key="" data-hash="/img/2025/leverage-sir/leverage-sir-cover.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Effet de Levier pour gentilhomme : gains polynomiaux sans liquidations</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/defi-ux-disaster/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2025/defi-ux-disaster/defi-ux-disaster-cover.png" loading="lazy" data-key="" data-hash="/img/2025/defi-ux-disaster/defi-ux-disaster-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Le cauchemard UX de la DeFi : comment la curation pourrait sauver l&#39;innovation</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/stablecoin-marauder-map/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2023/stablecoin-marauder-map/stablecoin-marauder-map-cover.png" loading="lazy" data-key="" data-hash="/img/2023/stablecoin-marauder-map/stablecoin-marauder-map-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">La carte du Maraudeur des stablecoins</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Généré avec <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Thème <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> conçu par <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

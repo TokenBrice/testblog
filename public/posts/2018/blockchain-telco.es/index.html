@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Cual es el aporte de la blockchain a la industria de las telecomunicaciones. Blockchain y  telcos - el inicio de la desintermediación?">
+<title>Blockchain llega a las Telecomunicaciones: Oportunidad, Riesgo, o Necesidad?</title>
+
+<link rel='canonical' href='http://localhost:1313/posts/2018/blockchain-telco.es/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Blockchain llega a las Telecomunicaciones: Oportunidad, Riesgo, o Necesidad?">
+<meta property='og:description' content="Cual es el aporte de la blockchain a la industria de las telecomunicaciones. Blockchain y  telcos - el inicio de la desintermediación?">
+<meta property='og:url' content='http://localhost:1313/posts/2018/blockchain-telco.es/'>
+<meta property='og:site_name' content='TokenBrice - Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='telco' /><meta property='article:tag' content='blockchain' /><meta property='article:tag' content='autentificación de dispositivos' /><meta property='article:tag' content='reventa de los datos móviles' /><meta property='article:published_time' content='2018-11-28T14:00:52&#43;00:00'/><meta property='article:modified_time' content='2018-11-28T14:00:52&#43;00:00'/>
+<meta name="twitter:title" content="Blockchain llega a las Telecomunicaciones: Oportunidad, Riesgo, o Necesidad?">
+<meta name="twitter:description" content="Cual es el aporte de la blockchain a la industria de las telecomunicaciones. Blockchain y  telcos - el inicio de la desintermediación?">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">TokenBrice - Blog</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/-blockchain/" >
+                ⛓ Blockchain
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/2018/blockchain-telco.es/">Blockchain llega a las Telecomunicaciones: Oportunidad, Riesgo, o Necesidad?</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Cual es el aporte de la blockchain a la industria de las telecomunicaciones. Blockchain y  telcos - el inicio de la desintermediación?
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Nov 28, 2018</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    13 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p><img src="/img/2018/blockchain-telco/cover.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p><em>Puede la industria de telecom beneficiarse de la blockchain y descentralizar la gestión de las tecnologias?</em></p>
+<p>La blockchain y otras tecnologias están llamadas a revolucionar muchas industrias. Mientras que los componentes técnicos no son nada nuevo en si, la blockchain los relaciona en una disposición, hasta el momento inexplorada, que permite <strong>muchas y nuevas utilizaciones.</strong> Principalmente, la blockchain es una nueva clase de base de datos viva y autoactualizable que explora nuevos modelos de gobernabilidad.</p>
+<p>Antes de sumergirnos en la aplicación de la blockchain en la industria de las telecomunicaciones, vamos a revisar algunas de las dimensiones mas críticas de la blockchain. Así estaremos en capacidad de considerar la potencial <strong>utilización que la blockchain le permite a esta industria</strong> con ejemplos propios de proyectos existentes siempre que sea posible.</p>
+<h3 id="una-introducción-de-3-minutos-en-la-blockchain">Una introducción de 3 minutos en la blockchain
+</h3><h4 id="que-es-la-blockchain">Que es la blockchain?
+</h4><p>La blockchain (y otros tipos de tecnologías conocidas como DLT) permite alimentar diferentes tipos de relaciones entre proveedores de servicios/datos y sus usuarios. La principal innovación que la blockchain aporta es su radica es su <strong>naturaleza de distribución</strong>. ??????</p>
+<p>Mediante la mecánica de la teoría del juego y de los sellos cryptgráficos, la blockchain ofrece una solución confiable al reto de <strong>mantener una base de datos sin  que una autoridad central</strong> (como una institución), garantice su validez.</p>
+<p>En cambio, <strong>una red de pares</strong> revisa las transacciones y las que son validadas son integradas en la cadena. El mecanismo de revisión depende de las necesidades y los problemas que la cadena resuelve.</p>
+<p>El minaje es el mas conocido de estos mecanismos, y actualmente es usado por los proyectos mas prominentes como Bitcoin y Ethereum.</p>
+<p>Además, la blockchain es irreversible. Una vez un cambio es revisado y validdo por los pares que sostienen la red, no puede ser alterado. Cada nuevo &ldquo;bloque&rdquo; que se añade después hace que sea aún menos probable que se modifique. Cada nueva transacción agregada en la cadena tiene un <strong>sello temporal</strong>, y <strong>cryptográficamente sellada</strong></p>
+<p>Es mas, todas las transacciones son públicas y <strong>auditables</strong> - cualquiera puede comprobar en cualquier momento que bloque que ha sido validado, cuando, por quien, y que transacciones contiene (dirección emisora, dirección receptora y la suma transferida)</p>
+<p>La combinación del mecanismo de validación entre pares, el sello cryptográfico y la transparencia que ofrece el caracter público de la blockchain los hace <strong>super confiables</strong>: sus usuarios no necesitan confiar en un órgano central que valide la transacción, ya que este no existe. Además, como el registro es público, cualquiera puede verificar que no hay manipulaciones indebidas.</p>
+<p><img src="/img/2018/blockchain-telco/benefits.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Beneficios potenciales de la blockchain (fuente)"
+	
+	
+>
+<em>Beneficios potenciales de la blockchain (</em><a class="link" href="https://www.lexology.com/library/detail.aspx?g=10f56b96-b249-4621-949c-f25514fc127a"  target="_blank" rel="noopener"
+    ><em>fuente</em></a><em>)</em></p>
+<h3 id="que-ofrece-la-blockchain">Que ofrece la blockchain?
+</h3><p>Inicialmente la blockchain fue desarrollada como una alternativa al sistema monetario centralizado, con proyectos como Bitcoin y Litecoin, que tienen mucha prensa. Sinembargo, los <strong>registros descentralizados, transparentes y auditables</strong> que ofrece la base del sistema de la blockchain permite innovar en muchas utilizaciones de todos los sectores.</p>
+<p>Es <strong>el eslabón que faltaba para pasar</strong> de sistemas con diferentes niveles de intermediación, donde cada nivel requiere su propio grado de confianza y a la vez genera oportunidades de manipulaciones abusivas, a un sistema mas directo y autónomo.</p>
+<p>Por autónomo, no hacemos referencia a la fantasía del robot auto determinado por la inteligencia aritficial sino todo lo contrario: sistemas orientados por los pares, con suficientes controles y mecanismos incorporados para no necesitar agentes externos (como leyes) para mantenerse por ellos mismos.</p>
+<p><img src="/img/2018/blockchain-telco/buzzword.jpeg"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>La base de la tecnologia de la blockchain está en sus <strong>inicios de desarrollo</strong> y aún no está lista para lograr esta visión. No obstante, no debe descartarse por completo hasta que se produzcan nuevos avances.</p>
+<p>A pesar de las limitaciones de los actuales sustemas de IA, hemos encontrado muchas utilizaciones para ellos. Siguen fallando criticamente en tareas complejeas que implican varios procesos entrelazados, pero son muy eficaces con pequeñas tareas bien definidas: <a class="link" href="https://www.bbc.com/news/technology-40042581"  target="_blank" rel="noopener"
+    >venciendo el campeón de Go,</a> <a class="link" href="https://www.asmag.com/showpost/24046.aspx"  target="_blank" rel="noopener"
+    >traffic monitoring</a>, o <a class="link" href="https://www.theguardian.com/technology/2011/feb/17/ibm-computer-watson-wins-jeopardy"  target="_blank" rel="noopener"
+    >trivia games</a>.</p>
+<p>En sus inicios, los sitemas realizados en la blockchain están sujetos a implementaciones similares. Ellos van a <strong>adquirir un objetivo bien definido</strong> en las industrias, comenzando en lugares donde hay una gran necesidad de trazabilidad y transparencia y donde la intermediación actual es bastante presente.</p>
+<h3 id="blockchain-en-la-práctica-estudios-de-caso">Blockchain en la práctica: estudios de caso
+</h3><p>La confianza es el pilar de los negocios. La blockchain permite <strong>integrar la confianza a una solución tecnológica</strong>. Esto va a optimizar las relaciones entre los socios y va a reducir las fricciones entre las distintas partes interesadas en un determinado sistrma.</p>
+<p>La dimensión descentralizada de los sistemas creados en la blockchain, de mantenerse, podria fomentar un nuevo tipo de confianza que ya no se basa en el actor, sino que se apoya en la <strong>credibilidad obtenida por los propios sistemas</strong>.</p>
+<h4 id="y-para-que-sirve-la-blockchain">Y, para que sirve la blockchain?
+</h4><ul>
+<li><strong>Gestión de identidad</strong>: la blockchain podría facilitar y potencia los procesos de verificación de identidad, permitiendo a los usuarios controlar con facilidad y precisión que datos comparten, cuando y con quien compartirlos.
+También podria facilitar las interconexiones entre los diferentes sistemas, reducir los abusos tanto del lado del usuario (robo de identidad) como del lado de las empresas (fraude).</li>
+<li><strong>Procesos de pago</strong>: los sistemas establecidos en la blockchain pueden alimentar redes de pago con interesantes e innovantes caraterísticas. Las transacciones pueden ser validadas casi que de manera instantanea (&lt;10s) mientras que las comisiones del proceso son tan bajas que se pueden considerar las microtransacciones.</li>
+<li><strong>Gestión de suscripciones</strong>: blockchain podría al fin cumplir esa promesa de que las suscripciones sean tan fáciles de llevar a cabo. Actualmente se están redactando normas (como <a class="link" href="https://github.com/ethereum/EIPs/issues/948"  target="_blank" rel="noopener"
+    >ERC-948</a>) para que los preveedores de servicios puedan ofrecer suscripciones realizadas en la blockchain.<br>
+Dicha suscripción seria fácil de gestionar por parte del usuario. También proporcionan un canal de ingresos constante para el proveedor de servicios.</li>
+<li><strong>Trazabilidad y validación de datos</strong>: gracias al sello cryptográfico y al mecanismo de verificación de datos de la blockchain, sería de gran ayuda para la validación de datos, utilizando sensores u otros dispositivos. El mecanismo de verificación puede garantizar que la información proviene de un dispositivo autorizado y en regla.<br>
+Esto evitará que se tomen decisiones perjudiciales a causa de datos érroneos o manipulados. Los datos tendrán un sello cronográfico y serán facilmente auditables.</li>
+<li><strong>Internet de las cosas</strong>: El IoT requiere de procesos sólidos de autentificación y de intercambio de datos para desarrollarse. Como en el caso de la gestión de identidad, blockchain podría facilitar y proporcionar una estructura principal para la identificación de las maquinas y sus intercambios de datos.</li>
+</ul>
+<p>Estos 5 casos prácticos de alto nivel en la blockchain pueden pueden implementarse en muchas industrias diferentes, aportando nuevos avances y redistribuyendo el poder. En lo que sigue, nos limitaremos al sector de las telecomunicaciones y miraremos las prinicpales actividades que podrian verse implicadas.</p>
+<h3 id="casos-prácticos-de-la-blockchain-en-el-sector-de-las-telecomunicaciones">Casos prácticos de la blockchain en el sector de las telecomunicaciones
+</h3><p>Las aplicaciones, de las tecnologias realizadas en la blockchain, que hemos presentado anteriormente del sector de las telecomunicaciones, son numerosas. Algunas son mas que obvias, ya que proporcionan una alternativa a soluciones ya existentes. Otras requieren mas análisis para poder ser contempladas, ya que implican casos prácticos interconectados.</p>
+<h4 id="identificación-de-dispositivos">Identificación de dispositivos
+</h4><p>Hoy en dia el uso de las SIM cards permite la identificación de los dispositivos en la red celular. A pesar de que esta tecnología tiene sus puntos a favor (primordialmente, costo-eficacia), no es la mas adpatada para la 5G ni para la red de dispositivo a dispositivo</p>
+<p>La <a class="link" href="https://en.wikipedia.org/wiki/Public-key_cryptography"  target="_blank" rel="noopener"
+    >clave pública de la cryptografía</a> lógica, implementada en los sistemas de la blockchain ofrecerá una alternativa fiable para resolver los desafios que tiene <strong>la identificación permanente de miles de millones de dispositivos (autónomos)</strong> de la red.</p>
+<p>La identificación existente en la blockchain, como Bitcoin, se basa en <strong>un par de claves</strong>:</p>
+<ol>
+<li><strong>La clave pública es la identificación pública del destinatario</strong>. En Bitcoin, es utilizada para recibir pagos. Funciona como una dirección de email: cualquiera que la conozca puede enviarle dinero, pero sólo el propietario de la clave privada puede generar una transacción desde esta dirección.</li>
+<li><strong>La clave privada es utilizada para verificar la propiedad de la dirección.</strong> Siguiendo con la comparación del email, la clave privada sería como la contraseña de la cuenta email. Es necesaria para enviar emails (iniciar transacciones) desde esta cuenta.</li>
+</ol>
+<p>El paso a la eSIM, tarjeta SIM integrada, una SIM virtual estandard, que ya se está usando: la última generación de dispositivos Apple es compatible con con esta tecnologia. Desde que la SIM card ya no es física, se necesitan estrictas normas de seguridad para evitar abusos.</p>
+<p>La utilización de un protocolo de identificación realizado en la blockchain garantiza una <strong>identificación mas segura</strong> al tiempo que incrementa la <strong>flexibilidad y la interoperabilidad.</strong></p>
+<h4 id="identidad-como-servicio-y-gestión-de-datos">Identidad como servicio y gestión de datos
+</h4><p>La blocckchain es particularmente apta para hacer posible que el usuario tengo un mejor control de sus datos. Tras el escándalo de Cambridge Analytica, y otros relacionados con el exceso de intercambio datos y de las violaciones de los mismos (<a class="link" href="https://en.wikipedia.org/wiki/List_of_data_breaches"  target="_blank" rel="noopener"
+    >lista completa</a>), los clientes se están dando cuenta de lo expuestos que quedan sus datos y de <strong>la falta de control que tienen sobre ellos</strong>, una vez se los entregan al proveedor de servicios.</p>
+<p>Los operadores de la industria de las telecomunicaciones y particularmente los proveedores de servicios de telefonía celular podrían jugar un papel muy importante para evitar que esto siga sucediendo. Pueden ofrecer a sus clientes la nueva generación de gestión y administración de datos (Identidad como servicio).</p>
+<p><img src="/img/2018/blockchain-telco/civic.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Visión general de la arquitectura del servicio de gestión de identidades de Civic (fuente: token sale whitepaper)"
+	
+	
+>
+Visión general de la arquitectura del servicio de gestión de identidades de Civic (<a class="link" href="https://tokensale.civic.com/CivicTokenSaleWhitePaper.pdf"  target="_blank" rel="noopener"
+    >fuente: token sale whitepaper)</a></p>
+<p>Los proyectos mas avanzados, <a class="link" href="https://www.civic.com/"  target="_blank" rel="noopener"
+    >Civic</a> y <a class="link" href="https://www.uport.me/"  target="_blank" rel="noopener"
+    >uPort</a> están buscando rediseñar la manera como intercambian los datos en línea. Sus usuarios crean una identidad respaldada por la blockchain y simplemente llenan la información que están dispuestos a compartir.</p>
+<p>Tal identidad puede ser representada por una dirección de Smart Contract (Contratos Inteligentes) o una clave pública convencional. Desde que un smart contract puede controlar otro smart contract, pueden ser programados para soportat diferentes métodos de lógica de recuperación de claves.</p>
+<h4 id="reventa-de-datos-móviles">Reventa de datos móviles
+</h4><p>Dado que las redes de telecomunicaciones se construyen sobre montajes antiguos, algunas utilizaciones pueden ser casi absurdas. Por ejemplo, si un francés (con un plan francés de telefonía/datos) viaja con su teléfono a los Estados Unidos y navega en la red, todo el tráfico se enrutará desde Francia.</p>
+<p>El costo del servicio suministrado por la interconexión, como también el margen que se gana el operador del servicio incrementa dramáticamente el precio que tiene que pagar. Podría mejor comprar datos localmente. Utilización de una <strong>red de reventa de datos dinamicos</strong>, podria obtener la banda que necesita desde el operador norteaméricano mas cercano y de sobra.</p>
+<p>Tendrá la capacidad de navegar de una manera mucho mas efectiva y menos costosa. Gracias a las capacidades transaccionales de la blockchain, es una excelente candidata para promover la creación de una red mundial de reventa de datos.</p>
+<p><img src="/img/2018/blockchain-telco/dent.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Captura de pantalla tomada de DENT app — Operador de reventa de servicio de datos"
+	
+	
+>
+Captura de pantalla tomada de DENT app — Operador de reventa de servicio de datos</p>
+<p>Este ejemplo ya está cubierto por proyectos existentes como <a class="link" href="https://www.dentwireless.com/dent-app"  target="_blank" rel="noopener"
+    >DENT</a> que conecta mas de 400 operadores móviles en 130 países. Apuntan a acelerar la disminución de los costos de itinerancia, llevándolos los mas cerca posible a los costos operacionales. Dent y otros proyectos similares, están buscando utilizar la capacidad sobrante disponible de la red y de los planes de datos.</p>
+<h4 id="apertura-y-descentralización-de-la-infraestructura-de-las-telecomunicaciones">Apertura y descentralización de la infraestructura de las telecomunicaciones
+</h4><p>En lugar de suplementar la actual infraestructura de telecomunicaciones, algunos proyectos son mas ambiciosos. Desean es construir una <strong>nueva marca y una infraestructura descentralizada</strong>.</p>
+<p>Los proponentes de dichos proyectos creen que una red descentralizda sería mas adaptada para sostener el crecimiento de las redes de datos mientras que al mismo tiempo garantizan mayor seguridad a sus usuarios.</p>
+<p>EL <a class="link" href="https://qlcchain.org/"  target="_blank" rel="noopener"
+    >proyecto QLCChain</a> se autodenominan como una &ldquo;red descentralizada de servicios&rdquo;. Trabajan para construir una infraestructura de telecomunicaciones de código abierto en la blockchain. la red está respaldada por:</p>
+<ol>
+<li><strong>hardware</strong> (BaseStation),</li>
+<li><strong>una blockchain</strong> permitiendo las transacciones y servicios en la red como también la ejecución de contratos inteligentes,</li>
+<li>así como <strong>un jetón (QLC)</strong> para estructurar los intercambios de valor del ecosistema.</li>
+</ol>
+<p>El proyecto está siendo probado en la red actualmente, esperando poder abrir al público para finales del año. Aquí les presento un análisis bien detallado de la infraestructura de su red.</p>
+<p><img src="/img/2018/blockchain-telco/qlc.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="QLC Chain Red Descentralizada como Servicio — Análisis de la Infraestructura (fuente: sitio web oficial)"
+	
+	
+></p>
+<p>QLC Chain Red Descentralizada como Servicio — Análisis de la Infraestructura (<a class="link" href="https://qlcchain.org/en/ecosystem/"  target="_blank" rel="noopener"
+    >fuente: sitio web oficial</a>)</p>
+<h4 id="otros-ejemplos-relacionados-con-la-blockchain-para-las-telecomunicaciones">Otros ejemplos relacionados con la blockchain para las telecomunicaciones
+</h4><p>A medida que la tecnología se desarrolla, nuevas utilizaciones están a la vista. Les presentamos 4 interesantes que pueden convertirse de uso masivo en un futuro muy cercano. Si embargo se podrían preveer otros usos.</p>
+<ul>
+<li>Reducción del numero de intermediarios que participan en servicios como el <strong>Servicio de Nombres de Dominios</strong> (<a class="link" href="https://en.wikipedia.org/wiki/Domain_Name_System"  target="_blank" rel="noopener"
+    >DNS</a>) y <strong>Traducción de direcciones de la red</strong> (<a class="link" href="https://en.wikipedia.org/wiki/Network_address_translation"  target="_blank" rel="noopener"
+    >NAT</a>), o incluso descentralizarlas por completo. <a class="link" href="https://peername.com/"  target="_blank" rel="noopener"
+    >Varias soluciones ya han sido implementadas</a> para sustituir el tradicional DNS en la web y proveer un servicio de nombres para resolver las claves públicas.</li>
+<li>Estructuración de la <strong>venta de créditos</strong> de la red en internet, principalmente para los <a class="link" href="https://www.callr.com"  target="_blank" rel="noopener"
+    ><strong>revendedores de VoIP</strong></a>. Por ejemplo, crear un protocolo para vender minutos de comunicación de voz a través de la red VoIP.</li>
+<li>La transparencia suministrada por la blockchain, como también su resistencia a ataques y alteraciones la hacen encajar perfectamente para tal servicio <a class="link" href="https://www.ibm.com/blogs/blockchain/2017/07/blockchain-for-fraud-prevention-industry-use-cases/"  target="_blank" rel="noopener"
+    >prevención de fraude</a>.</li>
+</ul>
+<h3 id="beneficios-para-los-operadores-de-la-industria">Beneficios para los operadores de la industria
+</h3><p>A medida que la tecnología blockchain madure, permitirá <strong>nuevas fuentes de ingresos y oportunidades de alianzas</strong> para los proveedores actuales del servicio y de la red de telecomunicaciones.</p>
+<p>El desarrollo de redes y servicios en la blockchain <strong>cambiará drásticamente el aquilibrio de poder y beneficios entre los intermediarios existentes.</strong> Se formarán nuevas alianzas, algunos operadores históricos podrian volverse obsoletos y ser sustituidos por una alternativa mas barata, mas rápida y mas eficaz. Prescindir de estos operadores optimizará las transacciones y reducirá los costos.</p>
+<p>En cuanto a la dimensión financiera de las operaciones de las telecomunicaciones, la blockchain ofrece muchas oportunidades. <strong>Las liquidaciones en tiempo casi real</strong> que ofrecen los sistemas de pago digitales simplificarán los procedimientos contables y reducirán los costos operativos.</p>
+<p>Los nuevos mecanismos de validación de la blockchain agilizarán aún mas la contabilidad. En lugar de depender de diversos sistemas para encontrar y cotejar diferentes puntos de vista financieros, un registro principal de la blockchain proporcionará <strong>una visión unificada que abarque casi todas las transacciones</strong></p>
+<p>La blockchian aún está en sus inicios. El principal reto hoy en día es identificar las futuras oportunidades relevantes y realizables para dirigir el desarrollo y las inversiones de forma acertada.</p>
+<p>Para investigar mas a fondo el impacto de la blockchain y las telecomunicaciones, consulta el documento publicado por Deloitte’s Blockchain Institute: <a class="link" href="https://www2.deloitte.com/content/dam/Deloitte/za/Documents/technology-media-telecommunications/za_TMT_Blockchain_TelCo.pdf"  target="_blank" rel="noopener"
+    >Blockchain @ TelcoHow blockchain can impact thetelecommunications industryand its relevance to the C-Suite.</a></p>
+<h3 id="gobiernos-vs-lex-cryptográfica">Gobiernos VS. Lex Cryptográfica
+</h3><p>El marco legal que regula actualmente a este sistema es laxo, si no inexistente. De hecho, <strong>la mayoría</strong> de las <strong>regulaciones existentes se concentran en los servicios financieros de la blockchain</strong>, como la Oferta Inicial de Monedas (ICO en inglés o IPO para tokens), Mientras que la mayoría de los actores de las industrias lo perciben como un riesgo, otros lo ven como una oportunidad.</p>
+<p>Dado que los mecanismos de control están incorporados en los sistemas construidos en la blockchain, podría ser inncesario promulgar leyes una vez que los sistemas estén los suficientemente maduros. Dichos sistemas podrían <strong>implementar sus propios marcos regulatorios</strong>. La prensa de la Universidad de Harvard publicó una lectura sobre este tema a principios de este año. A continuación una cita extraída del mismo:</p>
+<p><code>La tecnologia blockchain posibilita la aparición de nuevos sistemas de regulación autónomos y autosuficientes que crean un órden sin ley e implementan lo que puede considerarse como marcos reguladores privados, a los que nos referimos como  *lex cryptográfica*.</code></p>
+<p>Puede leer el artículo completo aquí: <a class="link" href="https://harvardpress.typepad.com/hup_publicity/2018/04/blockchain-and-the-law.html"  target="_blank" rel="noopener"
+    >The Rule of Code vs. The Rule of Law</a>.</p>
+<p><em>Publicación original</em> <a class="link" href="https://www.callr.com/blog/blockchains-telecommunications/"  target="_blank" rel="noopener"
+    ><em>www.callr.com</em></a> <em>el 28 de Noviembre de 2018.</em></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/telco/">Telco</a>
+        
+            <a href="/tags/blockchain/">Blockchain</a>
+        
+            <a href="/tags/autentificaci%C3%B3n-de-dispositivos/">Autentificación De Dispositivos</a>
+        
+            <a href="/tags/reventa-de-los-datos-m%C3%B3viles/">Reventa De Los Datos Móviles</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/posts/2018/blockchain-telco/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Blockchains meet Telecommunications: Opportunity, Risk, or A Necessity?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2018/money101/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Money 101 - Discarding the myth of bartering to understand Bitcoin better</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2018/decentralisation-layman/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Why decentralization matters? A 12 min overview for the layman</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2018/decentralisation-layman.es/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">La descentralización explicada en 12 minutos por Fulanito de Tal</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2018/decentralisation-layman.fr/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">La décentralisation expliquée en 12 minutes pour monsieur tout le monde</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 TokenBrice - Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.e87374ab760d28dfa333a671a892b101964bde5a2dac9100a50c9b0d779b4505.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

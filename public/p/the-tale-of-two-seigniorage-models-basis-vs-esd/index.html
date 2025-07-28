@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="A comparative analysis of the two main seigniorage token models currently explored to produce new types of stablecoins on the Ethereum network.">
+<title>⚖ The tale of two seigniorage models: Basis vs ESD</title>
+
+<link rel='canonical' href='http://localhost:1313/p/the-tale-of-two-seigniorage-models-basis-vs-esd/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="⚖ The tale of two seigniorage models: Basis vs ESD">
+<meta property='og:description' content="A comparative analysis of the two main seigniorage token models currently explored to produce new types of stablecoins on the Ethereum network.">
+<meta property='og:url' content='http://localhost:1313/p/the-tale-of-two-seigniorage-models-basis-vs-esd/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Stablecoins' /><meta property='article:tag' content='Seigniorage' /><meta property='article:tag' content='Basis Cash' /><meta property='article:tag' content='Empty Set Dollar' /><meta property='article:tag' content='Dynamic Set Dollar' /><meta property='article:tag' content='USDT' /><meta property='article:tag' content='USDC' /><meta property='article:tag' content='ESD' /><meta property='article:tag' content='DSD' /><meta property='article:tag' content='BAC' /><meta property='article:tag' content='BAS' /><meta property='article:tag' content='MithCash' /><meta property='article:tag' content='MIC' /><meta property='article:tag' content='MIS' /><meta property='article:tag' content='DAIQ' /><meta property='article:tag' content='ZAI' /><meta property='article:published_time' content='2021-01-16T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2021-01-16T01:13:50&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/2021/seigniorage-basis-vs-esd/cover.png' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="⚖ The tale of two seigniorage models: Basis vs ESD">
+<meta name="twitter:description" content="A comparative analysis of the two main seigniorage token models currently explored to produce new types of stablecoins on the Ethereum network."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/2021/seigniorage-basis-vs-esd/cover.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">TokenBrice</a></h1>
+            <h2 class="site-description">Brutally Honest DeFi</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" selected>English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" >Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1-ample-bases-for-elastic-currencies">1. Ample Bases for Elastic Currencies</a></li>
+    <li><a href="#2--gas-efficiency-overview">2. ⛽ Gas Efficiency Overview</a>
+      <ol>
+        <li>
+          <ol>
+            <li><a href="#21-lp---basis-">2.1. LP - Basis ⭐⭐⭐</a></li>
+            <li><a href="#22-lp---esd-">2.2. LP - ESD ⭐</a></li>
+            <li><a href="#23-basis---boardroom-">2.3. Basis - Boardroom ⭐⭐⭐</a></li>
+            <li><a href="#24-esd---dao-">2.4. ESD - DAO ⭐⭐⭐⭐</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#3-comparative-algorithmic-stablecoin-analysis-seigniorage-vs-esd">3. Comparative algorithmic stablecoin analysis: Seigniorage vs ESD</a>
+      <ol>
+        <li><a href="#31--benefits-of-the-basis-model">3.1. 👍 Benefits of the Basis model</a>
+          <ol>
+            <li><a href="#311-more-liquid-pools">3.1.1. More liquid pools</a></li>
+            <li><a href="#312-fluid-share">3.1.2. Fluid share</a></li>
+            <li><a href="#313-better-coupons">3.1.3. Better Coupons</a></li>
+            <li><a href="#314-third-party-integradable">3.1.4. Third Party Integradable</a></li>
+          </ol>
+        </li>
+        <li><a href="#32--downsides-of-the-basis-model">3.2. 👎 Downsides of the Basis model</a>
+          <ol>
+            <li><a href="#321-the-share-has-low-utility-when-baclt1">3.2.1. The share has low utility when BAC&lt;1</a></li>
+            <li><a href="#322-share-price-100-correlated-to-stable-price">3.2.2. Share price 100% correlated to stable price</a></li>
+          </ol>
+        </li>
+        <li><a href="#33--benefits-of-the-esd-model">3.3. 👍 Benefits of the ESD model</a>
+          <ol>
+            <li><a href="#331-more-committed-holders">3.3.1. More committed holders</a></li>
+            <li><a href="#332-adjust-more-dynamically-to-markets-conditions">3.3.2. Adjust more dynamically to markets&rsquo; conditions</a></li>
+          </ol>
+        </li>
+        <li><a href="#34--downsides-of-the-esd-model">3.4. 👎 Downsides of the ESD model</a>
+          <ol>
+            <li><a href="#341-overall-complexity-of-the-system">3.4.1. Overall complexity of the system</a></li>
+            <li><a href="#342-weaker-coupon-incentive">3.4.2. Weaker coupon incentive</a></li>
+            <li><a href="#343-newly-minted-esd-batches">3.4.3. Newly minted ESD batches</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#4-the-algostable-toolbox">4. The Algostable Toolbox</a>
+      <ol>
+        <li><a href="#41-additional-resources">4.1. Additional Resources</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/the-tale-of-two-seigniorage-models-basis-vs-esd/">
+                
+                    <img src="/img/2021/seigniorage-basis-vs-esd/cover.png" loading="lazy" alt="Featured image of post ⚖ The tale of two seigniorage models: Basis vs ESD" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/defi/" style="background-color: #2a9d8f; color: #fff;">
+                DeFi
+            </a>
+        
+            <a href="/categories/understanding/" style="background-color: #2a9d8f; color: #fff;">
+                Understanding
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/the-tale-of-two-seigniorage-models-basis-vs-esd/">⚖ The tale of two seigniorage models: Basis vs ESD</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            A comparative analysis of the two main seigniorage token models currently explored to produce new types of stablecoins on the Ethereum network.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jan 16, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    9 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+        <footer class="article-translations">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+            <div>
+                
+                    <a href="http://localhost:1313/fr/seigneuriage-basis-vs-esd/" class="link">Français</a>
+                
+            </div>
+        </footer>
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>A few weeks ago, I shared my first post on algorithmic stablecoins highlighting the key characteristics that made such projects interesting in my eyes. In this piece, we&rsquo;ll go deeper into the topics, with a <strong>comparative analysis of the two main models</strong>: the Basis model and the ESD model.</p>
+<p>Both are successfully used by the projects bearing their names but also a sizable trail of forks, more or less relevant. As the field of algorithmic stablecoin grows, there seems to be a <strong>consensus around these two models, now used as a template</strong> to quickstart newer projects trying various alterations, such as pegging the system to another currency other than the dollar, like gold or the euro.</p>
+<p>The plethora of existing forks enables the latest ones to pick and build upon the existing or pending improvements of the live systems, further leapfrogging the innovation. But before you dive into the arcane of the latest gold elastic token, it&rsquo;s worth making sure you understand the underlying models behind these projects. That&rsquo;s why we are here today.</p>
+<hr>
+<h2 id="1-ample-bases-for-elastic-currencies">1. Ample Bases for Elastic Currencies
+</h2><p>To put it simply, both models are building on the previous Ampleforth model which pioneered &ldquo;elastic currencies&rdquo; that have a supply reacting to the markets&rsquo; conditions. The main issue with Ampleforth is that everyone is exposed to the rebases, hindering the usability of the AMPL as a medium of exchange.</p>
+<p>So the two new iterations address that with a different take:</p>
+<ul>
+<li>With the seigniorage model, <strong>the rebase mechanism is split into a different token</strong>, the share - paving the way for a more usable stablecoin.</li>
+<li>In the ESD model, there is still one token only but the DAO and LP lockup achieve a similar result.</li>
+</ul>
+<p>Both models also introduce the mechanism of bond/coupons to <strong>add a positive incentive when the price is below peg</strong>, helping to further stabilize the stablecoin.</p>
+<p>So today, after we brush up on the basics, we will compare the Basis model (forked by MithCash, OneCoin, and more) to the ESD model (used in DSD, ZAI, DAIQ, etc.).</p>
+<p>I will not explain the models in-depth but this table recaps the main differences:</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">/</th>
+<th>BASIS MODEL (Seigniorage)</th>
+<th>ESD MODEL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>TOKENS</strong></td>
+<td>BAC = stablecoin <br> BAS = a share of the protocol <br>BAB = 1 BAC claim while in expansionary phases</td>
+<td>ESD = stablecoin <br> ESDS = 1 ESD claim while in expansionary phases</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>STABLECOIN LIQUIDITY</strong></td>
+<td>BAC/DAI Uniswap pair: continuous BAS incentives (1y) <br>No lockup</td>
+<td>ESD/USDC ESD incentives if &gt;1 <br>  5 epoch lockup</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>&ldquo;BRING BACK TO PEG&rdquo; (&lt;1) MECHANISM</strong></td>
+<td>Bonds (BAB): BAB = BAC(twap)^2 <br>  No expiration date</td>
+<td>Coupons (ESDS) Premium-based pricing expire after 90 epochs (30 days)</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>WHEN EXPANSION (&gt;1), WHO GETS IT?</strong></td>
+<td>Boardroom BAS stakers (once treasury has its fill)</td>
+<td>Dynamic split between LP and DAO depending on the protocol debt</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>OTHER IMPORTANT MECHANISMS</strong></td>
+<td>BAS/DAI Uni pair with BAS incentives <br>BAS/DAI &amp; BAC/DAI pools farmable through vaults - Harvest, Pickle, etc.</td>
+<td>DAO auto compounds but has a long lockup<br>Lockups -&gt; limited third party integrations</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="2--gas-efficiency-overview">2. ⛽ Gas Efficiency Overview
+</h2><p>Before I dive into the details of each item, here&rsquo;s another key part of the systems to consider if you want to partake in them: how gas efficient are they, for the user?</p>
+<p>You&rsquo;ll find here some pointers on the amount of transaction and transaction flows required to partake in different parts of the system we described, helping you assess if it would make sense for you, gas-wise.</p>
+<p>Overall, the <strong>liquidity providing positions are the most transaction-intensive</strong>, especially in the ESD model where you need to bound and unbound your LP tokens &amp; claim rewards.</p>
+<h4 id="21-lp---basis-">2.1. LP - Basis ⭐⭐⭐
+</h4><ul>
+<li>Entry: Stake LP token</li>
+<li>Reward: Claim (stream)</li>
+<li>Exit: Unstake LP token</li>
+</ul>
+<h4 id="22-lp---esd-">2.2. LP - ESD ⭐
+</h4><ul>
+<li>Entry: Stage -&gt; Bound</li>
+<li>Reward Claim: Unstage-&gt; Stage-&gt; (wait 5 epochs) -&gt; Claim</li>
+<li>Exit: Unstage -&gt; (wait 5 epochs) -&gt; Unbound</li>
+</ul>
+<p>On the share/DAO side, <strong>the flow is less transaction-heavy</strong>, so it&rsquo;s better for smaller holders:</p>
+<h4 id="23-basis---boardroom-">2.3. Basis - Boardroom ⭐⭐⭐
+</h4><ul>
+<li>Entry: Stake BAS</li>
+<li>Reward: Claim (after the end of an epoch when BAC&gt;1.05)</li>
+<li>Exit: Unstake BAS</li>
+</ul>
+<p>Note: During expansion phases, you can let BAC accumulate in the boardroom and claim several days of reward at once.</p>
+<h4 id="24-esd---dao-">2.4. ESD - DAO ⭐⭐⭐⭐
+</h4><ul>
+<li>Entry: Stage ESD -&gt; Bound ESD</li>
+<li>Reward: no transaction required</li>
+<li>Exit: Unstage ESD -&gt; (wait 15 epochs) -&gt; Unbound ESD</li>
+</ul>
+<p>Note: During expansion phases, the rewards produced by the DAO are automatically compounded (=bounded) without action required from the user-end.</p>
+<hr>
+<h2 id="3-comparative-algorithmic-stablecoin-analysis-seigniorage-vs-esd">3. Comparative algorithmic stablecoin analysis: Seigniorage vs ESD
+</h2><p>You&rsquo;ll find the bulk of my analysis in the following table. If you are familiar with both projects, that should be enough, else you can read the explanations for each benefit and downside right after the table.</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">Basis Model</th>
+<th style="text-align:center">ESD Model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>👍Benefits</strong></td>
+<td style="text-align:center">More liquid stablecoin pair <br>  Fluid share <br>Better coupon system<br>Farmable (3rd party integrations)</td>
+<td style="text-align:center">More committed holders <br>Faster cycles: can adjust more dynamically to the markets</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>👎Downsides</strong></td>
+<td style="text-align:center">Share has limited utility when BAC&lt;1 <br>  Share price heavily correlated to stablecoin price</td>
+<td style="text-align:center">Less accessible system <br>  Riskier coupon system (expiration) <br>  Newly minted ESD batches</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice warning" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#warning-notice"></use></svg></span>Warning</p><p><strong>Necessary Disclaimer: This is not financial advice</strong>. I’m not qualified to provide any. It’s a mere technical analysis of two seigniorage systems implemented live in production: a farmer’s report 🚜</p></div>
+
+<p>Now that we are up to date on each model and their gas efficiency, let&rsquo;s details their benefits and downsides:</p>
+<hr>
+<h3 id="31--benefits-of-the-basis-model">3.1. 👍 Benefits of the Basis model
+</h3><h4 id="311-more-liquid-pools">3.1.1. More liquid pools
+</h4><p>In the Basis model, the <strong>BAC/DAI liquidity pool is continuously rewarded with BAS token</strong>. Since the BAS reward continues even when BAC is in a contraction phase, we&rsquo;re not observing the same compounded reduction of liquidity seen in contraction on the ESD model: when the ESD price is on a downtrend &amp; liquidity providers are pulling out at the same time.</p>
+<p><img src="/img/2021/seigniorage-basis-vs-esd/liquidity-esd-bac.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="liquidity-esd-bac-tokenbrice"
+	
+	
+></p>
+<p>We can see that <strong>ESD&rsquo;s liquidity tends to be more spikey</strong> while BAC&rsquo;s is correlated mostly to BAC price (expected).</p>
+<h4 id="312-fluid-share">3.1.2. Fluid share
+</h4><p>The share is fluid in the sense that there is currently no commitment required to be eligible for the Boardroom BAC. While this can also make the BAS price harder to stabilize, it makes the expansion-reward component of the system more broadly accessible and less game-able.</p>
+<h4 id="313-better-coupons">3.1.3. Better Coupons
+</h4><p><strong>Basis Coupons (BAB - Bounds) have no expiration date</strong>. They can be redeemed for 1 BAC as long as BAC is &gt; 1.05. It makes buying coupons less of a gamble than on ESD where they expire.</p>
+<h4 id="314-third-party-integradable">3.1.4. Third Party Integradable
+</h4><p>Rewards in the Basis model are distributed through <strong>standard staking contract</strong>, enabling and facilitating the integration by third parties. There are already Harvest &amp; Pickle vaults to streamline the farming of the BAC/DAI, BAS/DAI, MIC/USDT &amp; MIS/USDT pools.</p>
+<p><img src="/img/2021/seigniorage-basis-vs-esd/harvest.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="harvest-basis-cash-mith-cash"
+	
+	
+></p>
+<h3 id="32--downsides-of-the-basis-model">3.2. 👎 Downsides of the Basis model
+</h3><h4 id="321-the-share-has-low-utility-when-baclt1">3.2.1. The share has low utility when BAC&lt;1
+</h4><p>The main and by far biggest weakness so far of the current implementation of the Basis model is the <strong>overall weak utility of the share token</strong>. In expansion phases, its price is usually appreciating because of the newly minted BAC it gives access to. However, there is very little utility for BAS in contraction phases, except for its governance power. In contraction, the only potential earning option is to commit to the BAS/DAI pool for additional BAS, but it&rsquo;s very risky play with a bearing BAS price action (contraction).</p>
+<p>Several projects are already working on solutions to address this.</p>
+<h4 id="322-share-price-100-correlated-to-stable-price">3.2.2. Share price 100% correlated to stable price
+</h4><p>The second downside is a direct consequence of the first. Because of the lack of utility of BAS outside of BAC in expansion, <strong>its price is directly correlated to the BAC price</strong>. Additional utility on BAS could enable both tokens to have more independent cycles, bringing more stability overall to the model.</p>
+<hr>
+<h3 id="33--benefits-of-the-esd-model">3.3. 👍 Benefits of the ESD model
+</h3><h4 id="331-more-committed-holders">3.3.1. More committed holders
+</h4><p>In the ESD model, there is <strong>no access to the newly minted ESD without committing for several epochs</strong>, at least 5 with the LP. It makes large holders more likely to be actively involved in the minting and stabilizing process.</p>
+<h4 id="332-adjust-more-dynamically-to-markets-conditions">3.3.2. Adjust more dynamically to markets&rsquo; conditions
+</h4><p>Overall, the ESD system operates on a <strong>timeframe three times shorter than Basis</strong>, allowing for more fluid and dynamic adjustments. DSD goes even further with 2 hours epoch (= 12x Basis pace).</p>
+<h3 id="34--downsides-of-the-esd-model">3.4. 👎 Downsides of the ESD model
+</h3><h4 id="341-overall-complexity-of-the-system">3.4.1. Overall complexity of the system
+</h4><p>Because of the additional lockups, staging, and bounding required to implement the share functionality directly at the stablecoin level, ESD-based systems tend to be more <strong>complex to apprehend</strong>, especially for newcomers. You can even see it in the memes, where ESD/DSD players love to meme themselves as high-IQ masterminds. The coupon expiration makes the stabilization system extremely unfriendly for newcomers, which is not necessarily a bad thing per se, but see the next point.</p>
+<h4 id="342-weaker-coupon-incentive">3.4.2. Weaker coupon incentive
+</h4><p>ESD coupons have an expiration date, turning the coupon system into a bit of Russian roulette. Because of this design, there are serious risks of losing all the capital committed while burning ESD for coupons, even if the ESD system sustains itself in the long run. Indeed, once ESD is burnt into coupon, the owner has <strong>90 epochs (~30 days) to redeem them before they expire.</strong></p>
+<h4 id="343-newly-minted-esd-batches">3.4.3. Newly minted ESD batches
+</h4><p>Finally, the emission logic of ESD-based systems, coupled with the lockups period tend to produce <strong>“raindrop epochs”</strong> where most of the newly minted ESD is unlocked, which can trigger violent price action on the stablecoin price.</p>
+<p>During the last expansion phase, the period around epoch 396 was famous and scared because most of the newly minted DSD was made transferrable over a very short window:</p>
+<p><img src="/img/2021/seigniorage-basis-vs-esd/dsd-raindrop.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="DSD-epoch-396-397-tokenbrice"
+	
+	
+></p>
+<p><em>Yes this is DSD, but similar patterns are observed on ESD. It&rsquo;s due to the DAO lockups and emission schedule.</em></p>
+<h2 id="4-the-algostable-toolbox">4. The Algostable Toolbox
+</h2><p>Before I let you go, here&rsquo;s a quick overview of the main tools useful to monitor and manage positions for all four projects. We&rsquo;re lucky! There are some amazing community-build tools made to help you track algorithmic stablecoins.</p>
+<div class="notice tip" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#tip-notice"></use></svg></span>Tip</p><p><strong><a class="link" href="https://vfat.tools/"  target="_blank" rel="noopener"
+    >Vfat in particular</a></strong> has been super reactive updating his tracking and management tools for the newer projects. It even includes a <strong><a class="link" href="https://vfat.tools/seigniorage/"  target="_blank" rel="noopener"
+    >seigniorage tokens overview</a></strong> now:</p>
+<p><img src="/img/2021/seigniorage-basis-vs-esd/vfat.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="vfat-seigniorage-overview"
+	
+	
+></p></div>
+
+<ul>
+<li>For ESD, your main dashboard is <a class="link" href="https://esd.tools/"  target="_blank" rel="noopener"
+    >ESDTools</a></li>
+<li>For DSD, <a class="link" href="https://dsd.tools/"  target="_blank" rel="noopener"
+    >DSDTools</a>.</li>
+<li>For Basis Cash, <strong><a class="link" href="https://bc.tools/"  target="_blank" rel="noopener"
+    >BCTools</a></strong>.</li>
+</ul>
+<p>You can use <a class="link" href="https://duneanalytics.com/tongnk/esd_1"  target="_blank" rel="noopener"
+    >this dashboard to track the release of newly minted ESD and DSD</a>.</p>
+<p>Finally, all four projects are supported in both <a class="link" href="https://zapper.fi/"  target="_blank" rel="noopener"
+    >Zapper</a> and <a class="link" href="https://debank.com/"  target="_blank" rel="noopener"
+    >DeBank</a> to track your investments. You can also use <a class="link" href="https://pickle.finance/"  target="_blank" rel="noopener"
+    >Pickle</a> or <a class="link" href="https://harvest.finance/"  target="_blank" rel="noopener"
+    >Harvest</a> to manage your position in the BAC/DAI, BAS/DAI, MIC/USDT, and MIS/USDT pools.</p>
+<h3 id="41-additional-resources">4.1. Additional Resources
+</h3><ul>
+<li>To learn more about the context behind algorithmic stablecoins, feel free to <strong><a class="link" href="https://tokenbrice.xyz/content/posts/2020/algorithmic-stablecoins.md"  target="_blank" rel="noopener"
+    >read my previous article on the topic</a></strong>.</li>
+<li>To learn more, French-speaker will enjoy this <strong><a class="link" href="https://www.youtube.com/watch?v=TuenkIZZEq0"  target="_blank" rel="noopener"
+    >🇫🇷 50 min video explainer of both models</a></strong></li>
+<li>English speakers can explore further with this extensive research/recap piece published on Derebit: <strong><a class="link" href="https://insights.deribit.com/market-research/stability-elasticity-and-reflexivity-a-deep-dive-into-algorithmic-stablecoins/"  target="_blank" rel="noopener"
+    >Stability, Elasticity, and Reflexivity: A Deep Dive into Algorithmic Stablecoins</a></strong>.</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/defi/">DeFi</a>
+        
+            <a href="/tags/ethereum/">Ethereum</a>
+        
+            <a href="/tags/stablecoins/">Stablecoins</a>
+        
+            <a href="/tags/seigniorage/">Seigniorage</a>
+        
+            <a href="/tags/basis-cash/">Basis Cash</a>
+        
+            <a href="/tags/empty-set-dollar/">Empty Set Dollar</a>
+        
+            <a href="/tags/dynamic-set-dollar/">Dynamic Set Dollar</a>
+        
+            <a href="/tags/usdt/">USDT</a>
+        
+            <a href="/tags/usdc/">USDC</a>
+        
+            <a href="/tags/esd/">ESD</a>
+        
+            <a href="/tags/dsd/">DSD</a>
+        
+            <a href="/tags/bac/">BAC</a>
+        
+            <a href="/tags/bas/">BAS</a>
+        
+            <a href="/tags/mithcash/">MithCash</a>
+        
+            <a href="/tags/mic/">MIC</a>
+        
+            <a href="/tags/mis/">MIS</a>
+        
+            <a href="/tags/daiq/">DAIQ</a>
+        
+            <a href="/tags/zai/">ZAI</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Jan 16, 2021 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/the-state-future-of-algorithmic-stablecoins/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2020/algorithmic-stablecoins/cover.png" loading="lazy" data-key="" data-hash="/img/2020/algorithmic-stablecoins/cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">The state &amp; future of algorithmic stablecoins</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/ethereum-stable-assets/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/pegged-assets/money-god-meme.png" loading="lazy" data-key="" data-hash="/img/2021/pegged-assets/money-god-meme.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Exploring stable assets on Ethereum: approaches &amp; endgame</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/lending-protocol-renaissance/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2024/lending-protocol-renaissance/0-lending-protocol-renaissance-cover.png" loading="lazy" data-key="" data-hash="/img/2024/lending-protocol-renaissance/0-lending-protocol-renaissance-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Is this a Lending Protocol Renaissance?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/stablecoin-marauder-map/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2023/stablecoin-marauder-map/stablecoin-marauder-map-cover.png" loading="lazy" data-key="" data-hash="/img/2023/stablecoin-marauder-map/stablecoin-marauder-map-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">The Maurauder&#39;s Map of Decentralized Stablecoins</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/lusd-chicken-bonds/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/lusd-chicken-bonds/lusd-chicken-bonds-cover-tokenbrice.png" loading="lazy" data-key="" data-hash="/img/2022/lusd-chicken-bonds/lusd-chicken-bonds-cover-tokenbrice.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Chicken Bonds: an NFT-powered hatching factory to beat DeFi’s liquidity chicken and egg problem</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

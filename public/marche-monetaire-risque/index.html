@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="L'évaluation du risque dans la DeFi est actuellement à coté de la plaque ; cet article vous montre pourquoi avec une proposition claire pour évaluer les risques des marchés monétaires. La plupart des observations sont également applicables aux protocoles DeFi de manière plus générale.">
+<title>De l&#39;évaluation du risque sur les marchés monétaires en finance décentralisée</title>
+
+<link rel='canonical' href='http://localhost:1313/marche-monetaire-risque/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="De l'évaluation du risque sur les marchés monétaires en finance décentralisée">
+<meta property='og:description' content="L'évaluation du risque dans la DeFi est actuellement à coté de la plaque ; cet article vous montre pourquoi avec une proposition claire pour évaluer les risques des marchés monétaires. La plupart des observations sont également applicables aux protocoles DeFi de manière plus générale.">
+<meta property='og:url' content='http://localhost:1313/marche-monetaire-risque/'>
+<meta property='og:site_name' content='Example Site'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Finance décentralisée' /><meta property='article:tag' content='DEX' /><meta property='article:tag' content='Marchés Monétaires' /><meta property='article:tag' content='Aave' /><meta property='article:tag' content='Compound' /><meta property='article:tag' content='risque DeFi' /><meta property='article:tag' content='évaluation du risque' /><meta property='article:tag' content='risques marchés monétaires' /><meta property='article:tag' content='risque aave' /><meta property='article:tag' content='risque compound' /><meta property='article:tag' content='risque cream' /><meta property='article:tag' content='DeFiScore' /><meta property='article:tag' content='CREAM' /><meta property='article:tag' content='AAVE' /><meta property='article:tag' content='COMP' /><meta property='article:tag' content='Oracles' /><meta property='article:tag' content='Liquidation' /><meta property='article:tag' content='Assurance' /><meta property='article:tag' content='Safety Module' /><meta property='article:published_time' content='2021-02-18T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2021-02-18T01:13:50&#43;00:00'/>
+<meta name="twitter:title" content="De l'évaluation du risque sur les marchés monétaires en finance décentralisée">
+<meta name="twitter:description" content="L'évaluation du risque dans la DeFi est actuellement à coté de la plaque ; cet article vous montre pourquoi avec une proposition claire pour évaluer les risques des marchés monétaires. La plupart des observations sont également applicables aux protocoles DeFi de manière plus générale.">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Example Site</a></h1>
+            <h2 class="site-description">Example description</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about-tokenbrice/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About TokenBrice</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" selected>English</option>
+                                
+                                    <option value="http://localhost:1313/zh-cn/" >中文</option>
+                                
+                                    <option value="http://localhost:1313/ar/" >عربي</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#i-lévaluation-du-risque-est-cassée">I/ L&rsquo;évaluation du risque est cassée</a></li>
+    <li><a href="#ii-apprécier-la-sécurité-dun-marché-monétaire">II/ Apprécier la sécurité d&rsquo;un marché monétaire</a>
+      <ol>
+        <li><a href="#iia-accès-au-protocole-et-autorisations">II.A/ Accès au protocole et autorisations</a>
+          <ol>
+            <li><a href="#évaluation-des-accès-au-protocole-et-de-la-décentralisation">Évaluation des accès au protocole et de la décentralisation</a></li>
+          </ol>
+        </li>
+        <li><a href="#iib-oracles">II.B/ Oracles</a>
+          <ol>
+            <li><a href="#évaluer-les-oracles">Évaluer les oracles</a></li>
+          </ol>
+        </li>
+        <li><a href="#iic-mécanismes-de-liquidation">II.C/ Mécanismes de liquidation</a>
+          <ol>
+            <li><a href="#évaluer-les-mécanismes-de-liquidation">Évaluer les mécanismes de liquidation</a></li>
+          </ol>
+        </li>
+        <li><a href="#iid-analyse-de-risque-des-tokens-acceptés-en-collatéral">II.D/ Analyse de risque des tokens acceptés en collatéral</a>
+          <ol>
+            <li><a href="#évaluation-de-la-stratégie-de-gestion-des-risques-sur-les-collatéraux">Évaluation de la stratégie de gestion des risques sur les collatéraux</a></li>
+          </ol>
+        </li>
+        <li><a href="#iie-module-de-sécurité">II.E/ Module de sécurité</a>
+          <ol>
+            <li><a href="#évaluation-du-module-dassurance-natif">Évaluation du module d&rsquo;assurance natif</a></li>
+          </ol>
+        </li>
+        <li><a href="#iif-ecosystème-dassurance-élargi">II.F/ Ecosystème d&rsquo;assurance élargi</a>
+          <ol>
+            <li><a href="#comprendre-les-assurances-et-le-risque-quelles-couvrent-réellement">Comprendre les assurances et le risque qu&rsquo;elles couvrent réellement</a></li>
+          </ol>
+        </li>
+        <li><a href="#iig-gestion-du-risque-du-token-natif">II.G/ Gestion du risque du token natif</a>
+          <ol>
+            <li><a href="#évaluer-la-manière-dont-un-marché-monétaire-gère-les-risques-liés-aux-tokens">Évaluer la manière dont un marché monétaire gère les risques liés aux tokens</a></li>
+          </ol>
+        </li>
+        <li><a href="#iih-communauté--ecosystème">II.H/ Communauté &amp; Ecosystème</a>
+          <ol>
+            <li><a href="#évaluation-de-la-communauté--dao-dun-marché-monétaire">Évaluation de la communauté &amp; DAO d&rsquo;un marché monétaire</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#iii-une-note-sur-le-tribalisme-dans-la-defi">III/ Une note sur le tribalisme dans la DeFi</a>
+      <ol>
+        <li><a href="#iiia-limites-de-cette-approche-dévaluation-des-risques">III.A/ Limites de cette approche d&rsquo;évaluation des risques</a></li>
+      </ol>
+    </li>
+    <li><a href="#iv-notes-et-références">IV. Notes et références</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/-defi/" >
+                🌌 DeFi
+            </a>
+        
+            <a href="/categories/-comprendre/" >
+                ⚙ Comprendre
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/marche-monetaire-risque/">De l&#39;évaluation du risque sur les marchés monétaires en finance décentralisée</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            L&#39;évaluation du risque dans la DeFi est actuellement à coté de la plaque ; cet article vous montre pourquoi avec une proposition claire pour évaluer les risques des marchés monétaires. La plupart des observations sont également applicables aux protocoles DeFi de manière plus générale.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 18, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    27 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Les marchés monétaires sont au cœur de DeFi. D&rsquo;un point de vue de haut niveau, oui, ils permettent simplement d&rsquo;emprunter et de prêter divers actifs. Pourtant <strong>ces fonctions sont comme les deux verbes primitifs de DeFi</strong> à la base de presque tous les cas d&rsquo;utilisation.</p>
+<p>Il y a actuellement trois grands marchés monétaires dans DeFi : Aave, Compound &amp; Cream. Pourtant, tous les services suivants les utilisent, d&rsquo;une manière ou d&rsquo;une autre : Yearn Finance, Curve Finance, Alpha Finance, Harvest Finance, DeFiSaver, Saffron, 88MPH, Idle Finance, etc. Pour dire les choses simplement - <strong>les marchés monétaires sont l&rsquo;un des niveaux de base du DeFi</strong>.</p>
+<p><img src="/img/2021/risk-tranching/cover.gif"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Risk-Tranching-TokenBrice-Cover"
+	
+	
+></p>
+<p>Les marchés monétaires sont étonnants - à la fois simples et très complexes. Dans cet article, j&rsquo;essaie de fournir un cadre et quelques indices pour évaluer le risque à différents niveaux.</p>
+<p>Pour en savoir plus sur la couche de services qui est en train de se construire sur les marchés monétaires, n&rsquo;hésitez pas à lire mes articles précédents.</p>
+<hr>
+<h2 id="i-lévaluation-du-risque-est-cassée">I/ L&rsquo;évaluation du risque est cassée
+</h2><p>Avant de nous plonger dans le cadre de l&rsquo;analyse des risques, examinons rapidement la principale solution actuellement utilisée pour évaluer les risques dans le cadre de la DeFi : Consensys CodeFi DeFiScore <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
+<p><strong>DeFiScore est incontestablement compromis puisqu&rsquo;il donne toujours un score sur DAI plus élevé sur <a class="link" href="https://www.defiscan.info/protocols/compound-v3/ethereum"  target="_blank" rel="noopener"
+    >Compound</a> que sur <a class="link" href="https://www.defiscan.info/protocols/aave/ethereum"  target="_blank" rel="noopener"
+    >Aave</a></strong> même avec l&rsquo;échec de l&rsquo;oracle du côté du Compound et l&rsquo;arrivée du module de sécurité du côté d&rsquo;Aave :</p>
+<p>L&rsquo;équipe de Consensys CodeFi a été avertie il y a quelques jours <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>, a reconnu le problème <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> mais a pourtant <strong>refusé toute mise à jour immédiate du site web, même avec un simple avis ou une clause de non-responsabilité</strong>. À la place, un de leurs membres a proposé une prime de 500 USDC ouverte à toute personne souhaitant mettre à jour la formule <sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>. Cette prime n&rsquo;a pas encore été réclamée.</p>
+<p>Il n&rsquo;est pas surprenant que les approches quantitatives aient échoué jusqu&rsquo;à présent. Elles doivent atteindre à la fois la durabilité (si la formule reste cohérente, elle permet des comparaisons historiques) et l&rsquo;adaptabilité (pourtant les paramètres de risque sont toujours en évolution) : ce n&rsquo;est pas une mince affaire.</p>
+<p>Je ne m&rsquo;étendrai pas sur la notation des risques, car un article consacré à la présentation d&rsquo;un système de notation des risques digne de la DeFi sera bientôt publié sur ce blog (indice : il n&rsquo;existe pas encore).</p>
+<hr>
+<h2 id="ii-apprécier-la-sécurité-dun-marché-monétaire">II/ Apprécier la sécurité d&rsquo;un marché monétaire
+</h2><p>Je sais que c&rsquo;est douloureux à entendre, mais comme l&rsquo;analyse quantitative n&rsquo;est pas utile, il faut recourir à une approche qualitative pour chaque projet. La bonne nouvelle, c&rsquo;est qu&rsquo;il n&rsquo;y a pas beaucoup de marchés monétaires dans DeFi qui méritent d&rsquo;être étudiés :</p>
+<ol>
+<li>Aave</li>
+<li>Compound</li>
+<li>Cream</li>
+</ol>
+<p>Pour chacun d&rsquo;entre eux, il faut les considérer de manière globale. Je propose une approche qui est <strong>purement la mienne</strong>, utilisant <strong>8 dimensions différentes toutes critiques pour la sécurité des actifs</strong> engagés sur le marché monétaire analysé :</p>
+<ol>
+<li>Accès au protocole et autorisations</li>
+<li>Oracles</li>
+<li>Mécanismes de liquidation</li>
+<li>Analyse de risque des tokens acceptés en collatéral</li>
+<li>Module de sécurité</li>
+<li>Écosystème d&rsquo;assurance élargi</li>
+<li>Gestion des risques du token natif</li>
+<li>Communauté et écosystème</li>
+</ol>
+<p>Ce que nous avons aujourd&rsquo;hui est donc essentiellement un cadre complet que vous pouvez utiliser pour évaluer la sécurité d&rsquo;un marché monétaire donné. N&rsquo;hésitez pas à me mettre au défi sur n&rsquo;importe quel point. Plongeons dans le vif du sujet.</p>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice warning" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#warning-notice"></use></svg></span>Warning</p><p><strong>Avertissement nécessaire : Ceci n&rsquo;est pas un conseil d&rsquo;investissement.</strong></p>
+<p>Presque personne n&rsquo;est qualifié pour évaluer les risques dans le cadre de la DeFi : même les &ldquo;institutions&rdquo; qui le font comme le DeFiscore sont loin de le faire décemment.</p>
+<p>Ce contenu est destiné à vous aider à mieux comprendre et apprécier le risque <strong><span style="text-decoration:underline ;">par vous-même</span></strong>, le moyen le plus fiable de le faire.</p></div>
+
+<hr>
+<h3 id="iia-accès-au-protocole-et-autorisations">II.A/ Accès au protocole et autorisations
+</h3><p>Au niveau le plus élémentaire, vous voulez savoir qui peut mettre à jour les paramètres fondamentaux du protocole (-&gt; les contrats), et les différentes limites qui y sont associées.</p>
+<p>Par exemple, il y a généralement un <strong>timelock</strong>, ce qui signifie que toute modification importante ne s&rsquo;applique qu&rsquo;après une durée déterminée. Pour les fonctions administratives du protocole, vous devez vous assurer qu&rsquo;elles <strong>appartiennent à la communauté</strong>, donc idéalement dans les mains des holders du token via la DAO ou une multisignature de membres de la communauté.</p>
+<p>Cette section comprend également tout ce qui concerne <em>l&rsquo;opsec</em> des portefeuilles/personnes** régissant le multisig. &ldquo;Opsec&rdquo; est l&rsquo;abréviation de &ldquo;operations security&rdquo; - il s&rsquo;agit de la sécurité de tout ce qui concerne les interfaces numériques liées aux détenteurs de ces clés. Peuvent-elles être piratées ? Usurpées ? Etc.</p>
+<p>Une telle question est <strong><span style="text-decoration:underline ;">CRITIQUE</span></strong>, comme nous l&rsquo;avons vu récemment avec le PDG de Nexus Mutual : son ordinateur portable a été compromis, permettant au pirate de soumettre une transaction frauduleuse en plus d&rsquo;une transaction réelle qu&rsquo;il a signée.<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup></p>
+<p>Nous n&rsquo;avons pas encore vu d&rsquo;attaques importantes basées sur l&rsquo;ingénierie sociale au sein de la DeFi, mais nous nous y attendons.</p>
+<p>La transparence sur les décisions du protocole est également essentielle : nous en parlons ci-dessous dans la section Communauté &amp; écosystème.</p>
+<p>Cet article se concentre sur les marchés monétaires matures comme Aave ou Compound. Les projets plus récents peuvent être moins décentralisés, et cela peut être une bonne chose - vous pourriez vouloir certaines options de contrôle et de récupération pour un projet plus récent.</p>
+<h4 id="évaluation-des-accès-au-protocole-et-de-la-décentralisation">Évaluation des accès au protocole et de la décentralisation
+</h4><ul>
+<li><strong>🔮Probabilité</strong> : À évaluer sur la base d&rsquo;un protocole ou d&rsquo;une équipe</li>
+<li><strong>🔥Potentielle perte de fonds</strong> : Tous les fonds déposés sur le marché</li>
+<li><strong>❌C&rsquo;est déjà arrivé ?</strong> Pas encore 🤞</li>
+</ul>
+<div class="notice tip" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#tip-notice"></use></svg></span>Tip</p><p>Lorsqu&rsquo;il s&rsquo;agit d&rsquo;évaluer l&rsquo;opsec et le plan de décentralisation, <a class="link" href="https://twitter.com/ChrisBlec"  target="_blank" rel="noopener"
+    >Chris Blec</a> est votre homme. Il est intransigeant sur l&rsquo;opsec et a produit de nombreuses contributions utiles en la matière.</p>
+<p>Vous pouvez trouver un <strong><a class="link" href="https://docs.google.com/spreadsheets/d/13S7NRk1girTdQMajnVdU5JRlVO5BG_uJKhTO2Ef10b0/edit?usp=sharing"  target="_blank" rel="noopener"
+    >aperçu résumé de la situation pour les principaux projets de DeFi ici</a></strong></p></div>
+
+<p>Pour conclure cette première dimension, voici quelques bonnes questions à poser pour évaluer la sécurité d&rsquo;un marché monétaire au niveau du protocole et des autorisations :</p>
+<ul>
+<li>Qui peut mettre à jour les contrats ?</li>
+<li>Sont-ils prudents du point de vue opsec ?</li>
+<li>Y a-t-il une fonction de vidange dans les contrats ?</li>
+<li>Que font les fonctions administratives ?</li>
+<li>Dans quelle mesure le processus de création d&rsquo;un nouveau marché des prêts est-il décentralisé ?</li>
+</ul>
+<hr>
+<h3 id="iib-oracles">II.B/ Oracles
+</h3><p>En termes simples, les oracles sont la source de &ldquo;vérités extérieures&rdquo;. <strong>Les blockchains ne sont conscientes que d&rsquo;elles-mêmes</strong>, donc pour Ethereum, le prix de l&rsquo;ETH en dollars (ou tout autre token) est techniquement une &ldquo;vérité extérieure&rdquo; qu&rsquo;il faut faire entrer dans la chaîne <strong>d&rsquo;une manière sûre et vérifiable</strong> : c&rsquo;est précisément ce que font les oracles !</p>
+<p>C&rsquo;est essentiel, car le <strong>prix perçu</strong> délivré par l&rsquo;oracle est la <strong>source de vérité pour les décisions de liquidation du protocole</strong>. Si l&rsquo;oracle dit que le DAI vaut 1,30, alors vous êtes liquidé même si votre position d&rsquo;emprunt DAI était sûre avec un DAI de 1 $ et que le DAI vaut toujours en réalité 1 $ sur les marchés. C&rsquo;est déjà arrivé avec Compound, donc ce n&rsquo;est pas une préoccupation théorique <sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>.</p>
+<p>La bonne nouvelle ici est que la réponse est assez simple : <a class="link" href="https://www.defiscan.info/protocols/chainlink-oracles/ethereum"  target="_blank" rel="noopener"
+    >ChainLink</a> est largement reconnu comme la solution décentralisée la plus crédible pour les oracles, donc tout marché monétaire qui n&rsquo;utilise pas au moins en partie ses flux de prix joue avec l&rsquo;argent de ses utilisateurs, comme l&rsquo;a fait Compound avec de lourdes pertes. Il semble que la situation ne se soit pas améliorée - malgré le problème, Compound utilise toujours le même oracle centralisé (Coinbase)<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup>.</p>
+<h4 id="évaluer-les-oracles">Évaluer les oracles
+</h4><ul>
+<li><strong>🔮Probabilité</strong>  : Significative (c&rsquo;est le facteur de risque le plus important à ce jour).</li>
+<li><strong>🔥Potentielle perte de fonds</strong> : des marchés entiers peuvent être drainés/affectés.</li>
+<li><strong>✅C&rsquo;est déjà arrivé ?</strong> Oui, sur Compound. <sup id="fnref1:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup></li>
+</ul>
+<p>Vous pouvez évaluer les oracles pour un marché monétaire avec la question suivante :</p>
+<ul>
+<li>Quelle est la source de vérité des prix ?</li>
+<li>Quelle est la fiabilité de cette source ?</li>
+<li>Y a-t-il des antécédents de liquidation abusive (découlant des problèmes des oracles) ?</li>
+</ul>
+<hr>
+<h3 id="iic-mécanismes-de-liquidation">II.C/ Mécanismes de liquidation
+</h3><p>Les mécanismes de liquidation sont également essentiels, mais ils n&rsquo;interviennent qu&rsquo;une fois qu&rsquo;une liquidation peut être déclenchée - ce qui dépend du prix que l&rsquo;oracle rapporte. Le <strong>mécanisme de liquidation ne peut donc pas compenser un oracle défectueux</strong>. Il est essentiel de le comprendre d&rsquo;abord.</p>
+<p>Ensuite, les différents marchés monétaires traitent les liquidations différemment. Ils ont des délais, des frais et des restrictions différents en ce qui concerne leurs liquidations. Par exemple, l&rsquo;oracle de Maker (système interne) a un délai d&rsquo;une heure pour éviter les liquidations instantanées en cas de crashs éclairs ponctuels.</p>
+<p>De plus, la liquidation n&rsquo;est pas un événement soudain ni un tout ou rien. Il y a plusieurs tampons à vos positions, par exemple sur Aave, chaque token a un <strong>capacité d&rsquo;emprunt donnée</strong> (LTV) et un <strong>seuil de liquidation</strong> au moins légèrement plus élevé.</p>
+<p>Ainsi, avec l&rsquo;USDC en collatéral, par exemple, il y a un écart de 5 % entre les deux - la LTV maximale est de 80 % (<em>maximum de 8 000 $ empruntés sur un collatéral de 10 000 USDC</em>), tandis que le seuil de liquidation est de 85 % (<em>= liquidation si valeur du collateral &lt; 8 500 $</em>)</p>
+<p><img src="/img/2021/money-market-risks/aave-usdc.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Aave USDC collateral parameters"
+	
+	
+></p>
+<p>Il donne aux emprunteurs utilisant l&rsquo;USDC comme collatéral une marge supplémentaire de 5 %, de sorte que même si l&rsquo;oracle fait état de 0,97 $, aucune liquidation n&rsquo;aura lieu. La situation est similaire sur les autres marchés monétaires.</p>
+<h4 id="évaluer-les-mécanismes-de-liquidation">Évaluer les mécanismes de liquidation
+</h4><ul>
+<li><strong>🔮Probabilité</strong> :  Cela dépend surtout de l&rsquo;action sur les prix des collatéraux - un krach éclair pourrait déclencher une chaîne de liquidations</li>
+<li><strong>🔥Potentielle perte de fonds</strong> : Important (le marché monétaire pourrait être sous-collatéralisé)</li>
+<li><strong>✅C&rsquo;est déjà arrivé ?</strong> Oui, sur Maker où il y a eu des problèmes et des retards dans les liquidations. <sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup></li>
+</ul>
+<p>Voici donc quelques questions à se poser pour évaluer les mécanismes de liquidation :</p>
+<ul>
+<li>Quand les liquidations sont-elles déclenchées ? quel est le flux ?</li>
+<li>Est-ce qu&rsquo;il y a un délai additionnel avant de liquider ?</li>
+<li>Quels sont les frais de liquidation ?</li>
+</ul>
+<div class="notice info" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span>Info</p><p>Il y a un autre sous-thème important ici : les <strong>liquidations n&rsquo;arrivent pas par magie</strong> - elles sont déclenchées par d&rsquo;autres utilisateurs. Il faut donc que les incitations soient là aussi au rendez-vous pour que les liquidations se fassent au moment voulu et rapidement. Ce sujet est encore plus complexe aujourd&rsquo;hui, à l&rsquo;ère des coûts élevés du gaz (bénéfices de liquidation vs coûts du gaz de la tx). On passe pour garder cet article digeste.</p></div>
+
+<hr>
+<h3 id="iid-analyse-de-risque-des-tokens-acceptés-en-collatéral">II.D/ Analyse de risque des tokens acceptés en collatéral
+</h3><p>D&rsquo;accord, maintenant que nous avons un marché monétaire qui obtient des prix fiables et qui liquide quand c&rsquo;est nécessaire, nous pouvons commencer à examiner les tokens acceptés comme collatéral et la procédure à suivre.</p>
+<p>L&rsquo;évaluation de la santé et de la sécurité globale d&rsquo;un token est <strong>l&rsquo;une des tâches les plus complexes de nos jours au sein de DeFi</strong> car il peut être difficile de comprendre l&rsquo;ensemble de l&rsquo;écosystème autour d&rsquo;un token.</p>
+<p>Prenons le token SNX, par exemple, un token ERC-20 important. Il est utilisable comme collatéral sur Aave, mais avec un ratio prêt/valeur maximum assez faible (à relever bientôt ?) à 15 %. D&rsquo;autres tokens ERC-20 comme LINK sont dans la fourchette de 60-75%.</p>
+<p>Sans trop entrer dans les détails, cela concerne ce que vous pouvez faire avec chaque token et l&rsquo;utilisation de <strong>SNX comme collatéral sur la plateforme Synthetix</strong>.</p>
+<p>Les paramètres de risque d&rsquo;Aave sont suffisamment conservateurs pour que Synthetix soit essentiellement &ldquo;en première ligne&rdquo; dans la chaîne des liquidations si un événement &ldquo;cygne noir&rdquo; devait se produire sur Synthetix. Cela semble sage : un marché monétaire ne devrait pas vouloir s&rsquo;exposer davantage sur un token donné que sur la plateforme native elle-même.</p>
+<p>Une autre façon de voir les choses est l&rsquo;inverse : évaluer la &ldquo;santé&rdquo; globale des derniers tokens ajoutés en garantie sur la plateforme : sont-ils liquides ? Sont-ils décentralisés de manière crédible ? Etc.</p>
+<p>Vous pouvez également examiner la répartition des garanties afin d&rsquo;évaluer l&rsquo;exposition de la plateforme. Par exemple, on peut noter que sur Cream, près d&rsquo;un tiers des dépôts sont des tokens FTT (échange FTX).</p>
+<p><img src="/img/2021/money-market-risks/cream.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Cream"
+	
+	
+>.</p>
+<h4 id="évaluation-de-la-stratégie-de-gestion-des-risques-sur-les-collatéraux">Évaluation de la stratégie de gestion des risques sur les collatéraux
+</h4><ul>
+<li><strong>🔮Probabilité</strong> : Dépend de la stratégie de cotation des garanties et de l&rsquo;appétit pour le risque</li>
+<li><strong>🔥Potentielle perte de fonds</strong> : Si un token dangereux est accepté en garantie, le marché monétaire peut se retrouver sous-collatéralisé, voire drainé. Cream, par exemple, accepte le COVER comme garantie. Le token a déjà été frappé trois fois à l&rsquo;infini, exposant Cream à un risque supplémentaire.<sup id="fnref:9"><a href="#fn:9" class="footnote-ref" role="doc-noteref">9</a></sup></li>
+<li><strong>❌C&rsquo;est déjà arrivé ?</strong> certains tokens ont subit une émission infinie, comme COVER. Mais ils n&rsquo;était pas utilisés comme collatéraux sur un marché monétaire à l&rsquo;époque.</li>
+</ul>
+<p>Je ne m&rsquo;étendrai pas davantage sur ce sujet, car la documentation d&rsquo;Aave sur les risques est très bien faite - consultez <a class="link" href="https://docs.aave.com/risk/asset-risk/risk-parameters"  target="_blank" rel="noopener"
+    >la section sur les paramètres de risque</a> pour plus d&rsquo;informations.</p>
+<ul>
+<li>Comment sont prises les décisions relatives à la liste des garanties ?</li>
+<li>Quel est le cadre de risque utilisé pour les garanties ?</li>
+<li>Comment le marché monétaire s&rsquo;adapte-t-il à l&rsquo;évolution de la situation des tokens qu&rsquo;il répertorie ?</li>
+</ul>
+<hr>
+<h3 id="iie-module-de-sécurité">II.E/ Module de sécurité
+</h3><p>Même si le risque est connu à tous les niveaux, <strong>l&rsquo;assurance n&rsquo;est jamais une option et n&rsquo;est jamais de trop</strong>. La première couche de défense est bien sûr le niveau de la plate-forme s&rsquo;il existe un module de compensation.</p>
+<p>La bonne nouvelle, c&rsquo;est qu&rsquo;il y en a un ! Aave a été le pionnier dans ce domaine et même Compound a une petite réserve. La deuxième bonne nouvelle est que pour évaluer l&rsquo;utilité de ce module, c&rsquo;est très simple : il s&rsquo;agit d&rsquo;un simple rapport entre la valeur totale en $ des emprunts effectués sur le marché monétaire et le total des $ pouvant être mobilisés par le module de sécurité.</p>
+<p>Aave dispose d&rsquo;environ 2B dans le module de sécurité, dont jusqu&rsquo;à 30% peuvent être saisis si nécessaire = 600M. Il couvre à la fois les V1 et V2 du protocole. Si les 30% sur la coupure du module de sécurité ne sont pas suffisants, le module de sécurité peut frapper des tokens AAVE supplémentaires. Un tel scénario n&rsquo;est pris en compte ni par Compound ni par la Cream.</p>
+<p><img src="/img/2021/money-market-risks/aave-safety-module.jpeg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Aave&rsquo;s Safety Module"
+	
+	
+></p>
+<p>En plus de l&rsquo;assurance, les marchés monétaires peuvent aussi avoir des réserves. Compound est ici le pionnier, avec environ 10 millions de dollars de réserves <sup id="fnref:10"><a href="#fn:10" class="footnote-ref" role="doc-noteref">10</a></sup>. Aave a également un système de réserve qui a été récemment lancé, mais je l&rsquo;ai exclu de l&rsquo;analyse compte tenu du solde limité <sup id="fnref:11"><a href="#fn:11" class="footnote-ref" role="doc-noteref">11</a></sup>.</p>
+<p>Alors, en regardant les chiffres disponibles, voici nos calculs rapides :</p>
+<p><code>Ratio de sécurité = Valeur de l'assurance en USD / Total des emprunts sur le marché monétaire</code></p>
+<ol>
+<li><strong>🛡 Aave = 53%</strong> | 1,765 (30% mobilisable) milliard de dollars dans le module de sécurité pour 1,1 milliard de dollars empruntés à travers V1+V2 (572 millions de dollars V1, 437 millions de dollars V2)</li>
+<li><strong>🕯 Compound = 0,24%</strong> | 4,3 milliards de dollars empruntés sur un capital de sécurité de 10 millions de dollars.</li>
+<li><strong>💀 Cream = 0 %</strong> | Pour autant que je sache, Cream n&rsquo;a pas de module d&rsquo;assurance native ou en a un très limité (faibles montants).</li>
+</ol>
+<p>ℹ Note : Bien que Compound n&rsquo;ait actuellement aucun module de sécurité, l&rsquo;équipe/DAO est actuellement assise sur une importante réserve de COMP qui pourrait être utilisée à cette fin <sup id="fnref:12"><a href="#fn:12" class="footnote-ref" role="doc-noteref">12</a></sup>. Les calculs ont été effectués le 17 Février 2021.</p>
+<h4 id="évaluation-du-module-dassurance-natif">Évaluation du module d&rsquo;assurance natif
+</h4><ul>
+<li><strong>🔮Probabilité</strong> : Non-nul, mais moins pertinent ici. Le SM est là pour fournir des compensations en cas d&rsquo;échec.</li>
+<li><strong>🔥Potentielle perte de fonds</strong> : Les déposants savent qu&rsquo;ils peuvent se faire couper les vivres si nécessaire.</li>
+<li><strong>✅C&rsquo;est déjà arrivé ?</strong> Aave est un pionnier dans ce domaine. Le slashing est activé depuis quelques semaines. Jusqu&rsquo;à présent, aucun événement n&rsquo;a obligé Aave à exploiter le module de sécurité, mais c&rsquo;est bien de savoir qu&rsquo;il est là !</li>
+</ul>
+<p>Pour avoir une idée de la protection des modules de sécurité et d&rsquo;assurance natifs, voici quelques questions décentes à poser :</p>
+<ul>
+<li>Y a-t-il un module d&rsquo;assurance natif qui couvre la plate-forme ?</li>
+<li>Comment fonctionne-t-elle ?</li>
+<li>Quels sont les délais de retrait et les garanties ?</li>
+<li>Quel est le ratio de couverture (USD TVL exposé / USD TVL du module de sécurité) ?</li>
+</ul>
+<hr>
+<h3 id="iif-ecosystème-dassurance-élargi">II.F/ Ecosystème d&rsquo;assurance élargi
+</h3><p>En plus du système d&rsquo;assurance natif du marché monétaire, les déposants et les emprunteurs peuvent <strong>couvrir leurs positions grâce à un service d&rsquo;assurance de tiers</strong> comme Nexus Mutual ou Unslashed.</p>
+<p>Le <span style="text-decoration:underline ;">risque le plus largement couvert est celui d&rsquo;une défaillance technique des contrats intelligents</span>. Vous trouverez des couvertures pour à peu près tous les contrats largement utilisés qui existent. Cependant, <strong>les défaillances des contrats intelligents ne sont pas le seul événement qui peut entraîner une perte de fonds sur un marché monétaire</strong>.</p>
+<p>C&rsquo;est pourquoi Robert Leshner, le PDG de Compound, peut déclarer ce qui suit <sup id="fnref:13"><a href="#fn:13" class="footnote-ref" role="doc-noteref">13</a></sup> alors que le protocole a récemment subi 90M de liquidations abusives en raison d&rsquo;oracles défectueux :</p>
+<blockquote>
+<p>Compound fonctionne depuis près de 2 ans avec ZERO problèmes de smart contracts.</p>
+</blockquote>
+<p>Cela crée un faux sentiment de sécurité auquel beaucoup se laissent prendre, tout comme la période de fonctionnement du protocole. Remarquez comment je n&rsquo;ai pas inclus le &ldquo;temps d&rsquo;opération&rdquo; dans ces 8 critères ? C&rsquo;est parce qu&rsquo;il a une pertinence proche de zéro malgré le fait que des services comme DeFiScore lui donnent un poids absurdement important.</p>
+<div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>Je suis prudent lorsque je parle de &ldquo;90 millions de liquidations abusives à cause d&rsquo;oracles défectueux&rdquo; mais pour être explicite - cela a potentiellement affecté négativement tout emprunteur DAI à l&rsquo;époque qui aurait pu être liquidé de manière incorrecte - perdant une partie de son dépôt sans <strong>aucun recours et aucune compensation</strong> puisque Compound a fonctionné comme prévu (du point de vue des contrats).</p></div>
+
+<p>En plus des risques d&rsquo;échec des smart contracts, veuillez considérer la liste suivante d&rsquo;autres risques non exhaustifs qui peuvent entraîner une perte de fonds :</p>
+<ol>
+<li>Échec ou manipulation d&rsquo;un oracle,</li>
+<li>Un problème avec le contrat intelligent d&rsquo;un token utilisé en collatéral (par exemple token frappé à l&rsquo;infini),</li>
+<li>Un stablecoin utilisé comme collatéral ou actif d&rsquo;emprunt sur le marché perd son ancrage</li>
+<li>Le dispositif ou le portefeuille de l&rsquo;administration d&rsquo;un service pas si décentralisé est compromis</li>
+<li>Des problèmes ou des retards dans les liquidations, ce qui signifie que le marché monétaire ne peut potentiellement plus répondre à ses exigences en matière de collatéral</li>
+<li>etc.</li>
+</ol>
+<p>La plupart des services d&rsquo;assurance ne sont pas utiles pour tous ces risques, sauf pour les risques de défaut d&rsquo;un smart contract. Le marché des autres types de risques commence à peine à se développer grâce à Unslashed Finance qui offre désormais une <strong>couverture du risque de perte de l&rsquo;ancrage des stablecoins</strong> ou du risque de dépositaire.</p>
+<p><img src="/img/2021/money-market-risks/defiprime-insurance.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Defiprime insurance"
+	
+	
+></p>
+<p>Pour en savoir plus sur les différentes approches de l&rsquo;assurance DeFi, consultez <a class="link" href="https://defiprime.com/comparing-insurance-like-solutions-in-defi"  target="_blank" rel="noopener"
+    >cet article de DeFi Rate</a>. Veuillez garder à l&rsquo;esprit le <strong>biais massif ici</strong> : il a été écrit il y a plus de deux ans par Hugh Karp, fondateur de Nexus Mutual. Cependant, il est encore suffisamment factuel et perspicace pour vous aider à comprendre les différents modèles.</p>
+<h4 id="comprendre-les-assurances-et-le-risque-quelles-couvrent-réellement">Comprendre les assurances et le risque qu&rsquo;elles couvrent réellement
+</h4><ul>
+<li><strong>🎯Objet</strong> : Échec de contrats intelligents + perte de peg de stablecoins.</li>
+<li><strong>💰Utilité</strong> : Fournit une compensation si une défaillance est constatée.</li>
+<li><strong>✅C&rsquo;est déjà arrivé ?</strong> Nexus Mutual, l&rsquo;une des plus anciennes options d&rsquo;assurance a déjà payé dans plusieurs situations de défaut de smart contracts. <sup id="fnref:14"><a href="#fn:14" class="footnote-ref" role="doc-noteref">14</a></sup></li>
+</ul>
+<p>Pour ce qui est des assurances étendues, vous voudrez donc examiner des services tels que <a class="link" href="https://www.unslashed.finance/"  target="_blank" rel="noopener"
+    >Unslashed Finance</a>, <a class="link" href="https://nexusmutual.io/"  target="_blank" rel="noopener"
+    >Nexus Mutual</a> ou <a class="link" href="https://www.coverprotocol.com/"  target="_blank" rel="noopener"
+    >Cover Protocol</a> et les plans qu&rsquo;ils proposent.</p>
+<ul>
+<li>Quelles sont les options disponibles à travers l&rsquo;écosystème pour couvrir une position sur le marché monétaire ?</li>
+<li>Quels sont leurs prix et leur fiabilité (déjà payés ?)?</li>
+</ul>
+<hr>
+<h3 id="iig-gestion-du-risque-du-token-natif">II.G/ Gestion du risque du token natif
+</h3><p>Nous avons beaucoup discuté des différents tokens utilisés comme collatéraux, mais il y en a un que vous devez surveiller de très près : le <strong>token natif du marché monétaire</strong>. Il s&rsquo;agit donc du token COMP sur Compound, AAVE sur Aave, et CREAM sur Cream.</p>
+<div class="notice info" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span>Info</p><p>Le ratio prêt/valeur maximum (LTV maximum) détermine le pouvoir d&rsquo;emprunt des collatéraux. Un prêt à valeur maximale de 50 % signifie que l&rsquo;on peut emprunter jusqu&rsquo;à la moitié de la valeur en dollars des collatéraux déposés.</p></div>
+
+<p>La toute première couche est bien sûr de s&rsquo;assurer qu&rsquo;il n&rsquo;y a pas de jeu de dupes : <strong>le marché monétaire doit être neutre et ne pas favoriser son propre token</strong>.</p>
+<p>Cela semble évident, mais on est en droit de se poser la question, notamment au vu des ratios prêt/valeur accordés aux tokens de plateforme. Par exemple, Cream autorise une max LTV excessive de 75%  sur CREAM, l&rsquo;une des plus élevées de tout le protocole. Compound lui-même donne au COMP une LTV max permissive de 60% alors que Aave est plus conservateur à 50%.</p>
+<div class="notice tip" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#tip-notice"></use></svg></span>Tip</p><p>Si le marché monétaire est sain et le token bien conçu - les gens devraient être optimistes, ce qui signifie que certains d&rsquo;entre eux l&rsquo;utilisent comme collatéral pour acheter à long terme - c&rsquo;est-à-dire déposer AAVE sur Aave pour acheter à long terme AAVE.</p>
+<p>Il n&rsquo;est pas surprenant que, malgré la permissivité de la LTV, les positions longues de COMP et de CREAM soient plus rares que celles de AAVE.</p></div>
+
+<h4 id="évaluer-la-manière-dont-un-marché-monétaire-gère-les-risques-liés-aux-tokens">Évaluer la manière dont un marché monétaire gère les risques liés aux tokens
+</h4><ul>
+<li><strong>🔮Probabilité</strong> : C&rsquo;est un événement &ldquo;tout ou rien&rdquo; : le marché monétaire peut jouer avec le feu sur son token natif pendant des mois sans conséquences avant que la situation n&rsquo;explose et que le token + le marché monétaire ne s&rsquo;effondrent ensemble.</li>
+<li><strong>🔥Potentielle perte de fonds</strong> : La perte peut potentiellement s&rsquo;étendre à l&rsquo;ensemble du système (tout le marché monétaire est touché).</li>
+<li><strong>❌C&rsquo;est déjà arrivé ?</strong> Pas encore. Mais Cream est déjà bien au-delà de tout chiffre raisonnable de max LTV  sur le token CREAM.</li>
+</ul>
+<p>Et voici quelques considérations qui méritent d&rsquo;être explorées :</p>
+<ul>
+<li>Regardez la santé du token natif de la plateforme : contrat de token, liquidité, intégrations, etc.</li>
+<li>Examiner l&rsquo;utilisation du token natif sur le protocole et évaluer la santé de son marché</li>
+<li>Propriété, distribution et coefficient de Gini du token de gouvernance</li>
+</ul>
+<p>Jusqu&rsquo;à présent, nous nous sommes concentrés sur le marché monétaire lui-même. Pourtant, il s&rsquo;agit de projets dirigés et régis par la communauté, de sorte que leur communauté et leur intégration dans l&rsquo;écosystème constituent une partie essentielle de l&rsquo;évaluation.</p>
+<hr>
+<h3 id="iih-communauté--ecosystème">II.H/ Communauté &amp; Ecosystème
+</h3><p>Dans le DeFi, les communautés sont essentielles. Il ne s&rsquo;agit pas d&rsquo;une option pour rendre le protocole plus attrayant, c&rsquo;est une <strong>caractéristique essentielle</strong> et je l&rsquo;évalue comme telle.</p>
+<p>Sur un tel sujet, encore une fois, aucune mesure ne vous aidera à elle seule. L&rsquo;essentiel est d&rsquo;avoir une idée du dynamisme de la communauté. Cela se traduit généralement par ses composantes de base : le DAO, le Discord et la présence globale dans l&rsquo;espace.</p>
+<p>Une autre conséquence d&rsquo;une communauté saine est <strong>l&rsquo;appui et l&rsquo;utilisation généralisés dans tout l&rsquo;écosystème</strong>, avec de nombreux services et produits construits sur le protocole examiné. Ici, malgré le fait que Compound ait été le premier, Aave est aussi maintenant un choix de premier ordre pour tout nouveau protocole construisant une nouvelle primitive financière.</p>
+<p>En effet, les équipes peuvent délibérément favoriser un tel environnement simplement en ayant des membres accessibles et impliqués dans l&rsquo;espace. En outre, Aave a une initiative de <strong>subventions d&rsquo;écosystème</strong> <sup id="fnref:15"><a href="#fn:15" class="footnote-ref" role="doc-noteref">15</a></sup> qui aide à financer des projets construits sur Aave tels qu&rsquo;<a class="link" href="https://tokenbrice.xyz/content/posts/2021/firp-apwine.fr.md"  target="_blank" rel="noopener"
+    >APWine</a>. D&rsquo;autres initiatives liées à la communauté sont un bon exemple, comme les hackathons, les AMA, les livestreams, etc.</p>
+<p>Ici encore, assurez-vous d&rsquo;évaluer la qualité et non la quantité. Il est facile de se précipiter sur toutes les initiatives énumérées ci-dessus. Mais il est beaucoup plus difficile de le faire correctement, d&rsquo;une manière qui ait un sens pour la communauté et qui la fasse avancer.</p>
+<p>Je ne veux pas en faire un cas de figure contre Compound, mais là encore, c&rsquo;est tellement évident. Alors que les financements communautaires de Compound sont assez limités, le programme de subventions vient d&rsquo;être lancé <sup id="fnref:16"><a href="#fn:16" class="footnote-ref" role="doc-noteref">16</a></sup>, son fondateur Robert Leshner est un investisseur en capital-risque actif, avec les fonds Robot Ventures <sup id="fnref:17"><a href="#fn:17" class="footnote-ref" role="doc-noteref">17</a></sup>.</p>
+<p><img src="/img/2021/money-market-risks/robovc.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Robovc"
+	
+	
+></p>
+<h4 id="évaluation-de-la-communauté--dao-dun-marché-monétaire">Évaluation de la communauté &amp; DAO d&rsquo;un marché monétaire
+</h4><ul>
+<li><strong>🔮Probabilité</strong> : La communauté est la caractéristique la plus importante de toutes pour le succès à long terme du marché monétaire.</li>
+<li><strong>🔥Potentielle perte de fonds</strong> : Risque à long terme. Si un marché monétaire perd les faveurs de la communauté, ce ne sera pas un événement dramatique, mais plutôt un lent et douloureux enchaînement d&rsquo;événements le plongeant dans l&rsquo;inutilité.</li>
+<li><strong>✅C&rsquo;est déjà arrivé ?</strong> Oui, avec Compound - ils ont perdu leur position de tête et leur préférence pour plusieurs raisons, telles que leur manque de soutien à l&rsquo;écosystème, le problème sur l&rsquo;oracle DAI et la réaction de l&rsquo;équipe à ce sujet.</li>
+</ul>
+<p>Voici donc quelques questions et indices pour vous aider à évaluer cette dernière partie, pourtant essentielle :</p>
+<p><strong>Au niveau de la DAO :</strong></p>
+<ul>
+<li>Comment fonctionne la soumission d&rsquo;une proposition ?</li>
+<li>Comment sont-elles examinées et améliorées ?</li>
+<li>Quel est le délai entre le vote et l&rsquo;exécution ?</li>
+<li>Une proposition qui a été ignorée ou qui n&rsquo;a pas été mise en œuvre pendant longtemps ?</li>
+</ul>
+<p><strong>Membres de l&rsquo;équipe principale :</strong></p>
+<ul>
+<li>Sont-ils légitimes ? Impliqués dans l&rsquo;espace ? Redonnant ? Conseillant ?</li>
+<li>Vérification des antécédents : sont-ils impliqués dans une escroquerie ? Que faisaient-ils avant ?</li>
+<li>Vérification du présent : en plus de leur implication dans le marché monétaire, que font-ils ? Un conflit d&rsquo;intérêts potentiel ?</li>
+</ul>
+<p><strong>Écosystème :</strong></p>
+<ul>
+<li>Documentation et soutien : à quel point est-il difficile de s&rsquo;appuyer sur ce marché monétaire ?</li>
+<li>Quels sont les services construits sur le marché monétaire ? Sont-ils largement utilisés ?</li>
+<li>Communiquent-ils clairement sur les paramètres de risque ? Disposent-ils d&rsquo;une documentation non technique sur les risques ?</li>
+</ul>
+<hr>
+<h2 id="iii-une-note-sur-le-tribalisme-dans-la-defi">III/ Une note sur le tribalisme dans la DeFi
+</h2><p>L&rsquo;exploration d&rsquo;un tel sujet a été pour moi incroyablement instructive, à tant de niveaux. Je reste assez surpris par le tribalisme de l&rsquo;espace : à part Aave, la collecte des informations présentées dans cet article n&rsquo;était pas une tâche triviale.</p>
+<p>En raison de la question que j&rsquo;ai posée et des observations que j&rsquo;ai partagées, j&rsquo;ai été la cible d&rsquo;attaques personnelles de la part des fondateurs de certaines des équipes mentionnées dans cet article. D&rsquo;autres ont été assez trompeurs et sélectifs dans leurs réponses. Je n&rsquo;ai reçu aucune réponse des comptes officiels ou des équipes de Cream &amp; Compound.</p>
+<p>De telles attitudes m&rsquo;ont donné encore plus envie de faire avancer cet article. <strong>Au-delà des aspects techniques de chaque protocole, je pense que l&rsquo;attitude de l&rsquo;équipe fondatrice est également essentielle</strong>. Sur ce plan, il y a un protocole qui se situe un ordre de grandeur au-dessus de tout autre : surprise surprise, il se trouve aussi être le plus techniquement solide, sécurisé, intégré, et excitant, et intéressant. 👻</p>
+<hr>
+<h3 id="iiia-limites-de-cette-approche-dévaluation-des-risques">III.A/ Limites de cette approche d&rsquo;évaluation des risques
+</h3><p>Je m&rsquo;attends déjà à de fortes réactions, alors permettez-moi d&rsquo;ajouter quelques sujets supplémentaires qui ne sont pas abordés ici :</p>
+<ol>
+<li>Bien que nous soyons allés assez loin, nous n&rsquo;avons pas discuté du processus de tokenisation : le processus utilisé par le protocole pour représenter les avoirs déposés. Sur ce front, <strong>Compound et Cream utilisent tous deux une approche archaïque</strong> qui a été dépassée sur tous les fronts par Aave avec la première version des aTokens au début de 2020 <sup id="fnref:18"><a href="#fn:18" class="footnote-ref" role="doc-noteref">18</a></sup> Aave V2 a encore amélioré le processus de tokenisation.</li>
+<li>Cream en soi est un petit marché, mais <strong>par le biais de l&rsquo;IronBank, d&rsquo;autres protocoles peuvent emprunter à Cream</strong>. Il est encore plus difficile d&rsquo;évaluer le risque sur un tel marché - et il a été exclu de cette analyse. Pour en savoir plus sur le risque réel déjà posé et manifesté par une telle approche, vous pouvez consulter le <a class="link" href="https://www.rekt.news/alpha-finance-rekt/"  target="_blank" rel="noopener"
+    >dernier Rekt on Alpha Homora</a>.</li>
+<li>Bien que MakerDAO fournisse un service fonctionnellement équivalent au prêt, le processus est sensiblement différent puisque chaque emprunteur frappe le DAI. Par souci de simplicité, j&rsquo;ai donc exclu MakerDAO de cette analyse, à part pour pour quelques exemples instructifs.</li>
+<li>Je n&rsquo;ai aucune affiliation avec Aave, Compound, Cream ou tout autre marché monétaire. Je possède cependant des tokens AAVE (achetés à mes frais bien sûr) stakés dans le Safety Module. Tout le contenu hébergé sur mon blog est rendu accessible gratuitement - je suis le seul éditeur.</li>
+</ol>
+<p>J&rsquo;espère que cet article vous a aidé à mieux comprendre l&rsquo;ampleur des risques sur les marchés monétaires. Je tiens à souligner une fois de plus qu&rsquo;il n&rsquo;est ni exhaustif, ni d&rsquo;une vérité absolue, mais je suis fermement convaincu qu&rsquo;il apporte des contributions claires et utiles pour faire en sorte que les risques sur DeFi soient largement compris, mieux que ce qui existe actuellement.</p>
+<p>Si vous n&rsquo;êtes pas d&rsquo;accord avec cette déclaration, <strong>n&rsquo;hésitez pas à me contester. Je suis avide de faits aptes à réfuter mes observations : cela signifierait que DeFi est plus sûre que je ne le pensais</strong>.</p>
+<hr>
+<p>Rappel : ce blog est <strong><a class="link" href="https://tokenbrice.xyz/content/posts/2020/hello-world.fr.md"  target="_blank" rel="noopener"
+    >l&rsquo;un des rares sites web de l&rsquo;espace à ne pas piller vos données</a></strong> : je n&rsquo;utilise pas Google Analytics &amp; autres trackers intrusifs.</p>
+<div class="notice tip" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#tip-notice"></use></svg></span>Tip</p><p>Cet article a éveillé votre curiosité ? Vous êtes tombés au bon endroit — nous avons un ecosystème dynamique en français pour vous aider à suivre et comprendre la finance décentralisée. Du plus accessible au plus spécialisé :</p>
+<ol>
+<li><strong><a class="link" href="https://discord.gg/3bWZcK2"  target="_blank" rel="noopener"
+    >💬 Le serveur Discord DeFi France</a></strong> pour échanger avec la communauté.</li>
+<li><strong><a class="link" href="https://thedailygweifr.substack.com/"  target="_blank" rel="noopener"
+    >☕ La version française du Daily Gwei</a></strong> pour des articles et résumés très accessibles.</li>
+<li><strong><a class="link" href="https://banklessfr.substack.com/"  target="_blank" rel="noopener"
+    >🗞 La newsletter BanklessFR</a></strong> pour comprendre les concepts fondamentaux.</li>
+<li><strong><a class="link" href="https://www.youtube.com/c/DeFiFrance"  target="_blank" rel="noopener"
+    >🎥 La chaine Youtube DeFi France</a></strong> pour approfondir avec des lives pointus.</li>
+<li>&amp; Bien sûr <a class="link" href="/fr/" >ce blog</a> qui creuse des sujets spécifiques liés à la pratique de la DeFi.</li>
+</ol></div>
+
+<p>Un grand merci à Phil H pour sa relecture attentive de la version française de cet article et ses très nombreuses suggestions et corrections.</p>
+<h2 id="iv-notes-et-références">IV. Notes et références
+</h2><p>Vous pouvez trouver des informations complémentaires sur les fait, événements ou chiffres essentiels mentionné dans l&rsquo;article en consultant les notes de bas de page :</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Dès le départ, la formule était faible, arbitraire et totalement en faveur de Compound à cause de l&rsquo;importance donnée au temps d&rsquo;opération. À mon humble avis, le principal but du <a class="link" href="https://defiscore.io/"  target="_blank" rel="noopener"
+    >DeFiScore</a> était la promotion de Consensys : ils n&rsquo;ont même pas assuré le minimum.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Je les ai notifié sur Twitter et <a class="link" href="https://twitter.com/TokenBrice/status/1360296967939772423?s=20"  target="_blank" rel="noopener"
+    >j&rsquo;ai suggéré de nombreuses améliorations évidentes</a> que toute personne ayant une certaine expérience de la DeFi aurait pu fournir.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>Jack, un de leurs ingénieurs a reconnu que <a class="link" href="https://twitter.com/jack_clancy93/status/1360304560846364672?s=20"  target="_blank" rel="noopener"
+    >le cas du Compound DAI score &gt; Aave n&rsquo;est pas défendable.</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>N&rsquo;hésitez pas à le contacter si vous voulez réclamer la prime de 500 USDC ! <a class="link" href="https://twitter.com/jack_clancy93/status/1360305374033682436?s=20"  target="_blank" rel="noopener"
+    >Voici le tweet</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>Pour en savoir plus sur cette attaque ou toute autre dans l&rsquo;espace DeFi, <strong><a class="link" href="https://www.rekt.news/nxm-hugh-speaks-out/"  target="_blank" rel="noopener"
+    >check the Rekt</a></strong>&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p>Trouvez <strong><a class="link" href="https://decrypt.co/49657/oracle-exploit-sees-100-million-liquidated-on-compound"  target="_blank" rel="noopener"
+    >plus d&rsquo;informations sur l&rsquo;abitrage de l&rsquo;oracle 89M DAI sur Compound ici</a></strong>&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p>Malgré l&rsquo;attaque qui a eu lieu il y a plusieurs semaines en raison de leur dépendance aux oracles centralisés de Coinbase, il semble que <a class="link" href="https://twitter.com/ChainLinkGod/status/1362132404484198401?s=20"  target="_blank" rel="noopener"
+    >la situation n&rsquo;a pas encore été corrigée</a>.&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8">
+<p>L&rsquo;équipe MakerDAO a publié un <a class="link" href="https://blog.makerdao.com/the-market-collapse-of-march-12-2020-how-it-impacted-makerdao/"  target="_blank" rel="noopener"
+    >compte rendu</a> après les événements pour expliquer ce qui s&rsquo;est passé.&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:9">
+<p>Cover est un protocole d&rsquo;assurance incapable de garantir son propre token contract et son programme d&rsquo;extraction de liquidités. Ils ont déjà été attaqués trois fois. Voici <a class="link" href="https://coingape.com/cover-becomes-latest-defi-protocol-to-get-exploited-price-crashes-by-77-within-an-hour/"  target="_blank" rel="noopener"
+    >quelques informations sur la dernière</a>.&#160;<a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:10">
+<p>Chaque cToken a une réserve (assurance) s&rsquo;élèvant à 9,4 millions de dollars au total (et qui augmente de plus de 100 000 dollars par jour) <a class="link" href="https://twitter.com/rleshner/status/1358566161361821696"  target="_blank" rel="noopener"
+    >Robert Leshner Tweet</a>&#160;<a href="#fnref:10" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:11">
+<p>Il y a environ 450 000 dollars de tokens collectés dans la réserve à l&rsquo;heure actuelle : <a class="link" href="https://docs.aave.com/risk/asset-risk/risk-parameters#reserve-factor"  target="_blank" rel="noopener"
+    >Documentation sur le facteur de réserve d&rsquo;Aave</a>&#160;<a href="#fnref:11" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:12">
+<p>Compound est également assis sur un coffre de 4 millions de COMP (environ 1,8 milliard de dollars) qui pourrait être alloué à l&rsquo;assurance <a class="link" href="https://twitter.com/rleshner/status/1358569634618867714?s=20"  target="_blank" rel="noopener"
+    >Robert Leshner Tweet</a>&#160;<a href="#fnref:12" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:13">
+<p>Oui, il est factuel puisque le contrat n&rsquo;a jamais échoué jusqu&rsquo;à présent. Cependant, pour les personnes moins avancées techniquement, il peut se lire comme si Compound n&rsquo;avait jamais subi de perte, ce qui n&rsquo;est pas le cas. <strong><a class="link" href="https://twitter.com/rleshner/status/1358566161361821696?s=20"  target="_blank" rel="noopener"
+    >Robert Leshner Tweet</a></strong>&#160;<a href="#fnref:13" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:14">
+<p>Vous pouvez suivre les <a class="link" href="https://app.nexusmutual.io/claim-assessment"  target="_blank" rel="noopener"
+    >réclamations et paiements sur Nexus Mutual ici</a>.&#160;<a href="#fnref:14" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:15">
+<p>La première série de <a class="link" href="https://medium.com/aave/aave-ecosystem-grants-88260ede1485"  target="_blank" rel="noopener"
+    >subventions pour l&rsquo;écosystème d&rsquo;Aave a commencé il y a environ un an</a>&#160;<a href="#fnref:15" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:16">
+<p>La proposition pour les subventions communautaire Compound a été <a class="link" href="https://compound.finance/governance/proposals/30"  target="_blank" rel="noopener"
+    >exécutée il y a deux mois</a>.&#160;<a href="#fnref:16" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:17">
+<p><a class="link" href="https://robvc.com/"  target="_blank" rel="noopener"
+    >RoboVC</a> : Il a financé plusieurs services exploitant Compound (comme InstaDapp ou Multis) et Compound lui-même.&#160;<a href="#fnref:17" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:18">
+<p>Le cas de la supériorité technique des aTokens pourrait être le sujet d&rsquo;un article à lui seul, mais en voici l&rsquo;essentiel :</p>
+<ol>
+<li><strong>Simplification</strong> : les aTokens maintiennent un ratio de 1:1 par rapport à l&rsquo;actif de base tandis que les cTokens ont un taux de change croissant par rapport à leur actif de base.</li>
+<li><strong>Comptabilité et intégrations plus faciles</strong> : la correspondance 1:1 des aTokens facilite grandement leur intégration - il n&rsquo;est pas nécessaire d&rsquo;aller chercher des données supplémentaires. Avec Compound, tout service interagissant avec des cTokens doit rechercher le taux de change cToken / jeton de base correspondant.</li>
+<li><strong>Intérêts dynamiques et compréhensibles</strong> : les tokens a et c produisent des intérêts de manière dynamique. Cependant, là encore, en raison du design plus élégant et plus simple des aTokens, l&rsquo;expérience est plus fluide avec les aTokens (dépôt, rassuré par la correspondance 1:1, le nombre augmente)</li>
+<li><strong>Intégrations plus puissantes</strong> : aToken permet de nouveaux cas d&rsquo;utilisation, surtout si vous prenez en compte les autres caractéristiques d&rsquo;Aave. Par exemple, il existe un vault de Yearn qui utilise aLINK pour emprunter de l&rsquo;USDC sur les dépôts des utilisateurs afin de farmer avec eux et de régler les revenus pour plus d&rsquo;aLINK.</li>
+</ol>
+&#160;<a href="#fnref:18" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></li>
+</ol>
+</div>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/defi/">DeFi</a>
+        
+            <a href="/tags/ethereum/">Ethereum</a>
+        
+            <a href="/tags/finance-d%C3%A9centralis%C3%A9e/">Finance Décentralisée</a>
+        
+            <a href="/tags/dex/">DEX</a>
+        
+            <a href="/tags/march%C3%A9s-mon%C3%A9taires/">Marchés Monétaires</a>
+        
+            <a href="/tags/compound/">Compound</a>
+        
+            <a href="/tags/risque-defi/">Risque DeFi</a>
+        
+            <a href="/tags/%C3%A9valuation-du-risque/">Évaluation Du Risque</a>
+        
+            <a href="/tags/risques-march%C3%A9s-mon%C3%A9taires/">Risques Marchés Monétaires</a>
+        
+            <a href="/tags/risque-aave/">Risque Aave</a>
+        
+            <a href="/tags/risque-compound/">Risque Compound</a>
+        
+            <a href="/tags/risque-cream/">Risque Cream</a>
+        
+            <a href="/tags/defiscore/">DeFiScore</a>
+        
+            <a href="/tags/cream/">CREAM</a>
+        
+            <a href="/tags/aave/">Aave</a>
+        
+            <a href="/tags/comp/">COMP</a>
+        
+            <a href="/tags/oracles/">Oracles</a>
+        
+            <a href="/tags/liquidation/">Liquidation</a>
+        
+            <a href="/tags/assurance/">Assurance</a>
+        
+            <a href="/tags/safety-module/">Safety Module</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Feb 18, 2021 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/money-markets-risk/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Assessing risk in decentralized finance: a handbook for money markets</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/actifs-stables-ethereum/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Actifs à vocation stable sur Ethereum : quelles approches et quels enjeux ?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/unstoppable-defi/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Dans les coulisses du théâtre de la décentralisation : étude de l’inaltérabilité des protocoles DeFi</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/defi-vs-inflation/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Comment construire un portefeuille DeFi résistant à l&#39;inflation ?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/recettes-marches-actifs/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🌽 Livre de recettes pour les marchés d&#39;actifs DeFi</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.e87374ab760d28dfa333a671a892b101964bde5a2dac9100a50c9b0d779b4505.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

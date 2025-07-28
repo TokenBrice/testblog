@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Des concepts complexes rendus accessibles grâce aux carte Pokémon : le future de la tokénisation sur Ethereum, des tokens non fongibles aux ERCs">
+<title>Les tokens non fongibles expliqués par Tortank et Dracaufeu</title>
+
+<link rel='canonical' href='http://localhost:1313/fr/p/les-tokens-non-fongibles-expliqu%C3%A9s-par-tortank-et-dracaufeu/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Les tokens non fongibles expliqués par Tortank et Dracaufeu">
+<meta property='og:description' content="Des concepts complexes rendus accessibles grâce aux carte Pokémon : le future de la tokénisation sur Ethereum, des tokens non fongibles aux ERCs">
+<meta property='og:url' content='http://localhost:1313/fr/p/les-tokens-non-fongibles-expliqu%C3%A9s-par-tortank-et-dracaufeu/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='NFT' /><meta property='article:tag' content='tokens non fongibles' /><meta property='article:tag' content='collectibles' /><meta property='article:tag' content='ERC721' /><meta property='article:tag' content='ERC1155' /><meta property='article:tag' content='Enjin' /><meta property='article:tag' content='CryptoKitties' /><meta property='article:tag' content='EcoCrypto' /><meta property='article:published_time' content='2018-08-08T12:56:45&#43;00:00'/><meta property='article:modified_time' content='2018-08-08T12:56:45&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/2018/nft/cover.png' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="Les tokens non fongibles expliqués par Tortank et Dracaufeu">
+<meta name="twitter:description" content="Des concepts complexes rendus accessibles grâce aux carte Pokémon : le future de la tokénisation sur Ethereum, des tokens non fongibles aux ERCs"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/2018/nft/cover.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Afficher le menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/fr/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/fr">TokenBrice</a></h1>
+            <h2 class="site-description">DeFi en brutale honnêteté</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/fr/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Accueil</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/%C3%A0-propos/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>À Propos</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Recherche</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/liens/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Liens</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" >English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" selected>Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Mode sombre</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table des matières</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#tokens-smart-contracts">Tokens? Smart Contracts?</a></li>
+        <li><a href="#la-fongibilité-kézako-">La fongibilité, kézako ?</a></li>
+        <li><a href="#et-les-biens-non-fongibles-ils-ne-sont-pas-comestibles-alors-">Et les biens non fongibles, ils ne sont pas comestibles alors ?</a></li>
+        <li><a href="#la-fongibilité-version-crypto">La fongibilité version crypto</a></li>
+        <li><a href="#les-débuts-avec-le-standard-erc-721">Les débuts avec le standard ERC-721</a></li>
+        <li><a href="#les-tokens-non-fongibles-dans-le-vrai-monde">Les tokens non fongibles dans le vrai monde</a></li>
+        <li><a href="#tokenize-everything">Tokenize everything!</a>
+          <ol>
+            <li><a href="#les-bénéfices-de-la-désintermédiation-par-tokenisation">Les bénéfices de la désintermédiation par tokenisation</a></li>
+          </ol>
+        </li>
+        <li><a href="#les-ercs---les-nouveaux-standards-pour-ethereum">Les ERCs - Les nouveaux standards pour Ethereum</a>
+          <ol>
+            <li><a href="#lerc-1155-le-futur-des-tokens-non-fongibles-">L&rsquo;ERC-1155, le futur des tokens non fongibles ?</a></li>
+          </ol>
+        </li>
+        <li><a href="#conclusion">Conclusion</a>
+          <ol>
+            <li><a href="#sources--deepdive">Sources / Deep Dive</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/fr/p/les-tokens-non-fongibles-expliqu%C3%A9s-par-tortank-et-dracaufeu/">
+                
+                    <img src="/img/2018/nft/cover.png" loading="lazy" alt="Featured image of post Les tokens non fongibles expliqués par Tortank et Dracaufeu" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/fr/categories/nft/" style="background-color: #2a9d8f; color: #fff;">
+                NFT
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/fr/p/les-tokens-non-fongibles-expliqu%C3%A9s-par-tortank-et-dracaufeu/">Les tokens non fongibles expliqués par Tortank et Dracaufeu</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Des concepts complexes rendus accessibles grâce aux carte Pokémon : le future de la tokénisation sur Ethereum, des tokens non fongibles aux ERCs
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">août 08, 2018</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    12 minutes de lecture
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+        <footer class="article-translations">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+            <div>
+                
+                    <a href="http://localhost:1313/p/non-fungible-tokens-explained-with-blastoise-and-charizard/" class="link">English</a>
+                
+            </div>
+        </footer>
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>«Non fongibles». Derrière ce nom énigmatique qui nous rappelle la garniture de nos omelettes, se cache un concept assez ancien qui trouve un second souffle aujourd&rsquo;hui. Pour l&rsquo;instant, cela se traduit surtout par des objets à collectionner et des jeux, mais le potentiel est énorme. En effet, <strong>leur potentiel dépasse largement le simple cadre des jeux-vidéos</strong> : documents officiels, titres de propriétés, traçabilité de l&rsquo;art, etc</p>
+<p>Posons les bases sur les tokens non fongibles (NFTs - Non Fungible Token en anglais) à l&rsquo;aide de Pokémons avant d&rsquo;en voir les usages potentiels et d&rsquo;explorer le futur de la technologie.</p>
+<h3 id="tokens-smart-contracts">Tokens? Smart Contracts?
+</h3><p>Avant de creuser les NFTs et de parler Pokémon, rappelons deux définitions utiles pour comprendre la suite de l&rsquo;article :</p>
+<ul>
+<li><strong>Les Smart Contracts</strong> (contrats intelligents) sont des protocoles informatiques qui facilitent, vérifient et exécutent la négociation ou l&rsquo;exécution d&rsquo;un contrat.</li>
+<li><strong>Les tokens</strong> sont des smart contracts spécifiques codés afin de représenter un bien digital. Chaque token a des propriétés et des fonctions définies par rapport à son usage final.</li>
+</ul>
+<h3 id="la-fongibilité-kézako-">La fongibilité, kézako ?
+</h3><p>Un bien fongible est un bien qui se caractérise par son appartenance à un genre&amp; : chaque unité est interchangeable. Le terme est utilisé dans plusieurs disciplines, on se concentre ici sur la définition économique.</p>
+<p>Passons tout de suite à des exemples concrets qui sont bien plus parlants que les définitions. Nos monnaies modernes telles que l&rsquo;Euro ou le Dollar sont fongibles : un billet de 5€ en vaut un autre, et les deux sont parfaitement interchangeables. L&rsquo;or est également un bien fongible : un kilogramme d&rsquo;or pur est interchangeable avec un autre.</p>
+<p><strong>Un bien fongible est donc standardisé : chaque unité de ce bien n&rsquo;a rien d&rsquo;unique, ce qui rend possible son échange avec ses pairs.</strong></p>
+<h3 id="et-les-biens-non-fongibles-ils-ne-sont-pas-comestibles-alors-">Et les biens non fongibles, ils ne sont pas comestibles alors ?
+</h3><p>À l&rsquo;inverse, il existe des biens non fongibles. Ce sont des biens qui <strong>partagent des attributs communs mais qui ont leur propre identité</strong>&amp; : chaque bien possède un ensemble de valeurs unique pour chaque attribut qui est partagé avec l&rsquo;ensemble du genre.</p>
+<p>Le meilleur exemple que nous connaissons tous, ce sont bien sûr&hellip; Les cartes Pokémon ! Tant qu&rsquo;à faire, prenons celle qui assurait le respect dans la cours de recré : Dracaufeu en personne.</p>
+<p><img src="/img/2018/nft/charizard.jpeg"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>Un carte Pokémon c&rsquo;est :</p>
+<ol>
+<li>Un nom (+ niveau) : Dracaufeu Niv.76</li>
+<li>Des PV : 150</li>
+<li>Un type : feu</li>
+<li>Un talent : Dépense d&rsquo;Énergie</li>
+<li>Une attaque et son coût : Danse Flamme (4 énergies feu)</li>
+<li>Des faiblesses et résistances : eau et résistance combat</li>
+<li>Un coût de retraite : 3</li>
+</ol>
+<p>Chaque carte Pokémon est unique, mais toutes suivent cette typologie.</p>
+<p>En effet, considérons la carte de Tortank : il a lui aussi les mêmes 7 attributs décrits plus haut, mais a des valeurs différentes pour chaque.</p>
+<p><img src="/img/2018/nft/blastoise.jpeg"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>C&rsquo;est la combinaison de tous les attributs qui font l&rsquo;unicité de la carte. Ainsi, toute carte de type feu à 150PV n&rsquo;est pas un Dracaufeu, c&rsquo;est simplement une carte qui partage 2 de ses 7 attributs (type et PV) avec Dracaufeu.</p>
+<p>Ce petit détour par le monde des Pokémons nous explique l&rsquo;essentiel du concept, le reste est son adaptation moderne. Ainsi, <strong>les tokens non fongibles définissent une catégorie de biens qui partagent des attributs communs</strong>. Néanmoins, chaque token a un unique jeu de valeurs pour ces attributs ce qui rend le token lui-même unique.</p>
+<p>Pour ceux qui étaient trop jeunes ou vieux pour les cartes Pokémons, c&rsquo;est le même concept qui sous-tend les cartes Magic, Yu-Gi-Oh !, World or Warcraft (le jeu de carte) et autres.</p>
+<h3 id="la-fongibilité-version-crypto">La fongibilité version crypto
+</h3><p>La plupart des cryptos que vous connaissez à l&rsquo;heure actuelle sont considérées fongibles (⬇️ voir plus bas) : un Bitcoin en vaut un autre et les deux sont interchangeables. Idem pour Ethereum et tout ce que vous trouverez sur Coinmarketcap.</p>
+<p><em>Étant donné que l&rsquo;historique des transactions de la plupart des cryptomonnaies est publique, celles qui ont été impliquées dans des activités illégales sont parfois repérées et bloquées sur les services d&rsquo;échange. Ainsi, avoir un historique de transaction publique rend la fongibilité totale impossible. Les seules monnaies totalement fongibles sont celles se concentrent sur la protection de la vie privée, comme Monero où l&rsquo;historique des transactions est secret.</em></p>
+<p>Ce qui va nous intéresser aujourd&rsquo;hui, ce sont les tokens non fongibles. Il y a eu plusieurs tentatives, dès 2013, pour créer des tokens non fongibles sans trop de succès. Ce qui a changé la donne, c&rsquo;est un nouveau standard Ethereum, le ERC-721 qui permet la création de «  cryptocollectibles »  (barbarisme tout droit venu de l&rsquo;anglais). Ce sont des biens uniques ayant leur propres propriétés tout en partagent un standard commun - essentiellement l&rsquo;équivalent <strong>des cartes Pokémon sur la blockchain.</strong></p>
+<h3 id="les-débuts-avec-le-standard-erc-721">Les débuts avec le standard ERC-721
+</h3><p>L&rsquo;exemple le plus célèbre, ce sont les <a class="link" href="https://www.cryptokitties.co/"  target="_blank" rel="noopener"
+    >CryptoKitties</a>, des chats virtuels qui ont été les précurseurs du standard mentionné plus haut.</p>
+<p><img src="/img/2018/nft/cryptokitties.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>Lancé en Octobre, les CryptoKitties ont eu tellement de succès qu&rsquo;ils ont provoqué une surcharge de l&rsquo;ensemble du réseau Ethereum pendant plusieurs jours début Décembre, au summum de leur viralité.</p>
+<p>Certains matous particulièrement désirables ont atteint des prix délirants, à 5 chiffres (en $) et changé de main plusieurs fois par semaine début Décembre. Face au succès, le standard est passé par toutes les étapes de validation pour être finalisé en juin 2018.</p>
+<p><img src="/img/2018/nft/ck-price.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h3 id="les-tokens-non-fongibles-dans-le-vrai-monde">Les tokens non fongibles dans le vrai monde
+</h3><blockquote>
+<p>When it comes to pushing and improving new technologies, you’ll often find porn and video games sharing the front line.</p>
+</blockquote>
+<p>Pour l&rsquo;instant et comme souvent, c&rsquo;est le monde du jeux-vidéo qui porte l&rsquo;innovation. En effet, quand il s&rsquo;agit de pousser les limites des nouvelles technologies, ce sont souvent le porno ou les jeux-vidéos qui sont précurseurs.</p>
+<p>Néanmoins les applications réelles des tokens non fongibles sont très nombreuses et beaucoup plus proches qu&rsquo;on ne le croit. Les propriétés des NFTs font d&rsquo;eux un support idéal pour «tokeniser » des biens réels. Tokeniser, c&rsquo;est un autre import venu de l&rsquo;Anglais : cela signifie <strong>créer une token représentant un bien</strong>. Le token en lui même n&rsquo;a pas de valeur. <strong>Il en acquiert une car le bien qu&rsquo;il représente a une valeur bien réelle</strong>.</p>
+<h3 id="tokenize-everything">Tokenize everything!
+</h3><p>Tokeniser permet de traiter le bien comme un token ce qui ouvre de nombreuses possibilités : échanges, transfert sans intermédiaires ou bien encore propriété fragmentaire (0.x). En outre, on peut envisager d&rsquo;autre fonctionnalités adaptées à chaque type de bien : historique des propriétaires, historique de la valeur du bien, liste détaillée de ses caractéristiques, restrictions quant à qui peu le posséder&hellip;</p>
+<p>Avec ça en tête, on se rend compte que <strong>la tokenisation de biens réels pourrait permettre de se passer de nombreux intermédiaires aux tendances gloutonnes tout en gagnant grandement en fonctionalité.</strong> Voici quelques exemples :</p>
+<ul>
+<li>Tokenisation des biens immobiliers =&gt; plus besoin de notaire.</li>
+<li>Tokenisation des œuvres d&rsquo;art =&gt; de nombreux intermédiaires comme les
+commissaires-priseurs verraient leur rôle remis en question.</li>
+<li>Tokenisation des certificats (documents d&rsquo;identité par exemple) =&gt; grand
+ménage dans les institutions et acteurs nécessaires pour l&rsquo;émettre
+ainsi que dans celles qui chassent les fraudes.</li>
+</ul>
+<p>Dans les trois cas cités plus haut, la vérification de l&rsquo;authenticité des biens ainsi que de la réalité de la possession du bien par le propriétaire seraient grandement facilités.</p>
+<h4 id="les-bénéfices-de-la-désintermédiation-par-tokenisation">Les bénéfices de la désintermédiation par tokenisation
+</h4><p>La tokenisation peut aller au delà de la création d&rsquo;un token représentant un bien réel. Revenons à la définition des tokens non fongibles décrite plus haut : «  des biens uniques ayant leur propres propriétés tout en partagent un standard commun ».</p>
+<p>Cela s&rsquo;applique tout aussi bien à des documents qui font offices de certificats. Ainsi, <strong>les cartes d&rsquo;identité, les passeports, les bulletins scolaires ou même encore les licences d&rsquo;utilisation de logiciels pourraient se retrouver tokénisés</strong>. Tout en facilitant leur émission et leur transmission, cela apporterait également une traçabilité sans commune mesure avec celle qui existe aujourd&rsquo;hui pour ce genre de document (s&rsquo;il y en a une). En outre, cela simplifiera grandement la détection et la lutte contre les fraudes.</p>
+<p>En poussant la logique encore plus loin, et en revenant au monde digital, on peut envisager <strong>des NFTs pour représenter notre identité digitale</strong> - des profils sur les réseaux sociaux qui serait open-source par exemple, et ainsi facilement exportables d&rsquo;un réseau à l&rsquo;autre. Cela nous permettrait en outre d&rsquo;avoir un contrôle total sur nos données ce qui empêcherait leur appropriation par des tiers malveillants.</p>
+<p>Avant d&rsquo;en arriver là, il faudra commencer par <strong>dépasser les limites actuelles d&rsquo;Ethereum et des tokens non fongibles</strong> : comme on le disait plus haut, les CryptoKitties ont surchargé le réseau Ethereum pendant plusieurs jours. La technologie actuelle (celle de décembre pour le moins) n&rsquo;est clairement pas utilisable à grande échelle.</p>
+<h3 id="les-ercs---les-nouveaux-standards-pour-ethereum">Les ERCs - Les nouveaux standards pour Ethereum
+</h3><p>Concernant le réseau Ethereum, l&rsquo;effort est en marche ! Différents projets travaillent depuis plusieurs années déjà à l&rsquo;optimisation technique du réseau, comme OmiseGo/Plasma ou encore la prochaine mise à jour de d&rsquo;Ethereum (Casper). Vous trouverez des articles dans les sources qui couvrent ces sujets ; ce qui nous intéresse aujourd&rsquo;hui ce sont les NFTs, alors revenons y.</p>
+<p>L&rsquo;ERC-721 est un bon début, mais il pose <strong>plusieurs problèmes à l&rsquo;échelle</strong>. Avant d&rsquo;en venir là, faisons un petit point sur les ERC. Un ERC (Ethereum Request for Comments) est une proposition soumise par un développeur de la communauté Ethereum qui décrit des méthodes, comportements, innovations ou recherches applicables au fonctionnement du réseau. Une fois acceptée, un ERC devient un standard. Une fois encore, l&rsquo;exemple rend ça plus palpable : le standard le plus connu pour ethereum est l&rsquo;ERC-20, il décrit un token simple et fongible.</p>
+<p>Le principal intérêt des ERCs est qu&rsquo;ils permettent d&rsquo;intégrer facilement les tokens suivants ce standard à l&rsquo;écosystème : <strong>pas besoin de connaître les spécificités d&rsquo;un token pour le manipuler, puisqu&rsquo;il répond à un jeu de méthode communs à d&rsquo;autres</strong> (définit par l&rsquo;ERC qu&rsquo;il suit). C&rsquo;est la raison pour laquelle un portefeuille (wallet) compatible avec ERC-20 peut supporter n&rsquo;importe quel token ERC-20 sans nécessiter de développement spécifique à chaque nouveau token.</p>
+<h4 id="lerc-1155-le-futur-des-tokens-non-fongibles-">L&rsquo;ERC-1155, le futur des tokens non fongibles ?
+</h4><p>L&rsquo;ERC-1155 est un nouveau standard pour les NFTs proposés par Witek Radomski, le co-fondateur d&rsquo;<a class="link" href="https://enjincoin.io/"  target="_blank" rel="noopener"
+    >EnjinCoin</a> une plateforme faite pour faciliter le développement de jeux avec des biens tokénisés sur Ethereum.</p>
+<p><strong>L&rsquo;ERC-1155 résout plusieurs problèmes techniques posés par l&rsquo;utilisation à grande échelle de tokens ERC-721 tout en apportant de nouvelles fonctionnalités</strong>. Du point de vue de l&rsquo;optimisation technique, et sans rentrer dans trop de détails, l&rsquo;ERC-1155 permet l&rsquo;utilisation d&rsquo;un code commun à plusieurs tokens/collections de tokens non fongibles différents. Cela permettra de supporter un volume bien plus grand de transactions, le tout pour la même charge sur le réseau Ethereum (comparé au ERC-721).</p>
+<p><img src="/img/2018/nft/erc1155.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="A transaction involving several fungible and non-fungible goods thanks to ERC-1155"
+	
+	
+>
+A transaction impliquant plusieurs tokens fongibles et non fongibles grâce au à l&rsquo;ERC1155</p>
+<p>On peut également noter notamment la possibilité d&rsquo;échanger plusieurs objets en une seule transaction. Avec l&rsquo;ERC-721, si Bob veut échanger CryptoKitty #1, #2, #3 et #4 contre le CryptoKitty #5 d&rsquo;Alice, cela va nécessiter 5 transactions au total, alors qu&rsquo;une seule serait suffisante avec l&rsquo;ERC-1155.</p>
+<p><strong>L&rsquo;ERC-1155 supporte également les objets/tokens fongibles</strong> qui sont très nombreux dans les jeux en lignes : pièces d&rsquo;or, potions, flèches et autres consommables&hellip; L&rsquo;utilisation du seul standard ERC-1155 (contre un mélange d&rsquo;ERC-20 pour les fongibles et ERC-721 pour les non fongibles) simplifie grandement la donne pour les développeurs.</p>
+<p>Finalement, une des dernières grande nouveauté est la gestion de la fongibilité par groupe : il sera ainsi possible de différencier les différentes itérations d&rsquo;un même objet, et le premier possesseur de celui-ci pourra effectivement prouver qu&rsquo;il l&rsquo;est.</p>
+<h3 id="conclusion">Conclusion
+</h3><p>Les biens non fongibles sont en plein essor, et Ethereum mène la charge. Le mieux pour comprendre les ramifications du concept de token non fongible reste encore d&rsquo;aller voir les utilisations concrètes qui en sont faites. Faison donc un petit tour d&rsquo;horizon loin d&rsquo;être exhaustif pour finir. Il n&rsquo;y a pas que les cryptokitties dans les NFTs :</p>
+<p><img src="/img/2018/nft/godsunchained.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Gods Unchained"
+	
+	
+>
+Gods Unchained</p>
+<ul>
+<li><a class="link" href="https://godsunchained.com/"  target="_blank" rel="noopener"
+    >Gods Unchained </a>: On a utilisé les jeux de cartes pour introduire le concept de non fongibilité plus haut, on les retrouve logiquement ici. GodsUnchained est l&rsquo;un des plus connus et s&rsquo;appuie sur le standard ERC-721. Les bénéfices par rapport aux jeux de carte classiques (comme Hearthstone) sont nombreux : immutabilité des cartes après la phase de beta (fini les nerfs surprises), transparence quant à la rareté de chaque type de carte, traçabilité des possesseurs précédents de chaque carte&hellip; L&rsquo;accent est mis sur l&rsquo;eSport avec un premier championnat du monde début 2019.</li>
+<li><a class="link" href="https://decentraland.org/"  target="_blank" rel="noopener"
+    >Decentraland </a>: Imaginez Minecraft, en réalité virtuelle, avec des mécanismes basés sur la blockchain pour gérer les titres de propriété : bienvenue dans le futur ! Une fois possesseur d&rsquo;une parcelle, libre aux utilisateurs d&rsquo;y créer/développer l&rsquo;expérience de leur choix (grâce au SDK) ; ils pourront ensuite en contrôler l&rsquo;accès à leur guise, et donc le faire payer s&rsquo;ils le souhaitent. Decentraland est une expérience humaine et sociale à l&rsquo;échelle mondiale. Elle sera assurément pleine de surprises !</li>
+</ul>
+<p><img src="/img/2018/nft/augmentors.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="A creature of Augmentors"
+	
+	
+>
+Une créature dans Augmentors</p>
+<ul>
+<li><a class="link" href="https://www.augmentorsgame.com/"  target="_blank" rel="noopener"
+    >Augmentors</a> : On parlait de Pokémons en début d&rsquo;article, mais quid de Pokémo GO ? Augmentors jeu combine réalité augmentée et blockchain pour proposer un jeu où les NFTs permettent à chacun de posséder réellement ses créatures et de les échanger à sa guise.</li>
+</ul>
+<p>Il pourrait être tentant de sous-estimer les NFTs, de les voir comme un truc pour gamins ou barbus collectionneur de cartes. Néanmoins c&rsquo;est tout l&rsquo;inverse : les CryptoKitties l&rsquo;ont montré, les NFTs comptent parmi les meilleurs chevaux de Troie pour faire rentrer la décentralisation dans les mœurs de la population générale.</p>
+<p>Comme souvent avec les nouvelles technologies, le développement technique n&rsquo;est que l&rsquo;échauffement.** La vraie bataille est au niveau de l&rsquo;acception sociale et légale ; à ce niveau là, les cryptominous et autres collectibles sont des précurseurs.**</p>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice tip" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#tip-notice"></use></svg></span>Astuce</p><p>Cet article a éveillé votre curiosité ? Vous êtes tombés au bon endroit — nous avons un ecosystème dynamique en français pour vous aider à suivre et comprendre la finance décentralisée. Du plus accessible au plus spécialisé :</p>
+<ol>
+<li><strong><a class="link" href="https://discord.gg/3bWZcK2"  target="_blank" rel="noopener"
+    >💬 Le serveur Discord DeFi France</a></strong> pour échanger avec la communauté.</li>
+<li><strong><a class="link" href="https://thedailygweifr.substack.com/"  target="_blank" rel="noopener"
+    >☕ La version française du Daily Gwei</a></strong> pour des articles et résumés très accessibles.</li>
+<li><strong><a class="link" href="https://banklessfr.substack.com/"  target="_blank" rel="noopener"
+    >🗞 La newsletter BanklessFR</a></strong> pour comprendre les concepts fondamentaux.</li>
+<li><strong><a class="link" href="https://www.youtube.com/channel/UCefQC4Y-X9MBRuYBKc2waiQ"  target="_blank" rel="noopener"
+    >🎥 La chaine Youtube DeFi France</a></strong> pour approfondir avec des lives pointus.</li>
+<li>&amp; Bien sûr <a class="link" href="/fr/" >ce blog</a> qui creuse des sujets spécifiques liés à la pratique de la DeFi.</li>
+</ol></div>
+
+<h4 id="sources--deepdive">Sources / Deep Dive
+</h4><ul>
+<li><a class="link" href="https://medium.com/point-nine-news/mapping-the-emerging-non-fungible-token-landscape-ee56f0d1079f"  target="_blank" rel="noopener"
+    ><em>Mapping the Emerging Non-Fungible Token Landscape</em></a> — Pawel Chudzinski on Medium, 06/15/2018.</li>
+<li><a class="link" href="https://medium.com/0xcert/erc-721-ethereum-standard-confirmed-and-finalized-73b78f7ea315"  target="_blank" rel="noopener"
+    ><em>ERC-721 Ethereum standard confirmed and finalized!</em></a> — 0xcert on Medium, 06/24/2018.</li>
+<li><a class="link" href="https://www.huffingtonpost.com/entry/porn-drives-technological-innovation-again-this_us_59f8085de4b094db8e76f834"  target="_blank" rel="noopener"
+    >_Porn Drives Tech Innovation Again, This Time In VR _</a>— Jarone Ashkenazi on the HuffPost, 10/31/2017.</li>
+<li><a class="link" href="https://medium.com/@argongroup/ethereum-plasma-explained-608720d3c60e"  target="_blank" rel="noopener"
+    ><em>Explained: Ethereum Plasma</em></a>— Lukas Schor on Medium/ArgonGroup, 05/28/2018.</li>
+<li><a class="link" href="https://medium.com/@jonchoi/ethereum-casper-101-7a851a4f1eb0"  target="_blank" rel="noopener"
+    ><em>Ethereum Casper 101</em></a> — Jon Choi on Medium, le 10/22/2017.</li>
+<li><a class="link" href="https://hackernoon.com/a-proposal-to-shake-up-ethereum-a-new-standard-on-the-horizon-d2dfa88507a6"  target="_blank" rel="noopener"
+    ><em>A Proposal To Shake Up Ethereum — A New Standard On The Horizon? Mapping the Emerging Non-Fungible Token Landscape</em></a> — Ermos Kyriakides on HackerNoon, 06/27/2018.</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/fr/tags/ethereum/">Ethereum</a>
+        
+            <a href="/fr/tags/nft/">NFT</a>
+        
+            <a href="/fr/tags/tokens-non-fongibles/">Tokens Non Fongibles</a>
+        
+            <a href="/fr/tags/collectibles/">Collectibles</a>
+        
+            <a href="/fr/tags/erc721/">ERC721</a>
+        
+            <a href="/fr/tags/erc1155/">ERC1155</a>
+        
+            <a href="/fr/tags/enjin/">Enjin</a>
+        
+            <a href="/fr/tags/cryptokitties/">CryptoKitties</a>
+        
+            <a href="/fr/tags/ecocrypto/">Ecocrypto</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Dernière mise à jour le août 08, 2018 12:56 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Contenus liés</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/fr/nftfi-defi-nft/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/nft-defi-infrastructure/nft-defi-infrastructure-tokenbrice.png" loading="lazy" data-key="" data-hash="/img/2022/nft-defi-infrastructure/nft-defi-infrastructure-tokenbrice.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">NFTfi : repousser les limites de NFTs grâce à la DeFi</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/luchadores-nft/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/luchadores-nft/luchadores-cover.png" loading="lazy" data-key="" data-hash="/img/2021/luchadores-nft/luchadores-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Vive la lutte libre (et vérifiable onchain)</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/nft-cas-d%27utilisation/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/nft-usecases/88DeLo.png" loading="lazy" data-key="" data-hash="/img/2021/nft-usecases/88DeLo.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Les tokens non-fongibles (NFTs) : le poids et l&#39;apport de l&#39;histoire vérifiable </h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/lusd-chicken-bonds/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/lusd-chicken-bonds/lusd-chicken-bonds-cover-tokenbrice.png" loading="lazy" data-key="" data-hash="/img/2022/lusd-chicken-bonds/lusd-chicken-bonds-cover-tokenbrice.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Chicken Bonds : synergie DeFi x NFT pour résoudre le problème de l&#39;oeuf et de la poule de la ĺiquidité en finance décentralisée</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/p/la-defi-au-del%C3%A0-de-la-finance/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2020/defi-beyond-finance/cover.png" loading="lazy" data-key="" data-hash="/img/2020/defi-beyond-finance/cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">La DeFi, au delà de la finance</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Généré avec <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Thème <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> conçu par <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

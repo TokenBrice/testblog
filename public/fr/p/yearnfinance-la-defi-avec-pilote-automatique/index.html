@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Il n'aura fallu que quelques jours après la sortie de Yearn Finance V2 pour que cela devienne un des lancements les plus critiques de la DeFi – prenons le temps de comprendre ce qu'il s'est passé et pourquoi c'est important.">
+<title>YearnFinance - La DeFi avec pilote automatique ?</title>
+
+<link rel='canonical' href='http://localhost:1313/fr/p/yearnfinance-la-defi-avec-pilote-automatique/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="YearnFinance - La DeFi avec pilote automatique ?">
+<meta property='og:description' content="Il n'aura fallu que quelques jours après la sortie de Yearn Finance V2 pour que cela devienne un des lancements les plus critiques de la DeFi – prenons le temps de comprendre ce qu'il s'est passé et pourquoi c'est important.">
+<meta property='og:url' content='http://localhost:1313/fr/p/yearnfinance-la-defi-avec-pilote-automatique/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Prêts' /><meta property='article:tag' content='Aave' /><meta property='article:tag' content='Compound' /><meta property='article:tag' content='BzX' /><meta property='article:tag' content='Curve' /><meta property='article:tag' content='yVault' /><meta property='article:tag' content='Stablecoins' /><meta property='article:tag' content='Leveraging' /><meta property='article:tag' content='YFI' /><meta property='article:tag' content='Yearn' /><meta property='article:tag' content='Yearn Finance' /><meta property='article:published_time' content='2020-08-11T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2020-08-11T01:13:50&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/2020/yearn-finance-YFI/wifeys.jpg' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="YearnFinance - La DeFi avec pilote automatique ?">
+<meta name="twitter:description" content="Il n'aura fallu que quelques jours après la sortie de Yearn Finance V2 pour que cela devienne un des lancements les plus critiques de la DeFi – prenons le temps de comprendre ce qu'il s'est passé et pourquoi c'est important."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/2020/yearn-finance-YFI/wifeys.jpg' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Afficher le menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/fr/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/fr">TokenBrice</a></h1>
+            <h2 class="site-description">DeFi en brutale honnêteté</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/fr/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Accueil</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/%C3%A0-propos/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>À Propos</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Recherche</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/liens/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Liens</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" >English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" selected>Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Mode sombre</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table des matières</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#quest-ce-que-yearn-">Qu&rsquo;est-ce que Yearn ?</a>
+      <ol>
+        <li><a href="#perspective-de-lutilisateur-final--déposer-attendre-largent-monte">Perspective de l&rsquo;utilisateur final : Déposer, attendre, l&rsquo;argent monte</a></li>
+        <li><a href="#que-se-passe-t-il-sous-le-capot-">Que se passe-t-il sous le capot ?</a></li>
+      </ol>
+    </li>
+    <li><a href="#pourquoi-yearn-est-unique">Pourquoi Yearn est unique</a>
+      <ol>
+        <li><a href="#construire-le-moins-possible-et-assembler-des-legos">Construire le moins possible et assembler des legos</a></li>
+      </ol>
+    </li>
+    <li><a href="#le-premier-projet-defi-100-communautaire">Le premier projet DeFi 100% communautaire</a>
+      <ol>
+        <li><a href="#defiweb3---les-communautés-régentent-les-marques">DeFi/Web3 -&gt; Les Communautés régentent les Marques</a></li>
+      </ol>
+    </li>
+    <li><a href="#ressentir-le-yearn">Ressentir le Yearn</a>
+      <ol>
+        <li><a href="#la-boîte-à-outils-yearn">La boîte à outils Yearn</a></li>
+        <li><a href="#la-famille-des-wifeys">La famille des Wifeys</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/fr/p/yearnfinance-la-defi-avec-pilote-automatique/">
+                
+                    <img src="/img/2020/yearn-finance-YFI/wifeys.jpg" loading="lazy" alt="Featured image of post YearnFinance - La DeFi avec pilote automatique ?" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/fr/categories/defi/" style="background-color: #2a9d8f; color: #fff;">
+                DeFi
+            </a>
+        
+            <a href="/fr/categories/discovery/" style="background-color: #2a9d8f; color: #fff;">
+                Découverte
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/fr/p/yearnfinance-la-defi-avec-pilote-automatique/">YearnFinance - La DeFi avec pilote automatique ?</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Il n&#39;aura fallu que quelques jours après la sortie de Yearn Finance V2 pour que cela devienne un des lancements les plus critiques de la DeFi – prenons le temps de comprendre ce qu&#39;il s&#39;est passé et pourquoi c&#39;est important.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">août 11, 2020</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    9 minutes de lecture
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+        <footer class="article-translations">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+            <div>
+                
+                    <a href="http://localhost:1313/p/yearnfinance-defi-on-autopilot/" class="link">English</a>
+                
+            </div>
+        </footer>
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Il y a quelques semaines, la sortie de Yearn v2 et le lancement du jeton YFI (prononcé &ldquo;Waifu&rdquo;) ont ébranlé le monde de la finance décentralisée. En effet, toute la recette était là : Yearn est comme un conseiller automatique, il vous aide à économiser et à faire fructifier un capital - évidemment l&rsquo;un des cas d&rsquo;utilisation les plus en vogue.</p>
+<p>Plus que le produit lui-même, c&rsquo;est son fondateur André Cronje qui  a été intrumental pour définir la &ldquo;culture&rdquo; Yearn. <strong>Son choix d&rsquo;ouvrir complètement la gouvernance</strong>, a dynamisé une communauté qui s&rsquo;est rapidement fédérée autour du projet.</p>
+<p>Avec cette article, je veux partager aujourd&rsquo;hui quelques indications pour comprendre pourquoi Yearn a vu le jour, comment il fonctionne et pourquoi il est important.</p>
+<h2 id="quest-ce-que-yearn-">Qu&rsquo;est-ce que Yearn ?
+</h2><p>La première version de Yearn a débuté par une simple promesse : elle vous permettait d&rsquo;obtenir le meilleur taux d&rsquo;intérêt disponible à tout moment sur un stablecoin donné. En effet, comme il existait de plus en plus d&rsquo;options pour prêter des stablecoins (Compound, Aave, dYdX, etc.), l&rsquo;optimisation du rendement est rapidement devenue essentielle.</p>
+<p>Yearn v2 a déjà mis sur le marché un nouveau produit, les yVaults : ils vont au-delà de l&rsquo;optimisation du rendement (rééquilibrage de stablecoins entre plusieurs plateformes de prêt) pour offrir plus de retours. Voyons comment cela fonctionne :</p>
+<h3 id="perspective-de-lutilisateur-final--déposer-attendre-largent-monte">Perspective de l&rsquo;utilisateur final : Déposer, attendre, l&rsquo;argent monte
+</h3><p>Avant d&rsquo;entrer dans les détails, voici comment cela fonctionne pour un utilisateur final :</p>
+<ol>
+<li>Vous possédez un token supporté dans les yVaults, tel que LINK</li>
+<li>Vous pouvez déposer votre LINK dans le yLINK vault pour les mettres au travail. L&rsquo;entrée et la sortie des vaults sont optimisées pour être doux en gaz (généralement ~2-3 $).</li>
+<li>Lorsque vous avez terminé, vous sortez du vault. 0,5% de la valeur <strong>totale</strong> est prélevé par le système pour couvrir tous les frais.</li>
+</ol>
+<p>Si le temps passé dans la vault est suffisant pour compenser le coût de sortie, les investisseurs sortent avec un bénéfice payé sur le jeton qu&rsquo;ils ont entré (ex : plus de LINK).</p>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice info" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span>Information</p><p>Note : Les yVaults sont encore très expérimentaux. Assurez-vous que vous savez dans quoi vous vous engagez. André a une approche assez intéressante, comme le montre sa biographie sur Twitter <a class="link" href="https://twitter.com/AndreCronjeTech/status/1291252150635560960?s=20"  target="_blank" rel="noopener"
+    >&ldquo;I test in prod&rdquo;</a>.</p></div>
+
+<hr>
+<h3 id="que-se-passe-t-il-sous-le-capot-">Que se passe-t-il sous le capot ?
+</h3><p>Les yVault sont étonnants parce qu&rsquo; <strong>ils abstraient une immense complexité pour les utilisateurs,</strong> et le font mieux que la plupart d&rsquo;entre nous. Pour en revenir au vault yLINK, voici ce qui se passe pour produire les rendements :</p>
+<ol>
+<li><strong>Les LINK sont déposés sur Aave</strong> (Délégation de crédit) et utilisés comme garantie pour ouvrir des positions. Les positions sont maintenues dans une fourchette sûre grâce à un mécanisme de sécurité financé sur une fraction des rendements totaux.</li>
+<li><strong>Les stablecoins sont empruntés et mis en œuvre</strong> pour fournir un rendement. La dernière stratégie repose sur le pool Balancer mUSD/USDC MTA.</li>
+<li>Tous les rendements réels de la partie stable de la position (les stablecoins gagnés au-dessus de la dette) sont <strong>vendus pour des LINK</strong>, ce qui augmente les rendements effectifs de l&rsquo;ensemble de la position (-&gt; plus de levier pour emprunter plus).</li>
+</ol>
+<p>Le point critique des yVault est que <strong>ils exploitent les synergies de la DeFi pour fournir des rendements attractifs</strong>. Ils sont conçus pour être flexibles dans l&rsquo;allocation de leur capital - de sorte qu&rsquo;ils peuvent facilement être réaffectés pour suivre une stratégie différente avec de meilleurs rendements.</p>
+<p>Chaque vault a une stratégie propre. Voici un graphique explicatif soigné pour expliquer la stratégie du vault yCRV :</p>
+<p><img src="/img/2020/yearn-finance-YFI/yCRV-vault.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Explication de la stratégie du vault yCRV"
+	
+	
+></p>
+<p>Je vous laisse donc creuser le graphique et rejoindre le <a class="link" href="https://discord.gg/HFK5uea"  target="_blank" rel="noopener"
+    >Yearn Discord</a> si vous êtes intéressé.</p>
+<h2 id="pourquoi-yearn-est-unique">Pourquoi Yearn est unique
+</h2><p>Yearn a dynamité la DeFi. Il faut bien comprendre que Yearn a été rendu possible par les développements survenus au cours de l&rsquo;année dernière. Yearn exploite les synergies entre plusieurs &ldquo;DeFi legos&rdquo;. Sans aller trop loin, voici les principaux :</p>
+<ol>
+<li><strong>Aave a récemment lancé la fonction de délégation de crédit</strong>, permettant à un smart contract d&rsquo;emprunter pour le compte d&rsquo;un autre smart contract. Cette fonctionnalité était nécessaire pour que les yVaults fonctionnent comme ils le font maintenant, car ils permettent la première partie de la plupart des stratégies - obtenir un effet de levier <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</li>
+<li>DEX &amp; Automated Market Makers - en particulier <strong>Curve.fi</strong>, une dépendance évidente pour le vault yCRV.</li>
+<li>Le <strong>dynamisme global des marchés des stablecoins</strong>, grâce à de nouveaux entrants tels que mStable ou le lancement du token COMP.</li>
+</ol>
+<p>Yearn est un exemple parfait de la composabilité de DeFi <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
+<h3 id="construire-le-moins-possible-et-assembler-des-legos">Construire le moins possible et assembler des legos
+</h3><p>Pourquoi je me concentre sur ce sujet ? Parce qu&rsquo;en tant que personne travaillant dans l&rsquo;espace DeFi depuis deux ans, je peux vous dire que la plus grosse erreur opérationnelle que je vois TOUT LE TEMPS - est simple : <strong>des équipes qui réinventent la roue - en reconstruisant ce qui existe déjà et marche bien</strong>.</p>
+<p>Je pense que les projets DeFi (comme la plupart des startups) gagneraient énormément à essayer de réduire activement le périmètre du travail qu&rsquo;ils entreprennent - voici deux questions efficaces qui devraient être posées plus souvent :</p>
+<ol>
+<li>&ldquo;Quelle est la valeur unique de notre produit ?&rdquo;</li>
+<li>&ldquo;De quoi avons-nous besoin pour la délivrer ? Pouvons-nous assembler des solutions existantes pour y parvenir ?&rdquo;</li>
+</ol>
+<p>La conception structurelle de Yearn démontre une volonté d&rsquo;identifier les projets DeFi à fort potentiel et d&rsquo;exploiter leurs synergies. En bref, en <strong>assemblant plusieurs legos DeFi d&rsquo;une nouvelle manière,</strong> Andre a efficacement créé un tout nouveau scenario d&rsquo;utilisation, voir un nouveau sous-ensemble de toute l&rsquo;industrie.</p>
+<h2 id="le-premier-projet-defi-100-communautaire">Le premier projet DeFi 100% communautaire
+</h2><p>Ce titre n&rsquo;est pas putaclic, je m&rsquo;y tiens car il y a des arguments pour le défendre !</p>
+<p>Tout d&rsquo;abord, il faut souligner que <strong>Yearn a été un produit fonctionnel traitant des volumes importants pendant plusieurs mois avant le token YFI</strong>. Maintenant, vous pouvez en ajouter :</p>
+<ol>
+<li>100% des tokens distribués à la communauté</li>
+<li>Utiliser une nouvelle approche d&rsquo;extraction de liquidités, pertinente pour le produit (pool yCRV).</li>
+<li>La communauté s&rsquo;est rapidement mobilisée et est en plein essor avec des idées bien articulées.</li>
+<li>André a abandonné le contrôle des principaux contrats régissant le service, au profit d&rsquo;un multisig avec des acteurs réputés de l&rsquo;espace <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>.</li>
+</ol>
+<div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Remarque</p><p>Si je considère et apprécie un processus de gouvernance ouvert comme un net positif, du moins à long terme, c&rsquo;est aussi un risque - et <strong>c&rsquo;est généralement ainsi que les gens du secteur le perçoivent.</strong> Une gouvernance ouverte peut être détournée dans une direction qui ne correspond pas au meilleur intérêt du projet.</p></div>
+
+<h3 id="defiweb3---les-communautés-régentent-les-marques">DeFi/Web3 -&gt; Les Communautés régentent les Marques
+</h3><p>Vous n&rsquo;êtes peut-être pas encore à bord, mais pour moi, construire et développer des communautés - c&rsquo;est essentiellement ma vie. Au fil des ans, je n&rsquo;ai pas trouvé de sauce secrète, mais j&rsquo;ai découvert une vérité évidente : <strong>Communauté &raquo; Marque</strong>.</p>
+<p>Dans le cas de DeFi, j&rsquo;ai hâte de voir le <strong>clash des marques</strong> auquel nous allons assister :</p>
+<ul>
+<li>D&rsquo;une part, les sociétés &ldquo;corpo&rdquo; financées par le capital-risque ont tendance à manquer de personnalité et ont plus de mal à soutenir des communautés organiques dynamiques.</li>
+<li>D&rsquo;autre part, <strong>un projet communautaire est une histoire qui s&rsquo;écrit tous les jours</strong>, et quand il s&rsquo;agit de la &ldquo;marque&rdquo; Yearn, nous la voyons se développer rapidement : le swag est déjà là !</li>
+</ul>
+<p><img src="/img/2020/yearn-finance-YFI/yearn-swag.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Yearn Finance Swag"
+	
+	
+></p>
+<h2 id="ressentir-le-yearn">Ressentir le Yearn
+</h2><p>Yearn est bien plus que les yVaults ! J&rsquo;ai concentré cet explicatif sur eux pour plus de clarté, mais il y a plusieurs autres produits Yearn en cours de développement. Sans trop s&rsquo;y attarder, en voici quelques uns qui sont prometteurs :</p>
+<ul>
+<li><strong><a class="link" href="https://yborrow.finance/"  target="_blank" rel="noopener"
+    >yBorrow</a></strong> - une interface de délégation de crédit généralisée utilisant Aave.  Cela permettra à n&rsquo;importe qui d&rsquo;accéder à des chambres vaults comme yCRV à partir d&rsquo;un token ERC-20 de leur choix.</li>
+<li>ySwap : un nouveau market maker automatisé</li>
+<li>Une mystérieuse solution à effet de levier pour optimiser les retours sur stablecoins</li>
+</ul>
+<h3 id="la-boîte-à-outils-yearn">La boîte à outils Yearn
+</h3><p>Voici quelques outils et ressources développés par la communauté qui s&rsquo;avèrent très utiles si vous explorez ou utilisez Yearn :</p>
+<ul>
+<li><strong><a class="link" href="https://www.learnyearn.finance/"  target="_blank" rel="noopener"
+    >LearnYearn</a></strong> : Un wiki complet sur Yearn fréquemment mis à jour !</li>
+<li><strong><a class="link" href="https://feel-the-yearn.vercel.app/"  target="_blank" rel="noopener"
+    >FeelTheYearn</a></strong> : Une page simple pour connaître l&rsquo;état actuel des yVaults : voir les actifs déposés, ainsi que comment ils sont déployés pour générer un retour.</li>
+<li><strong><a class="link" href="https://ycosystem.info/"  target="_blank" rel="noopener"
+    >YCosystem</a></strong> : Un agrégateur communautaire pour trouver tous les liens utiles, des docs aux YIPs, ou encore l&rsquo;endroit où acheter le swag Yearn !</li>
+</ul>
+<p>Que vous soyez intéressé ou non par Yearn, je vous invite à lire le  <a class="link" href="https://gov.yearn.finance/"  target="_blank" rel="noopener"
+    >forum de gouvernance</a> - vous êtes à jamais invité à lire et à participer aux discussions qui façonnent Yearn. Cette fois, il n&rsquo;y a pas de VC, pas de BS - juste un DAO et un homme-armée nommé <a class="link" href="https://twitter.com/AndreCronjeTech"  target="_blank" rel="noopener"
+    >Andre Cronje</a>.</p>
+<h3 id="la-famille-des-wifeys">La famille des Wifeys
+</h3><p>Enfin, il serait malhonnête de couvrir Yearn/YFI sans mentionner que YFI a déclenché tout un mouvement - il y a maintenant des dizaines de forks, plus ou moins crédibles. En effet, Yearn est open source et Andre a lui-même invité les gens à le forker, en étant créatif<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>. Alors que les premiers ne faisaient que &ldquo;bifurquer les mineurs&rdquo;, en ajustant quelques paramètres, on constate aujourd&rsquo;hui des approches plus créatives.</p>
+<p>Certaines communautés font appel à YFI pour créer leur propre système d&rsquo;investissement collectif, avec une vision à plus long terme. Ce n&rsquo;est que le début, mais je pense que nous assisterons à un développement fascinant dans cet espace. Je pense que nous verrons des communautés se réapproprier certaines parties, voire l&rsquo;ensemble du système d&rsquo;YFI - vous vous souvenez de la famille Wifeys tout à l&rsquo;heure ?</p>
+<p>Ça a déjà commencé ! Je suis de près <a class="link" href="https://medium.com/yflink/the-idea-of-yflink-is-born-aa520921a4a3"  target="_blank" rel="noopener"
+    >YFLink</a>, un fork de YFI ajusté au besoin de la communauté LINK. Pour l&rsquo;instant, cela ressemble plutot à une coopérative de liquidity mining mais à terme cela pourrait devenir le premier node de staking communautaire pour LINK.</p>
+<p>J&rsquo;ai hâte de voir Yearn grandir !</p>
+<div class="notice warning" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#warning-notice"></use></svg></span>Avertissement</p><p>Les yVaults sont un produit DeFi innovant intégrant de nombreux autres services - les risques de défaillance sont donc multipliés. Je ne suis pas un conseiller financier - vous prenez vos propres décisions.</p>
+<p><strong>Je ne suis pas responsable de <u>VOS DÉCISIONS D&rsquo;INVESTISSEMENT</u></strong>, ni de leurs résultats. La phrase précédente s&rsquo;applique tout aussi bien pour des lambos que votre potentielle banqueroute.</p></div>
+
+<div class="notice tip" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#tip-notice"></use></svg></span>Astuce</p><p>Cet article a éveillé votre curiosité ? Vous êtes tombés au bon endroit — nous avons un ecosystème dynamique en français pour vous aider à suivre et comprendre la finance décentralisée. Du plus accessible au plus spécialisé :</p>
+<ol>
+<li><strong><a class="link" href="https://discord.gg/3bWZcK2"  target="_blank" rel="noopener"
+    >💬 Le serveur Discord DeFi France</a></strong> pour échanger avec la communauté.</li>
+<li><strong><a class="link" href="https://thedailygweifr.substack.com/"  target="_blank" rel="noopener"
+    >☕ La version française du Daily Gwei</a></strong> pour des articles et résumés très accessibles.</li>
+<li><strong><a class="link" href="https://banklessfr.substack.com/"  target="_blank" rel="noopener"
+    >🗞 La newsletter BanklessFR</a></strong> pour comprendre les concepts fondamentaux.</li>
+<li><strong><a class="link" href="https://www.youtube.com/channel/UCefQC4Y-X9MBRuYBKc2waiQ"  target="_blank" rel="noopener"
+    >🎥 La chaine Youtube DeFi France</a></strong> pour approfondir avec des lives pointus.</li>
+<li>&amp; Bien sûr <a class="link" href="/fr/" >ce blog</a> qui creuse des sujets spécifiques liés à la pratique de la DeFi.</li>
+</ol></div>
+
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a class="link" href="https://twitter.com/StaniKulechov/status/1280500969986498561?s=20"  target="_blank" rel="noopener"
+    >Voici Stani (le PDG d&rsquo;Aave) qui vous explique pourquoi c&rsquo;est si important</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>André lui-même est <a class="link" href="https://twitter.com/AndreCronjeTech/status/1290845154430025731?s=20"  target="_blank" rel="noopener"
+    >le premier à reconnaître</a> ce qui a rendu Yearn possible et l&rsquo;importance de la composabilité.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>La gouvernance du protocole est maintenant entre les mains du détenteur de YFI. L&rsquo;accès aux principaux contrats est détenu par un multi-sign, <a class="link" href="https://twitter.com/AndreCronjeTech/status/1285427748761198594?s=20"  target="_blank" rel="noopener"
+    >André n&rsquo;a pas de clé</a>.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p><a class="link" href="https://twitter.com/AndreCronjeTech/status/1289959986190147585?s=20"  target="_blank" rel="noopener"
+    >&ldquo;Si vous clonez YFI (vous êtes les bienvenues), changez au moins quelques paramètres afin que nous puissions apprendre de l&rsquo;experience. Répéter la même chose en boucle n&rsquo;est pas drôle.&rdquo;</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/fr/tags/defi/">DeFi</a>
+        
+            <a href="/fr/tags/ethereum/">Ethereum</a>
+        
+            <a href="/fr/tags/pr%C3%AAts/">Prêts</a>
+        
+            <a href="/fr/tags/aave/">Aave</a>
+        
+            <a href="/fr/tags/compound/">Compound</a>
+        
+            <a href="/fr/tags/bzx/">BzX</a>
+        
+            <a href="/fr/tags/curve/">Curve</a>
+        
+            <a href="/fr/tags/yvault/">YVault</a>
+        
+            <a href="/fr/tags/stablecoins/">Stablecoins</a>
+        
+            <a href="/fr/tags/leveraging/">Leveraging</a>
+        
+            <a href="/fr/tags/yfi/">YFI</a>
+        
+            <a href="/fr/tags/yearn/">Yearn</a>
+        
+            <a href="/fr/tags/yearn-finance/">Yearn Finance</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Dernière mise à jour le août 11, 2020 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Contenus liés</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/fr/p/les-fusions-de-yearn-finance/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2020/yearn-merger/y-among-us.gif" loading="lazy" data-key="" data-hash="/img/2020/yearn-merger/y-among-us.gif"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Les fusions de Yearn Finance</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/p/les-forks-de-yearn-finance-pr%C3%A9sentation-de-la-famille-des-waifus/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2020/yearn-waifus/cover.jpg" loading="lazy" data-key="" data-hash="/img/2020/yearn-waifus/cover.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Les forks de Yearn Finance : présentation de la famille des Waifus</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/defi-vs-inflation/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/defi-vs-inflation/defi-vs-inflation-tokenbrice-cover.jpg" loading="lazy" data-key="" data-hash="/img/2022/defi-vs-inflation/defi-vs-inflation-tokenbrice-cover.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Comment construire un portefeuille DeFi résistant à l&#39;inflation ?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/marche-monetaire-innovations/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/money-market-innovations/cover-en.png" loading="lazy" data-key="" data-hash="/img/2021/money-market-innovations/cover-en.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Comprendre les innovations sur les marchés monétaires pour envisager leur avenir</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/fixed-interest-rate-protocol-firp-apwine/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/firp-apwine/pac-man.png" loading="lazy" data-key="" data-hash="/img/2021/firp-apwine/pac-man.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🍷 En oenologie comme en DeFi, la patience paye : introduction aux FIRps avec APWine.FI</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Généré avec <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Thème <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> conçu par <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

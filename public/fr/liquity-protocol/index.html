@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Liquity est le premier service d'emprunt qui opère sans avoir besoin de gouvernance, tout en étant peu coûteux et très efficace. J'explique le protocol pour comprendre comment il innove et ce qu'il apporte à la DeFi.">
+<title>⚖️ Liquity : un service d&#39;emprunt inarrêtable, efficace et innovant</title>
+
+<link rel='canonical' href='http://localhost:1313/fr/liquity-protocol/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="⚖️ Liquity : un service d'emprunt inarrêtable, efficace et innovant">
+<meta property='og:description' content="Liquity est le premier service d'emprunt qui opère sans avoir besoin de gouvernance, tout en étant peu coûteux et très efficace. J'explique le protocol pour comprendre comment il innove et ce qu'il apporte à la DeFi.">
+<meta property='og:url' content='http://localhost:1313/fr/liquity-protocol/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Finance décentralisée' /><meta property='article:tag' content='Stablecoins' /><meta property='article:tag' content='Actifs stables' /><meta property='article:tag' content='Marchés Monétaires' /><meta property='article:tag' content='Liquity' /><meta property='article:tag' content='LUSD' /><meta property='article:tag' content='LQTY' /><meta property='article:published_time' content='2021-11-30T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2021-11-30T01:13:50&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/2021/liquity-protocol/cover-en.png' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="⚖️ Liquity : un service d'emprunt inarrêtable, efficace et innovant">
+<meta name="twitter:description" content="Liquity est le premier service d'emprunt qui opère sans avoir besoin de gouvernance, tout en étant peu coûteux et très efficace. J'explique le protocol pour comprendre comment il innove et ce qu'il apporte à la DeFi."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/2021/liquity-protocol/cover-en.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Afficher le menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/fr/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/fr">TokenBrice</a></h1>
+            <h2 class="site-description">DeFi en brutale honnêteté</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/fr/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Accueil</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/%C3%A0-propos/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>À Propos</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Recherche</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/liens/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Liens</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" >English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" selected>Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Mode sombre</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table des matières</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#fonctionnement-du-protocole">FONCTIONNEMENT DU PROTOCOLE</a>
+      <ol>
+        <li><a href="#-les-fondamentaux-de-liquity">🏗 Les fondamentaux de Liquity</a>
+          <ol>
+            <li><a href="#marché-monétaire-ou-service-demprunt-">Marché monétaire ou service d&rsquo;emprunt ?</a></li>
+            <li><a href="#emprunter-avec-liquity">Emprunter avec Liquity</a></li>
+            <li><a href="#stability-pool--réserve-de-liquidité-pour-liquidations-backstop">Stability pool : réserve de liquidité pour liquidations (backstop)</a></li>
+            <li><a href="#token-lqty--staking">Token LQTY &amp; staking</a></li>
+          </ol>
+        </li>
+        <li><a href="#-compréhension-aboutie-et-utilisation-avancée">🧙 Compréhension aboutie et utilisation avancée</a>
+          <ol>
+            <li><a href="#limites-et-risques-du-modèle">Limites et risques du modèle</a></li>
+            <li><a href="#un-jeu-protocol-level">Un jeu &ldquo;protocol-level&rdquo;</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#liquity-et-lusd-dans-lécosystème-defi">Liquity et LUSD dans l&rsquo;écosystème DeFi</a>
+      <ol>
+        <li><a href="#intégrations-defi-liquity">Intégrations DeFi Liquity</a>
+          <ol>
+            <li><a href="#liquidité-lusdlqty-et-farming">Liquidité LUSD/LQTY et farming</a></li>
+          </ol>
+        </li>
+        <li><a href="#lusd--un-snack-pour-trésorerie-de-dao-">LUSD : un snack pour trésorerie de DAO ?</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/fr/liquity-protocol/">
+                
+                    <img src="/img/2021/liquity-protocol/cover-en.png" loading="lazy" alt="Featured image of post ⚖️ Liquity : un service d&#39;emprunt inarrêtable, efficace et innovant" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/fr/categories/defi/" style="background-color: #2a9d8f; color: #fff;">
+                DeFi
+            </a>
+        
+            <a href="/fr/categories/understanding/" style="background-color: #2a9d8f; color: #fff;">
+                Comprendre
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/fr/liquity-protocol/">⚖️ Liquity : un service d&#39;emprunt inarrêtable, efficace et innovant</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Liquity est le premier service d&#39;emprunt qui opère sans avoir besoin de gouvernance, tout en étant peu coûteux et très efficace. J&#39;explique le protocol pour comprendre comment il innove et ce qu&#39;il apporte à la DeFi.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">nov. 30, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    14 minutes de lecture
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+        <footer class="article-translations">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+            <div>
+                
+                    <a href="http://localhost:1313/liquity-protocol/" class="link">English</a>
+                
+            </div>
+        </footer>
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p><a class="link" href="https://www.defiscan.info/protocols/liquity/ethereum"  target="_blank" rel="noopener"
+    >Liquity</a> est un protocole encore unique en son genre : il permet l&rsquo;emprunt sur ETH et le mint d&rsquo;un stablecoin (LUSD) sans pour autant nécessiter de gouvernance ce qui le rend &ldquo;inarrêtable&rdquo;.</p>
+<p>Le terme n’est pas toujours bien compris, alors explicitons : les contrats nécessaires à l&rsquo;existence de Liquity et du LUSD ont été déployés et comme ils n’ont pas de fonctions administratives, <strong>rien ne peut les arrêter tant que le réseau Ethereum se synchronise</strong>.</p>
+<p>Si cela ne suffit pas à exciter votre curiosité, la bonne nouvelle c&rsquo;est que pour arriver à un tel résultat, Liquity met en œuvre plusieurs nouvelles idées vraiment pertinentes. En effet, outre sa résilience, Liquity est aussi <strong>le protocole le moins coûteux</strong> pour des emprunts long termes sur ETH et également <strong>le plus permissif en levier</strong>, hors “recovery mode”.</p>
+<p>Le but de cet article est donc de présenter Liquity tout en explicitant plusieurs dimensions critiques pour tout service de prêt / marché monétaire en DeFi.</p>
+<hr>
+<h2 id="fonctionnement-du-protocole">FONCTIONNEMENT DU PROTOCOLE
+</h2><p>Je vous propose un tour exhaustif du protocole pour en comprendre les enjeux et contributions apportées à la DeFi. Idéalement, il s&rsquo;agirait de comprendre toute la dynamique. Je réalise cependant que mes explications peuvent être parfois denses, je vous les propose donc par niveau de complexité :</p>
+<h3 id="-les-fondamentaux-de-liquity">🏗 Les fondamentaux de Liquity
+</h3><p>À un haut niveau, Liquity fonctionne dans une logique similaire à Maker: les utilisateurs créent des &ldquo;Troves&rdquo; où ils peuvent déposer des ETH afin d&rsquo;emprunter des stablecoins, les LUSD, directement au protocole.</p>
+<h4 id="marché-monétaire-ou-service-demprunt-">Marché monétaire ou service d&rsquo;emprunt ?
+</h4><p>Liquity tout comme Maker sont des services d&rsquo;emprunt mais pas des marchés monétaires. La différence ? Qui est-ce qui vous prête ?</p>
+<ol>
+<li>Soit le protocole directement (service d’emprunt),</li>
+<li>Ou alors d&rsquo;autres utilisateurs via un modèle de pooling comme Aave ou Compound (marché monétaire).</li>
+</ol>
+<p>La différence est extrêmement importante au niveau de la compétitivité du protocole : <strong>il est quasiment impossible, même théoriquement, d&rsquo;envisager un marché monétaire proposant des coûts d&rsquo;emprunts sur les stablecoins bas (&lt;3 % annuel) de manière durable</strong>.</p>
+<p>En effet, les marchés monétaires doivent offrir un rendement attractif à leurs déposants en stablecoins, qui disposent de très nombreuses alternatives pour produire du rendement. Ainsi, <strong>si l&rsquo;efficacité est un objectif essentiel, le modèle du service d&rsquo;emprunt qui ne nécessite pas de dépôts d’autres utilisateurs est foncièrement plus efficace</strong> - l&rsquo;utilisateur emprunte directement au protocole à un coût plus faible.</p>
+<p>Enfin pour conclure, éprouvons la théorie à la dure absurdité de la pratique : ces considérations sont valables pour analyser le design d&rsquo;un marché monétaire / service d&rsquo;emprunt. Il existe <strong>des services d&rsquo;emprunts (à priori donc très efficaces) qui arrivent malgré tout à être coûteux pour les emprunteurs, comme MakerDAO</strong>. Les raisons sont diverses, mais le fait que la DAO décide encore les frais du protocole (de manière potentiellement totalement arbitraire) me semble l&rsquo;une des principales.</p>
+<h4 id="emprunter-avec-liquity">Emprunter avec Liquity
+</h4><p>Du point de vue d&rsquo;un utilisateur potentiel, Liquity fonctionne donc comme une alternative à Maker ou autre : l&rsquo;utilisateur arrive avec des ETH qu&rsquo;il dépose dans son trove pour frapper le montant de LUSD désiré.</p>
+<p>Néanmoins, le parallèle s&rsquo;arrête ici car bien qu&rsquo;à haut niveau le processus soit similaire, la logique sous-jacente est totalement différente.</p>
+<h5 id="gestion-des-frais">Gestion des frais
+</h5><p>Tout d&rsquo;abord, le nerf de la guerre : les frais d&rsquo;emprunt. À ce sujet et outre des coûts absolus d&rsquo;emprunt très bas, Liquity a le mérite d&rsquo;apporter de <strong>la prédictibilité et de la clarté.</strong> En effet, là où Maker, Aave et Compound par exemple pratiquent un taux annuel variable (via gouvernance pour Maker, conditions du marché pour Aave/Compound), <strong>chez Liquity le taux est fixé et annoncé clairement à l&rsquo;emprunt</strong>.</p>
+<p>En outre, chez Liquity les frais se paient en une fois, lors de la mise en place de l&rsquo;emprunt : ce sont les “<strong>initiation fees”, par défaut à 0.5%. Ce sont les seul frais que l&rsquo;emprunteur paie, même s&rsquo;il garde son trove pendant des années.</strong></p>
+<p><img src="/img/2021/liquity-protocol/trove.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="liquity-trove"
+	
+	
+></p>
+<p>C&rsquo;est pourquoi Liquity est <strong>idéal pour les positions à long terme</strong>, de tels coûts d&rsquo;emprunt sont effectivement 5-10x inférieur à ce qu’on peut trouver sur les principales alternatives.</p>
+<h4 id="stability-pool--réserve-de-liquidité-pour-liquidations-backstop">Stability pool : réserve de liquidité pour liquidations (backstop)
+</h4><p>Si le modèle de Liquity apporte déjà des bénéfices pertinents dans la perspective d&rsquo;un utilisateur, sa conception explore également des solutions pertinentes.</p>
+<p>L&rsquo;un des principaux enjeux pour les services d&rsquo;emprunts c&rsquo;est bien sûr que le protocole reste solvable : il y a donc, si nécessaire, des liquidations pour rétablir l&rsquo;équilibre. Liquider des positions nécessite des fonds propres à disposition et une certaine infrastructure lorsque ce sont les utilisateurs qui le font directement, comme sur Marker ou Aave. Pour optimiser le processus, l&rsquo;idée d&rsquo;un &ldquo;<strong>backstop</strong>&rdquo; de liquidité a émergé.</p>
+<p>Il s&rsquo;agit d&rsquo;avoir <strong>une réserve de fonds, généralement des stablecoins que le protocole utilise si nécessaire pour gérer les liquidations</strong> : c&rsquo;est la Stability Pool sur Liquity. Les utilisateurs qui le souhaitent peuvent déposer leur LUSD dans cette pool : ils sont rémunérés en LQTY (qu&rsquo;on détaille juste après).</p>
+<p>Les fonds de la Stability Pool sont utilisés lorsque cela est nécessaire pour les liquidations. Le système étant désormais assez mature, les liquidations ont surtout tendance à arriver en cas de forte baisse rapide du prix de l&rsquo;ETH. Une position dans la stability pool permet donc de profiter de ces juteuses liquidations sans avoir les compétences ou l&rsquo;infrastructure nécessaire pour les exécuter.</p>
+<p>La Stability Pool offre ainsi une option de rendement native sur le LUSD plutôt légère du point de vue du gas et assez attractive. Avec un ratio de collatéralisation prudent, cela peut même convenir pour une position presque entièrement passive.</p>
+<p>Bien que le concept de backstop ne soit pas implémenté nativement sur les autres principaux marchés monétaires, <a class="link" href="https://www.bprotocol.org/"  target="_blank" rel="noopener"
+    >le projet B.Protocol</a> agit comme une couche d&rsquo;abstraction proposant l&rsquo;équivalent de ce service à Maker, Aave et Compound (sans les bénéfices à l&rsquo;avoir en interne).</p>
+<h4 id="token-lqty--staking">Token LQTY &amp; staking
+</h4><p>Je vous le disais plus haut : Liquity n&rsquo;a pas de gouvernance. Le système s&rsquo;ajuste automatiquement en fonction de différents paramètres observés sur les marchés comme on le verra plus bas. Mais alors, à quoi sert LQTY ?</p>
+<p>Dans sa forme la plus basique, c&rsquo;est un mécanisme comptable qui permet d&rsquo;allouer les revenus générés par le protocole. LQTY peut être staké pour obtenir des LUSD correspondant à sa part des frais d&rsquo;initiation et des ETH en provenance des frais de redemption :</p>
+<p><img src="/img/2021/liquity-protocol/lqty-staking-returns.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="lqty-staking-returns"
+	
+	
+></p>
+<p>Voilà pour les points essentiels sur Liquity et ses principales différences avec les solutions existantes. Néanmoins comme toujours le diable est dans les détails, donc maintenant que les bases sont établies je vous propose d&rsquo;explorer les arcanes du protocole.</p>
+<hr>
+<h3 id="-compréhension-aboutie-et-utilisation-avancée">🧙 Compréhension aboutie et utilisation avancée
+</h3><p>Jusqu&rsquo;à présent, on est resté autant que possible dans la perspective d&rsquo;un utilisateur potentiel. Pour cette section, il va falloir élargir nos horizons pour cerner toute la subtilité de la conception de Liquity. C&rsquo;est parti !</p>
+<h4 id="limites-et-risques-du-modèle">Limites et risques du modèle
+</h4><p>Maintenant que j&rsquo;ai votre attention, parlons des risques : ça fait aussi partie des subtilités à connaître pour comprendre et tirer profit de Liquity.</p>
+<h5 id="-dépendance-à-loracle">🔮 Dépendance à l&rsquo;oracle
+</h5><p>Si vous me lisez depuis un bout de temps, cette phrase vous dira sans doute quelque chose : &ldquo;<strong>la vérité sur les marchés monétaires, c&rsquo;est ce que l&rsquo;oracle dit</strong>&rdquo;. L&rsquo;oracle est le dispositif qui permet d&rsquo;obtenir des données nécessaires on-chain, pour être utilisé par des smart contracts. La donnée critique en question ici c&rsquo;est le prix d&rsquo;ETH en USD, qui permet de déterminer si une position donnée est solvable ou doit être liquidée.</p>
+<p>En l&rsquo;occurrence, le choix est classique : le flux principal utilisé est <a class="link" href="https://data.chain.link/ethereum/mainnet/crypto-usd/eth-usd"  target="_blank" rel="noopener"
+    >ETH/USD ChainLink</a>, avec un fallback sur Tellor (<a class="link" href="https://docs.liquity.org/faq/stability-pool-and-liquidations#what-oracle-are-you-using-to-determine-the-price-of-eth"  target="_blank" rel="noopener"
+    >plus d&rsquo;infos</a>). ChainLink est très répandu et robuste, mais il faut être conscient du fait qu&rsquo;un problème avec le flux ETH/USD ChainLink peut rapidement entraîner des conséquences graves sur Liquity (et à peu prêt toute la DeFi).</p>
+<h5 id="-le-lusd-contre-son-peg-de-1">⚖ Le LUSD contre son peg de $1
+</h5><p>LUSD est un stablecoin, c&rsquo;est super de le minter directement pour pousser le plus possible vers le bas les coûts d&rsquo;emprunt. Mais quid de la stabilité du LUSD ?</p>
+<p>Le pegging de stablecoin, c&rsquo;est une science assez dense, on ne va pas forcément faire le détail, juste les grandes lignes. Le LUSD a différentes caractéristiques qui lui permettent a priori d&rsquo;établir un plancher ainsi qu&rsquo;un plafond via les arbitrages :</p>
+<ul>
+<li>Plancher : le mécanisme de rédemption : un LUSD peut être racheté contre de l&rsquo;ETH via un mécanisme qu&rsquo;on explore juste après</li>
+<li>Plafond : le protocole garantit en toutes conditions une collatéralisation absolument minimale du LUSD par de l&rsquo;ETH à 110%</li>
+</ul>
+<p>Ainsi, bien que le LUSD tient relativement bien son peg à $1, on observe des fluctuations d&rsquo;amplitude plus conséquentes que sur un stablecoin centralisé.</p>
+<p><img src="/img/2021/liquity-protocol/lusd-price.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="lusd-price"
+	
+	
+></p>
+<p>Différentes situations extrêmes au niveau du marché (et donc du protocole) peuvent également amener à envisager un LUSD qui s&rsquo;écarte plus ou moins durablement du peg. Dans l&rsquo;ensemble, les mécanismes de stabilisation sont là pour ramener l&rsquo;équilibre sur le long-terme.</p>
+<h4 id="un-jeu-protocol-level">Un jeu &ldquo;protocol-level&rdquo;
+</h4><p>Liquity nous amène à une notion très intéressante que j&rsquo;appelle &ldquo;protocol-level&rdquo;, faute de mieux. Il s&rsquo;agit des interactions possibles avec le protocole dont les conséquences dépendent des actions des autres joueurs.</p>
+<p>En quelque sorte et pour reprendre ma métaphore favorite des MMORPGs :</p>
+<ol>
+<li><strong>PvE = le joueur se bat contre des monstres (IA)</strong>, en DeFi : farming simple &amp; conséquences des autres joueurs seulement secondaires (ex dilution du yield quand une 🐳 arrive)</li>
+<li><strong>PvP = les joueurs se castagnent directement entre eux</strong> et ça, ça ne manque pas même en DeFi !</li>
+<li>Mais le plus intéressant aujourd&rsquo;hui c&rsquo;est surtout <strong>le RvR (Royaume contre Royaume)</strong>. Là encore il y a bien castagne entre joueurs, mais c&rsquo;est <strong>une lutte structurée par faction</strong>, avec des objectifs à atteindre. L&rsquo;équivalent DeFi ici c&rsquo;est bien sûr le jeu des gauges CRV sur Curve !</li>
+</ol>
+<p>On observe ainsi sur Liquity des mécaniques &ldquo;protocol-level&rdquo; qui pourraient s&rsquo;apparenter à du RvR dans cette métaphore, voyons donc comment elles fonctionnent :</p>
+<h5 id="taux-dinitiationredemption-dynamique">Taux d&rsquo;initiation/redemption dynamique
+</h5><p>Tout d&rsquo;abord, le plus basique : les frais. Je vous parlais plus haut d&rsquo;un frais d&rsquo;initiation à 0.5% : c&rsquo;est vrai, mais légèrement simplifié. En réalité ce taux peut évoluer entre 0.5% et 5% : c&rsquo;est le <code>baseRate</code> qui gouverne le frais payé à la fois sur les emprunts et les redemptions.</p>
+<p>Lors d&rsquo;une forte utilisation de Liquity, le <code>baseRate</code> augmente. C&rsquo;est également un mécanisme défensif pour le protocole, qui sans ça, pourrait se faire &ldquo;vider ses ETH&rdquo; par des arbitrageurs (redemption massive LUSD-&gt;ETH). Le taux &ldquo;decay&rdquo; lorsque l&rsquo;utilisation se calme pour revenir gentiment à 0.5% et je vous laisse aller voir <a class="link" href="https://docs.liquity.org/faq/lusd-redemptions#how-is-the-baserate-calculated"  target="_blank" rel="noopener"
+    >les maths derrière tout ça</a> sur la doc pour les curieux.</p>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Remarque</p><p>Comme le déposant paie ses frais au moment de l&rsquo;emprunt sur Liquity, l&rsquo;évolution du taux par la suite n&rsquo;a pas de conséquence pour lui.</p></div>
+
+<h5 id="recovery-mode--aussi-terrifiant-quefficace-">&ldquo;Recovery Mode&rdquo; : aussi terrifiant qu&rsquo;efficace ?
+</h5><p>En utilisation normale, <strong>Liquity est le protocole le plus permissif pour leverager sur ETH, tolérant un ratio de collatéralisation aussi bas que 110%</strong> (~90% de la valeur nette du collatéral est empruntée). C&rsquo;est sans commune mesure avec ce qu&rsquo;on trouve ailleurs en DeFi, quelques références sur ETH :</p>
+<ul>
+<li>Maker propose des ratios de collatéralisation allant de 58,8% pour ETH-C à 76,9% pour ETH-B (min collateral ratio de 130% à 170%)</li>
+<li>Aave est à 82.5% sur ETH</li>
+<li>Compound à 75%</li>
+</ul>
+<p>Si le protocole peut être aussi permissif, ce n&rsquo;est pas parce qu&rsquo;il prend plus de risques, mais plutôt parce que plusieurs solutions sont implémentées pour pousser les utilisateurs à re-collatéraliser lorsque cela est nécessaire : le recovery mode et les redemptions.</p>
+<p><img src="/img/2021/liquity-protocol/recovery-mode.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="recovery-mode"
+	
+	
+></p>
+<p>Le recovery mode est un jeu protocol-level sur Liquity : son déclenchement dépend du &ldquo;Total Collateral Ratio&rdquo; du protocole : le ratio entre l&rsquo;ensemble des collatéraux et les LUSD dûs.</p>
+<p>Lorsque celui-ci passe <strong>sous la barre des 150%, le Recovery Mode s&rsquo;enclenche pour rétablir l&rsquo;équilibre</strong> : le seuil minimal de collatéralisation pour un trove passe à 150%. Les utilisateurs à risques sont ainsi invités à re-collatéraliser ou rembourser de la dette - et/ou seront liquidés si nécessaire lors de la mise en route du recovery.</p>
+<p>La mise en route du recovery mode ne se fait néanmoins pas par surprise, puisqu&rsquo;elle dépend d&rsquo;un paramètre que tout le monde peut suivre aisément. Un tel système permet de maximiser l&rsquo;efficacité du protocole la plupart du temps, tout en revenant rapidement vers des paramètres plus conservateurs si cela est nécessaire.</p>
+<h5 id="le-jeu-des-redemptions">Le jeu des redemptions
+</h5><p>Enfin, il reste une dernière mécanique à détailler : les rédemptions, un mécanisme d&rsquo;arbitrage pour échanger des LUSD contre des ETH.</p>
+<p>Là encore, il s&rsquo;agit d&rsquo;un jeu protocol-level : les rédemptions se font en utilisant la liquidité disponible dans les troves des utilisateurs. <strong>Lorsqu&rsquo;il y a redemption, le protocole commence par utiliser la liquidité du trove le moins collatéralisé sur Liquity</strong> et remonte autant que nécessaire.</p>
+<p>Ainsi, être <strong>le</strong> trove le moins collatéralisé de Liquity n&rsquo;est pas une position très envieuse, puisque votre collatéral est à risque de servir pour les rédemptions. Si c&rsquo;est le cas, l&rsquo;utilisateur perdra des ETH, mais il verra aussi sa dette diminuer (proportionnellement aux LUSD échangés).</p>
+<p>Ce mécanisme pousse les joueurs à rester raisonnable, même lorsque le recovery mode n&rsquo;est pas activé : pour éviter les rédemptions, il ne faut pas être le plus agressif. C&rsquo;est en quelque sorte <strong>un mécanisme de régulation dont le seuil exact dépend de l&rsquo;appétit moyen pour le levier des autres joueurs</strong> : autrement dit une conception des plus élégantes.</p>
+<h5 id="décentralisation-des-front-ends">Décentralisation des front-ends
+</h5><p>Enfin, c&rsquo;est peut-être un détail pour vous mais pour moi ça veut dire beaucoup : <strong>l&rsquo;équipe de Liquity n&rsquo;opère pas le site de l&rsquo;application</strong>. À la place, elle a mis à disposition un <a class="link" href="https://docs.liquity.org/documentation/sdk"  target="_blank" rel="noopener"
+    >SDK Frontend</a> pour aider d&rsquo;autres développeurs à opérer eux-même une instance d&rsquo;un front-end Liquity. Il y a également un mécanisme de kickback pour inciter ces intégrateurs.</p>
+<p>Cette approche permet à Liquity d&rsquo;<strong>aller encore plus loin que les autres protocoles en termes de décentralisation</strong> et d&rsquo;offrir de solides garanties qu&rsquo;au moins un des front-ends restera disponible quoiqu&rsquo;il arrive.</p>
+<p><strong>Cette spécificité de Liquity est à l&rsquo;image du reste du protocole : une approche innovante, différente, et réellement pertinente que vous ne pouvez tout simplement pas ignorer.</strong></p>
+<hr>
+<h2 id="liquity-et-lusd-dans-lécosystème-defi">Liquity et LUSD dans l&rsquo;écosystème DeFi
+</h2><p>J&rsquo;ai écrit cet article car je considère Liquity comme une primitive DeFi essentielle et j&rsquo;aimerais vous aider à comprendre pourquoi. Je ne suis pas le seul à saisir ce qu&rsquo;il se joue ici, de nombreux protocoles s&rsquo;intéressent à Liquity et au LUSD d&rsquo;une façon ou d&rsquo;autre autre. Voyons ça.</p>
+<h3 id="intégrations-defi-liquity">Intégrations DeFi Liquity
+</h3><p>Il y a tout d’abord les différents protocoles qui intègrent une ou plusieurs parties de Liquity et offrent ainsi de nouvelles opportunités aux possesseurs de LQTY ou LUSD.</p>
+<h4 id="liquidité-lusdlqty-et-farming">Liquidité LUSD/LQTY et farming
+</h4><p><a class="link" href="https://harvest.finance/"  target="_blank" rel="noopener"
+    >Harvest Finance</a> propose ainsi un vault LQTY qui s’appuie sur le staking : les LUSD et ETH obtenus sont fréquemment composés pour plus de LQTY.</p>
+<p><a class="link" href="https://app.pickle.finance/farms"  target="_blank" rel="noopener"
+    >Pickle Finance</a> propose un produit similaire (pJar 0.98l) ainsi qu’un vault particulier en partenariat avec B.Protocol pour maximiser les LQTY obtenus :</p>
+<p><img src="/img/2021/liquity-protocol/pickle-lusd.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="pickle-lusd"
+	
+	
+></p>
+<p>La source principale de liquidité pour LUSD c’est <a class="link" href="https://curve.fi/lusd"  target="_blank" rel="noopener"
+    >la pool Curve</a>, disponible  également avec Convex.</p>
+<p>Côté liquidité sur le token LQTY, la situation est plus tendue mais s’améliore depuis le lancement du vault Uniswap V3 géré par <a class="link" href="https://www.visor.finance/"  target="_blank" rel="noopener"
+    >Visor</a> qui offre également une nouvelle option pour farmer avec LQTY.</p>
+<p><img src="/img/2021/liquity-protocol/visor-uni-lqty.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="visor-uni-lqty"
+	
+	
+></p>
+<p>Liquity est également supporté sur <a class="link" href="https://defisaver.com/"  target="_blank" rel="noopener"
+    >DeFiSaver</a>, pour gérer plus aisément le levier et protéger les troves.</p>
+<p>Voilà pour le tour d’horizon rapide des principales intégrations. Les DAOs s&rsquo;intéressent également au LUSD car c’est le seul stablecoin inarrêtable.</p>
+<hr>
+<h3 id="lusd--un-snack-pour-trésorerie-de-dao-">LUSD : un snack pour trésorerie de DAO ?
+</h3><p>Les propriétés inhérentes du LUSD lui ont déjà valu de l’attention en DeFi. Par exemple, après avoir accumulé beaucoup de liquidité sur DAI et FRAX, Olympus s’est tourné vers LUSD avec l’accumulation de LUSD et LP Sushi LUSD/OHM via le mécanisme de bonds. LUSD est désormais un des principaux actifs possédés par OlympusDAO (<a class="link" href="https://dune.xyz/shadow/Olympus-%28OHM%29"  target="_blank" rel="noopener"
+    >stats</a>).</p>
+<p><img src="/img/2021/liquity-protocol/olympus-lusd.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="olympus-lusd"
+	
+	
+></p>
+<p>Les ohmies ne vont pas s’arrêter là : ils adorent les actifs productifs, et Liquity n’en manque pas : <a class="link" href="https://forum.olympusdao.finance/d/177-tap-5-whitelist-liquity-lusd-stability-pool-and-lqty-staking"  target="_blank" rel="noopener"
+    >le plan</a> est donc que le protocole déploie ses LUSD dans la Stability Pool pour accumuler des LQTY qui seront également stakés.</p>
+<p>Il y avait même du liquidity mining classique sur la paire LUSD/OHM, mais revisité. Avec le <a class="link" href="https://crucible.alchemist.wtf/"  target="_blank" rel="noopener"
+    >Crucible </a>d’Alchemist, un smart contract wallet NFT pour gérer facilement ses positions LP, un <a class="link" href="https://www.liquity.org/blog/how-to-earn-rewards-on-the-lusd-ohm-pool-using-alchemists-crucible"  target="_blank" rel="noopener"
+    >programme de 35 jours </a>était proposé, avec des récompenses en OHM, LUSD et MIST.</p>
+<p><br>
+D’autres protocoles en quête de résilience, diversification et stabilité pour leur trésorerie ont également franchi le pas :</p>
+<ul>
+<li>Fei, un protocole proposant un autre type de stablecoin, a diversifié son collatéral vers LUSD et compte désormais plus de 50 M LUSD : <a class="link" href="https://app.fei.money/analytics"  target="_blank" rel="noopener"
+    >Analytics Fei Money</a></li>
+<li>L’équipe de Synthetix s’intéresse également à amener le LUSD sur Optimism, qui pourrait aider pour stabiliser sUSD avec <a class="link" href="https://gist.github.com/kaleb-keny/33fd792ac52a70fdf4de00b8830569a4"  target="_blank" rel="noopener"
+    >le wrapper LUSD/sUSD</a>.</li>
+</ul>
+<p><a class="link" href="https://etherscan.io/token/0x5f98805A4E8be255a32880FDeC7F6728C6568bA0#balances"  target="_blank" rel="noopener"
+    >Le top holder LUSD </a>compte ainsi déjà plusieurs DAOs et <strong>tout comme pour RAI</strong> je pense que la tendance peut s’accentuer :</p>
+<p><img src="/img/2021/liquity-protocol/lusd-holders.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="lusd-holders"
+	
+	
+></p>
+<p>D’autres intégrations sont encore envisageables, comme par exemple l’intégration directe de la stability pool sur une pool fuse pour permettre une utilisation plus optimale des actifs de la stability pool.</p>
+<p>J’espère que cet article aura su éveiller votre curiosité DeFi : Liquity est disponible depuis Avril dernier et pourtant bien peu encore réalisent l&rsquo;élégance et le minimalisme de ce protocole qui propose des solutions crédibles à de véritables enjeux.</p>
+<p>Pour aller plus loin, y’a pas de secrets :</p>
+<ul>
+<li><a class="link" href="https://docs.liquity.org/"  target="_blank" rel="noopener"
+    >La documentation</a></li>
+<li><a class="link" href="https://discord.gg/j7hHaR4G6S"  target="_blank" rel="noopener"
+    >Le discord</a></li>
+<li>Et pour creuser, je vous propose ce live récent où je discute d’emprunts en DeFi :</li>
+</ul>
+<p>Have fun !</p>
+<div class="video-wrapper">
+    <iframe loading="lazy" 
+            src="https://www.youtube.com/embed/LXDSxRCMsDE" 
+            allowfullscreen 
+            title="YouTube Video"
+    >
+    </iframe>
+</div>
+
+<p><em>🙏 Un grand merci à HHK, Charles, Thomas, Erwan, <a class="link" href="https://twitter.com/phil_h"  target="_blank" rel="noopener"
+    >PhilH</a> &amp; FrenchTony pour leur relecture attentive de l&rsquo;édition française de cet article et sa traduction en Anglais.</em></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/fr/tags/defi/">DeFi</a>
+        
+            <a href="/fr/tags/ethereum/">Ethereum</a>
+        
+            <a href="/fr/tags/finance-d%C3%A9centralis%C3%A9e/">Finance Décentralisée</a>
+        
+            <a href="/fr/tags/stablecoins/">Stablecoins</a>
+        
+            <a href="/fr/tags/actifs-stables/">Actifs Stables</a>
+        
+            <a href="/fr/tags/march%C3%A9s-mon%C3%A9taires/">Marchés Monétaires</a>
+        
+            <a href="/fr/tags/liquity/">Liquity</a>
+        
+            <a href="/fr/tags/lusd/">LUSD</a>
+        
+            <a href="/fr/tags/lqty/">LQTY</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Dernière mise à jour le nov. 30, 2021 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Contenus liés</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/fr/unstoppable-defi/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/unstoppable-defi/unstoppable-defi-tokenbrice-cover.png" loading="lazy" data-key="" data-hash="/img/2022/unstoppable-defi/unstoppable-defi-tokenbrice-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Dans les coulisses du théâtre de la décentralisation : étude de l’inaltérabilité des protocoles DeFi</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/defi-vs-inflation/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/defi-vs-inflation/defi-vs-inflation-tokenbrice-cover.jpg" loading="lazy" data-key="" data-hash="/img/2022/defi-vs-inflation/defi-vs-inflation-tokenbrice-cover.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Comment construire un portefeuille DeFi résistant à l&#39;inflation ?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/reflexer-rai/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/reflexer-rai/cover.gif" loading="lazy" data-key="" data-hash="/img/2021/reflexer-rai/cover.gif"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🗿 Pourquoi, comment et qu&#39;est-ce que le RAI ?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/stablecoin-marauder-map/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2023/stablecoin-marauder-map/stablecoin-marauder-map-cover.png" loading="lazy" data-key="" data-hash="/img/2023/stablecoin-marauder-map/stablecoin-marauder-map-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">La carte du Maraudeur des stablecoins</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/defi-janus/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/defi-janus/defi-janus-cover-en.png" loading="lazy" data-key="" data-hash="/img/2021/defi-janus/defi-janus-cover-en.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Janus : le nouvel ennemi juré des protocoles DeFi ?</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Généré avec <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Thème <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> conçu par <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

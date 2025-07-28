@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Money markets like Aave or Alchemix are essential in DeFi. This article explains and illustrates some strategies to take advantage of the different options they offer.">
+<title>🌽 Defi money markets cookbook</title>
+
+<link rel='canonical' href='http://localhost:1313/money-market-recipes/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="🌽 Defi money markets cookbook">
+<meta property='og:description' content="Money markets like Aave or Alchemix are essential in DeFi. This article explains and illustrates some strategies to take advantage of the different options they offer.">
+<meta property='og:url' content='http://localhost:1313/money-market-recipes/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Decentralized Finance' /><meta property='article:tag' content='Money Markets' /><meta property='article:tag' content='Aave' /><meta property='article:tag' content='Curve' /><meta property='article:tag' content='Liquity' /><meta property='article:tag' content='Mimo Capital' /><meta property='article:tag' content='Alchemix' /><meta property='article:tag' content='Aave' /><meta property='article:tag' content='Polygon' /><meta property='article:tag' content='Liquidation' /><meta property='article:published_time' content='2021-05-10T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2021-05-10T01:13:50&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/2021/money-market-recipes/money-market-recipes-cover.png' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="🌽 Defi money markets cookbook">
+<meta name="twitter:description" content="Money markets like Aave or Alchemix are essential in DeFi. This article explains and illustrates some strategies to take advantage of the different options they offer."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/2021/money-market-recipes/money-market-recipes-cover.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">TokenBrice</a></h1>
+            <h2 class="site-description">Brutally Honest DeFi</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" selected>English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" >Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#leveraged-bets-on-a-money-market-via-the-market-itself">Leveraged bets on a money market via the market itself</a>
+      <ol>
+        <li><a href="#direct-exposure-to-the-native-token">Direct exposure to the native token</a></li>
+        <li><a href="#exposure-mainly-in-stablecoins">Exposure mainly in stablecoins</a></li>
+      </ol>
+    </li>
+    <li><a href="#investing-time-rather-than-money">Investing time rather than money</a>
+      <ol>
+        <li><a href="#long-alcx-via-alchemix">Long ALCX via Alchemix</a></li>
+      </ol>
+    </li>
+    <li><a href="#putting-a-hodl-collateral-to-work-over-the-long-term">Putting a &ldquo;hodl&rdquo; collateral to work over the long term</a>
+      <ol>
+        <li><a href="#how-to">How-to</a></li>
+        <li><a href="#putting-eth-to-work-on-polygon">Putting ETH to work on Polygon</a></li>
+      </ol>
+    </li>
+    <li><a href="#protect-yourself-against-the-price-risk-of-the--farming-in-">Protect yourself against the price risk of the $: farming in €.</a>
+      <ol>
+        <li><a href="#how-to-1">How-to</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/money-market-recipes/">
+                
+                    <img src="/img/2021/money-market-recipes/money-market-recipes-cover.png" loading="lazy" alt="Featured image of post 🌽 Defi money markets cookbook" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/defi/" style="background-color: #2a9d8f; color: #fff;">
+                DeFi
+            </a>
+        
+            <a href="/categories/practical/" style="background-color: #2a9d8f; color: #fff;">
+                Practical
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/money-market-recipes/">🌽 Defi money markets cookbook</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Money markets like Aave or Alchemix are essential in DeFi. This article explains and illustrates some strategies to take advantage of the different options they offer.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">May 10, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    8 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+        <footer class="article-translations">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+            <div>
+                
+                    <a href="http://localhost:1313/fr/recettes-marches-actifs/" class="link">Français</a>
+                
+            </div>
+        </footer>
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>On this blog, I frequently discuss about money markets and assets market in DeFi. Basically, they allow you to <strong>loan and borrow tokens</strong>. These two actions have become like <strong>deFi verbs</strong>: they are used directly or indirectly in almost every strategy.</p>
+<p>So while it is crucial to understand the protocols you are using and especially <strong>the different <a class="link" href="https://tokenbrice.xyz/content/posts/2021/money-market-risks.md"  target="_blank" rel="noopener"
+    >money market risks</a></strong>, Today, I would like to focus on the why and the how:</p>
+<ol>
+<li>
+<p>Which strategies can be implemented using money markets?</p>
+</li>
+<li>
+<p>How can they be deployed in practice?</p>
+</li>
+</ol>
+<p>We&rsquo;re going to break down different &ldquo;recipes&rdquo; to take advantage of the money markets. Take these recipes as <strong>inspiration to develop your own strategies</strong>.</p>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice warning" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#warning-notice"></use></svg></span>Warning</p><p><strong>This article does not constitute investment advice: I am not authorized to dispense it. Rather than mechanically reproducing the strategies presented as examples, I invite you to try to understand the approach.</strong></p></div>
+
+<hr>
+<h2 id="leveraged-bets-on-a-money-market-via-the-market-itself">Leveraged bets on a money market via the market itself
+</h2><p>Every money markets have an associated token, for example the AAVE token for Aave. It is generally used for the governance of the protocol and sometimes also allows to capture part of the value it generates. With this strategy, we will <strong>use a money market to borrow assets that will then be used to gain exposure to the native token of the desired platform</strong>.</p>
+<ul>
+<li><strong>⚙ Condition:</strong> Optimism about the future of a given money market. It&rsquo;s native token in this scenario is expected to appreciate in line with the growth of the market over the medium/long term.</li>
+<li><strong>📅 Time horizon:</strong> 3 - 24 months. ~3 months is a recommended minimum so that gas fees and borrowing costs don&rsquo;t impact the returns of the strategy too much.</li>
+<li><strong>🔮 Expected result</strong>: the acquired token appreciates, which allows to pay back the debt (+ possible interest) at term by reselling part of the initial position. Once the debt is repaid, part of the acquired tokens can be kept.</li>
+<li><strong>🃏 Bonus / Facilitator:</strong> If the token in question can produce a return (e.g. AAVE in the Safety Module), this will allow the debt to be repaid even faster or to accumulate &ldquo;free&rdquo; tokens if the scenario of its price appreciation is verified.</li>
+</ul>
+<p>Although this strategy is quite basic, it is one of my favorites. I recently shared with you on Twitter an example of how to put it into practice, which we will detail here:</p>
+<p>Here, the concerned protocol is <a class="link" href="https://liquity.org"  target="_blank" rel="noopener"
+    >Liquity</a> and the implementation of the strategy is quite simple, but has two variations:</p>
+<h3 id="direct-exposure-to-the-native-token">Direct exposure to the native token
+</h3><p>Either by directly exposing yourself to the LQTY token, which is of course more risky:</p>
+<p><img src="/img/2021/money-market-recipes/mm-long-token-tokenbrice-en.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="mm-long-tokenbrice"
+	
+	
+></p>
+<hr>
+<ol>
+<li>Deposit ETH on <a class="link" href="https://www.liquity.org/"  target="_blank" rel="noopener"
+    >Liquity</a> via one of the frontends, they will serve as collateral for the position.</li>
+<li>Borrow LUSD</li>
+<li>Swap LUSD (via ParaSwap for the best rate!) for LQTY, the native token of Liquity</li>
+<li>Stake LQTY, which generates LUSD and some ETH</li>
+<li>Eventually repayment of debt (2) via LUSD yield (4) and resale of some of the LQTY acquired in step 3 after price appreciation.</li>
+</ol>
+<p>Or more conservatively, with a strategy using Liquity to borrow LUSDs and make them productive:</p>
+<h3 id="exposure-mainly-in-stablecoins">Exposure mainly in stablecoins
+</h3><p><img src="/img/2021/money-market-recipes/mm-long-tokenbrice-en.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="mm-long-token-tokenbrice"
+	
+	
+></p>
+<ol>
+<li>Deposit ETH on <a class="link" href="https://www.liquity.org/"  target="_blank" rel="noopener"
+    >Liquity</a> via one of the frontends, they will serve as collateral for the position.</li>
+<li>Borrow LUSD</li>
+<li>Stake LUSD via either the Stability Pool (-&gt; LQTY + ETH) or the LUSD pool on Curve Finance (-&gt; Native + LQTY + CRV).</li>
+<li>Eventually repayment of debt (2) via yield (3)</li>
+</ol>
+<div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>Yearn Finance also offers a LUSD vault that automatically manages the position on Curve.</p></div>
+
+<hr>
+<h2 id="investing-time-rather-than-money">Investing time rather than money
+</h2><p>Alchemix arrival has opened up new perspectives in terms of strategy. On Alchemix, the debt repays itself over time. Indeed, <strong>the collateral used (yDAI) is a stablecoin that produces a return (via Yearn)</strong>. Thus with the current conditions the loan is self-repaying in three years.</p>
+<p>I suggest a simple strategy to take advantage of Alchemix to make a profit. The main drawback is that <strong>only half of the amount of DAI initially placed in Alchemix can be borrowed in AlUSD</strong> and then invested.
+Nevertheless, as this strategy is based on stablecoins, it does not - (⚠ oracles) - involve any price risk and therefore does not require daily monitoring.</p>
+<ul>
+<li><strong>⚙ Condition:</strong> DAI that will be locked in for ~3 years. Only half of the deposited amount is mobilizable.</li>
+<li><strong>📅 Time horizon:</strong> ~3 years (depends on DAI return rate on Yearn).</li>
+<li><strong>🔮 Expected result</strong>: In 3 years, the AlUSD debt is fully repaid and the DAI initially mobilized on Alchemix are free again. It remains to be seen what happened with the investment made with the borrowed AlUSD: it all depends on the choices made, I do not predict the future.</li>
+<li><strong>🃏 Bonus / Facilitator:</strong> Use the borrowed AlUSD to invest in a token that can produce a return. This allows you to make a compound investment or even pay off Alchemix debt faster.</li>
+</ul>
+<h3 id="long-alcx-via-alchemix">Long ALCX via Alchemix
+</h3><p>To illustrate the concept, I propose another simple strategy which is equivalent to long Alchemix via its token ALCX :</p>
+<p><img src="/img/2021/money-market-recipes/alchemix-investment-tokenbrice-en.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="alchemix-investment-tokenbrice"
+	
+	
+></p>
+<ol>
+<li>Deposit DAI as collateral on Alchemix. Alchemix deploys it on Yearn Finance to generate a return.</li>
+<li>Borrow up to 50% of the initial value deposited in AlUSD, a stablecoin.</li>
+<li>Invest the AlUSD in the desired token. Here for the example it is ALCX the native governance token of Alchemix.</li>
+<li>Stake the acquired token to produce a return</li>
+<li>The repayment of the debt in AlUSD contracted on Alchemix is done automatically with time. It is possible to repay in advance thanks to the generated returns (4).</li>
+</ol>
+<hr>
+<h2 id="putting-a-hodl-collateral-to-work-over-the-long-term">Putting a &ldquo;hodl&rdquo; collateral to work over the long term
+</h2><p>I came to DeFi several years ago with a simple ambition: I wanted to put my Ethers to work. At the time it was not an easy task but nowadays there are many very interesting solutions. I will focus on one of them, Aave, for two reasons.</p>
+<ol>
+<li>Aave has launched <strong>a liquidity mining</strong> program paid in StkAave<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> (Aave V2 - Mainnet).</li>
+<li>Aave is accessible on the <strong>sidechain Polygon</strong> where the low fees allow to deploy DeFi strategies efficiently even with small capital. There is also a liquidity mining program there, in MATIC <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</li>
+</ol>
+<p>To make this strategy as accessible as possible, we will develop the example on the Polygon sidechain. It is therefore possible to use any of the tokens supported as collateral on the Aave/Polygon market: MATIC, AAVE, wETH, wBTC, USDC, and DAI.</p>
+<h3 id="how-to">How-to
+</h3><p>The strategy is to <strong>produce returns through the borrowing of stablecoins used to provide liquidity on the Curve exchange service</strong>. With the liquidity mining program on Aave, every step of the process is potentially lucrative at least in MATIC.</p>
+<ul>
+<li><strong>⚙ Condition:</strong> Having tokens accepted as collateral on Aave, and bring them back to Polygon for example using <a class="link" href="https://wallet.matic.network/bridge/"  target="_blank" rel="noopener"
+    >the POS bridge</a>.</li>
+<li><strong>📅 Time horizon:</strong> Short / medium term.</li>
+<li><strong>🔮 Expected outcome:</strong> Returns in MATIC, stablecoins and ETH.</li>
+<li><strong>🃏 Bonus / Facilitator:/</strong>. Prospective: mining CRV &amp; potential leverage when LP Curve Polygon tokens are accepted as collateral on Aave.</li>
+</ul>
+<h3 id="putting-eth-to-work-on-polygon">Putting ETH to work on Polygon
+</h3><p>To illustrate this strategy, I start with the assumption of generating a return from ETH.</p>
+<p><img src="/img/2021/money-market-recipes/polygon-aave-curve-eth-farming-tokenbrice-en.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="polygon-aave-curve-eth-farming-tokenbrice"
+	
+	
+></p>
+<ol>
+<li>ETH deposit as collateral on Aave/Polygon (+native +MATIC)</li>
+<li>Borrowing stablecoins (-APR +MATIC)</li>
+<li>Deposit and staking of stablecoins on Curve/Polygon (+natif +MATIC)</li>
+</ol>
+<p>Note that Curve LP Polygon tokens are being considered for potential addition as collateral in the Aave market. We can also expect potential CRV rewards on Polygon LP positions if the DAO decides to do so.</p>
+<div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>It is possible to implement this strategy by keeping the tokens used as collateral on the L1 Aave in order to benefit from the mining of StkAAVE. It will be necessary to migrate the borrowed stablecoins from the Ethereum network to Polygon using for example <a class="link" href="https://wallet.matic.network/bridge/"  target="_blank" rel="noopener"
+    >Matic&rsquo;s POS bridge</a>.</p></div>
+
+<hr>
+<h2 id="protect-yourself-against-the-price-risk-of-the--farming-in-">Protect yourself against the price risk of the $: farming in €.
+</h2><p>In DeFi, everything is done in dollars. It makes sense, everyone knows, but for a European user it is a significant additional  risk. Indeed, if your ambition is to generate enough to live on with DeFi, then this means your output will eventually be in Euro.</p>
+<p><img src="/img/2021/money-market-recipes/eur-usd-1y.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="eur-usd-1y"
+	
+	
+></p>
+<p>For a European farmer, it may therefore be <strong>interesting to have a DeFi exposure in € to avoid this risk</strong>. At the moment, there are simply no Euro borrowing options other than <a class="link" href="https://mimo.capital/"  target="_blank" rel="noopener"
+    >Mimo Capital</a>.</p>
+<p>This service allows you to borrow PAR from ETH, wBTC or USDC. The MIMO governance token is also distributed to owners of active vaults as well as to liquidity providers on the PAR/ETH and PAR/USDC Balancer pools.</p>
+<p>Nevertheless, the protocol is still recent and the PAR token is not yet supported in the ecosystem, as a collateral on Aave or in a Curve pool for example. So the situation is not yet ideal but it has the merit to exist!</p>
+<p>Other DeFi-€ solutions are in development. MakerDAO, for example, has mentioned a Euro-DAI, while Jarvis Network is working on a synthetic stablecoin €, the jEUR.</p>
+<h3 id="how-to-1">How-to
+</h3><p>To farm natively in Euros, the best option is still what you can do with EURS. Since the launch of the pool on Curve, there are many options.</p>
+<ul>
+<li><strong>⚙ Condition:</strong> Owning EURS / sEUR</li>
+<li><strong>📅 Time horizon:</strong> 1 month - years</li>
+<li><strong>🔮 Expected result:</strong> Growing a capital in Euro-stable</li>
+<li><strong>🃏 Bonus / Enabler:</strong> Owning VeCRVs.</li>
+</ul>
+<p><img src="/img/2021/money-market-recipes/EURS-farming-tokenbrice-en.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="EURS-farming-tokenbrice"
+	
+	
+></p>
+<ul>
+<li>The <strong>pool Curve</strong> directly offers an attractive yield in CRV even when it is not boosted.</li>
+<li>To automatically sell the farmed CRVs to compound the return, a vault is ideal. <strong><a class="link" href="https://yearn.finance"  target="_blank" rel="noopener"
+    >Yearn</a> offers a vault on EURS</strong>.</li>
+<li>Farming is also possible via the EURS vault of <a class="link" href="https://stakedao.org/"  target="_blank" rel="noopener"
+    >StakeDAO</a>, in order to accumulate SDT as well.</li>
+<li>Or <a class="link" href="https://harvest.finance"  target="_blank" rel="noopener"
+    >Harvest</a> also offers a vault that makes up the bulk of the returns while paying in FARM.</li>
+</ul>
+<hr>
+<p>I hope these different recipes will inspire you. Make sure you are <strong><a class="link" href="https://tokenbrice.xyz/content/posts/2021/money-market-risks.md"  target="_blank" rel="noopener"
+    >aware of the different money market risks</a></strong>, used for all these strategies.</p>
+<p><em>🙏 Huge thanks to HHK, Charles, Thomas, Erwan, <a class="link" href="https://twitter.com/phil_h"  target="_blank" rel="noopener"
+    >PhilH</a> &amp; FrenchTony for proofreading the French version of this article and translating it integrally into English.</em></p>
+<hr>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>The liquidity mining program StkAAVE was launched on Mars 26 following a governance vote. <a class="link" href="https://twitter.com/AaveAave/status/1386753673104134155?s=20"  target="_blank" rel="noopener"
+    >More info here</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Polygon sponsors a liquidity mining program in MATIC, both on <a class="link" href="https://blog.polygon.technology/defiforall-kicking-off-l2-defi-summer-with-40-million-usd-in-liquidity-mining-rewards-from-4937d7c6e287"  target="_blank" rel="noopener"
+    >Aave</a> and <a class="link" href="https://blog.polygon.technology/continuing-scalability-defi-summer-with-5-million-usd-in-liquidity-mining-rewards-from-polygon-e73a76c5a8ad?gi=9a7b7e130606"  target="_blank" rel="noopener"
+    >Curve</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/defi/">DeFi</a>
+        
+            <a href="/tags/ethereum/">Ethereum</a>
+        
+            <a href="/tags/decentralized-finance/">Decentralized Finance</a>
+        
+            <a href="/tags/money-markets/">Money Markets</a>
+        
+            <a href="/tags/curve/">Curve</a>
+        
+            <a href="/tags/liquity/">Liquity</a>
+        
+            <a href="/tags/mimo-capital/">Mimo Capital</a>
+        
+            <a href="/tags/alchemix/">Alchemix</a>
+        
+            <a href="/tags/aave/">Aave</a>
+        
+            <a href="/tags/polygon/">Polygon</a>
+        
+            <a href="/tags/liquidation/">Liquidation</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on May 10, 2021 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/money-market-innovations/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/money-market-innovations/cover-en.png" loading="lazy" data-key="" data-hash="/img/2021/money-market-innovations/cover-en.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Understanding innovations in money markets to envision their future</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/defi-vs-inflation/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/defi-vs-inflation/defi-vs-inflation-tokenbrice-cover.jpg" loading="lazy" data-key="" data-hash="/img/2022/defi-vs-inflation/defi-vs-inflation-tokenbrice-cover.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">How to build an inflation-proof DeFi portfolio?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/lending-protocol-renaissance/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2024/lending-protocol-renaissance/0-lending-protocol-renaissance-cover.png" loading="lazy" data-key="" data-hash="/img/2024/lending-protocol-renaissance/0-lending-protocol-renaissance-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Is this a Lending Protocol Renaissance?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/unstoppable-defi/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/unstoppable-defi/unstoppable-defi-tokenbrice-cover.png" loading="lazy" data-key="" data-hash="/img/2022/unstoppable-defi/unstoppable-defi-tokenbrice-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Behind the scene of the decentralization theater: a study of the inalterability of DeFi protocols</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/stablecoin-marauder-map/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2023/stablecoin-marauder-map/stablecoin-marauder-map-cover.png" loading="lazy" data-key="" data-hash="/img/2023/stablecoin-marauder-map/stablecoin-marauder-map-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">The Maurauder&#39;s Map of Decentralized Stablecoins</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

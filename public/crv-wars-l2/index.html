@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Votium, Warden, Concentrator, CCRV, Conic, etc. The layer of protocols involved in the Curve Wars is getting denser: I offer a tour to better understand the dynamics around CRV and CVX tokens.">
+<title>⚔ Advanced CRV warfare: analysis of protocols built on top of Curve and Convex </title>
+
+<link rel='canonical' href='http://localhost:1313/crv-wars-l2/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="⚔ Advanced CRV warfare: analysis of protocols built on top of Curve and Convex ">
+<meta property='og:description' content="Votium, Warden, Concentrator, CCRV, Conic, etc. The layer of protocols involved in the Curve Wars is getting denser: I offer a tour to better understand the dynamics around CRV and CVX tokens.">
+<meta property='og:url' content='http://localhost:1313/crv-wars-l2/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Decentralized Finance' /><meta property='article:tag' content='Curve Finance' /><meta property='article:tag' content='CRV' /><meta property='article:tag' content='Polygon' /><meta property='article:tag' content='Convex' /><meta property='article:tag' content='CVX' /><meta property='article:tag' content='Votium' /><meta property='article:tag' content='vlCVX' /><meta property='article:tag' content='veCRV' /><meta property='article:tag' content='bribe.crv' /><meta property='article:tag' content='Conic Finance' /><meta property='article:tag' content='CCRV' /><meta property='article:tag' content='Bent Finance' /><meta property='article:tag' content='Warden' /><meta property='article:tag' content='Concentrator' /><meta property='article:tag' content='Lendflare' /><meta property='article:tag' content='Curvance' /><meta property='article:tag' content='CVE' /><meta property='article:tag' content='LFT' /><meta property='article:tag' content='CNC' /><meta property='article:tag' content='BENT' /><meta property='article:published_time' content='2022-04-05T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2022-04-05T01:13:50&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/2022/curve-wars-l2/curve-wars-l2-cover-tokenbrice.png' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="⚔ Advanced CRV warfare: analysis of protocols built on top of Curve and Convex ">
+<meta name="twitter:description" content="Votium, Warden, Concentrator, CCRV, Conic, etc. The layer of protocols involved in the Curve Wars is getting denser: I offer a tour to better understand the dynamics around CRV and CVX tokens."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/2022/curve-wars-l2/curve-wars-l2-cover-tokenbrice.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">TokenBrice</a></h1>
+            <h2 class="site-description">Brutally Honest DeFi</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" selected>English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" >Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#crv-or-cvx">CRV or CVX?</a></li>
+    <li><a href="#curves-functional-layer-2">Curve&rsquo;s functional layer 2</a>
+      <ol>
+        <li><a href="#convex-finance-curve-by-the-slice">Convex Finance: Curve by the slice</a></li>
+        <li><a href="#warden-of-paladin-curve-on-steroids">Warden of Paladin: Curve on steroids?</a></li>
+      </ol>
+    </li>
+    <li><a href="#l2-convex">L2 Convex</a>
+      <ol>
+        <li><a href="#votium-convex-vote-auction">Votium: Convex vote auction</a></li>
+        <li><a href="#llama-airforce-union-shared-management-of-vlcvx">Llama Airforce Union: shared management of vlCVX</a></li>
+        <li><a href="#concentrator-aladdindao">Concentrator (AladdinDAO)</a></li>
+        <li><a href="#congruent-ccrv-curveconvex-flywheel-optimization">Congruent CCRV: Curve/Convex flywheel optimization</a></li>
+        <li><a href="#bent-the-convex-of-convex">Bent: the Convex of Convex?</a>
+          <ol>
+            <li><a href="#a-relevant-abstraction">A relevant abstraction?</a></li>
+          </ol>
+        </li>
+        <li><a href="#conic-finance-cnc--collective-liquidity-management-on-curveconvex">Conic Finance (CNC) 🚧: collective liquidity management on Curve/Convex.</a></li>
+      </ol>
+    </li>
+    <li><a href="#borrowing-services-with-lp-curveconvex-tokens-as-collateral">Borrowing services with LP Curve/Convex tokens as collateral</a>
+      <ol>
+        <li><a href="#lendflare-lft">Lendflare (LFT)</a></li>
+        <li><a href="#curvance-cve-">Curvance (CVE) 🚧</a></li>
+      </ol>
+    </li>
+    <li><a href="#daos-whales-in-cvx">DAOs whales in CVX</a>
+      <ol>
+        <li><a href="#frax-finance-dominating-the-curve-gauge-game">Frax Finance: Dominating the Curve Gauge Game</a></li>
+        <li><a href="#badger-a-small-corner-for-bitcoin">Badger: a small corner for Bitcoin</a></li>
+        <li><a href="#other-daos">Other DAOs</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/crv-wars-l2/">
+                
+                    <img src="/img/2022/curve-wars-l2/curve-wars-l2-cover-tokenbrice.png" loading="lazy" alt="Featured image of post ⚔ Advanced CRV warfare: analysis of protocols built on top of Curve and Convex " />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/defi/" style="background-color: #2a9d8f; color: #fff;">
+                DeFi
+            </a>
+        
+            <a href="/categories/understanding/" style="background-color: #2a9d8f; color: #fff;">
+                Understanding
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/crv-wars-l2/">⚔ Advanced CRV warfare: analysis of protocols built on top of Curve and Convex </a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Votium, Warden, Concentrator, CCRV, Conic, etc. The layer of protocols involved in the Curve Wars is getting denser: I offer a tour to better understand the dynamics around CRV and CVX tokens.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Apr 05, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    18 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+        <footer class="article-translations">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+            <div>
+                
+                    <a href="http://localhost:1313/fr/crv-wars-l2/" class="link">Français</a>
+                
+            </div>
+        </footer>
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>The game and the fight around CRV and CVX tokens have changed in scope since my last article describing the original Curve Wars, now almost primitive. The infrastructure around Curve has become much denser with the arrival of Convex of course, but also Votium, Union Llama Airforce, Concentrator, CCRV, Lendflare, Warden, and many other protocols still in development.</p>
+<p>To assume a strategic position on CRV or CVX, one must now be able to support an investment of several tens of millions of dollars. Thus, the race to accumulate CVX and CRV has become primarily a game for DAOs or whales. More specifically, DAOs seem to prefer CVX to CRV, which represents a more favorable trade-off:</p>
+<ol>
+<li><strong>Boosts LP Curve</strong>: ability to build liquidity via votes on Curve gauges</li>
+<li><strong>Yields</strong>: 4-5% in cvxCRV + potential bribe yields if capacity is not used (or the protocol also use bribes)</li>
+<li><strong>Flexibility</strong>: CVX can be used to its maximum capacity by committing 16 weeks + 3 days (vlCVX) while CRV requires up to 4 years of commitment (1 CRV = veCRV).</li>
+</ol>
+<p>So to extract the utility of CRV, CVX is a credible and more flexible alternative, which is why most DAOs focus on this token. Convex Finance has become a &ldquo;functional L2&rdquo; of Curve: a second layer that brings new features and a different set of tradeoffs.</p>
+<p>However, Convex is not the only project that tried to realize this vision: there was also Yearn, which has now capitulated: Yearn&rsquo;s Curve vaults are essentially through Convex, which is now more profitable. Since then, many projects are trying to offer a synergistic brick with the Curve/Convex behemoth.</p>
+<h2 id="crv-or-cvx">CRV or CVX?
+</h2><p>I won&rsquo;t go back to the basics of the separation between the two tokens here, that&rsquo;s a matter for an entire article if you&rsquo;re new to the subject: <a class="link" href="https://tokenbrice.xyz/content/posts/2021/crv-wars.md%22"  target="_blank" rel="noopener"
+    >⚔ CRV wars: understanding the race to accumulate the ability to influence the Curve Finance protocol</a></p>
+<p>It should be kept in mind that despite the computable equivalence between CVX and CRV (1vl CVX controls about 4.8 veCRV - <a class="link" href="https://dune.xyz/Marcov/Convex-Finance"  target="_blank" rel="noopener"
+    >source</a>), the two tokens have different tradeoffs as described above.</p>
+<p>The balance between CRV and CVX tends to hold, despite frequent swings: lately, the pendulum seems to swing more towards CVX. Nevertheless I think there is still room for other approaches that start from the source (CRV) and they are starting to emerge.</p>
+<p>Paladin&rsquo;s <a class="link" href="https://app.warden.vote/"  target="_blank" rel="noopener"
+    >Warden</a> is proposing a protocol that helps liquidity providers on Curve maximize their returns and perhaps achieve the desirable 2.5x bonus by borrowing the capacity of veCRV tokens (provided by others) paid directly in CRV.</p>
+<p>But there are so many other subtleties and interactions to keep in mind in order to understand the relevance of the strategies deployed by the different projects, DAOs and protocols to win the Curve Wars.</p>
+<p>That&rsquo;s why this article proposes to review the CRV and CVX wars <strong>by visualizing and detailing the whole ecosystem</strong> that has developed around these two protocols.</p>
+<h2 id="curves-functional-layer-2">Curve&rsquo;s functional layer 2
+</h2><style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>In this article, I&rsquo;m going to talk about &ldquo;functional L2&rdquo;, or simply Curve or Convex L2. This is an image to describe this trend of multiplication of supports used to interact with Curve/Convex.</p>
+<p>Be careful not to confuse the term with &ldquo;true L2s&rdquo; / scaling L2s: the term in its original sense to describe a new chain that inherits the security of its parent while allowing for higher transaction throughput and more moderate costs.</p></div>
+
+<p>So we start with Curve&rsquo;s <strong>Functional L2s</strong>, then Convex&rsquo;s (itself a Curve L2), then borrowing services to leverage the many sources of return offered by the entire Curve ecosystem, and we&rsquo;ll finish with the CRV/CVX protocol-whales.</p>
+<p>It&rsquo;s a dense and colorful adventure, but as is often the case with my articles, I&rsquo;m offering you a summary of my research on the subject: enjoy your reading!</p>
+<p>To lose you on the way, I propose you this map which summarizes the main actors of the Curve/Convex ecosystem:</p>
+<p><img src="/img/2022/curve-wars-l2/curve-convex-l2-map-en.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Curve/Convex L2 map"
+	
+	
+></p>
+<h3 id="convex-finance-curve-by-the-slice">Convex Finance: Curve by the slice
+</h3><p>Convex is the first functional L2 of Curve; other projects preceded it (yveCRV and sdveCRV) but they were not as synergistic with Curve and therefore only marginally successful.</p>
+<p>In summary, Convex provides access to maximized and liquid CRV token returns through cvxCRV. The ability to govern and vote on the Curve gauges corresponding to the underlying veCRV tokens is redirected to the owners of vlCVX. Convex thus provides easy access to the Curve ecosystem (for veCRV owners).</p>
+<p>Although Convex controls a large amount of vlCVX, the centralization of voting power on gauges is avoided by offering this capability to the highest bidder through Votium (bribes).</p>
+<p>Convex is now basic, so I won&rsquo;t detail it further here. My previous article on CRV Warfare went into more depth on the model and the contributions of Convex: <a class="link" href="https://tokenbrice.xyz/content/posts/2021/crv-wars.md%22"  target="_blank" rel="noopener"
+    >⚔ CRV Warfare: Understanding the race to accumulate the ability to influence Curve Finance protocol</a></p>
+<h3 id="warden-of-paladin-curve-on-steroids">Warden of Paladin: Curve on steroids?
+</h3><p><a class="link" href="https://app.warden.vote/"  target="_blank" rel="noopener"
+    >Warden</a> is another possible path for Curve LPs, which offers a different set of tradeoffs to Convex. Warden does not directly control veCRVs, but instead offers to rent the boosting capacity of LP Curve from veCRVs owned by others.</p>
+<p>The rental is paid directly in CRVs and by the week. It comes from veCRV owners who make it available, for the price and duration of their choice. The deal is concluded through the delegation of the corresponding veCRVs.</p>
+<p><img src="/img/2022/curve-wars-l2/warden-veboost.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="LP Ve boost rental on Warden"
+	
+	
+></p>
+<p>Warden thus returns to the LP Curve boost game. On Convex, most pools are boosted between 1.5 and 1.7x via Convex. Having your own stock of veCRV, increased by a Warden loan, allows you to reach 2x or even 2.5x maximum on certain pools.</p>
+<p>Recently, Warden even offers a handy calculator to visualize the amount of veCRV needed to reach a given multiplier:</p>
+<p><img src="/img/2022/curve-wars-l2/warden-calc.gif"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Warden Calculator"
+	
+	
+></p>
+<p>Warden is therefore a credible alternative for protocols, DAOs and large carriers who would like to optimize their LP Curve in a perspective of maximizing the obtained CRV.</p>
+<h2 id="l2-convex">L2 Convex
+</h2><p>Convex is not yet one year old (May 2021) but given the preponderant place that the service already occupies, abstractions built on top of it were quick to appear.</p>
+<h3 id="votium-convex-vote-auction">Votium: Convex vote auction
+</h3><p>The Convex protocol concentrates the largest amount of veCRVs owned by a single entity. Nevertheless, the voting capacity corresponding to the veCRVs owned by Convex (obtained thanks to the cvxCRV) is distributed among all the owners of the CVX token that &ldquo;vote lock&rdquo; it (vlCVX) for 16 weeks + 7 days).</p>
+<p>Via snapshot, they can mobilize their voting power directly on the Curve pool gauge of their choice. <a class="link" href="https://votium.app/"  target="_blank" rel="noopener"
+    >Votium</a> is an additional layer built on top of this feature: Votium allows any project to allocate a budget to support a given Curve gauge. At the end of the round, the vlCVX owners who voted on this gauge share the rewards, according to their voting power: these are the famous bribes.</p>
+<p><img src="/img/2022/curve-wars-l2/votium-bribes.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Votium bribes"
+	
+	
+></p>
+<p>Thanks to the impressive amount of veCRVs controlled by Convex, Votium has quickly emerged as <strong>an essential tool to establish and sustain a presence on Curve</strong>: consistent bribes on Votium can quickly make a Curve pool very attractive.</p>
+<p>We detail below the example of Frax Finance which offers around $5-7M of bribes each round; this allows to maintain attractive returns on the Frax/3CRV pool despite the massive dilution (the pool contains almost $3B of assets), and this without issuing their own token (FXS) for liquidity mining.</p>
+<h3 id="llama-airforce-union-shared-management-of-vlcvx">Llama Airforce Union: shared management of vlCVX
+</h3><p>The bribes offered on Votium are very attractive: this allows vlCVX to reach a return <strong>of about 40% APR - most of which (90%) comes from the bribes</strong>. However, managing your own vlCVX position has several constraints:</p>
+<ol>
+<li><strong>Gas costs</strong>, to lock in your vlCVX, but also to harvest the bribes.</li>
+<li>Although it is possible to delegate, this leads to a dispersion of the rewards (paid in a dozen different tokens -&gt; gas fees). So small and medium vlCVX holders generally prefer to concentrate their vote on a given project: more practical, but it implies not forgetting to <strong>vote at each round</strong>!</li>
+</ol>
+<p>The Llama Airforce Union proposes to remedy these two main limitations, for the happiness of small holders as well as those who prefer a <strong>100% passive management of their vlCVX</strong>.</p>
+<p>The concept is simple: the Union pools the management of vlCVX. The only action required from the users is the delegation of their vlCVX voting power to the Union contract. Thereafter, the Union takes care of everything:</p>
+<ul>
+<li>In each round, the Union takes care of claiming all the obtained bribes, and sells them for cvxCRV (=mutualization/immense reduction of the impact of transaction fees).</li>
+<li>The obtained cvxCRV are then deposited in the Pounder, which stakes them with Convex and composes the yield automatically (uCRV).</li>
+</ul>
+<p>The Union thus offers a relevant alternative for CVX owners who intend to maintain and compound their position over the long term. As always, don&rsquo;t forget to pay attention to the fees:</p>
+<ul>
+<li>Gas fees are passed on and distributed to all Union users.</li>
+<li>A fee of 2% of the total bribes received is also charged in each round.</li>
+</ul>
+<p><img src="/img/2022/curve-wars-l2/llama-airforce-union.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Llama Air Force Union"
+	
+	
+></p>
+<div class="notice warning" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#warning-notice"></use></svg></span>Warning</p><p>This TVL only takes into account the yields of the bribes compounded into cvxCRVs by the Union (uCRV). The vlCVX are not taken into account since they are simply delegated to the Union (about 2.5M CVX).</p></div>
+
+<p>The Union has been a rapid success. The project originated from the <a class="link" href="https://llama.airforce/#/convex/flyer"  target="_blank" rel="noopener"
+    >Llama Airforce</a>, an already well-known source of information within the Curve/Convex ecosystem, which no doubt contributed to its adoption.</p>
+<h3 id="concentrator-aladdindao">Concentrator (AladdinDAO)
+</h3><p>In short, the <a class="link" href="https://concentrator.aladdin.club/"  target="_blank" rel="noopener"
+    >Concentrator</a> is a bit like the Union, but this time for liquidity providers. Thus the Concentrator proposes to manage LP Curve for its depositors: the rewards (CRV, CVX and potential other tokens) are automatically sold for cvxCRV and automatically composed (staking on Convex) via the aCRV wrapper.</p>
+<p>The proposal is interesting and rather synergistic with Curve and Convex: it&rsquo;s a bit unfortunate to see that CVX are sold for the moment, but explained by the lack of available wrapper for vlCVX. The service offered by Concentrator is therefore rather relevant for <strong>small and medium sized carriers who want to use their LP Curve to maximize their CRV</strong> token exposure in an efficient way.</p>
+<h3 id="congruent-ccrv-curveconvex-flywheel-optimization">Congruent CCRV: Curve/Convex flywheel optimization
+</h3><p>One of the current limitations of Convex (or feature for some) is that despite the fairly dense liquidity in the cvxCRV/CRV Curve pool, it is often unbalanced. CvxCRV is liquid against CRV, but rarely at 1:1.</p>
+<p><a class="link" href="https://ccrv.finance/"  target="_blank" rel="noopener"
+    >CCRV</a> is therefore designed as a mechanism to help rebalance this pool, using both Curve and Convex. The principle is quite simple if you understand the mechanisms of Curve and Convex:</p>
+<p><img src="/img/2022/curve-wars-l2/ccrv.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="CCRV.finance"
+	
+	
+></p>
+<ol>
+<li>Creation of the cCRV token, backed by 1 cvxCRV. The protocol stakes all the cvxCRVs deposited to back cCRVs in Convex, in order to obtain a return.</li>
+<li>Creation of the Curve 3CRV pool: CRV, cvxCRV and cCRV</li>
+<li>Bribes on the 3CRV pool to help it grow.</li>
+</ol>
+<p>The mechanism will launch with an initial allocation of 1M CRV (provided by Congruent DAO). This will airdrop 1M cCRV (via bribes) over the first few weeks of the token&rsquo;s existence to help it launch quickly.</p>
+<p>While the launch plan seems pretty solid, the sustainability of the mechanism still seems uncertain. The addition of fees could allow the CCRV protocol to have its own liquidity (and therefore return in CRV, CVX and 3 pool) which could fuel the bribes while reducing their effective cost in the long run.</p>
+<p>cCRV is not yet launched but is intended to be a <strong>new optimization of the flywheel Curve/Convex</strong>. Interestingly, cCRV is being developed by <a class="link" href="https://congruent.fi/"  target="_blank" rel="noopener"
+    >Congruent</a>, a DAO that develops &ldquo;Governance as a Service&rdquo; (GaaS) products.</p>
+<h3 id="bent-the-convex-of-convex">Bent: the Convex of Convex?
+</h3><p><a class="link" href="https://app.bentfinance.com/"  target="_blank" rel="noopener"
+    >Bent</a> is a true L2 Convex / L3 of Curve. The main question that arises with this project is whether there is anything to gain by going down to this level of depth.</p>
+<p>Concretely, Bent works like Convex works for Curve: Bent allows you to stake Curve LP tokens: they are then staked in Convex (by Bent), and you benefit from an additional return paid with their native token - BENT, in exchange for fees collected by Bent:</p>
+<p><img src="/img/2022/curve-wars-l2/bentfinance-fees.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Bentfinance-fees"
+	
+	
+></p>
+<p>As you may notice, the fee structure is almost identical to Convex. Finally, just as Convex created its own representation of CRV (cvxCRV), Bent creates its representation of CVX, the bentCVX. This can also be locked (weBENT) exactly like CVX-&gt;vlCVX, for 8 weeks to get an additional yield corresponding to the bribes.</p>
+<p>Every two weeks (Curve gauge round), weBENT holders vote on Snapshot to allocate their voting capacity on the gauges of their choice. The votes of the weBENT holders are echoed via the CVX owned by BentFinance, themselves echoed in CRV vote by Convex: two levels of depth!</p>
+<p><img src="/img/2022/curve-wars-l2/bentCVX-lock.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="bentCVX-lock.png"
+	
+	
+></p>
+<h4 id="a-relevant-abstraction">A relevant abstraction?
+</h4><p>As I said when discussing Bent, the question here is not whether the model is relevant since Convex is living proof of that. Nevertheless, Convex is not a zero-sum game compared to Curve, since the protocol has brought new features that did not exist with just Curve:</p>
+<ol>
+<li>Farm with LP Curve optimized, without having veCRV</li>
+<li>&ldquo;Liquid Locking&rdquo; (⚠ cvxCRV/CRV exchange rate)</li>
+<li>And the third point which is a bit of a consequence of the other two: Convex is now the biggest veCRV owner, and can therefore offer the bribe service (via Votium) with the most potential while being the most convenient (delegation, no need to claim every week, etc.)</li>
+</ol>
+<p>If I detail the contributions of Convex, it is obviously to ask the question: what does Bent bring <strong>functionally</strong> compared to Convex?</p>
+<ol>
+<li>Farming option with LP Curve without owning a veCRV even more optimized than Convex, but all the outperformance comes from the BENT emissions.</li>
+<li>A less restrictive locking of CVX than direct locking via vlCVX (8 weeks at Bent, 16 weeks + 7 days at Convex)</li>
+</ol>
+<p>For me, the third element is still missing to make Bent an interesting option, a mechanism that would create a real added value compared to Curve/Convex, in addition to farm optimization and a reduction of constraints.</p>
+<p>Finally, I would be dishonest if I did not add one last point: the security and durability of the protocol. Indeed, Bent Finance has been attacked by an insider in December 2021 for several weeks. The attack was made possible by the fact that at that time, Bent&rsquo;s contracts were not secured by a multisig: <a class="link" href="https://halborn.com/explained-the-bent-finance-hack-december-2021/"  target="_blank" rel="noopener"
+    >more information here</a>.</p>
+<h3 id="conic-finance-cnc--collective-liquidity-management-on-curveconvex">Conic Finance (CNC) 🚧: collective liquidity management on Curve/Convex.
+</h3><div class="notice tip" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#tip-notice"></use></svg></span>Tip</p><p>🚧 reports a protocol not yet launched</p></div>
+
+<p>Similar to Bent, <a class="link" href="https://twitter.com/ConicFinance"  target="_blank" rel="noopener"
+    >Conic</a> offers an additional abstraction from Curve LPs staked on Convex. However I think that this time the model has relevance.</p>
+<p>Conic introduces the concept of &ldquo;omnipools&rdquo;, which would simplify the management for Curve LPs by going back to the primitive level: here, it is directly the tokens that are deposited (e.g. USDC or DAI). The Conic omnipools will then distribute the tokens on different LP Curve positions which are then staked on Convex.</p>
+<p>The depositors receive their CRV, CVX and CNC tokens from Conic. In a similar way to CVX, the CNC can be &ldquo;vote locked&rdquo; to :</p>
+<ol>
+<li>Participate in bi-weekly gauge votes that determine the distribution of Curve pools by assets accepted on Conic.</li>
+<li>Vote on the whitelist and blacklist of accepted Curve pools (and thus eligible for gauges)</li>
+<li>Participate in the vote to decide which assets are supported on Conic</li>
+<li>And any other governance decisions, including the potential activation of fees for the service (initially there will be none).</li>
+</ol>
+<p>Conic&rsquo;s approach thus seems relevant and could be described as pooled asset management. It is a model reminiscent of <a class="link" href="https://tokemak.xyz/"  target="_blank" rel="noopener"
+    >Tokemak</a> and goes one step further than Curve/Convex which remains at the level of governance determination of incitations. Here, governance votes will result in the actual movement of assets between different Curve pools. If the protocol manages to attract sufficient liquidity, it could become a major player in the Curve Wars, potentially with its own bribe system in the future.</p>
+<p><img src="/img/2022/curve-wars-l2/conic-finance-en.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="conic-finance-en"
+	
+	
+></p>
+<p>The project has just been unveiled and the approach being considered for launch is also interesting. Part of the CNC supply will be airdropped to vlCVX owners. For the rest, it will be distributed with community fundraising, liquidity mining on CNC/ETH and to depositors on Conic. To learn more, there is <a class="link" href="https://medium.com/@ConicFinance/conic-finance-pre-launch-announcement-7b9f485f59f2"  target="_blank" rel="noopener"
+    >only one article available for now</a>.</p>
+<h2 id="borrowing-services-with-lp-curveconvex-tokens-as-collateral">Borrowing services with LP Curve/Convex tokens as collateral
+</h2><p>At this point, you may start to get saturated just by mentioning a new potential wrapper on CRV, CVX or even cvxCRV: this is probably normal. Most of the protocols involved in the Curve Wars develop synergies directly at the token level, which remains the most direct. But we should not forget two other important types of actors:</p>
+<ol>
+<li>Protocols offering a synergistic service with the Curve/Convex LP, such as using it as collateral.</li>
+<li>Protocols / DAOs that have large amounts of CVX and CRV and can use them to develop a strategic position.</li>
+</ol>
+<p>Before going to the whales and their strategies, I offer you two last analyses of protocols that allow you to borrow from an LP Curve position.</p>
+<h3 id="lendflare-lft">Lendflare (LFT)
+</h3><p><a class="link" href="https://lendflare.finance/"  target="_blank" rel="noopener"
+    >Lendflare</a> allows Curve LPs to borrow from their position an asset that follows the same peg, for example a DAI borrow with the LP 3pool token (USDC/DAI/USDT) as collateral. This limitation avoids liquidations due to price changes between assets: with Lendflare as long as a borrower pays back his debt on or before the due date he is not liquidated.</p>
+<p>The critical point, as with any money market, is to attract enough depositors to make borrowing as cheap as possible and therefore competitive. Lendflare follows the logic of Curve&rsquo;s boosts: users who bring in cash (USDC, DAI, ETH or wBTC) to facilitate borrowing are rewarded with the LFT token.</p>
+<p>Just like on Curve, here they can also benefit from a multiplier of up to 2.5x by locking in a quantity of LFT (veLFT) proportional to the deposit. There is even a very dense diagram that summarizes everything and will make you appreciate the special care I put into my home-made infographics:</p>
+<p><img src="/img/2022/curve-wars-l2/lendflare.jpeg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="LendFlare"
+	
+	
+></p>
+<p>The protocol is still in the midst of deployment, although the borrowing functionality is already available. An initial sale (IDO) of the LFT token is underway, and an airdrop is also being discussed.</p>
+<h3 id="curvance-cve-">Curvance (CVE) 🚧
+</h3><p>Curvance tackles the same problem but with a different approach. Here the protocol is not interested in Curve LPs as collateral, but rather &ldquo;wrapped assets&rdquo; in general like cvxCRV, bveCVX (Badger) or yvBOOST (Yearn). To enable the borrowing of stablecoins with these assets as collateral, they plan to isolate the risk by relying on Fuse pools.</p>
+<p>Again, the CVE token will be distributed to liquidity providers and a veCVE-like system is envisioned with a new subtlety: yet another wrap, a liquid version of the veCVE, the cveCVE that gives access to the veCVE&rsquo;s yield but delegates governance capabilities to the DAO. Again, boosts, gauges, and even potentially bribes are envisioned</p>
+<p>For the curious, <a class="link" href="https://docs.curvance.com/cve/"  target="_blank" rel="noopener"
+    >documentation is here</a>.</p>
+<h2 id="daos-whales-in-cvx">DAOs whales in CVX
+</h2><p>Finally, to finish this overview of the Curve/Convex ecosystem, we should not forget to look directly at the tokens - and in particular the DAOs that have large amounts of CRV or CVX.</p>
+<p>For CRV, there is not yet a clear dashboard summarizing the situation to my knowledge. For CVX on the other hand, there is a site for that: <a class="link" href="Daocvx.com" >daocvx.com</a>. The protocols we will detail now do not have any synergy built natively with Curve or Convex, but they have a lot of CVX and use them to improve their competitive position in the CRV war.</p>
+<p><img src="/img/2022/curve-wars-l2/daocvx.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="daocvx.png"
+	
+	
+></p>
+<p>I&rsquo;ll let you dig through the list on your own, we&rsquo;ll just detail two: Frax and Badger.</p>
+<h3 id="frax-finance-dominating-the-curve-gauge-game">Frax Finance: Dominating the Curve Gauge Game
+</h3><p>Frax has a long-standing strategy of dominating the Curve Gauge game to help drive FRAX adoption. It was one of the first DAOs to gain a consistent position in CVX; it is now the DAO with the <strong>largest position with over 2.1M CVX</strong>.</p>
+<p>Frax is also known to be the most aggressive project with bribes and frequently offers the largest Votium bribe for its FRAX/3crv pool. In the last round (14), Frax&rsquo;s bribe was about <strong>40% of the total value of all bribes</strong> paid in that round ($6.5M / $16.2).</p>
+<p>The reason Frax can afford to be so aggressive is that their vlCVX position reduces the effective cost of these bribes: thanks to their own votes, the protocol is able to <a class="link" href="https://etherscan.io/tx/0x090777069299e6e292363c6131b5cc5b463d598a7f89d3c7207148c0497587f8"  target="_blank" rel="noopener"
+    >recover</a> a significant portion of the FXS used in each round.</p>
+<p>With this strategy, the FRAX/3CRV pool is able to <strong>maintain a CRV issuance rate almost five times higher than the 3pool, for a similar total liquidity</strong> (3pool: $3.3B, FRAX: $2.7B).</p>
+<h3 id="badger-a-small-corner-for-bitcoin">Badger: a small corner for Bitcoin
+</h3><p>Since the beginning, Badger has focused on optimizing farming with BTC on Ethereum. Initially, before Convex, Badger worked closely with Yearn, but with the launch of Convex and its rapid dominance, Badge&rsquo;s position has evolved.</p>
+<p>Unlike Frax, Badger did not buy its CVX. Instead, Badger is developing a model similar to Convex&rsquo;s to accumulate CRV under control; the bveCVX vault. It offers a similar return to direct locking on Convex, but includes itself in the Badger ecosystem.</p>
+<p>For example, the bveCVX scales contribute to Badger&rsquo;s internal boost system that is effective on most vaults. In addition, in each round the BadgerDAO uses the corresponding bveCVX voting power to support the Curve pools supported in Badger, which are essentially pools that involve one or more variants of wBTC.</p>
+<p><img src="/img/2022/curve-wars-l2/bvecvx.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="bvecvx.png"
+	
+	
+></p>
+<p>Rather than acquiring its position in CVX, Badger is able to obtain control of CVX tokens thanks to incentives - so it&rsquo;s a sort of CVX rental. There is also a Curve bveCVX/CVX pool to allow early exit from the vault. There are now almost 1.7M CVX in the vault, so the strategy has proven itself.</p>
+<h3 id="other-daos">Other DAOs
+</h3><p>I focused on two projects that develop two very distinct strategies to accumulate CVX and weigh in on the Curve Wars. As you can see on the graph above, there are many others.</p>
+<p>When a protocol develops a substantial position on CVX (say &gt;300K CVX), it benefits directly from its tokens, especially in terms of liquidity. Nevertheless it doesn&rsquo;t stop there: large CVX owners are in a strategic position and will also be courted very soon for different partnerships.</p>
+<p>We can already see the mechanics at work, with the discussion around a potential 4pool (USDC/USDT/FRAX/UST), made possible thanks to the combined influences of Frax, Luna, Redacted and Olympus. The CVX protocols-whales thus become interfaces for the Curve Wars, it remains to be seen who will be able to make them the best offer.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/defi/">DeFi</a>
+        
+            <a href="/tags/ethereum/">Ethereum</a>
+        
+            <a href="/tags/decentralized-finance/">Decentralized Finance</a>
+        
+            <a href="/tags/curve-finance/">Curve Finance</a>
+        
+            <a href="/tags/crv/">CRV</a>
+        
+            <a href="/tags/polygon/">Polygon</a>
+        
+            <a href="/tags/convex/">Convex</a>
+        
+            <a href="/tags/cvx/">CVX</a>
+        
+            <a href="/tags/votium/">Votium</a>
+        
+            <a href="/tags/vlcvx/">VlCVX</a>
+        
+            <a href="/tags/vecrv/">VeCRV</a>
+        
+            <a href="/tags/bribe.crv/">Bribe.crv</a>
+        
+            <a href="/tags/conic-finance/">Conic Finance</a>
+        
+            <a href="/tags/ccrv/">CCRV</a>
+        
+            <a href="/tags/bent-finance/">Bent Finance</a>
+        
+            <a href="/tags/warden/">Warden</a>
+        
+            <a href="/tags/concentrator/">Concentrator</a>
+        
+            <a href="/tags/lendflare/">Lendflare</a>
+        
+            <a href="/tags/curvance/">Curvance</a>
+        
+            <a href="/tags/cve/">CVE</a>
+        
+            <a href="/tags/lft/">LFT</a>
+        
+            <a href="/tags/cnc/">CNC</a>
+        
+            <a href="/tags/bent/">BENT</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Apr 05, 2022 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/crv-wars/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/crv-wars/curve-wars-cover-tokenbrice.png" loading="lazy" data-key="" data-hash="/img/2021/crv-wars/curve-wars-cover-tokenbrice.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">⚔ CRV wars: understanding the race to accumulate power to influence Curve Finance protocol</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/crv-vs-velo/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2024/crv-vs-velo/cover.png" loading="lazy" data-key="" data-hash="/img/2024/crv-vs-velo/cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Subtles nuances with great consequences: a cross analysis of Curve and Velodrome</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/solidly-velodrome-fork/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2023/solidly-velodrome-template/cover.png" loading="lazy" data-key="" data-hash="/img/2023/solidly-velodrome-template/cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ve(3,3), the logical next step after veCRV?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/defi-flywheel/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/defi-flywheel/defi-flywheel-cover-en.png" loading="lazy" data-key="" data-hash="/img/2021/defi-flywheel/defi-flywheel-cover-en.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🎡 DeFi Flywheel : engineering protocol to protocol synergies through tokens</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/defi-janus/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/defi-janus/defi-janus-cover-en.png" loading="lazy" data-key="" data-hash="/img/2021/defi-janus/defi-janus-cover-en.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Janus: the new sworn enemy of DeFi protocols?</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

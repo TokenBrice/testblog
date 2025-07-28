@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="A step by step tutorial to building a chatbot able to fetch crypto prices using Recast.AI (now SAP)">
+<title>How To Build A Cryptobot In Python Able To Fetch Data From External APIs</title>
+
+<link rel='canonical' href='http://localhost:1313/post/2017/python-cryptobot/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="How To Build A Cryptobot In Python Able To Fetch Data From External APIs">
+<meta property='og:description' content="A step by step tutorial to building a chatbot able to fetch crypto prices using Recast.AI (now SAP)">
+<meta property='og:url' content='http://localhost:1313/post/2017/python-cryptobot/'>
+<meta property='og:site_name' content='TokenBrice - Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Chatbot' /><meta property='article:tag' content='Python' /><meta property='article:tag' content='Cryptos' /><meta property='article:published_time' content='2017-11-23T13:21:53&#43;00:00'/><meta property='article:modified_time' content='2017-11-23T13:21:53&#43;00:00'/>
+<meta name="twitter:title" content="How To Build A Cryptobot In Python Able To Fetch Data From External APIs">
+<meta name="twitter:description" content="A step by step tutorial to building a chatbot able to fetch crypto prices using Recast.AI (now SAP)">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">TokenBrice - Blog</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About TokenBrice</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/-tutorials/" >
+                🔧 Tutorials
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/post/2017/python-cryptobot/">How To Build A Cryptobot In Python Able To Fetch Data From External APIs</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            A step by step tutorial to building a chatbot able to fetch crypto prices using Recast.AI (now SAP)
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Nov 23, 2017</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    9 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Chatbots have an incredible  potential. Yet, for bots to be efficient, they must integrate and  exchange data with existing services and processes.</p>
+<p><strong>The ability to fetch data from external API allows for more complex use case that a simple Q and A logic</strong>. Moreover, this ability combined with NLP offers even more opportunities.</p>
+<p>For instance, Sato – the cryptobot we’ll be building today, is able to recognize all  cryptocurrencies, even those not even listed yet. I won’t have to do anything for him to be able to process queries on  crypto appearing even years from now, because Sato, deep-down,  understood what a cryptocurrency symbol is  (after being fed with thousands of them).</p>
+<h2 id="what-are-we-building-today"><strong>WHAT ARE WE BUILDING TODAY?</strong>
+</h2><p>By the end of this tutorial, we  will have a bot able to fetch data from a third party API depending on  what our users input, and reply to them with the value fetched. Here’s  the end-result of what we’ll build today: a cryptobot aka a chatbot able to fetch any cryptocurrency price.</p>
+<p><img src="/img/2017/sato/satodemo.gif"
+	
+	
+	
+	loading="lazy"
+	
+		alt="cryptobot demo"
+	
+	
+></p>
+<p>What you’ll have by the end of this tutorial</p>
+<p>In a rush? Here is all you need to build your own:</p>
+<ul>
+<li><a class="link" href="https://cai.tools.sap/ahirice/sato-cryptobot/train/?utm_source=blog&amp;utm_campaign=sato"  target="_blank" rel="noopener"
+    >The bot on SAP Conversational AI</a></li>
+<li><a class="link" href="https://github.com/Ahirice/sato/"  target="_blank" rel="noopener"
+    >The GitHub repo</a></li>
+</ul>
+<p>Need to see it to believe it? That’s wise!</p>
+<p><a class="link" href="https://www.messenger.com/t/satofolio"  target="_blank" rel="noopener"
+    ><img src="/img/2017/sato/messenger-button-1.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="chat-on-messenger"
+	
+	
+></a>Or if you would rather understand how it was made, go through with the tutorial.</p>
+<h2 id="i-build-the-base-of-your-bot-choose-your-path"><strong>I/ BUILD THE BASE OF YOUR BOT: CHOOSE YOUR PATH</strong>
+</h2><p>The goal today is to build bot able to recognize a question about pricing on any cryptocurrency. Let your imagination flow, <strong>it could be really anything there is involving data available on third party APIs</strong>.</p>
+<p>Before we dive in the tutorial, let me give you some information on how Sato works.</p>
+<h3 id="meet-sato-the-cryptobot"><strong>MEET SATO, THE CRYPTOBOT</strong>
+</h3><p>Sato is a bot made to answer basic questions about cryptocurrencies and fetch their prices. Here’s an  overview of what he can do:</p>
+<ol>
+<li>Fecth cryptocurrencies prices  (what we’ll build today): Sato recognizes cryptocurrencies symbol  (“ETH”, “BTC”) and fetch their price on <a class="link" href="https://www.cryptocompare.com/api/"  target="_blank" rel="noopener"
+    >cryptocompare API</a> to finally return BTC and USD value to the user.</li>
+<li>Answer the users’ questions about wallets – online wallets, exchange wallets, cold wallets and hardware wallets.</li>
+<li>Address questions about private and public keys as well as the security of cryptocurrencies.</li>
+<li>Briefly present the main cryptocurrencies, currently BTC, ETH, BCH and LTC.</li>
+</ol>
+<h3 id="inside-sato-cryptobot"><strong>INSIDE SATO, CRYPTOBOT</strong>
+</h3><p>Today, we’ll focus on the skill fetching the crypto prices, as it requires an external API call. Essentially, Sato needs three things to be able to detect a question about crypto price and return the value asked:</p>
+<p>Firstly, he needs an intent <a class="link" href="https://cai.tools.sap/ahirice/sato-cryptobot/train/crypto_price?utm_source=blog&amp;utm_campaign=sato"  target="_blank" rel="noopener"
+    >(@crypto_price</a>) with diverse expressions and cryptocurrencies mentioned, so he can  efficiently recognize these questions. Here are some of the expressions  used to define the @crypto_price intent:</p>
+<p><img src="/img/2017/sato/i-crypto-price.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="cryptobot @crypto_price expressions"
+	
+	
+></p>
+<p>A sample of the expressions used to define the @crypto_price intent</p>
+<p>Secondly, for Sato to be able to recognize all cryptocurrencies, he’ll need the biggest list you can find. I found 1200+ on CoinMarketCap which is good enough to begin with. I created a gazette of the crypto names to improve its understanding.</p>
+<p>Thirdly, we’ll need to build a skill which triggers when the @ask_price intent or #crypto_name entity is recognized:</p>
+<p><img src="/img/2017/sato/skill1.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="cryptobot - triggers"
+	
+	
+></p>
+<p>Sato – Cryptobot / crypto_main skill triggers</p>
+<p>You can also add #crypto_name as a requirements, to make sure no API called is fired without parameters:</p>
+<p><a class="link" href="https://mk0caiblog1h3pefaf7c.kinstacdn.com/wp-content/uploads/2017/11/cryptomissing.png"  target="_blank" rel="noopener"
+    ><img src="/img/2017/sato/cryptomissing.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Sato - Cryptobot / crypto_main skill requirements"
+	
+	
+></a></p>
+<p>Sato – Cryptobot / crypto_main skill requirements</p>
+<p>This skill must also call your webhook that we’ll setup below:</p>
+<p><a class="link" href="https://mk0caiblog1h3pefaf7c.kinstacdn.com/wp-content/uploads/2017/11/webhookcryotio.png"  target="_blank" rel="noopener"
+    ><img src="/img/2017/sato/webhookcryotio.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Sato - Cryptobot / crypto_main skill actions"
+	
+	
+></a></p>
+<p>Sato – Cryptobot / crypto_main skill actions</p>
+<p>Don’t forget to add a memory reset after the webhook trigger, it’s required to clean the memory after each answer.</p>
+<p>Finally, we’ll test our bot  straight in Messenger, so you’ll need to create a page and an app and  connect it. Everything is documented in the <code>CONNECT</code> tab and in <a class="link" href="https://cai.tools.sap/blog/build-your-first-bot-with-sap-conversational-ai/?utm_source=blog&amp;utm_campaign=sato"  target="_blank" rel="noopener"
+    >the getting started tutorial</a>.</p>
+<p>To keep it concise**, this tutorial will not detail the creation of a bot**. We’ll start from a functioning bot already.</p>
+<p>To meet me there, you have two options:</p>
+<ul>
+<li>Option A: build your own bot (who doesn’t have to be a cryptobot)</li>
+<li>Option B: fork Sato and start from here.</li>
+</ul>
+<p>You’ll also need<a class="link" href="https://cai.tools.sap/signup/?utm_source=blog&amp;utm_campaign=sato"  target="_blank" rel="noopener"
+    > an account on SAP Conversational AI</a> to complete this tutorial.</p>
+<h3 id="a-build-your-own-bot"><strong>A/ BUILD YOUR OWN BOT</strong>
+</h3><p>Nathan wrote an exhaustive tutorial on <a class="link" href="https://cai.tools.sap/blog/build-your-first-bot-with-sap-conversational-ai/?utm_source=blog&amp;utm_campaign=sato"  target="_blank" rel="noopener"
+    >how to build your first bot with SAP Conversational AI</a> so I’ll leave the basics to him. Feel free to <a class="link" href="https://slack.cai.tools.sap/"  target="_blank" rel="noopener"
+    >reach our to our community on Slack</a> if you need some help.</p>
+<h3 id="b-fork-the-bot-used-in-this-tutorial"><strong>B/ FORK THE BOT USED IN THIS TUTORIAL</strong>
+</h3><p>SAP Conversational AI is <strong>collaborative bot platform</strong>, it works pretty much like GitHub. Which means you can <a class="link" href="https://cai.tools.sap/ahirice/sato-cryptobot/?utm_source=blog&amp;utm_campaign=sato"  target="_blank" rel="noopener"
+    >simply fork my bot Sato</a> and start from here. Here’s how:</p>
+<p><a class="link" href="https://mk0caiblog1h3pefaf7c.kinstacdn.com/wp-content/uploads/2017/11/Recast-AI-ahirice-sato-cryptobot.png"  target="_blank" rel="noopener"
+    ><img src="/img/2017/sato/Recast-AI-ahirice-sato-cryptobot-1024x158.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></a></p>
+<p>Forking a bot on SAP Conversational AI</p>
+<h2 id="ii-basic-server-code-and-requirements"><strong>II/ BASIC SERVER CODE AND REQUIREMENTS</strong>
+</h2><p>Since we want to interact with our bot, we’ll need a server to be able to receive the results of the NLP made by SAP Conversational AI and send our responses back.</p>
+<p>On the <a class="link" href="https://cai.tools.sap"  target="_blank" rel="noopener"
+    >bot builder</a>, go to the <code>CODE</code> tab to find an example of base code required to start your API. We give examples in Node.JS, PHP, Python and Ruby. This tutorial will be Python only.</p>
+<p>Here’s the base code for Python:</p>
+<pre tabindex="0"><code>from flask import Flask, request, jsonify 
+import json 
+
+app = Flask(__name__) 
+port = &#39;5000&#39; 
+
+@app.route(&#39;/&#39;, methods=[&#39;POST&#39;]) 
+def index(): 
+  print(json.loads(request.get_data())) 
+  return jsonify( 
+    status=200, 
+    replies=[{ 
+      &#39;type&#39;: &#39;text&#39;, 
+      &#39;content&#39;: &#39;Roger that&#39;, 
+    }]
+  ) 
+ 
+@app.route(&#39;/errors&#39;, methods=[&#39;POST&#39;]) 
+def errors(): 
+  print(json.loads(request.get_data())) 
+  return jsonify(status=200) 
+ 
+app.run(port=port)
+</code></pre><p>Take some time to look at the code to get a better understanding of what we’ll be doing: <strong>we’ll build on this code during this tutorial</strong>. You can save it in your favorite text editor for now.</p>
+<h3 id="requirements"><strong>REQUIREMENTS</strong>
+</h3><p>As you can see, the server script uses the <a class="link" href="http://flask.pocoo.org/"  target="_blank" rel="noopener"
+    >Flask as a web framework</a>, so we’ll need it.</p>
+<p>For the API call, we’ll also use <a class="link" href="http://docs.python-requests.org/en/master/"  target="_blank" rel="noopener"
+    >Requests</a>. Let’s go ahead and install both:</p>
+<pre tabindex="0"><code>pip install Flask
+pip install requests
+</code></pre><h2 id="iii-test-the-server-ngrok"><strong>III/ TEST THE SERVER: NGROK</strong>
+</h2><p>Now that we have the base server,  let’s make it run and test it. It will allow us to be more incremental  in the process so the debugging (if any) is simplified.</p>
+<p>To expose our local server to the internet, we’ll need ngrok.</p>
+<p><em>Note: If you are using Windows like me, there is awesome package manager – <a class="link" href="https://chocolatey.org/"  target="_blank" rel="noopener"
+    >Chocolatey</a> which works pretty much like apt-get on UNIX. With it, you’ll be able to install ngrok in one line <code>choco install ngrok_portable</code>. Moreover, Chocolatey adds ngrok to your PATH, allowing you to start ngrok from any terminal simply by typing <code>ngrok</code>.</em></p>
+<p>Now is the time to start our server and test it, this implies:</p>
+<ol>
+<li>Set a webhook trigger in your bot (detailed in step 1)</li>
+<li>Run your python script,</li>
+<li>Expose port 5000 to the internet with ngrok: <code>ngrok http 5000</code>,</li>
+<li>Copy the forwarding URL form ngrok and past it as your bot base URL on SAP Conversational AI</li>
+</ol>
+<h2 id="iv-preparing-the-external-api-call"><strong>IV/ PREPARING THE EXTERNAL API CALL</strong>
+</h2><p>It’s about time to start building! Let’s have a look at the api call we’ll be doing to get the price of  any cryptocurrency. Several APIs are available for this purpose so I  just went ahead and picked one: <a class="link" href="https://www.cryptocompare.com/api/"  target="_blank" rel="noopener"
+    >Cryptocompare API</a>.</p>
+<p><a class="link" href="https://www.cryptocompare.com/api/"  target="_blank" rel="noopener"
+    >Cryptocompare API</a> offers thousands of possibilities, but for the sake of simplicity, we’ll stick with the basics. <strong>We want the price of the matched crypto in BTC, USD and EUR</strong>.</p>
+<p>Here’s how the call is structured(here for ETH):<code>https://min-api.cryptocompare.com/data/price?fsym=&quot;ETH&quot;&amp;tsyms=BTC,USD,EUR&quot;</code></p>
+<p>You have two parameters:</p>
+<ul>
+<li><code>fsym</code>: the symbol of the cryptocurrency, this is where we’ll need to fetch the crypto_name recognized in the #crypto_name entity.</li>
+<li><code>tsyms</code>: the currency in which the price will be returned. We chose BTC, USD and EUR here.</li>
+</ul>
+<p>So, in our case, we’ll only need to adapt the <code>fsym</code> parameter to the recognized cryptocurrency, while the rest of the call stays the same.</p>
+<h2 id="v-adapt-the-api-call-to-include-the-symbol-recognized-in-the-user-input"><strong>V/ ADAPT THE API CALL TO INCLUDE THE SYMBOL RECOGNIZED IN THE USER INPUT</strong>
+</h2><p>Now that we know how to fetch the prices, we need to go back to our server code and upgrade it so it can:</p>
+<ul>
+<li>Know the #crypto_name recognized by SAP Conversational AI.</li>
+<li>Make an API call to Cryptocompare using the #crypto_name.</li>
+</ul>
+<p>Let’s get started!</p>
+<h3 id="a-finding-our-data-in-sap-conversational-ai-json"><strong>A/ FINDING OUR DATA IN SAP Conversational AI JSON</strong>
+</h3><p>Let’s have a look at the data returned by SAP Conversational AI on a user input. To do so, you click the <code>CHAT WITH YOUR BOT</code> button present on all pages, on the bottom-right corner. Then, you can  switch between the conversation and the JSON view by clicking on the  orange information circle as below:</p>
+<p><a class="link" href="https://mk0caiblog1h3pefaf7c.kinstacdn.com/wp-content/uploads/2017/11/priceOMG.png"  target="_blank" rel="noopener"
+    ><img src="/img/2017/sato/priceOMG.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></a></p>
+<p>Check the JSON of the conversation.</p>
+<p>Here, our symbol is accessible with <code>['conversation']['memory']['crypto']['raw']</code>. Since the value and the raw and identical in this case, you can use either.</p>
+<p>On our server, the JSON returned by the website test panel is <strong>encapsulated into the <code>data</code> dictionary</strong> (see server code). So we need an extra step to retrieve it on our server:</p>
+<pre tabindex="0"><code># FETCH THE CRYPTO NAME
+crypto_name = data[&#39;conversation&#39;][&#39;memory&#39;][&#39;crypto&#39;][&#39;value&#39;]
+</code></pre><h3 id="b-make-an-api-call-using-the-recognized-entity"><strong>B/ MAKE AN API CALL USING THE RECOGNIZED ENTITY</strong>
+</h3><p>For the API call, we’ll be using  Requests. Don’t forget to import it in your server’s script, then, we  build our base request (r):</p>
+<pre tabindex="0"><code>import requests
+r = requests.get(&#34;https://min-api.cryptocompare.com/data/price?fsym=&#34;+crypto_name+&#34;&amp;tsyms=BTC,USD,EUR&#34;)
+</code></pre><p>Go ahead and print it, but you may be disappointed:</p>
+<p><img src="/img/2017/sato/r.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="cryptobot - cryptocompare API response"
+	
+	
+></p>
+<p>Indeed, if you want to get the values returned by the call, you need to print <code>r.json()</code>. The good news is that JSON returned by Cryptocompare is really as simple as it could be:</p>
+<p><img src="/img/2017/sato/cryptocompare-json.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="cryptobot - JSON from cryptocompare API"
+	
+	
+></p>
+<p>Cryptocompare JSON</p>
+<p>Great! Now, we just have one last step to figure out: returning the prices to the user.</p>
+<h2 id="vi-returning-the-data-fetched-to-the-user"><strong>VI/ RETURNING THE DATA FETCHED TO THE USER</strong>
+</h2><p>Now, it’s time to finish our base  server code upgrade: we need to edit the replies returned to include our freshly fetched data. To do so, we’ll edit the message returned by our  server code:</p>
+<pre tabindex="0"><code>return jsonify( 
+    status=200, 
+    replies=[{ 
+      &#39;type&#39;: &#39;text&#39;, 
+      &#39;content&#39;: &#39;Roger that&#39;, 
+    }],
+</code></pre><p>We’ll be editing the replies only, to include the prices we fetched:</p>
+<pre tabindex="0"><code>   replies=[{
+      &#39;type&#39;: &#39;text&#39;,
+      &#39;content&#39;: &#39;The price of %s is %f BTC and %f USD&#39; % (crypto_name, r.json()[&#39;BTC&#39;], r.json()[&#39;USD&#39;])
+    }],
+</code></pre><p>Since the reply is a string, we must use the modulo (%) operator to  include our prices in the string. Here, the first %s tells Python to  look for a string while the two following %f indicates floats.</p>
+<p>Our upgraded server is now finished, here’s the whole code :</p>
+<pre tabindex="0"><code>from flask import Flask, request, jsonify
+import json
+import requests
+
+app = Flask(__name__)
+port = &#39;5000&#39;
+
+@app.route(&#39;/&#39;, methods=[&#39;POST&#39;])
+def index():
+  data = json.loads(request.get_data())
+
+  # FETCH THE CRYPTO NAME
+  crypto_name = data[&#39;conversation&#39;][&#39;memory&#39;][&#39;crypto&#39;][&#39;raw&#39;]
+
+  # FETCH BTC/USD/EUR PRICES
+  r = requests.get(&#34;https://min-api.cryptocompare.com/data/price?fsym=&#34;+crypto_name+&#34;&amp;tsyms=BTC,USD,EUR&#34;)
+
+  return jsonify(
+    status=200,
+    replies=[{
+      &#39;type&#39;: &#39;text&#39;,
+      &#39;content&#39;: &#39;The price of %s is %f BTC and %f USD&#39; % (crypto_name, r.json()[&#39;BTC&#39;], r.json()[&#39;USD&#39;])
+    }]
+  )
+
+@app.route(&#39;/errors&#39;, methods=[&#39;POST&#39;])
+def errors():
+  print(json.loads(request.get_data()))
+  return jsonify(status=200)
+
+app.run(port=port)
+</code></pre><p>With our new server completed, we now have all the pieces of our puzzle. Let’s assemble it:</p>
+<ol>
+<li>Run your python script,</li>
+<li>Expose port 5000 to the internet with ngrok: <code>ngrok http 5000</code>,</li>
+<li>Copy the forwarding URL form ngrok and past it as your bot base URL on SAP Conversational AI</li>
+</ol>
+<p>Now that you have the basics to build a bot able to fetch third party data, what’s gonna be? You show us!</p>
+<p>PS: Since this tutorial uses ngrok, your computer must be on and ngrok must be running for your bot to function.</p>
+<p><a class="link" href="https://cai.tools.sap/blog/github-repo-heroku/"  target="_blank" rel="noopener"
+    >If you want to make your bot always available, follow the next tutorial</a>.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/chatbot/">Chatbot</a>
+        
+            <a href="/tags/python/">Python</a>
+        
+            <a href="/tags/cryptos/">Cryptos</a>
+        
+    </section>
+
+
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Nov 23, 2017 13:21 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/post/2017/github-repo-heroku/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">How to host a Python server for a SAP Conversational AI bot using Github and Heroku</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 TokenBrice - Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.e87374ab760d28dfa333a671a892b101964bde5a2dac9100a50c9b0d779b4505.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

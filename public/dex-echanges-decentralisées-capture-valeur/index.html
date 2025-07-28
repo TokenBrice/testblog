@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Un regard sur le mécanisme de capture de valeur d'Uniswap, de Sushiswap et de Curve pour mieux comprendre comment la valeur s'accroît pour les détenteurs de leur tokens.">
+<title>Le volume appelle les frais : comment les principaux échanges décentralisés capturent-ils la valeur ?</title>
+
+<link rel='canonical' href='http://localhost:1313/dex-echanges-decentralis%C3%A9es-capture-valeur/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Le volume appelle les frais : comment les principaux échanges décentralisés capturent-ils la valeur ?">
+<meta property='og:description' content="Un regard sur le mécanisme de capture de valeur d'Uniswap, de Sushiswap et de Curve pour mieux comprendre comment la valeur s'accroît pour les détenteurs de leur tokens.">
+<meta property='og:url' content='http://localhost:1313/dex-echanges-decentralis%C3%A9es-capture-valeur/'>
+<meta property='og:site_name' content='Example Site'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Decentralized finance' /><meta property='article:tag' content='DEX' /><meta property='article:tag' content='Échanges décentralisés' /><meta property='article:tag' content='Uniswap' /><meta property='article:tag' content='Sushiswap' /><meta property='article:tag' content='Curve' /><meta property='article:tag' content='Curve Finance' /><meta property='article:tag' content='Balancer' /><meta property='article:tag' content='Bancor' /><meta property='article:tag' content='CRV' /><meta property='article:tag' content='UNI' /><meta property='article:tag' content='SUSHI' /><meta property='article:published_time' content='2021-01-23T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2021-01-23T01:13:50&#43;00:00'/>
+<meta name="twitter:title" content="Le volume appelle les frais : comment les principaux échanges décentralisés capturent-ils la valeur ?">
+<meta name="twitter:description" content="Un regard sur le mécanisme de capture de valeur d'Uniswap, de Sushiswap et de Curve pour mieux comprendre comment la valeur s'accroît pour les détenteurs de leur tokens.">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Example Site</a></h1>
+            <h2 class="site-description">Example description</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about-tokenbrice/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About TokenBrice</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" selected>English</option>
+                                
+                                    <option value="http://localhost:1313/zh-cn/" >中文</option>
+                                
+                                    <option value="http://localhost:1313/ar/" >عربي</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#la-montée-en-puissance-des-market-maker-automatisés-amm">La montée en puissance des Market Maker Automatisés (AMM)</a></li>
+    <li><a href="#mécanismes-de-capture-de-valeur-en-mode-découverte">Mécanismes de capture de valeur en mode découverte</a>
+      <ol>
+        <li><a href="#uniswap--le-besoin-de-liquidité">Uniswap : Le besoin de liquidité</a></li>
+        <li><a href="#sushiswap--capture-de-valeur-au-niveau-du-token">SushiSwap : Capture de valeur au niveau du token</a></li>
+      </ol>
+    </li>
+    <li><a href="#un-aperçu-de-la-fin-du-jeu--curve-finance--crv">Un aperçu de la fin du jeu ? Curve Finance &amp; CRV</a>
+      <ol>
+        <li><a href="#1-tutoriel--le-timelock">1/ Tutoriel : Le timelock</a></li>
+        <li><a href="#2-zone-de-mise-à-niveau--votre-part-des-frais">2/ Zone de mise à niveau : votre part des frais</a></li>
+        <li><a href="#3-le-pve-de-curve---stimulation-des-récompenses-crv">3/ Le PvE de Curve - Stimulation des récompenses CRV</a></li>
+        <li><a href="#4-le-pvp-de-curve---le-jeu-du-poids-des-jauges">4/ Le PvP de Curve - Le jeu du poids des jauges</a></li>
+        <li><a href="#5-le-rvr-de-curve---gouvernance-et-gouvernance-inter-protocolaire">5/ Le RvR de Curve - Gouvernance et gouvernance inter-protocolaire</a></li>
+        <li><a href="#6-prochaines-étapes-pour-curve">6/ Prochaines étapes pour Curve</a></li>
+      </ol>
+    </li>
+    <li><a href="#perspectives-davenir--l2-et-ses-incitations">Perspectives d&rsquo;avenir : L2 et ses incitations</a></li>
+    <li><a href="#notes-et-références">Notes et références</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/-defi/" >
+                🌌 DeFi
+            </a>
+        
+            <a href="/categories/-d%C3%A9couverte/" >
+                🔮 Découverte
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/dex-echanges-decentralis%C3%A9es-capture-valeur/">Le volume appelle les frais : comment les principaux échanges décentralisés capturent-ils la valeur ?</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Un regard sur le mécanisme de capture de valeur d&#39;Uniswap, de Sushiswap et de Curve pour mieux comprendre comment la valeur s&#39;accroît pour les détenteurs de leur tokens.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jan 23, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    13 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>J&rsquo;ai partagé mon point de vue sur de nombreux protocoles DeFi sur ce blog, mais je me suis récemment rendu compte que je n&rsquo;étais jamais revenu à l&rsquo;essentiel : les DEX. C&rsquo;est précisément ce que nous allons faire aujourd&rsquo;hui, en abordant le sujet principalement en examinant les mécanismes de capture de la valeur.</p>
+<p><img src="/img/2021/dex-value-capture/cover-fr.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="volume-begets-fees-cover"
+	
+	
+></p>
+<p>Les DEX s&rsquo;appuyant sur des AMM, comme Uniswap, Curve ou SushiSwap, ont tous connu cette année une croissance énorme, tant en termes de liquidités disponibles que de volume, tout comme les frais qu&rsquo;ils ont perçus. Pour faire simple : <strong>ces DEX sont maintenant les principaux collecteurs de frais qu&rsquo;il y a en crypto, juste après le réseau Bitcoin et Ethereum eux-mêmes</strong> :</p>
+<p><img src="/img/2021/dex-value-capture/fees.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="crypto-fees"
+	
+	
+></p>
+<p>C&rsquo;est une réalisation impressionnante ! Aujourd&rsquo;hui, nous allons donc examiner ce délicieux gâteau et comprendre comment il est divisé. Quelles sont les différentes approches ? À quoi sert leur token / comment établissent-ils leur modèle d&rsquo;incitation ? Et ensuite, quel sera l&rsquo;impact de l&rsquo;arrivée des layer 2 sur tout cela ?</p>
+<hr>
+<h2 id="la-montée-en-puissance-des-market-maker-automatisés-amm">La montée en puissance des Market Maker Automatisés (AMM)
+</h2><p>Avec toutes les discussions autour des teneurs de marché automatisés (AMM) ces derniers temps, je voulais, comme d&rsquo;habitude, prendre du recul et examiner l&rsquo;état actuel du marché, la position des principaux acteurs et ce qui va suivre.</p>
+<p>Nous discuterons des AMM, mais je laisserai à d&rsquo;autres le soin de régler les détails techniques des bonding curves. Nous aborderons plutôt le sujet sous l&rsquo;angle de la saisie de la valeur et de la tokenomique.</p>
+<p><strong>L&rsquo;essor et le développement des AMM a fondamentalement changé le marché</strong>. Avant leur domination, les approches basées sur le carnet d&rsquo;ordres étaient encore largement utilisées. L&rsquo;un des principaux mérites des AMM est de changer la logique du service, car il devient <strong>peer to contract</strong> : il n&rsquo;y a pas besoin d&rsquo;un ordre correspondant de l&rsquo;autre côté, grâce à la bonding curve, il y en a toujours un (dans les limites de liquidité et de slippage).</p>
+<p>Je pense que c&rsquo;est l&rsquo;un des facteurs clés qui leur a permis de se développer en rationalisant tout ce qui concerne les échanges de tokens : de l&rsquo;acte d&rsquo;échange lui-même, mais aussi de l&rsquo;apport de liquidité et même des choses comme la recherche d&rsquo;un prix pour les actifs.</p>
+<p>Nous avons donc notre beau gâteau de commissions DEX, plongeons maintenant dans le mécanisme de capture de la valeur des principaux services pour mieux comprendre leurs principales différences.</p>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>Pour la simplicité de cet article, nous n&rsquo;aborderons pas les modèles Balancer et Bancor. Ce pourrait être un bon article de suivi.</p></div>
+
+<hr>
+<h2 id="mécanismes-de-capture-de-valeur-en-mode-découverte">Mécanismes de capture de valeur en mode découverte
+</h2><p>Au fil des différentes itérations et versions des principaux DEX, leurs mécanismes de capture de la valeur ont évolué. Au départ, il n&rsquo;y avait pas nécessairement de token et une part des frais d&rsquo;échange perçus saisie par celui-ci.</p>
+<h3 id="uniswap--le-besoin-de-liquidité">Uniswap : Le besoin de liquidité
+</h3><p>En effet, dans les premiers jours de l&rsquo;AMM, la principale préoccupation était la liquidité - encore très rare à l&rsquo;époque : Uniswap n&rsquo;avait pas de token et n&rsquo;en avait pas besoin pour être le pionnier du front de l&rsquo;AMM. L&rsquo;infrastructure initiale et toujours actuelle de distribution des commissions répond à cette exigence : une commission de <strong>30 bps (0,3 %) est prélevée sur chaque transaction et distribuée aux fournisseurs de liquidité</strong>.</p>
+<p>C&rsquo;était la solution idéale pour commencer, car vous avez un problème de liquidité : une liquidité suffisante permettra de réaliser des swaps sans trop de slippage, d&rsquo;augmenter le volume (s&rsquo;il y a un besoin pour le token/marché donné) et donc les revenus pour les LP.</p>
+<p>Il n&rsquo;y a actuellement aucune redevance ou saisie de valeur au niveau du token mais il est <strong>prêt à être mis en œuvre</strong> si le DAO devait le décider - la V2 du protocole expédié l&rsquo;année dernière comprend une fonction de &ldquo;redevance de protocole&rdquo;<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
+<h3 id="sushiswap--capture-de-valeur-au-niveau-du-token">SushiSwap : Capture de valeur au niveau du token
+</h3><p>Depuis les premiers jours, l&rsquo;un des principaux changements apportés au SushiSwap a été une légère réduction de cette redevance à 25 points de base pour <strong>réorienter les 5 points de base restants vers les stakers de SUSHI</strong>, ce qui permet une exposition à une part des frais collectés sur l&rsquo;ensemble de l&rsquo;échange plutôt qu&rsquo;une logique uniquement par paire comme sur Uniswap.</p>
+<p>Depuis la phase initiale de distribution, plusieurs ajustements ont été apportés mais le mécanisme est à peu près le même. Onsen a introduit un système de récompense par rotation de nouveaux pools pertinents. Plus important encore pour la tokenomique, ⅔ des récompenses SUSHI gagnées par l&rsquo;exploitation des liquidités sont désormais acquises sur une période de 6 mois (vesting).</p>
+<p><img src="/img/2021/dex-value-capture/sushi-onsen.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="sushiswap-onsen"
+	
+	
+></p>
+<p>Cette évolution réduit les incitations pour la &ldquo;liquidité mercenaire&rdquo;, en particulier pour les liquidités gérées par des vaults par exemple &amp; permet de <strong>s&rsquo;assurer que les grands fournisseurs de liquidités sont également détenteurs de SUSHI à tout moment</strong> (même jusqu&rsquo;à 6 mois après la fin de leur exploitation), ce qui permet de mieux aligner les intérêts.</p>
+<p>Pour parvenir à cette répartition, SushiSwap distribue une commission de 0,25 % pour chaque swap aux LP, tout comme les 0,30 % d&rsquo;Uniswap. En plus de cette commission, une autre commission de 0,05 % est perçue sur chaque swap sous forme de LP tokens, elle est fréquemment vendue pour des SUSHI distribuée aux stakers.</p>
+<p>Les améliorations apportées par Sushi sont pertinentes, mais à mes yeux, le véritable changement de jeu est le modèle Curve, alors voyons voir.</p>
+<hr>
+<h2 id="un-aperçu-de-la-fin-du-jeu--curve-finance--crv">Un aperçu de la fin du jeu ? Curve Finance &amp; CRV
+</h2><p>Le modèle de Curve est légèrement plus complexe que le précédent, mais il permet un alignement toujours meilleur des incitations entre les utilisateurs de la plate-forme et les détenteurs de tokens. Voyons comment.</p>
+<p>Depuis le lancement du token CRV, les fournisseurs de liquidité sur Curve gagnent des tokens CRV en plus de leurs commissions habituelles (s&rsquo;ils stakent). Et tout comme le SushiSwap, Curve a introduit une forme de capture de valeur au niveau du token CRV.</p>
+<p><img src="/img/2021/dex-value-capture/curve-pools.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Pools de Curve"
+	
+	
+></p>
+<p>Mais le modèle est plus complexe, alors discutons de chaque partie et voyons comment elles interagissent les unes avec les autres.</p>
+<h3 id="1-tutoriel--le-timelock">1/ Tutoriel : Le timelock
+</h3><p>Pour utiliser les tokens CRV au sein de Curve, le premier choix à faire est la durée de son engagement. L&rsquo;unité de base est le veCRV, un CRV verrouillé et pondéré dans le temps qui permet la gouvernance. Pour être explicite : <strong>pour pouvoir bénéficier des droits perçus et des autres caractéristiques décrites ci-dessous, vous devez verrouiller votre token CRV pendant au moins un an.</strong></p>
+<p>Le mécanisme est assez simple, vous pouvez verrouiller pendant 1 à 4 ans. 4 ans vous donneront 1 veCRV par CRV, diminuant linéairement jusqu&rsquo;à 0,25 veCRV par CRV pour une période d&rsquo;un an. Comme nous l&rsquo;avons dit précédemment, la veCRV est l&rsquo;unité de base du système - elle déterminera donc le montant des frais ainsi que le pouvoir de stimulation (boost) et de gouvernance auquel vous aurez accès.</p>
+<h3 id="2-zone-de-mise-à-niveau--votre-part-des-frais">2/ Zone de mise à niveau : votre part des frais
+</h3><p>Il suffit de placer et de verrouiller des tokens CRV dans le DAO pour avoir droit à une part des frais perçus sur Curve, mais ce n&rsquo;est que la première étape du voyage. Les commissions sont fréquemment perçues et réglées pour des tokens 3pool LP. Le mécanisme a récemment été lancé et a commencé à distribuer des récompenses.</p>
+<p>Veuillez noter que le rendement effectif fluctue car il est lié au volume d&rsquo;échange de Curve et au prix d&rsquo;acquisition des tokens CRV. Au moment de la rédaction du présent document, il est d&rsquo;environ <strong>0,29 $ par an pour 1 vecRV.</strong></p>
+<div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>Pour décrire la prochaine couche de l&rsquo;oignon de Curve, j&rsquo;aime utiliser une métaphore inspirée des jeux de rôle en ligne. En effet, il existe trois types de configurations qui conviennent pour décrire les trois prochaines étapes de Curve :</p>
+<ol>
+<li><strong>PvE (Player vs Environment)</strong> : où vous affrontez uniquement des monstres (mobs) contrôlés par l&rsquo;IA</li>
+<li><strong>PvP (contre les joueurs)</strong> : lorsque vous vous battez contre d&rsquo;autres joueurs dans un environnement déterminé (arène/champ de bataille)</li>
+<li><strong>RvR (Realm vs Realm)</strong> : où vous vous battez contre d&rsquo;autres joueurs potentiellement partout (factions)</li>
+</ol>
+<p>Nous utiliserons ce cadre de référence pour analyser les trois couches suivantes de l&rsquo;oignon qu&rsquo;est Curve.</p></div>
+
+<h3 id="3-le-pve-de-curve---stimulation-des-récompenses-crv">3/ Le PvE de Curve - Stimulation des récompenses CRV
+</h3><p>Comme indiqué précédemment, les fournisseurs de liquidités peuvent mettre en jeu leurs tokens LP pour gagner des CRV en plus de leurs commissions habituelles. Mais ils peuvent également <strong>utiliser leurs tokens veCRV pour booster</strong> un ou plusieurs de leurs pools, augmentant ainsi les CRV gagnée jusqu&rsquo;à 2,5 fois.</p>
+<p>Pour ce faire, il faut un montant de veCRV proportionnel à la valeur en dollars de la position de fourniture de liquidité renforcée. Le coût effectif (en veCRV) pour obtenir le maximum de stimulation n&rsquo;est pas le même pour chaque pool, ce qui crée une première couche de jeux d&rsquo;incitation/arbitrage.</p>
+<p><img src="/img/2021/dex-value-capture/crv-boost.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Curve CRV boosting"
+	
+	
+></p>
+<p>C&rsquo;est un mécanisme intéressant qui permet un meilleur alignement des incitations : <strong>Les personnes qui gagnent  beaucoup de CRV sont également des détenteurs de veCRV importants</strong> (-&gt; bloqués pendant 1 à 4 ans), ce qui permet un bon alignement des intérêts. Pourtant, ce n&rsquo;est que la première et la plus amicale des couches du méta-jeu de Curve. Allons plus loin dans l&rsquo;oignon.</p>
+<h3 id="4-le-pvp-de-curve---le-jeu-du-poids-des-jauges">4/ Le PvP de Curve - Le jeu du poids des jauges
+</h3><blockquote>
+<p>Si le pool-boosting est en PvE, les jauges sont l&rsquo;arène PvP de Curve.</p>
+</blockquote>
+<p>Les jauges sont un peu similaires au boosting, mais <strong>au niveau de la plate-forme</strong>. Les détenteurs de VCRV peuvent voter pour <strong>décider de la part de CRV nouvellement frappés allouée à chaque pool</strong>. Des restrictions supplémentaires s&rsquo;appliquent ici pour empêcher la manipulation des votes :</p>
+<ul>
+<li>Le VeCRV doit être verrouillé avec au moins 7 jours restants.</li>
+<li>Le vote sur le poids des jauges ne peut être modifié par les utilisateurs que tous les 10 jours.</li>
+</ul>
+<p>Il permet d&rsquo;inciter de nouvelles pools, théoriquement sans l&rsquo;impulsion nécessaire de l&rsquo;équipe Curve.</p>
+<h3 id="5-le-rvr-de-curve---gouvernance-et-gouvernance-inter-protocolaire">5/ Le RvR de Curve - Gouvernance et gouvernance inter-protocolaire
+</h3><p>La dernière couche de l&rsquo;oignon réside dans la gouvernance de Curve : les détenteurs de veCRV peuvent voter sur les propositions de la DAO et avec au moins 2 500 veCRV, vous pouvez soumettre une proposition au DAO. Donc, pour résumer, une fois que vous détenez la veCRV, vous :</p>
+<ol>
+<li>Gagnez une part des droits perçus par l&rsquo;échange</li>
+<li>Vous pouvez augmenter vos propres flux de CRV</li>
+<li>Par le biais de jauges, influencer les futures émissions de CRV sur les pools de Curve.</li>
+<li>Et enfin, en ce qui concerne la gouvernance, vous avez votre mot à dire sur les paramètres clés du système.</li>
+</ol>
+<p>Alors que 1&amp;2 est ce qui intéresse le plus les utilisateurs finaux, <strong>les points 3&amp;4 peuvent être incroyablement précieux pour d&rsquo;autres dApps, projets DeFi et politiciens inter-protocolaire</strong><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
+<p>À partir de là, les possibilités sont pratiquement infinies :</p>
+<ol>
+<li>Par exemple, imaginez un projet introduisant un nouveau stablecoin. Ne serait-il pas intéressant pour eux d&rsquo;avoir un pouvoir de gouvernance au sein de Curve pour éventuellement l&rsquo;inclure dans un pool Curve avec bonus CRV ?</li>
+<li>Encore plus loin dans l&rsquo;oignon, les projets DeFi <strong>avec une trésorerie peuvent en allouer une partie au token CRV pour exploiter les avantages des 4 éléments</strong> - 1&amp;2 pour augmenter leurs flux de revenus de trésorerie et 3&amp;4 pour rendre leur plateforme ou service plus attractif.</li>
+<li>Une autre couche plus profonde : le <strong><a class="link" href="https://crv.ape.tax"  target="_blank" rel="noopener"
+    >vault yveCRV de Yearn</a></strong>. Il offre de meilleurs rendements que si vous déposiez vos CRV vous-même (~1,3x), mais les déposants renoncent à la capacité de stimulation et de vote (3&amp;4) en faveur de Yearn - qui peut alors utiliser cette capacité supplémentaire de stimulation/vote pour améliorer le rendement de ses produits.</li>
+<li>Dernier niveau de profondeur : imaginez un service de crypto/DeFi de type relation presse dans quelques années. Je m&rsquo;attends à ce qu&rsquo;ils soient capables de <strong>fournir d&rsquo;autres projets avec une puissance de proposition</strong> sur les principales DAO comme Curve ou Aave.</li>
+</ol>
+<h3 id="6-prochaines-étapes-pour-curve">6/ Prochaines étapes pour Curve
+</h3><p>Enfin, nous devons considérer une dernière dimension de Curve, car ce n&rsquo;est pas n&rsquo;importe quel DEX. En effet, dès le départ, Curve s&rsquo;est spécialisé dans les <strong>échanges d&rsquo;actifs indexés</strong> (pegged assets) et a été optimisé pour cela. L&rsquo;échange a commencé avec les stablecoins uniquement, mais nous avons maintenant aussi des représentations de BTC et d&rsquo;ETH.</p>
+<p>Grâce à l&rsquo;augmentation des liquidités disponibles, Curve exploite maintenant les synergies de DeFi (avec Synthetix) pour proposer des swaps entre les différents actifs pegged disponibles sur Curve, tels que DAI -&gt; wBTC ou USDT -&gt; EURS.</p>
+<p>C&rsquo;est une innovation significative car cela ouvre des marchés actuellement peu ou pas couverts ailleurs (EURS) et permet de minimiser le slippage pour les grandes transactions.</p>
+<p>Pour rester concis, les bondings curve d&rsquo;Uniswap et de Sushiswap sont bien adaptées pour <strong>supporter de nombreux swaps de petite ou moyenne taille, en particulier sur les grands pools</strong> avec un faible glissement. Cependant, elles sont moins optimales pour les gros ordres car le slippage augmente proportionnellement à la part de liquidité du pool requise par la transaction.</p>
+<div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>Un service comme <strong><a class="link" href="https://paraswap.io"  target="_blank" rel="noopener"
+    >ParaSwap</a></strong> vous aide à simplifier ce processus et à optimiser votre échange.</p></div>
+
+<hr>
+<h2 id="perspectives-davenir--l2-et-ses-incitations">Perspectives d&rsquo;avenir : L2 et ses incitations
+</h2><p>Pour conclure cet article, n&rsquo;oublions pas le prochain changement tectonique pour l&rsquo;espace Ethereum : la disponibilité croissante des layers 2.</p>
+<p>L&rsquo;année dernière, nous avons vu la valeur des transactions sur l&rsquo;AMM exploser au détriment des approches basées sur le carnet d&rsquo;ordres. Les AMM ont rationalisé l&rsquo;ensemble de l&rsquo;expérience et se sont révélées très utiles pour le layer 1, de sorte que nous pouvons raisonnablement espérer qu&rsquo;ils ouvrent la voie aux échanges décentralisés sur L2 aussi.</p>
+<p><strong>Loopring offre déjà un échange décentralisé en production:</strong> un DEX L2 basé sur zk-Sync avec diverses incitations pour les fournisseurs de liquidité. Curve a également travaillé avec Zk-Sync, nous pouvons donc raisonnablement nous attendre à ce qu&rsquo;ils livrent un produit L2 en direct cette année compte tenu des derniers développements avec Zk-Sync.</p>
+<p><img src="/img/2021/dex-value-capture/loopring.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Loopring V2 Stats"
+	
+	
+></p>
+<p>D&rsquo;autre part, Synthetix a récemment déployé son réseau principal Optimism L2 et la force semble forte autour d&rsquo;un déploiement Uniswap x Optimism. Je plaisantais l&rsquo;autre jour en disant</p>
+<blockquote>
+<p>Synthetix Optimism L2 est le testnet d&rsquo;Uniswap.</p>
+</blockquote>
+<p>Il ne serait pas surprenant de voir l&rsquo;implémentation du L2 d&rsquo;Uniswap se déployer d&rsquo;ici quelques semaines ou quelques mois.</p>
+<p>Pendant que nous y sommes, qu&rsquo;en est-il de tokoenomics x L2 ? Je m&rsquo;attends à voir les incitations <strong>LP aussi migrer vers la L2</strong>, comme c&rsquo;est déjà le cas avec Loopring. Synthetix accélère le démarrage de son L2 limité (stake/mint/burn uniquement) avec des incitations SNX.</p>
+<p>Les services qui n&rsquo;ont pas encore de token pourraient avoir un avantage ici car ils peuvent inciter directement le L2. D&rsquo;autre part, les protocoles qui incitaient déjà fortement leur L1 pourraient manquer de puissance de feu (tokens) pour égaler les incitations offertes par les projets avec des tokens &ldquo;L2-native&rdquo;.</p>
+<p>Il sera fascinant d&rsquo;observer les sorties des différentes couches 2 et leur impact sur l&rsquo;utilisation des protocoles et la tokenomique.</p>
+<div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p><img src="/img/2021/dex-value-capture/defi-france-live-16.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="defi-france-live-16"
+	
+	
+>
+On ne reçoit pas moins qu'0xMaki, une des principales figures derrière SushiSwap pour discuter du sujet ce lundi sur <strong>👉 <a class="link" href="https://www.youtube.com/watch?v=JT8N7-gqTjA"  target="_blank" rel="noopener"
+    >la chaîne YouTube DeFi France</a>.</strong></p></div>
+
+<div class="notice tip" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#tip-notice"></use></svg></span>Tip</p><p>Cet article a éveillé votre curiosité ? Vous êtes tombés au bon endroit — nous avons un ecosystème dynamique en français pour vous aider à suivre et comprendre la finance décentralisée. Du plus accessible au plus spécialisé :</p>
+<ol>
+<li><strong><a class="link" href="https://discord.gg/3bWZcK2"  target="_blank" rel="noopener"
+    >💬 Le serveur Discord DeFi France</a></strong> pour échanger avec la communauté.</li>
+<li><strong><a class="link" href="https://thedailygweifr.substack.com/"  target="_blank" rel="noopener"
+    >☕ La version française du Daily Gwei</a></strong> pour des articles et résumés très accessibles.</li>
+<li><strong><a class="link" href="https://banklessfr.substack.com/"  target="_blank" rel="noopener"
+    >🗞 La newsletter BanklessFR</a></strong> pour comprendre les concepts fondamentaux.</li>
+<li><strong><a class="link" href="https://www.youtube.com/c/DeFiFrance"  target="_blank" rel="noopener"
+    >🎥 La chaine Youtube DeFi France</a></strong> pour approfondir avec des lives pointus.</li>
+<li>&amp; Bien sûr <a class="link" href="/fr/" >ce blog</a> qui creuse des sujets spécifiques liés à la pratique de la DeFi.</li>
+</ol></div>
+
+<h2 id="notes-et-références">Notes et références
+</h2><p><em>🙏 Un grand merci à HHK, Charles, Thomas, Erwan, <a class="link" href="https://twitter.com/phil_h"  target="_blank" rel="noopener"
+    >PhilH</a> &amp; FrenchTony pour leur relecture attentive de l&rsquo;édition française de cet article et sa traduction en Anglais.</em></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Vous trouverez plus d&rsquo;informations dans la <a class="link" href="https://uniswap.org/docs/v2/advanced-topics/fees/"  target="_blank" rel="noopener"
+    >Documentation Uniswap V2</a>.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Un concept <a class="link" href="[https://newsletter.banklesshq.com/p/the-life-of-a-protocol-politician]" >d&rsquo;abord théorisé dans la lettre d&rsquo;information Bankless</a> qui fait référence à une personne ou une entité spécialisée dans l&rsquo;obtention d&rsquo;une influence sur divers protocoles décentralisés et qui offre ensuite un accès sur le terrain à cette influence en tant que service.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/defi/">DeFi</a>
+        
+            <a href="/tags/ethereum/">Ethereum</a>
+        
+            <a href="/tags/decentralized-finance/">Decentralized Finance</a>
+        
+            <a href="/tags/dex/">DEX</a>
+        
+            <a href="/tags/%C3%A9changes-d%C3%A9centralis%C3%A9s/">Échanges Décentralisés</a>
+        
+            <a href="/tags/uniswap/">Uniswap</a>
+        
+            <a href="/tags/sushiswap/">Sushiswap</a>
+        
+            <a href="/tags/curve/">Curve</a>
+        
+            <a href="/tags/curve-finance/">Curve Finance</a>
+        
+            <a href="/tags/balancer/">Balancer</a>
+        
+            <a href="/tags/bancor/">Bancor</a>
+        
+            <a href="/tags/crv/">CRV</a>
+        
+            <a href="/tags/uni/">UNI</a>
+        
+            <a href="/tags/sushi/">SUSHI</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Jan 23, 2021 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/decentralized-exchange-value-capture/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Volume begets fees: how are the main decentralized exchanges capturing value?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/unstoppable-defi/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Behind the scene of the decentralization theater: a study of the inalterability of DeFi protocols</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/unstoppable-defi/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Dans les coulisses du théâtre de la décentralisation : étude de l’inaltérabilité des protocoles DeFi</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/pegged-assets-swap/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Les guerres des swaps sur les actifs pegged</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/solidly-velodrome-fork/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ve(3,3) : l&#39;étape logique après le modèle veCRV?</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.e87374ab760d28dfa333a671a892b101964bde5a2dac9100a50c9b0d779b4505.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

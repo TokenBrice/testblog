@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Une liste d'outils et de conseils sélectionnés avec attention pour que vous puissiez tirer parti de la révolution agraire de la DeFi 🌻">
+<title>🧰 Trousse à outils du cultivateur DeFi</title>
+
+<link rel='canonical' href='http://localhost:1313/post/2020/defi-farmer-toolbox.fr/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="🧰 Trousse à outils du cultivateur DeFi">
+<meta property='og:description' content="Une liste d'outils et de conseils sélectionnés avec attention pour que vous puissiez tirer parti de la révolution agraire de la DeFi 🌻">
+<meta property='og:url' content='http://localhost:1313/post/2020/defi-farmer-toolbox.fr/'>
+<meta property='og:site_name' content='TokenBrice - Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Prêts' /><meta property='article:tag' content='Apports de liquidités' /><meta property='article:tag' content='Actifs synthétiques' /><meta property='article:published_time' content='2020-06-28T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2020-06-28T01:13:50&#43;00:00'/>
+<meta name="twitter:title" content="🧰 Trousse à outils du cultivateur DeFi">
+<meta name="twitter:description" content="Une liste d'outils et de conseils sélectionnés avec attention pour que vous puissiez tirer parti de la révolution agraire de la DeFi 🌻">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">TokenBrice - Blog</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About TokenBrice</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/-defi/" >
+                🌌 DeFi
+            </a>
+        
+            <a href="/categories/-pratique/" >
+                💸 Pratique
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/post/2020/defi-farmer-toolbox.fr/">🧰 Trousse à outils du cultivateur DeFi</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Une liste d&#39;outils et de conseils sélectionnés avec attention pour que vous puissiez tirer parti de la révolution agraire de la DeFi 🌻
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jun 28, 2020</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    11 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p><img src="/img/2020/defi-farmer-toolbox/cover-fr.jpeg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="cover-DeFi-Farmer-Toolbox"
+	
+	
+></p>
+<p>Amis agriculteurs,</p>
+<p>Si vous êtes ici, c&rsquo;est que nous partageons une compréhension basique de <a class="link" href="https://ethereumprice.org/guides/article/yield-farming/"  target="_blank" rel="noopener"
+    >ce qu&rsquo;est le yield farming</a>.</p>
+<p>Vous avez peut-être même essayé par vous-même, ou entendu les <a class="link" href="https://defiweekly.substack.com/p/tales-from-a-yield-farmer"  target="_blank" rel="noopener"
+    >récits d&rsquo;un producteur</a> : incroyable ! Aujourd&rsquo;hui, c&rsquo;est à mon tour de partager les concepts clés et une liste d&rsquo;outils pour vous aider à tirer parti de la révolution agraire sur Ethereum.</p>
+<p>Si par hasard vous avez atterri ici sans avoir la moindre idée de ce qu&rsquo;est <a class="link" href="https://ethhub.io/"  target="_blank" rel="noopener"
+    >Ethereum</a> ou <strong><a class="link" href="/post/2020/definancial-services-guide.fr/" >DeFi</a></strong>, je vous invite à cliquer sur ces liens. Ceci n&rsquo;est pas un guide, mais plutôt une sélection d&rsquo;outils et de conseils. - Commençons !</p>
+<h2 id="lagriculture-biologique-defi">L&rsquo;agriculture biologique DeFi
+</h2><p>Autrefois, l&rsquo;agriculture était simple : on plantait quelques graines et on espérait obtenir des rendements. Aujourd&rsquo;hui, nous avons des <strong>super graines</strong>, ce qui nous permet d&rsquo;obtenir des rendements supplémentaires en plus des commissions habituelles sur l&rsquo;apport de liquidité ou de frais perçus sur les prêts.</p>
+<p>De quelle facon ? Essentiellement parce que <strong>certaines plateformes de la DeFi comme Compound ou Balancer incitent maintenant les utilisateurs à effectuer des actions essentielles au protocole</strong>, comme fournir de la liquidité et emprunter sur Compound. Leurs utilisateurs sont récompensés par leur jeton natif de gouvernance (COMP dans le cas présent). La valorisation de ce jeton est une tâche difficile à laquelle les marchés s&rsquo;attellent actuellement. Il faudra encore du temps pour que ces jetons trouvent leur prix.</p>
+<p>Avant d&rsquo;aller plus loin, il est donc temps d&rsquo;écouter l&rsquo;histoire de Stani, un agriculteur biologique et vendeur de tracteur/terres :</p>
+<blockquote>
+<p>Ce qu&rsquo;il faut, c&rsquo;est une agriculture durable. En substance, les agriculteurs devraient pratiquer des cultures de qualité en apportant des liquidités  à long terme et en conservant les semences de ces cultures pour étendre leurs exploitations à de nouvelles terres.</p>
+<ul>
+<li>Stani Kulechov, PDG d&rsquo;Aave <a class="link" href="https://twitter.com/StaniKulechov/status/1276093091624226816?s=20"  target="_blank" rel="noopener"
+    >sur Twitter</a></li>
+</ul>
+</blockquote>
+<p>Nous y reviendrons plus tard, mais <strong>le prix moyen élevé du gaz vous incite à choisir des cultures solides et à vous y tenir</strong> au lieu de fouiller partout. Pour en savoir plus sur l&rsquo;exploitation des liquidités, je vous recommande également de lire cet article sur le cadre du SAFG :</p>
+<blockquote>
+<p>Fondamentalement, le SAFG nous fait passer d&rsquo;un monde où l&rsquo;on &ldquo;achète pour posséder&rdquo; à un monde où l&rsquo;on &ldquo;participe pour gouverner&rdquo;, ce qui peut en fin de compte déboucher sur des protocoles plus efficaces et des communautés plus saines.</p>
+<ul>
+<li><a class="link" href="https://medium.com/ideo-colab/meet-the-safg-defis-emergent-framework-for-participatory-investing-and-protocol-development-62286a576fb5"  target="_blank" rel="noopener"
+    >Intro - Cadre du SAFG</a></li>
+</ul>
+</blockquote>
+<h3 id="sources-de-liquidity-mining">Sources de &ldquo;Liquidity Mining&rdquo;
+</h3><p>Voici les principales sources de liquidity mining (apport de liquidité avec incitations supplémentaires), classées selon les jetons disponibles :</p>
+<ul>
+<li>Balancer Labs - <a class="link" href="https://medium.com/balancer-protocol/proposing-balancer-liquidity-mining-cab4503972fa"  target="_blank" rel="noopener"
+    >BAL</a> - 100 millions de jetons au total, dont 75 millions distribués par le liquidity mining (75 %), depuis le 1er juin.</li>
+<li>Curve Finance - CRV ??? - il n&rsquo;y a actuellement que peu ou pas d&rsquo;informations publiques disponibles.</li>
+<li>Compound Finance - <a class="link" href="https://medium.com/compound-finance/expanding-compound-governance-ce13fcd4fe36"  target="_blank" rel="noopener"
+    >COMP</a> - 10 millions de jetons au total, dont environ 4,2 millions disponibles via le liquidity mining (42%), depuis le 15 juin</li>
+<li>Universal Market Access - <a class="link" href="https://defirate.com/safg/"  target="_blank" rel="noopener"
+    >UMA</a> ~ 35% de l&rsquo;approvisionnement par l&rsquo;exploitation minière (détails à déterminer)</li>
+<li>Programme d&rsquo;incitation Synthetix &amp; autres (comme JRT)</li>
+<li>Jarvis x Aave <a class="link" href="https://sponsoring.jarvis.network/"  target="_blank" rel="noopener"
+    >Onramp Sponsoring Program</a> : redirigez les intérêts gagnés sur vos stablecoins sur Aave pour gagner des jetons JRT. Jarvis a de nombreux autres programmes d&rsquo;incitations, c&rsquo;est un bon point de départ.</li>
+</ul>
+<p><img src="/img/2020/defi-farmer-toolbox/synthetix-liquidity-mining.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Synthetix liquidity mining programs"
+	
+	
+></p>
+<h3 id="adapter-la-stratégie-à-votre-budget">Adapter la stratégie à votre budget
+</h3><p>Avant de voir comment entrer et sortir de telles positions, il est temps de discuter rapidement des prix du gaz. Ils ont été assez élevés ces derniers temps dans une fourchette de 25 à 35 gwei pour une transaction rapide. Voici en gros ce que cela signifie pour les opérations courantes :</p>
+<ul>
+<li>Dépôt @Compound (2 à 3 $ le gaz)</li>
+<li>Dépôt @Liquidity Pools @Zapper, un outil tout-en-un pour gérer vos positions d&rsquo;apport de liquidités, plus d&rsquo;informations à ce sujet ci-dessous (3-5 $ + frais de swap)</li>
+<li>Déposer @Liquidity Pools &ldquo;manuellement&rdquo; (0,3 $ (approuver) + 2-3 $ autant de fois que de jetons que dans le pool)</li>
+<li>La sortie a également un coût, ainsi que tout échange de jetons requis (comme la vente de votre COMP) : $1 à 3</li>
+</ul>
+<h4 id="limpact-des-coûts-du-gaz-sur-les-capitaux-moyens--2000">L&rsquo;impact des coûts du gaz sur les capitaux moyens ($ 2000)
+</h4><p><strong>Examinons les rendements dans le temps d&rsquo;un dépôt de 2 000 USDT @Compound</strong></p>
+<p>Pour simplifier les choses, supposons que les paramètres actuels resteront tels quels l&rsquo;année suivante. <strong>C&rsquo;est évidemment irréaliste - prenez cela comme une expérience de pensée.</strong> Voici les paramètres au moment de la rédaction du document :</p>
+<ul>
+<li>4% APY sur l&rsquo;USDT sur Compound = 80 $ pour un an sur le capital</li>
+<li>0,66 COMP/an =~150 $ produits par notre capital</li>
+</ul>
+<p>Dans le tableau ci-dessous, la colonne &ldquo;Profits réels&rdquo; correspond à une sortie totale de la position (retour à l&rsquo;USDT), ce qui signifie en fait 3 transactions au total pour l&rsquo;opération :</p>
+<ol>
+<li>Apport de liquidité sur Compound</li>
+<li>Retrait</li>
+<li>Vente des jetons COMP</li>
+</ol>
+<p>Donc, si nous examinons cette position avec ces hypothèses sur plusieurs périodes, voici ce que nous obtenons :</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">Période</th>
+<th style="text-align:center">Rendement Total ($)</th>
+<th style="text-align:center">Bénéfices Réels ($)</th>
+<th style="text-align:center">Retour effectif en % sur la période</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1 jour</td>
+<td style="text-align:center">0,63 $</td>
+<td style="text-align:center">-8,37 $</td>
+<td style="text-align:center">-0,42 %</td>
+</tr>
+<tr>
+<td style="text-align:center">1 semaine</td>
+<td style="text-align:center">4,42 $</td>
+<td style="text-align:center">-4,58 $</td>
+<td style="text-align:center">-0,23 %</td>
+</tr>
+<tr>
+<td style="text-align:center">1 mois</td>
+<td style="text-align:center">23,00 $</td>
+<td style="text-align:center">14,00 $</td>
+<td style="text-align:center">0,70%</td>
+</tr>
+<tr>
+<td style="text-align:center">3 mois</td>
+<td style="text-align:center">57,50 $</td>
+<td style="text-align:center">48,50 $</td>
+<td style="text-align:center">2,43 %</td>
+</tr>
+<tr>
+<td style="text-align:center">6 mois</td>
+<td style="text-align:center">115,00 $</td>
+<td style="text-align:center">106,00 $</td>
+<td style="text-align:center">5,30 %</td>
+</tr>
+<tr>
+<td style="text-align:center">Un an</td>
+<td style="text-align:center">230,00 $</td>
+<td style="text-align:center">221,00 $</td>
+<td style="text-align:center">11,05 %</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>Remarque : ce scénario simpliste ne tient pas compte du coût d&rsquo;opportunité sur le prix de l&rsquo;ETH. 5 $ de gaz (=ETH) payés aujourd&rsquo;hui pourraient valoir 10 $ d&rsquo;ici un an.</em></p>
+<p>L&rsquo;enseignement que je voulais partager ici est que <strong>pour de tels capitaux, compte tenu des coûts actuels du gaz, il sera probablement préférable de s&rsquo;en tenir à une position pendant des mois plutôt que d&rsquo;essayer de courir après le meilleur rendement disponible</strong>. Des bénéfices décents (~0,81 % /mois) commencent à se faire sentir dans un délai de trois mois.</p>
+<p>Alors, vous vous souvenez de Stani l&rsquo;agriculteur ? Vous devez choisir vos cultures avec sagesse.</p>
+<h4 id="le-terrain-de-jeu-de-la-baleine--10-000-">Le terrain de jeu de la baleine (&gt; 10 000 $)
+</h4><p>Maintenant, si vous avez plus de capital investi et êtes prêt à vous exposer davantage, le coût du gaz devient moins prohibitif et vous avez plus d&rsquo;options. Je ne m&rsquo;étendrai pas sur ces points, quelques conseils suffiront :</p>
+<p>Par exemple, vous pouvez tirer parti de l&rsquo;effet de levier pour maximiser votre retour en COMP effectif (par des cycles d&rsquo;emprunts / dépôts). Cela s&rsquo;accompagne évidemment d&rsquo;un risque de liquidation. Ce risque peut être plus restreint si vous utilisez la même cryptomonnaie pour votre collatéral que pour votre emprunt.
+<a class="link" href="https://dsa.instadapp.io/compound"  target="_blank" rel="noopener"
+    >InstaDapp</a> vous aide à maximiser les rendements du COMP en repliant votre position jusqu&rsquo;à 4x voire plus mais ça reste difficile avec le prix du gaz actuel.</p>
+<p>Dans un article précédent, j&rsquo;ai détaillé une stratégie s&rsquo;appuyant sur la plateforme Synthetix qui comprenait une autre forme de levier. Elle a permis d&rsquo;observer des rendements impressionnants (~200% en réalité) depuis <a class="link" href="https://tokenbrice.xyz/fr/posts/2020/definancial-services-guide/#5-a-le-synthetixcurve-kebb-alias-the-4-steaks-yieldburger"  target="_blank" rel="noopener"
+    >son introduction il y a 5 semaines</a> - principalement en raison d&rsquo;une appréciation significative du prix du SNX (le prix a doublé), de la plus grande exposition de cette stratégie et du niveau très élevé d&rsquo;activité sur le pool Curve sUSD.</p>
+<p><img src="/img/2020/definancial-services-guide/yieldkebab.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="The Synthetix-Yieldbuger-TokenBrice"
+	
+	
+></p>
+<p>Bon, assez de préparation - vous êtes maintenant un agriculteur averti - félicitations ! Examinons les outils utilisés pour planter vos semences, sécuriser vos cultures et récolter vos rendements.</p>
+<h3 id="entrer-et-sortir-des-positions">Entrer et sortir des positions
+</h3><p>Vous pouvez entrer dans les pools de liquidité &ldquo;manuellement&rdquo;, c&rsquo;est-à-dire directement sur chaque plateforme. Il faut pour cela plusieurs transactions et un montant proportionnel d&rsquo;au moins deux jetons, pour commencer. Sinon, vous devrez également au préalable procéder à des échanges en conséquence, en utilisant un service comme <strong><a class="link" href="https://paraswap.io"  target="_blank" rel="noopener"
+    >ParaSwap</a></strong>. L&rsquo;agrégateur ParaSwap vous permet de faire des échanges au meilleur prix mais également d&rsquo;obtenir des jetons comme le cDAI (DAI stocké/gagnant des intérêts sur Compound) à partir de tout autre ERC20 ayant des trajectoires de gaz et de prix avantageux.</p>
+<p><em>Note : Balancer vient d&rsquo;ajouter une fonctionnalité vous permettant d&rsquo;apporter de la liquidité avec un seul token.</em></p>
+<p>Si vous n&rsquo;êtes pas encore le plus familier avec Ethereum, la façon la plus simple de participer à ce festin serait d&rsquo;utiliser des outils :</p>
+<p><img src="/img/2020/defi-farmer-toolbox/zapper-fi.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Zapper.Fi-zap-in-liquidity-pools"
+	
+	
+></p>
+<p><strong>Entrer et sortir des pools de liquidité</strong> : <a class="link" href="https://zapper.fi"  target="_blank" rel="noopener"
+    >Zapper.fi</a> : dans l&rsquo;onglet Invest, Zapper vous permet d&rsquo;entrer et de sortir facilement des pools sur Balancer, Curve et Uniswap, de l&rsquo;ETH, DAI et quelques autres jetons.</p>
+<p><strong>Acheter de l&rsquo;ETH &amp; utiliser les services DeFi</strong> comme Argent (gaz gratuit sur Argent pour certains protocols de la Defi pour l&rsquo;instant !) - <a class="link" href="https://argent.xyz"  target="_blank" rel="noopener"
+    >Argent</a></p>
+<p><strong>Spending ETH &amp; stablecoins</strong> - <a class="link" href="https://monolith.xyz"  target="_blank" rel="noopener"
+    >Monolith</a>. Maintenant avec ParaSwap intégré pour les swaps et bientôt la possibilité d&rsquo;acheter de l&rsquo;ETH/ERC-20 à directement dans l&rsquo;application !</p>
+<p><img src="/img/2020/defi-farmer-toolbox/monolith.jpeg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="monolith"
+	
+	
+></p>
+<p>Pendant que nous y sommes, voici un petit conseil pour la route :
+<strong>Ça ne sert à rien de &ldquo;Claim&rdquo; sur Compound</strong> C&rsquo;est coûteux et vos jetons COMP sont automatiquement réclamés chaque fois que vous ajustez votre position en déposant ou en retirant des actifs (montant minimal de COMP réclamable requis).</p>
+<h2 id="la-boîte-à-outils-essentielle-de-lagriculteur-definancier">La boîte à outils essentielle de l&rsquo;agriculteur DeFinancier
+</h2><p>Maintenant que nous avons expliqué les bases, chers agriculteurs biologiques, il est enfin temps de jeter un coup d&rsquo;œil à cette boîte à outils promise. Vous trouverez ci-dessous des outils qui vous aideront à suivre vos positions et les marchés et à analyser le rendement potentiel des stratégies que vous envisagez d&rsquo;appliquer.</p>
+<p>En plus de vous aider à entrer et sortir des pools, <a class="link" href="https://zapper.fi"  target="_blank" rel="noopener"
+    >Zapper.fi</a> est un incroyable système tout-en-un de suivi de position DeFi. Voici <a class="link" href="https://www.zapper.fi/synthetix?address=0x4E60bE84870FE6AE350B563A121042396Abe1eaF"  target="_blank" rel="noopener"
+    >le Zapper du portefeuille</a> du légendaire fermier <a class="link" href="https://twitter.com/DegenSpartan"  target="_blank" rel="noopener"
+    >DegenSpartan</a> - on dirait qu&rsquo;il a croqué dans le juteux burger :</p>
+<p><img src="/img/2020/defi-farmer-toolbox/degen.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Zapper.fi - DegenSpartan"
+	
+	
+></p>
+<p>Si vous souhaitez obtenir un historique de votre wallet rendez vous sur <strong><a class="link" href="https://zerion.io/"  target="_blank" rel="noopener"
+    >Zerion</a></strong>.</p>
+<p>Pour une vue plus globale du marché, vous pouvez regarder :</p>
+<ul>
+<li><strong><a class="link" href="http://defimarketcap.io/"  target="_blank" rel="noopener"
+    >DeFiMarketCap</a></strong> pour voir les principaux jetons DeFi et leur prix.</li>
+<li><strong><a class="link" href="http://defipulse.com/"  target="_blank" rel="noopener"
+    >DefiPulse</a></strong> pour voir les principaux protocoles DeFi classé par la valeur totale des actifs verrouillés sur la plateforme.</li>
+<li><strong><a class="link" href="https://www.tokenterminal.xyz/"  target="_blank" rel="noopener"
+    >Token Terminal</a></strong> pour un aperçu des gains et du ratio P/E des protocoles DeFi</li>
+<li><a class="link" href="https://explore.duneanalytics.com/public/dashboards/c87JEtVi2GlyIZHQOR02NsfyJV48eaKEQSiKplJ7"  target="_blank" rel="noopener"
+    >Ce tableau de bord <strong>Dune Analytics</strong></a> vous donne un aperçu du volume sur les DEXes :</li>
+</ul>
+<p><img src="/img/2020/defi-farmer-toolbox/DEX.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Aperçu des volumes sur les DEX"
+	
+	
+></p>
+<p>⛽ Vous pouvez également utiliser <a class="link" href="https://twitter.com/HAL_team"  target="_blank" rel="noopener"
+    >HAL</a> pour recevoir des notifications dans certaines situations, comme <strong><a class="link" href="https://medium.com/@mattiascaricato/get-notified-when-gas-price-is-cheap-%EF%B8%8F-2a157a3d18b9"  target="_blank" rel="noopener"
+    >quand les prix du gaz passent sous un certain seuil</a></strong>.</p>
+<h3 id="ressources-spécifiques-à-chaque-plate-forme">Ressources spécifiques à chaque plate-forme
+</h3><p><strong>Synthetix / Yearn</strong></p>
+<p>Il y a tellement d&rsquo;oppurtinités qu&rsquo;il peut être dur de les suivre ! Heureusement, les outils se développent rapidement aussi : <strong><a class="link" href="https://yieldfarming.info/"  target="_blank" rel="noopener"
+    >yieldfarming.info</a> est très pratique</strong> pour suivre les pools Synthetix/Yearn.</p>
+<p><strong>Compound</strong></p>
+<p>Vous trouverez un <a class="link" href="https://explore.duneanalytics.com/public/dashboards/JMB9bYfVUtMAPHM5moj7aIjLaDwos2k9JjJTtk64"  target="_blank" rel="noopener"
+    >aperçu des jetons COMP gagnés et réclamés (claim)</a> ici. Utilisez cet outil pour <a class="link" href="http://www.predictions.exchange/compound/None"  target="_blank" rel="noopener"
+    >calculer les rendements attendus du COMP</a> obtenus en fournissant ou en empruntant des jetons sur le protocole Compound.</p>
+<p><strong>Balancer Labs</strong></p>
+<p>Tout comme pour le COMP, vous pouvez estimer votre exploitation minière de BAL : <strong><a class="link" href="http://www.predictions.exchange/balancer/%5B%5D"  target="_blank" rel="noopener"
+    >Calculateur de la distribution de la BAL</a></strong>. Si vous avez l&rsquo;intention d&rsquo;utiliser le Balancer, je vous recommande également de vous familiariser avec les <strong><a class="link" href="https://thedailygwei.substack.com/p/striking-a-balancer-the-daily-gwei"  target="_blank" rel="noopener"
+    >BAL token distribution early shenanigans</a></strong>.</p>
+<p><strong>RealT</strong></p>
+<p>Les rendements de l&rsquo;extraction de liquidités sont très variables, aussi, pour des rendements plus prévisibles, vous pouvez envisager d&rsquo;utiliser des biens immobiliers tokénisés avec <a class="link" href="https://realt.co"  target="_blank" rel="noopener"
+    >RealT</a>. Voici deux principales ressources utiles : <strong><a class="link" href="https://realt-dashboard.co/portfolio/0x51a7ead10340af963c3124b026b86dd2807c2b1c"  target="_blank" rel="noopener"
+    >voir propriétaires et revenus</a></strong> + <strong><a class="link" href="https://realt.sigri44.com/"  target="_blank" rel="noopener"
+    >Google Sheets pour suivre vos retours</a></strong> - ces deux ressources sont réalisées par la communauté, alors n&rsquo;hésitez pas à remercier leurs créateurs.</p>
+<p><strong>Divers</strong></p>
+<p>Vous pouvez <strong><a class="link" href="https://aavewatch.now.sh/"  target="_blank" rel="noopener"
+    >suivre les marchés d&rsquo;Aave en utilisant AaveWatch</a></strong>. Si vous êtes un utilisateur de TokenSet, <strong><a class="link" href="http://tokenviz.io/"  target="_blank" rel="noopener"
+    >TokenViz</a></strong> vous aidera à comprendre leurs performance.</p>
+<h3 id="suivre-lactualité-defi">Suivre l&rsquo;actualité DeFi
+</h3><p>Pour en savoir plus sur la DeFi, voici quelques ressources que je vous recommande :</p>
+<ul>
+<li>La <strong><a class="link" href="https://banklessfr.substack.com//"  target="_blank" rel="noopener"
+    >Newsletter BanklessFR</a></strong></li>
+<li>La <strong><a class="link" href="https://www.youtube.com/c/defifrance"  target="_blank" rel="noopener"
+    >chaine Youtube DeFi France</a></strong></li>
+<li>La discussion continue sur le <strong><a class="link" href="https://t.me/defifrance"  target="_blank" rel="noopener"
+    >groupe Telegram DeFi France</a></strong></li>
+</ul>
+<h2 id="le-mot-de-la-fin">Le mot de la fin
+</h2><p>Enfin, c&rsquo;est la saison des subventions Gitcoin, alors permettez moi cette mention.</p>
+<p>Vous suivez le développement d&rsquo;Ethereum avec passion et attention ? Que diriez-vous de partager une petite part de vos retours, disons 2 %, pour soutenir des projets d&rsquo;infrastructures essentielles &amp; vos services DeFi ou vos producteurs de contenu préférés ?</p>
+<p>Vos contributions sont grandement appréciées et peuvent avoir un réel impact, même 1 DAI grâce à la contrepartie du CLR. Donc si vous avez aimé cet article ou mes contributions à l&rsquo;espace DeFi en général, n&rsquo;hésitez pas à jeter un coup d&rsquo;œil à <strong><a class="link" href="https://gitcoin.co/grants/811/tokenbrice-shining-light-on-ethereums-defi-en-fr"  target="_blank" rel="noopener"
+    >mon grant Gitcoin</a></strong>.</p>
+<p>Il m&rsquo;aidera à financer davantage d&rsquo;initiatives pour la communauté française et à poursuivre des efforts de production de contenu comme celui-ci. Chaque contribution fait la différence, même 1 DAI (actuellement égal à +5).</p>
+<p>Maintenant que vous êtes sur Gitcoin avec une subvention dans votre panier, pourquoi ne pas en ajouter d&rsquo;autres ? N&rsquo;hésitez pas à regarder autour de vous et à soutenir des initiatives cruciales, des efforts de vulgarisation à la recherche fondamentale. Vous vous souvenez des luttes pour le gaz ? Vous pouvez <strong>donner au <a class="link" href="https://gitcoin.co/grants/946/project-title-eip-1559-community-fund"  target="_blank" rel="noopener"
+    >Fonds communautaire EIP 1559</a></strong> pour aider sur ce front aussi !
+Et si vous souhaitez participer plus globalement vous pouvez donner au fond Gitcoin n°7, le suivant👍</p>
+<p>Merci de votre lecture et bonnes récoltes !</p>
+<h3 id="remerciements">Remerciements
+</h3><ul>
+<li>Merci à <a class="link" href="https://twitter.com/jimmyragosa"  target="_blank" rel="noopener"
+    >Jimmy</a> qui a contribué à ce que cet article soit aussi clair que possible.</li>
+<li>Merci à <a class="link" href="https://twitter.com/OtherBright"  target="_blank" rel="noopener"
+    >Jon</a> pour son aide à la relecture de cet article.</li>
+<li>&amp; Merci à <a class="link" href="https://twitter.com/AntoineMouran?s=09"  target="_blank" rel="noopener"
+    >Antoine</a> pour sa relecture attentive de la version française et ses suggestions avisées.</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/defi/">DeFi</a>
+        
+            <a href="/tags/ethereum/">Ethereum</a>
+        
+            <a href="/tags/pr%C3%AAts/">Prêts</a>
+        
+            <a href="/tags/apports-de-liquidit%C3%A9s/">Apports De Liquidités</a>
+        
+            <a href="/tags/actifs-synth%C3%A9tiques/">Actifs Synthétiques</a>
+        
+    </section>
+
+
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Jun 28, 2020 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/post/2020/defi-farmer-toolbox/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🧰 The DeFinancial Farming Toolbox</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/post/2020/definancial-services-guide.fr/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">📖 Comment utiliser les services DeFinanciers à votre avantage ?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/post/2020/great-defi-filter.fr/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Un autre regard sur l&#39;adoption de masse pour la finance décentralisée - le grand filtre, version DeFi</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/post/2020/definancial-services-guide/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">📖 How to make DeFinancial products work for you</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/post/2020/great-defi-filter/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">A cold look at decentralized finance mass adoption: introducing the Great DeFi Filter</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 TokenBrice - Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.e87374ab760d28dfa333a671a892b101964bde5a2dac9100a50c9b0d779b4505.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

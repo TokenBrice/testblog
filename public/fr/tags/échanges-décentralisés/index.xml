@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Échanges Décentralisés on TokenBrice</title>
+        <link>http://localhost:1313/fr/tags/%C3%A9changes-d%C3%A9centralis%C3%A9s/</link>
+        <description>Recent content in Échanges Décentralisés on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>fr</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Sat, 23 Jan 2021 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/fr/tags/%C3%A9changes-d%C3%A9centralis%C3%A9s/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Le volume appelle les frais : comment les principaux échanges décentralisés capturent-ils la valeur ?</title>
+        <link>http://localhost:1313/fr/dex-echanges-decentralis%C3%A9es-capture-valeur/</link>
+        <pubDate>Sat, 23 Jan 2021 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/dex-echanges-decentralis%C3%A9es-capture-valeur/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2021/dex-value-capture/cover.png" alt="Featured image of post Le volume appelle les frais : comment les principaux échanges décentralisés capturent-ils la valeur ?" /&gt;&lt;p&gt;J&amp;rsquo;ai partagé mon point de vue sur de nombreux protocoles DeFi sur ce blog, mais je me suis récemment rendu compte que je n&amp;rsquo;étais jamais revenu à l&amp;rsquo;essentiel : les DEX. C&amp;rsquo;est précisément ce que nous allons faire aujourd&amp;rsquo;hui, en abordant le sujet principalement en examinant les mécanismes de capture de la valeur.&lt;/p&gt;
+&lt;p&gt;Les DEX s&amp;rsquo;appuyant sur des AMM, comme Uniswap, Curve ou SushiSwap, ont tous connu cette année une croissance énorme, tant en termes de liquidités disponibles que de volume, tout comme les frais qu&amp;rsquo;ils ont perçus. Pour faire simple : &lt;strong&gt;ces DEX sont maintenant les principaux collecteurs de frais qu&amp;rsquo;il y a en crypto, juste après le réseau Bitcoin et Ethereum eux-mêmes&lt;/strong&gt; :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/dex-value-capture/fees.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;crypto-fees&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;C&amp;rsquo;est une réalisation impressionnante ! Aujourd&amp;rsquo;hui, nous allons donc examiner ce délicieux gâteau et comprendre comment il est divisé. Quelles sont les différentes approches ? À quoi sert leur token / comment établissent-ils leur modèle d&amp;rsquo;incitation ? Et ensuite, quel sera l&amp;rsquo;impact de l&amp;rsquo;arrivée des layer 2 sur tout cela ?&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;la-montée-en-puissance-des-market-maker-automatisés-amm&#34;&gt;La montée en puissance des Market Maker Automatisés (AMM)
+&lt;/h2&gt;&lt;p&gt;Avec toutes les discussions autour des teneurs de marché automatisés (AMM) ces derniers temps, je voulais, comme d&amp;rsquo;habitude, prendre du recul et examiner l&amp;rsquo;état actuel du marché, la position des principaux acteurs et ce qui va suivre.&lt;/p&gt;
+&lt;p&gt;Nous discuterons des AMM, mais je laisserai à d&amp;rsquo;autres le soin de régler les détails techniques des bonding curves. Nous aborderons plutôt le sujet sous l&amp;rsquo;angle de la saisie de la valeur et de la tokenomique.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;L&amp;rsquo;essor et le développement des AMM a fondamentalement changé le marché&lt;/strong&gt;. Avant leur domination, les approches basées sur le carnet d&amp;rsquo;ordres étaient encore largement utilisées. L&amp;rsquo;un des principaux mérites des AMM est de changer la logique du service, car il devient &lt;strong&gt;peer to contract&lt;/strong&gt; : il n&amp;rsquo;y a pas besoin d&amp;rsquo;un ordre correspondant de l&amp;rsquo;autre côté, grâce à la bonding curve, il y en a toujours un (dans les limites de liquidité et de slippage).&lt;/p&gt;
+&lt;p&gt;Je pense que c&amp;rsquo;est l&amp;rsquo;un des facteurs clés qui leur a permis de se développer en rationalisant tout ce qui concerne les échanges de tokens : de l&amp;rsquo;acte d&amp;rsquo;échange lui-même, mais aussi de l&amp;rsquo;apport de liquidité et même des choses comme la recherche d&amp;rsquo;un prix pour les actifs.&lt;/p&gt;
+&lt;p&gt;Nous avons donc notre beau gâteau de commissions DEX, plongeons maintenant dans le mécanisme de capture de la valeur des principaux services pour mieux comprendre leurs principales différences.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;Pour la simplicité de cet article, nous n&amp;rsquo;aborderons pas les modèles Balancer et Bancor. Ce pourrait être un bon article de suivi.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;mécanismes-de-capture-de-valeur-en-mode-découverte&#34;&gt;Mécanismes de capture de valeur en mode découverte
+&lt;/h2&gt;&lt;p&gt;Au fil des différentes itérations et versions des principaux DEX, leurs mécanismes de capture de la valeur ont évolué. Au départ, il n&amp;rsquo;y avait pas nécessairement de token et une part des frais d&amp;rsquo;échange perçus saisie par celui-ci.&lt;/p&gt;
+&lt;h3 id=&#34;uniswap--le-besoin-de-liquidité&#34;&gt;Uniswap : Le besoin de liquidité
+&lt;/h3&gt;&lt;p&gt;En effet, dans les premiers jours de l&amp;rsquo;AMM, la principale préoccupation était la liquidité - encore très rare à l&amp;rsquo;époque : Uniswap n&amp;rsquo;avait pas de token et n&amp;rsquo;en avait pas besoin pour être le pionnier du front de l&amp;rsquo;AMM. L&amp;rsquo;infrastructure initiale et toujours actuelle de distribution des commissions répond à cette exigence : une commission de &lt;strong&gt;30 bps (0,3 %) est prélevée sur chaque transaction et distribuée aux fournisseurs de liquidité&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;C&amp;rsquo;était la solution idéale pour commencer, car vous avez un problème de liquidité : une liquidité suffisante permettra de réaliser des swaps sans trop de slippage, d&amp;rsquo;augmenter le volume (s&amp;rsquo;il y a un besoin pour le token/marché donné) et donc les revenus pour les LP.&lt;/p&gt;
+&lt;p&gt;Il n&amp;rsquo;y a actuellement aucune redevance ou saisie de valeur au niveau du token mais il est &lt;strong&gt;prêt à être mis en œuvre&lt;/strong&gt; si le DAO devait le décider - la V2 du protocole expédié l&amp;rsquo;année dernière comprend une fonction de &amp;ldquo;redevance de protocole&amp;rdquo;&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;sushiswap--capture-de-valeur-au-niveau-du-token&#34;&gt;SushiSwap : Capture de valeur au niveau du token
+&lt;/h3&gt;&lt;p&gt;Depuis les premiers jours, l&amp;rsquo;un des principaux changements apportés au SushiSwap a été une légère réduction de cette redevance à 25 points de base pour &lt;strong&gt;réorienter les 5 points de base restants vers les stakers de SUSHI&lt;/strong&gt;, ce qui permet une exposition à une part des frais collectés sur l&amp;rsquo;ensemble de l&amp;rsquo;échange plutôt qu&amp;rsquo;une logique uniquement par paire comme sur Uniswap.&lt;/p&gt;
+&lt;p&gt;Depuis la phase initiale de distribution, plusieurs ajustements ont été apportés mais le mécanisme est à peu près le même. Onsen a introduit un système de récompense par rotation de nouveaux pools pertinents. Plus important encore pour la tokenomique, ⅔ des récompenses SUSHI gagnées par l&amp;rsquo;exploitation des liquidités sont désormais acquises sur une période de 6 mois (vesting).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/dex-value-capture/sushi-onsen.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;sushiswap-onsen&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Cette évolution réduit les incitations pour la &amp;ldquo;liquidité mercenaire&amp;rdquo;, en particulier pour les liquidités gérées par des vaults par exemple &amp;amp; permet de &lt;strong&gt;s&amp;rsquo;assurer que les grands fournisseurs de liquidités sont également détenteurs de SUSHI à tout moment&lt;/strong&gt; (même jusqu&amp;rsquo;à 6 mois après la fin de leur exploitation), ce qui permet de mieux aligner les intérêts.&lt;/p&gt;
+&lt;p&gt;Pour parvenir à cette répartition, SushiSwap distribue une commission de 0,25 % pour chaque swap aux LP, tout comme les 0,30 % d&amp;rsquo;Uniswap. En plus de cette commission, une autre commission de 0,05 % est perçue sur chaque swap sous forme de LP tokens, elle est fréquemment vendue pour des SUSHI distribuée aux stakers.&lt;/p&gt;
+&lt;p&gt;Les améliorations apportées par Sushi sont pertinentes, mais à mes yeux, le véritable changement de jeu est le modèle Curve, alors voyons voir.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;un-aperçu-de-la-fin-du-jeu--curve-finance--crv&#34;&gt;Un aperçu de la fin du jeu ? Curve Finance &amp;amp; CRV
+&lt;/h2&gt;&lt;p&gt;Le modèle de Curve est légèrement plus complexe que le précédent, mais il permet un alignement toujours meilleur des incitations entre les utilisateurs de la plate-forme et les détenteurs de tokens. Voyons comment.&lt;/p&gt;
+&lt;p&gt;Depuis le lancement du token CRV, les fournisseurs de liquidité sur Curve gagnent des tokens CRV en plus de leurs commissions habituelles (s&amp;rsquo;ils stakent). Et tout comme le SushiSwap, Curve a introduit une forme de capture de valeur au niveau du token CRV.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/dex-value-capture/curve-pools.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Pools de Curve&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Mais le modèle est plus complexe, alors discutons de chaque partie et voyons comment elles interagissent les unes avec les autres.&lt;/p&gt;
+&lt;h3 id=&#34;1-tutoriel--le-timelock&#34;&gt;1/ Tutoriel : Le timelock
+&lt;/h3&gt;&lt;p&gt;Pour utiliser les tokens CRV au sein de Curve, le premier choix à faire est la durée de son engagement. L&amp;rsquo;unité de base est le veCRV, un CRV verrouillé et pondéré dans le temps qui permet la gouvernance. Pour être explicite : &lt;strong&gt;pour pouvoir bénéficier des droits perçus et des autres caractéristiques décrites ci-dessous, vous devez verrouiller votre token CRV pendant au moins un an.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Le mécanisme est assez simple, vous pouvez verrouiller pendant 1 à 4 ans. 4 ans vous donneront 1 veCRV par CRV, diminuant linéairement jusqu&amp;rsquo;à 0,25 veCRV par CRV pour une période d&amp;rsquo;un an. Comme nous l&amp;rsquo;avons dit précédemment, la veCRV est l&amp;rsquo;unité de base du système - elle déterminera donc le montant des frais ainsi que le pouvoir de stimulation (boost) et de gouvernance auquel vous aurez accès.&lt;/p&gt;
+&lt;h3 id=&#34;2-zone-de-mise-à-niveau--votre-part-des-frais&#34;&gt;2/ Zone de mise à niveau : votre part des frais
+&lt;/h3&gt;&lt;p&gt;Il suffit de placer et de verrouiller des tokens CRV dans le DAO pour avoir droit à une part des frais perçus sur Curve, mais ce n&amp;rsquo;est que la première étape du voyage. Les commissions sont fréquemment perçues et réglées pour des tokens 3pool LP. Le mécanisme a récemment été lancé et a commencé à distribuer des récompenses.&lt;/p&gt;
+&lt;p&gt;Veuillez noter que le rendement effectif fluctue car il est lié au volume d&amp;rsquo;échange de Curve et au prix d&amp;rsquo;acquisition des tokens CRV. Au moment de la rédaction du présent document, il est d&amp;rsquo;environ &lt;strong&gt;0,29 $ par an pour 1 vecRV.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;Pour décrire la prochaine couche de l&amp;rsquo;oignon de Curve, j&amp;rsquo;aime utiliser une métaphore inspirée des jeux de rôle en ligne. En effet, il existe trois types de configurations qui conviennent pour décrire les trois prochaines étapes de Curve :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;PvE (Player vs Environment)&lt;/strong&gt; : où vous affrontez uniquement des monstres (mobs) contrôlés par l&amp;rsquo;IA&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PvP (contre les joueurs)&lt;/strong&gt; : lorsque vous vous battez contre d&amp;rsquo;autres joueurs dans un environnement déterminé (arène/champ de bataille)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RvR (Realm vs Realm)&lt;/strong&gt; : où vous vous battez contre d&amp;rsquo;autres joueurs potentiellement partout (factions)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Nous utiliserons ce cadre de référence pour analyser les trois couches suivantes de l&amp;rsquo;oignon qu&amp;rsquo;est Curve.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;3-le-pve-de-curve---stimulation-des-récompenses-crv&#34;&gt;3/ Le PvE de Curve - Stimulation des récompenses CRV
+&lt;/h3&gt;&lt;p&gt;Comme indiqué précédemment, les fournisseurs de liquidités peuvent mettre en jeu leurs tokens LP pour gagner des CRV en plus de leurs commissions habituelles. Mais ils peuvent également &lt;strong&gt;utiliser leurs tokens veCRV pour booster&lt;/strong&gt; un ou plusieurs de leurs pools, augmentant ainsi les CRV gagnée jusqu&amp;rsquo;à 2,5 fois.&lt;/p&gt;
+&lt;p&gt;Pour ce faire, il faut un montant de veCRV proportionnel à la valeur en dollars de la position de fourniture de liquidité renforcée. Le coût effectif (en veCRV) pour obtenir le maximum de stimulation n&amp;rsquo;est pas le même pour chaque pool, ce qui crée une première couche de jeux d&amp;rsquo;incitation/arbitrage.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/dex-value-capture/crv-boost.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Curve CRV boosting&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;C&amp;rsquo;est un mécanisme intéressant qui permet un meilleur alignement des incitations : &lt;strong&gt;Les personnes qui gagnent  beaucoup de CRV sont également des détenteurs de veCRV importants&lt;/strong&gt; (-&amp;gt; bloqués pendant 1 à 4 ans), ce qui permet un bon alignement des intérêts. Pourtant, ce n&amp;rsquo;est que la première et la plus amicale des couches du méta-jeu de Curve. Allons plus loin dans l&amp;rsquo;oignon.&lt;/p&gt;
+&lt;h3 id=&#34;4-le-pvp-de-curve---le-jeu-du-poids-des-jauges&#34;&gt;4/ Le PvP de Curve - Le jeu du poids des jauges
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;Si le pool-boosting est en PvE, les jauges sont l&amp;rsquo;arène PvP de Curve.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Les jauges sont un peu similaires au boosting, mais &lt;strong&gt;au niveau de la plate-forme&lt;/strong&gt;. Les détenteurs de VCRV peuvent voter pour &lt;strong&gt;décider de la part de CRV nouvellement frappés allouée à chaque pool&lt;/strong&gt;. Des restrictions supplémentaires s&amp;rsquo;appliquent ici pour empêcher la manipulation des votes :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Le VeCRV doit être verrouillé avec au moins 7 jours restants.&lt;/li&gt;
+&lt;li&gt;Le vote sur le poids des jauges ne peut être modifié par les utilisateurs que tous les 10 jours.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Il permet d&amp;rsquo;inciter de nouvelles pools, théoriquement sans l&amp;rsquo;impulsion nécessaire de l&amp;rsquo;équipe Curve.&lt;/p&gt;
+&lt;h3 id=&#34;5-le-rvr-de-curve---gouvernance-et-gouvernance-inter-protocolaire&#34;&gt;5/ Le RvR de Curve - Gouvernance et gouvernance inter-protocolaire
+&lt;/h3&gt;&lt;p&gt;La dernière couche de l&amp;rsquo;oignon réside dans la gouvernance de Curve : les détenteurs de veCRV peuvent voter sur les propositions de la DAO et avec au moins 2 500 veCRV, vous pouvez soumettre une proposition au DAO. Donc, pour résumer, une fois que vous détenez la veCRV, vous :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Gagnez une part des droits perçus par l&amp;rsquo;échange&lt;/li&gt;
+&lt;li&gt;Vous pouvez augmenter vos propres flux de CRV&lt;/li&gt;
+&lt;li&gt;Par le biais de jauges, influencer les futures émissions de CRV sur les pools de Curve.&lt;/li&gt;
+&lt;li&gt;Et enfin, en ce qui concerne la gouvernance, vous avez votre mot à dire sur les paramètres clés du système.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Alors que 1&amp;amp;2 est ce qui intéresse le plus les utilisateurs finaux, &lt;strong&gt;les points 3&amp;amp;4 peuvent être incroyablement précieux pour d&amp;rsquo;autres dApps, projets DeFi et politiciens inter-protocolaire&lt;/strong&gt;&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;À partir de là, les possibilités sont pratiquement infinies :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Par exemple, imaginez un projet introduisant un nouveau stablecoin. Ne serait-il pas intéressant pour eux d&amp;rsquo;avoir un pouvoir de gouvernance au sein de Curve pour éventuellement l&amp;rsquo;inclure dans un pool Curve avec bonus CRV ?&lt;/li&gt;
+&lt;li&gt;Encore plus loin dans l&amp;rsquo;oignon, les projets DeFi &lt;strong&gt;avec une trésorerie peuvent en allouer une partie au token CRV pour exploiter les avantages des 4 éléments&lt;/strong&gt; - 1&amp;amp;2 pour augmenter leurs flux de revenus de trésorerie et 3&amp;amp;4 pour rendre leur plateforme ou service plus attractif.&lt;/li&gt;
+&lt;li&gt;Une autre couche plus profonde : le &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://crv.ape.tax&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;vault yveCRV de Yearn&lt;/a&gt;&lt;/strong&gt;. Il offre de meilleurs rendements que si vous déposiez vos CRV vous-même (~1,3x), mais les déposants renoncent à la capacité de stimulation et de vote (3&amp;amp;4) en faveur de Yearn - qui peut alors utiliser cette capacité supplémentaire de stimulation/vote pour améliorer le rendement de ses produits.&lt;/li&gt;
+&lt;li&gt;Dernier niveau de profondeur : imaginez un service de crypto/DeFi de type relation presse dans quelques années. Je m&amp;rsquo;attends à ce qu&amp;rsquo;ils soient capables de &lt;strong&gt;fournir d&amp;rsquo;autres projets avec une puissance de proposition&lt;/strong&gt; sur les principales DAO comme Curve ou Aave.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;6-prochaines-étapes-pour-curve&#34;&gt;6/ Prochaines étapes pour Curve
+&lt;/h3&gt;&lt;p&gt;Enfin, nous devons considérer une dernière dimension de Curve, car ce n&amp;rsquo;est pas n&amp;rsquo;importe quel DEX. En effet, dès le départ, Curve s&amp;rsquo;est spécialisé dans les &lt;strong&gt;échanges d&amp;rsquo;actifs indexés&lt;/strong&gt; (pegged assets) et a été optimisé pour cela. L&amp;rsquo;échange a commencé avec les stablecoins uniquement, mais nous avons maintenant aussi des représentations de BTC et d&amp;rsquo;ETH.&lt;/p&gt;
+&lt;p&gt;Grâce à l&amp;rsquo;augmentation des liquidités disponibles, Curve exploite maintenant les synergies de DeFi (avec Synthetix) pour proposer des swaps entre les différents actifs pegged disponibles sur Curve, tels que DAI -&amp;gt; wBTC ou USDT -&amp;gt; EURS.&lt;/p&gt;
+&lt;p&gt;C&amp;rsquo;est une innovation significative car cela ouvre des marchés actuellement peu ou pas couverts ailleurs (EURS) et permet de minimiser le slippage pour les grandes transactions.&lt;/p&gt;
+&lt;p&gt;Pour rester concis, les bondings curve d&amp;rsquo;Uniswap et de Sushiswap sont bien adaptées pour &lt;strong&gt;supporter de nombreux swaps de petite ou moyenne taille, en particulier sur les grands pools&lt;/strong&gt; avec un faible glissement. Cependant, elles sont moins optimales pour les gros ordres car le slippage augmente proportionnellement à la part de liquidité du pool requise par la transaction.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;Un service comme &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://paraswap.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ParaSwap&lt;/a&gt;&lt;/strong&gt; vous aide à simplifier ce processus et à optimiser votre échange.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;perspectives-davenir--l2-et-ses-incitations&#34;&gt;Perspectives d&amp;rsquo;avenir : L2 et ses incitations
+&lt;/h2&gt;&lt;p&gt;Pour conclure cet article, n&amp;rsquo;oublions pas le prochain changement tectonique pour l&amp;rsquo;espace Ethereum : la disponibilité croissante des layers 2.&lt;/p&gt;
+&lt;p&gt;L&amp;rsquo;année dernière, nous avons vu la valeur des transactions sur l&amp;rsquo;AMM exploser au détriment des approches basées sur le carnet d&amp;rsquo;ordres. Les AMM ont rationalisé l&amp;rsquo;ensemble de l&amp;rsquo;expérience et se sont révélées très utiles pour le layer 1, de sorte que nous pouvons raisonnablement espérer qu&amp;rsquo;ils ouvrent la voie aux échanges décentralisés sur L2 aussi.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Loopring offre déjà un échange décentralisé en production:&lt;/strong&gt; un DEX L2 basé sur zk-Sync avec diverses incitations pour les fournisseurs de liquidité. Curve a également travaillé avec Zk-Sync, nous pouvons donc raisonnablement nous attendre à ce qu&amp;rsquo;ils livrent un produit L2 en direct cette année compte tenu des derniers développements avec Zk-Sync.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/dex-value-capture/loopring.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Loopring V2 Stats&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;D&amp;rsquo;autre part, Synthetix a récemment déployé son réseau principal Optimism L2 et la force semble forte autour d&amp;rsquo;un déploiement Uniswap x Optimism. Je plaisantais l&amp;rsquo;autre jour en disant&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Synthetix Optimism L2 est le testnet d&amp;rsquo;Uniswap.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Il ne serait pas surprenant de voir l&amp;rsquo;implémentation du L2 d&amp;rsquo;Uniswap se déployer d&amp;rsquo;ici quelques semaines ou quelques mois.&lt;/p&gt;
+&lt;p&gt;Pendant que nous y sommes, qu&amp;rsquo;en est-il de tokoenomics x L2 ? Je m&amp;rsquo;attends à voir les incitations &lt;strong&gt;LP aussi migrer vers la L2&lt;/strong&gt;, comme c&amp;rsquo;est déjà le cas avec Loopring. Synthetix accélère le démarrage de son L2 limité (stake/mint/burn uniquement) avec des incitations SNX.&lt;/p&gt;
+&lt;p&gt;Les services qui n&amp;rsquo;ont pas encore de token pourraient avoir un avantage ici car ils peuvent inciter directement le L2. D&amp;rsquo;autre part, les protocoles qui incitaient déjà fortement leur L1 pourraient manquer de puissance de feu (tokens) pour égaler les incitations offertes par les projets avec des tokens &amp;ldquo;L2-native&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;Il sera fascinant d&amp;rsquo;observer les sorties des différentes couches 2 et leur impact sur l&amp;rsquo;utilisation des protocoles et la tokenomique.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/dex-value-capture/defi-france-live-16.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;defi-france-live-16&#34;
+	
+	
+&gt;
+On ne reçoit pas moins qu&#39;0xMaki, une des principales figures derrière SushiSwap pour discuter du sujet ce lundi sur &lt;strong&gt;👉 &lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=JT8N7-gqTjA&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;la chaîne YouTube DeFi France&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;div class=&#34;notice tip&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#tip-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Astuce&lt;/p&gt;&lt;p&gt;Cet article a éveillé votre curiosité ? Vous êtes tombés au bon endroit — nous avons un ecosystème dynamique en français pour vous aider à suivre et comprendre la finance décentralisée. Du plus accessible au plus spécialisé :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://discord.gg/3bWZcK2&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;💬 Le serveur Discord DeFi France&lt;/a&gt;&lt;/strong&gt; pour échanger avec la communauté.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://thedailygweifr.substack.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;☕ La version française du Daily Gwei&lt;/a&gt;&lt;/strong&gt; pour des articles et résumés très accessibles.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://banklessfr.substack.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🗞 La newsletter BanklessFR&lt;/a&gt;&lt;/strong&gt; pour comprendre les concepts fondamentaux.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/c/DeFiFrance&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🎥 La chaine Youtube DeFi France&lt;/a&gt;&lt;/strong&gt; pour approfondir avec des lives pointus.&lt;/li&gt;
+&lt;li&gt;&amp;amp; Bien sûr &lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/fr/&#34; &gt;ce blog&lt;/a&gt; qui creuse des sujets spécifiques liés à la pratique de la DeFi.&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;notes-et-références&#34;&gt;Notes et références
+&lt;/h2&gt;&lt;p&gt;&lt;em&gt;🙏 Un grand merci à HHK, Charles, Thomas, Erwan, &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/phil_h&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PhilH&lt;/a&gt; &amp;amp; FrenchTony pour leur relecture attentive de l&amp;rsquo;édition française de cet article et sa traduction en Anglais.&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;Vous trouverez plus d&amp;rsquo;informations dans la &lt;a class=&#34;link&#34; href=&#34;https://uniswap.org/docs/v2/advanced-topics/fees/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Documentation Uniswap V2&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;Un concept &lt;a class=&#34;link&#34; href=&#34;[https://newsletter.banklesshq.com/p/the-life-of-a-protocol-politician]&#34; &gt;d&amp;rsquo;abord théorisé dans la lettre d&amp;rsquo;information Bankless&lt;/a&gt; qui fait référence à une personne ou une entité spécialisée dans l&amp;rsquo;obtention d&amp;rsquo;une influence sur divers protocoles décentralisés et qui offre ensuite un accès sur le terrain à cette influence en tant que service.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

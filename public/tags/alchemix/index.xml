@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Alchemix on TokenBrice</title>
+        <link>http://localhost:1313/tags/alchemix/</link>
+        <description>Recent content in Alchemix on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Mon, 10 May 2021 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/alchemix/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>🌽 Defi money markets cookbook</title>
+        <link>http://localhost:1313/money-market-recipes/</link>
+        <pubDate>Mon, 10 May 2021 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/money-market-recipes/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2021/money-market-recipes/money-market-recipes-cover.png" alt="Featured image of post 🌽 Defi money markets cookbook" /&gt;&lt;p&gt;On this blog, I frequently discuss about money markets and assets market in DeFi. Basically, they allow you to &lt;strong&gt;loan and borrow tokens&lt;/strong&gt;. These two actions have become like &lt;strong&gt;deFi verbs&lt;/strong&gt;: they are used directly or indirectly in almost every strategy.&lt;/p&gt;
+&lt;p&gt;So while it is crucial to understand the protocols you are using and especially &lt;strong&gt;the different &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/money-market-risks.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;money market risks&lt;/a&gt;&lt;/strong&gt;, Today, I would like to focus on the why and the how:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Which strategies can be implemented using money markets?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;How can they be deployed in practice?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;We&amp;rsquo;re going to break down different &amp;ldquo;recipes&amp;rdquo; to take advantage of the money markets. Take these recipes as &lt;strong&gt;inspiration to develop your own strategies&lt;/strong&gt;.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice warning&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Warning&lt;/p&gt;&lt;p&gt;&lt;strong&gt;This article does not constitute investment advice: I am not authorized to dispense it. Rather than mechanically reproducing the strategies presented as examples, I invite you to try to understand the approach.&lt;/strong&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;leveraged-bets-on-a-money-market-via-the-market-itself&#34;&gt;Leveraged bets on a money market via the market itself
+&lt;/h2&gt;&lt;p&gt;Every money markets have an associated token, for example the AAVE token for Aave. It is generally used for the governance of the protocol and sometimes also allows to capture part of the value it generates. With this strategy, we will &lt;strong&gt;use a money market to borrow assets that will then be used to gain exposure to the native token of the desired platform&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;⚙ Condition:&lt;/strong&gt; Optimism about the future of a given money market. It&amp;rsquo;s native token in this scenario is expected to appreciate in line with the growth of the market over the medium/long term.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📅 Time horizon:&lt;/strong&gt; 3 - 24 months. ~3 months is a recommended minimum so that gas fees and borrowing costs don&amp;rsquo;t impact the returns of the strategy too much.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔮 Expected result&lt;/strong&gt;: the acquired token appreciates, which allows to pay back the debt (+ possible interest) at term by reselling part of the initial position. Once the debt is repaid, part of the acquired tokens can be kept.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🃏 Bonus / Facilitator:&lt;/strong&gt; If the token in question can produce a return (e.g. AAVE in the Safety Module), this will allow the debt to be repaid even faster or to accumulate &amp;ldquo;free&amp;rdquo; tokens if the scenario of its price appreciation is verified.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Although this strategy is quite basic, it is one of my favorites. I recently shared with you on Twitter an example of how to put it into practice, which we will detail here:&lt;/p&gt;
+&lt;p&gt;Here, the concerned protocol is &lt;a class=&#34;link&#34; href=&#34;https://liquity.org&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liquity&lt;/a&gt; and the implementation of the strategy is quite simple, but has two variations:&lt;/p&gt;
+&lt;h3 id=&#34;direct-exposure-to-the-native-token&#34;&gt;Direct exposure to the native token
+&lt;/h3&gt;&lt;p&gt;Either by directly exposing yourself to the LQTY token, which is of course more risky:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-recipes/mm-long-token-tokenbrice-en.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;mm-long-tokenbrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li&gt;Deposit ETH on &lt;a class=&#34;link&#34; href=&#34;https://www.liquity.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liquity&lt;/a&gt; via one of the frontends, they will serve as collateral for the position.&lt;/li&gt;
+&lt;li&gt;Borrow LUSD&lt;/li&gt;
+&lt;li&gt;Swap LUSD (via ParaSwap for the best rate!) for LQTY, the native token of Liquity&lt;/li&gt;
+&lt;li&gt;Stake LQTY, which generates LUSD and some ETH&lt;/li&gt;
+&lt;li&gt;Eventually repayment of debt (2) via LUSD yield (4) and resale of some of the LQTY acquired in step 3 after price appreciation.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Or more conservatively, with a strategy using Liquity to borrow LUSDs and make them productive:&lt;/p&gt;
+&lt;h3 id=&#34;exposure-mainly-in-stablecoins&#34;&gt;Exposure mainly in stablecoins
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-recipes/mm-long-tokenbrice-en.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;mm-long-token-tokenbrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Deposit ETH on &lt;a class=&#34;link&#34; href=&#34;https://www.liquity.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liquity&lt;/a&gt; via one of the frontends, they will serve as collateral for the position.&lt;/li&gt;
+&lt;li&gt;Borrow LUSD&lt;/li&gt;
+&lt;li&gt;Stake LUSD via either the Stability Pool (-&amp;gt; LQTY + ETH) or the LUSD pool on Curve Finance (-&amp;gt; Native + LQTY + CRV).&lt;/li&gt;
+&lt;li&gt;Eventually repayment of debt (2) via yield (3)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;Yearn Finance also offers a LUSD vault that automatically manages the position on Curve.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;investing-time-rather-than-money&#34;&gt;Investing time rather than money
+&lt;/h2&gt;&lt;p&gt;Alchemix arrival has opened up new perspectives in terms of strategy. On Alchemix, the debt repays itself over time. Indeed, &lt;strong&gt;the collateral used (yDAI) is a stablecoin that produces a return (via Yearn)&lt;/strong&gt;. Thus with the current conditions the loan is self-repaying in three years.&lt;/p&gt;
+&lt;p&gt;I suggest a simple strategy to take advantage of Alchemix to make a profit. The main drawback is that &lt;strong&gt;only half of the amount of DAI initially placed in Alchemix can be borrowed in AlUSD&lt;/strong&gt; and then invested.
+Nevertheless, as this strategy is based on stablecoins, it does not - (⚠ oracles) - involve any price risk and therefore does not require daily monitoring.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;⚙ Condition:&lt;/strong&gt; DAI that will be locked in for ~3 years. Only half of the deposited amount is mobilizable.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📅 Time horizon:&lt;/strong&gt; ~3 years (depends on DAI return rate on Yearn).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔮 Expected result&lt;/strong&gt;: In 3 years, the AlUSD debt is fully repaid and the DAI initially mobilized on Alchemix are free again. It remains to be seen what happened with the investment made with the borrowed AlUSD: it all depends on the choices made, I do not predict the future.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🃏 Bonus / Facilitator:&lt;/strong&gt; Use the borrowed AlUSD to invest in a token that can produce a return. This allows you to make a compound investment or even pay off Alchemix debt faster.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;long-alcx-via-alchemix&#34;&gt;Long ALCX via Alchemix
+&lt;/h3&gt;&lt;p&gt;To illustrate the concept, I propose another simple strategy which is equivalent to long Alchemix via its token ALCX :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-recipes/alchemix-investment-tokenbrice-en.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;alchemix-investment-tokenbrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Deposit DAI as collateral on Alchemix. Alchemix deploys it on Yearn Finance to generate a return.&lt;/li&gt;
+&lt;li&gt;Borrow up to 50% of the initial value deposited in AlUSD, a stablecoin.&lt;/li&gt;
+&lt;li&gt;Invest the AlUSD in the desired token. Here for the example it is ALCX the native governance token of Alchemix.&lt;/li&gt;
+&lt;li&gt;Stake the acquired token to produce a return&lt;/li&gt;
+&lt;li&gt;The repayment of the debt in AlUSD contracted on Alchemix is done automatically with time. It is possible to repay in advance thanks to the generated returns (4).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;putting-a-hodl-collateral-to-work-over-the-long-term&#34;&gt;Putting a &amp;ldquo;hodl&amp;rdquo; collateral to work over the long term
+&lt;/h2&gt;&lt;p&gt;I came to DeFi several years ago with a simple ambition: I wanted to put my Ethers to work. At the time it was not an easy task but nowadays there are many very interesting solutions. I will focus on one of them, Aave, for two reasons.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Aave has launched &lt;strong&gt;a liquidity mining&lt;/strong&gt; program paid in StkAave&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; (Aave V2 - Mainnet).&lt;/li&gt;
+&lt;li&gt;Aave is accessible on the &lt;strong&gt;sidechain Polygon&lt;/strong&gt; where the low fees allow to deploy DeFi strategies efficiently even with small capital. There is also a liquidity mining program there, in MATIC &lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;To make this strategy as accessible as possible, we will develop the example on the Polygon sidechain. It is therefore possible to use any of the tokens supported as collateral on the Aave/Polygon market: MATIC, AAVE, wETH, wBTC, USDC, and DAI.&lt;/p&gt;
+&lt;h3 id=&#34;how-to&#34;&gt;How-to
+&lt;/h3&gt;&lt;p&gt;The strategy is to &lt;strong&gt;produce returns through the borrowing of stablecoins used to provide liquidity on the Curve exchange service&lt;/strong&gt;. With the liquidity mining program on Aave, every step of the process is potentially lucrative at least in MATIC.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;⚙ Condition:&lt;/strong&gt; Having tokens accepted as collateral on Aave, and bring them back to Polygon for example using &lt;a class=&#34;link&#34; href=&#34;https://wallet.matic.network/bridge/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the POS bridge&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📅 Time horizon:&lt;/strong&gt; Short / medium term.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔮 Expected outcome:&lt;/strong&gt; Returns in MATIC, stablecoins and ETH.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🃏 Bonus / Facilitator:/&lt;/strong&gt;. Prospective: mining CRV &amp;amp; potential leverage when LP Curve Polygon tokens are accepted as collateral on Aave.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;putting-eth-to-work-on-polygon&#34;&gt;Putting ETH to work on Polygon
+&lt;/h3&gt;&lt;p&gt;To illustrate this strategy, I start with the assumption of generating a return from ETH.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-recipes/polygon-aave-curve-eth-farming-tokenbrice-en.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;polygon-aave-curve-eth-farming-tokenbrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;ETH deposit as collateral on Aave/Polygon (+native +MATIC)&lt;/li&gt;
+&lt;li&gt;Borrowing stablecoins (-APR +MATIC)&lt;/li&gt;
+&lt;li&gt;Deposit and staking of stablecoins on Curve/Polygon (+natif +MATIC)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Note that Curve LP Polygon tokens are being considered for potential addition as collateral in the Aave market. We can also expect potential CRV rewards on Polygon LP positions if the DAO decides to do so.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;It is possible to implement this strategy by keeping the tokens used as collateral on the L1 Aave in order to benefit from the mining of StkAAVE. It will be necessary to migrate the borrowed stablecoins from the Ethereum network to Polygon using for example &lt;a class=&#34;link&#34; href=&#34;https://wallet.matic.network/bridge/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Matic&amp;rsquo;s POS bridge&lt;/a&gt;.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;protect-yourself-against-the-price-risk-of-the--farming-in-&#34;&gt;Protect yourself against the price risk of the $: farming in €.
+&lt;/h2&gt;&lt;p&gt;In DeFi, everything is done in dollars. It makes sense, everyone knows, but for a European user it is a significant additional  risk. Indeed, if your ambition is to generate enough to live on with DeFi, then this means your output will eventually be in Euro.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-recipes/eur-usd-1y.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;eur-usd-1y&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;For a European farmer, it may therefore be &lt;strong&gt;interesting to have a DeFi exposure in € to avoid this risk&lt;/strong&gt;. At the moment, there are simply no Euro borrowing options other than &lt;a class=&#34;link&#34; href=&#34;https://mimo.capital/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Mimo Capital&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This service allows you to borrow PAR from ETH, wBTC or USDC. The MIMO governance token is also distributed to owners of active vaults as well as to liquidity providers on the PAR/ETH and PAR/USDC Balancer pools.&lt;/p&gt;
+&lt;p&gt;Nevertheless, the protocol is still recent and the PAR token is not yet supported in the ecosystem, as a collateral on Aave or in a Curve pool for example. So the situation is not yet ideal but it has the merit to exist!&lt;/p&gt;
+&lt;p&gt;Other DeFi-€ solutions are in development. MakerDAO, for example, has mentioned a Euro-DAI, while Jarvis Network is working on a synthetic stablecoin €, the jEUR.&lt;/p&gt;
+&lt;h3 id=&#34;how-to-1&#34;&gt;How-to
+&lt;/h3&gt;&lt;p&gt;To farm natively in Euros, the best option is still what you can do with EURS. Since the launch of the pool on Curve, there are many options.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;⚙ Condition:&lt;/strong&gt; Owning EURS / sEUR&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📅 Time horizon:&lt;/strong&gt; 1 month - years&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔮 Expected result:&lt;/strong&gt; Growing a capital in Euro-stable&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🃏 Bonus / Enabler:&lt;/strong&gt; Owning VeCRVs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-recipes/EURS-farming-tokenbrice-en.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;EURS-farming-tokenbrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;strong&gt;pool Curve&lt;/strong&gt; directly offers an attractive yield in CRV even when it is not boosted.&lt;/li&gt;
+&lt;li&gt;To automatically sell the farmed CRVs to compound the return, a vault is ideal. &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://yearn.finance&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Yearn&lt;/a&gt; offers a vault on EURS&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Farming is also possible via the EURS vault of &lt;a class=&#34;link&#34; href=&#34;https://stakedao.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;StakeDAO&lt;/a&gt;, in order to accumulate SDT as well.&lt;/li&gt;
+&lt;li&gt;Or &lt;a class=&#34;link&#34; href=&#34;https://harvest.finance&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Harvest&lt;/a&gt; also offers a vault that makes up the bulk of the returns while paying in FARM.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;I hope these different recipes will inspire you. Make sure you are &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/money-market-risks.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;aware of the different money market risks&lt;/a&gt;&lt;/strong&gt;, used for all these strategies.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;🙏 Huge thanks to HHK, Charles, Thomas, Erwan, &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/phil_h&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PhilH&lt;/a&gt; &amp;amp; FrenchTony for proofreading the French version of this article and translating it integrally into English.&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;The liquidity mining program StkAAVE was launched on Mars 26 following a governance vote. &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/AaveAave/status/1386753673104134155?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;More info here&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;Polygon sponsors a liquidity mining program in MATIC, both on &lt;a class=&#34;link&#34; href=&#34;https://blog.polygon.technology/defiforall-kicking-off-l2-defi-summer-with-40-million-usd-in-liquidity-mining-rewards-from-4937d7c6e287&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Aave&lt;/a&gt; and &lt;a class=&#34;link&#34; href=&#34;https://blog.polygon.technology/continuing-scalability-defi-summer-with-5-million-usd-in-liquidity-mining-rewards-from-polygon-e73a76c5a8ad?gi=9a7b7e130606&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Curve&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

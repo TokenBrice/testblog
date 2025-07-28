@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Borrow on TokenBrice</title>
+        <link>http://localhost:1313/tags/borrow/</link>
+        <description>Recent content in Borrow on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Thu, 02 Dec 2021 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/borrow/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>⚖️ Liquity: an unstoppable, efficient and innovative borrowing service</title>
+        <link>http://localhost:1313/liquity-protocol/</link>
+        <pubDate>Thu, 02 Dec 2021 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/liquity-protocol/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2021/liquity-protocol/cover-en.png" alt="Featured image of post ⚖️ Liquity: an unstoppable, efficient and innovative borrowing service" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/liquity/ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liquity&lt;/a&gt; is still a unique protocol: it allows borrowing on ETH and mint of a stablecoin (LUSD) without requiring governance which makes it &amp;ldquo;unstoppable&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;The term is not always well understood, so let&amp;rsquo;s make it clear: the contracts necessary for the existence of Liquity and LUSD have been deployed and since they have no administrative functions, &lt;strong&gt;nothing can stop them as long as the Ethereum network is synchronizing&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;If that&amp;rsquo;s not enough to excite your curiosity, the good news is that to achieve such a result, Liquity implements several new ideas that are really relevant. Indeed, in addition to its resilience, Liquity is also &lt;strong&gt;the least expensive&lt;/strong&gt; protocol for long term borrowing on ETH and also &lt;strong&gt;the most permissive in leverage&lt;/strong&gt;, outside of recovery mode.&lt;/p&gt;
+&lt;p&gt;The purpose of this article is therefore to introduce Liquity while expliciting several critical dimensions for any loan/money market service in DeFi.&lt;/p&gt;
+&lt;h2 id=&#34;operation-of-the-protocol&#34;&gt;OPERATION OF THE PROTOCOL
+&lt;/h2&gt;&lt;p&gt;I propose an exhaustive tour of the protocol to understand the issues and contributions made to DeFi. Ideally, it would be to understand all the dynamics. However, I realize that my explanations can sometimes be dense, so I will offer them by level of complexity:&lt;/p&gt;
+&lt;h3 id=&#34;-liquitys-fundamentals&#34;&gt;🏗 Liquity&amp;rsquo;s fundamentals
+&lt;/h3&gt;&lt;p&gt;At a high level, Liquity works in a similar logic to Maker: users create &amp;ldquo;Troves&amp;rdquo; where they can deposit ETH in order to borrow stablecoins, LUSD, directly from the protocol.&lt;/p&gt;
+&lt;h4 id=&#34;money-market-or-loan-service&#34;&gt;Money market or loan service?
+&lt;/h4&gt;&lt;p&gt;Both Liquity and Maker are borrowing services but not money markets. What&amp;rsquo;s the difference? Who is lending to you?&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Either the protocol directly (borrowing service),&lt;/li&gt;
+&lt;li&gt;Or other users via a pooling model like Aave or Compound (money market).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The difference is extremely important in terms of the competitiveness of the protocol: &lt;strong&gt;it is almost impossible, even theoretically, to envision a money market offering low stablecoin borrowing costs (&amp;lt;3 or 4% annual) on a sustainable basis&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;This is because money markets need to offer an attractive return to their stablecoin depositors, who have many, many alternatives for generating returns. Thus, &lt;strong&gt;if efficiency is a key objective, the borrowing service model that does not require deposits from other users is inherently more efficient&lt;/strong&gt; - the user borrows directly from the protocol at a lower cost.&lt;/p&gt;
+&lt;p&gt;Finally, let&amp;rsquo;s test the theory against the hard absurdity of practice: these considerations are valid for analyzing the design of a money market / borrowing service. There are &lt;strong&gt;borrowing services (which are supposed to be very efficient) which nevertheless manage to be expensive for borrowers, like MakerDAO&lt;/strong&gt;. The reasons for this are various, but the fact that the DAO still decides on the protocol fees (potentially in a totally arbitrary way) seems to me to be one of the main ones.&lt;/p&gt;
+&lt;h4 id=&#34;borrowing-with-liquity&#34;&gt;Borrowing with Liquity
+&lt;/h4&gt;&lt;p&gt;From a potential user&amp;rsquo;s point of view, Liquity basically works as an alternative to Maker or something else: the user arrives with ETH that he deposits in his trove to mint the desired amount of LUSD.&lt;/p&gt;
+&lt;p&gt;However, the parallel stops here because although at a high level the process is similar, the underlying logic is totally different.&lt;/p&gt;
+&lt;h5 id=&#34;fees-management&#34;&gt;Fees management
+&lt;/h5&gt;&lt;p&gt;First, the crux of the matter: borrowing costs. On this subject and in addition to very low absolute borrowing costs, Liquity has the merit of bringing &lt;strong&gt;predictability and clarity.&lt;/strong&gt; Indeed, where Maker, Aave and Compound for example practice a variable annual rate (via governance for Maker, market conditions for Aave/Compound), &lt;strong&gt;at Liquity the rate is fixed and clearly announced at the time of the loan&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;In addition, at Liquity the fees are paid in one go, at the time of the loan&amp;rsquo;s implementation: these are the &amp;ldquo;&lt;strong&gt;initiation fees&amp;rdquo;, by default at 0.5%&lt;/strong&gt;. This is the only fee that the borrower pays, even if he keeps his trove for years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/liquity-protocol/trove.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;liquity-trove&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;This is why Liquity is &lt;strong&gt;ideal for long term positions&lt;/strong&gt;, such borrowing costs are effectively 5-10x lower than what you can find on the main alternatives.&lt;/p&gt;
+&lt;h4 id=&#34;stability-pool-liquidations-backstop&#34;&gt;Stability pool: liquidations backstop
+&lt;/h4&gt;&lt;p&gt;While Liquity&amp;rsquo;s model already provides relevant benefits from a user&amp;rsquo;s perspective, its design also explores relevant solutions.&lt;/p&gt;
+&lt;p&gt;One of the main issues for borrowing services is of course that the protocol remains solvent: there are therefore, if necessary, liquidations to restore the balance. Liquidation of positions requires equity and a certain infrastructure when it is the users who do it directly, as on Marker or Aave. To optimize the process, the idea of a liquidity &amp;ldquo;backstop&amp;rdquo; has emerged.&lt;/p&gt;
+&lt;p&gt;It is about having &lt;strong&gt;a reserve of funds, generally stablecoins that the protocol uses if necessary to manage liquidations&lt;/strong&gt;: it is the Stability Pool on Liquity. The users who wish to do so can deposit their LUSD in this pool: they are remunerated in LQTY (which we will detail next).&lt;/p&gt;
+&lt;p&gt;The funds in the Stability Pool are used when necessary for liquidations. As the system is now quite mature, liquidations tend to happen mostly in case of a sharp drop in the ETH price. A position in the Stability Pool therefore allows one to profit from these juicy liquidations without having the skills or infrastructure to execute them.&lt;/p&gt;
+&lt;p&gt;The Stability Pool thus offers a rather gas-light and attractive native return option on the LUSD. With a conservative collateralization ratio, it may even be suitable for an almost entirely passive position.&lt;/p&gt;
+&lt;p&gt;Although the backstop concept is not implemented natively in the other major money markets, &lt;a class=&#34;link&#34; href=&#34;https://www.bprotocol.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the B.Protocol project&lt;/a&gt; acts as an abstraction layer offering the equivalent of this service to Maker, Aave and Compound (without the benefits of having it in-house).&lt;/p&gt;
+&lt;h4 id=&#34;lqty-token--staking&#34;&gt;LQTY token &amp;amp; staking
+&lt;/h4&gt;&lt;p&gt;I told you above: Liquity has no governance. The system automatically adjusts itself according to different parameters observed on the markets as we will see below. But then, what is the purpose of LQTY?&lt;/p&gt;
+&lt;p&gt;In its most basic form, it is an accounting mechanism for allocating the revenues generated by the protocol. LQTY can be staked to obtain LUSD corresponding to its share of the initiation fee and ETH from the redemption fee:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/liquity-protocol/lqty-staking-returns.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;lqty-staking-returns&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s it for the essential points about Liquity and its main differences with the existing solutions. However, as always, the devil is in the details, so now that the basics are established, I propose to explore the arcana of the protocol.&lt;/p&gt;
+&lt;h3 id=&#34;-complete-understanding-and-advanced-use&#34;&gt;🧙 Complete understanding and advanced use
+&lt;/h3&gt;&lt;p&gt;So far, we have stayed as much as possible in the perspective of a potential user. For this section, we&amp;rsquo;ll have to broaden our horizons to understand the subtleties of Liquity&amp;rsquo;s design. Let&amp;rsquo;s get started!&lt;/p&gt;
+&lt;h4 id=&#34;risks--limits&#34;&gt;Risks &amp;amp; limits
+&lt;/h4&gt;&lt;p&gt;Now that I have your attention, let&amp;rsquo;s talk about risks: this is also part of the subtleties to understand and take advantage of Liquity.&lt;/p&gt;
+&lt;h5 id=&#34;-dependence-on-the-oracle&#34;&gt;🔮 Dependence on the oracle
+&lt;/h5&gt;&lt;p&gt;If you have been reading me for a while, this sentence will probably tell you something: &amp;ldquo;&lt;strong&gt;the truth about money markets is what the oracle says&lt;/strong&gt;&amp;rdquo;. The oracle is the device that allows to obtain the necessary data on-chain, to be used by smart contracts. The critical data in question here is the price of ETH in USD, which determines whether a given position is solvent or needs to be liquidated.&lt;/p&gt;
+&lt;p&gt;In this case, the choice is classic: the main stream used is &lt;a class=&#34;link&#34; href=&#34;https://data.chain.link/ethereum/mainnet/crypto-usd/eth-usd&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ETH/USD ChainLink&lt;/a&gt;, with a fallback to Tellor (&lt;a class=&#34;link&#34; href=&#34;https://docs.liquity.org/faq/stability-pool-and-liquidations#what-oracle-are-you-using-to-determine-the-price-of-eth&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;more info&lt;/a&gt;). ChainLink is very widespread and robust, but one has to be aware of the fact that a problem with the ETH/USD ChainLink stream can quickly lead to serious consequences on Liquity (and pretty much the whole DeFi).&lt;/p&gt;
+&lt;h5 id=&#34;-the-lusd-against-its-1-peg&#34;&gt;⚖ The LUSD against its $1 peg
+&lt;/h5&gt;&lt;p&gt;LUSD is a stablecoin, it&amp;rsquo;s great to mine it directly to push down borrowing costs as much as possible. But what about the stability of the LUSD?&lt;/p&gt;
+&lt;p&gt;Stablecoin pegging is a pretty dense science, so we won&amp;rsquo;t necessarily go into detail, just the basics. The LUSD has various characteristics that allow it to establish a floor and a ceiling via arbitrage:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Floor: the redemption mechanism: an LUSD can be redeemed against ETH via a mechanism that we will explore next&lt;/li&gt;
+&lt;li&gt;Ceiling: the protocol guarantees an absolute minimum collateralization of LUSD with ETH at 110% under all conditions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Thus, although the LUSD is holding its peg at $1 relatively well, the fluctuations in amplitude are more consistent than on a centralized stablecoin.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/liquity-protocol/lusd-price.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;lusd-price&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;!--Différentes situations extrêmes au niveau du marché (et donc du protocole) peuvent également amener à envisager un LUSD qui s&#39;écarte plus ou moins durablement du peg. Dans l&#39;ensemble, les mécanismes de stabilisation sont là pour ramener l&#39;équilibre sur le long-terme.--&gt;
+&lt;p&gt;Various extreme situations in the market (and therefore in the protocol) can also lead to the possibility of an LUSD that deviates more or less permanently from the peg. On the whole, the stabilization mechanisms are there to bring back the balance in the long term.&lt;/p&gt;
+&lt;h4 id=&#34;a-protocol-level-game&#34;&gt;A &amp;ldquo;protocol-level&amp;rdquo; game
+&lt;/h4&gt;&lt;p&gt;Liquity brings us to a very interesting notion that I call &amp;ldquo;protocol-level&amp;rdquo;, for lack of a better word. It is about the possible interactions with the protocol whose consequences depend on the actions of the other players.&lt;/p&gt;
+&lt;p&gt;In a way and to use my favorite metaphor of MMORPGs :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;PvE = Player versus Environment (AI)&lt;/strong&gt;, in DeFi: simple farming &amp;amp; consequences of other players only secondary (e.g. dilution of yield when a 🐳 happens)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PvP = Player versus Player&lt;/strong&gt; and that&amp;rsquo;s not missing even in DeFi!&lt;/li&gt;
+&lt;li&gt;But the most interesting thing today is &lt;strong&gt;RvR (Realm vs Realm)&lt;/strong&gt;. Here again there is fighting between players, but it is &lt;strong&gt;a structured fight by faction&lt;/strong&gt;, with objectives to reach. The DeFi equivalent here is of course the CRV game on Curve!&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;We can see on Liquity some &amp;ldquo;protocol-level&amp;rdquo; mechanics that could be similar to RvR in this metaphor, so let&amp;rsquo;s see how they work :&lt;/p&gt;
+&lt;h5 id=&#34;dynamic-initiationredemption-rate&#34;&gt;Dynamic initiation/redemption rate
+&lt;/h5&gt;&lt;p&gt;First of all, the most basic: fees. I mentioned above that the initiation fee is 0.5%: this is true, but slightly simplified. In reality this rate can vary between 0.5% and 5%: it is the &lt;code&gt;baseRate&lt;/code&gt; that governs the fee paid on both loans and redemptions.&lt;/p&gt;
+&lt;p&gt;When Liquity is used heavily, the &lt;code&gt;baseRate&lt;/code&gt; increases. This is also a defensive mechanism for the protocol, which otherwise could be &amp;ldquo;emptied&amp;rdquo; of ETH by arbitrageurs (massive redemption LUSD-&amp;gt;ETH). The &amp;ldquo;decay&amp;rdquo; rate when the use calms down to come back nicely to 0.5% and I let you go see &lt;a class=&#34;link&#34; href=&#34;https://docs.liquity.org/faq/lusd-redemptions#how-is-the-baserate-calculated&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the math behind it&lt;/a&gt; on the doc for the curious.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;Since the depositor pays his fees at the time of borrowing on Liquity, the evolution of the rate afterwards has no consequence for him.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h5 id=&#34;recovery-mode-as-terrifying-as-it-is-effective&#34;&gt;&amp;ldquo;Recovery Mode&amp;rdquo;: as terrifying as it is effective?
+&lt;/h5&gt;&lt;p&gt;In normal use, &lt;strong&gt;Liquity is the most permissive protocol for leveraging on ETH, tolerating a collateralization ratio as low as 110%&lt;/strong&gt; (~90% of the net collateral value is borrowed). This is out of line with what is found elsewhere in DeFi, some references on ETH:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Maker offers collateralization ratios ranging from 58.8% for ETH-C to 76.9% for ETH-B (min collateral ratio of 130% to 170%)&lt;/li&gt;
+&lt;li&gt;Aave is at 82.5% on ETH&lt;/li&gt;
+&lt;li&gt;Compound at 75%.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If the protocol can be so permissive, it is not because it takes more risks, but rather because several solutions are implemented to push users to re-collateralize when necessary: recovery mode and redemptions.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/liquity-protocol/recovery-mode.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;recovery-mode&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The recovery mode is a protocol-level game on Liquity: its triggering depends on the &amp;ldquo;Total Collateral Ratio&amp;rdquo; of the protocol: the ratio between the total collateral and the LUSD due.&lt;/p&gt;
+&lt;p&gt;When this ratio falls &lt;strong&gt;below 150%, the Recovery Mode is activated to restore the balance&lt;/strong&gt;: the minimum collateralization threshold for a trove falls to 110%. Risky users are thus invited to re-collateralize or pay off debt - and/or will be liquidated if necessary when the recovery mode is activated.&lt;/p&gt;
+&lt;p&gt;The recovery mode is not a surprise, however, since it depends on a parameter that everyone can easily follow. Such a system makes it possible to maximize the efficiency of the protocol most of the time, while quickly reverting to more conservative settings if necessary.&lt;/p&gt;
+&lt;h5 id=&#34;the-redemption-game&#34;&gt;The redemption game
+&lt;/h5&gt;&lt;p&gt;Finally, there is one last mechanism to detail: redemptions, an arbitrage mechanism to exchange LUSD for ETH.&lt;/p&gt;
+&lt;p&gt;Again, this is a protocol-level game: redemptions are made using the liquidity available in the users&amp;rsquo; troves. &lt;strong&gt;When there is a redemption, the protocol starts by using the liquidity of the least collateralized trove on Liquity&lt;/strong&gt; and goes up as much as necessary.&lt;/p&gt;
+&lt;p&gt;Thus, being &lt;strong&gt;the&lt;/strong&gt; least collateralized trove on Liquity is not a very enviable position, since your collateral is at risk of being used for redemptions. If this is the case, the user will lose ETH, but they will also see their debt decrease (in proportion to the LUSDs traded).&lt;/p&gt;
+&lt;p&gt;This mechanism pushes players to remain reasonable, even when the recovery mode is not activated: to avoid redemptions, one should not be the most aggressive. It is a sort of &lt;strong&gt;regulation mechanism whose exact threshold depends on the average leverage appetite of the other players&lt;/strong&gt;: in other words, a very elegant design.&lt;/p&gt;
+&lt;h5 id=&#34;decentralized-front-ends&#34;&gt;Decentralized front-ends
+&lt;/h5&gt;&lt;p&gt;Finally, this may be a detail for you but for me it means a lot: &lt;strong&gt;the Liquity team does not operate the application site&lt;/strong&gt;. Instead, they have made available a &lt;a class=&#34;link&#34; href=&#34;https://docs.liquity.org/documentation/sdk&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Frontend SDK&lt;/a&gt; to help other developers operate an instance of a Liquity frontend themselves. There is also a kickback mechanism to encourage these integrators.&lt;/p&gt;
+&lt;p&gt;This approach allows Liquity to go even &lt;strong&gt;further than other protocols in terms of decentralization&lt;/strong&gt; and to offer solid guarantees that at least one of the front-ends will remain available no matter what.&lt;/p&gt;
+&lt;p&gt;Liquity&amp;rsquo;s uniqueness is just like the rest of the protocol: innovative, different, and truly relevant that you simply can&amp;rsquo;t ignore.&lt;/p&gt;
+&lt;h2 id=&#34;liquity-and-lusd-in-the-defi-ecosystem&#34;&gt;Liquity and LUSD in the DeFi ecosystem
+&lt;/h2&gt;&lt;p&gt;I wrote this article because I see Liquity as an essential DeFi primitive and I&amp;rsquo;d like to help you understand why. I&amp;rsquo;m not the only one who understands what&amp;rsquo;s at stake here, many protocols are interested in Liquity and LUSD in one way or another. Let&amp;rsquo;s take a look.&lt;/p&gt;
+&lt;h3 id=&#34;defi-liquity-integrations&#34;&gt;DeFi Liquity Integrations
+&lt;/h3&gt;&lt;p&gt;First of all, there are the various protocols that integrate one or more parts of Liquity and thus offer new opportunities to LQTY or LUSD owners.&lt;/p&gt;
+&lt;h4 id=&#34;liquity-lusdlqty-and-farming&#34;&gt;Liquity LUSD/LQTY and farming
+&lt;/h4&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://harvest.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Harvest Finance&lt;/a&gt; offers an LQTY vault based on staking: the LUSD and ETH obtained are frequently composed of more LQTY.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://app.pickle.finance/farms&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Pickle Finance&lt;/a&gt; proposes a similar product (pJar 0.98l) as well as a particular vault in partnership with B.Protocol to maximize the obtained LQTY:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/liquity-protocol/pickle-lusd.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;pickle-lusd&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The main source of liquidity for LUSD is the &lt;a class=&#34;link&#34; href=&#34;https://curve.fi/lusd&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Curve Pool&lt;/a&gt;, also available with Convex.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/liquity-protocol/visor-uni-lqty.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;visor-uni-lqty&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Liquity is also supported on &lt;a class=&#34;link&#34; href=&#34;https://defisaver.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFiSaver&lt;/a&gt;, to manage leverage more easily and protect troves.&lt;/p&gt;
+&lt;p&gt;So much for the quick overview of the main integrations. DAOs are also interested in LUSD because it is the only unstoppable stablecoin.&lt;/p&gt;
+&lt;h3 id=&#34;lusd-a-dao-cash-snack&#34;&gt;LUSD: A DAO cash snack?
+&lt;/h3&gt;&lt;p&gt;LUSD&amp;rsquo;s inherent properties have already earned it some attention in DeFi. For example, after accumulating a lot of liquidity on DAI and FRAX, Olympus turned to LUSD with the accumulation of LUSD and LP Sushi LUSD/OHM via the bond mechanism. LUSD is now one of the main assets owned by OlympusDAO (&lt;a class=&#34;link&#34; href=&#34;https://dune.xyz/shadow/Olympus-%28OHM%29&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;stats&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/liquity-protocol/olympus-lusd.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;olympus-lusd&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The ohmies are not going to stop there: they love productive assets, and Liquity is not lacking in them: &lt;a class=&#34;link&#34; href=&#34;https://forum.olympusdao.finance/d/177-tap-5-whitelist-liquity-lusd-stability-pool-and-lqty-staking&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the plan&lt;/a&gt; is therefore that the protocol deploys its LUDS in the Stability Pool to accumulate LQTYs which will also be staked.&lt;/p&gt;
+&lt;p&gt;There was even classic liquidity mining on the LUSD/OHM pair, but revisited. With Alchemist&amp;rsquo;s &lt;a class=&#34;link&#34; href=&#34;https://crucible.alchemist.wtf/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Crucible &lt;/a&gt;a smart contract wallet NFT to easily manage LP positions, a &lt;a class=&#34;link&#34; href=&#34;https://www.liquity.org/blog/how-to-earn-rewards-on-the-lusd-ohm-pool-using-alchemists-crucible&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;35 day program &lt;/a&gt;was offered, with rewards in OHM, LUSD and MIST.&lt;/p&gt;
+&lt;p&gt;Other protocols seeking resilience, diversification and stability for their cash flow have also taken the plunge:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fei, a protocol offering a different type of stablecoin, has diversified its collateral into LUSD and now has over 50M LUSD: &lt;a class=&#34;link&#34; href=&#34;https://app.fei.money/analytics&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Analytics Fei Money&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The Synthetix team is also interested in bringing the LUSD onto Optimism, which could help stabilize the LUSD.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://etherscan.io/token/0x5f98805A4E8be255a32880FDeC7F6728C6568bA0#balances&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;The top holder LUSD &lt;/a&gt; already has several DAOs and &lt;strong&gt;as with RAI&lt;/strong&gt; I think the trend may grow:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/liquity-protocol/lusd-holders.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;lusd-holders&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Other integrations are still possible, like for example the direct integration of the stability pool on a pool fuse to allow a more optimal use of the stability pool&amp;rsquo;s assets.&lt;/p&gt;
+&lt;p&gt;I hope this article has aroused your curiosity: Liquity has been available since last April and yet very few people realize the elegance and minimalism of this protocol that offers credible solutions to real challenges.&lt;/p&gt;
+&lt;p&gt;To go further, there are no secrets:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.liquity.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;The documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://discord.gg/j7hHaR4G6S&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;The discord&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;And to go further, I propose you this recent live where I discuss about borrowing in DeFi (in french of course&amp;hellip;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Have fun!&lt;/p&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;iframe loading=&#34;lazy&#34; 
+            src=&#34;https://www.youtube.com/embed/LXDSxRCMsDE&#34; 
+            allowfullscreen 
+            title=&#34;YouTube Video&#34;
+    &gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;🙏 Huge thanks to HHK, Charles, Thomas, Erwan, &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/phil_h&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PhilH&lt;/a&gt; &amp;amp; FrenchTony for proofreading the French version of this article and translating it integrally into English.&lt;/em&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>🗡 Risk? Yes please, but exactly how I like it</title>
+        <link>http://localhost:1313/risk-tranching-defi/</link>
+        <pubDate>Tue, 12 Jan 2021 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/risk-tranching-defi/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2021/risk-tranching/cover.gif" alt="Featured image of post 🗡 Risk? Yes please, but exactly how I like it" /&gt;&lt;p&gt;DeFi has grown tremendously over the past year, partly thanks to the appearance of more streamlined investment products such as Yearn&amp;rsquo;s or Harvest&amp;rsquo;s &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/vaults.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;vaults&lt;/a&gt;&lt;/strong&gt;. Thanks to their architecture, they facilitate the mutualization of capital which enables smaller yet profitable investments on money markets and other DeFi services like Curve or SushiSwap.&lt;/p&gt;
+&lt;p&gt;It was a necessary and much-welcomed layer, and several improvements are still to be made to streamline things even further and increase gas efficiency. However, I believe the bulk of the innovation this year will come from another front: risk management on the vault-type products.&lt;/p&gt;
+&lt;p&gt;Indeed, several definancial primitives have been developed to provide more options to segregate and hedge risks. There are now credible insurance options available for DeFi, as well as a new approach (in DeFi) to better distribute the risk between consenting and informed actors: tranching.&lt;/p&gt;
+&lt;p&gt;We&amp;rsquo;ll dive right in, but just before that, I think it&amp;rsquo;s apt to examine the terminology too.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;from-lending-protocols-to-money-markets&#34;&gt;From Lending Protocols to Money Markets
+&lt;/h2&gt;&lt;p&gt;If you&amp;rsquo;ve been reading me for a while, you might have seen the term &amp;ldquo;lending protocol&amp;rdquo; being used. While it was suited to describe their first purpose, I believe the concept has now outgrown the word, so I&amp;rsquo;ll refer to them as money market from now on. Indeed, &amp;ldquo;lending protocol&amp;rdquo; fails to capture all the subtleties now offered by services like Aave — I&amp;rsquo;m actually a bit late to the party of this one.&lt;/p&gt;
+&lt;p&gt;In a sense, the change of nomenclature reflects the different stages of evolution of these money markets. In their first months of existence, there was &lt;strong&gt;a liquidity imperative&lt;/strong&gt;: it&amp;rsquo;s essentially a fight to grow to a sizeable size, big enough to justify interest from other projects to integrate with the money market fuelling a positive growth loop as we&amp;rsquo;ve seen on Aave.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/risk-tranching/aave-debank.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Aave TVL Growth - Debank&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Once the critical mass is reached, &lt;strong&gt;the focus can and must evolve&lt;/strong&gt;. To further expand, the money market must extend its range of features - again, like we&amp;rsquo;ve seen Aave do with flashloans and fixed rate loans.&lt;/p&gt;
+&lt;p&gt;To me, it seems clear now that &lt;strong&gt;the second phase of growth of the money markets will be feature-driven&lt;/strong&gt;. Indeed, the base features available on the money market are essential, as these markets are more integrated into other DeFi protocols. The money markets with the most flexibility at the base layer will be able to handle more intricate use cases, such as credit delegation.&lt;/p&gt;
+&lt;p&gt;But today, I want to focus this piece on a risk management concept that hasn&amp;rsquo;t found its way to a mainstream money market yet: &lt;strong&gt;tranching&lt;/strong&gt;. Let&amp;rsquo;s see what it can enable!&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;tranching-would-you-like-another-slice-of-risk&#34;&gt;Tranching: would you like another slice of risk?
+&lt;/h2&gt;&lt;p&gt;To begin, let&amp;rsquo;s start with &lt;strong&gt;the most straightforward &amp;ldquo;risk alteration&amp;rdquo; there is - tranching&lt;/strong&gt;. The idea here is quite straightforward: the different risk layers taken by the depositor of a given money market are tranched - meaning segregated one from the other.&lt;/p&gt;
+&lt;p&gt;Each depositor can choose his preferred exposure. It enables, for instance, a confident degen to &lt;strong&gt;bear all available layers of risk to maximize his APY&lt;/strong&gt; while a more conservative whale could &lt;strong&gt;downsize its risk perimeter&lt;/strong&gt; by exposing oneself to the technical risk only.&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s the core idea, but let&amp;rsquo;s not forget we&amp;rsquo;re talking about decentralized finance here, so &lt;strong&gt;composability is key&lt;/strong&gt;. What makes tranching so exciting is its future as a &lt;strong&gt;financial primitive&lt;/strong&gt; - a building block that other apps and projects can use to deliver new services.&lt;/p&gt;
+&lt;p&gt;We&amp;rsquo;ll explore more in-depth what tranching as financial primitive entails right after we consider how it currently works in practice, and examine the broader context of risk hedging and APY fixation.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;If you&amp;rsquo;re new to DeFi or even finance in general, you might wonder why we care so much about these different flavors of risks?
+You can picture these mechanisms enabling diverse types of risk exposure as building blocks making it possible to &lt;strong&gt;build end-user products fitting all ranges of risk appetite&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;I explain why tranching matters more explicitly in the last part of this article where we consider some end-game scenarios for it.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;risk-tranching-in-practice&#34;&gt;Risk tranching in practice
+&lt;/h3&gt;&lt;p&gt;This whole article was actually inspired by a tweet I published where I shared what a tranched aDAI could look like:&lt;/p&gt;
+&lt;p&gt;As of today, there is mostly one product delivering tranching on mainnet I&amp;rsquo;m looking at &lt;a class=&#34;link&#34; href=&#34;https://saffron.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Saffron Finance&lt;/a&gt;. It&amp;rsquo;s essentially a tranching abstraction layer built on top of the Compound DAI market. The risk segregation is straightforward with two main tranches + one:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The &lt;strong&gt;AA tranche&lt;/strong&gt;, &lt;strong&gt;covered in case of platform failure&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;A tranche&lt;/strong&gt;, supplying the cover for the AA tranche (= slashing if a failure occurs) but earns a much &lt;strong&gt;more favorable APY&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;There is a third tranche - the &lt;strong&gt;S tranche&lt;/strong&gt;. However, it is simply rebalancing between the two others as needed.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/risk-tranching/saffron.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;The different tranches available on Saffron Finance&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Tranching occurs on an epoch-basis, currently set at two weeks. So if you supply the A tranche, for instance, you are bearing the risk of platform failure for the AA tranche for a 2 week period.&lt;/p&gt;
+&lt;p&gt;Thanks to the excitement that followed the launch, Saffron grew to close to $60M assets deposited. Since then, the dust settled around a low bar of roughly $15M of assets.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/risk-tranching/saffron-debank.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Saffron Finance TVL - Debank&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;On the charts, we can see some sharp withdrawals: it&amp;rsquo;s due to the epoch-based logic of Saffron. At the end of every epochs, depositors are not earning rewards anymore until they pull out and deposit in the next epoch tranches.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Saffron is looking to expand to other money markets, most obviously Aave and expand their token coverage (currently only DAI). Other projects are exploring the idea of tranching, most notably &lt;a class=&#34;link&#34; href=&#34;https://barnbridge.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;BarnBridge&lt;/a&gt;, but their current achievements are less enticing in my book.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Last minute edit: BarnBridge &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/CoinbaseCustody/status/1348739247277268997&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;BOND token is now listed on Coinbase&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Now that we have a more practical understanding of tranching and how it can work, let&amp;rsquo;s take a step back to understand what it provides in the broader context of risk management in decentralized finance.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;understanding-the-broader-context-of-risk-management-in-defi&#34;&gt;Understanding the broader context of risk management in DeFi
+&lt;/h2&gt;&lt;p&gt;So far, we&amp;rsquo;ve focused on the sole risk related to the definancial product itself: mainly smart contract risks, oracle, and economic attacks. We&amp;rsquo;ve left at least two layers of risk untouched:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;APY Variation&lt;/strong&gt;: The APY of the service used is usually variable, so there is an additional layer of exposure there.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Token Price Fluctuation&lt;/strong&gt;: Sometimes, the returns are paid in token different from the ones deposited. If the payout token is not a stablecoin, its price can vary - meaning there is yet an additional layer of exposure to consider here if we want to be exhaustive.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Besides, to fully understand the broader context, let&amp;rsquo;s not forget that there are several distinct &amp;ldquo;temporal approaches&amp;rdquo; to risk:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Using an approach such as tranching, you can be &lt;strong&gt;proactive&lt;/strong&gt;, splitting the risk &lt;strong&gt;beforehand&lt;/strong&gt; between participants that understand their exposure.&lt;/li&gt;
+&lt;li&gt;It can also go hand in hand with more &lt;strong&gt;reactive approaches&lt;/strong&gt;, such as insurance - a system providing payout &lt;strong&gt;afterward&lt;/strong&gt; in the event of a failure.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The insurance markets are another fascinating topic by themselves, so we&amp;rsquo;ll stick to this simple mention for now and go back to our yields.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;While we&amp;rsquo;re talking about insurance, a fascinating project just launched - Unslashed Finance. It&amp;rsquo;s made in France by a builder I admire, so I&amp;rsquo;m a little biased, but feel free &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://medium.com/unslashed/manifesto-for-a-decentralised-crypto-insurance-unslashed-finance-873078fd0ddd&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;to read their manifesto&lt;/a&gt;&lt;/strong&gt; to learn more about their vision.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;another-take-on-risk-management-for-yields-apy-fixation&#34;&gt;Another take on risk management for yields: APY-fixation
+&lt;/h2&gt;&lt;p&gt;As we were saying, the APY of the different yield products available in decentralized finance are constantly fluctuating. It makes for a less predictable income and prevents the entry of investors who are not willing to stomach several layers of risk.&lt;/p&gt;
+&lt;p&gt;To address this issue, another layer of meta-financial services is emerging - the base value proposition as an investor is quite simple: they offer a &lt;strong&gt;fixed APY on depositors&amp;rsquo; investments&lt;/strong&gt;. It&amp;rsquo;s essentially another flavor of &amp;ldquo;insurance&amp;rdquo;: you&amp;rsquo;ll get overall a bit of a lower yield, but it&amp;rsquo;s predictable. It&amp;rsquo;s very similar to a stable-interest loan on Aave (vs variable rate).&lt;/p&gt;
+&lt;p&gt;The buyer side of such services is super interesting: picture it &lt;strong&gt;like a prediction market, for the yield of a given vault or investment product.&lt;/strong&gt; Buyers deposit some assets and place a bet on the expected average yield: the closer their prediction is, the better is the return.&lt;/p&gt;
+&lt;p&gt;I don&amp;rsquo;t see the buyer side becoming mainstream anytime soon, but it provides the backbone to yet another useful financial primitive useful to provide services more suited to more risk-averse investors.&lt;/p&gt;
+&lt;h3 id=&#34;apy-fixation-in-practice&#34;&gt;APY-Fixation in practice
+&lt;/h3&gt;&lt;p&gt;So far, there are two projects working on delivering fixed-APY yield on popular decentralized investment products such as the Yearn vaults: &lt;a class=&#34;link&#34; href=&#34;https://apwine.fi/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;APWine&lt;/a&gt; &amp;amp; &lt;a class=&#34;link&#34; href=&#34;https://88mph.app/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;88mph&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Just like Saffron, 88mph is another abstraction layer built on top of Compound, Aave, and Harvest deposits. It provides a &lt;strong&gt;fixed APY for depositors&lt;/strong&gt;, while on the other side of the market buyers of floating-rate bonds are bearing the risk of the fluctuations of the APY of the underlying investment product.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/risk-tranching/88mph.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;88mph main interface&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;what-does-the-endgame-look-like&#34;&gt;What does the endgame look like?
+&lt;/h2&gt;&lt;p&gt;Let&amp;rsquo;s wrap this up with a little thought experiment. We&amp;rsquo;re now leaving the present and what is currently live on the Ethereum mainnet to extrapolate a bit and consider what tranching &amp;amp; other risk management approaches can enable in DeFi a few months or years from now.&lt;/p&gt;
+&lt;p&gt;Assuming:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;An investment product built, for instance, on the Aave money market:&lt;/li&gt;
+&lt;li&gt;With a Saffron-like product integrated into it&lt;/li&gt;
+&lt;li&gt;Also with an 88mph-like service integrated into it&lt;/li&gt;
+&lt;li&gt;And finally, an insurance such as Unslashed also natively integrated for the DAI peg.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You could envision &lt;strong&gt;the first &amp;ldquo;risk-free&amp;rdquo; DeFi investment&lt;/strong&gt;, which would be a wrapped deposit of say DAI on Aave, coming along with tranching to only bear the price risk hedged by a coverage against DAI losing its peg on Unslashed earning a fixed APY.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s insane to consider the different steps of the evolution of let&amp;rsquo;s say DAI we witnessed or are about to witness in barely two years:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;DAI&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Interest-bearing&lt;/strong&gt; DAI&lt;/li&gt;
+&lt;li&gt;Interest-bearing DAI with a &lt;strong&gt;fixed APY&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Interest-bearing DAI with a fixed APY &lt;strong&gt;not bearing the technical risks&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Interest-bearing DAI with a fixed APY not bearing the technical risks &amp;amp; &lt;strong&gt;covered against DAI losing its peg&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;aFIXEDAPYDAI_PEGINSURED: our new monetary overlord? The actual name will be way more catchy, rest assured!&lt;/p&gt;
+&lt;p&gt;Are you ready to witness &lt;strong&gt;the future of money unfolding methodically before your very eyes as your assets receive software updates&lt;/strong&gt;?&lt;/p&gt;
+&lt;p&gt;I for one cannot wait: I&amp;rsquo;ve been prepping for the past three years.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;Thanks to Waël for making the cover image featured at the top of this article (as well as the TokenBrice emblem).&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;🙏 Huge thanks to HHK, Charles, Thomas, Erwan, &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/phil_h&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PhilH&lt;/a&gt; &amp;amp; FrenchTony for proofreading the French version of this article and translating it integrally into English.&lt;/em&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Insurance on TokenBrice</title>
+        <link>http://localhost:1313/tags/insurance/</link>
+        <description>Recent content in Insurance on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Thu, 18 Feb 2021 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/insurance/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Assessing risk in decentralized finance: a handbook for money markets</title>
+        <link>http://localhost:1313/money-markets-risk/</link>
+        <pubDate>Thu, 18 Feb 2021 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/money-markets-risk/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2021/risk-tranching/cover.gif" alt="Featured image of post Assessing risk in decentralized finance: a handbook for money markets" /&gt;&lt;p&gt;Money markets are at the heart of DeFi. From a high-level perspective, yes, they simply enable the borrowing and lending of various assets. Yet &lt;strong&gt;those functions are like the two primitive verbs of DeFi&lt;/strong&gt; at the base of pretty much all use cases.&lt;/p&gt;
+&lt;p&gt;There are three major money markets right now in DeFi: Aave, Compound &amp;amp; Cream. Yet all the following services use them, one way or another: Yearn Finance, Curve Finance, Alpha Finance, Harvest Finance, DeFiSaver, Saffron, 88MPH, Idle Finance, etc. To put it simply - &lt;strong&gt;money markets are one of the root-level of DeFi&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Money markets are amazing - simple yet very intricate. In this article, I try to provide a framework and some clues to assess the risk at different levels.&lt;/p&gt;
+&lt;p&gt;To dive more into the service layer currently being built on top of money markets, feel free to read.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;i-risk-scoring-is-broken&#34;&gt;I/ Risk Scoring is Broken
+&lt;/h2&gt;&lt;p&gt;Before we dive into the risk analysis framework, let&amp;rsquo;s quickly discuss the current leading solution used to evaluate risk in DeFi: Consensys CodeFi DeFiScore.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;DeFiScore is undisputedly compromised since it&amp;rsquo;s still giving DAI a higher rate on &lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/compound-v3/ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Compound&lt;/a&gt; than &lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/aave/ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Aave&lt;/a&gt;&lt;/strong&gt; even with the oracle failure on the Compound side and the arrival of the Safety Module on Aave&amp;rsquo;s side:&lt;/p&gt;
+&lt;p&gt;The Consensys CodeFi team was notified a few days ago&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;, acknowledged the issue&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; but yet &lt;strong&gt;refused any immediate to update the website even with just notice or disclaimer&lt;/strong&gt;. Instead, one of their members proposed a 500 USDC bounty open for anyone willing to update the formula&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;. It has yet to be claimed.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s no surprise that quantitative approaches so far have failed. They must achieve both sustainability (if the formula stays consistent it allows historical comparisons) and adaptability (yet the risk parameters are always evolving): it&amp;rsquo;s not an easy feat.&lt;/p&gt;
+&lt;p&gt;I will not delve into the depths of risk scoring, as there is a dedicated article exploring what a decent DeFi-native risk scoring system looks like coming out shortly on this blog (hint: it does not exist yet).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;ii-appreciating-the-safety-of-a-money-market&#34;&gt;II/ Appreciating the Safety of a Money Market
+&lt;/h2&gt;&lt;p&gt;I know it&amp;rsquo;s painful to hear, but since quantitative analysis is unhelpful, you have to resort to a qualitative approaches for each project. The good news is there aren&amp;rsquo;t many money markets in DeFi worth looking at:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Aave&lt;/li&gt;
+&lt;li&gt;Compound&lt;/li&gt;
+&lt;li&gt;Cream / Iron Bank&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;For each of these, you have to look at them holistically. I propose an approach that is &lt;strong&gt;purely mine&lt;/strong&gt;, using &lt;strong&gt;8 different dimensions all critical to the safety of assets&lt;/strong&gt; committed to the money market analyzed:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Protocol access &amp;amp; permissions&lt;/li&gt;
+&lt;li&gt;Oracles&lt;/li&gt;
+&lt;li&gt;Liquidation mechanisms&lt;/li&gt;
+&lt;li&gt;Collateral listing &amp;amp; risk analysis&lt;/li&gt;
+&lt;li&gt;Safety module&lt;/li&gt;
+&lt;li&gt;Expanded insurance ecosystem&lt;/li&gt;
+&lt;li&gt;Native token risk management&lt;/li&gt;
+&lt;li&gt;Community &amp;amp; Ecosystem&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;So what we have today is essentially a comprehensive framework you can use to assess the safety of a given money market. Feel free to challenge me on any item. Let&amp;rsquo;s dive in.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice warning&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Warning&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Necessary Disclaimer: This is not investment advice.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Almost no one is qualified to assess risks in DeFi: even &amp;ldquo;institutions&amp;rdquo; doing it like the DeFiscore are way off.&lt;/p&gt;
+&lt;p&gt;This content is intended to help you better understand and appreciate the risk &lt;strong&gt;&lt;span style=&#34;text-decoration:underline;&#34;&gt;by yourself&lt;/span&gt;&lt;/strong&gt;, the most reliable way to do so.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h3 id=&#34;iia-protocol-access--permissions&#34;&gt;II.A/ Protocol Access &amp;amp; Permissions
+&lt;/h3&gt;&lt;p&gt;At the very base level, you want to know who can update the protocol core parameters (-&amp;gt; the contracts), and the different limits associated with it.&lt;/p&gt;
+&lt;p&gt;For instance, there&amp;rsquo;s usually a &lt;strong&gt;timelock&lt;/strong&gt;, meaning that any significant change only applies after a set duration. For the administrative functions of the protocol, you need to make sure that they are &lt;strong&gt;community-owned&lt;/strong&gt;, which usually means &lt;strong&gt;governed by a multisig&lt;/strong&gt; of designed community members.&lt;/p&gt;
+&lt;p&gt;This section also includes everything related to &lt;strong&gt;the &amp;ldquo;opsec&amp;rdquo; of the wallets/people&lt;/strong&gt; governing the multisig. &amp;ldquo;Opsec&amp;rdquo; is short for &amp;ldquo;operations security&amp;rdquo; - it&amp;rsquo;s about the safety of everything digital interfaces related to the holders of these keys. Can they be hacked? Impersonated? Etc.&lt;/p&gt;
+&lt;p&gt;Such a matter is &lt;strong&gt;&lt;span style=&#34;text-decoration:underline;&#34;&gt;CRITICAL&lt;/span&gt;&lt;/strong&gt;, as we saw recently with the CEO of Nexus Mutual: his laptop was compromised, allowing the hacker to submit a fraudulent transaction on top of a real transaction he signed.&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;We have yet to see significant attacks based on social engineering in DeFi but expect them.&lt;/p&gt;
+&lt;p&gt;Transparency on the decisions of the protocol is key too: we address it below in the community &amp;amp; DAO section.&lt;/p&gt;
+&lt;p&gt;This article focuses on mature money markets like Aave or Compound. Newer projects might be less decentralized, and that can be a good thing - you might want some control and rollback options for a newer project.&lt;/p&gt;
+&lt;h4 id=&#34;assessing-the-protocol-accesses--decentralization&#34;&gt;Assessing the protocol accesses &amp;amp; decentralization
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🔮Likelihood of failure&lt;/strong&gt;: Assess on a protocol/team-basis&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥Loss of funds risk if failure&lt;/strong&gt;: Potentially all funds deposited on the market&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;❌Already happened?&lt;/strong&gt; Not yet 🤞&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;notice tip&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#tip-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Tip&lt;/p&gt;&lt;p&gt;When it comes to evalutating opsec and decentralization plan, &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/ChrisBlec&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Chris Blec&lt;/a&gt; is your guy. He&amp;rsquo;s uncompromising on opsec, and produced many helpful contributions on the topic:&lt;/p&gt;
+&lt;p&gt;You can find a &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.google.com/spreadsheets/d/13S7NRk1girTdQMajnVdU5JRlVO5BG_uJKhTO2Ef10b0/edit?usp=sharing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;summarized overview of the situation for the main DeFi projects here&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;So to wrap this up, here are some good questions to ask to assess the safety of a money market at the protocol &amp;amp; permission level:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Who can update the contracts?&lt;/li&gt;
+&lt;li&gt;Do they have a credible opsec?&lt;/li&gt;
+&lt;li&gt;Any drain function in the contracts?&lt;/li&gt;
+&lt;li&gt;What do the administrative functions do?&lt;/li&gt;
+&lt;li&gt;How decentralized is the process to create a new lending market?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;iib-oracles&#34;&gt;II.B/ Oracles
+&lt;/h3&gt;&lt;p&gt;Simply put, the oracles are the source for &amp;ldquo;outside truths&amp;rdquo;. &lt;strong&gt;Blockchains are only aware of themselves&lt;/strong&gt;, so for Ethereum, the price of ETH in dollars (or any other token) is technically an &amp;ldquo;outside truth&amp;rdquo; you need to bring on-chain in a &lt;strong&gt;safe and verifiable manner&lt;/strong&gt;: it&amp;rsquo;s precisely what oracles do!&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s essential, as the &lt;strong&gt;perceived price&lt;/strong&gt; delivered by the oracle is the &lt;strong&gt;source of truth for the protocol&amp;rsquo;s liquidation decisions&lt;/strong&gt;. If the oracle says DAI is worth 1.30, then you are liquidated even if your DAI-borrowing position was safe on a $1 DAI and DAI is still actually worth $1 on the markets: the oracle is the source of truth. It happened already with Compound, so it&amp;rsquo;s not a theoretical concern.&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;The good news here is that the answer is quite simple: &lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/chainlink-oracles/ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ChainLink&lt;/a&gt; is widely recognized as the most credible decentralized oracle solution, so any money market not using at least partly their price feeds is gambling with its users&amp;rsquo; money, as Compound did with significant lossses. It seems like the situation has not improved - despite the failure Compound still uses the same centralized oracle (Coinbase) and a proposal suggesting a switch to ChainLink was refused. &lt;sup id=&#34;fnref:7&#34;&gt;&lt;a href=&#34;#fn:7&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;7&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h4 id=&#34;assessing-oracles&#34;&gt;Assessing oracles
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🔮Likelihood of failure&lt;/strong&gt;: Significant (most impacting sub-theme to date).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥Loss of funds risk if failure&lt;/strong&gt;: market-based, potentially whole markets can be drained/affected.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;✅Already happened?&lt;/strong&gt; Yes, on Compound.&lt;sup id=&#34;fnref1:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can assess the oracles for a money market with the following question:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;What is the source of truth for prices?&lt;/li&gt;
+&lt;li&gt;How reliable is that source?&lt;/li&gt;
+&lt;li&gt;Any history of abusive liquidation (stemming from oracle issues)?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;iic-liquidation-mechanisms&#34;&gt;II.C/ Liquidation Mechanisms
+&lt;/h3&gt;&lt;p&gt;The liquidation mechanisms are critical too, but they only happen once a liquidation can be triggered - which depends on the price the oracle returns. So the &lt;strong&gt;liquidation mechanism cannot make up for a faulty oracle&lt;/strong&gt;. It&amp;rsquo;s essential to first understand that.&lt;/p&gt;
+&lt;p&gt;Then, different money markets handle liquidations differently. They have different delays, fees, and restrictions with their liquidations. For instance, the Maker oracle/liquidation (internal system) has a one-hour delay to prevent flash liquidations during unsustained flash crashes.&lt;/p&gt;
+&lt;p&gt;Moreover, liquidation is not sudden neither an all-or-nothing event. There are several buffers to your positions, for instance on Aave, every token has a &lt;strong&gt;maximum loan to value&lt;/strong&gt; and a &lt;strong&gt;liquidation threshold&lt;/strong&gt;at least slightly higher.&lt;/p&gt;
+&lt;p&gt;So with USDC as collateral, for instance, there is a 5% spread between the two - the max LTV is 80% (&lt;em&gt;max $8000 worth borrowed from a 10 000 USDC collateral&lt;/em&gt;), while the liquidation threshold is 85% (&lt;em&gt;= liquidation if collateral value &amp;lt; $8500&lt;/em&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-risks/aave-usdc.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Aave USDC collateral parameters&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;It gives borrowers using USDC as collateral another 5% margin so that even if the oracle reports $0.97 no abusive liquidations would occur. The situation is similar in other money markets.&lt;/p&gt;
+&lt;h4 id=&#34;assessing-liquidation-mechanisms&#34;&gt;Assessing liquidation mechanisms
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🔮Likelihood of failure&lt;/strong&gt;: Mostly depends on the collateral price action - a flash crash could trigger a chain of liquidations&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥Loss of funds risk if failure&lt;/strong&gt;: Significant (the money market can be potentially undercollateralized)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;✅Already happened?&lt;/strong&gt; Yes, on Maker where there were issues and delays with liquidations.&lt;sup id=&#34;fnref:8&#34;&gt;&lt;a href=&#34;#fn:8&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;8&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So here are some questions to ask yourself to assess the liquidation mechanisms:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;When liquidations are triggered; what is the flow?&lt;/li&gt;
+&lt;li&gt;Any additional delay?&lt;/li&gt;
+&lt;li&gt;What are the liquidation fees?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;notice info&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#info-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Info&lt;/p&gt;&lt;p&gt;There&amp;rsquo;s another massive subtopic here: the &lt;strong&gt;liquidations do not happen magically&lt;/strong&gt; - they are triggered by other users. So the incentives need to be on point there too so that liquidations do happen when needed and promptly. This topic is even more complex now in an age of high gas costs (liquidation profits vs gas costs of the tx). Skipping it for digestibility.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h3 id=&#34;iid-collateral-listing--risk-analysis&#34;&gt;II.D/ Collateral Listing &amp;amp; Risk Analysis
+&lt;/h3&gt;&lt;p&gt;Alright, now that we have a money market getting reliable prices and liquidating when needed, we can start looking at the tokens accepted as collateral and what is the process.&lt;/p&gt;
+&lt;p&gt;Assessing a token&amp;rsquo;s health and overall safety is &lt;strong&gt;one of the most complex tasks nowadays in DeFi&lt;/strong&gt; because figuring out the whole ecosystem around a token can be tricky.&lt;/p&gt;
+&lt;p&gt;Take the SNX token, for instance, a major ERC-20 token. It&amp;rsquo;s usable as collateral on Aave, but with quite a low maximum loan to value ratio (to be raised soon?) at 15%. Other ERC-20 tokens like LINK are in the 60-75% range.&lt;/p&gt;
+&lt;p&gt;Without diving too much into the details, this has to do with what you can do with each token and &lt;strong&gt;SNX usage as collateral on the Synthetix platform&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span style=&#34;text-decoration:underline;&#34;&gt;Aave&amp;rsquo;s risk parameters are conservative enough to essentially &amp;ldquo;front-run&amp;rdquo; Synthetix itself in the chain of liquidations if a black swan event was to happen &lt;/span&gt;on Synthetix. It seems wise: a money market should not want to take higher exposition on a given token than the native platform itself.&lt;/p&gt;
+&lt;p&gt;Another way to look at it is the other way around: assess the overall &amp;ldquo;health&amp;rdquo; of the latest tokens added as collateral on the platform: are they liquid? Credibly decentralized? Etc.&lt;/p&gt;
+&lt;p&gt;You can also look at the overall collateral usage for any suspicious mismatch, like on Cream where almost a third of the deposits are FTT tokens (FTX exchange).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-risks/cream.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Cream&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;assessing-the-collateral-listing-strategy&#34;&gt;Assessing the collateral listing strategy
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🔮Likelihood of failure&lt;/strong&gt;: Depends on the collateral listing strategy risk appetite&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥Loss of funds risk if failure&lt;/strong&gt;: If a dangerous token is accepted as collateral, the money market can potentially ends-up undercollateralized or even drained. For instance, Cream accepts COVER as collateral. The token suffered three infinite mint attacks already, exposing Cream to further risk.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;❌Already happened?&lt;/strong&gt; some tokens got minted to infinity, like COVER&lt;sup id=&#34;fnref:9&#34;&gt;&lt;a href=&#34;#fn:9&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;9&lt;/a&gt;&lt;/sup&gt;. But they were used as collateral on a money market yet.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I won&amp;rsquo;t expand more on this topic since Aave&amp;rsquo;s risk documentation is very well done - check &lt;a class=&#34;link&#34; href=&#34;https://docs.aave.com/risk/asset-risk/risk-parameters&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the risk parameters section&lt;/a&gt; for more information.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;How are the collateral listing decisions made?&lt;/li&gt;
+&lt;li&gt;What risk framework is used for collateral?&lt;/li&gt;
+&lt;li&gt;How is the money market adapting to the changing circumstances of the tokens it lists?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;iie-safety-module&#34;&gt;II.E/ Safety Module
+&lt;/h3&gt;&lt;p&gt;Even if the risk is known at every level, &lt;strong&gt;insurance is never an option and never supernumerary&lt;/strong&gt;. The first layer of defense is of course the platform-level if there is any compensation module.&lt;/p&gt;
+&lt;p&gt;The good news is that there is! Aave pioneered the field &amp;amp; even Compound has a reserve now. The second good news is that assessing the usefulness of this module is dead simple: it&amp;rsquo;s a simple ratio between the total $ value of the borrows made on the money market and the total $ that can be mobilized by the safety module.&lt;/p&gt;
+&lt;p&gt;Aave has roughly 2B in the Safety Module, of which up to 30% can be seized if needed = 600M. It covers both the V1 &amp;amp; V2 of the protocol. If the 30% on the slashing of the Safety Module is not sufficient, the safety module can mint additional AAVE tokens. Such a scenario is accounted for by neither Compound nor Cream.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-risks/aave-safety-module.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Aave&amp;rsquo;s Safety Module&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;On top of insurance, money markets can also have reserves. Compound is the pioneer here, with about $10M in reseve&lt;sup id=&#34;fnref:10&#34;&gt;&lt;a href=&#34;#fn:10&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;10&lt;/a&gt;&lt;/sup&gt;. Aave also has a reserve system that was recently launched, but I excluded it from the analysis considering the limited balance.&lt;sup id=&#34;fnref:11&#34;&gt;&lt;a href=&#34;#fn:11&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;11&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;So looking at the available numbers, here are our quick maths:
+&lt;code&gt;Safety Ratio = USD value of insurance / Total borrow on the money market&lt;/code&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;🛡 Aave =  53%&lt;/strong&gt; | $1.765 B (600M can be mobilized) in the Safety Module for $1.1B borrowed accross V1+V2 ($572M V1, $437M V2)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🕯 Compound = 0.24%&lt;/strong&gt; | $4.3B borrowed on a $10M safety capital.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;💀 Cream = 0%&lt;/strong&gt; | As far as I know, Cream has no or highly limited (low amounts) native insurance module.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;ℹ Note: While Compound currently has no safety module, the team/DAO is currently sitting on a large COMP reserve that could be used to that end&lt;sup id=&#34;fnref:12&#34;&gt;&lt;a href=&#34;#fn:12&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;12&lt;/a&gt;&lt;/sup&gt;. The maths were done on Feb 17 2021.&lt;/p&gt;
+&lt;h4 id=&#34;evaluating-the-native-insurance-module&#34;&gt;Evaluating the native insurance module
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🔮Likelihood of failure&lt;/strong&gt;: Non-null, but not as relevant here. The SM is here to provide compensations in case of failure.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥Loss of funds risk if failure&lt;/strong&gt;: Depositors know they can get slashed if needed.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;✅Already happened?&lt;/strong&gt; Aave&amp;rsquo;s pioneering the field. The slashing launched weeks ago. So far no events required Aave to harness the safety module, but it&amp;rsquo;s great to know it&amp;rsquo;s here!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To get a sense of how protecting the native safety and insurance modules are, here are some decent questions to ask:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Is there any native insurance module covering the platform?&lt;/li&gt;
+&lt;li&gt;How does it work?&lt;/li&gt;
+&lt;li&gt;What are the withdrawal delays &amp;amp; safeguards?&lt;/li&gt;
+&lt;li&gt;What&amp;rsquo;s the coverage ratio (USD TVL exposed / USD TVL of Safety Module)?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;iif-expanded-insurance-ecosystem&#34;&gt;II.F/ Expanded Insurance Ecosystem
+&lt;/h3&gt;&lt;p&gt;On top of the native insurance system of the money market, depositors and borrowers can &lt;strong&gt;cover their positions through a third party insurance service&lt;/strong&gt; like Nexus Mutual or Unslashed.&lt;/p&gt;
+&lt;p&gt;The &lt;span style=&#34;text-decoration:underline;&#34;&gt;most widely covered risk is the one of a technical failure of smart contracts&lt;/span&gt;. You will find covers for pretty much any widely used contract there is. Yet, &lt;strong&gt;smart contract failures are not the only event that can lead to a loss of funds on a money market&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Because of this, Robert Leshner the CEO of Compound can factually state the following&lt;sup id=&#34;fnref:13&#34;&gt;&lt;a href=&#34;#fn:13&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;13&lt;/a&gt;&lt;/sup&gt; while the protocol recently suffered 90M of abusive liquidations because of faulty oracles:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Compound has been operating for close to 2 years with ZERO smart contract bugs.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;It creates a false sense of security many are falling for, just like the period of operation of the protocol. Notice how I left it out of these 8 criteria? It&amp;rsquo;s because it has close to zero relevance despite services like DeFiScore giving it an absurdly important weight.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;I&amp;rsquo;m careful when I talk about &amp;ldquo;90M of abusive liquidations because of faulty oracles&amp;rdquo; but to be explicit - it affected negatively potentially any DAI borrower back then that might have gotten liquidated wrongly - losing a part of their deposit with &lt;strong&gt;no recourse and no compensation&lt;/strong&gt; since Compound operated as intended (smart-contract wise).&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;On top of risks of smart contract failures, please consider the following list of non-exhaustive other risks that can result in a loss of fund:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Failure or manipulation of an oracle,&lt;/li&gt;
+&lt;li&gt;An issue with the smart contract of a token used collateral (such as infinite mint),&lt;/li&gt;
+&lt;li&gt;A stablecoin used as collateral or borrowing asset on the market lose its peg&lt;/li&gt;
+&lt;li&gt;The device or wallet of the admin of a not-so-decentralized service is compromised&lt;/li&gt;
+&lt;li&gt;Issues or delays with liquidations, meaning the money market can potentially no longer meet its collateralization requirements&lt;/li&gt;
+&lt;li&gt;etc.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Most insurance services are unhelpful with all these risks but for the risks of smart contract failures. The market for other types of risk is barely getting started thanks to Unslashed Finance now providing &lt;strong&gt;coverage for the risk of stablecoins losing their peg&lt;/strong&gt; or custodian risk.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-risks/defiprime-insurance.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Defiprime insurance&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;To learn more about the different approaches for DeFi insurance, check &lt;a class=&#34;link&#34; href=&#34;https://defiprime.com/comparing-insurance-like-solutions-in-defi&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;this piece from DeFi Rate&lt;/a&gt;. However please keep in mind the &lt;strong&gt;massive bias here&lt;/strong&gt;: it was written more than two years ago by Hugh Karp, founder of Nexus Mutual. However, it&amp;rsquo;s still factual enough and insightful to understand the different models.&lt;/p&gt;
+&lt;h4 id=&#34;understanding-insurances-and-the-risk-they-truly-cover&#34;&gt;Understanding insurances and the risk they truly cover
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🎯Object&lt;/strong&gt;: Smart Contract Failure + stablecoin loss of peg.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;💰Utility&lt;/strong&gt;: Provides compensation if a failure is observed.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;✅Already happened?&lt;/strong&gt;: Nexus Mutual, one of the oldest insurance options already paid out on several situations.&lt;sup id=&#34;fnref:14&#34;&gt;&lt;a href=&#34;#fn:14&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;14&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So for the topic of extended insurances, you will want to look at services such as &lt;a class=&#34;link&#34; href=&#34;https://www.unslashed.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Unslashed Finance&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://nexusmutual.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Nexus Mutual&lt;/a&gt;, or &lt;a class=&#34;link&#34; href=&#34;https://www.coverprotocol.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Cover Protocol&lt;/a&gt; and the plans they offer.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;What are the options available through the ecosystem to cover a position on the money market?&lt;/li&gt;
+&lt;li&gt;What are their pricing and reliability (paid out already?)?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;iig-native-token-risk-management&#34;&gt;II.G/ Native Token Risk Management
+&lt;/h3&gt;&lt;p&gt;We discussed quite a bit about the various tokens used as collateral, but there is one you need to watch extra carefully: the &lt;strong&gt;native token of the money market&lt;/strong&gt;. So that&amp;rsquo;s the COMP token on Compound, AAVE on Aave, and CREAM on Cream.&lt;/p&gt;
+&lt;div class=&#34;notice info&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#info-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Info&lt;/p&gt;&lt;p&gt;The maximum Loan to Value (max LTV) dictates the borrowing power of collaterals. A 50% max LTV means one can borrow up to half to the dollar value of the collateral deposited.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;The very first layer is of course to make sure that there is no fool play: &lt;strong&gt;the money market must be neutral and not favor its own token&lt;/strong&gt;. It seems obvious, but it&amp;rsquo;s not a given. Cream allows an excessive 75% max LTV on CREAM, one of the highest of the whole protocol - as high as some stablecoins. Compound itself gives COMP a permissive 60% max LTV while Aave is more conservative at 50%.&lt;/p&gt;
+&lt;div class=&#34;notice tip&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#tip-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Tip&lt;/p&gt;&lt;p&gt;If the money market is healthy and the token well designed - people should be bullish on it, meaning some of them use it as collateral to long it - aka depositing AAVE on Aave to long AAVE.&lt;/p&gt;
+&lt;p&gt;Unsurprisingly, despite the permissive LTV, COMP&amp;rsquo;s and CREAM&amp;rsquo;s longs are rarer than AAVE&amp;rsquo;s.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h4 id=&#34;assessing-how-a-money-market-manage-its-native-token-risks&#34;&gt;Assessing how a money market manage its native token risks
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🔮Likelihood of failure&lt;/strong&gt;: It&amp;rsquo;s an all or nothing event: the money market can play with fire on its native token for months with no consequences before the situation eventually blow up and the token + the money market crumble together.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥Loss of funds risk if failure&lt;/strong&gt;: The loss can potentially be system-wide (whole money market affected).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;❌Already happened?&lt;/strong&gt; Not yet. But Cream is already way beyond any reasonable max LTV figure on the CREAM token.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And here are some considerations worth exploring:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Look at the health of the native token of the platform: token contract, liquidity, integrations, etc.&lt;/li&gt;
+&lt;li&gt;Look at the native token usage on the protocol &amp;amp; assess the health of its market&lt;/li&gt;
+&lt;li&gt;Ownership, distribution, and Gini coefficient of the governance token&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So far, we&amp;rsquo;ve focused on the money market themselves. Yet, they are community-driven &amp;amp; governed projects, so their community &amp;amp; integration within the ecosystem are an essential part of the assessment.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;iih-community--ecosystem&#34;&gt;II.H/ Community &amp;amp; Ecosystem
+&lt;/h3&gt;&lt;p&gt;In DeFi, communities are essential. It&amp;rsquo;s not a &amp;ldquo;nice-to-have&amp;rdquo; to make the protocol more attractive, it&amp;rsquo;s a &lt;strong&gt;core feature&lt;/strong&gt; and I assess it as such.&lt;/p&gt;
+&lt;p&gt;On such a topic, again, no metrics will help you just by themselves. The gist is to get a sense of how dynamic the community is. It usually translates into its core components: the DAO, the Discord, and the overall presence in the space.&lt;/p&gt;
+&lt;p&gt;Another consequence of a healthy community is &lt;strong&gt;widespread support and usage across the ecosystem&lt;/strong&gt;, with many services and products built &amp;ldquo;on top of&amp;rdquo; the protocol examined. Here despite Compound&amp;rsquo;s lead being the first mover, Aave is also now a prime choice for any new protocol building a new financial primitive.&lt;/p&gt;
+&lt;p&gt;Indeed, teams can purposely foster such an environment simply by having members accessible and involved in the space. Besides, Aave has an &lt;strong&gt;ecosystem grants&lt;/strong&gt;&lt;sup id=&#34;fnref:15&#34;&gt;&lt;a href=&#34;#fn:15&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;15&lt;/a&gt;&lt;/sup&gt; initiative helping to fund projects built on top of Aave such as &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/firp-apwine.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;APWine offering fixed yields&lt;/a&gt;. Other community-related initiatives are a healthy tell, such as hackathons, AMAs, livestreams, etc.&lt;/p&gt;
+&lt;p&gt;Again here - make sure to &lt;strong&gt;assess the quality, not the quantity&lt;/strong&gt;. It&amp;rsquo;s easy to rush out all the initiatives listed above. But doing it right, in a way that makes sense for the community and pushes it forward is much harder.&lt;/p&gt;
+&lt;p&gt;I don&amp;rsquo;t want to make this a case against Compound, but here again, it&amp;rsquo;s so obvious. While Compound community fundings are quite limited the grants program just launched&lt;sup id=&#34;fnref:16&#34;&gt;&lt;a href=&#34;#fn:16&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;16&lt;/a&gt;&lt;/sup&gt;, its founder Robert Leshner is an active venture capital investor, with the Robot Ventures funds&lt;sup id=&#34;fnref:17&#34;&gt;&lt;a href=&#34;#fn:17&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;17&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/money-market-risks/robovc.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Robovc&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;assessing-the-community--dao-of-a-money-market&#34;&gt;Assessing the community &amp;amp; DAO of a money market
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🔮Likelihood of failure&lt;/strong&gt;: The community is the most important feature of all for the long-term success of the money market.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥Loss of funds risk if failure&lt;/strong&gt;: Long-term risk. If a money market loses the community favors, it&amp;rsquo;s not gonna be a dramatic event but more of slow and painful threading into irrelevance for the given market.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;✅Already happened?&lt;/strong&gt; Yes, with Compound - they lost their top of mind position and preference for several reasons, such as their lack of support for the ecosystem, the DAI Market Oracle issue &amp;amp; the team reaction to it.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So here are some questions and clues to help you assess this last yet essential part:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;At the DAO-level:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;How does it work to submit a proposal?&lt;/li&gt;
+&lt;li&gt;How are they reviewed and improved?&lt;/li&gt;
+&lt;li&gt;What&amp;rsquo;s the delay between the vote and the execution?&lt;/li&gt;
+&lt;li&gt;Any proposal that was ignored or not implemented for a long time?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Core team members:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Are they legit? Involved in the space? Giving back? Advising?&lt;/li&gt;
+&lt;li&gt;Background-check: any involvement with a scam? What were they doing before?&lt;/li&gt;
+&lt;li&gt;Present-check: on top of their involvement with the money market, what are they doing? Any potential conflict of interest?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Ecosystem&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Documentation &amp;amp; support: how hard is it to build on top of this money market?&lt;/li&gt;
+&lt;li&gt;What are the services built on top of the money market? Are they widely used?&lt;/li&gt;
+&lt;li&gt;Are they communicating clearly on risk parameters? Do they have non-technical/non-dev risk-focused documentation?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;iii-a-note-on-defi-tribalism&#34;&gt;III/ A note on DeFi Tribalism
+&lt;/h2&gt;&lt;p&gt;Exploring such a topic was insanely insightful for me, at so many levels. I remain quite surprised by the tribalism of the space: apart from Aave, gathering the information presented in this article was not a trivial task.&lt;/p&gt;
+&lt;p&gt;Because of the question I asked and the observations I shared, I&amp;rsquo;ve been the target of personal attacks from founders of some of the teams mentioned in this article. Others were quite misleading and selective in their answers. I received no answers from both Cream &amp;amp; Compound official accounts or teams.&lt;/p&gt;
+&lt;p&gt;Such attitudes gave me even more will to push this article forward. &lt;strong&gt;Beyond the technicalities of each protocol, I think the attitude of the founding team is essential too&lt;/strong&gt;. On this front, there is a protocol that stands an order of magnitude above any other: surprise surprise, it also happens to be the most technically sound, secure, integrated, and exciting, and interesting. 👻&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;iiia-limitations-of-this-risk-assessment-approach&#34;&gt;III.A/ Limitations of this risk assessment approach
+&lt;/h3&gt;&lt;p&gt;I anticipate strong reactions already, so let me add a few more topics not addressed here:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;While we went quite deep, we did not discuss the tokenization process: the process used by the protocol to represent the assets deposited. On this front, &lt;strong&gt;both Compound and Cream are using an archaic approach&lt;/strong&gt; that was topped on all fronts by Aave with the first release of the aTokens in early 2020.&lt;sup id=&#34;fnref:18&#34;&gt;&lt;a href=&#34;#fn:18&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;18&lt;/a&gt;&lt;/sup&gt; Aave V2 further improved the tokenization process.&lt;/li&gt;
+&lt;li&gt;Cream by itself is a small market, but &lt;strong&gt;through the Iron Bank other protocols can borrow from Cream&lt;/strong&gt;. Assessing the risk on such a market is even harder - and it was excluded from this analysis. To learn more about the real risk already posed and manifested by such an approach, you can check the &lt;a class=&#34;link&#34; href=&#34;https://www.rekt.news/alpha-finance-rekt/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;latest Rekt on Alpha Homora&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;While MakerDAO provides a service functionally equivalent to lending, the process is significantly different since each borrower is minting DAI. So for the sake of simplicity, I&amp;rsquo;ve mostly excluded MakerDAO from this analysis, but for a few meaningful examples.&lt;/li&gt;
+&lt;li&gt;I have no affiliation whatsoever with the Aave, Compound, Cream, or any other money market. However, I do own AAVE tokens (that I purchased myself on the markets) and stake them in the Safety Module. All the content hosted on my blog is made accessible for free - I am the sole editor.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I hope this article helped you get a better grasp of the scope of risks in money markets. I want to stress again that it&amp;rsquo;s non-exhaustive, nor absolute truth but I do firmly believe provides clear and useful contributions to make sure risks in DeFi are broadly understood, better than what currently exists.&lt;/p&gt;
+&lt;p&gt;If you do not agree with this statement, feel free to challenge me. &lt;strong&gt;I&amp;rsquo;m eager for facts disproving my observations: it would mean DeFi is safer than I thought.&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Reminder: this blog is &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/hello-world.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;one of the few websites of the space not pillaging your data&lt;/a&gt;&lt;/strong&gt; through the usage of Google Analytics and the likes.&lt;/p&gt;
+&lt;h2 id=&#34;iv-notes--references&#34;&gt;IV. Notes &amp;amp; References
+&lt;/h2&gt;&lt;p&gt;You can find additional information on each fact, event or figure mentioned in the article through the footnotes:&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;From the get go, the formula used was abitrary, suffered dozens of obvious flaws and was rigged in favor of Compound through the ridiculous importance given to the time of operations. In my humble opinion, the &lt;a class=&#34;link&#34; href=&#34;https://defiscore.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFiScore&lt;/a&gt;&amp;rsquo;s main goal was Consensys&amp;rsquo; promotion. If at least, they had done the work&amp;hellip;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;I pinged them on Twitter and &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/TokenBrice/status/1360296967939772423?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;suggested many obvious improvements&lt;/a&gt; anyone with some DeFi experience could have provided.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;Jack, one of their engineer recognized that &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/jack_clancy93/status/1360304560846364672?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the case of Compound DAI score &amp;gt; Aave is not defensible.&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;Feel free to reach out to him if you want to claim the 500 USDC bounty! &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/jack_clancy93/status/1360305374033682436?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Here is the tweet&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:5&#34;&gt;
+&lt;p&gt;To learn more about this attack or any other in the DeFi space, &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.rekt.news/nxm-hugh-speaks-out/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;check the Rekt&lt;/a&gt;&lt;/strong&gt;&amp;#160;&lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:6&#34;&gt;
+&lt;p&gt;Find &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://decrypt.co/49657/oracle-exploit-sees-100-million-liquidated-on-compound&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;more info about the 89M DAI oracle abitrage on Compound here&lt;/a&gt;&lt;/strong&gt;&amp;#160;&lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref1:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:7&#34;&gt;
+&lt;p&gt;Despite the attack occuring several weeks ago because of their reliance on Coinbase centralized oracles, it seems like &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/ChainLinkGod/status/1362132404484198401?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;the situation has not been fixed yet&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:7&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:8&#34;&gt;
+&lt;p&gt;The MakerDAO team published a &lt;a class=&#34;link&#34; href=&#34;https://blog.makerdao.com/the-market-collapse-of-march-12-2020-how-it-impacted-makerdao/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;write-up&lt;/a&gt; after the events explaining what happened.&amp;#160;&lt;a href=&#34;#fnref:8&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:9&#34;&gt;
+&lt;p&gt;Cover is an insurance protocol unable to secure their own token contract and liquidity mining program. They got attaked three times already. Here are &lt;a class=&#34;link&#34; href=&#34;https://coingape.com/cover-becomes-latest-defi-protocol-to-get-exploited-price-crashes-by-77-within-an-hour/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;some info on the last one&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:9&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:10&#34;&gt;
+&lt;p&gt;Each cToken stores reserves (insurance), there&amp;rsquo;s $9.4m (and growing by over $100k/day) &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/rleshner/status/1358566161361821696&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Robert Leshner Tweet&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:10&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:11&#34;&gt;
+&lt;p&gt;There are around $450K worth of tokens collected in the reserve as of now: &lt;a class=&#34;link&#34; href=&#34;https://docs.aave.com/risk/asset-risk/risk-parameters#reserve-factor&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Aave&amp;rsquo;s reserve factor documentation&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:11&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:12&#34;&gt;
+&lt;p&gt;Compound is also sitting on a 4 million COMP (roughly $1.8b) chest that could be allocated for insurance &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/rleshner/status/1358569634618867714?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Robert Leshner Tweet&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:12&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:13&#34;&gt;
+&lt;p&gt;Yes he&amp;rsquo;s factual since the contract never failed so far. However for less technically-savy people, it can read like Compound never suffered any loss, which is not the case. &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/rleshner/status/1358566161361821696?s=20&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Robert Leshner Tweet&lt;/a&gt;&lt;/strong&gt;&amp;#160;&lt;a href=&#34;#fnref:13&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:14&#34;&gt;
+&lt;p&gt;You can follow the &lt;a class=&#34;link&#34; href=&#34;https://app.nexusmutual.io/claim-assessment&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;claims and payouts on Nexus Mutual here&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:14&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:15&#34;&gt;
+&lt;p&gt;The first round of &lt;a class=&#34;link&#34; href=&#34;https://medium.com/aave/aave-ecosystem-grants-88260ede1485&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Aave Ecosystem grants started about a year ago&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:15&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:16&#34;&gt;
+&lt;p&gt;The proposal for Compound Ecopsystem Grants was &lt;a class=&#34;link&#34; href=&#34;https://compound.finance/governance/proposals/30&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;executed two months ago&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:16&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:17&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://robvc.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RoboVC&lt;/a&gt;: It funded several services harnessing Compound (like InstaDapp or Multis) &amp;amp; Compound itself.&amp;#160;&lt;a href=&#34;#fnref:17&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:18&#34;&gt;
+&lt;p&gt;The case for aTokens&amp;rsquo; technical superiority could be the topic on an article by itself but here is the gist of it:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Simpler&lt;/strong&gt;: aTokens maintain a 1:1 ratio against the base asset while cTokens have an increasing exchange rate against their base assets.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Easier accounting &amp;amp; integrations&lt;/strong&gt;: aTokens 1:1 correspondence makes them much easier to interact with - there is no need to fetch any additional data. With Compound, any service interacting with cTokens needs to fetch the corresponding the cToken/BaseToken exchange rate.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dynamic and understandable interest&lt;/strong&gt;: both a &amp;amp; c tokens accrue interest dynamically. However, here again, because of aTokens&amp;rsquo; more elegant and straightforward design, the experience is more fluid with aTokens (deposit, reassured by 1:1 correspondence, number go up)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;More potent integrations&lt;/strong&gt;: aToken allows for novel use cases, especially if you take into account the other features of Aave. For instance, there is a Yearn vault harnessing aLINK to borrow USDC from users&amp;rsquo; deposits to farm with them and settle the income for more aLINK.&lt;/li&gt;
+&lt;/ol&gt;
+&amp;#160;&lt;a href=&#34;#fnref:18&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

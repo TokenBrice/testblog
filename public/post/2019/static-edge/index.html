@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Go static to dramatically improve performance, indexation, and rendering consistency">
+<title>The Edge of the Static Web</title>
+
+<link rel='canonical' href='http://localhost:1313/post/2019/static-edge/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="The Edge of the Static Web">
+<meta property='og:description' content="Go static to dramatically improve performance, indexation, and rendering consistency">
+<meta property='og:url' content='http://localhost:1313/post/2019/static-edge/'>
+<meta property='og:site_name' content='TokenBrice - Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='web development' /><meta property='article:tag' content='static websites' /><meta property='article:tag' content='static web' /><meta property='article:tag' content='dynamic websites' /><meta property='article:tag' content='Gatsby' /><meta property='article:tag' content='Jekyll' /><meta property='article:tag' content='Hugo' /><meta property='article:tag' content='Forestry' /><meta property='article:tag' content='Netlify' /><meta property='article:published_time' content='2019-03-18T09:44:14&#43;00:00'/><meta property='article:modified_time' content='2019-03-18T09:44:14&#43;00:00'/>
+<meta name="twitter:title" content="The Edge of the Static Web">
+<meta name="twitter:description" content="Go static to dramatically improve performance, indexation, and rendering consistency">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">TokenBrice - Blog</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About TokenBrice</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/-analysis/" >
+                🔍 Analysis
+            </a>
+        
+            <a href="/categories/-static-web/" >
+                🕸 Static Web
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/post/2019/static-edge/">The Edge of the Static Web</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Go static to dramatically improve performance, indexation, and rendering consistency
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 18, 2019</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    8 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p><code>This article is the second of a series which examines the technical reasons behind the renewed interest for static websites, from both a content writer and a developer perspective. It also provides you with useful tools and services to build a static website. If you want to learn more about the macro perspective behind the shift toward the static web, feel free to read:</code></p>
+<p><a class="link" href="/post/2019/static-roots/" >Static web - back to the roots?</a></p>
+<h3 id="static-websites-serve-their-purpose-better">Static websites serve their purpose better
+</h3><p>Let&rsquo;s leave the tech aside for a second and take a step back. What&rsquo;s the first goal of a website? Let me gonna risk the &ldquo;to be seen and read&rdquo; answer. So then how can speed and performance be so much overlooked? It&rsquo;s a direct factor in the equation.</p>
+<p>Consider for instance the New York Times, which is far from the worst in terms of development practices. Let&rsquo;s load the same page (<a class="link" href="https://www.nytimes.com/section/health"  target="_blank" rel="noopener"
+    >Health Section</a>) in two different &ldquo;versions&rdquo;:</p>
+<ol>
+<li>The full one, including all trackers, ads, and unnecessary scripts. Rendered using Chrome, private browsing with no extensions.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></li>
+<li>The cleaned one, using Firefox and several extensions to remove most advertisements, tracking and other unnecessary scripts.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></li>
+</ol>
+<p><em>The tests were realized on my laptop with a connection speed of ~7 Mbps upload/download.</em></p>
+<p>Here are the eloquent results:</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">/</th>
+<th style="text-align:center"><strong>FULL/BLOATED VERSION</strong></th>
+<th style="text-align:center"><strong>BAREBONE/SUFFICIENT VERSION</strong></th>
+<th><strong>OBSERVED Δ</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>PAGE WEIGHT (MB)</strong></td>
+<td style="text-align:center">4.9</td>
+<td style="text-align:center">1.01</td>
+<td>79% lower</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>NB OF REQUESTS</strong></td>
+<td style="text-align:center">295</td>
+<td style="text-align:center">25</td>
+<td>91.5% lower</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>LOAD TIME (S)</strong></td>
+<td style="text-align:center">5.21</td>
+<td style="text-align:center">2.07</td>
+<td>60 % lower</td>
+</tr>
+</tbody>
+</table></div>
+<p>The results we observe are consistent with our experimentations. <strong>Static websites are about 10 times lighter than their dynamic counterpart.</strong> So how comes dynamic became the standard, especially during the 2005-2015 period where the connection speeds were still limited?</p>
+<h3 id="from-the-dynamic-heresy">From the Dynamic Heresy
+</h3><p>If you think about this from today&rsquo;s perspective, the whole thing is absurd - the very existence of WordPress is essentially senseless, considering its primary usage. Instead of looking at the issue from the perspective of static websites being relevant, it&rsquo;s much clearer with the tables shifted: <strong>dynamic websites are unnecessary in 95% of their current usage scenarios.</strong></p>
+<p>Of course, there are specific situations where having a dynamic website is a necessity - any case you want to render a user input for instance, like a forum or a board. <strong>However, the default behavior should be to build a static website</strong>.</p>
+<p>Indeed, if your content is static (= rarely changed once published, like most websites), why choose a dynamic engine? All your users see the same pages every time. So, using a dynamic engine <strong>means that it forces a computation on both the server and user side every time a page is rendered</strong>: it is incredibly wasteful and irresponsible.</p>
+<p>On the other hand, a static website is built once on deployment and then simply served to all its viewers. It dramatically reduces the resource and network usage both for the server and the user.</p>
+<p>So how did we get there?</p>
+<p>Well it&rsquo;s a tricky question but <strong>mostly a matter of convenience.</strong> Back in 2005 and until recently, dynamic websites were all the rage. New frameworks were popping up everywhere, and clients wanted to offer an incredible experience on their website, often at the expense of performance.</p>
+<p>So, when a developer was tasked with building a new website, he would look at the available building blocks and find shiny dynamic rendering engines. Going static back them was almost like reinventing the wheel with each development.</p>
+<h3 id="to-the-static-serenity">To the Static Serenity
+</h3><h4 id="organic-performance">Organic Performance
+</h4><p>The overall speed and resource usage of a website have a tremendous impact on its organic performance. It was true 10 years ago, but it is even more now with the rise of mobile — <strong>poor performance destroys the average time on page, therefore annihilating the CTR</strong> (Click-Through-Ratio)… That is if the page manages to rank in the first place.</p>
+<p>I&rsquo;ve been working in SEO for the last few years, and I already so considerable shifts in the industry. When I started, we could grab the first spot with a well-written and researched content piece on a long-trend keyword, using a bare WordPress and requiring little to no backlinks. Nowadays the competition is intense: every detail counts, and none can be overlooked.</p>
+<p><strong>A website performance is like a K-factor affecting all potential interactions users can have with it.</strong> Platforms like WordPress emerged to allow people to create websites without having to worry about this. Paradoxically, after years of development, such frameworks are now so bloated that they require an intense and complex optimization process — they are no longer accessible to non-tech profiles.</p>
+<p>On the other hand, <strong>most static website generators are able to build websites complying with SEO best practices, out of the box</strong>. This includes sitemap.xml/robots.txt generation, OpenGraph, Twitter Cards, Schema.org (rich previews), taxonomies, href lang/multilingual markup and others.</p>
+<p>So we reached the current weird situation where despite WordPress&rsquo; relative simplicity, the most straightforward option to build a blog that will be read is actually to create a static website, even for non-developers.</p>
+<h2 id="static-websites---resources-and-services">Static Websites - Resources and Services
+</h2><p>Now that you have the data, you might be considering a switch to static? Welcome aboard! The next section introduces resources that will help you build a blazing fast and optimized static website.</p>
+<p>Since the release of Jekyll in 2008, the framework adopted by GitHub, static websites are gaining traction. New frameworks and services have been developed to facilitate the conception of a static website:</p>
+<h3 id="static-websites-engines">Static Websites Engines
+</h3><div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Logo</th>
+<th>Framework</th>
+<th>Language</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><figure><img src="/img/2019/staticweb/jekyll.png"
+         alt="Jekyll Logo"/>
+</figure>
+</td>
+<td><a class="link" href="https://jekyllrb.com/"  target="_blank" rel="noopener"
+    >Jekyll</a></td>
+<td>Ruby</td>
+<td>Available as a Gem or integrated with GitHub Pages. Jekyll is fast and efficient but offers minimal features out of the box. Many plugins are offering additional functionalities.</td>
+</tr>
+<tr>
+<td><figure><img src="/img/2019/staticweb/gatsby.png"
+         alt="Gatsby Logo"/>
+</figure>
+</td>
+<td><a class="link" href="https://www.gatsbyjs.org/"  target="_blank" rel="noopener"
+    >Gatsby</a></td>
+<td>React</td>
+<td>Along with Jekyll, Gatsby is the most popular static website framework. It offers very good performance and a large range of plugin as well as integrations with many third-party services.</td>
+</tr>
+<tr>
+<td><figure><img src="/img/2019/staticweb/hugo.png"
+         alt="Hugo Logo"/>
+</figure>
+</td>
+<td><a class="link" href="https://gohugo.io/"  target="_blank" rel="noopener"
+    >Hugo</a></td>
+<td>Go</td>
+<td>Hugo puts forward its impressive performance, especially while building large websites. It offers anything you need to build a website compliant with SEO best practices out of the box.</td>
+</tr>
+<tr>
+<td><figure><img src="/img/2019/staticweb/hexo.png"
+         alt="Hexo Logo"/>
+</figure>
+</td>
+<td><a class="link" href="https://hexo.io/"  target="_blank" rel="noopener"
+    >Hexo</a></td>
+<td>NodeJS</td>
+<td>Another fast static website generator with a built-in package manager to install plugins and themes.</td>
+</tr>
+<tr>
+<td><figure><img src="/img/2019/staticweb/pelican.png"
+         alt="Pelican Logo"/>
+</figure>
+</td>
+<td><a class="link" href="https://docs.getpelican.com/en/stable/"  target="_blank" rel="noopener"
+    >Pelican</a></td>
+<td>Python</td>
+<td>Pelican is another interesting alternative for pythonistas however it doesn&rsquo;t have as many much third-party resources available (themes, plugins…) as the previous ones.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Static websites are also a perfect fit for documentation or e-books. Some frameworks were explicitly developed for the purpose, such as <a class="link" href="https://www.gitbook.com/"  target="_blank" rel="noopener"
+    >GitBook</a> or <a class="link" href="https://docusaurus.io/"  target="_blank" rel="noopener"
+    >Docusaurus</a>.</p>
+<figure><img src="/img/2019/staticweb/gitbook-screen.png"
+         alt="GitBook Preview"/><figcaption>
+            <h4>Preview of a website built with GitBook</h4>
+        </figcaption>
+</figure>
+
+<p>Finally, if you want to explore all potential options, <a class="link" href="https://www.staticgen.com/"  target="_blank" rel="noopener"
+    >check this excellent, exhaustive database</a> maintained by netlify (more about them below).</p>
+<h3 id="content-management-system">Content Management System
+</h3><p>Once your website is up and running, you might want to implement a content management system so that your editor can easily submit new pieces of content. If you are a developer building a blog for yourself, you probably don&rsquo;t need a CMS. However, they are convenient for those who make sites maintained my non-technical profiles.</p>
+<figure><img src="/img/2019/staticweb/forestry-screen.png"
+         alt="forestry CMS"/><figcaption>
+            <h4>Preview of the editor interface on Foresty</h4>
+        </figcaption>
+</figure>
+
+<h4 id="a-git-repository-the-base-cms">A Git repository, the base CMS
+</h4><p>Using a Github (or Gitlab) repo as your CMS comes with many advantages over a traditional CMS, including among others:</p>
+<ul>
+<li>Version control,</li>
+<li>User and permission management,</li>
+<li>Branches (staging, pre-prod, prod)</li>
+<li>Access to the full files&rsquo; history.</li>
+</ul>
+<p>It can seem intimidating if you have non-technical profiles interacting with your website, but it doesn&rsquo;t have to be: <strong>they don&rsquo;t have to use the Git CLI to push a commit,</strong> they can do all of it from Github&rsquo;s website. We cover in depths the writing/editing flow of static websites in 🔴 -&gt; StaticWebsite_MKT.md /WN/.</p>
+<h4 id="alternative-cms">Alternative CMS
+</h4><p>If a git repo is too limited for your needs, you can consider one of the following alternatives. They are all built on top of a repo, so using a git repo as CMS should be your first step.</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Logo</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><figure><img src="/img/2019/staticweb/netlify.png"
+         alt="Netlify Logo"/>
+</figure>
+</td>
+<td><a class="link" href="https://www.netlifycms.org/"  target="_blank" rel="noopener"
+    >Netlify CMS</a></td>
+<td>A CMS built for static website generator able to integrate with the most common frameworks. Netlify is a pretty exhaustive suite of services for static websites including tools for CD/CI, user management (CMS), forms and images management.</td>
+</tr>
+<tr>
+<td><figure><img src="/img/2019/staticweb/forestry.jpg"
+         alt="Forestry Logo"/>
+</figure>
+</td>
+<td><a class="link" href="https://forestry.io/"  target="_blank" rel="noopener"
+    >Forestry</a></td>
+<td>A compelling alternative to Netlify that focuses on the UX of the editor. Forestry is a great choice if you are looking for a visual CMS to facilitate the contributions of non-tech profiles to a static website. Forestry also includes other tools, as Netlify does.</td>
+</tr>
+<tr>
+<td><figure><img src="/img/2019/staticweb/vapid.png"
+         alt="Vapid Logo"/>
+</figure>
+</td>
+<td><a class="link" href="https://www.vapid.com/"  target="_blank" rel="noopener"
+    >Vapid</a></td>
+<td>a third alternative that focuses on simplicity. Vapid is a &ldquo;pure&rdquo; CMS, made &ldquo;for people who build websites for other people&rdquo;. Vapid is easy to customize and maintain, as it only uses HTML tags to function.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="continuous-integration--deployment">Continuous Integration &amp; Deployment
+</h3><p>Both <a class="link" href="https://www.netlify.com/"  target="_blank" rel="noopener"
+    >Netlify</a> and Forestry offer a continuous deployment service integrated with their CMS. They are usually the two most suitable options if you are building a website that will be maintained by someone else.</p>
+<p>However, if you are simply looking for a CI/CD solution and don&rsquo;t need the CMS you can either use Netlify without its CMS component or consider the usual CI/CDs services that all offer resources facilitating the support for static websites:</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Logo</th>
+<th>Name</th>
+<th>Resource</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><figure><img src="/img/2019/staticweb/semaphore.png"
+         alt="Semaphore CI Logo"/>
+</figure>
+</td>
+<td>SemaphoreCI</td>
+<td><a class="link" href="https://docs.semaphoreci.com/article/97-continuous-deployment-static-website"  target="_blank" rel="noopener"
+    >Official Documentation - Continuous Deployment of a Static Website</a></td>
+</tr>
+<tr>
+<td><figure><img src="/img/2019/staticweb/CircleCI.png"
+         alt="CircleCI Logo"/>
+</figure>
+</td>
+<td>CircleCI</td>
+<td><a class="link" href="https://circleci.com/blog/automate-your-static-site-deployment-with-circleci/"  target="_blank" rel="noopener"
+    >Blog Post - Automate Your Static Site Deployment with CircleCI</a></td>
+</tr>
+<tr>
+<td><figure><img src="/img/2019/staticweb/codeship.png"
+         alt="CodeShip Logo"/>
+</figure>
+</td>
+<td>CodeShip</td>
+<td><a class="link" href="https://blog.codeship.com/continuous-delivery-for-static-sites/"  target="_blank" rel="noopener"
+    >Blog Post - Continuous Delivery for Static Sites</a></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="how-callr-build-their-tech-blog">How CALLR build their tech blog
+</h3><p>Check this post to see some tips on how we built our own tech blog, using <a class="link" href="https://blog.callr.tech/static-blog-hugo-docker-gitlab"  target="_blank" rel="noopener"
+    >Hugo, Docker, and GitLab</a>.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Base Rendering of <code>https://www.nytimes.com/section/health</code> using <code>Chrome Version 72.0.3626.121 (64-bit)</code> <figure><img src="/img/2019/staticweb/nyt-bloated.png"
+         alt="nyt-bloated"/><figcaption>
+            <h4>Preview of the NYT-health section, BLOATED version</h4>
+        </figcaption>
+</figure>
+&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Ad and tracker-filtered rendering of <code>https://www.nytimes.com/section/health</code> using<code>Firefox Version 65.0.1 (64-bit) using uBlock Origin and Privacy Badger</code> <figure><img src="/img/2019/staticweb/nyt-light.png"
+         alt="nyt-light"/><figcaption>
+            <h4>Preview of the NYT-health section, LIGHT version</h4>
+        </figcaption>
+</figure>
+&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/web-development/">Web Development</a>
+        
+            <a href="/tags/static-websites/">Static Websites</a>
+        
+            <a href="/tags/static-web/">Static Web</a>
+        
+            <a href="/tags/dynamic-websites/">Dynamic Websites</a>
+        
+            <a href="/tags/gatsby/">Gatsby</a>
+        
+            <a href="/tags/jekyll/">Jekyll</a>
+        
+            <a href="/tags/hugo/">Hugo</a>
+        
+            <a href="/tags/forestry/">Forestry</a>
+        
+            <a href="/tags/netlify/">Netlify</a>
+        
+    </section>
+
+
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Mar 18, 2019 09:44 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/post/2019/static-roots/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Static web - back to the roots?</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 TokenBrice - Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.e87374ab760d28dfa333a671a892b101964bde5a2dac9100a50c9b0d779b4505.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

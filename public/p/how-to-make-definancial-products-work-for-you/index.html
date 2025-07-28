@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="A balanced overview of decentralised finance services you can use to make your ETH work for you - 6 base strategies, their variants, & what to watch for while implementing them.">
+<title>📖 How to make DeFinancial products work for you</title>
+
+<link rel='canonical' href='http://localhost:1313/p/how-to-make-definancial-products-work-for-you/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="📖 How to make DeFinancial products work for you">
+<meta property='og:description' content="A balanced overview of decentralised finance services you can use to make your ETH work for you - 6 base strategies, their variants, & what to watch for while implementing them.">
+<meta property='og:url' content='http://localhost:1313/p/how-to-make-definancial-products-work-for-you/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Lending' /><meta property='article:tag' content='Liquidity Providing' /><meta property='article:tag' content='Synthetic Assets' /><meta property='article:tag' content='Liquidation' /><meta property='article:tag' content='Gas' /><meta property='article:tag' content='Impermanent Lossses' /><meta property='article:tag' content='guide' /><meta property='article:published_time' content='2020-05-20T10:53:50&#43;00:00'/><meta property='article:modified_time' content='2020-05-20T10:53:50&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/2020/definancial-services-guide/cover.jpeg' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="📖 How to make DeFinancial products work for you">
+<meta name="twitter:description" content="A balanced overview of decentralised finance services you can use to make your ETH work for you - 6 base strategies, their variants, & what to watch for while implementing them."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/2020/definancial-services-guide/cover.jpeg' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">TokenBrice</a></h1>
+            <h2 class="site-description">Brutally Honest DeFi</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" selected>English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" >Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#a-primer-on-gas">A primer on gas</a>
+      <ol>
+        <li><a href="#necessary-reminders---please-read">Necessary reminders - PLEASE READ</a></li>
+      </ol>
+    </li>
+    <li><a href="#passive-definancial-services">PASSIVE DEFINANCIAL SERVICES</a>
+      <ol>
+        <li><a href="#with-stable-assets">With Stable Assets</a>
+          <ol>
+            <li><a href="#1-stablecoins-yield">1/ Stablecoins Yield</a></li>
+            <li><a href="#2-tokenized-real-estate---realt">2/ Tokenized Real Estate - RealT</a></li>
+          </ol>
+        </li>
+        <li><a href="#with-volatile-assets">With Volatile Assets</a>
+          <ol>
+            <li><a href="#3-automated-trading-strategies---tokensets">3/ Automated Trading Strategies - TokenSets</a></li>
+            <li><a href="#4-simple-yields-to-chase-on-erc20-tokens">4/ Simple yields to chase on ERC20 tokens</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#active-definancial-services">ACTIVE DEFINANCIAL SERVICES</a>
+      <ol>
+        <li><a href="#some-pointers-on-passive-vs-active-styles">Some pointers on passive vs active styles</a>
+          <ol>
+            <li><a href="#5-synthetix">5/ Synthetix</a></li>
+            <li><a href="#6-liquidity-provider-not-on-stablecoins">6/ Liquidity Provider (not on stablecoins)</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/how-to-make-definancial-products-work-for-you/">
+                
+                    <img src="/img/2020/definancial-services-guide/cover.jpeg" loading="lazy" alt="Featured image of post 📖 How to make DeFinancial products work for you" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/defi/" style="background-color: #2a9d8f; color: #fff;">
+                DeFi
+            </a>
+        
+            <a href="/categories/understanding/" style="background-color: #2a9d8f; color: #fff;">
+                Understanding
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/how-to-make-definancial-products-work-for-you/">📖 How to make DeFinancial products work for you</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            A balanced overview of decentralised finance services you can use to make your ETH work for you - 6 base strategies, their variants, &amp; what to watch for while implementing them.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">May 20, 2020</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    17 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+        <footer class="article-translations">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+            <div>
+                
+                    <a href="http://localhost:1313/fr/p/comment-utiliser-les-services-definanciers-%C3%A0-votre-avantage/" class="link">Français</a>
+                
+            </div>
+        </footer>
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Welcome to the new economic paradigm!</p>
+<p>If you landed here, you probably already have heard about Ethereum and even decentralised finance (DeFi). That&rsquo;s great - today we take it to the next step: how to use DeFi to better your personal finance.</p>
+<p>This article walks you through 6 base strategies and their variants that harness the most relevant DeFinancial services. We start with the &ldquo;set and forget&rdquo; strategies and progressively move down the stack towards the more complex but also lucrative ones.</p>
+<p>Before we dive into the strategies, I URGE you to read attentively the primer on gas below &amp; as well as the disclaimers.</p>
+<p><strong>This article is not investment advice. I am not an accredited investor or asset manager. I am just a 27 year old dude using DeFinancial services abundantly and highly active in the space.</strong></p>
+<p><strong>YOU ARE THE ONLY ONE RESPONSIBLE FOR YOUR INVESTMENT DECISIONS.</strong></p>
+<h2 id="a-primer-on-gas">A primer on gas
+</h2><p><em>ℹ If you know what gas is, feel free to ignore, else - please read this:</em></p>
+<p>All strategies described here are enabled thanks to decentralised finance services and executed on the Ethereum network. <strong>To interact with DeFi services, you&rsquo;ll have to pay for the commons of the Ethereum network - and that&rsquo;s what gas costs are.</strong></p>
+<p>Gas costs are paid in gwei, a subunit of ETH (1 gwei =  0.000000001 ETH). Most Ethereum wallets will suggest a default gas price. That&rsquo;s usually enough to get started.</p>
+<p>However, as you dive deeper into the arcane of DeFi, you&rsquo;ll find yourself coming back to gas to understand it better and optimise your transaction costs. Indeed, depending on the gas cost you pick (vs network observed one), your transaction will clear quickly, slowly, or not at all.</p>
+<p><img src="/img/2020/definancial-services-guide/gas-station.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="eth-gas-station"
+	
+	
+></p>
+<p>You can <a class="link" href="https://ethgasstation.info/"  target="_blank" rel="noopener"
+    >check recommended gas prices on ⛽ EthGasStation</a>,</p>
+<p>Or read <a class="link" href="https://docs.ethhub.io/using-ethereum/transactions/"  target="_blank" rel="noopener"
+    >📑 EthHub Docs on Ethereum Transactions</a> to learn more about gas.</p>
+<p>Note: Some strategies listed below (1, 3 &amp; 4) are applicable without having to worry about gas, using <a class="link" href="https://argent.xyz/"  target="_blank" rel="noopener"
+    >Argent</a>.</p>
+<hr>
+<p>We&rsquo;re almost ready to go in! I just have some necessary disclaimers to share with you to make sure we&rsquo;re on the same level &amp; you understand the content presented below for what it is:</p>
+<h3 id="necessary-reminders---please-read">Necessary reminders - PLEASE READ
+</h3><ol>
+<li><strong>All returns discussed in the articles are yearly APR (Annual Percentage Rate)</strong> - to realise these APR (assuming the estimation is accurate), you need to hold your position for a year.</li>
+<li><strong>There are no objective measurements of complexity or risk</strong> - the parameters I present you with while introducing a strategy are here for understanding only.</li>
+<li>What does &ldquo;<strong>risk</strong>&rdquo; represent? A chance of losing your assets due to market events or your own shortcomings (usually stemming from a lack of understanding)  <br>
+The &ldquo;<strong>complexity</strong>&rdquo; score gives you an idea of how technical and hard the risk is to understand and estimate.
+<br> <em>Please note: the risk of a failure at the Ethereum network-level is not equal to 0. I do not mention this risk again below - it&rsquo;s implied as a base-level of risk.</em></li>
+<li>There are no free lunches: be sensible with your decisions, here&rsquo;s a <strong>quick rule of  thumb &ldquo;the higher the APR, the higher the risk&rdquo;</strong>.</li>
+<li>When markets go wild (either way), some products are affected more than others. While a sudden ETH price variation doesn&rsquo;t impact RealT&rsquo;s APR (2) - it can translate into significant losses for users of TokenSets or liquidity providers.</li>
+<li>Finally, keep in mind that most of the APR mentioned below change quite often. Don&rsquo;t take them as such, especially if you read this piece weeks after its release: double check by yourself.</li>
+</ol>
+<p>If you&rsquo;re considering committing capital to a given project, <strong>I URGE YOU</strong> to check the following ressources to learn more on their risk model <a class="link" href="https://app.defiscore.io/"  target="_blank" rel="noopener"
+    >DeFiScore</a> &amp; <a class="link" href="https://defiwatch.net/"  target="_blank" rel="noopener"
+    >DeFiWatch</a>.</p>
+<p><img src="/img/2020/definancial-services-guide/defiscore.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="defi-score"
+	
+	
+></p>
+<h2 id="passive-definancial-services">PASSIVE DEFINANCIAL SERVICES
+</h2><p><em>Products 1-4 are &ldquo;set and forget&rdquo; (please monitor your positions still). What&rsquo;s meant is that entry is usually done through a simple purchase/swap - and so is the exit.</em></p>
+<p><em>Meanwhile, in between the two, you have nothing to do to earn your yield - it&rsquo;s paid to you without requiring any intervention (claim or other).</em></p>
+<h3 id="with-stable-assets">With Stable Assets
+</h3><p>Some passive investment products involve only stablecoins - these are tokens tracking the price of a stable currency, usually the dollar. Considering the minimal amount of work required to use them, and the lower overall risk (mostly technical failure) these products are the best to get you started with decentralised finance.</p>
+<h4 id="1-stablecoins-yield">1/ Stablecoins Yield
+</h4><blockquote>
+<p>You own an Ethereum-based asset tracking the price of the dollar (ex: DAI). You find a way for this asset to earn interest: lending (ex: aDAI) or liquidity providing.</p>
+</blockquote>
+<p>(1 = lowest, 5 = highest)</p>
+<p><img src="/img/2020/definancial-services-guide/subh/1-stablecoin-yield.jpeg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="1-stablecoin-yield"
+	
+	
+></p>
+<p>Yield-bearing stablecoins are the gateway drug.</p>
+<p>They can provide decent returns (up to 8-9% APR), are convenient to use and also not too complex so they are a good start to understand some fundamentals about DeFi.</p>
+<p>Getting in and out is as easy as swapping a token. So, if while considering this approach, you only have three things to keep in mind:</p>
+<ol>
+<li>Risk: base stablecoin risk (on DAI) + any service on top of it (ex: Aave for aDAI)</li>
+<li>Return: there are some neat ressources to keep track with the yields, check <a class="link" href="https://loanscan.io"  target="_blank" rel="noopener"
+    >LoanScan</a> for instance.</li>
+<li>Gas costs to get in &amp; out (especially <strong>if you invest small amounts, or while the network is busy</strong>).</li>
+</ol>
+<p>To implement this first strategy, you have several options: <a class="link" href="https://compound.finance/"  target="_blank" rel="noopener"
+    >Compound</a>, <a class="link" href="https://aave.com/"  target="_blank" rel="noopener"
+    >Aave</a>, etc. You can acquire their corresponding tokens (cDAI, aDAI, iDAI) using a service like <a class="link" href="https://paraswap.io"  target="_blank" rel="noopener"
+    >ParaSwap</a>. In terms of APR, historically, aDAI has been consistently topping the charts.</p>
+<p>If you want to expand on top of the base concept, you have several options offering better returns (meaning more risk):</p>
+<h5 id="1-a-implementing-a-basic-stablecoin-yield-based-strategy">1-A/ Implementing a basic stablecoin-yield based strategy
+</h5><p><strong>RECAP: You own an Ethereum-based asset dynamically rebalancing between several stablecoins providing yields to optimise your return.</strong></p>
+<p>As said above, there are several services offering stablecoins providing returns thanks to lending pools. You can manually chase the best rate yourself, but will require you to monitor the rates and do the rebalances yourself.</p>
+<p>So instead, why not use an Ethereum native service to do that for you in full transparency? <a class="link" href="https://idle.finance/"  target="_blank" rel="noopener"
+    >Idle Finance</a> is the leading solution:</p>
+<p><img src="/img/2020/definancial-services-guide/idle-dai.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="idle-dai"
+	
+	
+></p>
+<h5 id="1-b-stablecoins-liquidity-providing-curve-pools">1-B/ Stablecoins Liquidity Providing: Curve Pools
+</h5><blockquote>
+<p>You own several Ethereum-based stablecoins and help facilitate trades on Curve (= liquidity provider). You earn a commission on each trade corresponding to the prorata of your share of the pool.</p>
+</blockquote>
+<p>We will have a dedicated section about liquidity pools below but I had to mention the Curve Pools here. In a gist, <a class="link" href="https://curve.fi"  target="_blank" rel="noopener"
+    >Curve</a> is a service made to optimize stablecoin swaps. Providing liquidity on Curve can be quite attractive since the base assets are all stablecoins &amp; the returns provided by the commissions collected on the swaps (&amp; lending) are decent.</p>
+<h5 id="1-c--no-loss-lottery-pool-together">1-C / No loss lottery: Pool Together
+</h5><blockquote>
+<p>You lock a stablecoin (DAI or USDC) for a week or a month. They are pooled with other users&rsquo; to generate interest (-&gt;Compound). At the end of the week/month, the winner gets all the interests.</p>
+</blockquote>
+<p>I love this one because it&rsquo;s both surprising to see it here and amazing. So first, let me clear the air: <a class="link" href="https://www.pooltogether.com/"  target="_blank" rel="noopener"
+    >PoolTogether</a> is not a financial product per-se - their vision is more pedagogic: PoolTogether is a money game.</p>
+<p>The concept is quite simple, as described in the recap. Since all the profits of the winner are generated on the interests of all players, nobody loses any money with PoolTogether.</p>
+<p>However please rest assured, the addition of PoolTogether in this list is not ideological: **average returns are superior to Compound. <strong>The reason why is quite simple: PoolTogether uses Compound to generate its return (= same APR) + each pool has some &ldquo;sponsored&rdquo; ticket - tickets contributing to the interest accrual, but without winning chances.</strong></p>
+<p><img src="/img/2020/definancial-services-guide/pt-sponsored.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="pool-together-sponsored-balances"
+	
+	
+></p>
+<p>Finally, with the average APR is higher, please bear in mind that PoolTogether is much less regular - most of the time you&rsquo;ll get nothing, but if you win you get the equivalent of years of interest on your capital.</p>
+<p>PoolTogether essentially provides a new flavor of interest distribution on top of Compound&rsquo;s return: PT&rsquo;s returns are much more random but also potentially massive (if lucky).</p>
+<p>Last month, <a class="link" href="https://medium.com/pooltogether/winning-more-prizes-185bad7f6d63"  target="_blank" rel="noopener"
+    >PoolTogether released the pods</a> - a new option for users to play as a group. Users can now share their odds and their gains - which makes the wins less significant but much more frequent.</p>
+<p><a class="link" href="https://www.pooltogether.com/"  target="_blank" rel="noopener"
+    >You can play the PoolTogether lottery directly from their website.</a> You&rsquo;ll need some DAI or USDC.</p>
+<h4 id="2-tokenized-real-estate---realt">2/ Tokenized Real Estate - RealT
+</h4><blockquote>
+<p>You own shares of tokenized properties (securities). You earn your share of the rent daily (currently in USDC) + extra earning opportunities (liquidity providing, incentive programs).</p>
+</blockquote>
+<p><img src="/img/2020/definancial-services-guide/subh/2-tokenised-real-estate.jpeg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="2-realt-tokenised-real-estate"
+	
+	
+></p>
+<p><strong><a class="link" href="https://realt.co"  target="_blank" rel="noopener"
+    >RealT</a> is a totally different beast from anything else in that list, at several levels</strong>. Since RealT tokens represents real estate in the real world, the risk profile is also totally different (~~&gt;  less Ethereum risk, more real-word risk).</p>
+<p>Before we dive into what makes RealT tokens so interesting, let&rsquo;s make sure we are clear. <strong>RealT tokens are securities - you have to go through a KYC process to be able to purchase them</strong> (whitelist + lease agreement).</p>
+<p><img src="/img/2020/definancial-services-guide/realt.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="RealT-tokenised-real-estate"
+	
+	
+></p>
+<p>It&rsquo;s a bit more work than for interest-bearing stablecoins, but you have several benefits to gain here compared to strategy 1:</p>
+<ul>
+<li><strong>Returns</strong>: depending on the property, APR ranges from 8% to 12.5%.</li>
+<li><strong>Daily payment of returns</strong>: once you have some RealT tokens in your wallet, you will receive your corresponding** share of the rent, daily, in USDC**.</li>
+<li><strong>Hedging</strong>: you have a yield based on real estate - AKA less correlated to the rest of the crypto markets</li>
+<li><strong>Additional opportunities</strong>: you can add more to this strategy to increase the return. To do so, consider providing liquidity on Uniswap - generating some returns. <a class="link" href="https://medium.com/realtplatform/announcing-the-uniswap-incentive-program-f82f721cf63a"  target="_blank" rel="noopener"
+    >Providing liquidity on RealT tokens is currently incentivised</a> - landing even more returns.</li>
+</ul>
+<h3 id="with-volatile-assets">With Volatile Assets
+</h3><h4 id="3-automated-trading-strategies---tokensets">3/ Automated Trading Strategies - TokenSets
+</h4><blockquote>
+<p>You own a &ldquo;set&rdquo; representing a stake in an automated trading strategy based on a technical indicator or another trader (social sets) a.k.a. &ldquo;Holding on autopilot&rdquo;.</p>
+</blockquote>
+<p><img src="/img/2020/definancial-services-guide/subh/3-tokensets.jpeg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="3-tokensets-automated-strategies"
+	
+	
+></p>
+<p><strong><a class="link" href="https://www.tokensets.com/"  target="_blank" rel="noopener"
+    >TokenSets</a> are the holders&rsquo; best friend</strong>. While the service is definitely not the easiest to understand or the less risky, it currently provides significant utility. Indeed, if you are a long term holder of ETH for instance, TokenSets is one of your best options to grow your ETH stash (against ETH).</p>
+<p>Sets are automated trading strategies represented by a token. Each set trades a given pair (ex: ETH/cUSDC) following a pre-set of rebalancing rules triggered by the cross with the set technical indicator.</p>
+<p><img src="/img/2020/definancial-services-guide/tokenviz.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Tokensets performance visualised with TokenViz"
+	
+	
+>
+Wondering which set to pick? <a class="link" href="https://tokenviz.io"  target="_blank" rel="noopener"
+    >TokenViz</a> provides a neat dashboard to help you chose.</p>
+<p>So as a user who is not willing to look at charts all day, TokenSets is an excellent option. Indeed, most people trying to trade tend to lose money. <strong>With the sets, the emotions are out &amp; machines rule.</strong></p>
+<p>On top of the regular sets following a technical indicator (such as ETH 20 Days Moving Average), there are now social sets. It&rsquo;s the same mechanism, but your set will follow another&rsquo;s trader strategy instead of simple technical indicators: aka &ldquo;copy-trader&rdquo; feature.</p>
+<h4 id="4-simple-yields-to-chase-on-erc20-tokens">4/ Simple yields to chase on ERC20 tokens
+</h4><blockquote>
+<p>This is essentially the ERC-20 version of strategy 1: you own an ERC-20 (non-stable) token producing some form of returns, usually through lending or liquidity providing.</p>
+</blockquote>
+<p><img src="/img/2020/definancial-services-guide/subh/4-erc20-yields.jpeg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="4-erc20-yields"
+	
+	
+></p>
+<p>Before we explore the more active approaches, allow me to introduce one more passive approach, this time based on ERC20 tokens (not stablecoins.)</p>
+<p>Since Aave offers aTokens on up to 15 different ERC-20 tokens, it might be worth for you to keep an eye on them - with a tool like <a class="link" href="https://aavewatch.now.sh/"  target="_blank" rel="noopener"
+    >AaveWatch</a>:</p>
+<p><img src="/img/2020/definancial-services-guide/aavewatch.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="AaveWatch - overview of lending opportunities offered on Aave"
+	
+	
+></p>
+<p>Among them, I think the following are the most interesting:</p>
+<ol>
+<li>aSNX: base rate around 7%, can spike quite high for a bit - keep a very close eye to this one on Wednesdays, especially if prices of ETH/SNX crashed during the week: we observe SNX borrowing surges during certain claim periods.</li>
+<li>asUSD: can spikes quite hard too, especially lately (~12% APR over the last month)</li>
+<li>aZRX: rates can spike, read more about ZRX to know when</li>
+<li>aMANA: same here - decentish rate (1-2%)</li>
+</ol>
+<hr>
+<h2 id="active-definancial-services">ACTIVE DEFINANCIAL SERVICES
+</h2><p><strong>Doing nothing is amazing - and when it comes to investing it’s a strategy that can be surprisingly effective</strong>. Being able to stand still and do nothing, even in the middle of a marketstorm is truly an art you would gain to master. However, and it shouldn&rsquo;t come as a surprise for you: the best yield will require effort.</p>
+<p><img src="/img/2020/definancial-services-guide/nothing.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Doing nothing - the best strategy of them all?"
+	
+	
+></p>
+<p>Notice how I didn&rsquo;t say work? Sometimes, the &ldquo;efforts&rdquo; can simply be that you accept to stomach a risk others wouldn&rsquo;t, and get paid nicely for it &mdash; <strong>the investor equivalent of a stunt double.</strong></p>
+<p>The next strategies will require a more precise understanding of what you are doing. Indeed, at their core, all strategies would benefit immensely from your market acumen. So before we explore such strategies, allow me some reminders:</p>
+<ul>
+<li><strong>Information is power.</strong> More specifically for DeFi investing: the information you have &amp; understand is the main thing driving the alpha (returns) you&rsquo;re extracting from the markets.</li>
+<li><strong>Take it slow, be safe, it&rsquo;s not a race</strong>. Despite writing this article (with many people advising), I have yet to use strategy 6 with serious amounts of capital for instance. It&rsquo;s wise to double-check your understanding of a given platform every time you increase your stake.</li>
+<li><strong>Want to quickstart the process? Go in with $50.</strong> Small amounts are amazing to help you understand a protocol and be involved without taking too many risks and stressing about it.</li>
+</ul>
+<h3 id="some-pointers-on-passive-vs-active-styles">Some pointers on passive vs active styles
+</h3><p>It’s impossible to give an accurate representation of the potential earning spread between an average DeFi passive investor and an active one. However, a combination of services reproduces a similar situation:</p>
+<ul>
+<li>Synthetix: SNX staking model to collateralise synthetic assets.</li>
+<li>Aave + Synthetix = aSNX Passive (type 4) investment asset</li>
+</ul>
+<table align = "center">
+  <tr>
+   <td>
+   </td>
+   <td>
+<div align = "center"> <b>Actions Required</b></div>
+   </td>
+   <td><div align = "center"> <b>Expected Yearly Return </b></div>
+   </td>
+  </tr>
+  <tr>
+   <td><div align = "center"> <b>Passive Style (aSNX)</b></div>
+   </td>
+   <td><div align = "center">None (once you own aSNX)</div>
+   </td>
+   <td><div align = "center">~10%</div>
+   </td>
+  </tr>
+  <tr>
+   <td><div align = "center"> <b>Active Style (SNX stake managed through mintr)</b></div>
+   </td>
+   <td><div align = "center">Weekly claim of reward (1y escrowed) + sUSD + synths management strategy (trading, liquidity+staking)</div>
+   </td>
+   <td><div align = "center">~80% & more (up to you)</div>
+   </td>
+  </tr>
+</table>
+<h4 id="5-synthetix">5/ Synthetix
+</h4><blockquote>
+<p>You start with a stake of SNX (Synthetix token). You stake (lock) them which already generates a neat SNX return but vested for a year (+weekly sUSD non-vested). Thanks to your stake, you can then mint synthetic tokens - that expose yourself for up to 1/8 of the initial SNX value &amp; offer additional earning opportunities.</p>
+</blockquote>
+<p><img src="/img/2020/definancial-services-guide/subh/5-synthetix.jpeg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="5-synthetix"
+	
+	
+></p>
+<p>Before anything else: what I say below is NOT ENOUGH to understand Synthetix+SNX if you are just discovering it. <strong>Do not rush it!</strong> Synthetix is definitely a next step in terms of complexity, here&rsquo;s an overview of all the new things you will have to do:</p>
+<ol>
+<li>Have a secured wallet - <strong>will you be able to access your wallet in a year?</strong>  <br>
+SNX rewards are escrowed a year: you claim them today, but you can only move them out of Mintr (Synthetix platform) a year after the claim date.</li>
+<li><strong>Claim reward weekly</strong> (SNX vested for a year + sUSD)</li>
+<li><strong>Monitor</strong> your collateralization ratio and adjust when need to be able to claim</li>
+<li><strong>Decide</strong> which Synth you&rsquo;re exposing yourself to and when</li>
+</ol>
+<p>Since Synthetix is really flexible, allow me to stick to a strategy I&rsquo;ve successfully implemented. Other approaches are possible, and my choice is suggestive. However, I think this strategy does a good job at highlighting the different synergies available with Synthetix.</p>
+<h5 id="5-a-the-synthetixcurve-yieldstack-aka-the-4-steaks-yieldburger">5-A/ The Synthetix/Curve YieldStack (a.k.a. &ldquo;the 4-steaks yieldburger&rdquo;)
+</h5><blockquote>
+<p>You use Synthetix (+SNX) to mint sUSD, a stablecoin, and supply this stablecoin to an incentivised liquidity pool for extra returns.</p>
+</blockquote>
+<p>Let&rsquo;s not beat around the bush: this is much harder, much more work than 1-4, but the returns are an order of magnitude higher if done right. Your position is also more complex to monitor since you are exposed to several types of assets, getting returns in several kinds of assets too, and the timeline of the returns are not the same either.</p>
+<p><img src="/img/2020/definancial-services-guide/yieldburger.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="The Synthetix-Yieldbuger-TokenBrice"
+	
+	
+>
+<em>Stake? Steak? Does it matter as long as there is meat on the bone?</em></p>
+<p>Let&rsquo;s have a look at the base of the yield stack:</p>
+<ol>
+<li><strong>Staking SNX + SNX reward</strong> ~ 50% APR, in SNX, paid weekly (claim required) &amp; vested for a year</li>
+<li><strong>sUSD Staking reward</strong> - variable sUSD reward (based on exchanges volume), paid weekly, claim required, no vesting period.</li>
+<li><strong>Liquidity Provider Curve sUSD pool</strong> - 3 to 5% APR, earned while exiting the pool.</li>
+<li><strong>Incentive Program</strong> for that pool (accessed by staking the pool token)-  25% APR, in SNX, paid weekly (claim required), no vesting period</li>
+</ol>
+<p><em>Note: The Curve sUSD pool ran into some issues, and the current live version is not the most optimised one for returns. A new version of the sUSD pool is coming up, harnessing Aave to optimize it even farther. This strategy might get even more compelling as soon as this ships!</em></p>
+<p>Curious ? Here is a <a class="link" href="https://synthetix.community/docs/intro"  target="_blank" rel="noopener"
+    >comprehensive overview to get started with Synthetix</a>.</p>
+<h4 id="6-liquidity-provider-not-on-stablecoins">6/ Liquidity Provider (not on stablecoins)
+</h4><blockquote>
+<p>You use a capital equally split into to tokens (ex 50% ETH 50% DAI) to supply a liquidity pool, which generates commissions on the trade you help facilitate.</p>
+</blockquote>
+<p><img src="/img/2020/definancial-services-guide/subh/6-liquidity-provider.jpeg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="6-liquidity-provider"
+	
+	
+></p>
+<p>This is essentially a riskier variant of the strategy 1-B. In this scenario, you are still providing liquidity but this time you move to another kind of pair - the ETH based ones.</p>
+<p><strong>While you provide liquidity on a decentralised exchange, the main risk you face (on top of the usual) is what we call &ldquo;impermanent losses</strong>&rdquo;. (confusing name, they are very permanent)</p>
+<p>I can&rsquo;t explain the full concept here, but here&rsquo;s a quick recap: <strong>impermanent losses usually stem from a sudden variation between the relative prices of the two assets you&rsquo;re providing liquidity to</strong>.</p>
+<p><strong>So if the two assets are tracking the same price (ex ETH/sETH), the impermanent loss risk is minimized</strong>. So, from the lower level of risk, to greater, you have:</p>
+<ol>
+<li>Providing liquidity on stablecoins: both assets prices are relatively stable, and they track the same price =&gt; the impermanent losses risk is minimized.</li>
+<li>Providing liquidity on assets that are not stable but tracking the same price, such as ETH/sETH.</li>
+<li>Providing liquidity on an ETH/stable pair.</li>
+<li>Providing liquidity on a ETH/ERC20 (both non stable &amp; not tracking the same price) - this is where the risk is greater, since both assets can move - if both assets price were to suddenly move in opposite directions you can suffer significant impermanent losses.</li>
+</ol>
+<p>If you are considering providing liquidity on AMMs, please read more on the topic: <a class="link" href="https://blog.bancor.network/beginners-guide-to-getting-rekt-by-impermanent-loss-7c9510cb2f22"  target="_blank" rel="noopener"
+    >Risk/Reward of liquidity provision in AMMs</a>.</p>
+<p><em>Edit (07/16)</em> - If you are curious about liquidity providing, here is another guide covering the main incentivised opportunities: <strong><a class="link" href="https://tokenbrice.xyz/content/posts/2020/yield-farmer-tier-list.md"  target="_blank" rel="noopener"
+    >💦 The Yield Farmer Tier List</a></strong>.</p>
+<h2 id="conclusion">Conclusion
+</h2><p>I think this is a good place to call it a run and keep this guide digestible.</p>
+<p>If you&rsquo;re ready to jump-in, here are some solutions that will make it easier for you:</p>
+<ol>
+<li><a class="link" href="https://argent.xyz/"  target="_blank" rel="noopener"
+    >Argent Wallet</a> Secure wallet offering one tap access to Aave tokens, PoolTogether &amp; TokenSets presented in this article.</li>
+<li><a class="link" href="https://monolith.xyz"  target="_blank" rel="noopener"
+    >Monolith Visa Debit Card</a> You&rsquo;ve made some profits in DeFi you&rsquo;d like to cash out in the real world? This is the only no-compromise solution allowing you to do so.</li>
+</ol>
+<p>And if you&rsquo;re wondering what could be your next steps, here is are some of your potential ones:</p>
+<ul>
+<li>Opening vaults on <a class="link" href="http://makerdao.com/"  target="_blank" rel="noopener"
+    >Maker</a> or using <a class="link" href="https://aave.com/"  target="_blank" rel="noopener"
+    >Aave</a> to get leverage (⚠ liquidation risk).</li>
+<li>Using options like <a class="link" href="https://opyn.co/"  target="_blank" rel="noopener"
+    >Opyn</a> or insurance service such as <a class="link" href="https://nexusmutual.io/"  target="_blank" rel="noopener"
+    >Nexus Mutual</a></li>
+<li><a class="link" href="https://aave.com/"  target="_blank" rel="noopener"
+    >Aave&rsquo;s</a> Flash loans</li>
+</ul>
+<p>I hope this was an insightful read and you&rsquo;ve figured a few ways to make DeFinancial services work for you. If you have any questions, feel free to reach out to the <a class="link" href="https://t.me/de_fi"  target="_blank" rel="noopener"
+    >DeFi community on Telegram</a>, or their variants in your native language.</p>
+<hr>
+<p>This article was made possible thanks to a tremendous amount of support from people in the community who shared their suggestions, insights and proofread it.</p>
+<p>Thanks to these amazing people:</p>
+<ul>
+<li><a class="link" href="https://twitter.com/jimmyragosa"  target="_blank" rel="noopener"
+    >Jimmy Ragosa - follow him on Twitter</a>, his meme game is woke 👌</li>
+<li><a class="link" href="https://twitter.com/lemiscate"  target="_blank" rel="noopener"
+    >Marc Zeller</a> - dev advocate @Aave, do I need to say anything more?</li>
+<li>Marouane - he&rsquo;s coming after your risks, <a class="link" href="https://twitter.com/UnslashedF"  target="_blank" rel="noopener"
+    >watch out!</a></li>
+<li><a class="link" href="mailto:victor@function.media" >Viktor</a> who worked on the graphics of this article and indulged my terrifying napkin diagrams.</li>
+</ul>
+<p>As well as people who did not contribute directly to this specific article but were key in helping me understand DeFinancial services better - allowing me to be in a position to write this guide:</p>
+<ul>
+<li><a class="link" href="https://twitter.com/pscltllrd"  target="_blank" rel="noopener"
+    >Pascal Tallarida</a>: founder of Jarvis Netowrk, proeminent onboarder and vulgariser in the French community. He&rsquo;s the one who helped me (and MANY others) grasp their heard around synthetic assets.</li>
+<li><a class="link" href="https://twitter.com/mounibec"  target="_blank" rel="noopener"
+    >Mounir</a>: founder of Paraswap.io, the OG-est of DEX aggregator and still the only one that can fetch a price &lt;1-2s without melting your laptop. Mounir is a one-man-army and an incredibly helpful actor in the French &amp; international communities.</li>
+<li><a class="link" href="https://twitter.com/AbelsAbstracts"  target="_blank" rel="noopener"
+    >Abel</a>: this guy keeps up with everything and he&rsquo;s my go-to person to discuss new releases and see through the marketing. Check <a class="link" href="https://open.spotify.com/show/6NO8M2R4u9YSgAdz5TA4ZA"  target="_blank" rel="noopener"
+    >his amazing podcast</a> - we do a DeFi catchup every week together.</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/defi/">DeFi</a>
+        
+            <a href="/tags/ethereum/">Ethereum</a>
+        
+            <a href="/tags/lending/">Lending</a>
+        
+            <a href="/tags/liquidity-providing/">Liquidity Providing</a>
+        
+            <a href="/tags/synthetic-assets/">Synthetic Assets</a>
+        
+            <a href="/tags/liquidation/">Liquidation</a>
+        
+            <a href="/tags/gas/">Gas</a>
+        
+            <a href="/tags/impermanent-lossses/">Impermanent Lossses</a>
+        
+            <a href="/tags/guide/">Guide</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on May 20, 2020 10:53 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/defi-flywheel/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/defi-flywheel/defi-flywheel-cover-en.png" loading="lazy" data-key="" data-hash="/img/2021/defi-flywheel/defi-flywheel-cover-en.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🎡 DeFi Flywheel : engineering protocol to protocol synergies through tokens</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/the-definancial-farming-toolbox/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2020/defi-farmer-toolbox/cover.jpeg" loading="lazy" data-key="" data-hash="/img/2020/defi-farmer-toolbox/cover.jpeg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🧰 The DeFinancial Farming Toolbox</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/leverage-sir/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2025/leverage-sir/leverage-sir-cover.jpg" loading="lazy" data-key="" data-hash="/img/2025/leverage-sir/leverage-sir-cover.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Leverage Like a Sir: Polynomial Gains, No Liquidation Pains</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/lending-protocol-renaissance/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2024/lending-protocol-renaissance/0-lending-protocol-renaissance-cover.png" loading="lazy" data-key="" data-hash="/img/2024/lending-protocol-renaissance/0-lending-protocol-renaissance-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Is this a Lending Protocol Renaissance?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/stablecoin-marauder-map/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2023/stablecoin-marauder-map/stablecoin-marauder-map-cover.png" loading="lazy" data-key="" data-hash="/img/2023/stablecoin-marauder-map/stablecoin-marauder-map-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">The Maurauder&#39;s Map of Decentralized Stablecoins</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

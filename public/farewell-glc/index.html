@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="I've resigned from the GHO Liquidity Committee - this post explains why and reflect on the core challenges observed in DeFi's governance and committees">
+<title>Farewell to the GHO Liquidity Committee and reflections on the rise of DeFi newspeak</title>
+
+<link rel='canonical' href='http://localhost:1313/farewell-glc/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Farewell to the GHO Liquidity Committee and reflections on the rise of DeFi newspeak">
+<meta property='og:description' content="I've resigned from the GHO Liquidity Committee - this post explains why and reflect on the core challenges observed in DeFi's governance and committees">
+<meta property='og:url' content='http://localhost:1313/farewell-glc/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Decentralized Finance' /><meta property='article:tag' content='Stablecoins' /><meta property='article:tag' content='Liquidity' /><meta property='article:tag' content='GHO' /><meta property='article:tag' content='GHO Liquidity Committee' /><meta property='article:published_time' content='2024-02-08T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2024-02-08T01:13:50&#43;00:00'/><meta property='og:image' content='http://localhost:1313/' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="Farewell to the GHO Liquidity Committee and reflections on the rise of DeFi newspeak">
+<meta name="twitter:description" content="I've resigned from the GHO Liquidity Committee - this post explains why and reflect on the core challenges observed in DeFi's governance and committees"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">TokenBrice</a></h1>
+            <h2 class="site-description">Brutally Honest DeFi</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" selected>English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" >Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#the-case-of-the-crv-wars">The case of the CRV Wars</a></li>
+    <li><a href="#the-case-of-the-gho-liquidity-committee">The case of the GHO Liquidity Committee</a>
+      <ol>
+        <li><a href="#operating-model-of-the-glc">Operating model of the GLC</a></li>
+        <li><a href="#scope-of-the-glc">Scope of the GLC</a></li>
+        <li><a href="#what-professionalism-means-in-defi-newspeak">What “professionalism” means in DeFi newspeak</a></li>
+        <li><a href="#the-rise-of-defi-politicians-and-its-consequences">The rise of DeFi politicians and its consequences</a></li>
+      </ol>
+    </li>
+    <li><a href="#parting-words">Parting Words</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/projects/" style="background-color: #2a9d8f; color: #fff;">
+                Projects
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/farewell-glc/">Farewell to the GHO Liquidity Committee and reflections on the rise of DeFi newspeak</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            I&#39;ve resigned from the GHO Liquidity Committee - this post explains why and reflect on the core challenges observed in DeFi&#39;s governance and committees
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 08, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    11 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>I’ve resigned from the GHO Liquidity Committee and would like, in this blog post, to share more context on its adventures and the learning we can draw from it.</p>
+<ul>
+<li><a class="link" href="https://etherscan.io/verifySig/35543"  target="_blank" rel="noopener"
+    >Onchain message from tokenbrice.eth</a></li>
+<li><a class="link" href="https://etherscan.io/tx/0x39760c8cd33beba102cbcb6a3c50489a24b1a50d8290de7c42c09845cf814dba"  target="_blank" rel="noopener"
+    >Signer removal transaction</a></li>
+</ul>
+<p>For those whose first reaction will be “ain’t ready all of that,” here is a recap of the main shortcoming I see in the committee that led to my decision:</p>
+<ol>
+<li>The committee&rsquo;s operating model is inefficient and prevents a coherent vision from emerging and being delivered.</li>
+<li>The committee&rsquo;s scope of responsibilities is unclear, leading to a passive attitude (towards governance mishaps) assumed by most members.</li>
+<li>The committee mainly comprises governance professionals who lack any serious expertise in the topic at play – liquidity management. It results in inefficient operations, conflicts of interest because of their numerous other commitments, and subpar use of the Committee’s resources.</li>
+</ol>
+<p>Governance is always a challenge. Indeed, it can seem insane to give power to random people on the internet, and it often is. There is a built-in democratic assumption in governance operations – although most governances are purely plutocratic – that severely hinders any serious structuration that would enable delivering upon commonly agreed goals. The GHO Liquidity Committee was appointed by the Aave governance precisely because it recognized – in a flash of lucidity – its incompetence and ineptitude in directional liquidity management.</p>
+<p>Yet, I’ll tell you what’s even crazier: giving power to people that the crowds perceive as “experts” on a topic. It’s all a show: the most recognized and mediatic expert of a given field is never the one actually the most informed on the topic. I, for one, would know quite a bit on the matter, with my own field of specialization — liquidity management, shaping, and incentivization — a topic prone to public perception manipulation more than any other because of the financial stakes inherently associated with it.</p>
+<h2 id="the-case-of-the-crv-wars">The case of the CRV Wars
+</h2><p>Let’s illustrate: regarding liquidity, the word on the street is that Curve is the best model, and all pros and experts use Curve, right? <strong>It’s so good that over the last round (62), projects are spending $1 to receive $0.7 of incentives to their pools</strong>: an instant donation of 30% of the amount they spend on bribes to veCRV/vlCVX holders. It means that if projects which bribed would have allocated the same amount to direct liquidity mining instead, they would have delivered 30% more $ to their LPs and thus attracted more liquidity for the same cost, all of which without assuming the price risk associated with CRV fluctuations for a week.</p>
+<p><img src="/img/2024/farewell-glc/votium-round-62.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="curve-bribes"
+	
+	
+></p>
+<p>So what’s happening there? Quite a few things, and it’s not the main course on today’s menu, just the appetizer, so I’ll go over this quickly:</p>
+<ol>
+<li><strong>Most projects have no one internally competent with liquidity</strong>, so they often do random wastes like these. Many prominent DeFi projects recognized for the liquidity games are big spenders but not exactly savvy.</li>
+<li><strong>The Curve Wars have been a meme for a while</strong>: there have been no genuine new entrants in these wars for ages – simply because it’s not worth it financially for most players, especially those without ties to the Curve ecosystem. Moreover, the liquidity structures available on Curve (stableswap and V2) are suboptimal compared to Uniswap or Maverick for many very common types of DeFi tokens – LSDs, LRTs, loosely pegged stablecoins, and liquid wrappers. You can confidently mark any protocol outputting a token of this type building liquidity primarily on Curve as inapt in liquidity management.</li>
+<li>What you are left with are <strong>“insider protocols,”</strong> teams building on top of the Curve ecosystem who usually own sizeable veCRV/vlCVX positions, allowing them to recoup a large share of their bribes (1. Own veCRV/vlCVX ⇒ 2. Post a bribe ⇒ 3. Vote on the pool you just bribed ⇒ 4. Collect and repeat next round). This tactic manipulates public perception into thinking that real money is being spent on these Curve wars. Some of these now insiders are originally external protocols, such as Inverse or Alchemix, which decided to kiss the llama ring for the better and the worse.</li>
+</ol>
+<p>Don’t take my word for it; simply look at the top spenders: Frax, Convex, Alchemix, CLever (Aladin), Prisma, Conic, Inverse, etc. <strong>To make it easy to visualize, here are the top spenders of the last round, ranked by amount spent, with the insider protocols highlighted in red</strong>:</p>
+<p><img src="/img/2024/farewell-glc/top-bribers.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="curve-bribes"
+	
+	
+></p>
+<p>Enough with Curve, llamas already hate me; I just wanted to highlight the example of Curve, “the king of liquidity,” being a poorly efficient venue to build and sustain liquidity. Curve, “maker or breaker of stablecoins,” as the DEX with arguably subpar liquidity structures for most stablecoin pools: <strong>Newspeak arrived in DeFi, and public perception/words used are often entirely at odds with the onchain observable reality</strong>. Sadly, a similar pattern has been observed with the GHO Liquidity Committee, today&rsquo;s topic, so let’s get to it.</p>
+<h2 id="the-case-of-the-gho-liquidity-committee">The case of the GHO Liquidity Committee
+</h2><p><strong>The GHO Liquidity Committee is a prime example of expertise misplacement</strong>, as it was composed of an unhealthy mix of professionals “DeFi politicians” (more on this below), people with low expertise and vested interest in a given DEX, and people close to the Aave’s DAO / ex Aave team but devoid of any expertise on the topic of liquidity.</p>
+<p>It led to a waste of resources, baseless struggles, and heavily misinformed decisions. At the end of the day, the <strong>GLC is like a big bag of cash everyone was trying to pull from to direct to protocol they have an interest in</strong>.</p>
+<p>So let’s dive in: what were its limitations, and what anyone interested in governance, whether committee-based or not, can learn from it?</p>
+<h3 id="operating-model-of-the-glc">Operating model of the GLC
+</h3><p>In its first months, the GLC operated erratically, sometimes leading several initiatives that were at odds with each other and needed a more coherent vision. It was simply a bunch of degens with a large amount of GHO in a multisig <strong>spraying and praying</strong>. The pinnacle was reached when bribes were allocated to a pool whose liquidity shape was detrimental to the repegging efforts, which, luckily for the Committee, ended out of range before the emissions began, enabling its prompt termination: a net burn of GHO.</p>
+<p>I was eventually elected head of the committee and <a class="link" href="https://x.com/TokenBrice/status/1719328410479059227?s=20"  target="_blank" rel="noopener"
+    >assumed a temporary and objective-based dictatorship</a>. It enabled the committee to stop allocating resources on liquidity support that were doing a disservice to the cause of repegging GHO and <strong>focus the energy, resources, and efforts where it actually mattered.</strong></p>
+<p>Yet the story also raised eyebrows and attracted media attention (<a class="link" href="https://www.coindesk.com/business/2023/11/28/aaves-gho-stablecoin-nears-elusive-dollar-peg/"  target="_blank" rel="noopener"
+    >CoinDesk</a>, <a class="link" href="https://thedefiant.io/benevolent-dictator-succeeds-in-bringing-aave-s-stablecoin-gho-near-parity-with-usd"  target="_blank" rel="noopener"
+    >DeFiant</a>, etc.) as it highlighted the failure of governance by itself – at least from the perspective of said media. <strong>During my two mandates, two targets were set: the first was missed by a few basis points (after an increase of ~200 bps), and the second was missed by a few days</strong>. My targets were ambitious, especially considering that they relied as much on deliverables external to the liquidity committee (interest rate management, single-sided staking for GHO, etc.). After two terms, I let go of the leading role early in January.</p>
+<p>⇒ When governance elects a committee to handle a specific task, it acknowledges its inefficiency on the matter. <strong>Such committees should not shy away from appointing a leadership, as ownership and responsibility can be very healthy,</strong> especially in “decentralized” governances where the eminences are often gray, and thus ownership and responsibility often lacking.</p>
+<h3 id="scope-of-the-glc">Scope of the GLC
+</h3><p>The GLC inherited several “governance debts”: decisions made by the governance that prove absolutely indefensible in the current state of affairs and operations. It failed even to find the will to challenge them and instead decided to enforce them despite the warning of a couple of committee members.</p>
+<p>Example: Mobilizing the CRV of the committee as sdCRV, a subpar option at the technical level, as it requires weekly voting of the committee (no vote carry-over), has low liquidity, and strips the committee of its due CRV gauge voting power unless it owns veSDT / benefits from a veSDT boost delegation, all of that in a lovely ethical mess, as it strengthens ties with a protocol/team that operates with many questionable practices and several committee members are veSDT holders and in proximity with the said team.</p>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>⇒ The scope of any appointed committee must be clearly defined – and the committee should be able and willing to challenge decisions previously enacted by governance on its matter of expertise.</p></div>
+
+<h3 id="what-professionalism-means-in-defi-newspeak">What “professionalism” means in DeFi newspeak
+</h3><p>Participants in groups such as the GHO Liquidity Committee are expected to be “professionals” — you, dear readers, and I would understand by that: master of their topic, accurate, always trying to serve the committee&rsquo;s purpose, and available for their mission.</p>
+<p>But we’re misplaced, as in DeFi newspeak, “professionalism” has an entirely different meaning; it’s actually the opposite, as DeFi “professional” profiles tend to:</p>
+<ul>
+<li>Make no waves, and avoid anything perceived as “political”, even if that means associating with scammers: you cannot put business partners in a tough spot.</li>
+<li>Silence truths that are hard to swallow but would be of public interest to enable the community to learn from previous mistakes. For instance, <strong>the failure of the developers of GHO to anticipate the depeg is never discussed</strong>. However, it had been expected by many – myself included — up to one year before GHO’s launch. The interest rate model and the absence of a GHO single staking option at the launch were both apparent lacks that any competent stablecoin developer should have anticipated and resolved <strong>before launch</strong>.</li>
+<li>Harness structures such as the GLC to promote the protocol they have vested interests in by all means possible, even if that means arriving at situations that, if described honestly, would qualify as conflicts of interest.</li>
+<li>Demonstrate, by their onchain initiatives and the communication they share in private groups, an approximate, if not missing, understanding of the topic of their expertise.</li>
+</ul>
+<div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>⇒ Participants in governance should learn how to place their trust better. Thanks to their existing platforms, the most publicly visible figures are usually selected when committees are elected.</p></div>
+
+<p>My presence in this committee was an oddity that emerged out of necessity, as governance knew that a deep understanding of liquidity shaping, especially Maverick, was needed to give the GLC the best chances of success. Many actual experts hanging around governance forums and Discords remain powerless despite their knowledge and good intentions simply because they are not well-known figures in DeFi.</p>
+<h3 id="the-rise-of-defi-politicians-and-its-consequences">The rise of DeFi politicians and its consequences
+</h3><p>Governance is a theater. Anyone involved in DeFi knows that, but even myself was surprised to realize the extent of the scenarization of governance interactions. Just like IRL politics, where we have professional politicians devoid of expertise about the topics they are handling, we’re observing the same phenomenon in DeFi, where a caste of politicians is assuming an increasing responsibility over various DAOs.</p>
+<p><strong>Such profiles specialize in governance-related operations and operate exactly like the IRL PR specialists: their primary care is about public perception and how to manipulate it to achieve their purpose</strong> (usually obtaining the allocation of a sizeable budget from the DAO to their governance structure). Governance discussion is not happening publicly on the forum — the forum is just a stage. The actual discussions are happening backstage: in calls, IRL meetings, and DMs. Discussions on the forum are avoided as much as possible, especially if they are anticipated to be controversial. The forum is simply here to record previously and privately discussed matters: look at the conversations on most proposals: they look so fake that, at this point, one could suspect bots are talking to one another, which once again reminds me of IRL politics. It happened to me several times that such a profile contacted me as I was typing an answer to their governance post, trying to avoid any form of public discourse:</p>
+<p><img src="/img/2024/farewell-glc/gov-typing.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="typing"
+	
+	
+></p>
+<div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>⇒ Confirmed DeFi politicians (= those who earn their money mostly/only through governance-related activities) should simply be banned from participating in any structure having even a remote power – as they are the bane of decentralization, the devil in Prada of DeFi. The professionalization of governance is synonymous with its capture and thus centralization.</p></div>
+
+<h2 id="parting-words">Parting Words
+</h2><p>As <a class="link" href="https://x.com/haydenzadams/status/1710510768469237827?s=20"  target="_blank" rel="noopener"
+    >Hayden puts it</a>, <strong>governance stands at the bottom of the tier list in terms of decentralization and thus should be a solution of last resort.</strong> Not only is it inefficient, but it’s also simply too prone to be manipulated, and the probability of it happening increases with the power and resources the governance manages. <strong>Once a given governance has grown enough, its corruption is simply unavoidable</strong>, at least under the current dominant plutocratic governance model: 1 token = 1 vote, hello stone age of governance we’ve been seemingly stuck at for five years.</p>
+<p>To wrap this up, allow me one last analogy with IRL politics since we’ve established that similar actors participate in DeFi’s governance. Governance professionals love to dismiss ideas because they deem them “too political.” It enables them to appear as reasonable, non-aligned figures. Yet, <strong>non-alignment does not exist: every decision is political</strong>. Those who say otherwise usually tend to be positioned at the “extreme-center” end of the spectrum: a brutal profit maximalist alignment wrapped in a costume of gentle neutrality, aka the DeFi equivalent of an Emmanuel Macron.</p>
+<p>When it comes to committees appointed by governance, I am unlikely to participate in any other after this one – unless its scope is clearly defined and it&rsquo;s given the means to challenge governance&rsquo;s suboptimal decisions.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/defi/">DeFi</a>
+        
+            <a href="/tags/ethereum/">Ethereum</a>
+        
+            <a href="/tags/decentralized-finance/">Decentralized Finance</a>
+        
+            <a href="/tags/stablecoins/">Stablecoins</a>
+        
+            <a href="/tags/liquidity/">Liquidity</a>
+        
+            <a href="/tags/gho/">GHO</a>
+        
+            <a href="/tags/gho-liquidity-committee/">GHO Liquidity Committee</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Feb 08, 2024 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/defi-collective/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2023/defi-collective/twitter_banner.png" loading="lazy" data-key="" data-hash="/img/2023/defi-collective/twitter_banner.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Introducing my next step: contributing to a DeFi mastermind geared to support trustless and unstoppable DeFi: The DeFi Collective</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/leverage-sir/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2025/leverage-sir/leverage-sir-cover.jpg" loading="lazy" data-key="" data-hash="/img/2025/leverage-sir/leverage-sir-cover.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Leverage Like a Sir: Polynomial Gains, No Liquidation Pains</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/maverick-x-tokenbrice/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2023/maverickxtokenbrice/maverick-x-tokenbrice-cover.png" loading="lazy" data-key="" data-hash="/img/2023/maverickxtokenbrice/maverick-x-tokenbrice-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Announcement: TokenBrice 🤝 Maverick</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/stablecoin-marauder-map/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2023/stablecoin-marauder-map/stablecoin-marauder-map-cover.png" loading="lazy" data-key="" data-hash="/img/2023/stablecoin-marauder-map/stablecoin-marauder-map-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">The Maurauder&#39;s Map of Decentralized Stablecoins</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/jr-strategist/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2023/jr-strategist/jr-strategist-cover.png" loading="lazy" data-key="" data-hash="/img/2023/jr-strategist/jr-strategist-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Hiring a Junior DeFi Strategist to help foster the growth of immutable protocols</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

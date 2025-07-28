@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Balancer on TokenBrice</title>
+        <link>http://localhost:1313/tags/balancer/</link>
+        <description>Recent content in Balancer on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Sat, 23 Jan 2021 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/balancer/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Volume begets fees: how are the main decentralized exchanges capturing value?</title>
+        <link>http://localhost:1313/decentralized-exchange-value-capture/</link>
+        <pubDate>Sat, 23 Jan 2021 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/decentralized-exchange-value-capture/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2021/dex-value-capture/cover.png" alt="Featured image of post Volume begets fees: how are the main decentralized exchanges capturing value?" /&gt;&lt;p&gt;I&amp;rsquo;ve shared my perspective on many DeFi protocols on this blog, but recently I realized I&amp;rsquo;ve never gone back to the basics: the DEXs. That&amp;rsquo;s precisely what we will do today, tackling the topic mostly by looking at value capture mechanisms.&lt;/p&gt;
+&lt;p&gt;AMM-based DEXs like Uniswap, Curve or SushiSwap all grew tremendously both in available liquidity and volume this year, and so did the fees they collected. To put it simply: &lt;strong&gt;these DEXs now are the main fee-collectors there are in crypto, right after the Bitcoin and Ethereum network themselves&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/dex-value-capture/fees.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;crypto-fees&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s quite an impressive achievement! So today we&amp;rsquo;ll look at this yummy cake and understand how it&amp;rsquo;s split. What&amp;rsquo;s the different approaches? What is their token used for / how do they establish their incentive model? And then how will the arrival of layer 2 impact all of that?&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;the-rise-of-automated-market-maker-amms&#34;&gt;The rise of Automated Market Maker (AMMs)
+&lt;/h2&gt;&lt;p&gt;With all the discussions around automated market makers (AMMs) lately, I wanted, as usual, to take a step back and consider the current state of the market, the position of the main players and what&amp;rsquo;s coming next.&lt;/p&gt;
+&lt;p&gt;We&amp;rsquo;ll discuss AMMs but I&amp;rsquo;ll leave the technical details of the bonding curves to others. Instead, we will address the topic from a value capture and tokenomics perspective.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The rise and development of AMMs fundamentally changed the market&lt;/strong&gt;. Before their dominion, order-book based approaches were still widely used. One of the main merits of AMMs is to change the logic of the service, as it becomes &lt;strong&gt;peer to contract&lt;/strong&gt;: there is no need for a matching order on the other side, thanks to the bonding curve, there&amp;rsquo;s always one (within pool liquidity &amp;amp; slippage limits).&lt;/p&gt;
+&lt;p&gt;I think it&amp;rsquo;s one of the key factors that enabled them to grow as they streamlined everything related to token exchanges: from the act of swapping itself, but also liquidity providing and even things like fetching a price for assets.&lt;/p&gt;
+&lt;p&gt;So we have our beautiful DEX-commissions-cake, now let&amp;rsquo;s dive into the main services&amp;rsquo; value capture mechanism to better understand their main differences.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;For the sake of the simplicity of this article, we won&amp;rsquo;t address Balancer and Bancor models. It might be a good follow-up piece.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;value-capture-mechanisms-in-discovery-mode&#34;&gt;Value capture mechanisms in discovery mode
+&lt;/h2&gt;&lt;p&gt;Through the different iterations and releases of the main DEXs, their value capture mechanisms evolved. Initially, there was not necessarily a token and a share of the exchange collected fee captured by it.&lt;/p&gt;
+&lt;h3 id=&#34;uniswap-the-need-for-liquidity&#34;&gt;Uniswap: The need for liquidity
+&lt;/h3&gt;&lt;p&gt;Indeed, in the first days of the AMM, the main concern was liquidity - still very scarce back then: Uniswap had no token and no need for it to pioneer the AMM-front. The initial and still current fee distribution infrastructure matches this requirement: a &lt;strong&gt;30 bps fee (0.3%) is taken on every trade and distributed to the liquidity providers&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;It was a perfect fit to start as you have a liquidity chicken and egg problem to begin with: sufficient liquidity will enable swaps without too much slippage, driving volume (if there&amp;rsquo;s need for the given token/market) and therefore revenues for LP.&lt;/p&gt;
+&lt;p&gt;There is currently no fee or value capture at the token-level but it&amp;rsquo;s &lt;strong&gt;ready to be implemented&lt;/strong&gt; if the DAO was to decide it - the V2 of the protocol shipped last year includes a &lt;code&gt;Protocol fee&lt;/code&gt; feature.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h3 id=&#34;sushiswap-value-capture-to-the-token&#34;&gt;SushiSwap: Value capture to the token
+&lt;/h3&gt;&lt;p&gt;Since the early days, one of the core changes of SushiSwap was a slight reduction of this fee to 25 bps to &lt;strong&gt;redirect the 5 bps left to SUSHI stakers.&lt;/strong&gt; This enables SUSHI stakers to get a share of the fees collected on all pairs, instead of liquidity-pair based distribution only.&lt;/p&gt;
+&lt;p&gt;Since the initial distribution phase, there were several adjustments made but the mechanism is roughly the same. Onsen introduced a rotational reward system onboard relevant new pools. More importantly for the tokenomics, ⅔ of the SUSHI rewards earned through liquidity mining are now vested over a 6 months period.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/dex-value-capture/sushi-onsen.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;sushiswap-onsen&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;This vesting reduces the incentives for &amp;ldquo;mercenary liquidity&amp;rdquo;, especially for liquidity managed by a vault for instance &amp;amp; helps to &lt;strong&gt;make sure that large liquidity providers are also SUSHI holders at all time&lt;/strong&gt; (even up to 6 months after they&amp;rsquo;re done farming), better aligning interests.&lt;/p&gt;
+&lt;p&gt;To achieve this split, SushiSwap distributes a 0.25% fee for each swap to LP, just like Uniswap&amp;rsquo;s 0.30%. On top of this fee, another 0.05% fee is collected on each swap in form of LP tokens, and settled for SUSHI distributed to the stakers.&lt;/p&gt;
+&lt;p&gt;The improvements brought by Sushi are relevant, yet in my eyes the real game-changer is the Curve model, so let&amp;rsquo;s have a look at it.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;a-peek-at-the-endgame-curve-finance--crv&#34;&gt;A peek at the endgame? Curve Finance &amp;amp; CRV
+&lt;/h2&gt;&lt;p&gt;Curve&amp;rsquo;s model is slightly more complex than the previous but results in an ever better alignment of incentives between the platform users and the token holders. Let&amp;rsquo;s see how.&lt;/p&gt;
+&lt;p&gt;Since the launch of the CRV token, liquidity providers on Curve have been earning CRV tokens on top of their usual commissions (if they stake). And just like SushiSwap, Curve&amp;rsquo;s introduced a form of value capture at the CRV-token level.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/dex-value-capture/curve-pools.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Curve pools&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Yet the model is more intricate so let&amp;rsquo;s discuss each part and see how they interact with one another.&lt;/p&gt;
+&lt;h3 id=&#34;1-tutorial--the-timelock&#34;&gt;1/ Tutorial : The Timelock
+&lt;/h3&gt;&lt;p&gt;To make use of CRV tokens within Curve, the first choice one has to make is the length of its commitment. The base unit is veCRV, a time-weighted locked CRV enabled for governance. To be explicit: &lt;strong&gt;to be eligible for the fees collected and other features discussed below, you need to lock your CRV token for at least 1 year.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The mechanism is quite straightforward, you can lock for 1 to 4 years. 4 years will give you 1 veCRV per CRV, decreasing linearly to 0.25 veCRV per CRV for a one year period. As said before, veCRV is the base unit of the system - so it will determine how much fees as well as boosting and governance power you have access to.&lt;/p&gt;
+&lt;h3 id=&#34;2-level-up-zone--your-share-of-the-fees&#34;&gt;2/ Level-up Zone : Your share of the fees
+&lt;/h3&gt;&lt;p&gt;Staking and locking CRV tokens in the DAO is enough to be eligible for a share of the fees collected on Curve, yet it&amp;rsquo;s only the first step of the journey. The commissions are collected frequently and settled for 3pool LP tokens. The mechanism recently kicked off and started distributing rewards.&lt;/p&gt;
+&lt;p&gt;Please note that the effective return fluctuates as it&amp;rsquo;s tied to Curve&amp;rsquo;s exchange volume and the CRV token acquisition price. At the time of writing, it&amp;rsquo;s around &lt;strong&gt;$0.29 yearly for 1 vecRV.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;To describe the next layer of the Curve&amp;rsquo;s onion, I love to use a metaphor inspired from online role-playing games. Indeed, there are three types of realms fitting to describe the next three steps for Curve:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;PvE (Player vs Environment)&lt;/strong&gt;: where you face only AI-controlled monsters (mobs)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PvP (vs Players)&lt;/strong&gt;: where you fight against other players in a set environment (arena/battlefield)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RvR (Realm vs Realm)&lt;/strong&gt;: where you fight against other players potentially everywhere (faction-based)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;We&amp;rsquo;ll use this frame of reference to analyze the next three layers of the Curve&amp;rsquo;s onion.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;3-curves-pve---boosting-crv-rewards&#34;&gt;3/ Curve&amp;rsquo;s PvE - Boosting CRV rewards
+&lt;/h3&gt;&lt;p&gt;As mentioned earlier, liquidity providers can stake their LP tokens to earn CRV on top of their usual commissions. But they can also &lt;strong&gt;use their veCRV tokens to boost&lt;/strong&gt; one or several of their pools, increasing the CRV earned up to 2.5 times.&lt;/p&gt;
+&lt;p&gt;To do so, one needs an amount of veCRV proportionate to the $value of the liquidity providing position boosted. The effective cost (in veCRV) to have the maximum boost is not the same for each pool - creating a first layer of incentives/arbitrages games.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/dex-value-capture/crv-boost.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Curve CRV boosting&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s an interesting mechanism enabling a better alignment of incentive: &lt;strong&gt;large and efficient CRV earners are also significant veCRV holders&lt;/strong&gt; (-&amp;gt; locked for 1-4 years) so they have a fair amount of skin in the game. Yet it&amp;rsquo;s just the first &amp;amp; friendliest layer of Curve&amp;rsquo;s meta game. Let&amp;rsquo;s go deeper into the onion.&lt;/p&gt;
+&lt;h3 id=&#34;4-curves-pvp---the-gauge-weights-game&#34;&gt;4/ Curve&amp;rsquo;s PvP - The Gauge Weight&amp;rsquo;s Game
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;If pool-boosting is PvE, the gauge-weights are Curve&amp;rsquo;s PvP arena.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The gauge-weights are a bit similar to boosting, but &lt;strong&gt;at the platform-level&lt;/strong&gt;. veCRV holders can vote to &lt;strong&gt;decide the share of newly minted CRV allocated to each pool&lt;/strong&gt;. Additional restrictions apply here to prevent the manipulation of the votes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The VeCRV needs to be locked with at least 7 days left.&lt;/li&gt;
+&lt;li&gt;The gauge weight voting can only be changed by users every 10 days.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It enables the incentivization of new pools, theoretically without impulse needed from the Curve team.&lt;/p&gt;
+&lt;h3 id=&#34;5-curves-rvr---governance--inter-protocol-gov&#34;&gt;5/ Curve&amp;rsquo;s RvR - Governance &amp;amp; inter-protocol gov
+&lt;/h3&gt;&lt;p&gt;The last layer of the onion lies with Curve&amp;rsquo;s governance: veCRV holders can vote on the DAO proposal and with at least 2 500 veCRV, you can submit a proposal to the DAO. So, to recap, once you hold veCRV, you:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Earn a share of the fees collected by the exchange&lt;/li&gt;
+&lt;li&gt;Can boost your own CRV streams&lt;/li&gt;
+&lt;li&gt;Through gauges, influence future CRV emission on curve pools.&lt;/li&gt;
+&lt;li&gt;And finally with the governance, you have a say in the key parameters of the system.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;While 1&amp;amp;2 is what is of interest to most-end users, &lt;strong&gt;items 3&amp;amp;4 can be incredibly valuable for other dApps, DeFi projects and protocol politicians&lt;/strong&gt;&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;From here, the possibilities are virtually endless:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;For instance, imagine a project introducing a new stablecoin. Wouldn&amp;rsquo;t it be neat for them to have governance power within Curve to eventually include it in a boosted Curve pool?&lt;/li&gt;
+&lt;li&gt;Even deeper into the onion, already &lt;strong&gt;successful DeFi projects with treasury can allocate a part of it to the CRV token to harness the benefits from all 4 items&lt;/strong&gt; - 1&amp;amp;2 to boost their treasury income streams and 3&amp;amp;4 to make their platform or service more attractive.&lt;/li&gt;
+&lt;li&gt;Another layer deeper: &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://crv.ape.tax&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Yearn&amp;rsquo;s yveCRV vault&lt;/a&gt;&lt;/strong&gt;. It offers better returns on CRV than staking yourself (~1.3x), but depositors renounce boosting and voting capacity in favor of Yearn - which can then use this extra boosting/voting capacity to enhance the yield of its vaults.&lt;/li&gt;
+&lt;li&gt;Final level of depth: imagine a crypto/DeFi PR-like service a couple years from now. I expect them to be able to &lt;strong&gt;supply other projects with proposition power&lt;/strong&gt; on the main DAOs like Curve or Aave.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;6-next-steps-for-curve&#34;&gt;6/ Next Steps for Curve
+&lt;/h3&gt;&lt;p&gt;Finally, we have to consider one last dimension on Curve, as it&amp;rsquo;s not just any DEX. Indeed, from the get-go Curve specialized into the &lt;strong&gt;swaps of pegged-assets&lt;/strong&gt; and optimized for it. It started with stablecoins only, but we now also have BTC and ETH representations too.&lt;/p&gt;
+&lt;p&gt;Thanks to the growing available liquidity, the team is now harnessing DeFi synergies (with Synthetix) to offer swaps between the different pegged assets listed on Curve, such as DAI -&amp;gt; wBTC or USDT -&amp;gt; EURS.&lt;/p&gt;
+&lt;p&gt;It provides incredible value as it covers markets that are currently not broadly available elsewhere (EURS) and enables a minimization of slippage for large trades.&lt;/p&gt;
+&lt;p&gt;To stay concise, Uniswap and Sushiswap&amp;rsquo;s bonding curves are well suited to &lt;strong&gt;support many small or average swaps, especially on large pools&lt;/strong&gt; with a low slippage. However, they are less optimal for large orders as slippage increases in proportion to the share of liquidity of the pool required by the trade.&lt;/p&gt;
+&lt;div class=&#34;notice tip&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#tip-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Tip&lt;/p&gt;&lt;p&gt;A service like &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://paraswap.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ParaSwap&lt;/a&gt;&lt;/strong&gt; helps you streamline this process &amp;amp; optimize your swap further.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;future-outlook-l2--its-incentives&#34;&gt;Future outlook: L2 &amp;amp; its incentives
+&lt;/h2&gt;&lt;p&gt;To wrap up this article, let&amp;rsquo;s not forget about the upcoming tectonic shift for the Ethereum space: the increasing availability of layer 2.&lt;/p&gt;
+&lt;p&gt;Last year, we saw the value transacted on AMM explode to the detriment of order-book based approaches. They streamlined the whole experience and made tons of sense for layer 1 so we can reasonably expect them to pave the way for L2 decentralized trading.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Loopring is already delivering live in production an AMM on L2:&lt;/strong&gt; a zk-Sync based L2 DEX with various incentives for liquidity providers. Curve has been working with Zk-Sync too, so we can reasonnably expect them to ship a live L2 product this year considering the latest developments with Zk-Sync.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/dex-value-capture/loopring.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Loopring V2 Stats&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;On the other hand, Synthetix recently rolled their Optimism L2 mainnet and the force seems strong around a Uniswap x Optimism rollout. Jokingly the other day I was saying:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Synthetix Optimism L2 is Uniswap&amp;rsquo;s testnet.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;It wouldn&amp;rsquo;t be surprising to see Uniswap&amp;rsquo;s L2 implementation rolling out within weeks or months.&lt;/p&gt;
+&lt;p&gt;While we&amp;rsquo;re at it, what about tokoenomics x L2? I expect to see &lt;strong&gt;LP incentives too migrating to L2&lt;/strong&gt;, as it&amp;rsquo;s already the case with Loopring. Synthetic too quickstarted its current limited L2 (minting/burning only) with SNX incentives.&lt;/p&gt;
+&lt;p&gt;Services that do not already have a token might have an edge here as they can incentive the L2 directly. On the other hand, the protocols that heavily incentivized their L1 already might lack firepower to match the incentives offered by projects with &amp;ldquo;L2-native&amp;rdquo; tokens.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s going to be fascinating to watch the releases of the different layer 2 and how they impact the protocols usage and tokenomics.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/dex-value-capture/defi-france-live-16.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;defi-france-live-16&#34;
+	
+	
+&gt;
+🇫🇷 If you understand spoken French:&lt;/p&gt;
+&lt;p&gt;We&amp;rsquo;re thrilled to meet 0xMaki to discuss the topic &lt;strong&gt;in French&lt;/strong&gt; this Monday on &lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=JT8N7-gqTjA&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFi France&amp;rsquo;s YouTube&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;notes--references&#34;&gt;Notes &amp;amp; References
+&lt;/h2&gt;&lt;p&gt;&lt;em&gt;🙏 Huge thanks to HHK, Charles, Thomas, Erwan, &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/phil_h&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PhilH&lt;/a&gt; &amp;amp; FrenchTony for proofreading the French version of this article and translating it integrally into English.&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;Find more info in the &lt;a class=&#34;link&#34; href=&#34;https://uniswap.org/docs/v2/advanced-topics/fees/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Uniswap V2 Documentation&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;A concept &lt;a class=&#34;link&#34; href=&#34;[https://newsletter.banklesshq.com/p/the-life-of-a-protocol-politician&#34; &gt;first theorized in the Bankless newsletter&lt;/a&gt;referring to a person or entity specializing in gaining influence over diverse decentralized protocols &amp;amp; then offering on-the-tap access to this influence as a service.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
+        <title>💦 The Yield Farmer Tier List</title>
+        <link>http://localhost:1313/p/the-yield-farmer-tier-list/</link>
+        <pubDate>Tue, 07 Jul 2020 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/the-yield-farmer-tier-list/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2020/yield-farmer-tier-list/cover.png" alt="Featured image of post 💦 The Yield Farmer Tier List" /&gt;&lt;p&gt;DeFi is like a layered yield cake. When you first walk through the door, making a deposit on Aave and seeing your balance grow puts you in awe. Shortly thereafter, through your own research or discussions with the community, you realize there is more to it &lt;strong&gt;- there could be icing on the cake too!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;There are many ways you could find several streams of yields on a given capital utilizing Ethereum&amp;rsquo;s decentralized finance. &lt;strong&gt;Today, we&amp;rsquo;ll exclude out of the box any strategy involving leverage&lt;/strong&gt; - the easiest way to achieve such a feat. There are still a lot of high-quality crops to plant, even without leverage!&lt;/p&gt;
+&lt;p&gt;Indeed, capital efficiency is increasing at a rapid pace in DeFi thanks to novel financial primitives like Compound, Balancer or Curve. It&amp;rsquo;s now possible to &lt;strong&gt;achieve up to 3 layers of returns&lt;/strong&gt;, and there are pools for any risk appetite, from pure stablecoins ones to 100% ERC-20 tokens exposure.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The Liquidity Wars are merely beginning.&lt;/strong&gt; Follow the governance of the protocol you&amp;rsquo;re invested in closely, it&amp;rsquo;s even more critical now. Meanwhile, since DeFi feels more and more like gaming, allow me to import a concept inherited from there: tier list.&lt;/p&gt;
+&lt;p&gt;In video games, tier lists are useful to navigate the different types of characters or builds. They establish both a typology and a ranking. Today, we&amp;rsquo;ll bring this concept back to DeFi to arrange the most attractive liquidity pools into coherent groups.&lt;/p&gt;
+&lt;h2 id=&#34;before-we-start&#34;&gt;BEFORE WE START
+&lt;/h2&gt;&lt;p&gt;ℹ Please note - This content assumes a basic understanding of the world of Ethereum&amp;rsquo;s decentralized finance. Refer to my earlier articles if that&amp;rsquo;s the first time you&amp;rsquo;ve heard of it:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;This piece will not cover basic DeFi investment strategies, detailed in the &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/definancial-services-guide.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;📖 DeFinancial Services Guide&lt;/a&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;For more information regarding the tools you can use to implement and manage these strategies, please check &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/defi-farmer-toolbox.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🧰 The DeFinancial Farming Toolbox&lt;/a&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;This is not investment advice and reading this document as anything more than a structured list of incentivised liquidity pools would be a misrepresentation.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;suggest-yours&#34;&gt;Suggest yours!
+&lt;/h3&gt;&lt;p&gt;This post can be a living document. Feel free to suggest incentivised pools I&amp;rsquo;ve missed. If you are familiar with Github, &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/TokenBrice/blog/blob/master/content/posts/2020/yield-farmer-tier-list.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;you can do a pull request&lt;/a&gt;&lt;/strong&gt;. If not, just reach out and share documentation about the pool and its incentive program.&lt;/p&gt;
+&lt;p&gt;Finally, allow me to make the distinction between:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Liquidity Mining&lt;/strong&gt;: a base action of the platform (such as supply liquidity) is rewarded with the platform native token (ex: BAL on Balancer)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Liquidity Incentive Programs&lt;/strong&gt;: a specific liquidity pool is eligible for extra rewards, through staking of the pool token or weekly distributions (ex: Wednesday for JRT Balancer pools).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The good news is: you can stack both! Let&amp;rsquo;s see how.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/yield-farmer-tier-list/yield-farmer-tier-list.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;TokenBrice-Yield-Farmer-Tier-List-DeFi&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;tier-1-defi-yield-trifecta&#34;&gt;Tier 1: DeFi Yield Trifecta
+&lt;/h2&gt;&lt;p&gt;As I walk you through the main earning-staking opportunities I&amp;rsquo;ve found, I will also share broader considerations about providing liquidity on AMMs, such as thoughts on the pool weighting to help you make informed decisions.&lt;/p&gt;
+&lt;p&gt;So before we chase our wildest dream, the highly-thought-after yield trifecta, let&amp;rsquo;s take a minute to consider what it looks like. When it comes to yields, the cream of the crop is usually an incentivised &amp;amp; balanced Balancer pool with low fees, meaning it&amp;rsquo;s eligible for the maximum amount of BAL liquidity mining rewards, on top of the liquidity incentive program (&amp;amp; the commissions on swaps).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;There is exactly one Balancer pool matching these criteria with 2 stablecoins&lt;/strong&gt; to my knowledge, so this is where we start:&lt;/p&gt;
+&lt;h3 id=&#34;the-50-musd--50-usdc-balancer-pool&#34;&gt;The 50% mUSD / 50% USDC Balancer Pool
+&lt;/h3&gt;&lt;p&gt;mstable&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; is a meta-stablecoin. You can go on their app to lock your USDT, USDC, DAI &amp;amp; TUSD to mint mUSD. Once you own mUSD, several earning opportunities are available.&lt;/p&gt;
+&lt;p&gt;The most direct one is the &amp;ldquo;Save&amp;rdquo; feature on the mStable app. It will lock your mStable tokens and generate a return through lending.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/yield-farmer-tier-list/mstable.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;mstable&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Now that&amp;rsquo;s a simple yield and won&amp;rsquo;t deserve a feature here by itself.&lt;/p&gt;
+&lt;p&gt;However, it&amp;rsquo;s the perfect introduction to the Balancer mUSD/USDC pool, our first trifecta of the day. What&amp;rsquo;s a trifecta you ask? Pretty simple: 3 layers of yields:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Commissions on swaps&lt;/strong&gt;: It&amp;rsquo;s a liquidity pool facilitating trades and earning a fee.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;BAL liquidity mining&lt;/strong&gt;- this is a balanced 50/50 pool with low fee (5 bps) earning the maximum amount of BAL possible (mining factor = 1).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://medium.com/mstable/introducing-meta-mta-mstables-protocol-token-6e1032291ccf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MTA liquidity incentives&lt;/a&gt;&lt;/strong&gt; program on this pool.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;EXPOSURE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;REWARDS IN&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;AVAILABLE SINCE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L1 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L2 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L3 APY / INCENTIVE BUDGET&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;50% USDC&lt;br/&gt;50 %mUSD&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Native&lt;br/&gt;BAL&lt;br/&gt;MTA&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;June 26 2020&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Variable&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;?? BAL&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;50 000 MTA/week&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;em&gt;*Native rewards = earned in the same token as the exposure (usually a commission fee taken on trades facilitated)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Please note: The respective ratios of four stablecoins backing the mUSD (half of the exposure) can vary, go to the m stable app&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; to view it:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/yield-farmer-tier-list/musd.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;mstable-asset-distribution&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;This pool is particularly attractive because the exposure is 100% stablecoin-based, despite a very solid yield thanks to the max BAL mining ratio + the incentive program paid in the highly anticipated MTA token.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note/Warning: 💬 Discussions are ongoing in the &lt;a class=&#34;link&#34; href=&#34;https://discord.com/invite/ARJWaeF&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Balancer Discord&lt;/a&gt; governance channel to lower the BAL mining ratio on this pool. It was lowered to 0.1 for tokens tracking the same asset.&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;9010-incentivised-balancer-pools&#34;&gt;90/10 Incentivised Balancer Pools
+&lt;/h3&gt;&lt;h4 id=&#34;90-snx--10-usdc-balancer-pool&#34;&gt;90% SNX / 10% USDC Balancer Pool
+&lt;/h4&gt;&lt;p&gt;Feel like you missed out on SNX rise? For medium capitals (&amp;lt; 5000 SNX) it makes little sense to stake if you account for the gas costs. This pool is a great alternative for a bullish SNX exposure with great yield potential.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;EXPOSURE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;REWARDS IN&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;AVAILABLE SINCE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L1 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L2 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L3 APY / INCENTIVE BUDGET&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;90% SNX&lt;br/&gt;10% USDC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Native&lt;br/&gt;BAL&lt;br/&gt;SNX&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;5 Jun 2020&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Variable&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;23 % for a $10 BAL&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DONE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Here, since the pool is heavily skewed towards SNX, the BAL mining is not maximized. Remember the factor of 1 for the BAL mining on the mUSD pool? Here it&amp;rsquo;s 0.36: you get about a third of the amount of BAL you would mine in a 50/50 &amp;amp; low-fee pool.&lt;/p&gt;
+&lt;p&gt;However, 90/10 pools are great to heavily minimize impermanent losses risk if you believe the token has a lot of upside potential.&lt;/p&gt;
+&lt;p&gt;The &lt;a class=&#34;link&#34; href=&#34;https://blog.synthetix.io/balancer-snx-usdc-liquidity-trial/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;incentive program on this pool is now over&lt;/a&gt;, so it&amp;rsquo;s back to being a regular twofecta pool.&lt;/p&gt;
+&lt;h4 id=&#34;jrt-balancer-pools&#34;&gt;JRT Balancer Pools
+&lt;/h4&gt;&lt;p&gt;Jarvis Network offers an incentive program over three pools, all 90 % JRT + 10% DAI, ETH or USDC. The reward model is similar to the previous pool:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;EXPOSURE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;REWARDS IN&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;AVAILABLE SINCE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L1 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L2 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L3 APY / INCENTIVE BUDGET&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;90% JRT&lt;br/&gt;10% ETH, DAI or USDC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Native&lt;br/&gt;BAL&lt;br/&gt;JRT&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Jun 17 2020&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Variable&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;23 % for a $10 BAL&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;70 000 JRT/week&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://medium.com/jarvis-network/liquidity-program-with-balancer-db23aa0ce10&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;📖 Incentive Program Introduction&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Please note: JRT price&amp;rsquo;s action has been quite explosive lately. DYOR.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;⚡ Update (&lt;em&gt;July 08&lt;/em&gt;): JRT rewards are now distributed to ANY Balancer pool (whitelisted):&lt;/p&gt;
+&lt;h3 id=&#34;ampl-geyser&#34;&gt;AMPL Geyser
+&lt;/h3&gt;&lt;p&gt;AMPL is a beast of its own, so I invite you to read more on it &lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; before you dive into this one. Here, the exposure is 50 % ETH and 50 % AMPL. On top of your commissions, you&amp;rsquo;re eligible for extra AMPL &amp;amp; as well as the AMPL rebalances (on your AMPL = 50% of the exposure).&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;EXPOSURE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;REWARDS IN&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;AVAILABLE SINCE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L1 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L2 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L3 APY / INCENTIVE BUDGET&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;50 % ETH&lt;br/&gt;50 % AMPL&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Native&lt;br/&gt;AMPL&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;April 21st 2020&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Variable&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Variable - AMPL Rebalances&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;36 911 AMPL/month&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.ampltalk.org/app/forum/ampl-geyser-19/topic/about-the-geyser-21/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;📖 AMPL Geyser Incentive Program Introduction&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Rebalances compounded impact can be hard to calculate. This spreadsheet recently emerged to &lt;a class=&#34;link&#34; href=&#34;https://www.publish0x.com/canuhodl/ampleforth-dollar-ampl-calculator-spreadsheet-for-investors-xmdjxvy&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🧮 help AMPL investors calculate the impact of the rebalances.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/yield-farmer-tier-list/ampl-geyser.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;ampleforth-geyser&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;The Geyser code is audited&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt; and insured on Nexus Mutual&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;. The reward calculation here takes into account the time staked - so this pool is best utilised over the long-term.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;tier-2-how-many-fecta-can-there-be&#34;&gt;Tier 2: How many fecta can there be?
+&lt;/h2&gt;&lt;h3 id=&#34;synthetix-incentivised-pools&#34;&gt;Synthetix Incentivised Pools
+&lt;/h3&gt;&lt;p&gt;Synthetix has been pioneering liquidity incentive programs with the early Uniswap sETH/ETH pool (+SNX incentives). Synthetic pools are still highly attractive, we&amp;rsquo;ll consider the two main ones of interest for yield stakers.&lt;/p&gt;
+&lt;p&gt;Please note the Curve&amp;rsquo;s token (CRV), one of the liquidity mining rewards of both pools presented below, is not live yet. &lt;a class=&#34;link&#34; href=&#34;https://github.com/curvefi/curve-dao-contracts/blob/master/doc/readme.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;CRV currently documented mechanisms&lt;/a&gt; can change before the launch.&lt;/p&gt;
+&lt;h3 id=&#34;the-og-curve-susd-pool&#34;&gt;The OG: Curve sUSD Pool
+&lt;/h3&gt;&lt;p&gt;Just like the mUSD/USDC pool, this pool exposure is 100% in stablecoins, yet the rewards are paid in SNX.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;EXPOSURE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;REWARDS IN&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;AVAILABLE SINCE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L1 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L2 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L3 APY / INCENTIVE BUDGET&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;31.58 % USDT&lt;br/&gt;30.67% USDC&lt;br/&gt;24.62% suSD&lt;br/&gt;13.13% DAI&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Native&lt;br/&gt;SNX&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Aprill 22 2020&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;~5 %&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;CRV (not live yet)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;48 000 SNX / week&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.synthetix.io/new-curve-pool-launch/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;📖Incentive Program Introduction&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This pool is one of the earliest liquidity mining programs there is yet still quite competitive. If you&amp;rsquo;ve read my previous guides, you know about this already&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;the-btc-og-variant-curve-renbtcsbtcwbtc&#34;&gt;The BTC-OG Variant: Curve renBTC/sBTC/wBTC
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/yield-farmer-tier-list/curve-btc.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;curve-synthetix-balancer-ren-btc-pool&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;This is similar to the first one, with different tokens. Here, your price exposure is 100% in BTC, while your liquidity mining rewards are made of four hot DeFi tokens: BAL, SNX, REN &amp;amp; CRV.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;EXPOSURE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;REWARDS IN&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;AVAILABLE SINCE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L1 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L2 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L3 APY / INCENTIVE BUDGET&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;44.54% renBTC&lt;br/&gt;32.21% wBTC&lt;br/&gt;23.26% sBTC&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Native&lt;br/&gt;SNX, REN, BAL &amp;amp; CRV&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;June 19 2020&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;~5 %&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;BAL&lt;br/&gt;CRV&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;10 000 SNX/week&lt;br/&gt;25 000 REN/week&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.synthetix.io/btc-yield-farming-pool/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;📖Incentive Program Introduction&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Because these two Curve pools have full exposure in a stable (USD) or relatively stable assets (BTC), they are a great resource to &amp;ldquo;park&amp;rdquo; profits realised on more risky ERC-20 based pools. You still &lt;strong&gt;maintain a decent APR on the base asset (~3-5%) while having a nice upside potential on the liquidity mining rewards&lt;/strong&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;tier-3-twofecta-are-nice-too&#34;&gt;Tier 3: Twofecta are nice too!
+&lt;/h2&gt;&lt;h3 id=&#34;your-favorite-erc-20-balancer-pool&#34;&gt;Your Favorite ERC-20 Balancer Pool
+&lt;/h3&gt;&lt;p&gt;The Balancer exchange comes with built-in BAL mining incentives. They apply to any pool involving whitelisted tokens. Therefore, any Balancer pool is already a twofecta: you&amp;rsquo;re eligible for commissions on the swaps facilitated + the BAL mining rewards. Please keep in mind that the pool weighting (ideally balanced) and fees (ideally low) affect the BAL mining ratio. The table below assume a ratio of 1, observed for instance on 50/50 pairs with 5 bps fees (0.05%).&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s look at the return profile generic Balancer pools:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;EXPOSURE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;REWARDS IN&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;AVAILABLE SINCE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L1 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L2 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L3 APY / INCENTIVE BUDGET&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;50% wETH&lt;br/&gt;50% ERC20&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Native&lt;br/&gt;BAL&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;June&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Variable&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;~60% for a $10 BAL&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Beyond Balancer, Liquidity incentives programs are getting into fashion, expect more to be revealed, as well as liquidity mining programs. You can &lt;strong&gt;use a service like &lt;a class=&#34;link&#34; href=&#34;https://pools.fyi/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Pool FYI&lt;/a&gt; which now has an &amp;ldquo;Incentivised&amp;rdquo; tag to check for the best opportunities&lt;/strong&gt;. For Balancer, use &lt;a class=&#34;link&#34; href=&#34;http://www.predictions.exchange/balancer/%5B%5D&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;this website&lt;/a&gt; to explore the pools and check their BAL mining factor.&lt;/p&gt;
+&lt;h3 id=&#34;compound-deposit&#34;&gt;Compound Deposit
+&lt;/h3&gt;&lt;p&gt;Since the launch of COMP, a Compound deposit could also be considered a twofecta. Indeed, on top of the base APR the deposit is earning, users are also now eligible for COMP rewards. You can &lt;a class=&#34;link&#34; href=&#34;http://www.predictions.exchange/compound/None&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;calculate them here&lt;/a&gt;.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;EXPOSURE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;REWARDS IN&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;AVAILABLE SINCE&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L1 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L2 APY&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L3 APY / INCENTIVE BUDGET&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Depends&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Native&lt;br/&gt;COMP&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;June&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Variable&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Variable in COMP&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;-risk-breakdown---read-this&#34;&gt;⚠ RISK BREAKDOWN - READ THIS
+&lt;/h2&gt;&lt;p&gt;Each pool comes with its own sets of risk, here&amp;rsquo;s an overview to help you account for them. When you invest in a liquidity pool, you&amp;rsquo;re assuming the following risk:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;/ALWAYS/ The base Ethereum network risk (51% attack, etc.)&lt;/li&gt;
+&lt;li&gt;/ALWAYS/ You&amp;rsquo;re also assuming the risk carried by the token contracts of any token involved in the pool.&lt;/li&gt;
+&lt;li&gt;/ALWAYS/ As well as the risk involved to the exchange&amp;rsquo;s contracts, which can be hacked or faulty to begin with.&lt;/li&gt;
+&lt;li&gt;/ALWAYS/ An economic risk, the impermanent losses (loss vs raw holding) - that will be heavily affected by your token choices &amp;amp; the pool weighting.&lt;/li&gt;
+&lt;li&gt;/WHILE ENTERING &amp;amp; EXITING/ The risks associated with any service you use, such as &lt;a class=&#34;link&#34; href=&#34;https://zapper.fi&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Zapper.fi&lt;/a&gt;, for the time of the transaction.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I will walk you through the risk profile of one of the pools to help you model it: the mUSD/USDC pool. Just like the returns, the risk profile is a cake with many layers:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;I won&amp;rsquo;t develop on the Ethereum network risk&lt;/li&gt;
+&lt;li&gt;Here, we have two tokens in the pool: mUSD &amp;amp; USDC. To compute the risk, we need to look at what&amp;rsquo;s backing mUSD - unwrapping, we&amp;rsquo;re exposed to: USDC, USDT, TUSD. Each of these tokens carry their own risks, since for instance &lt;a class=&#34;link&#34; href=&#34;https://support.usdc.circle.com/hc/en-us/articles/360001314526-Circle-USDC-Risk-Factors&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Circle can freeze USDC balances of any account&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Here, we&amp;rsquo;re using Balancer. Their contracts were audited by Trail of Bits recently&lt;sup id=&#34;fnref1:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;. Still, the protocol is quite recent. We&amp;rsquo;re also relying on mStable contracts for the mUSD.&lt;/li&gt;
+&lt;li&gt;We&amp;rsquo;re lucky on the impermanent losses - considering the pool involves two stablecoins, the risk is minimized.&lt;/li&gt;
+&lt;li&gt;It all depends on the tools you&amp;rsquo;re using here. Bear in mind that you&amp;rsquo;re also assuming a risk associated with mUSD/Mstable.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Happy farming!&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;Thanks to &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/gregoireljda&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Grégoire&lt;/a&gt; for his help proofreading this article.&lt;/em&gt;
+&lt;em&gt;Thanks to &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/otherbright&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Jon&lt;/a&gt; for his careful review of the FR translation.&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://mstable.org&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;mStable&lt;/a&gt; is a &amp;ldquo;meta stablecoin&amp;rdquo; aggregating several stablecoins together (USDC, USDT, TUSD &amp;amp; DAI) under the mUSD token, while the underlying supply is mobilised similarly to Curve (lending and liquidity providing).&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;You can view the current mUSD underlying distribution on the &lt;a class=&#34;link&#34; href=&#34;https://app.mstable.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;mStable app&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://ampleforth.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Ampleforth (AMPL)&lt;/a&gt; is &amp;ldquo;adaptive money built on sound economics&amp;rdquo;. It intends to provide a new type of asset which price movement is uncorrelated from any other.&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/ampleforth/ampleforth-audits/blob/master/token-geyser/v1.0.0/CertiK_Verification_Report.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Certik - Audit Report 28 Feb 2020&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref1:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:5&#34;&gt;
+&lt;p&gt;There are currently 51 643 NXM staked on the AMPL Geyser Contract &lt;a class=&#34;link&#34; href=&#34;https://etherscan.io/address/0xd36132e0c1141b26e62733e018f12eb38a7b7678&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;code&gt;0xd36132e0c1141b26e62733e018f12eb38a7b7678&lt;/code&gt;&lt;/a&gt;. &lt;img src=&#34;http://localhost:1313/img/2020/yield-farmer-tier-list/ampl-geyser-insurance.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;cover-Yield-Farmer-Tier-List&#34;
+	
+	
+&gt;&amp;#160;&lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:6&#34;&gt;
+&lt;p&gt;The Curve sUSD pool was already mentioned as part of a DeFi investment strategy built on an SNX stake in the &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/posts/2020/definancial-services-guide/#5-a-the-synthetixcurve-yieldstack-aka-the-4-steaks-yieldburger&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFinancial Service Guide&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

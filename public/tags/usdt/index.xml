@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>USDT on TokenBrice</title>
+        <link>http://localhost:1313/tags/usdt/</link>
+        <description>Recent content in USDT on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Sat, 16 Jan 2021 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/usdt/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>⚖ The tale of two seigniorage models: Basis vs ESD</title>
+        <link>http://localhost:1313/p/the-tale-of-two-seigniorage-models-basis-vs-esd/</link>
+        <pubDate>Sat, 16 Jan 2021 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/the-tale-of-two-seigniorage-models-basis-vs-esd/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2021/seigniorage-basis-vs-esd/cover.png" alt="Featured image of post ⚖ The tale of two seigniorage models: Basis vs ESD" /&gt;&lt;p&gt;A few weeks ago, I shared my first post on algorithmic stablecoins highlighting the key characteristics that made such projects interesting in my eyes. In this piece, we&amp;rsquo;ll go deeper into the topics, with a &lt;strong&gt;comparative analysis of the two main models&lt;/strong&gt;: the Basis model and the ESD model.&lt;/p&gt;
+&lt;p&gt;Both are successfully used by the projects bearing their names but also a sizable trail of forks, more or less relevant. As the field of algorithmic stablecoin grows, there seems to be a &lt;strong&gt;consensus around these two models, now used as a template&lt;/strong&gt; to quickstart newer projects trying various alterations, such as pegging the system to another currency other than the dollar, like gold or the euro.&lt;/p&gt;
+&lt;p&gt;The plethora of existing forks enables the latest ones to pick and build upon the existing or pending improvements of the live systems, further leapfrogging the innovation. But before you dive into the arcane of the latest gold elastic token, it&amp;rsquo;s worth making sure you understand the underlying models behind these projects. That&amp;rsquo;s why we are here today.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;1-ample-bases-for-elastic-currencies&#34;&gt;1. Ample Bases for Elastic Currencies
+&lt;/h2&gt;&lt;p&gt;To put it simply, both models are building on the previous Ampleforth model which pioneered &amp;ldquo;elastic currencies&amp;rdquo; that have a supply reacting to the markets&amp;rsquo; conditions. The main issue with Ampleforth is that everyone is exposed to the rebases, hindering the usability of the AMPL as a medium of exchange.&lt;/p&gt;
+&lt;p&gt;So the two new iterations address that with a different take:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;With the seigniorage model, &lt;strong&gt;the rebase mechanism is split into a different token&lt;/strong&gt;, the share - paving the way for a more usable stablecoin.&lt;/li&gt;
+&lt;li&gt;In the ESD model, there is still one token only but the DAO and LP lockup achieve a similar result.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Both models also introduce the mechanism of bond/coupons to &lt;strong&gt;add a positive incentive when the price is below peg&lt;/strong&gt;, helping to further stabilize the stablecoin.&lt;/p&gt;
+&lt;p&gt;So today, after we brush up on the basics, we will compare the Basis model (forked by MithCash, OneCoin, and more) to the ESD model (used in DSD, ZAI, DAIQ, etc.).&lt;/p&gt;
+&lt;p&gt;I will not explain the models in-depth but this table recaps the main differences:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;/&lt;/th&gt;
+&lt;th&gt;BASIS MODEL (Seigniorage)&lt;/th&gt;
+&lt;th&gt;ESD MODEL&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;TOKENS&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;BAC = stablecoin &lt;br&gt; BAS = a share of the protocol &lt;br&gt;BAB = 1 BAC claim while in expansionary phases&lt;/td&gt;
+&lt;td&gt;ESD = stablecoin &lt;br&gt; ESDS = 1 ESD claim while in expansionary phases&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;STABLECOIN LIQUIDITY&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;BAC/DAI Uniswap pair: continuous BAS incentives (1y) &lt;br&gt;No lockup&lt;/td&gt;
+&lt;td&gt;ESD/USDC ESD incentives if &amp;gt;1 &lt;br&gt;  5 epoch lockup&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;&amp;ldquo;BRING BACK TO PEG&amp;rdquo; (&amp;lt;1) MECHANISM&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Bonds (BAB): BAB = BAC(twap)^2 &lt;br&gt;  No expiration date&lt;/td&gt;
+&lt;td&gt;Coupons (ESDS) Premium-based pricing expire after 90 epochs (30 days)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;WHEN EXPANSION (&amp;gt;1), WHO GETS IT?&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Boardroom BAS stakers (once treasury has its fill)&lt;/td&gt;
+&lt;td&gt;Dynamic split between LP and DAO depending on the protocol debt&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;OTHER IMPORTANT MECHANISMS&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;BAS/DAI Uni pair with BAS incentives &lt;br&gt;BAS/DAI &amp;amp; BAC/DAI pools farmable through vaults - Harvest, Pickle, etc.&lt;/td&gt;
+&lt;td&gt;DAO auto compounds but has a long lockup&lt;br&gt;Lockups -&amp;gt; limited third party integrations&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;2--gas-efficiency-overview&#34;&gt;2. ⛽ Gas Efficiency Overview
+&lt;/h2&gt;&lt;p&gt;Before I dive into the details of each item, here&amp;rsquo;s another key part of the systems to consider if you want to partake in them: how gas efficient are they, for the user?&lt;/p&gt;
+&lt;p&gt;You&amp;rsquo;ll find here some pointers on the amount of transaction and transaction flows required to partake in different parts of the system we described, helping you assess if it would make sense for you, gas-wise.&lt;/p&gt;
+&lt;p&gt;Overall, the &lt;strong&gt;liquidity providing positions are the most transaction-intensive&lt;/strong&gt;, especially in the ESD model where you need to bound and unbound your LP tokens &amp;amp; claim rewards.&lt;/p&gt;
+&lt;h4 id=&#34;21-lp---basis-&#34;&gt;2.1. LP - Basis ⭐⭐⭐
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Entry: Stake LP token&lt;/li&gt;
+&lt;li&gt;Reward: Claim (stream)&lt;/li&gt;
+&lt;li&gt;Exit: Unstake LP token&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;22-lp---esd-&#34;&gt;2.2. LP - ESD ⭐
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Entry: Stage -&amp;gt; Bound&lt;/li&gt;
+&lt;li&gt;Reward Claim: Unstage-&amp;gt; Stage-&amp;gt; (wait 5 epochs) -&amp;gt; Claim&lt;/li&gt;
+&lt;li&gt;Exit: Unstage -&amp;gt; (wait 5 epochs) -&amp;gt; Unbound&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;On the share/DAO side, &lt;strong&gt;the flow is less transaction-heavy&lt;/strong&gt;, so it&amp;rsquo;s better for smaller holders:&lt;/p&gt;
+&lt;h4 id=&#34;23-basis---boardroom-&#34;&gt;2.3. Basis - Boardroom ⭐⭐⭐
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Entry: Stake BAS&lt;/li&gt;
+&lt;li&gt;Reward: Claim (after the end of an epoch when BAC&amp;gt;1.05)&lt;/li&gt;
+&lt;li&gt;Exit: Unstake BAS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note: During expansion phases, you can let BAC accumulate in the boardroom and claim several days of reward at once.&lt;/p&gt;
+&lt;h4 id=&#34;24-esd---dao-&#34;&gt;2.4. ESD - DAO ⭐⭐⭐⭐
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Entry: Stage ESD -&amp;gt; Bound ESD&lt;/li&gt;
+&lt;li&gt;Reward: no transaction required&lt;/li&gt;
+&lt;li&gt;Exit: Unstage ESD -&amp;gt; (wait 15 epochs) -&amp;gt; Unbound ESD&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note: During expansion phases, the rewards produced by the DAO are automatically compounded (=bounded) without action required from the user-end.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;3-comparative-algorithmic-stablecoin-analysis-seigniorage-vs-esd&#34;&gt;3. Comparative algorithmic stablecoin analysis: Seigniorage vs ESD
+&lt;/h2&gt;&lt;p&gt;You&amp;rsquo;ll find the bulk of my analysis in the following table. If you are familiar with both projects, that should be enough, else you can read the explanations for each benefit and downside right after the table.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Basis Model&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;ESD Model&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;👍Benefits&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;More liquid stablecoin pair &lt;br&gt;  Fluid share &lt;br&gt;Better coupon system&lt;br&gt;Farmable (3rd party integrations)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;More committed holders &lt;br&gt;Faster cycles: can adjust more dynamically to the markets&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;👎Downsides&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Share has limited utility when BAC&amp;lt;1 &lt;br&gt;  Share price heavily correlated to stablecoin price&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Less accessible system &lt;br&gt;  Riskier coupon system (expiration) &lt;br&gt;  Newly minted ESD batches&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice warning&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Warning&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Necessary Disclaimer: This is not financial advice&lt;/strong&gt;. I’m not qualified to provide any. It’s a mere technical analysis of two seigniorage systems implemented live in production: a farmer’s report 🚜&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Now that we are up to date on each model and their gas efficiency, let&amp;rsquo;s details their benefits and downsides:&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;31--benefits-of-the-basis-model&#34;&gt;3.1. 👍 Benefits of the Basis model
+&lt;/h3&gt;&lt;h4 id=&#34;311-more-liquid-pools&#34;&gt;3.1.1. More liquid pools
+&lt;/h4&gt;&lt;p&gt;In the Basis model, the &lt;strong&gt;BAC/DAI liquidity pool is continuously rewarded with BAS token&lt;/strong&gt;. Since the BAS reward continues even when BAC is in a contraction phase, we&amp;rsquo;re not observing the same compounded reduction of liquidity seen in contraction on the ESD model: when the ESD price is on a downtrend &amp;amp; liquidity providers are pulling out at the same time.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/seigniorage-basis-vs-esd/liquidity-esd-bac.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;liquidity-esd-bac-tokenbrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;We can see that &lt;strong&gt;ESD&amp;rsquo;s liquidity tends to be more spikey&lt;/strong&gt; while BAC&amp;rsquo;s is correlated mostly to BAC price (expected).&lt;/p&gt;
+&lt;h4 id=&#34;312-fluid-share&#34;&gt;3.1.2. Fluid share
+&lt;/h4&gt;&lt;p&gt;The share is fluid in the sense that there is currently no commitment required to be eligible for the Boardroom BAC. While this can also make the BAS price harder to stabilize, it makes the expansion-reward component of the system more broadly accessible and less game-able.&lt;/p&gt;
+&lt;h4 id=&#34;313-better-coupons&#34;&gt;3.1.3. Better Coupons
+&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;Basis Coupons (BAB - Bounds) have no expiration date&lt;/strong&gt;. They can be redeemed for 1 BAC as long as BAC is &amp;gt; 1.05. It makes buying coupons less of a gamble than on ESD where they expire.&lt;/p&gt;
+&lt;h4 id=&#34;314-third-party-integradable&#34;&gt;3.1.4. Third Party Integradable
+&lt;/h4&gt;&lt;p&gt;Rewards in the Basis model are distributed through &lt;strong&gt;standard staking contract&lt;/strong&gt;, enabling and facilitating the integration by third parties. There are already Harvest &amp;amp; Pickle vaults to streamline the farming of the BAC/DAI, BAS/DAI, MIC/USDT &amp;amp; MIS/USDT pools.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/seigniorage-basis-vs-esd/harvest.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;harvest-basis-cash-mith-cash&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;32--downsides-of-the-basis-model&#34;&gt;3.2. 👎 Downsides of the Basis model
+&lt;/h3&gt;&lt;h4 id=&#34;321-the-share-has-low-utility-when-baclt1&#34;&gt;3.2.1. The share has low utility when BAC&amp;lt;1
+&lt;/h4&gt;&lt;p&gt;The main and by far biggest weakness so far of the current implementation of the Basis model is the &lt;strong&gt;overall weak utility of the share token&lt;/strong&gt;. In expansion phases, its price is usually appreciating because of the newly minted BAC it gives access to. However, there is very little utility for BAS in contraction phases, except for its governance power. In contraction, the only potential earning option is to commit to the BAS/DAI pool for additional BAS, but it&amp;rsquo;s very risky play with a bearing BAS price action (contraction).&lt;/p&gt;
+&lt;p&gt;Several projects are already working on solutions to address this.&lt;/p&gt;
+&lt;h4 id=&#34;322-share-price-100-correlated-to-stable-price&#34;&gt;3.2.2. Share price 100% correlated to stable price
+&lt;/h4&gt;&lt;p&gt;The second downside is a direct consequence of the first. Because of the lack of utility of BAS outside of BAC in expansion, &lt;strong&gt;its price is directly correlated to the BAC price&lt;/strong&gt;. Additional utility on BAS could enable both tokens to have more independent cycles, bringing more stability overall to the model.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;33--benefits-of-the-esd-model&#34;&gt;3.3. 👍 Benefits of the ESD model
+&lt;/h3&gt;&lt;h4 id=&#34;331-more-committed-holders&#34;&gt;3.3.1. More committed holders
+&lt;/h4&gt;&lt;p&gt;In the ESD model, there is &lt;strong&gt;no access to the newly minted ESD without committing for several epochs&lt;/strong&gt;, at least 5 with the LP. It makes large holders more likely to be actively involved in the minting and stabilizing process.&lt;/p&gt;
+&lt;h4 id=&#34;332-adjust-more-dynamically-to-markets-conditions&#34;&gt;3.3.2. Adjust more dynamically to markets&amp;rsquo; conditions
+&lt;/h4&gt;&lt;p&gt;Overall, the ESD system operates on a &lt;strong&gt;timeframe three times shorter than Basis&lt;/strong&gt;, allowing for more fluid and dynamic adjustments. DSD goes even further with 2 hours epoch (= 12x Basis pace).&lt;/p&gt;
+&lt;h3 id=&#34;34--downsides-of-the-esd-model&#34;&gt;3.4. 👎 Downsides of the ESD model
+&lt;/h3&gt;&lt;h4 id=&#34;341-overall-complexity-of-the-system&#34;&gt;3.4.1. Overall complexity of the system
+&lt;/h4&gt;&lt;p&gt;Because of the additional lockups, staging, and bounding required to implement the share functionality directly at the stablecoin level, ESD-based systems tend to be more &lt;strong&gt;complex to apprehend&lt;/strong&gt;, especially for newcomers. You can even see it in the memes, where ESD/DSD players love to meme themselves as high-IQ masterminds. The coupon expiration makes the stabilization system extremely unfriendly for newcomers, which is not necessarily a bad thing per se, but see the next point.&lt;/p&gt;
+&lt;h4 id=&#34;342-weaker-coupon-incentive&#34;&gt;3.4.2. Weaker coupon incentive
+&lt;/h4&gt;&lt;p&gt;ESD coupons have an expiration date, turning the coupon system into a bit of Russian roulette. Because of this design, there are serious risks of losing all the capital committed while burning ESD for coupons, even if the ESD system sustains itself in the long run. Indeed, once ESD is burnt into coupon, the owner has &lt;strong&gt;90 epochs (~30 days) to redeem them before they expire.&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;343-newly-minted-esd-batches&#34;&gt;3.4.3. Newly minted ESD batches
+&lt;/h4&gt;&lt;p&gt;Finally, the emission logic of ESD-based systems, coupled with the lockups period tend to produce &lt;strong&gt;“raindrop epochs”&lt;/strong&gt; where most of the newly minted ESD is unlocked, which can trigger violent price action on the stablecoin price.&lt;/p&gt;
+&lt;p&gt;During the last expansion phase, the period around epoch 396 was famous and scared because most of the newly minted DSD was made transferrable over a very short window:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/seigniorage-basis-vs-esd/dsd-raindrop.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;DSD-epoch-396-397-tokenbrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Yes this is DSD, but similar patterns are observed on ESD. It&amp;rsquo;s due to the DAO lockups and emission schedule.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;4-the-algostable-toolbox&#34;&gt;4. The Algostable Toolbox
+&lt;/h2&gt;&lt;p&gt;Before I let you go, here&amp;rsquo;s a quick overview of the main tools useful to monitor and manage positions for all four projects. We&amp;rsquo;re lucky! There are some amazing community-build tools made to help you track algorithmic stablecoins.&lt;/p&gt;
+&lt;div class=&#34;notice tip&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#tip-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Tip&lt;/p&gt;&lt;p&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://vfat.tools/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Vfat in particular&lt;/a&gt;&lt;/strong&gt; has been super reactive updating his tracking and management tools for the newer projects. It even includes a &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://vfat.tools/seigniorage/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;seigniorage tokens overview&lt;/a&gt;&lt;/strong&gt; now:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/seigniorage-basis-vs-esd/vfat.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;vfat-seigniorage-overview&#34;
+	
+	
+&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;For ESD, your main dashboard is &lt;a class=&#34;link&#34; href=&#34;https://esd.tools/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ESDTools&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;For DSD, &lt;a class=&#34;link&#34; href=&#34;https://dsd.tools/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DSDTools&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;For Basis Cash, &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://bc.tools/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;BCTools&lt;/a&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can use &lt;a class=&#34;link&#34; href=&#34;https://duneanalytics.com/tongnk/esd_1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;this dashboard to track the release of newly minted ESD and DSD&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Finally, all four projects are supported in both &lt;a class=&#34;link&#34; href=&#34;https://zapper.fi/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Zapper&lt;/a&gt; and &lt;a class=&#34;link&#34; href=&#34;https://debank.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeBank&lt;/a&gt; to track your investments. You can also use &lt;a class=&#34;link&#34; href=&#34;https://pickle.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Pickle&lt;/a&gt; or &lt;a class=&#34;link&#34; href=&#34;https://harvest.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Harvest&lt;/a&gt; to manage your position in the BAC/DAI, BAS/DAI, MIC/USDT, and MIS/USDT pools.&lt;/p&gt;
+&lt;h3 id=&#34;41-additional-resources&#34;&gt;4.1. Additional Resources
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;To learn more about the context behind algorithmic stablecoins, feel free to &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/algorithmic-stablecoins.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;read my previous article on the topic&lt;/a&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;To learn more, French-speaker will enjoy this &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=TuenkIZZEq0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🇫🇷 50 min video explainer of both models&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;English speakers can explore further with this extensive research/recap piece published on Derebit: &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://insights.deribit.com/market-research/stability-elasticity-and-reflexivity-a-deep-dive-into-algorithmic-stablecoins/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Stability, Elasticity, and Reflexivity: A Deep Dive into Algorithmic Stablecoins&lt;/a&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>The state &amp; future of algorithmic stablecoins</title>
+        <link>http://localhost:1313/p/the-state-future-of-algorithmic-stablecoins/</link>
+        <pubDate>Mon, 28 Dec 2020 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/the-state-future-of-algorithmic-stablecoins/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2020/algorithmic-stablecoins/cover.png" alt="Featured image of post The state &amp; future of algorithmic stablecoins" /&gt;&lt;p&gt;Since the beginning of December, a new trend has been shaping up in DeFi: algorithmic stablecoins. Several projects launched and saw significant growth, attracting even more interest for this subset of the space.&lt;/p&gt;
+&lt;p&gt;Before we dive into what they are and what they entail, let&amp;rsquo;s first discuss the addressable markets. Stablecoins on Ethereum are massive: they are around 20B USDT circulating, 3.5B USDC &amp;amp; 1B DAI. As you can see, right now most of the volume is served by stablecoins requiring some forms of trust, such as &lt;strong&gt;USDC or USDT: the emitting company has the power to freeze assets and manipulate balances.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Maker explored another approach with DAI that has significantly fewer compromises - however, the scalability is lowered. Besides, it&amp;rsquo;s hard to consider DAI &amp;ldquo;sufficiently trustless&amp;rdquo; today when the majority of the collaterals used to mint it are not (USDC, wBTC, TUSD, etc.)&lt;/p&gt;
+&lt;p&gt;So the recap here would be that so far, there is &lt;strong&gt;an obvious unsatisfied demand&lt;/strong&gt; in stablecoin - the ones that scaled did it with significant compromises, which enabled them to satisfy markets despite being services requiring trust, and more or less worthy of it (especially USDT).&lt;/p&gt;
+&lt;p&gt;The reason I&amp;rsquo;m writing this piece today is that after following developments on the stablecoin space for years - it seems like we&amp;rsquo;re reaching an exciting breakthrough with a new generation of stablecoins able to offer &lt;strong&gt;both scalability and credible trustlessness&lt;/strong&gt;. The topic is neither simple nor easily accessible, especially for newcomers. I&amp;rsquo;ll do my best to walk you through the thought process step by step.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;why-do-we-need-uncompromisingly-trustless-stablecoins&#34;&gt;Why do we need uncompromisingly trustless stablecoins?
+&lt;/h3&gt;&lt;p&gt;Before we dive into what project does what to what end, let&amp;rsquo;s take another step back. We&amp;rsquo;ve established that there is a significant demand for stablecoins, and none of the current leading offers are sufficiently trustless. But what does it mean exactly?&lt;/p&gt;
+&lt;p&gt;Simply put, &lt;strong&gt;trustless means that the whole system does not require any central point of trust to operate smoothly&lt;/strong&gt;. It&amp;rsquo;s often mentioned with &amp;ldquo;censorship resistance&amp;rdquo;, a different property that stems from trustlessness. So from a practical perspective, here are some question to help you assess trustlessness: the more permissive the permissions, the less trustless the project tend to be:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Can token balances be seized or frozen?&lt;/li&gt;
+&lt;li&gt;Can the protocol&amp;rsquo;s code or parameters be updated? In which conditions? By who?&lt;/li&gt;
+&lt;li&gt;Is the protocol dependant on 3rd-party services, such as price feed (oracle) that could be manipulated?&lt;/li&gt;
+&lt;li&gt;Who/what can print new tokens? Is that user-initiated (someone takes an action) or protocol initiated (a decision the protocol makes based on given parameters)?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The last question is particularly insightful, as it highlights a core component of algorithmic stablecoins: &lt;strong&gt;their &amp;ldquo;central bank&amp;rdquo; is a smart contract&lt;/strong&gt; — no one controls it, it simply reacts to the system parameters. We&amp;rsquo;ll dive more into this right below.&lt;/p&gt;
+&lt;p&gt;So with this piece, we&amp;rsquo;ll examine the main models available: Ampleforth, Basis Cash, Empty Set Dollar, and Dynamic Set Dollar. I&amp;rsquo;ll not dive into the history of the space and the specificities of each model, feel free to check this article from Deribit Insights if you need more context:&lt;/p&gt;
+&lt;p&gt;👉 &lt;a class=&#34;link&#34; href=&#34;https://insights.deribit.com/market-research/stability-elasticity-and-reflexivity-a-deep-dive-into-algorithmic-stablecoins/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Stability, Elasticity, and Reflexivity: A Deep Dive into Algorithmic Stablecoins&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;So instead of diving into each system&amp;rsquo;s details, I&amp;rsquo;ll draw &lt;strong&gt;a sketch showing the core principles this generation of stablecoin is built upon&lt;/strong&gt;, based on the common parameters and design approaches shared in all projects.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;central-smart-contract&#34;&gt;Central Smart Contract
+&lt;/h3&gt;&lt;p&gt;The first interesting dimension is the &amp;ldquo;central bank&amp;rdquo; of the system - aka who/what can print new tokens and under what conditions? &lt;strong&gt;USDC &amp;amp; USDT pretty much replicate a central bank&lt;/strong&gt; - one entity is in charge of the project and emitting new tokens.&lt;/p&gt;
+&lt;p&gt;Since Maker is just a smart contract enabling its users to mint DAI from certain collaterals, the approach is different here. Essentially &lt;strong&gt;Maker/DAI enables you to be your own central bank&lt;/strong&gt;. So the central bank of Maker is a smart contract, but it requires human input to mint DAI.&lt;/p&gt;
+&lt;p&gt;The algorithmic stablecoins go even further, as &lt;strong&gt;the human input is removed from the minting process.&lt;/strong&gt; In these systems, no one has the capacity to mint tokens - only the smart contract operating it can. It&amp;rsquo;s very elegant and minimal, but it requires a carefully designed set of incentives to make sure the stablecoin will eventually hedge towards its peg. To put it simply, &lt;strong&gt;with algorithmic stablecoins, the central bank is an autonomous smart contract.&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;an-army-of-stabilizers&#34;&gt;An Army of Stabilizers
+&lt;/h3&gt;&lt;p&gt;With algorithmic stablecoins, especially in their early days, peg breaks are frequent. To push the stablecoin back to the peg, the protocols have different kinds of incentives.&lt;/p&gt;
+&lt;p&gt;When the stablecoin is worth over $1, &lt;strong&gt;the protocol mints new tokens and distribute them as an incentive&lt;/strong&gt; to users providing liquidity or locking their token, which helps to push the price back down.&lt;/p&gt;
+&lt;p&gt;When the stablecoin trades below $1, the coupons (or bond) system kicks in: &lt;strong&gt;users can burn their stablecoins for a coupon&lt;/strong&gt; representing it + a premium. However, they will only be able to redeem the coupon once the price is back over the dollar.&lt;/p&gt;
+&lt;p&gt;As you can see, at a high level, these mechanisms are simple. They have intricacies that you need to master if you want to partake in the system. &lt;strong&gt;Users understanding them and following them can help the protocol stabilize&lt;/strong&gt;, and if it does they might earn in the process. So these simple rules lead to the emergence of an army of stabilizers, who make use of all the mechanisms to stabilize the price.&lt;/p&gt;
+&lt;p&gt;This design pushes both game theory and the meme-game to another level:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/algorithmic-stablecoins/dsd-meme.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;DSD Meme&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;aggressive-expansion-phase&#34;&gt;Aggressive Expansion Phase
+&lt;/h3&gt;&lt;p&gt;Since the supply of algorithmic stablecoin is elastic, their mechanism is quickly battle-tested. Indeed, at launch, the circulating supply of the stablecoin is usually low and the attractive incentives create a lot of demand.&lt;/p&gt;
+&lt;p&gt;For instance, &lt;strong&gt;Basis Cash launched with 50 000 BAC tokens&lt;/strong&gt; distributed to the first stakers. Roughly a month after, there are now &lt;strong&gt;40M BAC circulating&lt;/strong&gt;: they were produced because BAC has been trading &amp;gt;$1 most days since the launch. So far, there was no phase where BAC&amp;rsquo;s TWAP &amp;lt; $1, so the Basis&amp;rsquo; coupon system (BAB) has not been tested yet.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice info&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#info-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Info&lt;/p&gt;&lt;p&gt;Expansion/Contraction are phased in &amp;ldquo;epochs&amp;rdquo;. Basis Cash has 24h epoch. ESD is 8h and DSD is 2h.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;On the other hand, ESD and DSD already saw several cycles of expansion and contraction each, with the protocol operating as intended:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/algorithmic-stablecoins/dsd-mktcap.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;DSD Market Cap over the last 7 days&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;harnessing-defi-composability&#34;&gt;Harnessing DeFi composability
+&lt;/h3&gt;&lt;p&gt;Another key principle of algorithmic stablecoins is composability. We often think of it as &amp;ldquo;how can I plug my finished product/service into others?&amp;rdquo;. These projects go much further, as &lt;strong&gt;they use other protocols like Uniswap as a central part of their system.&lt;/strong&gt; Basis, ESD and DSD all have three main components:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;An internal locking/staking mechanism for expansion phases (DAO or Boardroom)&lt;/li&gt;
+&lt;li&gt;A burn&amp;amp;redeem mechanism for contraction phases&lt;/li&gt;
+&lt;li&gt;A Uniswap pair (/USDC or /DAI)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Their very structure demonstrates an understanding of DeFi and its composability. By placing the Uniswap-pair(s) at the core of the protocol, it helps on so many levels - since &lt;strong&gt;Uniswap is staple DeFi users are familiar with.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;While Uniswap is the main pool, the liquidity on other DEXes is increasingly looked at. With the launch of Omakase, Sushi added two new incentivized algorithmic stablecoin pools: ESD/ETH &amp;amp; DSD/USDC.&lt;/p&gt;
+&lt;p&gt;Composability is key for algorithmic stablecoins and several projects are already taking steps to get more integrated within the ecosystem. Within the next few months, we should see the next steps of this with the arrival of some algorithmic stablecoin as collateral on lending platforms.&lt;/p&gt;
+&lt;h3 id=&#34;oracle-minimalism&#34;&gt;Oracle Minimalism
+&lt;/h3&gt;&lt;p&gt;Oracle are used as a base parameter in the algorithmic stablecoin system:: they are the &lt;strong&gt;source of truth for the price of the stablecoin&lt;/strong&gt;. Making sure the oracle is resilient and cannot be gamed is critical.&lt;/p&gt;
+&lt;p&gt;To do so, the previous generation of projects, especially Maker, tended to overengineer things. In the early days, Maker&amp;rsquo;s input parameter was almost the pure &amp;amp; raw price of ETH. However, to make the system less prone to &amp;ldquo;flash liquidations&amp;rdquo;, Maker built their own oracle, and use several delays and averages with the liquidation price to &lt;strong&gt;add some inertia to their system&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;On the other hand, as we&amp;rsquo;ve seen before our algorithmic stablecoins tend to be minimalist and harness the composability of DeFi. &lt;strong&gt;With their Uniswap pairs, they already have a decent price feed with significant liquidity, making it hard to manipulate&lt;/strong&gt;. So the Uniswap price is used as the based, but generally computed as a TWAP (Time Weighted Average Price) to avoid price manipulations right before rebases.&lt;/p&gt;
+&lt;p&gt;While being minimalist, the systems are efficient and elegant: as these stablecoins projects grow, so should their liquidity on Uniswap, making the oracle more resilient and the price harder to manipulate.&lt;/p&gt;
+&lt;p&gt;I for one am excited as to where this subset of the space is heading. Whether you intend to partake or not in the bootstrapping phase of such stablecoins, I think it&amp;rsquo;s highly valuable to document yourself on them as they are a good tell of the main trends of the space.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-algorithmic-stablecoin-toolbox&#34;&gt;🧰 Algorithmic Stablecoin Toolbox
+&lt;/h3&gt;&lt;p&gt;Before we part way, allow me to share some useful tools to track the evolution of these stablecoins. First, each project has its own tracker providing the main metrics for the current epoch:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://bc.tools/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Basis Cash Tools&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://esd.tools/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ESD Tools&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://dsd.tools/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DSD Tools&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Finally, you can view more granual details about the ESD and DSD system on this dashboard: &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://duneanalytics.com/tongnk/esd_1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ESD/DSD Bonding&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;disclaimer&#34;&gt;Disclaimer
+&lt;/h3&gt;&lt;div class=&#34;notice warning&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Warning&lt;/p&gt;&lt;p&gt;&lt;strong&gt;THIS ARTICLE DOES NOT CONSTITUTE INVESTMENT ADVICE.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m not a qualified financial advisor, but who gives a fuck really? This is DeFi we&amp;rsquo;re talking about.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;I&amp;rsquo;ve felt legitimate to write this piece because I&amp;rsquo;ve been following closely Basis Cash, Empty Set Dollar, and Dynamic Set Dollar closely, as well as Basis Dollar &amp;amp; Share less attentively. Frax is another hybrid project that is worth looking at - I did not discus it as I&amp;rsquo;m not familiar enough with it yet.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;&lt;strong&gt;💰 Bag Disclosure&lt;/strong&gt;: I own BAC/BAS (Basis Cash), ESD (Empty Set Dollar) and DSD (Dynamic Set Dollar).&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;I hope this read was insightful for you. If that&amp;rsquo;s the case, you can &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/tokenbrice/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;follow me on Twitter&lt;/a&gt;&lt;/strong&gt; or this blog through RSS (at the very bottom of the page 👇) to get notified when the next article is published.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Is stability a necessity for cryptocurrencies mainstream adoption?</title>
+        <link>http://localhost:1313/p/is-stability-a-necessity-for-cryptocurrencies-mainstream-adoption/</link>
+        <pubDate>Wed, 22 Aug 2018 12:14:52 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/is-stability-a-necessity-for-cryptocurrencies-mainstream-adoption/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2018/stablecoins/cover.jpeg" alt="Featured image of post Is stability a necessity for cryptocurrencies mainstream adoption?" /&gt;&lt;p&gt;When you talk about cryptocurrencies with people unfamiliar with it, the question of volatility is among the first to pop up. Quite often, it’s a low effort way to dismiss the whole world of cryptocurrencies and recent progress made with decentralization. Volatility does not affect all cryptocurrencies: some of them are made to be stable (price wise) — we call them the “stablecoins.”&lt;/p&gt;
+&lt;p&gt;Before we get to that point, let’s state some necessary facts to understand this article:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Cryptocurrencies are much more than just the Bitcoin&lt;/strong&gt;. There are more than 1500 tokens listed on CoinMarketCap, which is only the tip of the iceberg: in reality, there are thousands of cryptocurrencies circulating. The sheer amount of tokens can be scary, but it’s positive in the long run. It means that for every problem cryptocurrencies can solve you have dozens of different teams exploring as many different approaches — no stone is left unturned.&lt;/li&gt;
+&lt;li&gt;Whatever the initial vision of Satoshi was, &lt;strong&gt;Bitcoin is unfit to become a mainstream currency&lt;/strong&gt;. Its technical limitation such as its low transaction speed or the issues with mining (energy consumption, centralization, etc.) makes it inapt for this use case. However, its persistence (Bitcoin is almost 10 years old!) as well as its reliability makes it a good “store of value”, just like gold.&lt;/li&gt;
+&lt;li&gt;Nevertheless, there are many projects with the ambition to become tomorrow’s mainstream currency. &lt;strong&gt;They answer the fundamental issue raised when considering Bitcoin as a currency: its volatility.&lt;/strong&gt; Those projects are called &lt;strong&gt;stablecoins&lt;/strong&gt; and they will be the topic of this piece.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The question of volatility highlights a vital characteristic of a currency: price stability is a necessity to have a currency people feel confident using. Indeed, creating a new currency requires a thorough understanding of both technical mechanisms as well as social dynamics. In order &lt;strong&gt;to become a currency, a good must be recognized as such by its users and gain their trust.&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;are-fiat-goingsouth&#34;&gt;Are fiat going south?
+&lt;/h3&gt;&lt;p&gt;We observe a strong correlation between the adoption of cryptocurrencies and the “weakness” of the national currency (called fiat currencies) in a given country. It’s hard to measure the adoption of cryptocurrency, but we can easily get figures on how many people are interested in buying some using Google Trends:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2018/stablecoins/buy-bitcoin.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Geographical distribution of the query “How to buy bitcoin” using Google Trends&#34;
+	
+	
+&gt;
+Geographical distribution of the query “How to buy bitcoin” using Google Trends&lt;/p&gt;
+&lt;p&gt;The Ghanaian currency (the Cedi — GHS) went from roughly a dollar in 2008 to around 20 cents nowadays. Meanwhile, the Nigerian currency (the Naira — NGN) lost about half of its worth (measured against the dollar).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2018/stablecoins/cedi.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;The exchange rate of the dollar against the Cedi (left) and Naira (right) over the last ten years. Source: TradingEconomics.&#34;
+	
+	
+&gt;
+The exchange rate of the dollar against the Cedi (left) and Naira (right) over the last ten years. Source: &lt;a class=&#34;link&#34; href=&#34;https://tradingeconomics.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;TradingEconomics&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The devaluation happened fast enough for people living in these countries to see the impact of it. It could explain the strong interest we observe for cryptocurrencies in Ghana and Nigeria. However, the issue with the determining how much a given currency is worth is more complex than simply measuring it against the dollar. If we use the dollar as our reference point, we must question its stability: &lt;strong&gt;is the dollar itself even stable?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Without thinking twice about it, the “yes” seems like the go-to answer. The dollar hasn’t changed over these last 50 years — a $1 bill emitted in 1968 would still be recognized as such today. However, what about its worth? It is changing all the time. Is one 1968 dollar still worth $1 then? The answer is simply no — it would give access to a purchasing power corresponding to roughly 7 present days dollar.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2018/stablecoins/inflation.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Evolution of the buying power of the equivalent a 1968 dollar from this date until now. Source: TradingEconomics.&#34;
+	
+	
+&gt;
+Evolution of the buying power of the equivalent a 1968 dollar from this date until now. Source: &lt;a class=&#34;link&#34; href=&#34;https://tradingeconomics.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;TradingEconomics&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The main driver of the spread is of course inflation. The topic is sophisticated enough to have theses written about it, so we’ll leave it to others. Now that we have some context let’s get back to stablecoins.&lt;/p&gt;
+&lt;h3 id=&#34;whats-a-stablecoin&#34;&gt;What’s a stablecoin?
+&lt;/h3&gt;&lt;p&gt;The idea behind the stablecoin is pretty simple, the challenge lies in the execution. &lt;strong&gt;A stablecoin is a cryptocurrency that trades at a fixed price against a good (such as gold) or a common currency (most often the dollar).&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;A stablecoin’s worth is not stable; it is merely its value that is pegged to a &lt;strong&gt;relatively&lt;/strong&gt; stable asset. Creating a reliable stablecoin is already a real challenge, so creating a fixed-worth currency is a wild dream.&lt;/p&gt;
+&lt;p&gt;However, the question of having a stable value is interesting to consider. How would it look like? That one unit of the given currency is always worth one unit? That’s DOGE’s specialty!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2018/stablecoins/doge.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;The DOGE is a parodical currency created out of a meme which is now taken more and more seriously as cryptocurrencies develop&#34;
+	
+	
+&gt;
+The DOGE is a parodical currency created out of a meme which is now taken more and more seriously as cryptocurrencies develop&lt;/p&gt;
+&lt;p&gt;Let’s go back to more serious matters: the stability of currency could be defined as the fact that one unit of it always grant access to the same value. This definition would be consistent with the definition of a currency proposed in a &lt;a class=&#34;link&#34; href=&#34;https://hackernoon.com/money-101-discarding-the-myth-of-bartering-to-understand-bitcoin-better-3b8e66cd2e77&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;previous piece&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Money is not a store of value, it’s a claim upon value.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Keeping the link between the currency and the actual value it gives access to is elegant, in theory. However, in the real world, it’s close to impossible to measure the buying power of a given currency exactly. It is why we’ll consider stability defined as a currency keeping a constant price in regards to other goods or currencies which have a &lt;strong&gt;relatively&lt;/strong&gt; stable value. Before we get to the different stablecoin projects there are, let’s examine their utility.&lt;/p&gt;
+&lt;h3 id=&#34;what-are-stablecoins-goodfor&#34;&gt;What are stablecoins good for?
+&lt;/h3&gt;&lt;p&gt;We already have live and available stablecoins such as the USDT. They are mostly used by crypto exchanges and traders because they offer a way to avoid returning to fiat currencies and having to abide by all the legal framework that comes with it. Moreover, since their price is fixed against the dollar they are somewhat of a safe haven for traders: with them, they can get out of the market without really doing so.&lt;/p&gt;
+&lt;p&gt;For now, stablecoins are mostly a traders’ gimmick used to get in and out of the market without bringing their money back into their bank account. Hence, &lt;strong&gt;in the short-term, they are mostly a speculative tool&lt;/strong&gt;. However, they can provide a real utility in the long run.&lt;/p&gt;
+&lt;p&gt;Since cryptocurrencies have high volatility compared to fiat currencies, they are not really used as currency. Almost nobody is choosing to get their pay in cryptocurrencies, or using them to buy their groceries.&lt;/p&gt;
+&lt;p&gt;Having a stable cryptocurrency well integrated with the rest of the ecosystem would provide a credible solution to address these needs. At first, stablecoins would be the gateway between the fiat and the crypto world. In the long run, they could become the “fiat of cryptos” themselves: &lt;strong&gt;they would become cryptocurrencies which are stable enough to become a preferred payment method&lt;/strong&gt;. It would provide a broader and more reliable access to the services offered by other (non-stable) cryptocurrencies.&lt;/p&gt;
+&lt;h3 id=&#34;how-to-stabilize-a-cryptocurrency-liveexamples&#34;&gt;How to stabilize a cryptocurrency: live examples
+&lt;/h3&gt;&lt;p&gt;To fulfill their promise of stable exchange rate against a given fiat, stablecoins must offer a &lt;strong&gt;collateral&lt;/strong&gt;. As a result, several types of stablecoins emerged depending on the collateral mechanism they used:&lt;/p&gt;
+&lt;h4 id=&#34;fiat-collateralized-stablecoins&#34;&gt;Fiat collateralized stablecoins
+&lt;/h4&gt;&lt;p&gt;It is the most direct and simple approach to make a stablecoin, but also the most centralized. In brief, there is a central entity minting the stablecoin who owns a reserve of dollar corresponding to the volume put in circulation. This dollar reserve offers guarantees regarding the solvability of the coin and allow to exchange the stablecoin back to a dollar at any time.&lt;/p&gt;
+&lt;p&gt;Even so, this approach comes with several issues. First, it’s &lt;strong&gt;completely centralized&lt;/strong&gt; since a single entity is emitting the stablecoin and backing it. There are no other choices but to trust it. Besides the approach is &lt;strong&gt;economically inefficient&lt;/strong&gt;, especially at scale, as it requires to “freeze” an amount of money equal to the number of stablecoins in circulation.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;USDT&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This mechanism is used by the USDT, the most widespread stablecoin. Despite its adoption, &lt;strong&gt;the USDT is widely denounced&lt;/strong&gt; for its lack of transparency — there is no reliable method allowing its users to verify than Tether (the institution emitting USDT) actually possesses in its reserve a stock of dollar corresponding to the amount of USDT in circulation: around 2,8 billion currently. However, the ties between Tether and Bitfinex (the 4th cryptocurrency exchange regarding the trading volume) raise questions regarding the potential for market manipulation it allows.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;TrueUSD&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Created in answer to the lack of transparency of the USDT, TrueUSD uses the same mechanism while offering more guarantees. Rather than owning the token themselves, TrustToken (the institution emitting TrueUSD) works with a network of banks and financial institutions which keep the funds in escrow for them. One of them, Cohen&amp;amp;Company, publishes an &lt;a class=&#34;link&#34; href=&#34;https://blog.trusttoken.com/trueusd-attestation-reports-86f693b90a4?gi=749091358366&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;independent audit&lt;/a&gt; twice a month to confirm that the financial partners of TrustToken do hold in escrow a number of dollars corresponding to the volume of TUSD in circulation.&lt;/p&gt;
+&lt;p&gt;The guarantees offered seem more reliable than for the USDT, yet the problem is similar: this system requires its user to trust TrustToken and its partners, and particularly Cohen&amp;amp;Company to be honest. It works until it doesn’t.&lt;/p&gt;
+&lt;h4 id=&#34;crypto-collateralized-stablecoins&#34;&gt;Crypto collateralized stablecoins
+&lt;/h4&gt;&lt;p&gt;While fiat collateralized stablecoins are fulfilling (so far) their promise of stability, they are doing a disservice to cryptocurrencies as a whole whose aim is to provide a decentralized alternative to the legacy financial and monetary networks. To answer this concern, another type of stablecoins emerged. They use other cryptocurrencies as collateral and a network of smart contracts to peg their exchange price to the underlying asset.&lt;/p&gt;
+&lt;p&gt;Yet this type of stablecoins is facing issues too, the main one being the volatility of cryptocurrencies used as collateral. To address them, they necessitate &lt;strong&gt;a collateral superior to the value of the stablecoins emitted&lt;/strong&gt;, which hinders their potential large scale usage.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;MakerDAO — Dai&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Dai is another stablecoin pegged to the dollar (1 Dai = $1). It has some interesting features, the main one being that it is fully decentralized. Indeed, the institution emitting the Dai is MakerDAO, a decentralized autonomous organization. It’s an &lt;strong&gt;organization which governing rules are automated and enforced through publicly auditable smart contracts&lt;/strong&gt;, making them transparent and unchangeable.&lt;/p&gt;
+&lt;p&gt;Dai works in pair with MKR, the governance token. Owners of MKR can vote to decide on the mechanisms used to stabilized the Dai. The system is quite complex and could deserve several articles by itself. Dai was launched on December 17th 2017 after three years of development. Since its launch, its price was in the same range of stability than fiat collateralized stablecoins (+/- ~10 %).&lt;/p&gt;
+&lt;h4 id=&#34;un-collateralized-stablecoins&#34;&gt;Un-collateralized stablecoins
+&lt;/h4&gt;&lt;p&gt;These stablecoins are the most promising in the long run as the address the main concerns raised by the two previous types: they propose a decentralized solution which could be used at scale. These projects are still in the development phase.&lt;/p&gt;
+&lt;p&gt;Most of them use algorithms which reduce or increase the amount of the given stablecoin in circulation to stabilize their price. If the price goes over the dollar, the circulating supply increases; if it goes below, the supply decreases. The two most prominent projects in this category are Basis and Carbon.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Basis&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Basis wants to create an “algorithmic central bank” that would stabilize its price. Their system uses three different types of token which makes it quite complex. The goal is to reproduce a simplified version of the federal reserve system with the addition of investors.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Carbon&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;On the other hand, Carbon is trying to execute an approached theorized in 2014 already by Robert Sams called the &lt;a class=&#34;link&#34; href=&#34;https://github.com/rmsams/stablecoins/blob/master/paper.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;seigniorage shares&lt;/a&gt;. The solution is mostly theory for now and has yet to see a working implementation.&lt;/p&gt;
+&lt;h3 id=&#34;stablecoins-a-gift-or-a-curse-for-cryptocurrencies&#34;&gt;Stablecoins: a gift or a curse for cryptocurrencies?
+&lt;/h3&gt;&lt;p&gt;Stablecoins are a recent yet fascinating innovation. There are many projects currently in development (&lt;a class=&#34;link&#34; href=&#34;https://stablecoinindex.com/projects/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;non-exhaustive list&lt;/a&gt;) using diverse approaches. The typology proposed above is simplified: some projects mix several types of collateral while others use radically different mechanisms.&lt;/p&gt;
+&lt;p&gt;Today, stablecoins are speculative &lt;a class=&#34;link&#34; href=&#34;https://hackernoon.com/tagged/tools&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;tools&lt;/a&gt; more than anything else, but they can become one of the critical elements of the mainstream adoption of cryptocurrencies in the long run. Looking at the volume, the USDT is currently obliterating its competition, which creates a systematic risk for the whole cryptocurrencies market. If USDT was to fail, it could lead to widespread panic. Thus &lt;strong&gt;speculation pushed the market towards a highly centralized tool lacking any real transparency: a gentle irony for the future of decentralization.&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;sources--deepdive&#34;&gt;Sources / Deep Dive
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://bitcoinmagazine.com/articles/warning-signs-timeline-tether-and-bitfinex-events/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Warning Signs? A Timeline of Tether and Bitfinex Events&lt;/a&gt; — Amy Castor on Bitcoin Magazine, July 2nd, 2018.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://coinjournal.net/the-rise-of-stablecoins/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;The rise Of Stablecoins&lt;/a&gt; — Alex T. on CoinJournal, April 8th, 2018.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://hackernoon.com/stablecoins-carrying-the-way-to-the-crypto-promised-land-c124b2db8ea3&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Stablecoins — Carrying the Way to the Cryptocurrency Promised Land&lt;/a&gt; — Brian Quinlivan on Hackernoon, July 4th, 2018.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://hackernoon.com/stablecoins-designing-a-price-stable-cryptocurrency-6bf24e2689e5&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Stablecoins: designing a price-stable currency&lt;/a&gt; — Haseeb Quereshi on Hackernoon, Decembre 12th, 2017&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://prestonbyrne.com/2017/12/10/stablecoins-are-doomed-to-fail/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Stablecoins are doomed to fail&lt;/a&gt; — Preston Byrne on its personal blog, December 10th, 2017.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://medium.com/makerdao/what-is-mkr-e6915d5ca1b3&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;What is MKR?&lt;/a&gt; — MakerDAO’s blog, September 10th, 2015.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Stablecoin projects mentioned in the article:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://tether.to/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;USDT&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.trusttoken.com/trueusd/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;TrueUSD&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://makerdao.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MakerDAO&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.basis.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Basis&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.carbon.money/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Carbon&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

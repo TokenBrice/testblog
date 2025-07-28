@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Seigniorage on TokenBrice</title>
+        <link>http://localhost:1313/tags/seigniorage/</link>
+        <description>Recent content in Seigniorage on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Sat, 16 Jan 2021 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/seigniorage/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>⚖ The tale of two seigniorage models: Basis vs ESD</title>
+        <link>http://localhost:1313/p/the-tale-of-two-seigniorage-models-basis-vs-esd/</link>
+        <pubDate>Sat, 16 Jan 2021 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/the-tale-of-two-seigniorage-models-basis-vs-esd/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2021/seigniorage-basis-vs-esd/cover.png" alt="Featured image of post ⚖ The tale of two seigniorage models: Basis vs ESD" /&gt;&lt;p&gt;A few weeks ago, I shared my first post on algorithmic stablecoins highlighting the key characteristics that made such projects interesting in my eyes. In this piece, we&amp;rsquo;ll go deeper into the topics, with a &lt;strong&gt;comparative analysis of the two main models&lt;/strong&gt;: the Basis model and the ESD model.&lt;/p&gt;
+&lt;p&gt;Both are successfully used by the projects bearing their names but also a sizable trail of forks, more or less relevant. As the field of algorithmic stablecoin grows, there seems to be a &lt;strong&gt;consensus around these two models, now used as a template&lt;/strong&gt; to quickstart newer projects trying various alterations, such as pegging the system to another currency other than the dollar, like gold or the euro.&lt;/p&gt;
+&lt;p&gt;The plethora of existing forks enables the latest ones to pick and build upon the existing or pending improvements of the live systems, further leapfrogging the innovation. But before you dive into the arcane of the latest gold elastic token, it&amp;rsquo;s worth making sure you understand the underlying models behind these projects. That&amp;rsquo;s why we are here today.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;1-ample-bases-for-elastic-currencies&#34;&gt;1. Ample Bases for Elastic Currencies
+&lt;/h2&gt;&lt;p&gt;To put it simply, both models are building on the previous Ampleforth model which pioneered &amp;ldquo;elastic currencies&amp;rdquo; that have a supply reacting to the markets&amp;rsquo; conditions. The main issue with Ampleforth is that everyone is exposed to the rebases, hindering the usability of the AMPL as a medium of exchange.&lt;/p&gt;
+&lt;p&gt;So the two new iterations address that with a different take:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;With the seigniorage model, &lt;strong&gt;the rebase mechanism is split into a different token&lt;/strong&gt;, the share - paving the way for a more usable stablecoin.&lt;/li&gt;
+&lt;li&gt;In the ESD model, there is still one token only but the DAO and LP lockup achieve a similar result.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Both models also introduce the mechanism of bond/coupons to &lt;strong&gt;add a positive incentive when the price is below peg&lt;/strong&gt;, helping to further stabilize the stablecoin.&lt;/p&gt;
+&lt;p&gt;So today, after we brush up on the basics, we will compare the Basis model (forked by MithCash, OneCoin, and more) to the ESD model (used in DSD, ZAI, DAIQ, etc.).&lt;/p&gt;
+&lt;p&gt;I will not explain the models in-depth but this table recaps the main differences:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;/&lt;/th&gt;
+&lt;th&gt;BASIS MODEL (Seigniorage)&lt;/th&gt;
+&lt;th&gt;ESD MODEL&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;TOKENS&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;BAC = stablecoin &lt;br&gt; BAS = a share of the protocol &lt;br&gt;BAB = 1 BAC claim while in expansionary phases&lt;/td&gt;
+&lt;td&gt;ESD = stablecoin &lt;br&gt; ESDS = 1 ESD claim while in expansionary phases&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;STABLECOIN LIQUIDITY&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;BAC/DAI Uniswap pair: continuous BAS incentives (1y) &lt;br&gt;No lockup&lt;/td&gt;
+&lt;td&gt;ESD/USDC ESD incentives if &amp;gt;1 &lt;br&gt;  5 epoch lockup&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;&amp;ldquo;BRING BACK TO PEG&amp;rdquo; (&amp;lt;1) MECHANISM&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Bonds (BAB): BAB = BAC(twap)^2 &lt;br&gt;  No expiration date&lt;/td&gt;
+&lt;td&gt;Coupons (ESDS) Premium-based pricing expire after 90 epochs (30 days)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;WHEN EXPANSION (&amp;gt;1), WHO GETS IT?&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Boardroom BAS stakers (once treasury has its fill)&lt;/td&gt;
+&lt;td&gt;Dynamic split between LP and DAO depending on the protocol debt&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;OTHER IMPORTANT MECHANISMS&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;BAS/DAI Uni pair with BAS incentives &lt;br&gt;BAS/DAI &amp;amp; BAC/DAI pools farmable through vaults - Harvest, Pickle, etc.&lt;/td&gt;
+&lt;td&gt;DAO auto compounds but has a long lockup&lt;br&gt;Lockups -&amp;gt; limited third party integrations&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;2--gas-efficiency-overview&#34;&gt;2. ⛽ Gas Efficiency Overview
+&lt;/h2&gt;&lt;p&gt;Before I dive into the details of each item, here&amp;rsquo;s another key part of the systems to consider if you want to partake in them: how gas efficient are they, for the user?&lt;/p&gt;
+&lt;p&gt;You&amp;rsquo;ll find here some pointers on the amount of transaction and transaction flows required to partake in different parts of the system we described, helping you assess if it would make sense for you, gas-wise.&lt;/p&gt;
+&lt;p&gt;Overall, the &lt;strong&gt;liquidity providing positions are the most transaction-intensive&lt;/strong&gt;, especially in the ESD model where you need to bound and unbound your LP tokens &amp;amp; claim rewards.&lt;/p&gt;
+&lt;h4 id=&#34;21-lp---basis-&#34;&gt;2.1. LP - Basis ⭐⭐⭐
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Entry: Stake LP token&lt;/li&gt;
+&lt;li&gt;Reward: Claim (stream)&lt;/li&gt;
+&lt;li&gt;Exit: Unstake LP token&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;22-lp---esd-&#34;&gt;2.2. LP - ESD ⭐
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Entry: Stage -&amp;gt; Bound&lt;/li&gt;
+&lt;li&gt;Reward Claim: Unstage-&amp;gt; Stage-&amp;gt; (wait 5 epochs) -&amp;gt; Claim&lt;/li&gt;
+&lt;li&gt;Exit: Unstage -&amp;gt; (wait 5 epochs) -&amp;gt; Unbound&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;On the share/DAO side, &lt;strong&gt;the flow is less transaction-heavy&lt;/strong&gt;, so it&amp;rsquo;s better for smaller holders:&lt;/p&gt;
+&lt;h4 id=&#34;23-basis---boardroom-&#34;&gt;2.3. Basis - Boardroom ⭐⭐⭐
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Entry: Stake BAS&lt;/li&gt;
+&lt;li&gt;Reward: Claim (after the end of an epoch when BAC&amp;gt;1.05)&lt;/li&gt;
+&lt;li&gt;Exit: Unstake BAS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note: During expansion phases, you can let BAC accumulate in the boardroom and claim several days of reward at once.&lt;/p&gt;
+&lt;h4 id=&#34;24-esd---dao-&#34;&gt;2.4. ESD - DAO ⭐⭐⭐⭐
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Entry: Stage ESD -&amp;gt; Bound ESD&lt;/li&gt;
+&lt;li&gt;Reward: no transaction required&lt;/li&gt;
+&lt;li&gt;Exit: Unstage ESD -&amp;gt; (wait 15 epochs) -&amp;gt; Unbound ESD&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note: During expansion phases, the rewards produced by the DAO are automatically compounded (=bounded) without action required from the user-end.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;3-comparative-algorithmic-stablecoin-analysis-seigniorage-vs-esd&#34;&gt;3. Comparative algorithmic stablecoin analysis: Seigniorage vs ESD
+&lt;/h2&gt;&lt;p&gt;You&amp;rsquo;ll find the bulk of my analysis in the following table. If you are familiar with both projects, that should be enough, else you can read the explanations for each benefit and downside right after the table.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Basis Model&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;ESD Model&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;👍Benefits&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;More liquid stablecoin pair &lt;br&gt;  Fluid share &lt;br&gt;Better coupon system&lt;br&gt;Farmable (3rd party integrations)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;More committed holders &lt;br&gt;Faster cycles: can adjust more dynamically to the markets&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;👎Downsides&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Share has limited utility when BAC&amp;lt;1 &lt;br&gt;  Share price heavily correlated to stablecoin price&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Less accessible system &lt;br&gt;  Riskier coupon system (expiration) &lt;br&gt;  Newly minted ESD batches&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice warning&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Warning&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Necessary Disclaimer: This is not financial advice&lt;/strong&gt;. I’m not qualified to provide any. It’s a mere technical analysis of two seigniorage systems implemented live in production: a farmer’s report 🚜&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Now that we are up to date on each model and their gas efficiency, let&amp;rsquo;s details their benefits and downsides:&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;31--benefits-of-the-basis-model&#34;&gt;3.1. 👍 Benefits of the Basis model
+&lt;/h3&gt;&lt;h4 id=&#34;311-more-liquid-pools&#34;&gt;3.1.1. More liquid pools
+&lt;/h4&gt;&lt;p&gt;In the Basis model, the &lt;strong&gt;BAC/DAI liquidity pool is continuously rewarded with BAS token&lt;/strong&gt;. Since the BAS reward continues even when BAC is in a contraction phase, we&amp;rsquo;re not observing the same compounded reduction of liquidity seen in contraction on the ESD model: when the ESD price is on a downtrend &amp;amp; liquidity providers are pulling out at the same time.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/seigniorage-basis-vs-esd/liquidity-esd-bac.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;liquidity-esd-bac-tokenbrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;We can see that &lt;strong&gt;ESD&amp;rsquo;s liquidity tends to be more spikey&lt;/strong&gt; while BAC&amp;rsquo;s is correlated mostly to BAC price (expected).&lt;/p&gt;
+&lt;h4 id=&#34;312-fluid-share&#34;&gt;3.1.2. Fluid share
+&lt;/h4&gt;&lt;p&gt;The share is fluid in the sense that there is currently no commitment required to be eligible for the Boardroom BAC. While this can also make the BAS price harder to stabilize, it makes the expansion-reward component of the system more broadly accessible and less game-able.&lt;/p&gt;
+&lt;h4 id=&#34;313-better-coupons&#34;&gt;3.1.3. Better Coupons
+&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;Basis Coupons (BAB - Bounds) have no expiration date&lt;/strong&gt;. They can be redeemed for 1 BAC as long as BAC is &amp;gt; 1.05. It makes buying coupons less of a gamble than on ESD where they expire.&lt;/p&gt;
+&lt;h4 id=&#34;314-third-party-integradable&#34;&gt;3.1.4. Third Party Integradable
+&lt;/h4&gt;&lt;p&gt;Rewards in the Basis model are distributed through &lt;strong&gt;standard staking contract&lt;/strong&gt;, enabling and facilitating the integration by third parties. There are already Harvest &amp;amp; Pickle vaults to streamline the farming of the BAC/DAI, BAS/DAI, MIC/USDT &amp;amp; MIS/USDT pools.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/seigniorage-basis-vs-esd/harvest.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;harvest-basis-cash-mith-cash&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;32--downsides-of-the-basis-model&#34;&gt;3.2. 👎 Downsides of the Basis model
+&lt;/h3&gt;&lt;h4 id=&#34;321-the-share-has-low-utility-when-baclt1&#34;&gt;3.2.1. The share has low utility when BAC&amp;lt;1
+&lt;/h4&gt;&lt;p&gt;The main and by far biggest weakness so far of the current implementation of the Basis model is the &lt;strong&gt;overall weak utility of the share token&lt;/strong&gt;. In expansion phases, its price is usually appreciating because of the newly minted BAC it gives access to. However, there is very little utility for BAS in contraction phases, except for its governance power. In contraction, the only potential earning option is to commit to the BAS/DAI pool for additional BAS, but it&amp;rsquo;s very risky play with a bearing BAS price action (contraction).&lt;/p&gt;
+&lt;p&gt;Several projects are already working on solutions to address this.&lt;/p&gt;
+&lt;h4 id=&#34;322-share-price-100-correlated-to-stable-price&#34;&gt;3.2.2. Share price 100% correlated to stable price
+&lt;/h4&gt;&lt;p&gt;The second downside is a direct consequence of the first. Because of the lack of utility of BAS outside of BAC in expansion, &lt;strong&gt;its price is directly correlated to the BAC price&lt;/strong&gt;. Additional utility on BAS could enable both tokens to have more independent cycles, bringing more stability overall to the model.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;33--benefits-of-the-esd-model&#34;&gt;3.3. 👍 Benefits of the ESD model
+&lt;/h3&gt;&lt;h4 id=&#34;331-more-committed-holders&#34;&gt;3.3.1. More committed holders
+&lt;/h4&gt;&lt;p&gt;In the ESD model, there is &lt;strong&gt;no access to the newly minted ESD without committing for several epochs&lt;/strong&gt;, at least 5 with the LP. It makes large holders more likely to be actively involved in the minting and stabilizing process.&lt;/p&gt;
+&lt;h4 id=&#34;332-adjust-more-dynamically-to-markets-conditions&#34;&gt;3.3.2. Adjust more dynamically to markets&amp;rsquo; conditions
+&lt;/h4&gt;&lt;p&gt;Overall, the ESD system operates on a &lt;strong&gt;timeframe three times shorter than Basis&lt;/strong&gt;, allowing for more fluid and dynamic adjustments. DSD goes even further with 2 hours epoch (= 12x Basis pace).&lt;/p&gt;
+&lt;h3 id=&#34;34--downsides-of-the-esd-model&#34;&gt;3.4. 👎 Downsides of the ESD model
+&lt;/h3&gt;&lt;h4 id=&#34;341-overall-complexity-of-the-system&#34;&gt;3.4.1. Overall complexity of the system
+&lt;/h4&gt;&lt;p&gt;Because of the additional lockups, staging, and bounding required to implement the share functionality directly at the stablecoin level, ESD-based systems tend to be more &lt;strong&gt;complex to apprehend&lt;/strong&gt;, especially for newcomers. You can even see it in the memes, where ESD/DSD players love to meme themselves as high-IQ masterminds. The coupon expiration makes the stabilization system extremely unfriendly for newcomers, which is not necessarily a bad thing per se, but see the next point.&lt;/p&gt;
+&lt;h4 id=&#34;342-weaker-coupon-incentive&#34;&gt;3.4.2. Weaker coupon incentive
+&lt;/h4&gt;&lt;p&gt;ESD coupons have an expiration date, turning the coupon system into a bit of Russian roulette. Because of this design, there are serious risks of losing all the capital committed while burning ESD for coupons, even if the ESD system sustains itself in the long run. Indeed, once ESD is burnt into coupon, the owner has &lt;strong&gt;90 epochs (~30 days) to redeem them before they expire.&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;343-newly-minted-esd-batches&#34;&gt;3.4.3. Newly minted ESD batches
+&lt;/h4&gt;&lt;p&gt;Finally, the emission logic of ESD-based systems, coupled with the lockups period tend to produce &lt;strong&gt;“raindrop epochs”&lt;/strong&gt; where most of the newly minted ESD is unlocked, which can trigger violent price action on the stablecoin price.&lt;/p&gt;
+&lt;p&gt;During the last expansion phase, the period around epoch 396 was famous and scared because most of the newly minted DSD was made transferrable over a very short window:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/seigniorage-basis-vs-esd/dsd-raindrop.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;DSD-epoch-396-397-tokenbrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Yes this is DSD, but similar patterns are observed on ESD. It&amp;rsquo;s due to the DAO lockups and emission schedule.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;4-the-algostable-toolbox&#34;&gt;4. The Algostable Toolbox
+&lt;/h2&gt;&lt;p&gt;Before I let you go, here&amp;rsquo;s a quick overview of the main tools useful to monitor and manage positions for all four projects. We&amp;rsquo;re lucky! There are some amazing community-build tools made to help you track algorithmic stablecoins.&lt;/p&gt;
+&lt;div class=&#34;notice tip&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#tip-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Tip&lt;/p&gt;&lt;p&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://vfat.tools/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Vfat in particular&lt;/a&gt;&lt;/strong&gt; has been super reactive updating his tracking and management tools for the newer projects. It even includes a &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://vfat.tools/seigniorage/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;seigniorage tokens overview&lt;/a&gt;&lt;/strong&gt; now:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/seigniorage-basis-vs-esd/vfat.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;vfat-seigniorage-overview&#34;
+	
+	
+&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;For ESD, your main dashboard is &lt;a class=&#34;link&#34; href=&#34;https://esd.tools/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ESDTools&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;For DSD, &lt;a class=&#34;link&#34; href=&#34;https://dsd.tools/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DSDTools&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;For Basis Cash, &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://bc.tools/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;BCTools&lt;/a&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can use &lt;a class=&#34;link&#34; href=&#34;https://duneanalytics.com/tongnk/esd_1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;this dashboard to track the release of newly minted ESD and DSD&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Finally, all four projects are supported in both &lt;a class=&#34;link&#34; href=&#34;https://zapper.fi/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Zapper&lt;/a&gt; and &lt;a class=&#34;link&#34; href=&#34;https://debank.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeBank&lt;/a&gt; to track your investments. You can also use &lt;a class=&#34;link&#34; href=&#34;https://pickle.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Pickle&lt;/a&gt; or &lt;a class=&#34;link&#34; href=&#34;https://harvest.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Harvest&lt;/a&gt; to manage your position in the BAC/DAI, BAS/DAI, MIC/USDT, and MIS/USDT pools.&lt;/p&gt;
+&lt;h3 id=&#34;41-additional-resources&#34;&gt;4.1. Additional Resources
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;To learn more about the context behind algorithmic stablecoins, feel free to &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/algorithmic-stablecoins.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;read my previous article on the topic&lt;/a&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;To learn more, French-speaker will enjoy this &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=TuenkIZZEq0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🇫🇷 50 min video explainer of both models&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;English speakers can explore further with this extensive research/recap piece published on Derebit: &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://insights.deribit.com/market-research/stability-elasticity-and-reflexivity-a-deep-dive-into-algorithmic-stablecoins/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Stability, Elasticity, and Reflexivity: A Deep Dive into Algorithmic Stablecoins&lt;/a&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="La guerre des DEX fait rage, plus compétitive que jamais. A côté des cartels de la licorne, du lama et de l'échelle, un quatrième centre de pouvoir émerge grâce à des caractéristiques sans précédent : une structure de liquidité inégalée associée à un modèle d'incitation immensément plus efficace : **le façonnage de liquidité**.">
+<title>Maverick et la transition du Liquidity Mining au Liquidity Shaping</title>
+
+<link rel='canonical' href='http://localhost:1313/fr/maverick-liquidity-shaping/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Maverick et la transition du Liquidity Mining au Liquidity Shaping">
+<meta property='og:description' content="La guerre des DEX fait rage, plus compétitive que jamais. A côté des cartels de la licorne, du lama et de l'échelle, un quatrième centre de pouvoir émerge grâce à des caractéristiques sans précédent : une structure de liquidité inégalée associée à un modèle d'incitation immensément plus efficace : **le façonnage de liquidité**.">
+<meta property='og:url' content='http://localhost:1313/fr/maverick-liquidity-shaping/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Finance Décentralisée' /><meta property='article:tag' content='DEX' /><meta property='article:tag' content='veMAV' /><meta property='article:tag' content='Maverick' /><meta property='article:tag' content='Liquidity' /><meta property='article:tag' content='Liquidity Mining' /><meta property='article:tag' content='Gestion de Liquidité' /><meta property='article:tag' content='Liquidity Shaping' /><meta property='article:tag' content='Concentrated Liquidity' /><meta property='article:tag' content='veCRV' /><meta property='article:tag' content='Solidly' /><meta property='article:tag' content='Velodrome' /><meta property='article:published_time' content='2023-07-07T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2023-07-07T01:13:50&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/2023/liquidity-shaping-maverick/cover.png' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="Maverick et la transition du Liquidity Mining au Liquidity Shaping">
+<meta name="twitter:description" content="La guerre des DEX fait rage, plus compétitive que jamais. A côté des cartels de la licorne, du lama et de l'échelle, un quatrième centre de pouvoir émerge grâce à des caractéristiques sans précédent : une structure de liquidité inégalée associée à un modèle d'incitation immensément plus efficace : **le façonnage de liquidité**."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/2023/liquidity-shaping-maverick/cover.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Afficher le menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/fr/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/fr">TokenBrice</a></h1>
+            <h2 class="site-description">DeFi en brutale honnêteté</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/fr/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Accueil</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/%C3%A0-propos/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>À Propos</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Recherche</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/liens/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Liens</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" >English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" selected>Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Mode sombre</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/fr/maverick-liquidity-shaping/">
+                
+                    <img src="/img/2023/liquidity-shaping-maverick/cover.png" loading="lazy" alt="Featured image of post Maverick et la transition du Liquidity Mining au Liquidity Shaping" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/fr/categories/defi/" style="background-color: #2a9d8f; color: #fff;">
+                DeFi
+            </a>
+        
+            <a href="/fr/categories/understanding/" style="background-color: #2a9d8f; color: #fff;">
+                Comprendre
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/fr/maverick-liquidity-shaping/">Maverick et la transition du Liquidity Mining au Liquidity Shaping</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            La guerre des DEX fait rage, plus compétitive que jamais. A côté des cartels de la licorne, du lama et de l&#39;échelle, un quatrième centre de pouvoir émerge grâce à des caractéristiques sans précédent : une structure de liquidité inégalée associée à un modèle d&#39;incitation immensément plus efficace : **le façonnage de liquidité**.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">juil. 07, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    18 minutes de lecture
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+        <footer class="article-translations">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+            <div>
+                
+                    <a href="http://localhost:1313/maverick-liquidity-shaping/" class="link">English</a>
+                
+            </div>
+        </footer>
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Cela fait quatre mois que Maverick est sorti, et quelques jours que le jeton MAV a rejoint la mêlée. Pourtant, la plupart des acteurs de la DeFi se demandent encore comment Maverick peut offrir une efficacité du capital 2 à 3 fois supérieure à celle de son principal concurrent, Uniswap.</p>
+<p>Le moment était donc venu de plonger dans les innovations apportées par le modèle et le nouveau paradigme qu&rsquo;il favorise en matière de gestion des liquidités : <strong>le liquidity shaping</strong> (le façonnage de liquidité).</p>
+<h2 id="innovations-sur-dex--plutôt-des-outils-permettant-aux-lp-de-sexprimer">Innovations sur DEX ? Plutôt des outils permettant aux LP de s&rsquo;exprimer
+</h2><p>Fondamentalement, un échange décentralisé peut innover à deux niveaux :</p>
+<ol>
+<li><strong>La structure de liquidité</strong> : les options offertes aux fournisseurs de liquidité pour concevoir l&rsquo;activité d&rsquo;approvisionnement qui correspond le mieux à leur thèse.</li>
+<li>Et / ou <strong>le modèle d&rsquo;incitation</strong> : les outils et les modalités permettant aux DAO et aux projets d&rsquo;encourager des structures de liquidité personnalisées ou non.</li>
+</ol>
+<p>La plupart des nouveaux DEX qui sortent recyclent une infrastructure existante et se concentrent sur l&rsquo;innovation dans une seule dimension - généralement le modèle d&rsquo;incitation - comme on l&rsquo;a vu récemment avec la vague de forks Solidly/Velodrome - <strong><a class="link" href="https://tokenbrice.xyz//content/posts/2023/solidly-velodrome-template.fr.md"  target="_blank" rel="noopener"
+    >ve(3,3), la prochaine étape logique après veCRV ?</a></strong>.</p>
+<p>Il y a cependant quelques moments critiques dans l&rsquo;industrie où un nouveau DEX est sorti et a apporté <strong>une innovation critique sur les deux fronts :</strong></p>
+<ol>
+<li><strong><a class="link" href="https://www.defiscan.info/protocols/uniswap-v2/ethereum"  target="_blank" rel="noopener"
+    >Uniswap V1/V2</a></strong> a établi une infrastructure solide pour les pools <code>x*y=k</code> et le modèle d&rsquo;incitation de base : 30 points de base de frais, composé automatiquement &amp; la possibilité d&rsquo;avoir des programmes de Liquidity Mining sur les tokens LP mis en jeu (ERC20).</li>
+<li><strong>Curve</strong> a fourni un modèle de liquidité innovant et efficace pour les actifs indexés (stableswap) tout en étant le pionnier d&rsquo;un modèle basé sur le ve/gauge pour l&rsquo;incitation des fournisseurs de liquidité en introduisant une capture de revenus au niveau du jeton (frais d&rsquo;administration).</li>
+<li><strong><a class="link" href="https://www.defiscan.info/protocols/uniswap-v3/ethereum"  target="_blank" rel="noopener"
+    >UniswapV3</a></strong> a fourni les outils nécessaires à la gestion d&rsquo;une structure de liquidité plus avancée exploitant efficacement la liquidité concentrée et offrant une plus grande flexibilité en termes de frais (frais de 1, 5, 30, 100 points de base, non composés automatiquement).</li>
+<li>Enfin, <strong><a class="link" href="https://www.defiscan.info/protocols/maverick-v2/ethereum"  target="_blank" rel="noopener"
+    >Maverick</a></strong>, qui va encore plus loin qu&rsquo;UniswapV3 dans la personnalisation de la structure de liquidité qu&rsquo;il propose, offre une gestion rationalisée des positions (rééquilibrage natif) et un niveau de contrôle sans précédent en ce qui concerne les options d&rsquo;incitation, marquant la naissance d&rsquo;un nouveau paradigme : le façonnage de la liquidité.</li>
+</ol>
+<p>Chacune de ces innovations fondamentales <strong>permet une plus grande expressivité pour les LPs : ils ont accès à des outils de plus en plus raffinés et personnalisés permettant même aux thèses les plus complexes de trouver un moyen adéquat pour être exprimées onchain</strong>.</p>
+<p>Cependant, avant de plonger dans la profondeur de la formation de la liquidité, quelques points sur Maverick sont nécessaires. En effet, pour bien comprendre l&rsquo;impact du façonnage de liquidité sur Maverick, il faut d&rsquo;abord maîtriser ses structures de liquidité et leurs conséquences.</p>
+<h2 id="les-structures-de-liquidité-de-maverick">LES STRUCTURES DE LIQUIDITÉ DE MAVERICK
+</h2><p>En effet, l&rsquo;une des principales innovations de Maverick réside dans ses structures de liquidité, qui permettent à l&rsquo;échange d&rsquo;atteindre un niveau sans précédent d&rsquo;efficacité du capital.</p>
+<p>Maverick offre quatre options aux apporteurs de liquidité qui pourraient être regroupées en deux catégories pour plus de simplicité :</p>
+<ol>
+<li>Le mode statique est similaire à une liquidité UNIv3 fournissant une gamme personnalisée, avec <strong>immensément plus de flexibilité</strong>.</li>
+<li>Et trois modes dynamiques offrent <strong>différents types de rééquilibrage aux LP</strong> pour optimiser davantage leurs gains : gauche (suit le prix à gauche), droite (suit le prix à droite), et les deux (suit le prix dans les deux sens).</li>
+</ol>
+<h3 id="pourquoi-le-mode-statique-de-maverick-change-la-donne">Pourquoi le mode statique de Maverick change la donne
+</h3><p>Beaucoup n&rsquo;ont pas encore compris à quel point le mode statique de Maverick est une amélioration par rapport à UNIv3, alors concentrons-nous un instant sur ce point. Voici un tableau rapide récapitulant les principales différences pour commencer :</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Objet</th>
+<th>Uniswap v3</th>
+<th>Pool Statique Maverick</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Apport de liquidité en range personalisable et arbitraire, même avec un seul token</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Permet de distribuer la liquidité de manière discontinue ou inéquitable</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Customisation des frais et largeur des ticks</td>
+<td>4 tiers de frais</td>
+<td>Customisation quasi-infinie</td>
+</tr>
+<tr>
+<td>Permet la création de token LP wrappé en ERC-20 pour faciliter le dépot des LPs et leur incitation</td>
+<td>❌</td>
+<td>✅ (Boosted Pools)</td>
+</tr>
+<tr>
+<td>Permet la distribution de récompense aux LPs (Liquidity Mining)</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Permet une distribution pondérée et précisément ciblée de récompense aux LPs (Liquidity Shaping)</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table></div>
+<p>Comme UniswapV3, Maverick prend en charge la fourniture de liquidité dans <strong>une plage arbitraire personnalisée,</strong> même potentiellement avec un seul jeton, par exemple, une LP sur ETH/USDC de 2000 $ à 2400 $.</p>
+<p>Si le prix actuel est inférieur à 2000 $ (au moment de la rédaction : 1900 $), la LP sera alimentée uniquement en ETH et se rééquilibrera progressivement en USDC au fur et à mesure que le prix augmente, pour finir entièrement en USDC à 2400 $.</p>
+<p><img src="/img/2023/liquidity-shaping-maverick/eth-lp-univ3.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="eth-lp-univ3.png"
+	
+	
+></p>
+<p>Mais qu&rsquo;en est-il des LP dont la thèse est encore plus raffinée ? Qu&rsquo;en est-il du LP qui voit l&rsquo;ETH dans cette fourchette pendant une semaine, mais surtout dans la zone des 2150-2250 $ ? Ne serait-il pas agréable pour lui de pouvoir exprimer cette thèse à travers la structure de liquidité qu&rsquo;il choisit ? C&rsquo;est précisément ce que permet Maverick :</p>
+<p><img src="/img/2023/liquidity-shaping-maverick/eth-lp-mav-fr.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="eth-lp-mav.png"
+	
+	
+></p>
+<p>Dans la capture d&rsquo;écran ci-dessus, vous voyez une distribution de $2000 à $2400 sur la paire ETH/USDC ; cependant, <strong>à la différence d&rsquo;Uniswap, qui distribue nécessairement la liquidité de manière égale à travers la gamme de prix, Maverick permet aux LP de choisir</strong>. Pour mieux correspondre à notre thèse, la plupart des liquidités sont concentrées sur les trois ticks couvrant la zone de prix 2150-2250 $.</p>
+<h3 id="maximiser-lexpressivité-offerte-aux-lp">Maximiser l&rsquo;expressivité offerte aux LP
+</h3><p>L&rsquo;expressivité offerte aux LP sur Maverick est virtuellement infinie. Je m&rsquo;attends à voir émerger rapidement des cas d&rsquo;utilisation intéressants, en particulier pour les protocoles qui exploiteront Maverick dès le départ (protocoles &ldquo;natifs Maverick&rdquo;). Par exemple, vous pourriez envisager Maverick comme <strong>mécanisme de stabilisation du prix d&rsquo;un stablecoin ou d&rsquo;un actif indexé</strong>.</p>
+<p>En supposant que le projet de stablecoin contrôle une certaine liquidité, il pourrait la fournir de manière très expressive en cas de besoin pour restreindre la fourchette de prix. Voici une structure de liquidité &ldquo;buy wall&rdquo;(mur d&rsquo;achat) sur le LUSD : toute la liquidité de ce LP est fournie sur un seul tick, le premier où le LUSD vaut moins de 1,00 USDC.</p>
+<p><img src="/img/2023/liquidity-shaping-maverick/mav-buy-wall.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="mav-buy-wall.png"
+	
+	
+></p>
+<p>Avec un prix actuel &gt;1,00 USDC, cette LP est approvisionnée à 100% en USDC et agit comme une réserve d&rsquo;achat : si le prix du LUSD baisse, la LP sera rééquilibrée. Ces positions sont prometteuses, car elles peuvent exercer une pression à l&rsquo;achat et à la vente, ce qui permet de mieux contraindre les actifs de référence dans des fourchettes plus étroites, ce qui réduit considérablement le coût de l&rsquo;incitation à la liquidité.</p>
+<h3 id="quen-est-il-des-modes-dynamiques-">Qu&rsquo;en est-il des modes dynamiques ?
+</h3><p>Les modes dynamiques de Maverick offrent une solution pratique et facile pour les LPs qui maximisent leur exposition aux prix du marché afin de maximiser le volume traité. Les trois modes exploitent essentiellement la même structure, mais offrent des options différentes aux LPs :</p>
+<ul>
+<li>Suivre le prix dans un seul sens (gauche ou droite) - il y a des tonnes de paires où cela a beaucoup de sens, comme wstETH/ETH (wstETH étant &ldquo;up-only&rdquo; par rapport à ETH grâce au rendement du staking).</li>
+<li>Suivre le prix dans les deux sens, une bonne solution pour les LP qui cherchent à maximiser la liquidité et les frais perçus au détriment d&rsquo;un risque accru d&rsquo;IL sur le principal. Il est particulièrement adapté aux paires d&rsquo;actifs stables et ancrés, mais pas seulement.</li>
+</ul>
+<p><img src="/img/2023/liquidity-shaping-maverick/mav-both.gif"
+	
+	
+	
+	loading="lazy"
+	
+		alt="mav-both.gif"
+	
+	
+></p>
+<p>Ce qu&rsquo;il faut comprendre ici, c&rsquo;est que <strong>Maverick fournit un rééquilibrage natif à ses LPs</strong>, et là encore, il va au-delà de ce qui a précédé en termes d&rsquo;options de personnalisation. Le mot clé est &ldquo;natif&rdquo;, ce qui signifie que le rééquilibrage peut être <strong>fait de manière intelligente et économe en gas</strong>.</p>
+<p>Sur Curve, les LPs n&rsquo;ont pas d&rsquo;options : leur liquidité est concentrée, mais tous les LPs d&rsquo;une paire donnée sont soumis au même régime. Cela facilite la gestion, mais tue l&rsquo;expressivité. Avec Uniswap, les LPs peuvent rééquilibrer dynamiquement leur position à l&rsquo;aide d&rsquo;outils tiers comme Arrakis ; cela s&rsquo;accompagne d&rsquo;hypothèses de confiance considérables, de frais potentiels et de coûts de gas élevés. Il permet une plus grande expressivité mais nécessite une gestion plus active.</p>
+<p>Bien que le rééquilibrage des liquidités de Maverick, basé sur un TWAP et avec quelques délais pour éviter les manipulations, présente certaines limites, il reste un outil crucial pour aider les LPs à maximiser le temps effectivement passé dans la fourchette / dans le tick de prix actuel.</p>
+<h2 id="le-modèle-dincitation-de-maverick--la-façonnage-de-liquidité">LE MODÈLE D&rsquo;INCITATION DE MAVERICK : LA FAÇONNAGE DE LIQUIDITÉ
+</h2><p>Avec une meilleure compréhension de la première innovation fondamentale apportée par Maverick - l&rsquo;expressivité sans précédent offerte aux LP dans la conception et la gestion de leur position - nous pouvons maintenant explorer la deuxième jambe de Maverick : son nouveau modèle d&rsquo;incitation.</p>
+<p>L&rsquo;histoire est à la fois courte et longue. <strong>En bref, Maverick offre le même niveau de personnalisation au niveau de l&rsquo;incitation qu&rsquo;au niveau de la création des pools.</strong></p>
+<p>Cela nous amène à une histoire plus longue, avec des exemples plus explicites. Il est possible de reproduire la plupart des structures de liquidité et des modèles d&rsquo;incitation existants sur Maverick. Mais ce qui est encore plus intéressant, ce sont les nouveaux modèles qui n&rsquo;ont jamais été essayés parce qu&rsquo;ils n&rsquo;étaient pas techniquement réalisables avant Maverick : il est temps d&rsquo;explorer et d&rsquo;expérimenter !</p>
+<h3 id="murs-dachatde-vente-dynamiques-déclenchés-par-un-contrat">Murs d&rsquo;achat/de vente dynamiques déclenchés par un contrat
+</h3><p>Souvenez-vous de l&rsquo;exemple précédent concernant le projet stablecoin qui déploie des liquidités en tant que mur d&rsquo;achat pour limiter le prix. <strong>Le projet n&rsquo;a même pas besoin de ses liquidités pour le faire</strong>, car le même processus peut être reproduit avec une boosted pool :</p>
+<ol>
+<li>Le projet crée une boosted pool où toutes les liquidités sont distribuées un tick en dessous du prix comme ci-dessus.</li>
+<li>Le projet fournit des incitations à la boosted pool pour la durée de son choix et les singes feront le reste.</li>
+</ol>
+<p>L&rsquo;ensemble de ce processus peut être automatisé et déclenché entièrement par des contrats intelligents, ce qui signifie qu&rsquo;un autre contrat pourrait gérer dynamiquement les incitations.</p>
+<h3 id="le-cas-de-cvxcrvcrv">Le cas de cvxCRV/CRV
+</h3><p>Étudions un autre cas d&rsquo;échec et mat, celui de cvxCRV. En effet, le pool cvxCRV/CRV Curve est le pire des cas :</p>
+<ul>
+<li>Il exploite une structure de pool classique, <strong>absolument sous-optimale pour un actif se négociant dans une fourchette contrainte comme le cvxCRV</strong>.</li>
+<li>Il exploite un <strong>modèle d&rsquo;incitation de liquidité &ldquo;stupide&rdquo; où tous les LPs sont payés de la même manière</strong>, ce qui conduit à des dépôts de cvxCRV, qui représentent 75% du pool, gagnant 75% des récompenses - tout en étant presque inutile du point de vue de la liquidité (car il y a déjà trop de cvxCRV dans ce pool).</li>
+</ul>
+<h4 id="que-peut-on-faire-de-mieux-">Que peut-on faire de mieux ?
+</h4><p>Tout d&rsquo;abord, la concentration pourrait être affinée au niveau de la structure de liquidité. Le cvxCRV est un &ldquo;actif à sens unique&rdquo; : vous pouvez convertir des CRV en cvxCRV 1:1 par le biais des contrats Convex, mais la conversion de cvxCRV en CRV se fait sur un DEX avec une décote.</p>
+<p>=&gt; Cela signifie que le cvxCRV a un prix plafond par rapport au CRV : dans aucun monde, le cvxCRV ne pourrait valoir &gt;1 CRV, et le prix actuel est d&rsquo;environ 0,95 CRV par cvxCRV.</p>
+<p>==&gt; La structure idéale pour une telle pool pourrait être <strong>une concentration allant de 1cvxCRV = 0,9 CRV à 1 cvxCRV = 0,99 CRV, offrant une efficacité de liquidité largement supérieure</strong>.</p>
+<p>En ce qui concerne la couche d&rsquo;incitation, des gains considérables peuvent être réalisés grâce à un petit changement. Au lieu de payer tous les LPs de la même manière alors que le pool est massivement déséquilibré, pourquoi ne pas se concentrer sur ceux qui apportent le plus de valeur au pool, c&rsquo;est-à-dire la composante CRV ?</p>
+<p>=&gt; J&rsquo;opterais pour deux pools conjointes afin de couvrir au mieux cette paire sur le plan de l&rsquo;incitation : <strong>Tout d&rsquo;abord, un LP statique sur dix bins</strong> centré sur le prix actuel - cela permet au prix de s&rsquo;exprimer avec suffisamment de liquidité et cette structure est déjà &gt;100x plus efficace que le pool Curve V2 existant.</p>
+<p>==&gt; Pour enfoncer le clou, nous pouvons <strong>ajouter une pool gauche-droite d&rsquo;un seul tick au prix pour maximiser l&rsquo;efficacité de la liquidité</strong>.</p>
+<p>Les détails de cet exemple vous aident à comprendre que si vous amenez ce pool à Maverick, l&rsquo;effet composé de la structure de liquidité supérieure avec un modèle d&rsquo;incitation beaucoup plus efficace conduit à des résultats d&rsquo;une ligue différente.</p>
+<p><img src="/img/2023/liquidity-shaping-maverick/curve-cvxcrv-crv.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="curve-cvxcrv-crv.png"
+	
+	
+></p>
+<p>Il y a actuellement 54 millions de dollars de TVL dans le pool cvxCRV/CRV de Curve pour un volume quotidien d&rsquo;environ 300 000 dollars par jour (0,5 % d&rsquo;utilisation). Avec une incitation de base de 12% CRV, ~<strong>$6M de jetons CRV sont dépensés chaque année pour maintenir cette liquidité</strong>.</p>
+<p><strong>Sur Maverick, une pool de ~500K$ correctement structuré</strong> (250k$ statique à large gamme + 250k$ gauche-droite) <strong>serait suffisante pour traiter régulièrement le volume quotidien de 300k$</strong> avec des prix plus intéressants que sur Curve. En supposant la même intensité d&rsquo;incitation, <strong>cela coûterait 60 000 $ par an à maintenir</strong>.</p>
+<h3 id="proto-liquidity-shaping-avec-bunni-">Proto Liquidity Shaping avec Bunni ?
+</h3><p>J&rsquo;espère qu&rsquo;à ce stade, vous avez une meilleure idée de la raison pour laquelle le façonnage de liquidité est véritablement révolutionnaire, car il permettra un autre saut d&rsquo;ordre de grandeur en ce qui concerne l&rsquo;efficacité des structures de liquidité et des modèles d&rsquo;incitation.</p>
+<p>Il existe des itérations antérieures, moins complètes, d&rsquo;un tel concept, fournies par les gestionnaires de liquidité construit au-dessus d&rsquo;UniswapV3 qui permettent l&rsquo;incitation sur une gamme personnalisée, par exemple, des récompenses pour LUSD/USDC LP, mais seulement pour la gamme LUSD = 0,999 USDC à LUSD = 1,01 USDC. <a class="link" href="https://bunni.pro/"  target="_blank" rel="noopener"
+    >Bunni</a> est un bon exemple de ce type de services.</p>
+<p>Ces services pourraient être qualifiés de &ldquo;proto liquidity shaping&rdquo;, car ils permettent de forcer une fourchette de prix spécifique, mais ne peuvent pas appliquer des pondérations différentes à chaque tick au sein de cette fourchette : ils sont limités par le modèle de pool Uniswap V3, qui offre moins de flexibilité que Maverick. Au final, les deux sont assez complémentaires car Bunni peut être utilisé pour forcer une large fourchette, qui peut être affinée avec une pool Maverick statique et inégale, et enfin maintenue très liquide au prix actuel avec une pool gauche-droite sur Maverick également.</p>
+<h2 id="mav-token">MAV TOKEN
+</h2><p>Avec des perspectives claires sur la nouvelle structure des pools, le modèle d&rsquo;incitation et leurs conséquences, nous sommes maintenant prêts à ajouter la dernière pièce du puzzle, une pièce qui vous est probablement plus familière, mais ici aussi, il y a des différences clés : le token MAV.</p>
+<p>Lancé il y a quelques semaines, le token MAV a été distribué aux premiers fournisseurs de liquidités et aux utilisateurs du protocole. Cette distribution n&rsquo;est que <strong>la première d&rsquo;une longue série</strong>, et d&rsquo;autres sont prévues, pour les LPs, mais aussi pour les protocoles qui exploitent Maverick ou s&rsquo;appuient sur lui. Pour plus de détails sur la distribution prévue, consultez l&rsquo;article <a class="link" href="https://medium.com/maverick-protocol/maverick-ecosystem-incentive-program-95cf76dbfa5e"  target="_blank" rel="noopener"
+    >Maverick Ecosystem Incentive Program</a>.</p>
+<p>En tant que lecteurs de ce blog, j&rsquo;imagine que vous êtes largement familiarisés avec le modèle veCRV et ses implications. Si ce n&rsquo;est pas le cas, vous avez de la lecture :</p>
+<p><strong><a class="link" href="https://tokenbrice.xyz/content/posts/2021/crv-wars.fr.md"  target="_blank" rel="noopener"
+    >⚔ Guerre du CRV : comprendre la course à l&rsquo;accumulation de la capacité à influencer le protocole Curve Finance</a></strong>.</p>
+<h3 id="vemav--liquidity-directing-voting-façonnage-des-liquidités-par-le-vote">veMAV &amp; Liquidity Directing Voting (façonnage des liquidités par le vote)
+</h3><p><img src="/img/2023/liquidity-shaping-maverick/vemav.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="vemav"
+	
+	
+></p>
+<p>Le lancement du jeton MAV est séquentiel, actuellement en phase 1, où les utilisateurs peuvent réclamer leur drop, LP MAV, ou le verrouiller pour obtenir veMAV. <strong>La phase 2 introduira le Liquidity Directing Voting de Maverick et marquera le véritable début de la guerre du MAV</strong>.</p>
+<p>La principale différence ici est, bien sûr, l&rsquo;expressivité permise par Maverick qui aura également un impact sur les tokenomics : contrairement à veCRV ou veBAL, où les projets allouent des liquidités à un pool entier, ici, avec Maverick, <strong>les protocoles seront en mesure de cibler leur pouvoir de vote sur une partie spécifique de la distribution de l&rsquo;AMM</strong>. Vous trouverez plus d&rsquo;informations sur veMAV ici : <a class="link" href="https://medium.com/maverick-protocol/introducing-maverick-protocols-voting-escrow-model-c29a60120339"  target="_blank" rel="noopener"
+    >Introducing Maverick Protocol&rsquo;s Voting-Escrow Model</a>.</p>
+<h3 id="stratégie-x-chain-pour-maverick--vemav">Stratégie x-chain pour Maverick &amp; veMAV
+</h3><p>Un autre point essentiel à noter concernant le jeton MAV est qu&rsquo;il met en œuvre la norme <a class="link" href="https://layerzero.gitbook.io/docs/evm-guides/layerzero-omnichain-contracts/oft"  target="_blank" rel="noopener"
+    >Layer Zero&rsquo;s Omnichain Fungible Token (OFT) standard</a>, ce qui facilite grandement les opérations inter-chaînes. Il permet à MAV d&rsquo;exister nativement sur toutes les chaînes et devrait faciliter la tâche de l&rsquo;équipe chargée de lancer le système de jauge sur un nouveau réseau.</p>
+<p>À première vue, ce n&rsquo;est pas grand-chose, mais cela pourrait faire une énorme différence. En effet, Curve et Balancer ont été lents à exporter leur modèle de jauge complet vers des réseaux autres que le réseau principal sur lequel ils opèrent initialement. <strong>Je m&rsquo;attends à ce que Maverick évolue beaucoup plus rapidement</strong>, et les premières données empiriques le confirment. En ~3 mois d&rsquo;existence, Maverick a déjà lancé deux chaînes en dehors du réseau principal : zkSync et BSC.</p>
+<h3 id="une-autre-différence-majeure-avec-vecrv">Une autre différence majeure avec veCRV
+</h3><p>veMAV met en œuvre plusieurs autres changements par rapport à un modèle veCRV de base, et je vous invite à les identifier tous. En voici d&rsquo;autres :</p>
+<ul>
+<li>La pondération des veMAV par MAV n&rsquo;est pas linéaire ici, même si elle favorise toujours ceux qui s&rsquo;engagent le plus (4 ans) ; le blocage min d&rsquo;une semaine donne un veMAV/MAV, tandis que le blocage max donne 5veMAV/MAV.</li>
+<li>Il n&rsquo;y a <strong>pas de décroissance linéaire</strong> comme pour les veCRV - une amélioration significative de l&rsquo;expérience utilisateur. Cela pourrait également avoir des conséquences très positives pour les wrappers de liquide veMAV, en rendant plus facile de rester proche du peg.</li>
+<li>Cependant, il existe toujours des incitations à rester engagé. En effet, le ratio veMAV/MAV est calculé à l&rsquo;aide de la formule <code>1.5^(lock end - contract launch)</code>. Avec la fin du lock comme paramètre principal, les holders veMAV qui veulent maximiser leur puissance doivent prolonger leur lock fréquemment.</li>
+</ul>
+<p>En ce qui concerne les wrappers, plusieurs projets existants ont déjà exprimé leur intention de s&rsquo;appuyer sur Maverick ou veMAV, notamment Paladin, SpiralDAO et StakeDAO. Les guerres de MAV seront vicieuses, alors lisez bien tous les détails avant de verrouiller vos MAV ailleurs que dans le contrat veMAV.</p>
+<h2 id="perspectives-davenir-et-mots-dadieu">Perspectives d&rsquo;avenir et mots d&rsquo;adieu
+</h2><p>Maverick est actuellement en ligne sur le mainnet, zkSync et BSC. Il est intéressant de remarquer à quel point il domine le volume sur zkSync, même avec une fraction de la  TVL de ses concurrents :</p>
+<p><img src="/img/2023/liquidity-shaping-maverick/zksync-dex-volume.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="zksync-dex-volume.png"
+	
+	
+></p>
+<p><img src="/img/2023/liquidity-shaping-maverick/zksync-dex-tvl.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="zksync-dex-tvl.png"
+	
+	
+></p>
+<p>Sur le réseau principal, Maverick trouve son audience sur les paires ETH-LSDs (wstETH, swETH, etc.) et les stablecoins. La structure de liquidité efficace de Maverick est très compétitive par rapport à Curve, Uniswap et Balancer.</p>
+<p>En ce qui concerne les jetons volatils, les LPs sont encore un peu timides, tout comme il a fallu quelques mois pour que les gens s&rsquo;habituent à la nouveauté apportée par Uniswap V3. Il est intéressant de noter que les LPs expérimentent davantage sur zkSync, en particulier sur des paires telles que ETH/USDC, grâce à la baisse des coûts du gas, ce qui conduit à une efficacité globale du capital encore plus importante que sur le mainnet, voici les statistiques pour aujourd&rsquo;hui (06 juillet 2023) :</p>
+<ul>
+<li>Uniswap V3 - réseau principal : 0.23</li>
+<li>Maverick - réseau principal : 0.3</li>
+<li>Maverick - zkSync : 0.93</li>
+</ul>
+<h3 id="démarrer-avec-maverick-en-tant-quutilisateur">Démarrer avec Maverick en tant qu&rsquo;utilisateur
+</h3><p>Il y a une courbe d&rsquo;apprentissage pour Maverick, car comprendre comment structurer correctement la liquidité peut être intimidant en raison de toutes les options fournies. Pourtant, plus d&rsquo;options signifient plus d&rsquo;expressivité et, par conséquent, plus d&rsquo;efficacité et de rendement lorsqu&rsquo;elles sont exploitées de manière adéquate.</p>
+<p><strong>Pour tirer le meilleur parti de Maverick en tant qu&rsquo;utilisateur et découvrir le protocole dans un environnement où les frais sont peu élevés, je vous recommande de fournir vos premiers LPs sur zkSync</strong> - car cela vous permettra de les modifier à peu de frais si nécessaire. Comme pour la plupart des nouveaux produits DeFi, la meilleure façon de le maîtriser est de l&rsquo;utiliser et de voir comment il se comporte dans différentes conditions de marché, alors lancez-vous : vous pourriez également bénéficier d&rsquo;un double airdrop, de sorte que l&rsquo;expérience peut être très gratifiante.</p>
+<p>N&rsquo;hésitez pas également à aller voir les Boosted Pools, qui en plus de leurs incitations - ont une configuration de la liquidité pré-définie, elles sont donc plus accessibles pour les LPs.</p>
+<h3 id="liquidity-managers-il-est-temps-de-se-réveiller-">Liquidity Managers, il est temps de se réveiller !
+</h3><p>Du côté des projets, <strong>il est absolument nécessaire que les gestionnaires de liquidité comprennent et maîtrisent Maverick</strong>, car c&rsquo;est de loin la plateforme qui offre le plus d&rsquo;efficacité en matière de liquidité. Je serais heureux de les aider dans ce processus, puisque c&rsquo;est devenu ma spécialité. N&rsquo;hésitez pas à me contacter si vous souhaitez discuter de la manière dont votre projet pourrait exploiter la mise en forme des liquidités.</p>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Remarque</p><p>Info : Au cas où vous auriez manqué la nouvelle, je conseille l&rsquo;équipe de Maverick depuis l&rsquo;année dernière.</p>
+<p><strong><a class="link" href="https://tokenbrice.xyz//content/posts/2023/maverickxtokenbrice.fr.md"  target="_blank" rel="noopener"
+    >Annonce : TokenBrice 🤝 Maverick</a></strong></p></div>
+
+<p>Il sera intéressant de voir comment se dérouleront les prochains mois de la guerre des DEX ; Maverick étant déjà régulièrement dans le top 5 des DEX Ethereum par volume traité, je pense qu&rsquo;il n&rsquo;est pas exagéré de l&rsquo;envisager dans le top 3 d&rsquo;ici la fin de l&rsquo;année, au plus tard lorsque les jauges veMAV seront publiées.</p>
+<p>J&rsquo;espère que cet article vous a aidé à mieux comprendre le changement de paradigme que représente la transition du liquidity mining / ve(3,3) de base à la puissance de Maverick qui met en œuvre le façonnage de la liquidité par le vote. N&rsquo;hésitez pas à suivre les événements en direct, en surveillant les données onchain comme le font les OGs.</p>
+<p>Enfin, pour parfaire votre compréhension de Maverick à l&rsquo;issue de la lecture de cette article, je ne peux que chaudement vous recommander le marathon réalisé avec Remi et Laurent de MEVCapital :</p>
+<div class="video-wrapper">
+    <iframe loading="lazy" 
+            src="https://www.youtube.com/embed/gvVVshJ0yK4" 
+            allowfullscreen 
+            title="YouTube Video"
+    >
+    </iframe>
+</div>
+
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/fr/tags/defi/">DeFi</a>
+        
+            <a href="/fr/tags/ethereum/">Ethereum</a>
+        
+            <a href="/fr/tags/finance-d%C3%A9centralis%C3%A9e/">Finance Décentralisée</a>
+        
+            <a href="/fr/tags/dex/">DEX</a>
+        
+            <a href="/fr/tags/vemav/">VeMAV</a>
+        
+            <a href="/fr/tags/maverick/">Maverick</a>
+        
+            <a href="/fr/tags/liquidity/">Liquidity</a>
+        
+            <a href="/fr/tags/liquidity-mining/">Liquidity Mining</a>
+        
+            <a href="/fr/tags/gestion-de-liquidit%C3%A9/">Gestion De Liquidité</a>
+        
+            <a href="/fr/tags/liquidity-shaping/">Liquidity Shaping</a>
+        
+            <a href="/fr/tags/concentrated-liquidity/">Concentrated Liquidity</a>
+        
+            <a href="/fr/tags/vecrv/">VeCRV</a>
+        
+            <a href="/fr/tags/solidly/">Solidly</a>
+        
+            <a href="/fr/tags/velodrome/">Velodrome</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Dernière mise à jour le juil. 07, 2023 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Contenus liés</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/fr/solidly-velodrome-fork/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2023/solidly-velodrome-template/cover.png" loading="lazy" data-key="" data-hash="/img/2023/solidly-velodrome-template/cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ve(3,3) : l&#39;étape logique après le modèle veCRV?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/pegged-assets-swap/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://raw.githubusercontent.com/TokenBrice/blog/refs/heads/master/static/img/2025/pegged-assets-swap/pegged-assets-swap-cover.png" loading="lazy" data-key="" data-hash="https://raw.githubusercontent.com/TokenBrice/blog/refs/heads/master/static/img/2025/pegged-assets-swap/pegged-assets-swap-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Les guerres des swaps sur les actifs pegged</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/balancer-wars/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/balancer-wars/balancer-wars-cover.png" loading="lazy" data-key="" data-hash="/img/2022/balancer-wars/balancer-wars-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Tokens directeurs de liquidité au-delà de Curve : analyse des Balancer Wars</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/crv-wars-l2/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/curve-wars-l2/curve-wars-l2-cover-tokenbrice.png" loading="lazy" data-key="" data-hash="/img/2022/curve-wars-l2/curve-wars-l2-cover-tokenbrice.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">⚔ Guerre du CRV avancée : analyse des protocoles construits sur Curve et Convex </h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/crv-wars/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/crv-wars/curve-wars-cover-tokenbrice.png" loading="lazy" data-key="" data-hash="/img/2021/crv-wars/curve-wars-cover-tokenbrice.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">⚔ Guerre du CRV : comprendre la course à l&#39;accumulation de la capacité à influencer le protocole Curve Finance</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Généré avec <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Thème <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> conçu par <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

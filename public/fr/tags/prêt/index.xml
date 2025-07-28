@@ -1,0 +1,857 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Prêt on TokenBrice</title>
+        <link>http://localhost:1313/fr/tags/pr%C3%AAt/</link>
+        <description>Recent content in Prêt on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>fr</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Wed, 12 Mar 2025 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/fr/tags/pr%C3%AAt/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Effet de Levier pour gentilhomme : gains polynomiaux sans liquidations</title>
+        <link>http://localhost:1313/fr/leverage-sir/</link>
+        <pubDate>Wed, 12 Mar 2025 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/leverage-sir/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2025/leverage-sir/leverage-sir-cover.jpg" alt="Featured image of post Effet de Levier pour gentilhomme : gains polynomiaux sans liquidations" /&gt;&lt;p&gt;Il y a quelques semaines, Sir Trading, une nouveau protocole DeFi fascinant et innovant, a été lancée, et je suis rapidement tombé amoureux. J&amp;rsquo;ai également décidé de m&amp;rsquo;impliquer, alors bienvenue dans cet article qui présente Sir Trading, explique ce que j&amp;rsquo;ai trouvé intéressant dans le modèle et annonce mon implication en tant que conseiller.&lt;/p&gt;
+&lt;h2 id=&#34;sirtrading-expliqué-comme-une-entreprise&#34;&gt;Sir.Trading expliqué comme une entreprise
+&lt;/h2&gt;&lt;p&gt;Pour comprendre Sir Trading (et cela fonctionne bien avec la plupart des protocoles), nous pouvons utiliser une métaphore d&amp;rsquo;entreprise : Qui sont les clients, les intermédiaires et les parties prenantes ?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2025/leverage-sir/sir-diagram.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;sir-diagram&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Commençons donc par le bas : nos « clients » sont les APEs qui ouvrent des positions à effet de levier et paient des frais. Tout le reste est un « moyen » pour atteindre cet objectif.&lt;/p&gt;
+&lt;p&gt;Notre deuxième population est celle des « intermédiaires », les fournisseurs de liquidité sur le protocole Sir, appelés détenteurs de TEA, également appelés « gentlemen ». Ils sont nécessaires car plus il y a de liquidité TEA, plus la capacité des APE à utiliser l&amp;rsquo;effet de levier est grande, et donc plus les utilisateurs sont susceptibles d&amp;rsquo;ape à grande échelle. Maximiser cette population est essentiel, car cela aide à résoudre l&amp;rsquo;une des principales faiblesses du modèle Sir : &lt;strong&gt;l&amp;rsquo;absence de dégradation de l&amp;rsquo;effet de levier ne peut être garantie que si la liquidité fournie est suffisante par rapport à la position à effet de levier ouverte.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Il est donc logique d&amp;rsquo;inciter les fournisseurs de liquidité avec des émissions de SIR pour attirer une liquidité proportionnelle à la demande des APE. De plus, les récompenses continues en SIR offrent aux LPers un revenu stable, complétant les frais de minting/closing volatils qu&amp;rsquo;ils gagnent également — un avantage critique, car les LPers privilégient généralement la prévisibilité (cf. Aerodrome vs. Uniswap).&lt;/p&gt;
+&lt;p&gt;Enfin, les détenteurs de SIR agissent comme des parties prenantes. Ils peuvent staker leurs tokens pour recevoir des dividendes en ETH provenant des frais collectés lors de l&amp;rsquo;ouverture et de la fermeture des positions et, à l&amp;rsquo;avenir, pourraient être impliqués dans une mini-gouvernance centrée sur les décisions concernant l&amp;rsquo;allocation des ressources (⇒ quels vaults inciter avec les émissions de SIR ?).&lt;/p&gt;
+&lt;p&gt;Avec nos trois populations clés définies, nous pouvons essentiellement les assembler dans le « modèle d&amp;rsquo;entreprise » de Sir :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2025/leverage-sir/sir-business-model.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;sir-business-model&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Le protocole SIR vise à maximiser sa base de clients (détenteurs d&amp;rsquo;APE), ce qui génère des revenus partagés avec les parties prenantes (détenteurs de SIR). Les parties prenantes approuvent les émissions de SIR pour financer les intermédiaires (LPers TEA) qui fournissent la liquidité nécessaire à cet objectif et l&amp;rsquo;allouent aux vaults les plus pertinents pour stimuler l&amp;rsquo;utilisation.&lt;/p&gt;
+&lt;h2 id=&#34;zoom-sur-le-côté-ape&#34;&gt;Zoom sur le côté APE
+&lt;/h2&gt;&lt;p&gt;Comme mentionné ci-dessus, le cœur du protocole est l&amp;rsquo;APE — la capacité d&amp;rsquo;utiliser l&amp;rsquo;effet de levier sur n&amp;rsquo;importe quel actif échangé sur UniswapV3. Mais qu&amp;rsquo;est-ce qui rend cet effet de levier si intéressant, surtout par rapport aux nombreuses autres options désormais disponibles ?&lt;/p&gt;
+&lt;p&gt;Le tableau ci-dessous devrait répondre aux questions les plus importantes pour quiconque est déjà familier avec d&amp;rsquo;autres protocoles offrant un effet de levier, tels que f(x) ou Squeeth :&lt;/p&gt;
+&lt;table&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Type de Rendements
+   &lt;/td&gt;
+   &lt;td&gt;polynomial (=/ multiplicatif)
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Effet de Levier Max
+   &lt;/td&gt;
+   &lt;td&gt;Jusqu&#39;à ^5 sans dégradation de l&#39;effet de levier avec une liquidité suffisante, réalistement ~ ^2
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Liquidation
+   &lt;/td&gt;
+   &lt;td&gt;Aucune
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Rééquilibrage
+   &lt;/td&gt;
+   &lt;td&gt;Aucun
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Frais
+   &lt;/td&gt;
+   &lt;td&gt;Pas de frais de financement, seulement des frais fixes payés lors de l&#39;ouverture ou de la fermeture de la position
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Actifs Supportés
+   &lt;/td&gt;
+   &lt;td&gt;Potentiellement tout actif échangé sur UNIv3 + déploiement de vault permissionless
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Considérations de Sécurité
+   &lt;/td&gt;
+   &lt;td&gt;Protocole devant être éventuellement entièrement immuable une fois sorti du mode Beta, oracle utilisé est sans confiance (UNIv3)
+   &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;Comme vous pouvez le voir ci-dessus, je pense que l&amp;rsquo;offre est assez convaincante même par rapport aux options existantes, bien qu&amp;rsquo;elle soit un peu « bizarre » si vous êtes habitué à d&amp;rsquo;autres produits d&amp;rsquo;effet de levier plus classiques, car vous devez vous familiariser avec quelques nouveaux concepts.&lt;/p&gt;
+&lt;h3 id=&#34;rendements-polynomiaux-&#34;&gt;Rendements polynomiaux ?!
+&lt;/h3&gt;&lt;p&gt;Tout d&amp;rsquo;abord, abordons &lt;strong&gt;la question de l&amp;rsquo;effet de levier linéaire (le plus courant) vs polynomial (cas de Sir)&lt;/strong&gt;. Si vous n&amp;rsquo;êtes pas un passionné de maths, je pense que la première chose à comprendre sur les polynômes est que leur impact est de plus en plus palpable à mesure que le prix s&amp;rsquo;éloigne du prix de départ. Il vaut mieux être prudent, car cela fonctionne dans les deux sens. Illustrons avec une position hypothétique simplifiée commencée lorsque ETH = 2000 $ (les frais sont ignorés pour simplifier ; nous y reviendrons plus tard) :&lt;/p&gt;
+&lt;table&gt;
+  &lt;tr&gt;
+   &lt;td&gt;
+   &lt;/td&gt;
+   &lt;td&gt;2500 $ (+25%)
+   &lt;/td&gt;
+   &lt;td&gt;3000 $ (+50%)
+   &lt;/td&gt;
+   &lt;td&gt;4000 $ (+100%)
+   &lt;/td&gt;
+   &lt;td&gt;10000 $ (+400%)
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Linéaire - ETH x2
+   &lt;/td&gt;
+   &lt;td&gt;3 000
+   &lt;/td&gt;
+   &lt;td&gt;4 000
+   &lt;/td&gt;
+   &lt;td&gt;6 000
+   &lt;/td&gt;
+   &lt;td&gt;18 000
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Polynomial - ETH ^2
+   &lt;/td&gt;
+   &lt;td&gt;3 125
+   &lt;/td&gt;
+   &lt;td&gt;4 500
+   &lt;/td&gt;
+   &lt;td&gt;8 000
+   &lt;/td&gt;
+   &lt;td&gt;50 000
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Linéaire - ETH x5
+   &lt;/td&gt;
+   &lt;td&gt;4 500
+   &lt;/td&gt;
+   &lt;td&gt;7 000
+   &lt;/td&gt;
+   &lt;td&gt;12 000
+   &lt;/td&gt;
+   &lt;td&gt;42 000
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Polynomial - ETH ^5
+   &lt;/td&gt;
+   &lt;td&gt;6 103,52
+   &lt;/td&gt;
+   &lt;td&gt;15 187,5
+   &lt;/td&gt;
+   &lt;td&gt;64 000
+   &lt;/td&gt;
+   &lt;td&gt;6 250 000
+   &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;Vous voyez ce scénario de la dernière ligne/colonne, avec notre ape ETH^5 atteignant un Valhalla de plus de 6 millions de dollars sur une simple position de base de 1 ETH (avec une appréciation de prix de +400%) ? C&amp;rsquo;est le pouvoir des rendements polynomiaux. Ce que nous avons examiné ci-dessus est alléchant, bien qu&amp;rsquo;il abstrait de nombreux facteurs, y compris les frais, et suppose aucune dégradation de l&amp;rsquo;effet de levier pour les deux positions. Considérez cela comme un exemple pour comprendre la puissance du polynomial par rapport au linéaire dans un contexte financier plus que toute autre chose.&lt;/p&gt;
+&lt;p&gt;Les rendements polynomiaux (paiements convexes) ont historiquement été surpromis et sous-livrés. Les livrer de manière cohérente est généralement difficile, mais ils sont généralement mis en œuvre avec des &lt;strong&gt;facteurs correctifs&lt;/strong&gt; de différentes natures et noms : dégradation temporelle, dégradation de la volatilité, dégradation de l&amp;rsquo;effet de levier, etc. Le modèle habituel pour un tel produit consiste à &lt;strong&gt;gérer des prêts entre traders et prêteurs&lt;/strong&gt; pour maintenir l&amp;rsquo;effet de levier aussi constant que possible. Cela conduit à des modèles où les utilisateurs d&amp;rsquo;effet de levier diffusent constamment des frais variables aux prêteurs et voient encore leurs positions souvent rééquilibrées. Avec Sir, ce facteur correctif est clair et explicite dès le départ — c&amp;rsquo;est ce frais élevé, alors plongeons-y.&lt;/p&gt;
+&lt;h3 id=&#34;structure-des-frais&#34;&gt;Structure des Frais
+&lt;/h3&gt;&lt;p&gt;Ensuite, le modèle de frais, qui est également assez différent de l&amp;rsquo;habituel. Les frais de Sir sont fixes, dépendent de votre effet de levier, et sont facturés à moitié lors de l&amp;rsquo;ouverture de la position (minting d&amp;rsquo;APE) et à moitié lors de la fermeture de la position (rédemption d&amp;rsquo;APE). À première vue, ils peuvent sembler assez élevés :&lt;/p&gt;
+&lt;table&gt;
+  &lt;tr&gt;
+   &lt;td&gt;Effet de Levier
+   &lt;/td&gt;
+   &lt;td&gt;Frais Totaux
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;^1.5
+   &lt;/td&gt;
+   &lt;td&gt;17,35% du principal
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;^5
+   &lt;/td&gt;
+   &lt;td&gt;69,13% du principal
+   &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;Zoomons sur une position ETH/USDC^1.5 pour mieux comprendre l&amp;rsquo;impact de l&amp;rsquo;effet de levier polynomial et des frais de Sir, avec une position hypothétique ouverte à ETH = 2000 $.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2025/leverage-sir/sir-calculator.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;sir-calculator&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Avec ETH = 4000 $ (+100%), une telle position est en hausse d&amp;rsquo;environ 17% en termes d&amp;rsquo;ETH ou de 134% en termes d&amp;rsquo;USD. Bien sûr, à ce stade, vous êtes un expert en effet de levier polynomial, et donc vous comprenez que &lt;strong&gt;l&amp;rsquo;écart entre l&amp;rsquo;ETH/USDC^1.5 et la détention brute d&amp;rsquo;ETH augmente plus le prix s&amp;rsquo;apprécie&lt;/strong&gt;. À ETH = 6000 $ (+200%), la position est maintenant en hausse d&amp;rsquo;environ 43% par rapport à ETH ou 330% par rapport à USD. À ETH = 8000 $, nous sommes maintenant à ~65% de gains par rapport à ETH et 562% par rapport à USD. Encore une fois, cela fonctionne de la même manière en sens inverse ; veuillez vous en souvenir.&lt;/p&gt;
+&lt;p&gt;Je pense que cela explicite bien le « but du jeu » avec Sir :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Idéalement, vous voulez saisir un bon creux + retournement pour ouvrir votre position à un prix favorable et gagner rapidement suffisamment de rendements pour couvrir les frais.&lt;/li&gt;
+&lt;li&gt;Votre objectif est ensuite de saisir l&amp;rsquo;écart maximal entre votre prix d&amp;rsquo;ouverture et de fermeture, sachant que chaque % que vous pouvez saisir fournit des rendements exponentiellement plus importants.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;La conception du produit est bien adaptée à de telles opérations car vous n&amp;rsquo;avez pas à vous soucier des frais de financement ou de la dégradation temporelle. Vous cherchez essentiellement à acheter bas et vendre haut ; bienvenue dans la crypto : sauf que cette fois, vous avez un outil qui amplifie vos rendements plus vous parvenez à le faire.&lt;/p&gt;
+&lt;p&gt;En raison de sa structure de frais, &lt;strong&gt;Sir est orienté vers les utilisateurs d&amp;rsquo;effet de levier ayant une perspective à long terme&lt;/strong&gt;, ce qui correspond à ses autres caractéristiques clés (pas de liquidation, pas de dégradation de l&amp;rsquo;effet de levier). Dans l&amp;rsquo;ensemble, les frais payés sont similaires à ceux qui seraient encourus en maintenant une position sur marge pendant un an, établissant un équilibre entre les rendements potentiels, la stabilité du protocole et les coûts initiaux. Lors de l&amp;rsquo;ouverture d&amp;rsquo;une position à effet de levier, l&amp;rsquo;une des principales préoccupations est de se tromper de timing et d&amp;rsquo;être haché par une action de prix en range, où les frais s&amp;rsquo;accumulent et emportent tout profit potentiel ; cette préoccupation est inexistante dans le modèle de Sir.&lt;/p&gt;
+&lt;p&gt;Enfin, je voudrais vous rappeler une fois de plus la principale limitation de Sir : l&amp;rsquo;absence de dégradation de la liquidité ne peut être assurée que s&amp;rsquo;il y a suffisamment de liquidité pour absorber votre trade. Bien qu&amp;rsquo;il soit &lt;strong&gt;raisonnable de supposer cela pour les vaults incités ^1.25, ^1.5, ou même ^2&lt;/strong&gt;, cela devient beaucoup moins certain pour les vaults ^5, même avec de fortes incitations, en raison des maths que j&amp;rsquo;ai partagées ci-dessus.&lt;/p&gt;
+&lt;p&gt;Si vous souhaitez plus de données pour comprendre l&amp;rsquo;impact de l&amp;rsquo;effet de levier polynomial dans le contexte de Sir (=frais inclus), consultez &lt;a class=&#34;link&#34; href=&#34;https://app.sir.trading/leverage-calculator&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;le nouveau calculateur sur le site de Sir&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Remarque : Les tokens APE sont des ERC-20 ; ainsi, une composabilité supplémentaire pourrait être envisagée. Cela pourrait devenir intéressant à mesure que le protocole se développe !&lt;/p&gt;
+&lt;h2 id=&#34;quen-est-il-des-buveurs-de-tea-&#34;&gt;Qu&amp;rsquo;en est-il des buveurs de TEA ?
+&lt;/h2&gt;&lt;p&gt;Maintenant que vous avez une bonne compréhension du côté de la demande, les APE/utilisateurs d&amp;rsquo;effet de levier, passons de l&amp;rsquo;autre côté, les fournisseurs de liquidité/détenteurs de TEA.&lt;/p&gt;
+&lt;p&gt;Commençons par les bases : les buveurs de TEA font essentiellement du contre-trading par rapport aux APE, car ils fournissent la liquidité contre laquelle les APE rachètent s&amp;rsquo;ils parviennent à gagner et sécuriser (racheter) des gains importants. Quand je dis « contre-trading » ici, je veux dire de la même manière qu&amp;rsquo;un LP UNIv2_ETH/USDC contre-trade le marché : lorsque le marché achète principalement de l&amp;rsquo;ETH (⇒ le prix monte), les positions apportrices de liquidité se rééquilibrent vers l&amp;rsquo;USDC, et vice versa.&lt;/p&gt;
+&lt;p&gt;Donc, encore plus simplement, &lt;strong&gt;les détenteurs de TEA sont plus courts par rapport à l&amp;rsquo;actif sous-jacent que s&amp;rsquo;ils le détenaient simplement&lt;/strong&gt;. Comprendre cela est tout ce dont vous avez besoin pour pouvoir projeter l&amp;rsquo;impact des variations de prix sur votre principal. Vous devez également &lt;strong&gt;garder à l&amp;rsquo;esprit l&amp;rsquo;utilisation de la liquidité,&lt;/strong&gt; car si vous fournissez à un vault où il y a peu ou pas d&amp;rsquo;aping, vous contre-tradez peu ou personne, et votre exposition principale devient similaire à une détention brute de l&amp;rsquo;actif sous-jacent.&lt;/p&gt;
+&lt;p&gt;Bien que les détenteurs de TEA soient « plus courts » par rapport à une détention brute de l&amp;rsquo;actif sous-jacent, ils restent exposés à son appréciation de prix. Vous pouvez &lt;strong&gt;penser aux détenteurs de TEA comme ETH/USD^0-1&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Maintenant, avec le principal clarifié, abordons les gains en tant que détenteur de TEA. C&amp;rsquo;est assez simple : par défaut, &lt;strong&gt;les détenteurs de TEA d&amp;rsquo;un vault donné gagnent collectivement tous les frais encourus par les minters d&amp;rsquo;APE&lt;/strong&gt;. Les frais sont gagnés en tant que tels (même token que le token fourni) et auto-composés. Les détenteurs de TEA peuvent les racheter en brûlant leur position pour récupérer leur principal + tous les frais accumulés.&lt;/p&gt;
+&lt;p&gt;En plus des frais gagnés en fonction de l&amp;rsquo;activité d&amp;rsquo;aping, &lt;strong&gt;certains vaults sont également incités avec des flux d&amp;rsquo;émissions de SIR.&lt;/strong&gt; Ceux-ci incluent actuellement les plus utilisés : ETH/USDC1.5, wBTC/USDT1.5, SIR/ETH1.5 et SIR/ETH5. Lorsque les vaults sont incités avec des émissions de SIR, environ 10% des frais encourus par les APE sont redirigés vers les stakers de SIR.&lt;/p&gt;
+&lt;p&gt;Remarque : Les tokens TEA sont des ERC-1155, limitant la composabilité supplémentaire, ce qui est une bonne chose ici, car vous voulez éviter les situations de type restaking sur ces tokens, qui sont critiques pour le bon fonctionnement du protocole.&lt;/p&gt;
+&lt;h2 id=&#34;caractéristiques-notables&#34;&gt;Caractéristiques notables
+&lt;/h2&gt;&lt;p&gt;Avec ce qui précède, vous devriez déjà avoir une bonne compréhension du protocole, donc plutôt que de vous ennuyer avec des explications expansives de chaque subtilité, je vais plutôt zoomer sur quelques fonctionnalités de Sir que j&amp;rsquo;ai trouvées dignes de commentaire :&lt;/p&gt;
+&lt;h3 id=&#34;maximisation-de-labsence-de-confiance&#34;&gt;Maximisation de l&amp;rsquo;absence de confiance
+&lt;/h3&gt;&lt;p&gt;Les lecteurs de mon blog ne seront pas surpris de trouver une section abordant cela, car la décentralisation maximale et l&amp;rsquo;absence de confiance sont mes mantras. À cet égard, Sir Trading s&amp;rsquo;en sort plutôt bien, et la conception démontre la priorité accordée à ces deux sujets par ses fondateurs.&lt;/p&gt;
+&lt;p&gt;Commençons par le plus important — le potentiel d&amp;rsquo;immuabilité du protocole. Compte tenu de son approche novatrice et des risques associés, rendre le protocole immédiatement entièrement immuable pourrait être inconséquent. Au lieu de cela, l&amp;rsquo;approche développée ici est un chemin progressif vers une immuabilité éventuelle avec quatre modes :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2025/leverage-sir/sir-beta-mode.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;sir-beta-mode&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Sir est actuellement en mode Roues d&amp;rsquo;Entraînement, dans lequel certains paramètres, tels que les frais, peuvent encore être ajustés. À partir du mode Roues d&amp;rsquo;Entraînement, il peut passer en mode Urgence en réponse à un bug ou à une exploitation et de là à un Arrêt (⇒ Redéploiement) si nécessaire. D&amp;rsquo;un autre côté, si tout se passe bien, les roues d&amp;rsquo;entraînement peuvent être retirées, et le protocole peut être basculé en mode Imparable, où il devient immuable. Je trouve cette approche équilibrée et intéressante, &lt;a class=&#34;link&#34; href=&#34;https://docs.sir.trading/protocol-overview/beta-period&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;définitivement digne d&amp;rsquo;étude&lt;/a&gt; pour d&amp;rsquo;autres constructeurs.&lt;/p&gt;
+&lt;p&gt;Maintenant, regardons la solution d&amp;rsquo;oracle choisie, un élément critique pour tout protocole basé sur le prêt ou l&amp;rsquo;effet de levier. Ici, &lt;strong&gt;la solution est simple et entièrement sans confiance : Uniswap v3.&lt;/strong&gt; Elle a bien sûr des limites, notamment la liquidité disponible sur Uniswap pour garantir que le prix ne soit pas facilement manipulable. Cependant, compte tenu que les principaux vaults sont des majors comme ETH ou wBTC, ce n&amp;rsquo;est pas une grande préoccupation. Cela pourrait être plus problématique pour les vaults liés à SIR, mais ici encore, la liquidité est raisonnablement suffisante par rapport à la capitalisation du token (TVL dans les pools &amp;gt; 35% FDV). Une atténuation supplémentaire est mise en œuvre sur l&amp;rsquo;oracle UNIv3 (TWAP de 30 min) pour mieux résister à la manipulation des prix.&lt;/p&gt;
+&lt;p&gt;Une autre fonctionnalité intéressante en termes d&amp;rsquo;absence de confiance et de résilience est l&amp;rsquo;&lt;strong&gt;exploitation des &lt;a class=&#34;link&#34; href=&#34;https://docs.sir.trading/protocol-overview/token-auctions&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;enchères de tokens&lt;/a&gt; pour rationaliser la distribution des frais aux stakers&lt;/strong&gt;. Sir est loin d&amp;rsquo;être le seul à faire cela, car, par exemple, &lt;a class=&#34;link&#34; href=&#34;https://docs.euler.finance/developers/periphery/fee-flow/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Euler Finance exploite une logique similaire&lt;/a&gt;. De telles enchères permettent la conversion de nombreux actifs en un seul (dans ce cas, wETH) sans ajouter de compromis inutiles au protocole. Je m&amp;rsquo;attends à en voir encore plus.&lt;/p&gt;
+&lt;p&gt;Remarque : Xatarrer (fondateur) a soumis lui-même une revue DeFiScan pour Sir Trading, qui est actuellement en cours d&amp;rsquo;examen. Veuillez consulter &lt;a class=&#34;link&#34; href=&#34;https://defiscan.info/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFiScan&lt;/a&gt; une fois la revue publiée pour plus de détails concernant la décentralisation de Sir.&lt;/p&gt;
+&lt;h3 id=&#34;liquidité-possédée-par-le-protocole&#34;&gt;Liquidité Possédée par le Protocole
+&lt;/h3&gt;&lt;p&gt;La liquidité est le sang vital de Sir, et la conception du protocole le reconnaît avec &lt;strong&gt;un accent particulier sur la croissance des réserves de liquidité permanente (TEA)&lt;/strong&gt;. Chaque dépôt de fournisseur de liquidité comprend des frais (~8,99% de leur principal) retenus comme liquidité permanente possédée par le protocole. Ainsi, inciter les LPers avec SIR n&amp;rsquo;est pas seulement « louer » de la liquidité — c&amp;rsquo;est aussi un « rachat » partiel immédiat de leur dépôt.&lt;/p&gt;
+&lt;p&gt;Grâce à cela, à mesure que le protocole se développe et peut attirer plus de fournisseurs de liquidité, il construit des réserves de liquidité permanente, permettant une « liquidité minimale garantie pour les APE » toujours croissante. C&amp;rsquo;est essentiellement une boucle vertueuse résolvant progressivement l&amp;rsquo;un des principaux inconvénients du modèle : élégant !&lt;/p&gt;
+&lt;h3 id=&#34;modèle-démission-de-token-continue&#34;&gt;Modèle d&amp;rsquo;Émission de Token Continue
+&lt;/h3&gt;&lt;p&gt;SIR fonctionne sous un &lt;strong&gt;modèle d&amp;rsquo;émission constante au taux de 2015M SIR par an&lt;/strong&gt;, avec la part du lion allant toujours à l&amp;rsquo;incitation des fournisseurs de liquidité. Il y a cependant un changement dans la logique de distribution, fait pour donner au protocole les moyens de sa croissance initiale dans les trois premières années :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pour les 3 premières années, 68,13 % dirigés vers les fournisseurs de liquidité, 13,65 % vers les contributeurs pré-mainnet, 10 % réservés dans un trésor, et 8,22 % vers les investisseurs.&lt;/li&gt;
+&lt;li&gt;Après cela : 100% vers les fournisseurs de liquidité.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ce modèle est efficace, car aucun vesting n&amp;rsquo;est nécessaire pour l&amp;rsquo;équipe/les investisseurs/le trésor, puisque la logique est entièrement décalée ici : vous devez penser en termes de flux de tokens (X SIR/jour) plutôt qu&amp;rsquo;en solde total et vesting associé.&lt;/p&gt;
+&lt;h2 id=&#34;mettre-votre-compréhension-en-pratique&#34;&gt;Mettre votre compréhension en pratique
+&lt;/h2&gt;&lt;p&gt;Pour conclure, nous pouvons maintenant articuler notre compréhension partagée du protocole en étudiant trois hypothèses de marché différentes articulées en stratégies :&lt;/p&gt;
+&lt;h3 id=&#34;-je-suis-haussier-sur-eth-ou-btc-sur-un-horizon-de-temps-moyenlong-&#34;&gt;« Je suis haussier sur ETH ou BTC sur un horizon de temps moyen/long »
+&lt;/h3&gt;&lt;p&gt;Celle-ci est la plus simple ; il suffit de minter le token APE ETH/USDC^1.5. L&amp;rsquo;absence de liquidation et de frais de financement vous permettra de définir cette position et de l&amp;rsquo;oublier. &lt;strong&gt;Votre principale métrique à surveiller ici est le frais d&amp;rsquo;ouverture + fermeture à 17,35% : vous devez saisir une appréciation de prix d&amp;rsquo;environ 26% sur ETH pour entrer en territoire de profit&lt;/strong&gt;, avec vos gains augmentant de manière polynomiale à partir de là.&lt;/p&gt;
+&lt;p&gt;Variantes :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Je suis haussier sur BTC : tout pareil, sauf en utilisant l&amp;rsquo;APE wBTC/USDT^1.5 (vault principal : bonne quantité de liquidité disponible).&lt;/li&gt;
+&lt;li&gt;Je suis haussier sur ETH contre BTC et je cherche de l&amp;rsquo;adrénaline : tout pareil, sauf en utilisant le vault wETH/wBTC^5 (attention, faible liquidité actuellement)&lt;/li&gt;
+&lt;li&gt;Je suis haussier sur SIR contre ETH : vous avez plusieurs niveaux d&amp;rsquo;effet de levier disponibles pour exprimer cette conviction onchain (SIR/ETH^1.5 et SIR/ETH^5 étant les plus liquides).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;-je-suis-baissier-sur-eth-sur-un-horizon-de-temps-moyenlong-&#34;&gt;« Je suis baissier sur ETH sur un horizon de temps moyen/long »
+&lt;/h3&gt;&lt;p&gt;Vraiment ?! Pas de jugement ; il y a aussi un vault pour cela, au nom de USDC/wETH^1.5 ! Parce que ce vault est basé sur USDC, contre ETH, ouvrir une position APE là-bas signifie shorter ETH avec un effet de levier polynomial.&lt;/p&gt;
+&lt;p&gt;Inversement, fournir ce vault en tant que fournisseur de liquidité (TEA) signifie contre-trader les (potentiels) shorters ⇒ être long ETH (s&amp;rsquo;il y a utilisation), mais à partir d&amp;rsquo;une base USDC cette fois. Cependant, ce vault n&amp;rsquo;est pas actuellement incité avec des émissions de SIR, donc vos gains proviendront uniquement des positions ouvertes par les APE.&lt;/p&gt;
+&lt;h3 id=&#34;-je-suis-haussier-sur-sir-mais-pas-vraiment-un-ape-avide-deffet-de-levier-&#34;&gt;« Je suis haussier sur SIR, mais pas vraiment un APE avide d&amp;rsquo;effet de levier »
+&lt;/h3&gt;&lt;p&gt;C&amp;rsquo;est compréhensible ; tout le monde n&amp;rsquo;est pas un maximisateur de sensations fortes. Ici, vous pourriez envisager &lt;strong&gt;d&amp;rsquo;exploiter les émissions constantes aux fournisseurs de liquidité pour construire votre réserve de SIR au fil du temps et seulement au coût d&amp;rsquo;opportunité du capital&lt;/strong&gt;. Compte tenu des frais de fourniture LP, vous êtes « forcé » de maintenir la position pendant quelques semaines/mois pour réduire l&amp;rsquo;impact des frais. Si vous êtes inquiet de la dépréciation du principal en cas d&amp;rsquo;un important retournement de marché à la hausse, vous pourriez envisager de répartir vos dépôts sur plusieurs vaults incités pour vous en prémunir.&lt;/p&gt;
+&lt;p&gt;En supposant que vous farmiez initialement avec un dépôt d&amp;rsquo;ETH ou de wBTC, vous avez une option de composition avec votre SIR fraîchement farmé : fournir les vaults SIR. Envisagez également de staker votre SIR pour maximiser une position SIR à moyen/long terme.&lt;/p&gt;
+&lt;h2 id=&#34;discussion-de-mon-implication&#34;&gt;Discussion de Mon Implication
+&lt;/h2&gt;&lt;p&gt;Avant de vous quitter, j&amp;rsquo;aimerais vous donner plus de contexte sur mon implication avec Sir : Je conseille l&amp;rsquo;équipe de Sir pour les aider avec mes sujets principaux : croissance, optimisation de la tokenomie et développement commercial. Je suis rémunéré pour cet effort, et je suis également un détenteur d&amp;rsquo;APE et de TEA, et donc un farmer de SIR — &lt;strong&gt;Je suis long SIR de toutes les manières possibles&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;J&amp;rsquo;ai découvert Sir assez récemment (le protocole n&amp;rsquo;a que quelques semaines), mais le timing était excellent. Comme ceux qui me suivent sur Twitter le savent probablement déjà, j&amp;rsquo;ai été profondément déçu par f(x), où j&amp;rsquo;ai subi une liquidation abusive découlant de lacunes infrastructurelles de leur côté (RPCs).&lt;/p&gt;
+&lt;p&gt;J&amp;rsquo;étais, depuis lors, à la recherche d&amp;rsquo;une solution alternative à f(x) et je suis tombé sur Sir, qui offre des fonctionnalités similaires (« vraie » absence de liquidation, pas de frais de financement) mais apporte également des ajouts bienvenus au mix, comme l&amp;rsquo;effet de levier polynomial vs linéaire : à la fois le protocole et le timing étaient parfaits, donc faire un effort supplémentaire pour aider à son succès s&amp;rsquo;est produit très spontanément.&lt;/p&gt;
+&lt;p&gt;Je n&amp;rsquo;aborde pas le conseil comme un objet de collection à ajouter à mon portefeuille, à montrer dans 2 appels mensuels, à collecter le paiement et à en rester là. Je suis à l&amp;rsquo;opposé, tout aussi engagé, impliqué et sélectif avec eux.&lt;/p&gt;
+&lt;p&gt;Avec Sir, compte tenu de la récente du protocole, mes contributions actuelles tournent autour de la sensibilisation au protocole, de son intégration dans l&amp;rsquo;écosystème et de l&amp;rsquo;explicitation de ses avantages au plus grand nombre possible, comme cela a été fait avec cet article. J&amp;rsquo;exploite mon expérience extensive en DeFi, mon réseau et ma présence pour soutenir l&amp;rsquo;équipe de toutes les manières pertinentes.&lt;/p&gt;
+&lt;h3 id=&#34;ma-position--valhalla-ou-enfer-rien-entre-les-deux-&#34;&gt;Ma position « Valhalla ou enfer, rien entre les deux »
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://etherscan.io/tx/0x5f9038d9004b53501bdf05b3f30d8fc8fd2d8da6a89299a624276c7605bf4ea7&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;J&amp;rsquo;ai ouvert une position SIR^5 sur mon portefeuille public tokenbrice.eth&lt;/a&gt; — n&amp;rsquo;hésitez pas à la suivre : 500K SIR avec un effet de levier ^5 ⇒ rachetable pour ~155K SIR à l&amp;rsquo;initiation (~69% de frais), ouverte le 4 mars 2025 à 20:34:47 UTC. Si tout se passe bien, j&amp;rsquo;espère éventuellement racheter cela pour ~8M SIR (⇒ SIR à 2x mon prix de départ, en supposant une liquidité suffisante) et faire quelque chose d&amp;rsquo;amusant avec. &lt;strong&gt;Je veux vous rappeler qu&amp;rsquo;un tel effet de levier est ce qui se rapproche le plus de la folie onchain ; cette position est maintenant connue dans la communauté comme « Valhalla ou enfer, rien entre les deux »&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Remarque : En tant que protocole construit pour la résilience, &lt;a class=&#34;link&#34; href=&#34;https://x.com/DeFiCollective_/status/1897575989032497390&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Sir est également soutenu par le DeFi Collective&lt;/a&gt;, qui a reçu un don de SIR, l&amp;rsquo;a assorti d&amp;rsquo;ETH, a initié et fourni le LP UNIv2, et a verrouillé le token LP pour un an afin de sécuriser une base de liquidité pour le token.&lt;/p&gt;
+&lt;p&gt;Avertissement : Cet article et la stratégie ci-dessus ne sont pas des conseils en investissement mais des illustrations pratiques de ce que le protocole peut faire. Vous prenez vos propres décisions, et vous en êtes responsable. Au cas où cela n&amp;rsquo;était pas assez clair avec les avertissements précédents : Je suis exposé à SIR en tant que token et protocole et je bénéficie de sa croissance ; en d&amp;rsquo;autres termes, je suis aligné au maximum.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>🗡 Du risque ? Oui, mais juste un doigt</title>
+        <link>http://localhost:1313/fr/tranching-risque-defi/</link>
+        <pubDate>Tue, 12 Jan 2021 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/tranching-risque-defi/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2021/risk-tranching/cover.gif" alt="Featured image of post 🗡 Du risque ? Oui, mais juste un doigt" /&gt;&lt;p&gt;La DeFi s&amp;rsquo;est considérablement développée au cours de l&amp;rsquo;année dernière, en partie grâce à l&amp;rsquo;apparition de produits d&amp;rsquo;investissement plus accessibles tels que &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/vaults.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;les vaults&lt;/a&gt;&lt;/strong&gt; de Yearn ou de Harvest. Grâce à leur architecture, ils facilitent la mutualisation des capitaux, ce qui permet des investissements plus petits mais rentables sur les marchés monétaires et d&amp;rsquo;autres services DeFi comme Curve ou SushiSwap.&lt;/p&gt;
+&lt;p&gt;C&amp;rsquo;était une couche nécessaire et très appréciée, et plusieurs améliorations sont encore à apporter pour rationaliser encore plus les choses et augmenter l&amp;rsquo;efficacité en gaz. Toutefois, je pense que l&amp;rsquo;essentiel de l&amp;rsquo;innovation de cette année viendra d&amp;rsquo;un autre front : la gestion des risques sur les produits de type vault et les marchés monétaires en général.&lt;/p&gt;
+&lt;p&gt;En effet, plusieurs primitives financières ont été développées pour offrir davantage d&amp;rsquo;options de ségrégation et de couverture des risques. Il existe désormais des options d&amp;rsquo;assurance crédibles pour la DeFi, ainsi qu&amp;rsquo;une nouvelle approche pour mieux répartir le risque entre des acteurs consentants et informés : le tranching.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice info&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#info-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Information&lt;/p&gt;&lt;p&gt;En français on parle aussi parfois de &amp;ldquo;sérialisation&amp;rdquo; mais ce n&amp;rsquo;est pas le plus explicite, je continue donc avec &amp;ldquo;tranching&amp;rdquo; pour le reste de l&amp;rsquo;article.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Nous allons nous y plonger, mais juste avant cela, je pense qu&amp;rsquo;il convient également d&amp;rsquo;examiner la terminologie.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;de-protocoles-de-prêt-aux-marchés-monétaires&#34;&gt;De protocoles de prêt aux marchés monétaires
+&lt;/h2&gt;&lt;p&gt;Si vous me lisez depuis un certain temps, vous avez peut-être vu le terme &amp;ldquo;protocole de prêt&amp;rdquo; (&lt;em&gt;lending protocol&lt;/em&gt;) utilisé. S&amp;rsquo;il convenait pour décrire leur premier objectif, je crois que le concept a maintenant dépassé le mot, je les appellerai donc désormais marché monétaire (&lt;em&gt;money market&lt;/em&gt;). En effet, le terme &amp;ldquo;protocole de prêt&amp;rdquo; ne parvient pas à saisir toutes les subtilités qu&amp;rsquo;offrent aujourd&amp;rsquo;hui des services comme Aave - je suis en fait un peu en retard sur ce coup là.&lt;/p&gt;
+&lt;p&gt;Dans un sens, le changement de nomenclature reflète les différentes étapes de l&amp;rsquo;évolution de ces marchés monétaires. Dans leurs premiers mois d&amp;rsquo;existence, il y avait &lt;strong&gt;un impératif de liquidité&lt;/strong&gt; : il s&amp;rsquo;agit essentiellement d&amp;rsquo;une lutte pour atteindre une taille importante, suffisamment grande pour justifier l&amp;rsquo;intérêt d&amp;rsquo;autres projets d&amp;rsquo;intégration au marché monétaire alimentant ainsi une boucle de croissance positive comme nous l&amp;rsquo;avons vu sur Aave.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/risk-tranching/aave-debank.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Aave TVL Growth - Debank&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Une fois que la masse critique est atteinte, &lt;strong&gt;le centre d&amp;rsquo;intérêt peut et doit évoluer&lt;/strong&gt;. Pour continuer à se développer, le marché monétaire doit élargir sa gamme de caractéristiques - encore une fois, comme nous avons vu Aave le faire avec les flash loans et les emprunts à APR stables.&lt;/p&gt;
+&lt;p&gt;Il me semble clair à présent que &lt;strong&gt;la deuxième phase de croissance des marchés monétaires sera axée sur les fonctionnalités&lt;/strong&gt;. En effet, les fonctionnalités de base disponibles sur le marché monétaire sont essentielles, car ces marchés sont davantage intégrés aux autres protocoles DeFi. Les marchés monétaires les plus flexibles au niveau de la couche de base pourront traiter des cas d&amp;rsquo;utilisation plus complexes, tels que la délégation de crédit.&lt;/p&gt;
+&lt;p&gt;Mais aujourd&amp;rsquo;hui, je souhaite axer cet article sur un concept de gestion des risques qui n&amp;rsquo;a pas encore trouvé sa voie vers un marché monétaire classique : le &lt;strong&gt;tranching&lt;/strong&gt;. Voyons ce que cela apporte !&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;tranching--reprendriez-vous-une-autre-tranche-de-risque-&#34;&gt;Tranching : reprendriez-vous une autre tranche de risque ?
+&lt;/h2&gt;&lt;p&gt;Commençons par &lt;strong&gt;la &amp;ldquo;modification du risque&amp;rdquo; la plus simple qui soit : le tranching&lt;/strong&gt;. L&amp;rsquo;idée ici est assez simple : les différentes couches de risque prises par le déposant d&amp;rsquo;un marché monétaire donné sont réparties en tranches, c&amp;rsquo;est-à-dire séparées les unes des autres.&lt;/p&gt;
+&lt;p&gt;Chaque déposant peut choisir l&amp;rsquo;exposition qu&amp;rsquo;il préfère. Il permet, par exemple, à un dégénéré confiant de &lt;strong&gt;supporter tous les niveaux de risque disponibles pour maximiser son rendement&lt;/strong&gt; tandis qu&amp;rsquo;une baleine plus conservatrice pourrait &lt;strong&gt;réduire son périmètre de risque&lt;/strong&gt; en s&amp;rsquo;exposant au seul risque technique.&lt;/p&gt;
+&lt;p&gt;C&amp;rsquo;est l&amp;rsquo;idée de base, mais n&amp;rsquo;oublions pas que nous parlons ici de finance décentralisée, donc la &lt;strong&gt;composabilité est la clé&lt;/strong&gt;. Ce qui rend le tranching si passionnant, c&amp;rsquo;est son avenir en tant que &lt;strong&gt;primitive financière&lt;/strong&gt; - un élément de base que d&amp;rsquo;autres applications et projets peuvent utiliser pour fournir de nouveaux services.&lt;/p&gt;
+&lt;p&gt;Nous explorerons plus en profondeur ce que le tranching en tant que primitive financière implique juste après avoir examiné comment il fonctionne actuellement dans la pratique, et nous examinerons également le contexte plus large de la couverture des risques et de la fixation du taux d&amp;rsquo;APY.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;Si vous êtes nouveau dans la DeFi ou même dans la finance en général, vous vous demandez peut-être pourquoi se soucier autant de la découpe du risque ? Pour dire les choses simplement, ces différents mécanismes de ségrégation de risques sont utiles pour fournir des produits adaptés à l&amp;rsquo;utilisateur final, quelle que soit sa propension personnelle au risque.&lt;/p&gt;
+&lt;p&gt;Je reviens plus explicitement sur l&amp;rsquo;utilité du tranching en fin d&amp;rsquo;article.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;la-tranching-de-risque-en-pratique&#34;&gt;La tranching de risque en pratique
+&lt;/h3&gt;&lt;p&gt;Tout cet article a en fait été inspiré par un tweet que j&amp;rsquo;ai publié et dans lequel je partageais ce à quoi pouvait ressembler un aDAI tranché :&lt;/p&gt;
+&lt;p&gt;À ce jour, il y a principalement un produit qui fournit des tranches sur le mainnet que je regarde : &lt;a class=&#34;link&#34; href=&#34;https://saffron.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Saffron Finance&lt;/a&gt;. Il s&amp;rsquo;agit d&amp;rsquo;une couche d&amp;rsquo;abstraction de tranching construite sur le marché DAI de Compound. La séparation des risques est simple avec deux tranches principales + une :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;La tranche &lt;strong&gt;AA&lt;/strong&gt;, &lt;strong&gt;couverte en cas de défaillance de la plateforme&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;La tranche &lt;strong&gt;A&lt;/strong&gt;, qui fournit la couverture de la tranche AA (et subit donc des pertes en cas de défaillance), mais rapporte un &lt;strong&gt;rendement beaucoup plus favorable&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Il existe une troisième tranche - la &lt;strong&gt;tranche S&lt;/strong&gt;. Cependant, elle rééquilibre simplement les deux autres en fonction des besoins.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/risk-tranching/saffron.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Les différentes tranches disponibles sur Saffron Finance&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Le découpage en tranches se fait sur une base d&amp;rsquo;&lt;em&gt;epoch&lt;/em&gt;, actuellement fixée à deux semaines. Ainsi, si vous fournissez la tranche A, par exemple, vous supportez le risque de défaillance de la plate-forme pour la tranche AA pendant une période de deux semaines.&lt;/p&gt;
+&lt;p&gt;Grâce à l&amp;rsquo;enthousiasme qui a suivi le lancement, Saffron s&amp;rsquo;est développé pour atteindre près de 60 millions de dollars d&amp;rsquo;actifs déposés. Depuis lors, il y a eu un minimum de 15 millions de dollar d&amp;rsquo;actif déposé à tout moment sur le service.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/risk-tranching/saffron-debank.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Saffron Finance TVL - Debank&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;Sur le graphique, on peut voir des retraits importants : ils sont dus à la logique par &lt;em&gt;epoch&lt;/em&gt; de Saffron. À la fin de chaque &lt;em&gt;epoch&lt;/em&gt;, les déposants doivent retirer leur liquidité et la déposer dans les tranches de la nouvelle &lt;em&gt;epoch&lt;/em&gt; pour continuer à générer un rendement.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Saffron cherche à s&amp;rsquo;étendre à d&amp;rsquo;autres marchés monétaires, en particulier à Aave et à étendre sa couverture en tokens (actuellement seulement DAI). D&amp;rsquo;autres projets explorent l&amp;rsquo;idée du tranching, notamment &lt;a class=&#34;link&#34; href=&#34;https://barnbridge.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;BarnBridge&lt;/a&gt;, mais leurs réalisations actuelles sont moins intéressantes à mes yeux.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Edit de dernière minute : Le token de BarnBridge - &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/CoinbaseCustody/status/1348739247277268997&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;BOND vient d&amp;rsquo;être listé sur Coinbase&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Maintenant que nous avons une compréhension plus pratique du tranching et de son fonctionnement, prenons un peu de recul pour comprendre ce qu&amp;rsquo;il apporte dans le contexte plus large de la gestion des risques dans la finance décentralisée.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;le-contexte-plus-large-de-la-gestion-du-risque-pour-la-defi&#34;&gt;Le contexte plus large de la gestion du risque pour la DeFi
+&lt;/h2&gt;&lt;p&gt;Jusqu&amp;rsquo;à présent, nous nous sommes concentrés sur le seul risque lié au produit financier lui-même : principalement les risques liés aux smart contracts, oracles et les attaques économiques. Nous avons laissé au moins deux niveaux de risque intacts :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Variation du taux de rendement (APY)&lt;/strong&gt; : Le taux de rendement du service utilisé est généralement variable, il y a donc une couche d&amp;rsquo;exposition supplémentaire.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Fluctuation des prix du token&lt;/strong&gt; : Parfois, les rendements sont payés en token différent de ceux déposés. Si le token de paiement n&amp;rsquo;est pas un stablecoin, son prix peut varier - ce qui signifie qu&amp;rsquo;il y a encore une couche d&amp;rsquo;exposition supplémentaire à prendre en compte ici si nous voulons être exhaustifs.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Par ailleurs, pour bien comprendre le contexte général, n&amp;rsquo;oublions pas qu&amp;rsquo;il existe plusieurs &amp;ldquo;approches temporelles&amp;rdquo; distinctes du risque :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;En utilisant une approche telle que le tranching, vous pouvez être &lt;strong&gt;proactif&lt;/strong&gt;, en répartissant le risque &lt;strong&gt;a priori&lt;/strong&gt; entre les participants qui comprennent leur exposition.&lt;/li&gt;
+&lt;li&gt;Cela peut également aller de pair avec des approches plus &lt;strong&gt;réactives&lt;/strong&gt;, comme l&amp;rsquo;assurance - un système prévoyant un paiement &lt;strong&gt;a posteriori&lt;/strong&gt; en cas de défaillance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Les marchés de l&amp;rsquo;assurance sont un autre sujet fascinant en soi, aussi nous nous en tiendrons à cette simple mention pour l&amp;rsquo;instant et revenons à nos rendements.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;Pendant que nous parlons d&amp;rsquo;assurance, un projet fascinant vient d&amp;rsquo;être lancé : Unslashed Finance. Il est porté par un français que j&amp;rsquo;admire, donc je suis un peu partial, mais n&amp;rsquo;hésitez pas &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://medium.com/unslashed/manifesto-for-a-decentralised-crypto-insurance-unslashed-finance-873078fd0ddd&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;à lire le manifeste&lt;/a&gt;&lt;/strong&gt; à en savoir plus sur leur vision.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;la-gestion-des-risques-lié-aux-rendements--la-fixation-dapy&#34;&gt;La gestion des risques lié aux rendements : la fixation d&amp;rsquo;APY
+&lt;/h2&gt;&lt;p&gt;Comme on le disait, les rendements des différents produits disponibles dans la finance décentralisée fluctuent constamment. Cela rend les revenus moins prévisibles et empêche l&amp;rsquo;entrée d&amp;rsquo;investisseurs qui ne sont pas prêts à supporter plusieurs niveaux de risque.&lt;/p&gt;
+&lt;p&gt;Pour résoudre ce problème, une autre couche de services méta-financiers est en train d&amp;rsquo;émerger - la proposition de valeur de base en tant qu&amp;rsquo;investisseur est assez simple : ils offrent un &lt;strong&gt;un rendement stable sur les investissements des déposants&lt;/strong&gt;. Il s&amp;rsquo;agit essentiellement d&amp;rsquo;une autre saveur d&amp;rsquo;&amp;ldquo;assurance&amp;rdquo; : vous obtiendrez globalement un rendement un peu plus faible, mais il est prévisible. C&amp;rsquo;est très similaire à un prêt à intérêt stable sur Aave (par opposition à un taux variable).&lt;/p&gt;
+&lt;p&gt;Le côté acheteur de ces services est très intéressant : imaginez-le &lt;strong&gt;comme un marché de prédiction, pour le rendement des vaults ou des marchés monétaires&lt;/strong&gt;. Les acheteurs déposent des actifs et parient sur le rendement moyen attendu : plus leur prédiction est proche, meilleur est leur rendement.&lt;/p&gt;
+&lt;p&gt;Je ne pense pas que le côté acheteur se généralisera de sitôt, mais il constitue &lt;strong&gt;l&amp;rsquo;épine dorsale d&amp;rsquo;une primitive financière utile&lt;/strong&gt; pour fournir des services mieux adaptés à tout type d&amp;rsquo;investisseur.&lt;/p&gt;
+&lt;h3 id=&#34;la-fixation-de-rendement-en-pratique&#34;&gt;La fixation de rendement en pratique
+&lt;/h3&gt;&lt;p&gt;Jusqu&amp;rsquo;à présent, deux projets visent à fournir un rendement fixe sur des produits d&amp;rsquo;investissement décentralisés populaires tels que les vaults de Yearn Finance : &lt;a class=&#34;link&#34; href=&#34;https://apwine.fi/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;APWine&lt;/a&gt; &amp;amp; &lt;a class=&#34;link&#34; href=&#34;https://88mph.app/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;88mph&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Tout comme Saffron, 88mph est une autre couche d&amp;rsquo;abstraction construite sur les dépôts de Compound, Aave et Harvest. Elle fournit un &lt;strong&gt;rendement fixe pour les déposants&lt;/strong&gt;, alors que de l&amp;rsquo;autre côté du marché, les acheteurs d&amp;rsquo;obligations à taux variable supportent le risque des fluctuations de rendement du produit d&amp;rsquo;investissement sous-jacent.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/risk-tranching/88mph.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;88mph main interface&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;prospection--quel-avenir-pour-le-tranching-&#34;&gt;Prospection : quel avenir pour le tranching ?
+&lt;/h2&gt;&lt;p&gt;Finissons avec une petite expérience de pensée. Nous allons maintenant quitter le présent et ce qui est actuellement en production sur le réseau principal d&amp;rsquo;Ethereum pour extrapoler un peu et examiner ce que le tranching et d&amp;rsquo;autres approches de gestion des risques peuvent permettre dans la DeFi d&amp;rsquo;ici quelques mois ou quelques années.&lt;/p&gt;
+&lt;p&gt;En supposant :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Un produit d&amp;rsquo;investissement construit, par exemple, sur le marché monétaire Aave :&lt;/li&gt;
+&lt;li&gt;Avec un produit de type Saffron intégré&lt;/li&gt;
+&lt;li&gt;Également avec un service de type 88 mph intégré&lt;/li&gt;
+&lt;li&gt;Enfin, une assurance telle que Unslashed également intégrée pour le peg ($1.00) du DAI.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;On pourrait alors envisager &lt;strong&gt;le premier investissement &amp;ldquo;sans risque&amp;rdquo; en DeFi&lt;/strong&gt;, qui serait un dépôt de DAI sur Aave, accompagné d&amp;rsquo;une répartition en tranches pour ne supporter que le risque de prix et protégé contre celui-ci par une couverture contre la perte du peg de DAI sur Unslashed.&lt;/p&gt;
+&lt;p&gt;Il est insensé d&amp;rsquo;envisager les différentes étapes de l&amp;rsquo;évolution du DAI dont nous avons été témoins ou dont nous sommes sur le point d&amp;rsquo;être témoins en à peine deux ans :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;DAI&lt;/li&gt;
+&lt;li&gt;Un DAI &lt;strong&gt;qui gagne des intérêts&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Un DAI qui gagne des intérêts &lt;strong&gt;fixes et prévisibles&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Un DAI qui gagne des intérêts fixes et prévisibles, &lt;strong&gt;non exposé au risque technique&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Un DAI qui gagne des intérêts fixes et prévisibles, non exposé au risque technique, et &lt;strong&gt;couvert contre une perte de peg sur DAI&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;aFIXEDAPYDAI_PEGINSURED : notre nouveau maître de la monnaie ? Le vrai nom sera bien plus accrocheur, soyez-en sûrs !&lt;/p&gt;
+&lt;p&gt;Êtes-vous prêt à assister &lt;strong&gt;à l&amp;rsquo;avenir de l&amp;rsquo;argent qui se déroule méthodiquement sous vos yeux alors que vos avoirs reçoivent des mises à jour logicielles&lt;/strong&gt; ?&lt;/p&gt;
+&lt;p&gt;Pour ma part, je ne peux pas attendre : je me prépare depuis trois ans.&lt;/p&gt;
+&lt;div class=&#34;notice tip&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#tip-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Astuce&lt;/p&gt;&lt;p&gt;Cet article a éveillé votre curiosité ? Vous êtes tombés au bon endroit — nous avons un ecosystème dynamique en français pour vous aider à suivre et comprendre la finance décentralisée. Du plus accessible au plus spécialisé :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://discord.gg/3bWZcK2&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;💬 Le serveur Discord DeFi France&lt;/a&gt;&lt;/strong&gt; pour échanger avec la communauté.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://thedailygweifr.substack.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;☕ La version française du Daily Gwei&lt;/a&gt;&lt;/strong&gt; pour des articles et résumés très accessibles.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://banklessfr.substack.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🗞 La newsletter BanklessFR&lt;/a&gt;&lt;/strong&gt; pour comprendre les concepts fondamentaux.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/c/DeFiFrance&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🎥 La chaine Youtube DeFi France&lt;/a&gt;&lt;/strong&gt; pour approfondir avec des lives pointus.&lt;/li&gt;
+&lt;li&gt;&amp;amp; Bien sûr &lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/fr/&#34; &gt;ce blog&lt;/a&gt; qui creuse des sujets spécifiques liés à la pratique de la DeFi.&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;Merci à Waël qui a réalisé l&amp;rsquo;image de couverture qui illustre cet article (et l&amp;rsquo;emblème TokenBrice).&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;🙏 Un grand merci à HHK, Charles, Thomas, Erwan, &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/phil_h&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PhilH&lt;/a&gt; &amp;amp; FrenchTony pour leur relecture attentive de l&amp;rsquo;édition française de cet article et sa traduction en Anglais.&lt;/em&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>📖 Comment utiliser les services DeFinanciers à votre avantage ?</title>
+        <link>http://localhost:1313/fr/p/comment-utiliser-les-services-definanciers-%C3%A0-votre-avantage/</link>
+        <pubDate>Fri, 29 May 2020 10:53:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/p/comment-utiliser-les-services-definanciers-%C3%A0-votre-avantage/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2020/definancial-services-guide/cover.jpeg" alt="Featured image of post 📖 Comment utiliser les services DeFinanciers à votre avantage ?" /&gt;&lt;p&gt;Bienvenue dans le nouveau monde !&lt;/p&gt;
+&lt;p&gt;Si vous arrivez ici, c&amp;rsquo;est que vous avez déjà probablement entendu parler d&amp;rsquo;Ethereum et de la finance décentralisée. C&amp;rsquo;est parfait ! Aujourd&amp;rsquo;hui on passe de la parole aux actes en considérant comment utiliser la DeFi pour améliorer vos finances.&lt;/p&gt;
+&lt;p&gt;Cet article vous présentera 6 stratégies qui permettent de générer un retour grâce à la DeFi, avec leurs variantes. On commencera par les stratégies de management passif avant d&amp;rsquo;explorer progressivement celles qui requièrent plus d&amp;rsquo;intervention et présentent plus de risques mais sont également bien plus lucratives.&lt;/p&gt;
+&lt;p&gt;Avant de commencer, JE VOUS PRIE ET SUPPLIE de lire les avertissements qui vont suivre relatifs à la gestion du gaz et au risque.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Cet article n&amp;rsquo;est pas un guide d&amp;rsquo;investissement. Je ne suis moi-même pas un investisseur accrédité — ma position est totalement informelle. Je ne suis qu&amp;rsquo;un jeune homme de 27 ans qui utilise les services DeFinanciers abondamment et très actif dans le milieu.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;VOUS ÊTES, SEREZ ET RESTEREZ EN TOUTES CIRCONSTANCES LA SEULE PERSONNE RESPONSABLE DE VOS DÉCISIONS D&amp;rsquo;INVESTISSEMENTS.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;une-affaire-de-gaz&#34;&gt;Une affaire de gaz
+&lt;/h2&gt;&lt;p&gt;&lt;em&gt;ℹ Redondant pour certains, utile pour beaucoup - lecture recommandée :&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Toutes les stratégies présentées dans cet article sont permises grâce à des services de finance décentralisée et sont exécutées sur le réseau Ethereum. &lt;strong&gt;Pour interagir avec les services DeFinanciers, il faut payer pour les parties communes du réseau Ethereum — c&amp;rsquo;est précisément ce à quoi les coûts de gaz correspondent.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Les frais de gaz sont payés en gwei, une sous-unité d&amp;rsquo;ETH (1 gwei = 0.000000001 ETH). La plupart des portefeuilles Ethereum vous suggéreront un prix à payer par défaut — et c&amp;rsquo;est généralement assez pour commencer.&lt;/p&gt;
+&lt;p&gt;Néanmoins, au fil de votre découverte des arcanes de la DeFi, vous allez vous-même revenir spontanément à la notion de gaz pour mieux la comprendre et éviter de surpayer pour soumettre vos transactions. En effet, en fonction du coût choisi, la validation de votre transaction sera rapide, lente, ou impossible.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/gas-station.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;eth-gaz-station&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Vous pouvez utiliser &lt;a class=&#34;link&#34; href=&#34;https://ethgasstation.info/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;⛽  EthgasStation pour voir les prix recommandés.&lt;/a&gt;,
+Or bien lire &lt;a class=&#34;link&#34; href=&#34;https://docs.ethhub.io/using-ethereum/transactions/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;📑 la documentation EthHub&lt;/a&gt;  sur le sujet.&lt;/p&gt;
+&lt;p&gt;Note : Les stratégies 1, 3 &amp;amp; 4 sont désormais applicables sans avoir à se soucier du gaz grâce à &lt;a class=&#34;link&#34; href=&#34;https://argent.xyz/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Argent&lt;/a&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Nous sommes presque parés pour le décollage, après une dernière salve d&amp;rsquo;avertissements hautement nécessaires pour s&amp;rsquo;assurer que nous sommes sur la même longueur d&amp;rsquo;onde, et pour bien comprendre le contexte.&lt;/p&gt;
+&lt;h3 id=&#34;rappels-nécessaires---à-lire&#34;&gt;Rappels nécessaires - À LIRE
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Tous les taux de retours discutés dans cet article sont des taux annuels.&lt;/strong&gt; - Pour actualiser ces APRs (estimations), vous devez rester engagé dans la position en question une année entière.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Il n&amp;rsquo;y a pas de mesure objective possible de concepts comme la &amp;ldquo;complexité&amp;rdquo;  ou le &amp;quot; risque.&amp;quot;&lt;/strong&gt; - Les scores que je vous présente sont à vocation purement informationnelle.&lt;/li&gt;
+&lt;li&gt;Qu&amp;rsquo;est-ce que représente le score de &lt;strong&gt;risque&lt;/strong&gt; ? La possibilité plus ou moins réelle de perdre votre capital, que ce soit dû à un mouvement du marché ou à cause d&amp;rsquo;une erreur (venant habituellement d&amp;rsquo;un manque de compréhension).&lt;br&gt; Le score de &lt;strong&gt;complexité&lt;/strong&gt; vous permet d&amp;rsquo;estimer à quel point le risque est technique et dur à comprendre.
+&lt;br&gt; &lt;em&gt;Note : le risque d&amp;rsquo;un défaut au niveau du réseau Ethereum lui-même n&amp;rsquo;est pas nul. Je ne le mentionne plus après cette note — c&amp;rsquo;est un risque fondamental partagé par toutes les stratégies.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Rien n&amp;rsquo;est gratuit – restons responsables. En règle générale, &lt;strong&gt;plus les retours sont importants et plus les risques sont élevés.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Quand les marchés s&amp;rsquo;emballent, certains services DeFinanciers sont plus impactés que d&amp;rsquo;autres. Bien qu&amp;rsquo;un mouvement brutal du prix de l’ETH n&amp;rsquo;affecte pas les retours sur RealT (stratégie 2) cela peut provoquer des pertes pour les gens engagés sur TokenSets ou Liquidity Providing.&lt;/li&gt;
+&lt;li&gt;Enfin, gardez en tête que les taux de retours changent sans cesse. Ne les prenez pas pour acquis, vérifiez – surtout si vous lisez cet article quelques semaines après sa sortie.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Si l&amp;rsquo;une des stratégies présentées ci-dessous vous parle, vous pouvez utiliser des services comme &lt;a class=&#34;link&#34; href=&#34;https://app.defiscore.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFiScore&lt;/a&gt; &amp;amp; &lt;a class=&#34;link&#34; href=&#34;https://defiwatch.net/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFiWatch&lt;/a&gt;. pour mieux comprendre les risques associés.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/defiscore.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;defi-score&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;services-definanciers-passifs&#34;&gt;SERVICES DEFINANCIERS PASSIFS
+&lt;/h2&gt;&lt;p&gt;&lt;em&gt;Pour les stratégies 1 à 4, il n&amp;rsquo;y a aura aucune action requise de votre part, outre l&amp;rsquo;entrée et la sortie de la position. Entre les deux, vous n&amp;rsquo;avez rien à faire pour obtenir votre retour, il vous est payé d&amp;rsquo;une façon ou d&amp;rsquo;une autre sans intervention nécessaire.&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;stratégies-sur-des-actifs-stables&#34;&gt;Stratégies sur des actifs stables
+&lt;/h3&gt;&lt;p&gt;Certains produits DeFinanciers d&amp;rsquo;investissements passifs n&amp;rsquo;impliquent que des stablecoins — des jetons qui suivent le prix d&amp;rsquo;une monnaie plus ou moins stable, telle que le dollar. Ces services sont un excellent point de départ : le risque est essentiellement technique (défaut du contrat).&lt;/p&gt;
+&lt;h4 id=&#34;1-retours-sur-stablecoins&#34;&gt;1/ Retours sur Stablecoins
+&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Vous possédez un actif construit sur Ethereum qui suit le prix du dollar (par ex DAI). Cet actif est utilisé pour générer un retour que ce soit grâce à des prêts (aDAI) ou en apportant de la liquidité.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;(5 étoiles = le plus grand)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/subh/1-stablecoin-yield.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;1-stablecoin-yield&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Les stablecoins qui génèrent un retour sont un excellent point de départ.&lt;/p&gt;
+&lt;p&gt;Ils peuvent apporter un taux de retour décent (jusqu&amp;rsquo;à 8-9%), sont faciles à utiliser et ne sont pas trop complexes : ils vous permettront de comprendre quelques notions fondamentales avant d&amp;rsquo;aller plus loin.&lt;/p&gt;
+&lt;p&gt;Pour s&amp;rsquo;exposer puis sortir, il suffit d&amp;rsquo;un simple échange de jetons. Il n&amp;rsquo;y a donc que 3 choses à considérer pour évaluer la stratégie :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Le risque&lt;/strong&gt; : sur le stablecoin (DAI) &amp;amp; ainsi que tout service en plus (ex Aave pour aDAI)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Les retours&lt;/strong&gt; : ils y a plusieurs solutions pour suivre l&amp;rsquo;évolution des taux, comme &lt;a class=&#34;link&#34; href=&#34;https://loanscan.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;LoanScan&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Les frais de transaction&lt;/strong&gt; (gaz) pour les deux échanges de tokens (entrée puis sortie).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Il y a de nombreux services disponibles pour réaliser cette stratégie : Compound, Aave, etc. Vous retrouverez les tokens correspondants (aDAI, cDAI, etc.) sur des services comme &lt;a class=&#34;link&#34; href=&#34;https://paraswap.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ParaSwap&lt;/a&gt;. Ces derniers temps, le meilleur taux se situe le plus souvent sur aDAI.&lt;/p&gt;
+&lt;p&gt;Si le concept vous plaît, voici trois variantes qui promettent des retours un peu plus attractifs – ce qui veut dire qu&amp;rsquo;elles sont également plus risquées :&lt;/p&gt;
+&lt;h5 id=&#34;1-a-optimiser-le-rendement-via-réallocation-automatique&#34;&gt;1-A/ Optimiser le rendement via réallocation automatique
+&lt;/h5&gt;&lt;p&gt;&lt;strong&gt;RECAP: Vous possédez un actif qui redistribue automatiquement votre capital entre plusieurs stablecoins prêtés afin d&amp;rsquo;optimiser votre taux de retour.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Comme on le disait plus haut, il existe désormais plusieurs options pour générer un retour sur un stablecoin. Vous pouvez aller chercher le meilleur taux vous même, mais ils changent sans cesse.&lt;/p&gt;
+&lt;p&gt;Alors pourquoi pas utiliser un autre service qui se chargera de le faire pour vous en toute transparence ?&lt;/p&gt;
+&lt;p&gt;C&amp;rsquo;est précisément ce que fait &lt;a class=&#34;link&#34; href=&#34;https://idle.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Idle Finance&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/idle-dai.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;idle-dai&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h5 id=&#34;apport-de-liquidité-sur-stablecoins--curve-pools&#34;&gt;Apport de liquidité sur stablecoins : Curve Pools
+&lt;/h5&gt;&lt;blockquote&gt;
+&lt;p&gt;Vous possédez plusieurs stablecoins et les mettez à disposition afin de faciliter des échanges sur Curve (liquidity provider). Vos générez une commission sur chaque échange correspondant au pro-rata de votre contribution à la pool.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Il y a une section dédiée à ce sujet plus bas, mais il fallait mentionner &lt;a class=&#34;link&#34; href=&#34;https://curve.fi&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Curve&lt;/a&gt; ici. En bref, Curve est un service conçu pour optimiser l&amp;rsquo;échange de stablecoins. Apporter de la liquidité sur Curve est attractif car l&amp;rsquo;exposition est toujours 100 % en stablecoins (plusieurs) et les retours provenants des commissions sur les échanges (&amp;amp; du prêts) sont décents.&lt;/p&gt;
+&lt;h5 id=&#34;1-c-loterie-sans-perte--pool-together&#34;&gt;1-C/ Loterie sans perte : Pool Together
+&lt;/h5&gt;&lt;blockquote&gt;
+&lt;p&gt;Vous verrouillez un stablecoin (DAI/USDC) pour une semaine ou un mois. Ils sont mis en commun avec ceux des autres joueurs et prêtés (→ retour). À la fin de la semaine/mois, le gagnant ramasse les intérêts générés et tout le monde peut repartir avec son capital initial.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;J&amp;rsquo;adore cette stratégie car à première vue, sa présence dans ce guide n&amp;rsquo;est pas une évidence. Tout d&amp;rsquo;abord parlons de &lt;a class=&#34;link&#34; href=&#34;https://www.pooltogether.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PoolTogether&lt;/a&gt; — il ne s&amp;rsquo;agit pas d&amp;rsquo;un produit DeFinancier classique, la portée est plus pédagogique. PoolTogether est un &amp;ldquo;money-game&amp;rdquo; .&lt;/p&gt;
+&lt;p&gt;Le concept est assez simple comme présenté plus haut. Étant donné que les gains du gagnant proviennent des intérêts générés sur le capital de tous les joueurs, il n&amp;rsquo;y a pas de perte de capital avec PoolTogether.&lt;/p&gt;
+&lt;p&gt;Néanmoins je vous rassure, sa présence sur cette liste n&amp;rsquo;est pas une question d&amp;rsquo;idéologie : bien que PoolTogether utilise Compound, les retours sont supérieurs. La raison est simple : il y a des tickets &amp;ldquo;sponsorisés&amp;rdquo; : des DAI/USDC qui contribuent au retour du gagnant, mais qui ne correspondent pas à des tickets gagnants.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/pt-sponsored.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;pool-together-sponsored-balances&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Bien que le taux de retour moyen soit supérieur, PoolTogether reste un jeu de hasard – les gains ne sont pas du tout réguliers : le plus souvent, ils seront de 0. Néanmoins avec de la chance au tirage, vous pouvez également gagner l&amp;rsquo;équivalent d&amp;rsquo;années d&amp;rsquo;intérêt sur votre capital.&lt;/p&gt;
+&lt;p&gt;C&amp;rsquo;est une saveur différente construite sur Compound en quelque sorte : un retour légèrement meilleur, en moyenne, beaucoup plus d&amp;rsquo;aléatoire et encore plus de fun !&lt;/p&gt;
+&lt;p&gt;Le mois dernier, PoolTogether a sorti &lt;a class=&#34;link&#34; href=&#34;https://medium.com/pooltogether/winning-more-prizes-185bad7f6d63&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;la fonctionnalité &amp;ldquo;Pods&amp;rdquo;&lt;/a&gt; qui permet de jouer en groupe. Les utilisateurs d&amp;rsquo;une Pod peuvent ainsi partager leurs chances de victoire &amp;amp; leurs gains : cela permet de gagner plus souvent (mais moins — il faut aussi partager les gains).&lt;/p&gt;
+&lt;p&gt;Vous pouvez jouer à &lt;a class=&#34;link&#34; href=&#34;https://www.pooltogether.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PoolTogether directement depuis leur site&lt;/a&gt; ou en utilisant Argent. Il vous faudra des DAI ou des USDC.&lt;/p&gt;
+&lt;h4 id=&#34;2-immobilier-tokénisé--realt&#34;&gt;2/ Immobilier tokénisé – RealT
+&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Vous possédez des parts d&amp;rsquo;un bien immobilier (security). Chaque jour, votre part du loyer vous est payée en USDC.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/subh/2-tokenised-real-estate.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;2-realt-tokenised-real-estate&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://realt.co&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RealT&lt;/a&gt; est réellement unique et différent de toutes les stratégies présentées sur cette liste, à plusieurs niveaux. Étant donné que les jetons RealT représentent des propriétés immobilières, le modèle du risque est aussi totalement changé. (→ moins de risque smart contrat, mais cela implique également de nouveaux risques)&lt;/p&gt;
+&lt;p&gt;Avant de présenter les autres intérêts de RealT je veux rappeler une chose essentielle. &lt;strong&gt;Les jetons RealT sont des &amp;ldquo;securities&amp;rdquo;, pour les acheter il faudra prouver votre identité.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/realt.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;RealT-tokenised-real-estate&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;C’est donc une stratégie un peu plus contraignante que la première mais vous y gagnez des bénéfices intéressants :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Les retours&lt;/strong&gt; : en fonction des propriétés, les retours annuels vont de 8.5 % à 12.5 %&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Paiement quotidien des intérêt&lt;/strong&gt; : à partir du moment où vous possédez des jetons RealT, vous recevrez votre part du loyer en USDC chaque jour.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hedging&lt;/strong&gt;: le retour vient d&amp;rsquo;une location d&amp;rsquo;une propriété – il est donc moins corrélé (au marché crypto) que les autres services présentés dans cet article&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Opportunités Additionnelles&lt;/strong&gt;: il vous reste des options pour aller plus loin. Vous pouvez par exemple apporter de la liquidité sur les paires Uniswap – pour potentiellement &lt;a class=&#34;link&#34; href=&#34;https://medium.com/realtplatform/announcing-the-uniswap-incentive-program-f82f721cf63a&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;plus de retours&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;stratégies-sur-actifs-volatils&#34;&gt;Stratégies sur actifs volatils
+&lt;/h3&gt;&lt;h4 id=&#34;3-stratégies-de-trading-automatisées---tokensets&#34;&gt;3/ Stratégies de trading automatisées - TokenSets
+&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Vous possédez un &amp;ldquo;ensemble&amp;rdquo; représentant un enjeu dans une stratégie de trading automatisée basée sur un indicateur technique ou un autre trader (ensembles sociaux) appelé &amp;ldquo;Holding on autopilot&amp;rdquo;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/subh/3-tokensets.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;3-tokensets-automated-strategies&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Les &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.tokensets.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;TokenSets&lt;/a&gt; sont le meilleur ami des holdeurs.&lt;/strong&gt; Bien que ce service ne soit certainement pas le plus facile à comprendre ni le moins risqué, il offre actuellement une utilité importante. En effet, si vous êtes un détenteur de longue date d&amp;rsquo;ETH par exemple, TokenSets est l&amp;rsquo;une de vos meilleures options pour faire fructifier votre réserve d&amp;rsquo;ETH (contre ETH).&lt;/p&gt;
+&lt;p&gt;Les sets sont des stratégies de trading automatisées représentées par un token. Chaque set joue sur une paire donnée (ex : ETH/cUSDC) en suivant un ensemble de règles de rééquilibrage déclenchées par le croisement avec l&amp;rsquo;indicateur technique du set.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/tokenviz.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Tokensets performance visualised with TokenViz&#34;
+	
+	
+&gt;
+Vous vous demandez quel set choisir ? &lt;a class=&#34;link&#34; href=&#34;https://tokenviz.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;TokenViz&lt;/a&gt; vous propose un tableau de bord présentant différents indicateurs de performance pour vous aider à choisir.&lt;/p&gt;
+&lt;p&gt;Ainsi, pour un utilisateur qui ne veut pas regarder les courbes toute la journée, TokenSets est une excellente option. En effet, la plupart des personnes qui essaient de faire du trading ont tendance à perdre de l&amp;rsquo;argent. &lt;strong&gt;Avec les sets, les émotions sont mises hors-jeu et les machines règnent maîtresses.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;En plus des sets réguliers (&amp;ldquo;robosets&amp;rdquo;) suivant un indicateur technique (comme la moyenne mobile sur 20 jours du prix de l&amp;rsquo;ETH), il existe maintenant des sets sociaux. C&amp;rsquo;est le même mécanisme, mais votre ensemble suivra la stratégie d&amp;rsquo;un autre trader au lieu de simples indicateurs techniques : c&amp;rsquo;est ce qu&amp;rsquo;on appelle la fonction &amp;ldquo;copy-trader&amp;rdquo;.&lt;/p&gt;
+&lt;h4 id=&#34;4-retours-simples-sur-tokens-erc20&#34;&gt;4/ Retours simples sur tokens ERC20
+&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Il s&amp;rsquo;agit essentiellement de la version ERC-20 de la stratégie 1 : vous possédez un tokens ERC-20 (non stable) produisant une certaine forme de rendement, généralement par le biais de prêts ou par l&amp;rsquo;apport de liquidités.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/subh/4-erc20-yields.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;4-erc20-yields&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Avant d&amp;rsquo;explorer les approches plus actives, permettez-moi d&amp;rsquo;introduire une approche plus passive, s&amp;rsquo;appuyant cette fois-ci sur les &lt;strong&gt;tokens ERC20 (non stables)&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Comme Aave propose des retours sur un maximum de 15 tokens ERC-20 différents, il pourrait être intéressant pour vous de garder un œil sur eux - avec un outil comme &lt;a class=&#34;link&#34; href=&#34;https://aavewatch.now.sh/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;AaveWatch&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/aavewatch.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;AaveWatch - overview of lending opportunities offered on Aave&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Parmi eux, je pense que les suivants sont les plus intéressants :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;aSNX : taux de base autour de 7 %, peut monter assez haut pendant un certain temps - surveillez de très près celui-ci le mercredi, surtout si les prix de l&amp;rsquo;ETH/SNX varient beaucoup pendant la semaine : nous observons des poussées d&amp;rsquo;emprunt de la SNX pendant certaines périodes de réclamation.&lt;/li&gt;
+&lt;li&gt;asUSD : peut aussi connaître des pics assez importants, surtout ces derniers temps (~12% de TAEG au cours du dernier mois)&lt;/li&gt;
+&lt;li&gt;aZRX : les taux peuvent monter en flèche, apprenez en plus sur ZRX pour savoir quand&lt;/li&gt;
+&lt;li&gt;aMANA : même chose ici - taux de retour décent (1-2%)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;services-definanciers-actifs&#34;&gt;SERVICES DEFINANCIERS ACTIFS
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Ne rien faire est génial - et quand il s&amp;rsquo;agit d&amp;rsquo;investir, c&amp;rsquo;est une stratégie qui peut être étonnamment efficace&lt;/strong&gt;. Pouvoir rester stoïque et ne rien faire, même au milieu d&amp;rsquo;une tourmente sur les marchés c&amp;rsquo;est vraiment un art qu&amp;rsquo;il vous serait utile de maîtriser. Cependant, et cela ne devrait pas vous surprendre, les meilleurs rendements exigeront des efforts.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/nothing.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Doing nothing - the best strategy of them all?&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Vous avez remarqué que je n&amp;rsquo;ai pas dit &amp;ldquo;travail&amp;rdquo; ? Parfois, les &amp;ldquo;efforts&amp;rdquo; peuvent simplement consister à accepter de supporter un risque que d&amp;rsquo;autres ne supporteraient pas, et à être bien payé pour cela - &lt;strong&gt;l&amp;rsquo;équivalent pour l&amp;rsquo;investisseur d&amp;rsquo;une doublure.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Les stratégies suivantes exigeront une compréhension plus précise de ce que vous faites. En effet, toutes les stratégies bénéficieraient énormément de votre capacité à sentir le sens du marché. Avant d&amp;rsquo;explorer ces stratégies, permettez-moi donc de vous rappeler quelques points :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;L&amp;rsquo;information, c&amp;rsquo;est le pouvoir.&lt;/strong&gt;  En ce qui concerne plus particulièrement l&amp;rsquo;investissement DeFi, l&amp;rsquo;information que vous avez et comprenez est le principal facteur qui détermine l&amp;rsquo;alpha (les rendements) que vous extrayez des marchés.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Allez-y doucement, soyez prudent, ce n&amp;rsquo;est pas une course.&lt;/strong&gt;. Bien que j&amp;rsquo;aie écrit cet article (avec de nombreux conseils), je n&amp;rsquo;ai pas encore utilisé la stratégie 6 avec des montants de capital importants par exemple. Il est sage de vérifier votre compréhension d&amp;rsquo;une plateforme donnée à chaque fois que vous augmentez les montants engagés.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Vous cherchez un raccourci ? Allez-y avec 50 euros.&lt;/strong&gt; De petits montants sont parfaits pour vous aider à comprendre un protocole et à vous impliquer sans prendre trop de risques et sans vous stresser.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;quelques-conseils-sur-les-styles-passif-et-actif&#34;&gt;Quelques conseils sur les styles passif et actif
+&lt;/h3&gt;&lt;p&gt;Il est impossible de donner une représentation exacte de l&amp;rsquo;écart de rendement potentiel entre un investisseur passif moyen de DeFi et un investisseur actif. Cependant, une combinaison de services reproduit une situation similaire :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Synthetix : Modèle de mise en jeu (staking) SNX pour sécuriser les actifs synthétiques créés.&lt;/li&gt;
+&lt;li&gt;Aave + Synthetix = aSNX investissement passif (type 4)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table align = &#34;center&#34;&gt;
+  &lt;tr&gt;
+   &lt;td&gt;
+   &lt;/td&gt;
+   &lt;td&gt;
+&lt;div align = &#34;center&#34;&gt; &lt;b&gt;Actions requises&lt;/b&gt;&lt;/div&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;div align = &#34;center&#34;&gt; &lt;b&gt;Retour annuel attendu&lt;/b&gt;&lt;/div&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;div align = &#34;center&#34;&gt; &lt;b&gt;Style passif (aSNX)&lt;/b&gt;&lt;/div&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;div align = &#34;center&#34;&gt;Aucun (une fois que vous êtes propriétaire d&#39;aSNX)&lt;/div&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;div align = &#34;center&#34;&gt;~10%&lt;/div&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;&lt;div align = &#34;center&#34;&gt; &lt;b&gt;Style actif (stake SNX gérée sur mintr)&lt;/b&gt;&lt;/div&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;div align = &#34;center&#34;&gt;Réclamation hebdomadaire de la récompense (verrouillée pdt.1 an) + sUSD + stratégie de gestion des actifs synthétiques (trade, liquidité + stake)&lt;/div&gt;
+   &lt;/td&gt;
+   &lt;td&gt;&lt;div align = &#34;center&#34;&gt;~80% et plus (à vous de voir)&lt;/div&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;5-synthetix&#34;&gt;5/ Synthetix
+&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Vous commencez par une mise de SNX (Synthetix token). Vous les mettez en jeu (les verrouillez), ce qui génère déjà un rendement SNX intéressant mais &amp;ldquo;vested&amp;rdquo;  pour un an (+ sUSD hebdomadaire non vested). Grâce à votre mise, vous pouvez ensuite générer des tokens synthétiques - qui vous exposent jusqu&amp;rsquo;à 1/8 de la valeur initiale du SNX et offrent des possibilités de gains supplémentaires.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/subh/5-synthetix.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;5-synthetix&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Avant toute chose : ce que je dis ci-dessous NE SUFFIT PAS pour comprendre Synthetix+SNX si vous venez de découvrir le service. &lt;strong&gt;Ne vous précipitez pas !&lt;/strong&gt; Synthetix c&amp;rsquo;est l&amp;rsquo;étape suivante en termes de complexité, voici un aperçu de toutes les nouvelles choses que vous aurez à faire&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Avoir un portefeuille sécurisé - &lt;strong&gt;pourez-vous accéder à votre portefeuille dans un an ?&lt;/strong&gt;&lt;br&gt;
+Les récompenses SNX sont bloquées pendant un an : vous les réclamez aujourd&amp;rsquo;hui, mais vous ne pouvez les sortir de Mintr (plateforme Synthetix) qu&amp;rsquo;un an après la date de réclamation.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Réclamation des récompenses&lt;/strong&gt; chaque semaine (SNX bloqué pendant un an + sUSD)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Surveiller votre ratio de collatéralisation&lt;/strong&gt; et ajustez le cas échéant pour pouvoir réclamer vos récompenses&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Décider&lt;/strong&gt; à quel Synth vous vous exposez et quand.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Puisque Synthetix est vraiment flexible, permettez-moi de m&amp;rsquo;en tenir à une stratégie que j&amp;rsquo;ai mise en œuvre avec succès. D&amp;rsquo;autres approches sont possibles, et mon choix est suggestif. Cependant, je pense que cette stratégie met bien en évidence les différentes synergies disponibles avec Synthetix.&lt;/p&gt;
+&lt;h5 id=&#34;5-a-le-synthetixcurve-kebb-alias-the-4-steaks-yieldburger&#34;&gt;5-A/ Le Synthetix/Curve Keb$$$$b (alias &amp;ldquo;the 4-steaks yieldburger&amp;rdquo;)
+&lt;/h5&gt;&lt;blockquote&gt;
+&lt;p&gt;Vous utilisez Synthetix (+SNX) pour générer des sUSD, une monnaie stable, et vous fournissez cette monnaie stable à un pool de liquidités (→commissions ) qui est &amp;quot; incentivée&amp;quot;  (→ vous pouvez obtenir des rendements supplémentaires).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ne tournons pas autour du pot : c&amp;rsquo;est beaucoup plus difficile, beaucoup plus de travail que 1-4, mais les rendements sont d&amp;rsquo;un ordre de grandeur supérieur si c&amp;rsquo;est bien fait. Votre position est également plus complexe à surveiller car vous êtes exposé à plusieurs types d&amp;rsquo;actifs, vous obtenez également des rendements dans plusieurs types d&amp;rsquo;actifs différents (stables ou non), et le calendrier des retours n&amp;rsquo;est pas le même non plus.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/yieldkebab.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;The Synthetix-Yieldbuger-TokenBrice&#34;
+	
+	
+&gt;
+&lt;em&gt;Burger ou kebab : est-ce vraiment important quand il y a 4 steaks ?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Examinons la base de la pile de rendement :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Placement SNX + récompense SNX&lt;/strong&gt; ~ 50% APR , en SNX, payé chaque semaine (réclamation requise) et verrouillé pour un an.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sUSD Staking reward&lt;/strong&gt; - récompense variable en sUSD (en fonction du volume des échanges), payée chaque semaine, demande requise, pas de limite.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Liquidity Provider Curve sUSD pool&lt;/strong&gt; l - 3 à 5% APR, gagné en sortant du pool.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Programme d&amp;rsquo;incitation&lt;/strong&gt; pour ce pool (accessible par le stake du token du pool) - 25% APR, en SNX, payé chaque semaine (réclamation requise), pas de période d&amp;rsquo;acquisition.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;Remarque : le pool Curve sUSD a rencontré quelques problèmes, et la version live actuelle n&amp;rsquo;est pas la plus optimisée pour les retours. Une nouvelle version du pool sUSD est en cours d&amp;rsquo;élaboration, exploitant Aave pour l&amp;rsquo;optimiser encore plus. Cette stratégie pourrait devenir encore plus convaincante !&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Curieux ? Voici un &lt;a class=&#34;link&#34; href=&#34;https://synthetix.community/docs/intro&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;aperçu complet pour commencer avec Synthetix (EN)&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;6-apport-de-liquidité-sur-etherc-20&#34;&gt;6/ Apport de liquidité (sur ETH/ERC-20)
+&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Vous utilisez un capital divisé à parts égales en valeur des tokens (ex 50% ETH 50% DAI) pour alimenter un pool de liquidité, qui génère des commissions sur les transactions que vous contribuez à faciliter.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/definancial-services-guide/subh/6-liquidity-provider.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;6-liquidity-provider&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Il s&amp;rsquo;agit essentiellement d&amp;rsquo;une variante plus risquée de la stratégie 1-B. Dans ce scénario, vous continuez à fournir des liquidités, mais cette fois-ci, vous passez à un autre type de paires - celles basées sur l&amp;rsquo;ETH.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Si vous fournissez des liquidités sur un échange décentralisé, le principal risque auquel vous êtes confronté (en plus des risques habituels) est ce que nous appelons les &amp;ldquo;pertes impermanentes&amp;rdquo;&lt;/strong&gt; (nom déroutant, elles sont très permanentes).&lt;/p&gt;
+&lt;p&gt;Je ne peux pas expliquer tout le concept ici, mais voici un bref rappel : les &lt;strong&gt;pertes impermanentes proviennent généralement d&amp;rsquo;une variation soudaine entre les prix relatifs des deux actifs auxquels vous fournissez des liquidités&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Ainsi, si les deux actifs suivent le même prix (ex ETH/sETH), le risque de perte impermanente est minimisé. Voici donc un aperçu des différents niveaux de risque, du plus faible au plus élevé :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Fournir de la liquidité sur des tokens stables : les prix des deux actifs sont relativement stables, et ils suivent le même prix =&amp;gt; le risque de pertes impermanentes est minimisé.&lt;/li&gt;
+&lt;li&gt;Fournir des liquidités sur des actifs qui ne sont pas stables mais qui suivent le même prix, comme les ETH/sETH.&lt;/li&gt;
+&lt;li&gt;Fournir des liquidités sur une paire ETH/stable.&lt;/li&gt;
+&lt;li&gt;Fournir des liquidités sur une paire ETH/ERC20 (non stable et ne suivant pas le même cours) - c&amp;rsquo;est là que le risque est le plus grand, car les prix des deux actifs sont variables - si le prix des deux actifs devait soudainement évoluer dans des directions opposées, vous pourriez subir des pertes impermanentes importantes.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Si vous envisagez de fournir des liquidités sur les AMMs (mécanisme utilisé par Uniswap, Bancor, Curve, etc.), veuillez lire plus sur le sujet : Risques/récompenses de l&amp;rsquo;apport de liquidités dans le cadre des AMMs (&lt;a class=&#34;link&#34; href=&#34;https://blog.bancor.network/beginners-guide-to-getting-rekt-by-impermanent-loss-7c9510cb2f22&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Risk/Reward of liquidity provision in AMMs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Edit (07/16)&lt;/em&gt; - Pour en apprendre plus sur l&amp;rsquo;apport de liquidité, vous pouvez lire : &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/yield-farmer-tier-list.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;💦 Pools de Liquidité avec programmes d&amp;rsquo;incitation - La Tier List&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion
+&lt;/h2&gt;&lt;p&gt;On peut s&amp;rsquo;arrêter là pour aujourd&amp;rsquo;hui afin de garder ce guide digeste.&lt;/p&gt;
+&lt;p&gt;Si vous êtes prêt à vous lancer, voici quelques services qui vous faciliteront la tâche :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://argent.xyz/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Argent Wallet&lt;/a&gt; - Portefeuille sécurisé offrant un accès d&amp;rsquo;un seul coup aux tokens Aave, PoolTogether &amp;amp; TokenSets présentés dans cet article.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://monolith.xyz&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;💳 Monolith Visa Debit Card&lt;/a&gt; - Vous avez fait des bénéfices en DeFi que vous aimeriez encaisser dans le monde réel ? C&amp;rsquo;est la seule solution sans compromis qui vous permette de le faire.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Et si vous vous demandez quelles pourraient être vos prochaines étapes, voici quelques-unes de vos possibilités :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ouvrir des coffres-forts sur &lt;a class=&#34;link&#34; href=&#34;http://makerdao.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Maker&lt;/a&gt; ou utiliser &lt;a class=&#34;link&#34; href=&#34;https://aave.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Aave&lt;/a&gt;  pour obtenir un effet de levier (⚠ risque de liquidation).&lt;/li&gt;
+&lt;li&gt;Utiliser des options comme &lt;a class=&#34;link&#34; href=&#34;https://opyn.co/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Opyn&lt;/a&gt; ou un service d&amp;rsquo;assurance comme &lt;a class=&#34;link&#34; href=&#34;https://nexusmutual.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Nexus Mutual&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Les Flash Loans d&amp;rsquo;&lt;a class=&#34;link&#34; href=&#34;https://aave.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Aave&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;J&amp;rsquo;espère que ce guide vous aura permis de mieux comprendre ce qu&amp;rsquo;il est possible de faire dès aujourd&amp;rsquo;hui avec la finance décentralisée. Si vous hésitez à franchir le pas et que vous avez des n&amp;rsquo;hésitez pas à contacter &lt;a class=&#34;link&#34; href=&#34;https://t.me/defifrance&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;la communauté DeFi 🇫🇷 française sur Telegram&lt;/a&gt;, très active et toujours accueillante.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Cet article a été rendu possible grâce au soutien sans faille de membres de la communauté qui ont partagé leurs suggestions, leurs points de vue et l&amp;rsquo;ont relu (contenu / vEN)&lt;/p&gt;
+&lt;p&gt;Merci à ces personnes extraordinaires :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/jimmyragosa&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Jimmy Ragosa - suivez le sur Twitter&lt;/a&gt;, son jeu de mèmes est réfrigéré 👌&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/lemiscate&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Marc Zeller&lt;/a&gt; - Dev advocate @Aave, dois-je en dire plus ?&lt;/li&gt;
+&lt;li&gt;Marouane -  il &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/UnslashedF&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;s&amp;rsquo;en prend à vos risques, attention !&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;mailto:victor@function.media&#34; &gt;Viktor&lt;/a&gt; qui a travaillé sur les visuels de cet article très librement inspirés de mes horribles maquettes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Merci également à ceux qui m&amp;rsquo;ont aidé avec la version française:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/OtherBright&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Jon&lt;/a&gt; : le traducteur principal pour BanklessFR qui a contribué à cette traduction.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/FigueOreo&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Romain&lt;/a&gt; : qui s&amp;rsquo;est montré tès disponible pour la relire et la finaliser.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ainsi que des personnes qui n&amp;rsquo;ont pas contribué directement à cet article mais qui m&amp;rsquo;ont aidé à mieux comprendre les services financiers décentralisés, ce qui m&amp;rsquo;a permis de rédiger ce guide :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/pscltllrd&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Pascal&lt;/a&gt;:  fondateur de Jarvis Network, acteur prééminent dans la DeFi française et vulgarisateur reconnu. C&amp;rsquo;est lui qui m&amp;rsquo;a aidé (et beaucoup d&amp;rsquo;autres) à comprendre les actifs synthétiques et les enjeux de la tokenisation.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/mounibec&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Mounir&lt;/a&gt;:  fondateur de Paraswap.io, le meilleur agrégateur DEX et toujours le seul qui peut trouver un prix rapidement sans faire fondre votre ordinateur portable. Mounir est un homme-armée et un acteur incroyablement prolifique dans les communautés DeFi française et internationale.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/AbelsAbstracts&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Abel&lt;/a&gt;: ce type se tient au courant de tout et c&amp;rsquo;est mon interlocuteur privilégié pour discuter des nouvelles sorties et voir au-delà du marketing. Jetez un coup d&amp;rsquo;œil à &lt;a class=&#34;link&#34; href=&#34;https://open.spotify.com/show/6NO8M2R4u9YSgAdz5TA4ZA&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;son podcast : Abel Abstracts&lt;/a&gt; nous faisons un résumé des nouvelles de la DeFi chaque semaine ensemble (en Anglais).&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

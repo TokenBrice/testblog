@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Un análisis de DSD, ESD y Basis Cash para imaginar lo que podría ser el stablecoin de mañana.">
+<title>El presente y el futuro de los stablecoins algorítmicos</title>
+
+<link rel='canonical' href='http://localhost:1313/posts/2020/algorithmic-stablecoins.es/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="El presente y el futuro de los stablecoins algorítmicos">
+<meta property='og:description' content="Un análisis de DSD, ESD y Basis Cash para imaginar lo que podría ser el stablecoin de mañana.">
+<meta property='og:url' content='http://localhost:1313/posts/2020/algorithmic-stablecoins.es/'>
+<meta property='og:site_name' content='TokenBrice - Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Stablecoins' /><meta property='article:tag' content='Maker' /><meta property='article:tag' content='MakerDAO' /><meta property='article:tag' content='Basis Cash' /><meta property='article:tag' content='Empty Set Dollar' /><meta property='article:tag' content='Dynamic Set Dollar' /><meta property='article:tag' content='USDT' /><meta property='article:tag' content='USDC' /><meta property='article:tag' content='sUSD' /><meta property='article:tag' content='ESD' /><meta property='article:tag' content='DSD' /><meta property='article:tag' content='BAC' /><meta property='article:tag' content='BAS' /><meta property='article:published_time' content='2020-12-28T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2020-12-28T01:13:50&#43;00:00'/>
+<meta name="twitter:title" content="El presente y el futuro de los stablecoins algorítmicos">
+<meta name="twitter:description" content="Un análisis de DSD, ESD y Basis Cash para imaginar lo que podría ser el stablecoin de mañana.">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">TokenBrice - Blog</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/-defi/" >
+                🌌 DeFi
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/2020/algorithmic-stablecoins.es/">El presente y el futuro de los stablecoins algorítmicos</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Un análisis de DSD, ESD y Basis Cash para imaginar lo que podría ser el stablecoin de mañana.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Dec 28, 2020</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    9 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Desde principios de diciembre, una nueva tendencia aparece en DeFi: los stablecoins algorítmicos. Se ha puesto en marcha una serie de proyectos que han conocido un importante crecimiento, lo que ha generado un mayor interés en este subconjunto del espacio.</p>
+<p>Antes de entrar en lo que son y lo que implican, primero abordemos los posibles mercados. Los stablescoins en Ethereum son masivos: hay en circulación alrededor de 20 billones de USDT, 3.5 billones de USDC y 1 billón de DAI. Como puede constatarlo, la mayor parte del volumen se cubre actualmente con stablecoins que requieren alguna forma de confianza, como el <strong>USDC o el USDT: la sociedad que los emite tienen el poder de congelar los activos y de manipular los saldos</strong>.</p>
+<p><img src="/img/2020/algorithmic-stablecoins/cover.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="DeFi BRRR"
+	
+	
+>.</p>
+<p>Maker ha explorado otro enfoque con el DAI que implica menos compromisos - sin embargo, la extensibilidad es reducida. Por otra parte, hoy en día es difícil considerar el DAI como &ldquo;suficientemente sin confianza&rdquo; a pesar que 60% de las garantías para generarlo no lo son (USDC, wBTC, TUSD, etc.).</p>
+<p>Cabe recordar que hasta el momento, existe una clara necesidad en el sector de los stablecoins - los que han logrado un activo circulante significativo lo han hecho con importantes concesiones, lo que les ha permitido satisfacer los mercados a pesar de que se trata de servicios que requieren de confianza, y que son más o menos fiables (en particular USDT).</p>
+<p>La razón por la que hoy escribo este artículo es que después de haber seguido durante años la evolución del espacio de los stablecoin, parece que hemos alcanzado un interesante avance con una nueva generación de stablecoins capaces de ofrecer tanto <strong>escalabilidad como confianza</strong>. El temo no es ni simple ni facilmente accesible, sobretodo para los nuevos incorporados. Haré todo lo posible para guiarlo paso a paso en el proceso de reflexión.</p>
+<hr>
+<h3 id="por-qué-necesitamos-stablecoins-que-no-requieren-confianza">Por qué necesitamos stablecoins que no requieren confianza?
+</h3><p>Antes de entrar en que proyecto hace qué y con que fin, revisemos lo siguiente. Hemos establecido que existe una demanda importante de stablecoins, y que ninugna de las opciones bandera de hoy en día son suficientemente trustless. Pero que quiere decir esto exactamente?</p>
+<p>En algunas palabras, la <strong>trustlessness significa que la totalidad del sistema no necesita de un punto central de confianza para funcionar correctamente</strong>. Lo conocemos comunmente como &ldquo;resistencia a la censura&rdquo;, una propiedad diferente que yace de la trustlessness. Desde un punto de vista práctico, a continuación una serie de preguntas que le ayudarán a evaluar la trustlessness: entre más permisivas sean las autorizaciones, menos confianza suele generar el proyecto:</p>
+<ol>
+<li>Los tokens pueden ser confiscados o congelados?</li>
+<li>El código y los parámetros del protocolo se pueden actualizar? Bajo que condiciones? Quien lo hace?</li>
+<li>El protocolo depende de servicios externos, como una fuente de precios (oráculo) que podría ser manipulado?</li>
+<li>Quien o que podría generar nuevos tokens? Es por iniciativa del usuario (alguien que realice una acción) o del protocolo (una decisión que el protocolo toma en función de los parámetros establecidos)?</li>
+</ol>
+<p>La última pregunta es especialmente pertinente, porque ella deja en evidencia un elemento básico de los stablecoins algorítmicos: <strong>su &ldquo;banco central&rdquo; es un contrato inteligente</strong> - nadie lo controla, responde simplemente a los parámetros del sistema. Lo retomaremos más adelante.</p>
+<p>Con esto, analizaremos los principales elementos disponibles: Ampleforth, Basis Cash, Empty Set Dollar y Dynamic Set Dollar. No voy a entrar en la historia del sector ni en las particularidades de cada proyecto, no dude en consultar el siguiente artículo de Deribit Insights si necesita ampliar en el contexto:</p>
+<p>👉 <a class="link" href="https://insights.deribit.com/market-research/stability-elasticity-and-reflexivity-a-deep-dive-into-algorithmic-stablecoins/"  target="_blank" rel="noopener"
+    >Estabilidad, elasticidad y reflexividad: una profunda inmersión en los Stablecoins Algorítmicos</a></p>
+<p>Así, en lugar de entrar en detalles de cada sistema, voy a dibujar <strong>un croquis presentando los principios fundamentales sobre los que ha sido construída esta generación de stablecoins</strong>, basándome en los parámetros y los enfoques de concepción comúnes a todos los proyectos.</p>
+<hr>
+<h3 id="contrato-intelignete-central">Contrato Intelignete Central
+</h3><p>La primera dimensión interesante es la &ldquo;banca central&rdquo; del sistema - es decir quien o que puede generar nuevos tokens y bajo que condiciones? <strong>El USDC y el USDT reflejan a grandes trazos un banco central</strong> - una entidad está a cargo del proyecto y de la emisión de nuevos tokens.</p>
+<p>Como Maker no es sino un contrato que permite a sus usuarios la generación de DAI a partir de ciertas garantías, el enfoque es diferente aquí. Principalmente, <strong>Maker/DAI le permite ser su propio banco central</strong>. Por lo que el banco central de Maker es un contrato inteligente, pero necesita de una intervención humana para generar DAI.</p>
+<p>Los stablecoins algorítmicos van mucho más lejos, porque <strong>la necesidad humana es retirada del proceso de creación</strong>. En estos sistemas, nadie tiene la capacidad de crear tokens - sólo lo puede hacer el contrato inteligente que los gestiona. Esto es muy elegante y minimalista, pero requiere de un conjunto de incentivos cuidadosamente diseñados para garantizar que los stablecoins acaben acercándose a su valor nominal. Para ser más simple, <strong>con los stablecoins algorítmicos, el banco central es un contrato inteligente.</strong></p>
+<h3 id="un-ejercito-de-estabilizadores">Un ejercito de estabilizadores
+</h3><p>Con los stablecoins algorítmicos, sobretodo en sus inicios, las rupturas de los cotejos son frecuentes. Para llevar el establecoin a su punto de anclaje, los protocolos preveen diferentes tipos de incitaciones.</p>
+<p>Cuando el valor del stablecoin es superior a un dólar, <strong>el protocolo genera nuevos tokens y los distribuye como incitación</strong> a los usuarios que proveen liquidez o que bloquean sus tokens,lo que contribuye a hacer bajar el precio.</p>
+<p>Cuando el stablecoin se negocea por debajo de $1, el sistema de bonos (ou obligaciones) entra en juego: <strong>los usuarios puede destruir sus stablecoins a cambio de un bono</strong> que representa su valor + una prima. En todo caso, sólo lo pueden hacer efectivo una vez que el precio vuelva a ser superior al dólar.</p>
+<p>Como puede verlo, en un nivel elevado, estos mecanismos son simples. Contienen sutilezas que debe conocer si quiere participar en el sistema. <strong>Los usuarios que los comprenden y los siguen pueden ayudar el protocolo a estabilizarse</strong>, y si es el caso, pueden ganar dinero en el proceso. Estas sencillas reglas conducen a la emergencia de un ejercito de estabilizadores, quienes utilizan todos los mecanismos para estabilizar el precio:</p>
+<p>Esta concepción lleva la teoría del juego y de la mímica a otro nivel.</p>
+<p><img src="/img/2020/algorithmic-stablecoins/dsd-meme.jpeg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="DSD Meme"
+	
+	
+></p>
+<h3 id="fase-de-expansión-agresiva">Fase de expansión agresiva
+</h3><p>Como el aprovisionamiento en stablecoins algorítmicos es elástico, su mecanismo es puesto a prueba rápidamente. De hecho, al momento del lanzamiento, la oferta circulante de stablecoins generalmente es baja y las interesantes incitaciones crean una fuerte demanda.</p>
+<p>Por ejemplo, <strong>Basis Cash se lanzó con 50 000 tokens BAC</strong> distribuídos a los primeros participantes. Luego de un mes, hay <strong>40 millones de BAC en cicrculación</strong>:se generaron porque el BAC se cambiaba por más de un dólar la mayoría del tiempo desde su lanzamiento. Hasta ahora, no ha habido un momento en el que el BAC se negocée a &gt;1$, por lo que el sistema de bonos de la base (BAB) aún no ha sido probado.</p>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice info" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span>Info</p><p>La expansión y la contracción se realizan en los &ldquo;epochs&rdquo;. El epoch de Basis Cash tiene una duración de 24 horas. ESD de 8 horas y DSD de 2 horas.</p></div>
+
+<p>Por el contrario, el ESD y el DSD ya ambos han conocido varios ciclos de expansión y de contracción, el protocolo funciona como previsto:</p>
+<p><img src="/img/2020/algorithmic-stablecoins/dsd-mktcap.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="DSD Market Cap de los últimos 7 días"
+	
+	
+></p>
+<h3 id="aprovechamiento-de-la-composibilidad-de-defi">AProvechamiento de la Composibilidad de DeFi
+</h3><p>Otro elemento clave de los stablecoins algorítmicos es la composabilidad. A menudo lo pensamos como &ldquo;cómo puedo vincular mi producto/servicio terminado con los demás?&rdquo;. Estos proyectos van mucho más lejos, porque <strong>utilizan otros protocolos como Uniswap como parte central de su sistema desde el principio.</strong> Basis, ESD y DSD tienen tres de los componentes principales:</p>
+<ol>
+<li>Un mecanismo interno de bloqueo/incitación de las fases de expansión (DAO o Boardroom)</li>
+<li>Un mecanismo de &ldquo;burn&amp;redeem&rdquo; para las fases de contracción</li>
+<li>Un par Uniswap (/USDC ou /DAI)</li>
+</ol>
+<p>Su propia estructura demuestra una adaptación de DeFi y de su composabilidad. Poniendo el (los) par(es) Uniswap en el centro del protocolo ayuda de muchas formas - porque <strong>Uniswap es la base que los usuarios de DeFi conocen bien.</strong></p>
+<p>A pesar de que Uniswap sea el pool principal, la liquidez de otros DEX es cada vez más examinada. Con el lanzamiento de Omakase, Sushi ha integrado dos nuevos pools incitativos de stablecoins algorítmicos: ESD/ETH &amp; DSD/USDC.</p>
+<p>La composabilidad es fundamental para los stablecoins algorítmicos y varios proyectos ya toman medidas para integrarse más rápidamente en el ecosistema. En los próximos meses, deberíamos ver las próximas etapas con la llegada de algunos stablecoins algorítmicos como garantía en las plataformas de préstamo.</p>
+<h3 id="oráculo-minimalista">Oráculo Minimalista
+</h3><p>Los oráculos son utilizados como parametro de base en el sistema algorítmico de los stablecoins: son la <strong>fuente real del precio del stablecoin</strong>. Es primordial asegurarse que el oráculo es seguro y que no puede ser manipulado.</p>
+<p>Para esto, la precedente generación de proyectos, en particular Maker, tendía a sobredimensionar la ingeniería. Primeramente, el parámetro de entrada de Maker era casi el precio puro y bruto de ETH. Sin embargo, para volver el sistema menos dependiente de las &ldquo;liquidaciones fugaces&rdquo;, Maker construyó su propio oráculo, y utiliza varios plazos y promedios del precio de liquidación para <strong>para integrar un tipo de inercia en su sistema</strong>.</p>
+<p>Por otro lado, como lo hemos visto anteriormente, nuestros stablecoins tienden a ser minimalistas y a aprovechar la composabilidad de DeFi. <strong>Con sus pares Uniswap, ya tienen una fuente de precios robusta y una liquidez importante, lo que los hace difícil de manipular</strong>. Por lo que el precio Uniswap se toma como base, pero generalmente calculado como un TWAP (Time Weighted Average Price) con el fin de evitar las manipulaciones del precio justo antes de los bajones.</p>
+<p>Aunque minimalistas, los sistemas son eficaces y refinados: a medida que los proyectos de stablecoins se desarrollan, sus liquidez en Uniswap deberá aumentar, haciendo el oráculo más robusto y el precio más difícil a manipular.</p>
+<p>Por mi parte, soy entusiasta en cuanto a la dirección que toma este subconjunto del espacio. Que tenga o no la intención de participar en la fase de inicio de estos stablecoins, pienso que es bastante util de documentarse al respecto porque son un buen indicador de las principales tendencias del espacio.</p>
+<hr>
+<h3 id="-caja-de-herramientas-para-los-stablecoins-algorítmicos">🧰 Caja de herramientas para los stablecoins algorítmicos
+</h3><p>Antes de terminar, déjeme presentarle algunas herramientas prácticas para seguir la evolución de estos stablecoins. De antemano, cada proyecto tiene su propio rastreador que proporciona las principales medidas de la época actual:</p>
+<ul>
+<li><strong><a class="link" href="https://bc.tools/"  target="_blank" rel="noopener"
+    >Basis Cash Tools</a></strong></li>
+<li><strong><a class="link" href="https://esd.tools/"  target="_blank" rel="noopener"
+    >Herramienta de seguimiento de ESD</a></strong></li>
+<li><strong><a class="link" href="https://dsd.tools/"  target="_blank" rel="noopener"
+    >Herramienta de seguimiento de DSD</a></strong></li>
+</ul>
+<p>Finalmente, puede consultar información más detallada sobre el sistema de ESD y de DSD en este cuadro: <strong><a class="link" href="https://duneanalytics.com/tongnk/esd_1"  target="_blank" rel="noopener"
+    >ESD/DSD Bonding</a></strong></p>
+<h3 id="aviso-legal">Aviso legal
+</h3><div class="notice warning" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#warning-notice"></use></svg></span>Warning</p><p><strong>ESTE ARTÍCULO NO CONSTITUYE UN CONSEJO DE INVERSIÓN.</strong></p>
+<p>No soy un consejero financiero calificado, pero a quien le importa? Si hablamos es de DeFi.</p></div>
+
+<p>Me siento legítimo para escribir este artículo porque he seguido de cerca Basis Cash, Empty Set Dollar y Dynamic Set Dollar, como también Basis Dollar &amp; Share menos cuidadosamente. Frax es otro proyecto híbrido que merece ser examinado - No lo he mencionado porque no lo conozco lo suficiente.</p>
+<div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p><strong>💰 Bag Disclosure</strong> : Tengo BAC/BAS (Basis Cash), ESD (Empty Set Dollar) y DSD (Dynamic Set Dollar).</p></div>
+
+<p>Espero que esta lectura lo haya ilustrado. De ser así, puede <strong><a class="link" href="https://twitter.com/tokenbrice/"  target="_blank" rel="noopener"
+    >seguirme en Twitter</a></strong> o en este blog por RSS (abajo toda la información👇)</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/defi/">DeFi</a>
+        
+            <a href="/tags/ethereum/">Ethereum</a>
+        
+            <a href="/tags/stablecoins/">Stablecoins</a>
+        
+            <a href="/tags/maker/">Maker</a>
+        
+            <a href="/tags/makerdao/">MakerDAO</a>
+        
+            <a href="/tags/basis-cash/">Basis Cash</a>
+        
+            <a href="/tags/empty-set-dollar/">Empty Set Dollar</a>
+        
+            <a href="/tags/dynamic-set-dollar/">Dynamic Set Dollar</a>
+        
+            <a href="/tags/usdt/">USDT</a>
+        
+            <a href="/tags/usdc/">USDC</a>
+        
+            <a href="/tags/susd/">SUSD</a>
+        
+            <a href="/tags/esd/">ESD</a>
+        
+            <a href="/tags/dsd/">DSD</a>
+        
+            <a href="/tags/bac/">BAC</a>
+        
+            <a href="/tags/bas/">BAS</a>
+        
+    </section>
+
+
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Dec 28, 2020 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/posts/2020/algorithmic-stablecoins.fr/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">L&#39;état et le futur des stablecoins algorithmiques</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2020/algorithmic-stablecoins/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">The state &amp; future of algorithmic stablecoins</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2020/yearn-merger-spree.fr/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Les fusions de Yearn Finance</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2020/yearn-finance-yfi.fr/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">YearnFinance - La DeFi avec pilote automatique ?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/2020/leveraging-eth/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🎚 ETH exposure or DeFi yields: why choose?</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 TokenBrice - Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.e87374ab760d28dfa333a671a892b101964bde5a2dac9100a50c9b0d779b4505.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

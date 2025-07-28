@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Nous examinons les particularités de l'échange décentralisé Balancer ainsi que de son écosystème pour mieux comprendre la dynamique de la course aux BAL.">
+<title>Tokens directeurs de liquidité au-delà de Curve : analyse des Balancer Wars</title>
+
+<link rel='canonical' href='http://localhost:1313/fr/balancer-wars/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Tokens directeurs de liquidité au-delà de Curve : analyse des Balancer Wars">
+<meta property='og:description' content="Nous examinons les particularités de l'échange décentralisé Balancer ainsi que de son écosystème pour mieux comprendre la dynamique de la course aux BAL.">
+<meta property='og:url' content='http://localhost:1313/fr/balancer-wars/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Finance Décentralisée' /><meta property='article:tag' content='Balancer Finance' /><meta property='article:tag' content='BAL' /><meta property='article:tag' content='Polygon' /><meta property='article:tag' content='Aura Finance' /><meta property='article:tag' content='AURA' /><meta property='article:tag' content='PowerPool' /><meta property='article:tag' content='CVP' /><meta property='article:tag' content='veBAL' /><meta property='article:tag' content='vlAURA' /><meta property='article:tag' content='Hidden Hand' /><meta property='article:tag' content='Warden' /><meta property='article:tag' content='Vote Bribing' /><meta property='article:tag' content='Liquidity Driver Tokens' /><meta property='article:published_time' content='2022-11-24T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2022-11-24T01:13:50&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/2022/balancer-wars/balancer-wars-cover.png' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="Tokens directeurs de liquidité au-delà de Curve : analyse des Balancer Wars">
+<meta name="twitter:description" content="Nous examinons les particularités de l'échange décentralisé Balancer ainsi que de son écosystème pour mieux comprendre la dynamique de la course aux BAL."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/2022/balancer-wars/balancer-wars-cover.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Afficher le menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/fr/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/fr">TokenBrice</a></h1>
+            <h2 class="site-description">DeFi en brutale honnêteté</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/fr/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Accueil</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/%C3%A0-propos/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>À Propos</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Recherche</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/liens/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Liens</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" >English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" selected>Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Mode sombre</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table des matières</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#les-vetokenomiques-au-delà-de-lécosystème-curve">Les veTokenomiques, au-delà de l&rsquo;écosystème Curve</a></li>
+    <li><a href="#cartographie-de-la-trinité-de-balancer">Cartographie de la trinité de Balancer</a></li>
+    <li><a href="#en-quoi-balancer-est-il-différent-">En quoi Balancer est-il différent ?</a>
+      <ol>
+        <li><a href="#pool-supportant-deux-à-huit-actifs">Pool supportant deux à huit actifs</a></li>
+        <li><a href="#pondération-arbitraire-des-pools">Pondération arbitraire des pools</a></li>
+        <li><a href="#pondération-dynamique-des-pools">Pondération dynamique des pools</a></li>
+        <li><a href="#spécificités-du-modèle-ve-de-balancer">Spécificités du modèle ve de Balancer</a></li>
+      </ol>
+    </li>
+    <li><a href="#les-guerres-de-balancer--un-état-des-lieux">Les guerres de Balancer : un état des lieux</a>
+      <ol>
+        <li><a href="#protocoles-avec-positions-vebalvlaura">Protocoles avec positions veBAL/vlAURA</a></li>
+        <li><a href="#marchés-de-bribes-balancer">Marchés de bribes Balancer</a></li>
+      </ol>
+    </li>
+    <li><a href="#quelles-sont-les-prochaines-étapes-pour-balancer-">Quelles sont les prochaines étapes pour Balancer ?</a>
+      <ol>
+        <li><a href="#pools-boostées">Pools boostées</a></li>
+        <li><a href="#aave-x-balancer">Aave x Balancer</a></li>
+        <li><a href="#balancer--le-foyer-des-lsds-">Balancer : le foyer des LSDs ?</a></li>
+      </ol>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/fr/balancer-wars/">
+                
+                    <img src="/img/2022/balancer-wars/balancer-wars-cover.png" loading="lazy" alt="Featured image of post Tokens directeurs de liquidité au-delà de Curve : analyse des Balancer Wars" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/fr/categories/defi/" style="background-color: #2a9d8f; color: #fff;">
+                DeFi
+            </a>
+        
+            <a href="/fr/categories/understanding/" style="background-color: #2a9d8f; color: #fff;">
+                Comprendre
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/fr/balancer-wars/">Tokens directeurs de liquidité au-delà de Curve : analyse des Balancer Wars</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Nous examinons les particularités de l&#39;échange décentralisé Balancer ainsi que de son écosystème pour mieux comprendre la dynamique de la course aux BAL.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">nov. 24, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    12 minutes de lecture
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+        <footer class="article-translations">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+            <div>
+                
+                    <a href="http://localhost:1313/balancer-wars/" class="link">English</a>
+                
+            </div>
+        </footer>
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Les tokens directeurs de liquidité, comme je les appelle, sont une construction émergente et fascinante. En termes simples, ces tokens vous permettent de diriger des incitations (CRV, BAL, etc.) vers la pool de liquidité de votre choix. Pour ce faire, vous devez généralement posséder et verrouiller le token correspondant (veCRV, veBAL, etc.) au sein de leur contrat de gouvernance, ce qui garantit un engagement continu des projets participants.</p>
+<p>Ainsi, les tokens directeurs de liquidité sont rapidement devenus très recherchés par les DAO dont les besoins en liquidité sont constants et généralement croissants. Cela a conduit à ce que nous appelons des « courses » ou « guerres »: un terme qui fait référence aux diverses stratégies que les projets exploitent pour augmenter constamment leur réserve de veTokens, idéalement plus rapidement que les autres participants, afin de développer un avantage concurrentiel.</p>
+<p>J&rsquo;ai largement couvert la tokenomique CRV, le pionnier du modèle ve, et leurs conséquences dans ce blog :</p>
+<ol>
+<li><a class="link" href="https://tokenbrice.xyz/content/posts/2021/crv-wars.fr.md"  target="_blank" rel="noopener"
+    >⚔ CRV wars : comprendre la course à l&rsquo;accumulation de pouvoir pour influencer le protocole Curve Finance</a></li>
+<li><a class="link" href="https://tokenbrice.xyz/content/posts/2022/crv-wars-l2.fr.md"  target="_blank" rel="noopener"
+    >⚔ Guerres CRV avancées : analyse des protocoles construits au dessus de Curve et Convex</a></li>
+</ol>
+<h2 id="les-vetokenomiques-au-delà-de-lécosystème-curve">Les veTokenomiques, au-delà de l&rsquo;écosystème Curve
+</h2><p>Si Curve est fascinant à étudier, c&rsquo;est qu&rsquo;il s&rsquo;agit du pionnier du modèle ve et de l&rsquo;implémentation la plus mature et la plus dense de la tokenomique ve à ce jour, il existe désormais de nombreuses autres instances de course avec leurs variantes qui méritent d&rsquo;être étudiées.</p>
+<p>En effet, la tokenomique veCRV a plus de deux ans, et de nombreux autres projets ont lancé ou remanié leur tokenomique depuis, en s&rsquo;inspirant du modèle de Curve. Sans être exhaustif, voici les autres &ldquo;courses&rdquo; que je suis de plus près :</p>
+<ol>
+<li>Solidly a été le pionnier du modèle &ldquo;ve(3,3)&rdquo;, une amélioration du modèle ve, sur Fantom en février 2022, attirant rapidement des milliards de TVL avant <a class="link" href="https://hackmd.io/@c30/BJ2PNCwgs"  target="_blank" rel="noopener"
+    >d&rsquo;échouer dramatiquement en raison d&rsquo;une très mauvaise exécution</a>.</li>
+<li><a class="link" href="https://app.velodrome.finance/"  target="_blank" rel="noopener"
+    >Velodrome</a>, un fork de Solidly corrigeant ses problèmes critiques, a rapidement trouvé sa place sur Optimism après son lancement en juin 2022.</li>
+<li><a class="link" href="https://balancer.finance/"  target="_blank" rel="noopener"
+    >Balancer</a> - une alternative historique à Curve et Uniswap, un DEX contenant des innovations intéressantes, <a class="link" href="https://medium.com/balancer-protocol/vebal-is-live-aeda1ae13e20"  target="_blank" rel="noopener"
+    >est récemment passé à un modèle ve en mars 2022</a>.</li>
+<li><a class="link" href="https://twitter.com/SolidlyETH"  target="_blank" rel="noopener"
+    >SolidlyETH</a>, encore. En effet, alors que le premier projet a échoué, la communauté s&rsquo;est rassemblée pour prendre la relève et est sur le point de relancer Solidly, cette fois sur le mainnet, ce qui le rend beaucoup plus intéressant.</li>
+</ol>
+<p>À mon échelle personnelle, je suis également addict aux tokens directeurs de liquidité, commme je le partageais récemment sur Twitter :</p>
+<p>Tous les projets ont des besoins constants en matière de liquidités ; y répondre de manière durable a une grande valeur. En effet, la valeur des tokens directeurs de liquidité dépasse ce que les DAO/projets peuvent en tirer : 1 $ de bribe peut déplacer &gt; 1 $ d&rsquo;incitations. Les participants individuels peuvent également gagner beaucoup en étant capables de se positionner tôt dans une course pertinente.</p>
+<p>Une fois le décor planté, plongeons dans le sujet du jour : Balancer, la course au BAL, et l&rsquo;infrastructure &ldquo;BAL-Layer-2&rdquo; qui a émergé par-dessus, tout comme cela s&rsquo;est produit avec Curve.</p>
+<h2 id="cartographie-de-la-trinité-de-balancer">Cartographie de la trinité de Balancer
+</h2><p><img src="/img/2022/balancer-wars/balancer-trinity.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="balancer-trinity"
+	
+	
+></p>
+<p>Nous avons regardé ensemble l&rsquo;écosystème se développer à travers l&rsquo;exemple de Curve. Pour la première fois, nous allons étudier <a class="link" href="https://balancer.finance/"  target="_blank" rel="noopener"
+    >Balancer</a> et on observe déjà un écosystème mature ! Balancer a déjà &ldquo;son Convex&rdquo;, appelée <a class="link" href="https://aura.finance/"  target="_blank" rel="noopener"
+    >Aura Finance</a> qui contrôle plus de 25% du veBAL (contre &gt;50% du veCRV pour Convex).</p>
+<p>Cependant, l&rsquo;infrastructure de base de Balancer nécessite un troisième composant : un réseau d&rsquo;automatisation nécessaire pour permettre le type de pools le plus avancé. À ce stade, on ne sait toujours pas qui mène cette course, c&rsquo;est pourquoi j&rsquo;ai utilisé l&rsquo;un de leurs participants les plus importants - <a class="link" href="https://powerpool.finance/"  target="_blank" rel="noopener"
+    >PowerPool</a> et son réseau de PowerAgents - pour jouer le rôle.</p>
+<p>Pour ceux qui sont familiers avec l&rsquo;approvisionnement en liquidités d&rsquo;UniswapV3, on pourrait dire que les PowerAgents jouent un rôle similaire à celui de <a class="link" href="https://www.gelato.network/"  target="_blank" rel="noopener"
+    >Gelato</a> : ils gèrent l&rsquo;automatisation des opérations nécessaires pour permettre des cas d&rsquo;utilisation spécifiques, tels que la récolte de récompenses et la composition automatique.</p>
+<h2 id="en-quoi-balancer-est-il-différent-">En quoi Balancer est-il différent ?
+</h2><p>Avec Uniswap et Curve, Balancer est l&rsquo;un des DEX les plus anciens et les plus populaires aujourd&rsquo;hui. En effet, si on considère le marché DEX d&rsquo;un point de vue global, Balancer se classe à la cinquième place avec environ 3 % du volume total traité :</p>
+<p><img src="/img/2022/balancer-wars/dex-overview.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="defillama-dex-overview"
+	
+	
+></p>
+<p><em>Vue d&rsquo;ensemble du volume d&rsquo;échange observé sur les principaux échanges décentralisés de <a class="link" href="https://defillama.com/dexs"  target="_blank" rel="noopener"
+    >DeFiLlama</a></em></p>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Remarque</p><p>Balancer n&rsquo;est lancé que sur mainnet, Polygon et Arbitrum - ce qui signifie moins de chaînes que la plupart des autres DEX du top 5, un élément à garder à l&rsquo;esprit dans une comparaison au niveau global.</p></div>
+
+<p>La première version de Balancer a été lancée en mars 2020, et de nombreuses itérations ont été expédiées depuis lors, améliorant le modèle de token BAL et la structure de liquidité. Cependant, Balancer avait des <strong>particularités depuis la V1</strong> qui sont probablement utiles pour expliquer pourquoi il est toujours debout aujourd&rsquo;hui. Je vais me concentrer sur les plus emblématiques :</p>
+<h3 id="pool-supportant-deux-à-huit-actifs">Pool supportant deux à huit actifs
+</h3><p>Balancer est encore, à ce jour, l&rsquo;un des seuls DEX à offrir un tel éventail de structures de pool. En effet, une pool Balancer peut être composé de <strong>n&rsquo;importe quel nombre d&rsquo;actifs allant de deux à huit</strong>, alors que la plupart des autres DEX ne supportent que les paires, donc deux actifs à la fois.</p>
+<p>Il permet de nouveaux types de pools, tels que :</p>
+<ul>
+<li>Des pools de trois actifs, comme le pool wBTC/USDC/wETH similaire au pool TriCrypto de Curve, ou pour diversifier les paires d&rsquo;un token donné, comme la pool OHM/ETH/DAI.</li>
+<li>Ou même pools avec six-huit actifs qui commencent à agir comme des indices de token autant que des pools de liquidité, comme le pool YFI/wBTC/COMP/wETH/UNI/CHZ/LINK.</li>
+</ul>
+<h3 id="pondération-arbitraire-des-pools">Pondération arbitraire des pools
+</h3><p>En plus du support flexible en termes de nombre de tokens, <strong>la pondération des pools n&rsquo;a pas besoin d&rsquo;être égale entre les tokens</strong> et peut largement être personnalisée.</p>
+<p>Cela permet des structures de pool déséquilibrées qui sont très utiles dans certaines situations :</p>
+<ul>
+<li>Par exemple, la pool OHM/DAI/ETH mentionné ci-dessus est <strong>50%OHM, 25%DAI, et 25%wETH</strong> - permettant de maximiser la liquidité OHM disponible contre DAI et ETH en même temps.</li>
+<li>Une autre distribution fréquemment utilisée est la <strong>98/2</strong>, particulièrement adaptée pour commencer à construire la liquidité d&rsquo;un token nouvellement sorti avec un risque minimal de IL (puisque 98% du pool est composé d&rsquo;un actif sûr, comme un stablecoin ou ETH).</li>
+<li>Enfin, la répartition de la liquidité <strong>80 % token / 20 % actif apparié</strong>, comme 80 % BAL / 20 % wETH, est également très recherchée, car elle permet aux détenteurs de tokens de participer à des activités de fourniture de liquidité avec des risques d&rsquo;IL minimisés si le token devait s&rsquo;apprécier.</li>
+</ul>
+<h3 id="pondération-dynamique-des-pools">Pondération dynamique des pools
+</h3><p>Enfin, Balancer peut ajuster la répartition de la pondération des pools selon les besoins grâce à un type spécifique de pool appelé <a class="link" href="https://docs.balancer.fi/products/balancer-pools/liquidity-bootstrapping-pools-lbps"  target="_blank" rel="noopener"
+    >Liquidity Boostraping Pool (LBP)</a>. Ces pools sont particulièrement adaptées au lancement de tokens et au développement de leur liquidité en même temps, car ils permettent de rationaliser le flux de tokens de la mise sur le marché. Par exemple :</p>
+<ol>
+<li>Un projet donné veut lancer rapidement la liquidité de ses tokens - la DAO associée contrôle une quantité importante de tokens, mais généralement aucun des actifs de contrepartie potentiels (généralement ETH ou stablecoin).</li>
+<li>Ils commencent donc avec un pool de 98%USDC/2%Token, ce qui leur permet de fournir des liquidités avec des exigences minimales en matière de token d&rsquo;appariement.</li>
+<li>Le pool agit comme un événement d&rsquo;initiation de token et un mécanisme de découverte de prix en même temps. Le token démarre à un prix donné, qui diminue au fil du temps si personne n&rsquo;achète le token.</li>
+</ol>
+<p><img src="/img/2022/balancer-wars/LBP.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="balancer-trinity"
+	
+	
+></p>
+<p>Les LBP sont conçus pour permettre aux utilisateurs intéressés par le projet d&rsquo;acheter des tokens de manière équitable sur une période donnée, en les protégeant contre les attaques habituelles observées lors de lancements de tokens plus classiques (tels que les bots MEV snipant l&rsquo;approvisionnement initial).</p>
+<p>Grace aux LBPs, les projets sont en mesure de diversifier progressivement leur Token vers l&rsquo;actif d&rsquo;appareillage (ETH ou USDC généralement). En ce faisant, la LBP agit également comme un mécanisme de découverte de prix. Les projets qui l&rsquo;utilisent sont ainsi dans une situation idéale pour ensuite apporter de la liquidité sur leur token qui sera possédée par le protocole, garantissant ainsi une liquidité minimale aux utilisateurs.</p>
+<h3 id="spécificités-du-modèle-ve-de-balancer">Spécificités du modèle ve de Balancer
+</h3><p>Balancer a également mis en œuvre son propre mécanisme de verrouillage inspiré de celui de Curve. Ici, au lieu de verrouiller le token directement (CRV ⇒ veCRV), les participants à la gouvernance doivent <strong>verrouiller un token LP</strong> correspondant au pool Balancer <strong>80 % BAL / 20 % wETH</strong>.</p>
+<p>Comme nous l&rsquo;avons dit plus haut, cette répartition des liquidités limite les risques d&rsquo;IL pour les déposants suite à une hausse de BAL. Grâce à ce twist, Balancer peut capter d&rsquo;importantes réserves de liquidités à travers les opérations normales de son mécanisme de participation à la gouvernance.</p>
+<p>Enfin, depuis peu, il semble que Balancer se concentre sur les tokens productifs et développe de nouveaux cas d&rsquo;utilisation pour y répondre. Par exemple, <a class="link" href="https://medium.com/balancer-protocol/vebal-pt-2-bribing-and-bip19s-free-bribes-b2f8334eba14"  target="_blank" rel="noopener"
+    >BIP#19</a> introduit des &ldquo;bribes gratuits&rdquo; pour les pools impliquant des actifs productifs : le rendement produit par l&rsquo;actif de la pool est recyclé comme pot-de-vin pour soutenir sa liquidité.</p>
+<h2 id="les-guerres-de-balancer--un-état-des-lieux">Les guerres de Balancer : un état des lieux
+</h2><p>Comme Curve, Balancer a un joueur dominant de sa course qui a développé un protocole maximisant sa synergie : Aura. Aura est l&rsquo;un des nombreux services disponibles dans l&rsquo;écosystème Balancer-fonctionnel-L2, mais un service largement dominant avec ~25% de tous les veBAL sous son contrôle.</p>
+<p>Aura offre un farming efficace aux détenteurs de tokens LP de Balancer, avec des récompenses BAL augmentées grâce à l&rsquo;importante réserve veBAL du protocole et aux incitations supplémentaires AURA. À cet égard, c&rsquo;est la même chose que Convex avec Curve.</p>
+<p><img src="/img/2022/balancer-wars/defiwars-balancer.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="defiwars-balancer"
+	
+	
+></p>
+<p><em>Vue d&rsquo;ensemble des liquid wrappers veBAL - <a class="link" href="https://www.defiwars.xyz/wars/balancer"  target="_blank" rel="noopener"
+    >merci defiwars.xyz</a></em></p>
+<h3 id="protocoles-avec-positions-vebalvlaura">Protocoles avec positions veBAL/vlAURA
+</h3><p>En plus des protocoles travaillant sur des liquid wrappers pour veBAL comme Aura, d&rsquo;autres DAO et projets ont construit des positions veBAL/vlAURA importantes pour augmenter et maintenir leur liquidité, comme Frax le fait sur Curve.</p>
+<h3 id="marchés-de-bribes-balancer">Marchés de bribes Balancer
+</h3><p>De nombreux marchés de bribes permettent l&rsquo;achat de votes veBAL ou vlAURA ; voici les principaux :</p>
+<ol>
+<li><a class="link" href="https://hiddenhand.finance/aura"  target="_blank" rel="noopener"
+    >Hidden Hand - Aura</a> et <a class="link" href="https://hiddenhand.finance/balancer"  target="_blank" rel="noopener"
+    >Hidden Hand - Balancer</a>.</li>
+<li><a class="link" href="https://app.warden.vote/quest/"  target="_blank" rel="noopener"
+    >Paladin Warden Quest</a></li>
+<li><a class="link" href="https://votemarket.stakedao.org/"  target="_blank" rel="noopener"
+    >Et StakeDAO BAL Votemarket</a>, une sorte d&rsquo;agrégateur de marchés de bribes.</li>
+</ol>
+<p>Pour suivre la guerre des BAL, assurez-vous d&rsquo;exploiter les données offertes par la Llama Airforce :</p>
+<p><img src="/img/2022/balancer-wars/llama-airforce-aura.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="llama-airforce-aura"
+	
+	
+></p>
+<p>Comme on peut le voir sur le graphique, le marché des bribes a rapidement décollé avant de trouver un équilibre à environ <strong>0,06$ par vote AURA, ce qui se traduit par une efficacité des bribes de 1,50x</strong> : Un dollar dépensé pour influence le vote permet d&rsquo;ajouter 1,50 dollar d&rsquo;émissions de BAL à la pool ciblée au cours de l&rsquo;époque.</p>
+<p>Ce chiffre est plus faible pour Curve, environ 1,25x pour les bakchichs sur le vlCVX de Convex. C&rsquo;est logique puisque les courses Curve sont beaucoup plus anciennes.</p>
+<h2 id="quelles-sont-les-prochaines-étapes-pour-balancer-">Quelles sont les prochaines étapes pour Balancer ?
+</h2><p>Pour compléter la traction obtenue grâce à la refonte de la tokénomique et au passage au veBAL, plusieurs développements techniques ont été livrés/arrivent et devraient contribuer à renforcer sa position.</p>
+<h3 id="pools-boostées">Pools boostées
+</h3><p>Les premières sont les pools boostées, qui sont déjà opérationnelles. Le but est d&rsquo;augmenter le rendement natif pour les apporteurs de liquidité. Pour se faire, les Boosted Pools exploitent une source de rendement additionnel non sujette à l&rsquo;IL comme par exemple Aave. Les boosted pools réallouent leurs distribution entre apport de liquidité et production de rendement en permanence, en fonction des besoins en liquidité de la pool.</p>
+<p>Le bb-a-USD, l&rsquo;équivalent du 3pool de Curve, est actuellement la plus grande Boosted Pool, mais d&rsquo;autres sont à venir, dont une basée sur le LUSD : LUCY.</p>
+<p><a class="link" href="https://www.liquity.org/blog/introduction-to-powerpool-lucy-pool-and-what-it-brings-to-lusd"  target="_blank" rel="noopener"
+    >Introduction au pool LUCY de PowerPool et ce qu&rsquo;il apporte au $LUSD (en Anglais)</a></p>
+<h3 id="aave-x-balancer">Aave x Balancer
+</h3><p>Aave et Balancer ont des liens historiques, le module de sécurité d&rsquo;Aave s&rsquo;appuyant sur la V1 de Balancer, et Aave ayant même proposé un marché V2 il y a quelques années pour emprunter avec les tokens LP de Balancer en collatéral.</p>
+<p>D&rsquo;autres collaborations sont attendues, car <a class="link" href="https://app.aave.com/governance/proposal/87/"  target="_blank" rel="noopener"
+    >Aave a récemment acquis des tokens BAL</a> et devra faire face à des besoins de liquidité considérablement accrus avec la sortie du GHO.</p>
+<h3 id="balancer--le-foyer-des-lsds-">Balancer : le foyer des LSDs ?
+</h3><p>Enfin, si l&rsquo;on considère la pool actuelle la plus importante en termes de TVL sur Balancer, une tendance claire se dessine : les liquid staking derivatives, tels que le rETH de Rocket Pool ou le stETH de Lido. Les deux ont des pools importants correctement incités sur le réseau principal de Balancer.</p>
+<p>Si vous n&rsquo;avez jamais entendu parlé des Liquid Staking Derivatives, je vous renvoie vers un meetup DeFi France : <strong><a class="link" href="https://www.youtube.com/watch?v=_eXm9VQh5HY"  target="_blank" rel="noopener"
+    >DFF Lyon #1 - Perspectives sur les Liquid Staking Derivatives</a></strong></p>
+<div class="video-wrapper">
+    <iframe loading="lazy" 
+            src="https://www.youtube.com/embed/_eXm9VQh5HY" 
+            allowfullscreen 
+            title="YouTube Video"
+    >
+    </iframe>
+</div>
+
+<p>La pool wstETH/wETH de Lido a même dépassé la pool 80BAL/20wETH et est devenue la première pool du DEX avec $200M TVL. De même, stMATIC/wMATIC est la première pool de Balancer/Polygon, suivi de MATICX/wMATIC, un autre dérivé liquide de MATIC staké. Sur Arbitrum, la troisième et dernière chaîne où Balancer est actif, là encore, la pool wstETH/wETH est en tête du classement.</p>
+<h2 id="conclusion">Conclusion
+</h2><p>Si vous souhaitez prendre part aux guerres de Balancer, assurez-vous d&rsquo;exploiter toutes les excellentes ressources disponibles :</p>
+<ol>
+<li><a class="link" href="https://llama.airforce/#/bribes/overview/hh/aura-bal"  target="_blank" rel="noopener"
+    >Llama Airforce</a></li>
+<li><a class="link" href="https://www.defiwars.xyz/wars/balancer"  target="_blank" rel="noopener"
+    >DeFiwars - Balancer</a></li>
+<li><a class="link" href="https://dune.com/balancerlabs/balancer-pools"  target="_blank" rel="noopener"
+    >Dune Analytics</a></li>
+</ol>
+<p>J&rsquo;espère que cet article vous a fourni des informations utiles sur les tokens directeurs de liquidité, mais je voulais ajouter une dernière dimension : il semble qu&rsquo;une <strong>sous-catégorie</strong> de tokens directeurs de liquidité soit en train d&rsquo;émerger - <strong>les tokens directeurs de liquidité d&rsquo;emprunt</strong>.</p>
+<p>Leur fonctionnement est très similaire, mais au lieu de permettre à leurs détenteurs de diriger les incitations vers des pools de liquidité, ils leur permettent de <strong>diriger des incitatations vers des marchés de prêt choisis</strong>. Ainsi, au final, ils atteignent un objectif différent par un moyen similaire : le contrôle d&rsquo;un grand nombre de ces tokens directeurs de liquidité d&rsquo;emprunt, comme le EUL d&rsquo;<a class="link" href="https://euler.finance/"  target="_blank" rel="noopener"
+    >Euler Finance</a>, permet de maintenir une liquidité importante sur les marchés monétaires.</p>
+<p>Cela vaut probablement la peine de s&rsquo;y intéresser ; cela fait un moment que j&rsquo;anticipe l&rsquo;arrivée de la tokenomique basée sur ve et ve(3,3) sur les marchés monétaires.</p>
+<p>🙏 Un grand merci à <a class="link" href="https://twitter.com/disiaque_eth"  target="_blank" rel="noopener"
+    >Disiaque</a> pour sa relecture attentive et constructive.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/fr/tags/defi/">DeFi</a>
+        
+            <a href="/fr/tags/ethereum/">Ethereum</a>
+        
+            <a href="/fr/tags/finance-d%C3%A9centralis%C3%A9e/">Finance Décentralisée</a>
+        
+            <a href="/fr/tags/balancer-finance/">Balancer Finance</a>
+        
+            <a href="/fr/tags/bal/">BAL</a>
+        
+            <a href="/fr/tags/polygon/">Polygon</a>
+        
+            <a href="/fr/tags/aura-finance/">Aura Finance</a>
+        
+            <a href="/fr/tags/aura/">AURA</a>
+        
+            <a href="/fr/tags/powerpool/">PowerPool</a>
+        
+            <a href="/fr/tags/cvp/">CVP</a>
+        
+            <a href="/fr/tags/vebal/">VeBAL</a>
+        
+            <a href="/fr/tags/vlaura/">VlAURA</a>
+        
+            <a href="/fr/tags/hidden-hand/">Hidden Hand</a>
+        
+            <a href="/fr/tags/warden/">Warden</a>
+        
+            <a href="/fr/tags/vote-bribing/">Vote Bribing</a>
+        
+            <a href="/fr/tags/liquidity-driver-tokens/">Liquidity Driver Tokens</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Dernière mise à jour le nov. 24, 2022 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Contenus liés</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/fr/crv-wars-l2/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/curve-wars-l2/curve-wars-l2-cover-tokenbrice.png" loading="lazy" data-key="" data-hash="/img/2022/curve-wars-l2/curve-wars-l2-cover-tokenbrice.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">⚔ Guerre du CRV avancée : analyse des protocoles construits sur Curve et Convex </h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/maverick-liquidity-shaping/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2023/liquidity-shaping-maverick/cover.png" loading="lazy" data-key="" data-hash="/img/2023/liquidity-shaping-maverick/cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Maverick et la transition du Liquidity Mining au Liquidity Shaping</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/crv-wars/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/crv-wars/curve-wars-cover-tokenbrice.png" loading="lazy" data-key="" data-hash="/img/2021/crv-wars/curve-wars-cover-tokenbrice.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">⚔ Guerre du CRV : comprendre la course à l&#39;accumulation de la capacité à influencer le protocole Curve Finance</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/defi-flywheel/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/defi-flywheel/defi-flywheel-cover-en.png" loading="lazy" data-key="" data-hash="/img/2021/defi-flywheel/defi-flywheel-cover-en.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🎡 Flywheel DeFi : synergies de protocoles à protocoles, par tokens interposés </h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/tranching-risque-defi/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/risk-tranching/cover.gif" loading="lazy" data-key="" data-hash="/img/2021/risk-tranching/cover.gif"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🗡 Du risque ? Oui, mais juste un doigt</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Généré avec <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Thème <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> conçu par <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

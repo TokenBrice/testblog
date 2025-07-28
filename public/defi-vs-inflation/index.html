@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="What if DeFi, more than ever, offered serious and credible answers to economic and financial issues? Example with the galloping inflation and the various products and strategies DeFi offers to guard against it.">
+<title>How to build an inflation-proof DeFi portfolio?</title>
+
+<link rel='canonical' href='http://localhost:1313/defi-vs-inflation/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="How to build an inflation-proof DeFi portfolio?">
+<meta property='og:description' content="What if DeFi, more than ever, offered serious and credible answers to economic and financial issues? Example with the galloping inflation and the various products and strategies DeFi offers to guard against it.">
+<meta property='og:url' content='http://localhost:1313/defi-vs-inflation/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Decentralized Finance' /><meta property='article:tag' content='Stablecoins' /><meta property='article:tag' content='Stable Assets' /><meta property='article:tag' content='Money Markets' /><meta property='article:tag' content='Reflexer' /><meta property='article:tag' content='RAI' /><meta property='article:tag' content='Maker' /><meta property='article:tag' content='Liquity' /><meta property='article:tag' content='Curve' /><meta property='article:tag' content='Convex' /><meta property='article:tag' content='Aave' /><meta property='article:tag' content='APWineFi' /><meta property='article:tag' content='vlCVX' /><meta property='article:tag' content='Stablecoin' /><meta property='article:tag' content='Yearn Finance' /><meta property='article:tag' content='Harvest Finance' /><meta property='article:tag' content='Fuse' /><meta property='article:tag' content='jFiats' /><meta property='article:tag' content='Inflation' /><meta property='article:tag' content='Dollar' /><meta property='article:tag' content='stagflation' /><meta property='article:tag' content='PT' /><meta property='article:tag' content='FYT' /><meta property='article:published_time' content='2022-03-09T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2022-03-09T01:13:50&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/2022/defi-vs-inflation/defi-vs-inflation-tokenbrice-cover.jpg' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="How to build an inflation-proof DeFi portfolio?">
+<meta name="twitter:description" content="What if DeFi, more than ever, offered serious and credible answers to economic and financial issues? Example with the galloping inflation and the various products and strategies DeFi offers to guard against it."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/2022/defi-vs-inflation/defi-vs-inflation-tokenbrice-cover.jpg' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">TokenBrice</a></h1>
+            <h2 class="site-description">Brutally Honest DeFi</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" selected>English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" >Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#α-tutorial-understanding-the-impact-of-inflation-on-a-crypto-portfolio">α/ Tutorial: Understanding the impact of inflation on a crypto portfolio</a>
+      <ol>
+        <li><a href="#inflation-macro-point-of-view-scale--country">Inflation, macro point of view (scale = country)</a></li>
+        <li><a href="#evaluating-future-inflation">Evaluating future inflation?</a></li>
+      </ol>
+    </li>
+    <li><a href="#i-beating-inflation-with-classic-stablecoin-returns">I/ Beating inflation with &ldquo;classic&rdquo; stablecoin returns</a>
+      <ol>
+        <li><a href="#simple-stablecoin-deposit">Simple stablecoin deposit</a></li>
+        <li><a href="#provision-of-liquidity--time-commitment">Provision of liquidity + time commitment</a></li>
+        <li><a href="#tokenizing-and-speculating-on-future-yields">Tokenizing and speculating on future yields</a></li>
+      </ol>
+    </li>
+    <li><a href="#ii-hedged-productive-positions-with-various-alternative-stablecoins">II/ Hedged productive positions with various &ldquo;alternative&rdquo; stablecoins</a>
+      <ol>
+        <li><a href="#single-deposit">Single deposit</a></li>
+        <li><a href="#fiatafiatb-liquidity-providing">FiatA/FiatB Liquidity Providing</a></li>
+        <li><a href="#forex-borrowing">Forex Borrowing</a></li>
+        <li><a href="#finding-your-balance">Finding your balance</a></li>
+      </ol>
+    </li>
+    <li><a href="#iii-inflation-resistant-stablecoins">III/ Inflation resistant stablecoins</a>
+      <ol>
+        <li><a href="#rai-the-first-dollar-free-stablecoin">RAI, the first dollar-free stablecoin</a></li>
+        <li><a href="#-an-inflation-resistant-stablecoin-the-frax-fpi">🚧 An inflation-resistant stablecoin? The FRAX FPI</a></li>
+        <li><a href="#-inflation-resistance--degen--volt">🚧 Inflation resistance + degen = VOLT</a></li>
+      </ol>
+    </li>
+    <li><a href="#iv-beating-inflation-with-returns-on-volatile-assets">IV/ Beating inflation with returns on volatile assets</a>
+      <ol>
+        <li><a href="#eth-the-origin-and-the-end">ETH: the origin and the end</a></li>
+        <li><a href="#crv-cvx-and-fxs-the-three-fates-of-the-defi">CRV, CVX, and FXS: The three Fates of the DeFi?</a></li>
+        <li><a href="#other-promising-tokens">Other promising tokens</a>
+          <ol>
+            <li><a href="#apwinefi-apw-betting-on-the-advanced-defi-infrastructure">APWine.fi (APW): betting on the advanced DeFi infrastructure</a></li>
+            <li><a href="#reflexer-flx-a-bet-on-degovernance">Reflexer (FLX): a bet on degovernance</a></li>
+            <li><a href="#looksrare-looks-bet-on-nfts">LooksRare (LOOKS): bet on NFTs</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#good-luck-and-happy-harvesting-">Good luck and happy harvesting 🚜</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/defi-vs-inflation/">
+                
+                    <img src="/img/2022/defi-vs-inflation/defi-vs-inflation-tokenbrice-cover.jpg" loading="lazy" alt="Featured image of post How to build an inflation-proof DeFi portfolio?" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/defi/" style="background-color: #2a9d8f; color: #fff;">
+                DeFi
+            </a>
+        
+            <a href="/categories/understanding/" style="background-color: #2a9d8f; color: #fff;">
+                Understanding
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/defi-vs-inflation/">How to build an inflation-proof DeFi portfolio?</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            What if DeFi, more than ever, offered serious and credible answers to economic and financial issues? Example with the galloping inflation and the various products and strategies DeFi offers to guard against it.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 09, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    20 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+        <footer class="article-translations">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+            <div>
+                
+                    <a href="http://localhost:1313/fr/defi-vs-inflation/" class="link">Français</a>
+                
+            </div>
+        </footer>
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Inflation is more than ever at the center of discussions and concerns: no one understands much about it, no economist has really anticipated it, but we all have an opinion about it.</p>
+<p>Today, we leave economics and politics aside to focus on what matters for your wallet: in decentralized finance, all kinds of protocols are developed, and a good part of them <strong>provide credible and innovative tools to preserve and develop the purchasing power of a portfolio</strong>, even when the macroeconomic context is most uncertain.</p>
+<p>I propose to evaluate strategies involving different assets and protocols, all with the same goal: to preserve and develop the effective purchasing power of a given portfolio. Nevertheless, we have to start with the basics, level 0: what is inflation and why should we, DeFians, care about it?</p>
+<p><em>The cover image was made by a generous anonymous contributor and features the majestic <strong><a class="link" href="https://rarible.com/valkyre/created"  target="_blank" rel="noopener"
+    >Valkyr-E</a></strong>.</em></p>
+<h2 id="α-tutorial-understanding-the-impact-of-inflation-on-a-crypto-portfolio">α/ Tutorial: Understanding the impact of inflation on a crypto portfolio
+</h2><p>I won&rsquo;t venture into the details of inflation for fiat currencies here, but the basic concept is known to anyone familiar with cryptocurrencies.</p>
+<p>Before we get into the nitty-gritty, let&rsquo;s start with the term: here is how the INSEE (Institut National de la Statistique et des Études Économiques) defines inflation:</p>
+<blockquote>
+<p>Inflation is the loss of purchasing power of money that results in a general and lasting increase in prices. It must be distinguished from the increase in the cost of living. The loss of value of money is a phenomenon that hits the national economy as a whole (households, businesses, etc.).</p>
+</blockquote>
+<p>Let&rsquo;s just remember that, <strong>just like in DeFi where each token is associated with a protocol and potentially even an ecosystem, each fiat currency is also based on an economy as well as a set of rules</strong> (legal system).</p>
+<h3 id="inflation-macro-point-of-view-scale--country">Inflation, macro point of view (scale = country)
+</h3><p>Inflation corresponds to the production of new money, the important thing is not so much the quantity of money created, but more <strong>what is done with</strong>. We all understand this rather well with two caricatural examples at each extreme:</p>
+<ol>
+<li>The central bank of country A issues a large amount of money in order to invest massively in its transport infrastructure and its energy supply (= long-term investments).</li>
+</ol>
+<p><em>Here, inflation can be controlled because the new money issued is used to finance investments that develop the country&rsquo;s economic potential in the long run (-&gt; compensation).</em></p>
+<ol start="2">
+<li>The central bank of country B issues a large amount of money to finance an emergency plan to compensate for the foreseeable consequences of previous pseudo-sanitary measures.</li>
+</ol>
+<p><em>In this second scenario, the new money is used to cover a &ldquo;current expense&rdquo; of the government. The personal equivalent would be to go into debt every day to pay for lunch. This is obviously unsustainable in the long run. In this scenario, inflation can only be massive as a large amount of new money is issued, while the economic potential of the country in question stagnates or deteriorates.</em></p>
+<h3 id="evaluating-future-inflation">Evaluating future inflation?
+</h3><p>Enough about the macro, let&rsquo;s go back to our scale, with things we know well. Here is the evolution of the M1 money supply on the dollar, this allows us to visualize its &ldquo;marketcap&rdquo; in a way:</p>
+<p><img src="/img/2022/defi-vs-inflation/USD-m1-supply.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="USD M1 Supply"
+	
+	
+></p>
+<p>Here we only look at M1 for simplicity but the trend is similar on M2 and M3.</p>
+<p>We are interested here in the dollar which, although challenged, remains the fiduciary currency that sets the tone. As you can see, the curve has been going vertical since the beginning of the Covid crisis. The curve is now much scarier than the worst shitcoins I have ever seen. Doubt it? Consider the same information, presented in this light:</p>
+<p><strong>The dollar has been around since 1914. 20% of all dollars in circulation were created in 2020. At the current rate, the total amount of dollars in circulation doubles about every 4-5 years.</strong></p>
+<p>To compare with crypto, many are concerned about inflation / new token issuance on Curve Finance (CRV). The 4 year issuance curve looks like this:</p>
+<p><img src="/img/2022/defi-vs-inflation/crv-release-schedule.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="crv-release-schedule"
+	
+	
+></p>
+<p>I&rsquo;m no economist, but I know my shitcoins. The official US inflation figure we are given is 7.5% per year. Like unemployment figures, it&rsquo;s a highly political metric that&rsquo;s hard to really appreciate.</p>
+<p>The 7.5% figure may seem high, but it is still low when compared to the unprecedented money creation to deal with Covid. So I expect to see this inflation rise further, or else to be sustained over an extended period of a decade.</p>
+<p>So inflation is here, at 7.5% minimum for several years at least. Enough with boomers&rsquo; macro, let&rsquo;s consider the range of tools that the DeFi offers us to face it and overcome it.</p>
+<h2 id="i-beating-inflation-with-classic-stablecoin-returns">I/ Beating inflation with &ldquo;classic&rdquo; stablecoin returns
+</h2><p>The first approach is as always the simplest, <strong>the brute force method</strong>: an inflation of 7.5% means that USD left as is will lose 7.5% of their value over the year. The point here is to find a source of return higher than inflation: the difference between the two is the effective return.</p>
+<p>With inflation at 7.5% on the USD, I think it is prudent to make sure to <strong>reach at least 1.5x this figure in yield</strong> to really consider yourself inflation-proof.</p>
+<p>Here, the game is simple and the rules fairly easy to understand:</p>
+<ol>
+<li>You start with a position in a given stablecoin</li>
+<li>The goal is to make it productive, without assuming IL risk</li>
+<li>With a return that exceeds the inflation figure, once the gas costs have been amortized.</li>
+</ol>
+<h3 id="simple-stablecoin-deposit">Simple stablecoin deposit
+</h3><p>So we would aim for <strong>a 10.875% annual return on stablecoin $ at the very least</strong>. With recent declines and yield compression this is increasingly difficult, but still findable even with a single stablecoin deposit without IL risk. Tools like <a class="link" href="https://coindix.com/?kind=stable&amp;sort=-apy&amp;chain=ethereum"  target="_blank" rel="noopener"
+    >Coindix</a> can help you find the vault of your dreams:</p>
+<p><img src="/img/2022/defi-vs-inflation/coindix.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="coindix"
+	
+	
+></p>
+<p>Be careful though, <strong>not all vaults are created equal</strong>! For example, we see nice returns on Bancor on the screenshot: don&rsquo;t forget to consider the volatility of these returns as well as the fees in gas to deploy the position (a Bancor LP is notoriously more expensive than a Yearn deposit for example).</p>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice warning" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#warning-notice"></use></svg></span>Warning</p><p>I mention it here only to forget it just as quickly afterwards: the <a class="link" href="https://app.anchorprotocol.com/"  target="_blank" rel="noopener"
+    >Anchor protocol</a> also offers you a &ldquo;fixed&rdquo; return close to 20% on UST stablecoin. Such a guaranteed rate does not come, of course, without serious compromises that raise real questions about the sustainability of this whole ecosystem (Terra/Luna).</p></div>
+
+<h3 id="provision-of-liquidity--time-commitment">Provision of liquidity + time commitment
+</h3><p>Still in dollars, but a bit riskier, we can consider different types of commitments, with very controlled / no IL risks. For example, a liquidity provision between FRAX and DAI.</p>
+<p><img src="/img/2022/defi-vs-inflation/frax-dai.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="FRAX/DAI LP opportunities on Frax"
+	
+	
+></p>
+<p>Here it is at <a class="link" href="https://frax.finance/"  target="_blank" rel="noopener"
+    >Frax Finance</a>, the prime rate (x1) is just our minimum target, but it is possible to reach up to x5 with two types of commitment:</p>
+<ul>
+<li>X3 by locking LP tokens for 3 years</li>
+<li>X2 by using your veFXS (much harder to reach)</li>
+</ul>
+<p>The effective return on a position locked in for three years corresponds to about 3 times our minimum target, thus offering a credible protection against the loss of value due to the consequences of inflation, but you still have to be able to assume the three-year commitment.</p>
+<p>The example is taken here on DAI, but the situation is similar on the other major stablecoins; for example, here are the FRAX/USDC pools:</p>
+<p><img src="/img/2022/defi-vs-inflation/frax-usdc.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="FRAX/USDC LP opportunities"
+	
+	
+></p>
+<div class="notice tip" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#tip-notice"></use></svg></span>Tip</p><p>Convex for Frax is coming (optimizing Frax LP farming via Convex), if you don&rsquo;t have your own veFXS, it&rsquo;s probably pertinent to wait until the service is released to make a decision with all the cards in hand.</p></div>
+
+<h3 id="tokenizing-and-speculating-on-future-yields">Tokenizing and speculating on future yields
+</h3><p>To beat that famous 10% return on the dollar, there are still many other options. I present you one last one here to help you consider the other possible strategies.</p>
+<p>For this one, we rely on <a class="link" href="https://apwine.fi/"  target="_blank" rel="noopener"
+    >APWine</a>, a protocol that allows the tokenization of future yields on productive assets. The principle is both simple and complex: depositing an asset on APWine allows to separate its future yield (FYT: Future Yield Token) from the underlying principal (PT: Principal Token).</p>
+<p>From there, different strategies are possible, such as immediately selling the future yield (FYT) in order to increase the quantity of the productive principal. Such a tool enables better risk management considering the volatily of yields observed in DeFi</p>
+<p>Let&rsquo;s keep it simple and still well above the 10% requirement: let&rsquo;s zoom in on the aUSDT vault of <a class="link" href="https://app.apwine.fi/"  target="_blank" rel="noopener"
+    >APWine</a>:</p>
+<p><img src="/img/2022/defi-vs-inflation/apwine-USDT-en.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="APWine aUSDT vault"
+	
+	
+></p>
+<p>I automatically exclude the PT/FYT pool which is more complex to understand and has much higher risks than the PT/Underlying offering a 44% return in APW anyway.</p>
+<p>Here the strategy is simple, but you have to <strong>keep in mind the important gas costs linked to the use of APWine</strong>. To implement the strategy using USDT in the wallet, you need to:</p>
+<ol>
+<li>Allow + Deposit a part of them on Aave (I&rsquo;d recommend 55% of the total maximum for this specific strategy)</li>
+<li>Allow + Deposit the aUSDT obtained in 1 on APWine</li>
+<li>Allow (x2) + Deposit the PT and Underlying (USDT) tokens as liquidity providing</li>
+<li>Allow + Stake of the LPs PT/Underlying tokens to obtain the return in APW</li>
+<li>Don&rsquo;t forget also the gas fees related to the APW claims + unwinding of the position at the end of the period (or before).</li>
+</ol>
+<p>It is therefore better to wait for a day when the transactions clear under 30 gwei so as not to suffer too much from the gas costs on such a strategy.</p>
+<p>The advantage here, compared to Frax for example, is that <strong>the position is much more liquid</strong>. APWine works with an epoch logic that lasts 90 days. Thus, to more easily amortize the costs in gas it is preferable to deploy the strategy at the beginning of the epoch: this is also when the returns are generally the highest.</p>
+<p>The third winelisting (where the next tokens supported on APWine are decided) has just ended, so don&rsquo;t hesitate to prepare for it:</p>
+<p><img src="/img/2022/defi-vs-inflation/apw-winelisting3.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="APWine - Winelisting 3"
+	
+	
+></p>
+<p>APWine is still a young protocol, but the governance is dynamic. The next step is approaching: as on Curve, it will soon be the veAPW holders (locked APW) that <a class="link" href="https://gov.apwine.fi/t/apgp-2-enable-gauges-for-apw-rewards/171"  target="_blank" rel="noopener"
+    >will decide on emissions</a> for each given vault. A redistribution of the cards is to be expected, plan ahead.</p>
+<h2 id="ii-hedged-productive-positions-with-various-alternative-stablecoins">II/ Hedged productive positions with various &ldquo;alternative&rdquo; stablecoins
+</h2><p>We have stayed for now on the dollar, it&rsquo;s easier to begin with. Although dollar stablecoins are still largely dominant, there are now <strong>many stablecoins based on other fiat currencies</strong> such as EUR, JPY (Japanese Yen), CHF (Swiss Franc), KRW (Korean Won) or even CAD (Canadian Dollar).</p>
+<p>Besides the few centralized stablecoins (EURS or EURT), this market is mostly covered by protocols that offer to create synthetic stablecoins backed by other stablecoins. This is the case for example with <a class="link" href="https://jarvis.network/"  target="_blank" rel="noopener"
+    >Jarvis Network</a>, which uses USDC to collateralize different types of stablecoins: jEUR, jCHF, jKRW, etc.</p>
+<h3 id="single-deposit">Single deposit
+</h3><p>Yield opportunities with no/low IL for such stablecoins are still quite rare, and usually found on Curve: providing liquidity against other stablecoins based on the same fiat currency, if any.</p>
+<p><img src="/img/2022/defi-vs-inflation/curve-chf.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="CHF pool on Curve Finance"
+	
+	
+></p>
+<p>Only a few stablecoins have lucrative single deposit options jEUR, jCHF, jJPY. They are based on the corresponding Curve pools, with additional incentives offered by Jarvis and other projects.</p>
+<p>Via Jarvis (also available farmed by Harvest), it is also possible to generate a return without IL on jCAD and jJPY.</p>
+<h3 id="fiatafiatb-liquidity-providing">FiatA/FiatB Liquidity Providing
+</h3><p>However, there is a slightly different approach, more risky, but also potentially more protective against inflation: providing liquidity on two stablecoins representing two different fiat currencies, for example EURT/3pool (USD) still on Curve.</p>
+<p>More interestingly, especially for smaller portfolios, many alternative stablecoins are available on Polygon or Avalanche, with a fairly dense ecosystem.</p>
+<p>Jarvis offers jCHF-USDC, jEUR-USDC or jCAD-USDC pools with returns above 20%. Tools like <a class="link" href="https://harvest.finance/"  target="_blank" rel="noopener"
+    >Harvest.Finance</a> or <a class="link" href="https://beefy.finance/"  target="_blank" rel="noopener"
+    >Beefy.Finance</a> can also be used to automatically compose the returns obtained:</p>
+<p><img src="/img/2022/defi-vs-inflation/harvest-jarvis-2-stables.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Harvest Network Jarvis jFIAT"
+	
+	
+></p>
+<p>Warning: depending on your base asset (e.g. USDC), exposure to EUR (or other currencies) can be lucrative or costly - depending on the evolution of the USDC/EUR exchange rate.</p>
+<p>Finally, for the more adventurous among you, you should know that APWine is also available on Polygon and already supports several Jarvis tokens, such as the MooJarvis_4eur:</p>
+<ol>
+<li>Liquidity contribution on Curve (4eur)</li>
+<li>Managed by Beefy Finance (moo)</li>
+<li>Which compounds return that Jarvis offers</li>
+</ol>
+<p>Again, the addition of tokens voted during winelisting 3 will open new doors with the upcoming arrival on APWine/Polygon of:</p>
+<ul>
+<li>MooKyber_USDC-jEUR</li>
+<li>MooMai_USDC-MAI</li>
+</ul>
+<h3 id="forex-borrowing">Forex Borrowing
+</h3><p>Finally, if liquidations don&rsquo;t scare you, know that a Fuse pool on Polygon (<a class="link" href="https://polygon.market.xyz/pool/7"  target="_blank" rel="noopener"
+    >Pool7 - Jarvis Forex Market</a>) allows you to use different jFiat as collateral as well as to borrow.</p>
+<p><img src="/img/2022/defi-vs-inflation/fuse-pool7.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Fuse pool 7"
+	
+	
+></p>
+<p>With such a service, almost anything is possible, here are some examples to inspire you:</p>
+<ul>
+<li>Long USD + short EUR = MAI in collateral, borrow jEUR then sell jEUR and potentially loop</li>
+<li>Short GBP via CHF = jCHF in collateral, borrow jGBP then sell and potential loop.</li>
+</ul>
+<div class="notice tip" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#tip-notice"></use></svg></span>Tip</p><p>Also note that the productive stablecoins m2CAD and m2JPY are available as collateral while keeping their yield: they can be interesting for more traditional leverage strategies.</p></div>
+
+<h3 id="finding-your-balance">Finding your balance
+</h3><p>More than just one magic position, what I like about Jarvis stablecoins is the ability to <strong>diversify easily into different types of fiat currencies</strong>. Thanks to the low transaction fees on Polygon, it is quite possible to mix several different currencies and positions to make a coherent whole and well protected against its local inflation.</p>
+<p>For example, for a European (= spending €):</p>
+<ul>
+<li>25% in stable productive € without IL, for example MooJarvis_4eur (+APWine)</li>
+<li>25% in jEUR/USDC</li>
+<li>20% in stable productive dollar (e.g. aUSDT APWine strategy)</li>
+<li>&amp; Diversification: 15% jCHF/USDC + 15% jGBP/USDC</li>
+</ul>
+<p>Finally, while we&rsquo;re on the subject of &ldquo;exotic&rdquo; stablecoins, you should know that there are also a few that track gold or silver - they can be relevant from this perspective too. For example XAUT (with Pool Curve XAUT/3crv). Gold and silver remain <del>barbaric</del> boomers&rsquo; relics, personally I see very little interest in them for a competent DeFian.</p>
+<h2 id="iii-inflation-resistant-stablecoins">III/ Inflation resistant stablecoins
+</h2><p>Beating inflation is nice. Hedging it? Even better. But <strong>why not just abstract it</strong>, using products that are naturally resistant to it? There are still very few stablecoins that are not tracking fiat currencies, but the supply is growing rapidly.</p>
+<h3 id="rai-the-first-dollar-free-stablecoin">RAI, the first dollar-free stablecoin
+</h3><p>RAI is a strange beast, the very first &ldquo;unpegged stablecoin.&rdquo; Launched at a value of Pi in USD (3.14) in 2021, it has been moving between 3.02 and 3.06 almost since its launch. Given its recent arrival (just over a year), it&rsquo;s hard to see how RAI will perform in a period of prolonged inflation.</p>
+<p>Still, diversifying a portion of your stablecoins into RAI may be an attractive option. In addition, there are different return options available on RAI:</p>
+<ul>
+<li>Simple deposit without IL risk: Idle Finance deposits your RAI in Fuse/Aave to optimize the native return + incentives in FLX from Reflexer + incentives in IDLE.</li>
+</ul>
+<p><img src="/img/2022/defi-vs-inflation/rai-idle-0.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="RAI on Idle Finance"
+	
+	
+></p>
+<p><img src="/img/2022/defi-vs-inflation/rai-idle.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Additional FLX incentives for RAI on Idle Finance"
+	
+	
+></p>
+<ul>
+<li>By assuming IL risk via liquidity provision on Curve vs. 3pool, a better return is possible. The crvRAI can then be staked directly on Curve or via Convex or Yearn.</li>
+</ul>
+<p>RAI is based on a mechanism inspired by Maker MCD but with many modifications to make it possible. To understand how it works, I invite you to read <a class="link" href="https://tokenbrice.xyz/reflexer-rai/"  target="_blank" rel="noopener"
+    >my dedicated article</a>.</p>
+<div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>🚧 Signals that the mentioned protocol is still under development.</p></div>
+
+<h3 id="-an-inflation-resistant-stablecoin-the-frax-fpi">🚧 An inflation-resistant stablecoin? The FRAX FPI
+</h3><p>The Frax Price Index is a new protocol that should arrive soon within the Frax ecosystem. The goal is to offer a new stablecoin, which would follow the CPI (Consumer Price Index) to protect against inflation. Just like Frax, <strong>the system is based on two tokens</strong>:</p>
+<ol>
+<li>the stable - Frax Price Index (FPI)</li>
+<li>and the governance token - Frax Price Index Share (FPIS).</li>
+</ol>
+<p><a class="link" href="https://docs.frax.finance/frax-price-index/inflation-hedge"  target="_blank" rel="noopener"
+    >Frax documentation</a> offers some information about the upcoming token. <strong>An airdrop of FPIS is planned</strong> for veFXS or cvxFXS holders. Thus, the protocol will be independent of FRAX/FXS, although a value capture mechanism to FXS is planned beyond the initial airdrop.</p>
+<p>It is hard to project solely on a mere design, but it is clear that a stablecoin that would maintain its value despite inflation is a very desirable product. <strong>There are several questions as to whether the peg on FPI can be maintained</strong>: to keep its equilibrium, people will have to take the opposite trade to FPI, i.e. &ldquo;short inflation&rdquo;. However, in the current context of galloping inflation, it is hard to imagine who could assume such a position and massive incentives might be required.</p>
+<p>Nevertheless, the arrival of the FPI is imminent. Traces of the token <a class="link" href="https://etherscan.io/token/0xdb68c6264e9d0f8a6df1fa5a89f205da38698d15"  target="_blank" rel="noopener"
+    >FPIS on EtherScan</a> can be found as early as early March. I look forward to seeing the Frax team&rsquo;s proposed design to address these consequential issues.</p>
+<h3 id="-inflation-resistance--degen--volt">🚧 Inflation resistance + degen = VOLT
+</h3><p>Alongside Frax&rsquo;s FPI, there is another project I&rsquo;ve been following closely, waiting for a long time and holding high hopes for. The high-level concept is very simple: an Abracadabra-like product that would not be a walking security loophole.</p>
+<p>Indeed, Abracadabra allows borrowing from various productive collaterals, which makes the service desirable. Nevertheless, the infrastructure is close to a hack and the actions of the team members make Abracadabra a second or third grade money market.</p>
+<p>The idea here, with Volt, is to cover the same vertical using a proven infrastructure: the base offered by Reflexer (RAI). Three main changes are expected on this model:</p>
+<ol>
+<li>Unlike Reflexer, which only accepts ETH as collateral, Volt will diversify the available options, notably with productive collateral such as wstETH.</li>
+<li>The value of VOLT, the system&rsquo;s stablecoin, will be indexed to Frax&rsquo;s FPI. The Reflexer infrastructure will be reused (PID controller adapted)</li>
+<li>The Volt team is also working in collaboration with Fuse and Olympus.</li>
+</ol>
+<p>To follow Volt, as always, the alpha lives on <a class="link" href="https://discord.gg/dGhvDmCNGr"  target="_blank" rel="noopener"
+    >the Discord</a>!</p>
+<div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>I describe here the initial design of Volt Protocol, which has since evolved. The vision of creating a borrowing service with an inflation-proof stablecoin remains, but the technical choices have evolved. Read <a class="link" href="https://github.com/volt-protocol/whitepaper/blob/main/volt.md"  target="_blank" rel="noopener"
+    >the whitepaper available here</a> for the latest information.</p></div>
+
+<h2 id="iv-beating-inflation-with-returns-on-volatile-assets">IV/ Beating inflation with returns on volatile assets
+</h2><p><strong>In a world where nothing holds and value leaks, what&rsquo;s left? How about good, proven DeFi assets backed by protocols with massive, recurring revenues shared directly with their holders?</strong></p>
+<p>There are a few of them, very few. We will detail them one by one, as well as the different options available on them to produce a return.</p>
+<h3 id="eth-the-origin-and-the-end">ETH: the origin and the end
+</h3><p>There is of course ETH, which has many different sources of return - just like stablecoins, there is nothing to stop you from diversifying your ETH exposure with several sources of return, for example:</p>
+<ul>
+<li>ETH staked with <a class="link" href="https://lido.fi/"  target="_blank" rel="noopener"
+    >Lido Finance </a>(low yield, but a priori the safest) [~5%]</li>
+<li>LP <a class="link" href="https://rocketpool.net/"  target="_blank" rel="noopener"
+    >rETH</a> on Curve (more innovative, more lucrative, more risky) [~10%]</li>
+<li>Vault covered call options on ETH via <a class="link" href="https://stakedao.org/"  target="_blank" rel="noopener"
+    >Stakedao</a> or <a class="link" href="https://www.ribbon.finance/"  target="_blank" rel="noopener"
+    >Ribbon Finance</a> [~25%, risks!]</li>
+<li>Cross-chain liquidity on a Bridge, for example <a class="link" href="https://cbridge.celer.network/#/liquidity"  target="_blank" rel="noopener"
+    >Celer</a> [~10%]</li>
+</ul>
+<p>A position balanced in this way tracks/exceeds inflation slightly with the returns obtained on ETH. The profitability of the position over the long term depends of course mainly on the average entry price on ETH and its evolution.</p>
+<h3 id="crv-cvx-and-fxs-the-three-fates-of-the-defi">CRV, CVX, and FXS: The three Fates of the DeFi?
+</h3><p>Among the Romans, the Fates are three goddesses who govern the lives of humans:</p>
+<ol>
+<li>Clotho weaves the thread of life</li>
+<li>Lachesis unwinds it</li>
+<li>Atropos cuts it</li>
+</ol>
+<p>DeFi also knows these Fates: three protocols that play a critical role in the survival and growth of potentially any other.</p>
+<p>Indeed, in addition to ETH, there are several DeFi projects that have already proven themselves, control substantial revenue streams, and offer a truly relevant service in a macro context of prolonged inflation; I see three essentially:</p>
+<ol>
+<li><strong>Curve Finance - CRV</strong>: the mother of all yields in DeFi + peg machine and liquidity.</li>
+<li><strong>Convex Finance - CVX</strong>: an option on CRV, which controls almost 50% of all locked CRVs and adds real value.</li>
+<li><strong>Frax Finance - FXS</strong>: innovative stable project, native DeFi, very productive via AMOs + arrival of FPI + Frax has a big position on CVX &amp; some other protocols.</li>
+</ol>
+<p>While being tokens backed by key protocols in DeFi, there is no shortage of return options on these three tokens:</p>
+<ol>
+<li>CRV -&gt; Deposit on Convex in CvxCRV then stake or LP cvxCRV/CRV.</li>
+<li>CVX -&gt; Locked vote on Convex in vlCVX -&gt; Return in cvxCRV + bribes.</li>
+<li>FXS -&gt; Direct deposit on Frax (veFXS) or management via Convex (cvxFXS).</li>
+</ol>
+<h3 id="other-promising-tokens">Other promising tokens
+</h3><p>Finally, there are still other projects that have not yet reached the profitability of Curve or Convex but represent credible bets. In a world where inflation is here to stay, the tools that will allow us to protect ourselves from it can become very popular: I propose you some other theses related to what has been already mentioned in the article.</p>
+<h4 id="apwinefi-apw-betting-on-the-advanced-defi-infrastructure">APWine.fi (APW): betting on the advanced DeFi infrastructure
+</h4><p>When inflation goes up, everyone is looking for yield. Let them run behind the %, and instead target the pick sellers in this gold rush. This is the main thesis behind a bet on APW.</p>
+<p>As you could see in the article already, APWine offers interesting products to bet on the evolution of yields or even realize a future yield immediately. As DeFi develops, the demand for a product like APWine will keep growing. Will it be APWine, or another one? It&rsquo;s up to you!</p>
+<p>With the APWine Wars coming up, it&rsquo;s not a stretch to envision bribes similar to what we see on Convex.</p>
+<h4 id="reflexer-flx-a-bet-on-degovernance">Reflexer (FLX): a bet on degovernance
+</h4><p>In addition to the very interesting technical approach, Reflexer also innovates on another level. Indeed, since the launch of the protocol, the team has presented a &ldquo;De-governance Plan&rdquo; aiming at progressively minimizing the team&rsquo;s control over the protocol through two main means:</p>
+<ul>
+<li>Automation of everything that can be automated</li>
+<li>Management by FLX holders for situations still requiring manual analysis/decision making.</li>
+</ul>
+<p>In addition, <strong>Reflexer now exceeds RAI</strong>. The Money God League is a set of projects building using the Reflexer infrastructure, with the support of the team. So it seems quite natural to consider an airdrop of the governance token of these new projects, including VOLT, to FLX holders.</p>
+<p>Last tip: the stakers of the FLX/ETH LP in the Reflexer Safety Module are the last resort to guarantee the solvency of the protocol. If I were to consider an airdrop to thank the Reflexer community, I would probably target them first.</p>
+<h4 id="looksrare-looks-bet-on-nfts">LooksRare (LOOKS): bet on NFTs
+</h4><p>Think of LOOKS as an option on the NFT market. In fact, LooksRare is the first NFT marketplace that shares revenue. This translates into <strong>an ETH yield for stakers on LOOKS that reached 3 digits sustained during the first few weeks</strong>.</p>
+<p><img src="/img/2022/defi-vs-inflation/looks-eth-farm.jpeg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="ETH yields on LOOKS staking"
+	
+	
+></p>
+<p>Since then, trading volume has dropped and the ETH yield with it, but <strong>the staking LOOKS is still one of the biggest ETH yields out there</strong>.</p>
+<p>I&rsquo;ll stop with these three suggestions, but of course there are other options - you be the judge. For example, the QI Wars have started and the protocol has good traction. Be careful, however, not to fall into the trap of thinking that all protocols that adopt the ve + bribes model will be as successful as Curve and Convex. ve tokenomics will multiply: it&rsquo;s about making the right choices!</p>
+<hr>
+<h2 id="good-luck-and-happy-harvesting-">Good luck and happy harvesting 🚜
+</h2><p>I&rsquo;d be tempted to apologize for the length of this article, but I remain confident that it&rsquo;s worth a read and will be informative even for the most knowledgeable DeFians.</p>
+<p>If you have considered other useful strategies or protocols for protecting against inflation, please feel free to suggest them to me.</p>
+<p>For further reading, here are some recommended related articles:</p>
+<ol>
+<li><a class="link" href="https://tokenbrice.xyz/crv-wars/"  target="_blank" rel="noopener"
+    >Understanding the Curve Wars</a></li>
+<li><a class="link" href="https://tokenbrice.xyz/reflexer-rai/"  target="_blank" rel="noopener"
+    >Understanding the Reflexer RAI model</a></li>
+</ol>
+<p>And finally, for the practice, which remains ESSENTIAL, your best bet to warm up is to try with small amounts on inexpensive sidechains/L2:</p>
+<ol>
+<li>The APWine protocol on Polygon to familiarize yourself with these mechanisms.</li>
+<li>Minting jFIAT / Liquidity contribution on Curve + farming to discover Jarvis</li>
+<li>Long/short on Forex with jFiats + Fuse.</li>
+</ol>
+<div class="notice info" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span>Info</p><p>Disclosure: I have invested in APWine pre-sale and I am a big user of the protocol. I am a user and frequent holder of almost all the protocols mentioned in this article.</p>
+<p>This article does not constitute investment advice, I&rsquo;m just sharing my research to help you do yours!</p></div>
+
+<p><em>🙏 Thanks to <a class="link" href="https://twitter.com/C53300"  target="_blank" rel="noopener"
+    >Charles</a>, <a class="link" href="https://twitter.com/phil_h"  target="_blank" rel="noopener"
+    >PhilH</a> and <a class="link" href="https://twitter.com/disiaque_eth"  target="_blank" rel="noopener"
+    >Disiaque</a> for their careful proofreading and their suggestions to help improve this article.</em></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/defi/">DeFi</a>
+        
+            <a href="/tags/ethereum/">Ethereum</a>
+        
+            <a href="/tags/decentralized-finance/">Decentralized Finance</a>
+        
+            <a href="/tags/stablecoins/">Stablecoins</a>
+        
+            <a href="/tags/stable-assets/">Stable Assets</a>
+        
+            <a href="/tags/money-markets/">Money Markets</a>
+        
+            <a href="/tags/reflexer/">Reflexer</a>
+        
+            <a href="/tags/rai/">RAI</a>
+        
+            <a href="/tags/maker/">Maker</a>
+        
+            <a href="/tags/liquity/">Liquity</a>
+        
+            <a href="/tags/curve/">Curve</a>
+        
+            <a href="/tags/convex/">Convex</a>
+        
+            <a href="/tags/aave/">Aave</a>
+        
+            <a href="/tags/apwinefi/">APWineFi</a>
+        
+            <a href="/tags/vlcvx/">VlCVX</a>
+        
+            <a href="/tags/stablecoin/">Stablecoin</a>
+        
+            <a href="/tags/yearn-finance/">Yearn Finance</a>
+        
+            <a href="/tags/harvest-finance/">Harvest Finance</a>
+        
+            <a href="/tags/fuse/">Fuse</a>
+        
+            <a href="/tags/jfiats/">JFiats</a>
+        
+            <a href="/tags/inflation/">Inflation</a>
+        
+            <a href="/tags/dollar/">Dollar</a>
+        
+            <a href="/tags/stagflation/">Stagflation</a>
+        
+            <a href="/tags/pt/">PT</a>
+        
+            <a href="/tags/fyt/">FYT</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Mar 09, 2022 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/unstoppable-defi/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/unstoppable-defi/unstoppable-defi-tokenbrice-cover.png" loading="lazy" data-key="" data-hash="/img/2022/unstoppable-defi/unstoppable-defi-tokenbrice-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Behind the scene of the decentralization theater: a study of the inalterability of DeFi protocols</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/lending-protocol-renaissance/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2024/lending-protocol-renaissance/0-lending-protocol-renaissance-cover.png" loading="lazy" data-key="" data-hash="/img/2024/lending-protocol-renaissance/0-lending-protocol-renaissance-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Is this a Lending Protocol Renaissance?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/stablecoin-marauder-map/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2023/stablecoin-marauder-map/stablecoin-marauder-map-cover.png" loading="lazy" data-key="" data-hash="/img/2023/stablecoin-marauder-map/stablecoin-marauder-map-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">The Maurauder&#39;s Map of Decentralized Stablecoins</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/lusd-chicken-bonds/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/lusd-chicken-bonds/lusd-chicken-bonds-cover-tokenbrice.png" loading="lazy" data-key="" data-hash="/img/2022/lusd-chicken-bonds/lusd-chicken-bonds-cover-tokenbrice.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Chicken Bonds: an NFT-powered hatching factory to beat DeFi’s liquidity chicken and egg problem</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/aave-gho-stablecoin/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/aave-gho-stablecoin/aave-gho-stablecoin-cover.png" loading="lazy" data-key="" data-hash="/img/2022/aave-gho-stablecoin/aave-gho-stablecoin-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Can Aave&#39;s GHO stablecoin help the protocol further grow and overtake MakerDAO and DAI?</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

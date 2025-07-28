@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>SUSD on TokenBrice</title>
+        <link>http://localhost:1313/tags/susd/</link>
+        <description>Recent content in SUSD on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Mon, 28 Dec 2020 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/susd/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>The state &amp; future of algorithmic stablecoins</title>
+        <link>http://localhost:1313/p/the-state-future-of-algorithmic-stablecoins/</link>
+        <pubDate>Mon, 28 Dec 2020 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/the-state-future-of-algorithmic-stablecoins/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2020/algorithmic-stablecoins/cover.png" alt="Featured image of post The state &amp; future of algorithmic stablecoins" /&gt;&lt;p&gt;Since the beginning of December, a new trend has been shaping up in DeFi: algorithmic stablecoins. Several projects launched and saw significant growth, attracting even more interest for this subset of the space.&lt;/p&gt;
+&lt;p&gt;Before we dive into what they are and what they entail, let&amp;rsquo;s first discuss the addressable markets. Stablecoins on Ethereum are massive: they are around 20B USDT circulating, 3.5B USDC &amp;amp; 1B DAI. As you can see, right now most of the volume is served by stablecoins requiring some forms of trust, such as &lt;strong&gt;USDC or USDT: the emitting company has the power to freeze assets and manipulate balances.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Maker explored another approach with DAI that has significantly fewer compromises - however, the scalability is lowered. Besides, it&amp;rsquo;s hard to consider DAI &amp;ldquo;sufficiently trustless&amp;rdquo; today when the majority of the collaterals used to mint it are not (USDC, wBTC, TUSD, etc.)&lt;/p&gt;
+&lt;p&gt;So the recap here would be that so far, there is &lt;strong&gt;an obvious unsatisfied demand&lt;/strong&gt; in stablecoin - the ones that scaled did it with significant compromises, which enabled them to satisfy markets despite being services requiring trust, and more or less worthy of it (especially USDT).&lt;/p&gt;
+&lt;p&gt;The reason I&amp;rsquo;m writing this piece today is that after following developments on the stablecoin space for years - it seems like we&amp;rsquo;re reaching an exciting breakthrough with a new generation of stablecoins able to offer &lt;strong&gt;both scalability and credible trustlessness&lt;/strong&gt;. The topic is neither simple nor easily accessible, especially for newcomers. I&amp;rsquo;ll do my best to walk you through the thought process step by step.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;why-do-we-need-uncompromisingly-trustless-stablecoins&#34;&gt;Why do we need uncompromisingly trustless stablecoins?
+&lt;/h3&gt;&lt;p&gt;Before we dive into what project does what to what end, let&amp;rsquo;s take another step back. We&amp;rsquo;ve established that there is a significant demand for stablecoins, and none of the current leading offers are sufficiently trustless. But what does it mean exactly?&lt;/p&gt;
+&lt;p&gt;Simply put, &lt;strong&gt;trustless means that the whole system does not require any central point of trust to operate smoothly&lt;/strong&gt;. It&amp;rsquo;s often mentioned with &amp;ldquo;censorship resistance&amp;rdquo;, a different property that stems from trustlessness. So from a practical perspective, here are some question to help you assess trustlessness: the more permissive the permissions, the less trustless the project tend to be:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Can token balances be seized or frozen?&lt;/li&gt;
+&lt;li&gt;Can the protocol&amp;rsquo;s code or parameters be updated? In which conditions? By who?&lt;/li&gt;
+&lt;li&gt;Is the protocol dependant on 3rd-party services, such as price feed (oracle) that could be manipulated?&lt;/li&gt;
+&lt;li&gt;Who/what can print new tokens? Is that user-initiated (someone takes an action) or protocol initiated (a decision the protocol makes based on given parameters)?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The last question is particularly insightful, as it highlights a core component of algorithmic stablecoins: &lt;strong&gt;their &amp;ldquo;central bank&amp;rdquo; is a smart contract&lt;/strong&gt; — no one controls it, it simply reacts to the system parameters. We&amp;rsquo;ll dive more into this right below.&lt;/p&gt;
+&lt;p&gt;So with this piece, we&amp;rsquo;ll examine the main models available: Ampleforth, Basis Cash, Empty Set Dollar, and Dynamic Set Dollar. I&amp;rsquo;ll not dive into the history of the space and the specificities of each model, feel free to check this article from Deribit Insights if you need more context:&lt;/p&gt;
+&lt;p&gt;👉 &lt;a class=&#34;link&#34; href=&#34;https://insights.deribit.com/market-research/stability-elasticity-and-reflexivity-a-deep-dive-into-algorithmic-stablecoins/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Stability, Elasticity, and Reflexivity: A Deep Dive into Algorithmic Stablecoins&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;So instead of diving into each system&amp;rsquo;s details, I&amp;rsquo;ll draw &lt;strong&gt;a sketch showing the core principles this generation of stablecoin is built upon&lt;/strong&gt;, based on the common parameters and design approaches shared in all projects.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;central-smart-contract&#34;&gt;Central Smart Contract
+&lt;/h3&gt;&lt;p&gt;The first interesting dimension is the &amp;ldquo;central bank&amp;rdquo; of the system - aka who/what can print new tokens and under what conditions? &lt;strong&gt;USDC &amp;amp; USDT pretty much replicate a central bank&lt;/strong&gt; - one entity is in charge of the project and emitting new tokens.&lt;/p&gt;
+&lt;p&gt;Since Maker is just a smart contract enabling its users to mint DAI from certain collaterals, the approach is different here. Essentially &lt;strong&gt;Maker/DAI enables you to be your own central bank&lt;/strong&gt;. So the central bank of Maker is a smart contract, but it requires human input to mint DAI.&lt;/p&gt;
+&lt;p&gt;The algorithmic stablecoins go even further, as &lt;strong&gt;the human input is removed from the minting process.&lt;/strong&gt; In these systems, no one has the capacity to mint tokens - only the smart contract operating it can. It&amp;rsquo;s very elegant and minimal, but it requires a carefully designed set of incentives to make sure the stablecoin will eventually hedge towards its peg. To put it simply, &lt;strong&gt;with algorithmic stablecoins, the central bank is an autonomous smart contract.&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;an-army-of-stabilizers&#34;&gt;An Army of Stabilizers
+&lt;/h3&gt;&lt;p&gt;With algorithmic stablecoins, especially in their early days, peg breaks are frequent. To push the stablecoin back to the peg, the protocols have different kinds of incentives.&lt;/p&gt;
+&lt;p&gt;When the stablecoin is worth over $1, &lt;strong&gt;the protocol mints new tokens and distribute them as an incentive&lt;/strong&gt; to users providing liquidity or locking their token, which helps to push the price back down.&lt;/p&gt;
+&lt;p&gt;When the stablecoin trades below $1, the coupons (or bond) system kicks in: &lt;strong&gt;users can burn their stablecoins for a coupon&lt;/strong&gt; representing it + a premium. However, they will only be able to redeem the coupon once the price is back over the dollar.&lt;/p&gt;
+&lt;p&gt;As you can see, at a high level, these mechanisms are simple. They have intricacies that you need to master if you want to partake in the system. &lt;strong&gt;Users understanding them and following them can help the protocol stabilize&lt;/strong&gt;, and if it does they might earn in the process. So these simple rules lead to the emergence of an army of stabilizers, who make use of all the mechanisms to stabilize the price.&lt;/p&gt;
+&lt;p&gt;This design pushes both game theory and the meme-game to another level:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/algorithmic-stablecoins/dsd-meme.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;DSD Meme&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;aggressive-expansion-phase&#34;&gt;Aggressive Expansion Phase
+&lt;/h3&gt;&lt;p&gt;Since the supply of algorithmic stablecoin is elastic, their mechanism is quickly battle-tested. Indeed, at launch, the circulating supply of the stablecoin is usually low and the attractive incentives create a lot of demand.&lt;/p&gt;
+&lt;p&gt;For instance, &lt;strong&gt;Basis Cash launched with 50 000 BAC tokens&lt;/strong&gt; distributed to the first stakers. Roughly a month after, there are now &lt;strong&gt;40M BAC circulating&lt;/strong&gt;: they were produced because BAC has been trading &amp;gt;$1 most days since the launch. So far, there was no phase where BAC&amp;rsquo;s TWAP &amp;lt; $1, so the Basis&amp;rsquo; coupon system (BAB) has not been tested yet.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice info&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#info-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Info&lt;/p&gt;&lt;p&gt;Expansion/Contraction are phased in &amp;ldquo;epochs&amp;rdquo;. Basis Cash has 24h epoch. ESD is 8h and DSD is 2h.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;On the other hand, ESD and DSD already saw several cycles of expansion and contraction each, with the protocol operating as intended:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/algorithmic-stablecoins/dsd-mktcap.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;DSD Market Cap over the last 7 days&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;harnessing-defi-composability&#34;&gt;Harnessing DeFi composability
+&lt;/h3&gt;&lt;p&gt;Another key principle of algorithmic stablecoins is composability. We often think of it as &amp;ldquo;how can I plug my finished product/service into others?&amp;rdquo;. These projects go much further, as &lt;strong&gt;they use other protocols like Uniswap as a central part of their system.&lt;/strong&gt; Basis, ESD and DSD all have three main components:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;An internal locking/staking mechanism for expansion phases (DAO or Boardroom)&lt;/li&gt;
+&lt;li&gt;A burn&amp;amp;redeem mechanism for contraction phases&lt;/li&gt;
+&lt;li&gt;A Uniswap pair (/USDC or /DAI)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Their very structure demonstrates an understanding of DeFi and its composability. By placing the Uniswap-pair(s) at the core of the protocol, it helps on so many levels - since &lt;strong&gt;Uniswap is staple DeFi users are familiar with.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;While Uniswap is the main pool, the liquidity on other DEXes is increasingly looked at. With the launch of Omakase, Sushi added two new incentivized algorithmic stablecoin pools: ESD/ETH &amp;amp; DSD/USDC.&lt;/p&gt;
+&lt;p&gt;Composability is key for algorithmic stablecoins and several projects are already taking steps to get more integrated within the ecosystem. Within the next few months, we should see the next steps of this with the arrival of some algorithmic stablecoin as collateral on lending platforms.&lt;/p&gt;
+&lt;h3 id=&#34;oracle-minimalism&#34;&gt;Oracle Minimalism
+&lt;/h3&gt;&lt;p&gt;Oracle are used as a base parameter in the algorithmic stablecoin system:: they are the &lt;strong&gt;source of truth for the price of the stablecoin&lt;/strong&gt;. Making sure the oracle is resilient and cannot be gamed is critical.&lt;/p&gt;
+&lt;p&gt;To do so, the previous generation of projects, especially Maker, tended to overengineer things. In the early days, Maker&amp;rsquo;s input parameter was almost the pure &amp;amp; raw price of ETH. However, to make the system less prone to &amp;ldquo;flash liquidations&amp;rdquo;, Maker built their own oracle, and use several delays and averages with the liquidation price to &lt;strong&gt;add some inertia to their system&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;On the other hand, as we&amp;rsquo;ve seen before our algorithmic stablecoins tend to be minimalist and harness the composability of DeFi. &lt;strong&gt;With their Uniswap pairs, they already have a decent price feed with significant liquidity, making it hard to manipulate&lt;/strong&gt;. So the Uniswap price is used as the based, but generally computed as a TWAP (Time Weighted Average Price) to avoid price manipulations right before rebases.&lt;/p&gt;
+&lt;p&gt;While being minimalist, the systems are efficient and elegant: as these stablecoins projects grow, so should their liquidity on Uniswap, making the oracle more resilient and the price harder to manipulate.&lt;/p&gt;
+&lt;p&gt;I for one am excited as to where this subset of the space is heading. Whether you intend to partake or not in the bootstrapping phase of such stablecoins, I think it&amp;rsquo;s highly valuable to document yourself on them as they are a good tell of the main trends of the space.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-algorithmic-stablecoin-toolbox&#34;&gt;🧰 Algorithmic Stablecoin Toolbox
+&lt;/h3&gt;&lt;p&gt;Before we part way, allow me to share some useful tools to track the evolution of these stablecoins. First, each project has its own tracker providing the main metrics for the current epoch:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://bc.tools/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Basis Cash Tools&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://esd.tools/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ESD Tools&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://dsd.tools/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DSD Tools&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Finally, you can view more granual details about the ESD and DSD system on this dashboard: &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://duneanalytics.com/tongnk/esd_1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ESD/DSD Bonding&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;disclaimer&#34;&gt;Disclaimer
+&lt;/h3&gt;&lt;div class=&#34;notice warning&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Warning&lt;/p&gt;&lt;p&gt;&lt;strong&gt;THIS ARTICLE DOES NOT CONSTITUTE INVESTMENT ADVICE.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m not a qualified financial advisor, but who gives a fuck really? This is DeFi we&amp;rsquo;re talking about.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;I&amp;rsquo;ve felt legitimate to write this piece because I&amp;rsquo;ve been following closely Basis Cash, Empty Set Dollar, and Dynamic Set Dollar closely, as well as Basis Dollar &amp;amp; Share less attentively. Frax is another hybrid project that is worth looking at - I did not discus it as I&amp;rsquo;m not familiar enough with it yet.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;&lt;strong&gt;💰 Bag Disclosure&lt;/strong&gt;: I own BAC/BAS (Basis Cash), ESD (Empty Set Dollar) and DSD (Dynamic Set Dollar).&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;I hope this read was insightful for you. If that&amp;rsquo;s the case, you can &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/tokenbrice/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;follow me on Twitter&lt;/a&gt;&lt;/strong&gt; or this blog through RSS (at the very bottom of the page 👇) to get notified when the next article is published.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

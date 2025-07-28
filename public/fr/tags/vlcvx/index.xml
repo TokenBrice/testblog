@@ -1,0 +1,1037 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>VlCVX on TokenBrice</title>
+        <link>http://localhost:1313/fr/tags/vlcvx/</link>
+        <description>Recent content in VlCVX on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>fr</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Fri, 28 Apr 2023 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/fr/tags/vlcvx/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>ve(3,3) : l&#39;étape logique après le modèle veCRV?</title>
+        <link>http://localhost:1313/fr/solidly-velodrome-fork/</link>
+        <pubDate>Fri, 28 Apr 2023 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/solidly-velodrome-fork/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2023/solidly-velodrome-template/cover.png" alt="Featured image of post ve(3,3) : l&#39;étape logique après le modèle veCRV?" /&gt;&lt;p&gt;Les forks Solidly/Velodrome ont poussé comme des champignons, en particulier sur les layers 2 populaires comme Arbitrum ou zkSync. Solidly est maintenant le troisième protocole le plus forké en DeFi et l&amp;rsquo;un des rares cas où les forks (comme Velodrome) sont les leaders du marché. À première vue, on pourrait croire qu&amp;rsquo;il s&amp;rsquo;agit d&amp;rsquo;un nouveau train de hype, comme lorsque nous avons eu la saison des forks Uni/Sushi, la saison des forks Olympus, etc.&lt;/p&gt;
+&lt;p&gt;En effet, c&amp;rsquo;est exagéré : une quantité absurde de DEX sont lancés chaque semaine, et 95% d&amp;rsquo;entre eux ne seront plus d&amp;rsquo;actualité dans six mois. Cependant, comme dans la plupart des cas de hype similaire, il existe une innovation fondamentale dans la conception des échanges décentralisés qui vaut la peine d&amp;rsquo;être étudiée.&lt;/p&gt;
+&lt;p&gt;Cet article se penchera donc sur les modèles Solidly et Velodrome afin de comprendre pourquoi ils sont devenus un modèle de fork standard. Cela étant dit, nous serons dans une excellente position pour réfléchir aux prochaines étapes pour ces DEX et à ce à quoi ce marché pourrait ressembler dans quelques mois.&lt;/p&gt;
+&lt;p&gt;C&amp;rsquo;est parti !&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;Cet article suppose une compréhension minimale de la finance décentralisée et une compréhension approfondie du modèle veCRV. Si vous avez besoin d&amp;rsquo;une remise à niveau, consultez : &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz%22/content/posts/2021/crv-wars.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;⚔ CRV Wars : comprendre la course à l&amp;rsquo;accumulation de CRV pour influencer le protocole Curve Finance&lt;/a&gt;.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;introduction-aux-dex-ve33&#34;&gt;Introduction aux DEX ve(3,3)
+&lt;/h2&gt;&lt;p&gt;Avant de nous plonger dans la manière dont Solidly s&amp;rsquo;est appuyé sur le modèle veCRV et a tenté de l&amp;rsquo;améliorer, prenons un peu de recul.&lt;/p&gt;
+&lt;h3 id=&#34;structure-de-lamm-vs-couche-dincitation&#34;&gt;Structure de l&amp;rsquo;AMM VS couche d&amp;rsquo;incitation
+&lt;/h3&gt;&lt;p&gt;Pour comprendre l&amp;rsquo;histoire des DEX ve(3,3), nous devons faire la distinction entre deux niveaux qui sont tout aussi importants pour un échange décentralisé :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;La structure de la liquidité&lt;/strong&gt; : les différents modèles d&amp;rsquo;AMM utilisés pour maintenir la liquidité, tels que x*y=k d&amp;rsquo;UNIv2 ou le stableswap de Curve.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Le modèle d&amp;rsquo;incitation&lt;/strong&gt; : les frais + toutes les autres incitations destinées au fournisseur de liquidités, y compris les émissions de jetons (comme dans le modèle CRV).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Si, en fin de compte, la première couche - la structure de la liquidité - est le cœur du jeu, la deuxième couche - les incitations - est cruciale pour attirer et maintenir une liquidité suffisante.&lt;/p&gt;
+&lt;p&gt;Curve a innové dans les deux domaines, mais les modèles dont nous allons parler aujourd&amp;rsquo;hui sont construits sur cette base et &lt;strong&gt;se concentrent entièrement sur l&amp;rsquo;amélioration de la couche d&amp;rsquo;incitation&lt;/strong&gt;. En effet, au stade actuel, la plupart des DEX ve(3,3) exploitant le modèle Solidly ou Velodrome n&amp;rsquo;offrent que deux types de structure de liquidité bien connus : x*y=k &amp;amp; stableswap.&lt;/p&gt;
+&lt;div class=&#34;notice info&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#info-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Information&lt;/p&gt;&lt;p&gt;Selon les DEX, ces deux modèles de liquidité sont appelés corrélé/volatile ou stable/volatile.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Parlons donc de ce qui était si intéressant dans le Solidly original d&amp;rsquo;Andre Cronje et des enseignements que nous pouvons tirer de son échec.&lt;/p&gt;
+&lt;h2 id=&#34;les-innovations-apportées-par-solidly&#34;&gt;Les innovations apportées par Solidly
+&lt;/h2&gt;&lt;p&gt;Solidly a été présenté au début de 2022 sur &lt;a class=&#34;link&#34; href=&#34;https://andrecronje.medium.com/ve-3-3-44466eaa088b&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;le medium de Andre Cronje&lt;/a&gt; ; la partie cruciale de la vision de Solidly était une amélioration significative de l&amp;rsquo;utilité pour ceux qui vérouillent des tokens - les lockers. Sur Curve, les lockers sont engagés pour quatre ans, sans aucun transfert possible. Bien que cela soit excellent pour l&amp;rsquo;alignement des incitations à long terme de tous les participants de l&amp;rsquo;écosystème Curve, cela crée également une barrière importante à l&amp;rsquo;entrée.&lt;/p&gt;
+&lt;p&gt;C&amp;rsquo;est ainsi qu&amp;rsquo;est né ve(3,3), avec en son cœur &lt;strong&gt;le veNFT&lt;/strong&gt;. Alors que les veCRV sont illiquides, les positions veSOLID sont représentées par le veNFT qui est lui liquide, ce qui permet leur transfert ou leur vente/achat de gré à gré. Cela permet de rendre le verrouillage moins effrayant. Pour l&amp;rsquo;encourager davantage, Cronje a introduit les &amp;ldquo;&lt;strong&gt;rebases anti-dilutives&lt;/strong&gt;&amp;rdquo;, un concept tiré d&amp;rsquo;Ampleforth/Olympus.&lt;/p&gt;
+&lt;p&gt;L&amp;rsquo;idée est simple : étant donné que le modèle Curve/Solidly DEX émet des jetons chaque semaine aux fournisseurs de liquidités, les détenteurs de jetons sont constamment dilués. Ils doivent constamment augmenter leur position afin de maintenir leur part de vote actuelle. Pour compenser cela, les détenteurs de veSOLID reçoivent un rebasement hebdomadaire proportionnel aux émissions. Cela leur permet de conserver leur part de vote même si aucun nouveau jeton n&amp;rsquo;est bloqué.&lt;/p&gt;
+&lt;p&gt;Hormis ces changements, Solidly a hérité de la plupart des éléments du modèle Curve, y compris &lt;strong&gt;la fonction LP boost&lt;/strong&gt;, qui permet aux détenteurs de vetokens d&amp;rsquo;obtenir des rendements accrus sur leur position de liquidité. Cette fonctionnalité a des conséquences réelles puisqu&amp;rsquo;elle &amp;ldquo;appelle pratiquement un Convex&amp;rdquo;. En effet, la conclusion logique d&amp;rsquo;une telle fonctionnalité est qu&amp;rsquo;un ou quelques acteurs s&amp;rsquo;emparent de quantités significatives de vetokens et fournissent leur LP boost aux déposants moyennant une commission.&lt;/p&gt;
+&lt;p&gt;La présence ou l&amp;rsquo;absence de cette caractéristique constitue la différence essentielle entre les modèles de Solidly et de Velodrome, et nous y reviendrons plus tard.&lt;/p&gt;
+&lt;p&gt;Enfin, il y a une dernière particularité essentielle sur le modèle d&amp;rsquo;incitation des votants. Sur Curve, les LP reçoivent la moitié des frais d&amp;rsquo;échange collectés + les émissions de CRV, alors que les votants ne sont pas exposés aux frais de la pool sur laquelle ils votent. Cela peut conduire à une situation où les veCRV holders votent pour des pools uniquement pour les incitations de vote, même si la pool ne fournit aucun volume à l&amp;rsquo;échange.&lt;/p&gt;
+&lt;p&gt;Sur Solidly, les LP ne sont récompensés que par l&amp;rsquo;émission SOLID, et les frais collectés sur la paire sont redirigés vers les votants de la pool. Ainsi, en tant que détenteur de veSOLID, pour optimiser vos gains, vous êtes incité à prendre en compte le volume de la pool sur lequel vous votez, et pas seulement les pots-de-vin. Cela abouti à un meilleur alignement des incitations des principaux participants du protocole (swapper, apporteur de liquidité, veHolder).&lt;/p&gt;
+&lt;p&gt;Solidly a aussi innové sur la stratégie de lancement, avec &lt;strong&gt;un airdrop ciblé sur les protocoles&lt;/strong&gt;, en fonction de leur activité onchain sur Fantom, où Solidly se trouvait. Ensemble, toutes ces innovations et le battage médiatique ont permis d&amp;rsquo;attirer rapidement une quantité massive de liquidités sur l&amp;rsquo;échange.&lt;/p&gt;
+&lt;p&gt;Mais la mise en œuvre initiale de Solidly présentait quelques faiblesses majeures, notamment une baisse agressive des émissions et une création de jauges entièrement sans permission qui permettait à n&amp;rsquo;importe quel pool de recevoir des récompenses SOLID. Il était possible de jouer, alors on a joué. Rapidement, des jetons ont été créés dans le seul but de farmer SOLID : le prix du SOLID s&amp;rsquo;est écroulé et la spirale de la mort s&amp;rsquo;est enclanchée.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2023/solidly-velodrome-template/solidly-tvl.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;cover-image&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;La TVL a disparu aussi rapidement qu&amp;rsquo;elle est apparue, et Solidly est entré dans l&amp;rsquo;histoire pour la plupart des gens. Mais ceux qui ont suivi les événements de près savaient que l&amp;rsquo;échec de Solidly ne provenait pas d&amp;rsquo;une faiblesse du modèle ve(3,3) mais plutôt d&amp;rsquo;un &lt;strong&gt;détail négligé de son implémentation&lt;/strong&gt;, ce qui signifie que même si Solidly n&amp;rsquo;existait plus, ve(3,3) referait probablement surface. Et c&amp;rsquo;est ce qui s&amp;rsquo;est passé, quelques mois plus tard, sur une autre chaîne, et conçu par une autre équipe : Velodrome.&lt;/p&gt;
+&lt;h2 id=&#34;les-améliorations-apportées-par-velodrome-au-modèle-solidly&#34;&gt;Les améliorations apportées par Velodrome au modèle Solidly
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.defiscan.info/protocols/velodrome-v2/optimism&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Velodrome&lt;/a&gt; a exploité le modèle de Solidly et a résolu le problème des émissions en mettant en place une &lt;strong&gt;validation pour les jauges&lt;/strong&gt;, ce qui permet d&amp;rsquo;éviter la situation où les récompenses sont attribuées à des jetons inventés, comme c&amp;rsquo;est le cas sur Solidly.&lt;/p&gt;
+&lt;p&gt;Velodrome est allé bien au-delà d&amp;rsquo;un simple fork et a mis en œuvre d&amp;rsquo;autres améliorations, notamment un modèle d&amp;rsquo;émissions plus durable et la &lt;strong&gt;suppression de la fonction LP boost&lt;/strong&gt;, ce qui signifie qu&amp;rsquo;il n&amp;rsquo;y a pas de traitement préférentiel pour les détenteurs de veVELO en termes de rendement. Cela simplifie également l&amp;rsquo;expérience pour les nouveaux LP qui pourraient être déconcertés par la gamme de rendement que l&amp;rsquo;on voit sur les DEX avec la fonction LP boost.&lt;/p&gt;
+&lt;p&gt;Au-delà des caractéristiques techniques, une grande partie du succès de Velodrome est due à &lt;strong&gt;l&amp;rsquo;exécution et au soin apporté par l&amp;rsquo;équipe aux stratégies de développement commercial&lt;/strong&gt;, une partie essentielle du modèle ve(3,3). Construit sur Optimism, Velodrome a trouvé son PMF comme la source de liquidité de la chaîne. Grâce à son modèle, le maintien de la liquidité sur Velodrome est beaucoup plus rentable pour les projets que, par exemple, sur Uniswap.&lt;/p&gt;
+&lt;p&gt;Comme Solidly, &lt;strong&gt;Velodrome a airdrop plusieurs protocoles avec un NFT veVELO,&lt;/strong&gt; sans conditions, ce qui a énormément aidé à attirer l&amp;rsquo;activité initiale de vote et d&amp;rsquo;incitation. Le protocole a trouvé une bonne place, principalement auprès d&amp;rsquo;autres protocoles émettant des stablecoins ou des dérivés d&amp;rsquo;enjeux liquides ETH :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2023/solidly-velodrome-template/defiwars-velodrome.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;defiwars-velodrome&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Cela fait presque un an, et l&amp;rsquo;activité s&amp;rsquo;est maintenue, grâce à des ajustements prudents et progressifs des &lt;strong&gt;incitations OP attribuées sur le protocole&lt;/strong&gt;, connu sous le nom de &lt;a class=&#34;link&#34; href=&#34;https://medium.com/@VelodromeFi/tour-de-op-updates-631268181baa&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Tour de OP&lt;/a&gt;. La plupart d&amp;rsquo;entre eux sont utilisés pour encourager deux comportements essentiels pour soutenir la vélocité de la flywheel :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Les incitations au vote (bribes), qui sont encouragées grâce à un matching en OP.&lt;/li&gt;
+&lt;li&gt;Verrouillage de veVELO, encouragé par des OP bonus attribués aux lockers de VELO.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Le matching des bribes est encore augmentée pour les projets qui verrouillent veVELO ou déploient des quantités importantes de liquidité (Protocol Owned Liquidity), ce qui contribue à amplifier l&amp;rsquo;effet de renforcement : ceux qui veulent construire des liquidités soutenues à long terme sur Velodrome ont de bonnes raisons d&amp;rsquo;acheter veVELO, de verrouiller et de voter, de soumettre des incitations de vote et de fournir de la POL, &lt;strong&gt;idéalement tout cela en même temps&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Cela permet à Velodrome d&amp;rsquo;être en tête du classement des protocoles TVL sur Optimism et de traiter environ 30% du volume total de la chaîne, contre 50% pour Uniswap, qui a environ ¼ de la TVL de Velodrome.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2023/solidly-velodrome-template/optimism-volume.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;optimism-DEX-volume&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Alors, pourquoi un tel écart entre les deux ? C&amp;rsquo;est simple : Le ratio Volume/TVL d&amp;rsquo;Uniswap est ~9x supérieur à celui de Velodrome car la liquidité sur Uniswap est beaucoup plus concentrée et donc plus efficace. Mais cela est sur le point de changer car Velodrome V2 arrive bientôt.&lt;/p&gt;
+&lt;h3 id=&#34;présentation-de-velodrome-v2&#34;&gt;Présentation de Velodrome V2
+&lt;/h3&gt;&lt;p&gt;Bien qu&amp;rsquo;Uniswap ait eu une longueur d&amp;rsquo;avance avec la liquidité concentrée, cela va changer rapidement. La licence v3 &lt;a class=&#34;link&#34; href=&#34;https://docs.uniswap.org/contracts/v3/guides/governance/liscense-modifications&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;a expiré le 1er avril 2023&lt;/a&gt;, ce qui signifie que le modèle est maintenant beaucoup plus facile à réimplémenter. De nombreux DEX, y compris les forks Solidly/Velodrome, ont l&amp;rsquo;intention d&amp;rsquo;exploiter cette possibilité. Cependant, pour garder cet article concentré, nous ne couvrirons que ce qui est annoncé pour Velodrome V2, attendu dans les semaines/mois à venir.&lt;/p&gt;
+&lt;p&gt;En effet, Velodrome V2 ne marquera pas seulement &lt;strong&gt;l&amp;rsquo;introduction du style UNI-v3 de LP sur le DEX&lt;/strong&gt; mais aussi des améliorations significatives de l&amp;rsquo;UX/UI, un relayeur pour faciliter la gestion des veNFT, des illustrations pour les veNFT, et bien d&amp;rsquo;autres choses encore. Consultez l&amp;rsquo;&lt;a class=&#34;link&#34; href=&#34;https://medium.com/@VelodromeFi/velodrome-the-road-ah-43488531bb0e&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;article d&amp;rsquo;annonce de la V2&lt;/a&gt; pour plus de détails.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion
+&lt;/h2&gt;&lt;p&gt;J&amp;rsquo;espère que cet article vous a aidé à comprendre les avantages des modèles Solidly et Velodrome. Bien que je mentionne la myriade de forks dans l&amp;rsquo;introduction, j&amp;rsquo;ai gardé le cap dans cet article. Je pense que cela appelle une suite où je passe au peigne fin les principaux forks et les modifications qu&amp;rsquo;elles apportent au modèle : bientôt !&lt;/p&gt;
+&lt;h2 id=&#34;principaux-enseignements&#34;&gt;Principaux enseignements
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;L&amp;rsquo;importance des capacités humaines/commerciales de l&amp;rsquo;équipe&lt;/strong&gt; | ve(3,3), tout comme Curve, sont des protocoles pour des protocoles. Le professionnalisme de l&amp;rsquo;équipe et sa capacité à établir des priorités et à mettre en œuvre le développement commercial sont des facteurs de réussite importants pour le DEX à long terme.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;L&amp;rsquo;importance des bons partenaires&lt;/strong&gt;| Même si le BD est bien fait, un DEX ve(3,3) donné n&amp;rsquo;est bon que dans la mesure où ses meilleurs coureurs le sont. Oui, vous voulez qu&amp;rsquo;ils postent des incitations de vote, qu&amp;rsquo;ils apportent de la liquidité, qu&amp;rsquo;ils votent et qu&amp;rsquo;ils fassent connaître le marché, mais pas seulement. La qualité des liquidités acheminées vers le DEX est également importante (rapport volume/TVL &amp;amp; nature de la liquidité).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LP Boost et conséquences&lt;/strong&gt; | Si un ve(3,3) implémente le LP boost, il appelle des protocoles de type Convex. Le succès du ve(3,3) dépendra de l&amp;rsquo;ampleur et de la qualité des résultats obtenus par les protocoles Convex-like construits dessus. Pour suivre les statistiques clés des différents wrappers et des principaux détenteurs de jetons ve, consultez - &lt;a class=&#34;link&#34; href=&#34;https://www.defiwars.xyz/wars&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DeFiWars&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Impact de l&amp;rsquo;arrivée des liquidités concentrées&lt;/strong&gt; | Bien que ve(3,3) soit une innovation significative pour la couche d&amp;rsquo;incitation du DEX, il exploite actuellement des structures de liquidité basique. Une bonne adéquation entre le modèle d&amp;rsquo;incitation ve(3,3) et une structure de liquidité efficace de type UNIv3 permettra d&amp;rsquo;améliorer encore l&amp;rsquo;efficacité de la flywheel.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>⚔ Guerre du CRV avancée : analyse des protocoles construits sur Curve et Convex </title>
+        <link>http://localhost:1313/fr/crv-wars-l2/</link>
+        <pubDate>Tue, 05 Apr 2022 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/crv-wars-l2/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2022/curve-wars-l2/curve-wars-l2-cover-tokenbrice.png" alt="Featured image of post ⚔ Guerre du CRV avancée : analyse des protocoles construits sur Curve et Convex " /&gt;&lt;p&gt;Le jeu et la lutte autour des tokens CRV et CVX ont changé d’ampleur depuis mon dernier article qui décrivait les Curve Wars des origines, désormais presque primitives. L’infrastructure autour de Curve s’est grandement densifiée avec l’arrivée de Convex bien sûr, mais aussi Votium, l’Union Llama Airforce, Concentrator, CCRV, Lendflare, Warden, et de nombreux autres protocoles encore en développement.&lt;/p&gt;
+&lt;p&gt;Pour assumer une position stratégique sur CRV ou CVX, il faut désormais pouvoir supporter un investissement de plusieurs dizaines de millions de dollars. Ainsi, la course à l’accumulation de CVX et CRV est devenue avant tout un jeu pour DAOs ou pour les whales. Plus spécifiquement, les DAOs semblent préférer CVX au CRV, qui représente un compromis plus favorable :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Boosts LP Curve&lt;/strong&gt; : capacité de développer sa liquidité via les votes sur les jauges Curve&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Rendements&lt;/strong&gt; : 4-5% en cvxCRV + potentiel rendement des bribes si capacité non utilisée (ou que le protocole bribe également)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flexibilité&lt;/strong&gt; : CVX peut être utilisé au maximum de ses capacités en s’engageant 16 semaines + 3 jours (vlCVX) tandis que CRV requiert jusqu&amp;rsquo;à 4 ans d’engagement (1 CRV = veCRV).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Ainsi pour extraire l’utilité du CRV, CVX est une alternative crédible et plus flexible, c’est pourquoi la plupart des DAOs se concentrent sur ce token. Convex Finance est devenu un “L2 fonctionnel” de Curve : une seconde couche qui apporte des nouvelles fonctionnalités et un jeu de compromis différent.&lt;/p&gt;
+&lt;p&gt;Malgré tout, Convex n’est pas le seul projet qui a essayé de réaliser cette vision : il y avait aussi Yearn qui a désormais capitulé : les vaults Curve de Yearn passent essentiellement par Convex, désormais plus rentable. Depuis, de très nombreux projets tentent de proposer une brique synergétique avec le mastodonte Curve/Convex.&lt;/p&gt;
+&lt;h2 id=&#34;crv-ou-cvx-&#34;&gt;CRV ou CVX ?
+&lt;/h2&gt;&lt;p&gt;Je ne reviendrai pas sur les bases de la séparation entre les deux tokens ici, c’est l’affaire d’un article entier si vous découvrez le sujet : [⚔ Guerre du CRV : comprendre la course à l&amp;rsquo;accumulation de la capacité à influencer le protocole Curve Finance](2. &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2022/crv-wars-l2.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;⚔ Guerres CRV avancées : analyse des protocoles construits au dessus de Curve et Convex&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Il ne faut pas oublier que malgré l’équivalence calculable entre CVX et CRV (1vl CVX contrôle environ 4.8 veCRV - &lt;a class=&#34;link&#34; href=&#34;https://dune.xyz/Marcov/Convex-Finance&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;source&lt;/a&gt;), les deux tokens ont des compromis différents comme décrit plus haut.&lt;/p&gt;
+&lt;p&gt;L’équilibre entre CRV et CVX a tendance à se maintenir, malgré des oscillations fréquentes : dernièrement, le pendule semble plus aller du côté de CVX. Néanmoins je pense qu’il reste de la place pour d’autres approches qui partent de la source (CRV) et elles commencent à émerger.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://app.warden.vote/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Warden&lt;/a&gt; de Paladin propose ainsi un protocole qui aide les apporteurs de liquidité sur Curve à maximiser leurs rendements et peut être atteindre le désirable bonus 2.5x grâce à de l’emprunt de la capacité de boosts des tokens veCRV (apportés par d’autres) payés directement en CRV.&lt;/p&gt;
+&lt;p&gt;Mais il y a tellement d’autres subtilités et interactions à avoir en tête pour comprendre la pertinence des stratégies déployées par les différents projets, DAOs et protocoles pour gagner les Curve Wars.&lt;/p&gt;
+&lt;p&gt;C’est pourquoi cet article se propose de faire le point sur la guerre des CRV et CVX &lt;strong&gt;en visualisant et détaillant l’ensemble de l&amp;rsquo;écosystème&lt;/strong&gt; qui s’est développé autour de ces deux protocoles.&lt;/p&gt;
+&lt;h2 id=&#34;layer-2-fonctionnels-de-curve&#34;&gt;Layer 2 fonctionnels de Curve
+&lt;/h2&gt;&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;Dans cet article, je vais parler de “L2 fonctionnel”, ou tout simplement L2 de Curve ou Convex. C’est une image pour décrire cette tendance à la démultiplication des supports pour interagir avec Curve/Convex.&lt;/p&gt;
+&lt;p&gt;Prenez garde à ne pas confondre le terme avec les “vrais L2” / L2 de scaling : le terme dans son sens originel pour décrire une nouvelle chaîne qui hérite de la sécurité de sa parente tout en permettant un débit de transactions plus important et des coûts plus modérés.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;On commence donc par les &lt;strong&gt;L2 “fonctionnels”&lt;/strong&gt; de Curve, puis ceux de Convex (lui-même L2 de Curve), ensuite les services d’emprunt permettant de saisir avec effet de levier les nombreuses sources de rendement offertes par l’ensemble de l&amp;rsquo;écosystème Curve et on finira avec les protocoles-whales de CRV/CVX.&lt;/p&gt;
+&lt;p&gt;C’est une aventure dense et haute en couleurs, mais comme souvent avec mes articles, je vous propose ici un condensé de mes recherches sur le sujet : bonne lecture !&lt;/p&gt;
+&lt;p&gt;Pour ne pas vous perdre en route, je vous propose cette carte qui résume les principaux acteurs de l’écosystème Curve/Convex :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/curve-wars-l2/curve-convex-l2-map-fr.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Curve/Convex L2 map&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;convex-finance--curve-à-la-découpe&#34;&gt;Convex Finance : Curve à la découpe
+&lt;/h3&gt;&lt;p&gt;Convex est le premier L2 fonctionnel de Curve ; d’autres projets lui ont précédé (yveCRV et sdveCRV) mais ils n’étaient pas aussi synergétique avec Curve et n’ont donc connu qu’un succès marginal.&lt;/p&gt;
+&lt;p&gt;En résumé, Convex donne accès aux rendements du token CRV maximisés et liquides grâce à cvxCRV. La capacité de gouvernance ainsi que celle pour voter sur les jauges Curve correspondantes aux tokens veCRV sous-jacent est redirigée vers les possesseurs de vlCVX. Convex permettant ainsi un accès facilité à l&amp;rsquo;écosystème Curve (pour les possesseurs de CRV).&lt;/p&gt;
+&lt;p&gt;Bien que Convex contrôle une grande quantité de veCRV, la centralisation du pouvoir de vote sur les jauges est évitée en offrant cette capacité au plus offrant grâce à Votium (bribes).&lt;/p&gt;
+&lt;p&gt;Convex, c’est désormais basique, je ne le détaille donc pas plus ici. Mon précédent article sur la guerre du CRV approfondi sur le modèle et les apports de Convex : &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/crv-wars.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;⚔ Guerre du CRV : comprendre la course à l&amp;rsquo;accumulation de la capacité à influencer le protocole Curve Finance&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;warden-de-paladin--curve-sous-stéroides-&#34;&gt;Warden de Paladin : Curve sous stéroides ?
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://app.warden.vote/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Warden&lt;/a&gt; est un autre chemin envisageable pour les LP Curve, qui propose un jeu de compromis différent à Convex. Warden ne contrôle pas directement de veCRV, mais propose à la place de louer la capacité de boost des LP Curve de veCRV possédés par d’autres.&lt;/p&gt;
+&lt;p&gt;La location se paie directement en CRV et à la semaine. Elle provient de possesseurs de veCRV qui la mettent à disposition, pour le prix et la durée de leur choix. L’affaire se conclut grâce à la délégation des veCRV correspondant.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/curve-wars-l2/warden-veboost.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Location de boost LP Ve sur Warden&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Warden revient ainsi sur le jeu des boosts de LP Curve. Sur Convex, la plupart des pools sont boostées entre 1.5 et 1.7x via Convex. Avoir son propre stock de veCRV, augmenté par un emprunt Warden permet d’envisager d’atteindre 2x voir les 2.5x maximum sur certaines pools.&lt;/p&gt;
+&lt;p&gt;Depuis peu, Warden propose même un calculateur bien pratique pour visualiser la quantité de veCRV nécessaire pour atteindre un multiplicateur donné :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/curve-wars-l2/warden-calc.gif&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Warden Calculator&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Warden est donc une alternative crédible pour les protocoles, DAOs et gros porteurs qui voudraient optimiser leur LP Curve dans une perspective de maximisation des CRV obtenus.&lt;/p&gt;
+&lt;h2 id=&#34;l2-convex&#34;&gt;L2 Convex
+&lt;/h2&gt;&lt;p&gt;Convex n’a pas encore un an (Mai 2021) mais face à la place prépondérante que le service occupe déjà, les abstractions construites dessus n’ont pas tardé à arriver.&lt;/p&gt;
+&lt;h3 id=&#34;votium--mise-aux-enchères-des-votes-de-convex&#34;&gt;Votium : mise aux enchères des votes de Convex
+&lt;/h3&gt;&lt;p&gt;Le protocole Convex concentre la plus grande quantité de veCRV possédée par une entité unique. Néanmoins, la capacité de vote correspondant aux veCRV possédés par Convex (obtenue grâce au cvxCRV) est distribuée entre tous les possesseurs du token CVX qui le “vote lock” (vlCVX) pour 16 semaines + 7 jours).&lt;/p&gt;
+&lt;p&gt;Via snapshot, ils peuvent mobiliser leur puissance de vote directement sur la jauge des pools Curve de leur choix. &lt;a class=&#34;link&#34; href=&#34;https://votium.app/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Votium&lt;/a&gt; est une couche supplémentaire construite sur ce dispositif : Votium permet à n’importe quel projet d’allouer un budget pour supporter une jauge curve donnée. À la fin du round, les possesseurs de vlCVX qui ont voté sur cette jauge se partagent les récompenses, à la hauteur de leur puissance de vote : ce sont les fameuses bribes.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/curve-wars-l2/votium-bribes.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Votium bribes&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Grâce à la quantité impressionnante de veCRV contrôlés par Convex, Votium a rapidement émergé comme &lt;strong&gt;un outil essentiel pour établir et pérenniser une présence sur Curve&lt;/strong&gt; : un bribe conséquent sur Votium permet de rendre rapidement une pool Curve très attractive.&lt;/p&gt;
+&lt;p&gt;On détaille plus bas l’exemple de Frax Finance qui propose environ $5-7M de bribes à chaque round ; cela permet de maintenir des rendements attractifs sur la pool Frax/3CRV conséquente malgré la dilution massive (la pool contient presque $3B d’actifs), et ce sans émettre de leur propre token (FXS) pour du liquidity mining.&lt;/p&gt;
+&lt;h3 id=&#34;union-llama-airforce--gestion-mutualisée-des-vlcvx&#34;&gt;Union Llama Airforce : gestion mutualisée des vlCVX
+&lt;/h3&gt;&lt;p&gt;Les bribes proposées sur Votium sont très alléchantes : cela permet à vlCVX d’atteindre un rendement &lt;strong&gt;d’environ 40% APR - dont l’essentiel (90%) provient des bribes&lt;/strong&gt;. Cependant, gérer soi-même sa position vlCVX a plusieurs contraintes :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Les frais en gas&lt;/strong&gt;, pour verrouiller ses CVX, mais aussi pour récolter les bribes.&lt;/li&gt;
+&lt;li&gt;Bien qu’il soit possible de déléguer, cela entraîne une dispersion des récompenses (payées dans une dizaine de token différents -&amp;gt; frais en gas). Ainsi les petits et moyens porteurs de vlCVX préfèrent généralement concentrer leur vote sur un projet donné : plus pratique, mais ça implique de ne pas oublier de &lt;strong&gt;voter à chaque round&lt;/strong&gt; !&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;L’Union de Llama Airforce propose ainsi de remédier à ces deux principales limites, pour le bonheur des petits porteurs ainsi que de ceux qui préfèrent une &lt;strong&gt;gestion 100% passive de leur vlCVX&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Le concept est simple : l’Union mutualise la gestion des vlCVX. La seule action requise de la part des utilisateurs, c’est la délégation de sa puissance de vote vlCVX vers le contrat de l’Union. Par la suite, l’Union se charge de tout :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;À chaque round, l’Union se charge de claim toutes les bribes obtenues, et les vend pour des cvxCRV (=mutualisation / réduction immense de l’impact des frais de transaction).&lt;/li&gt;
+&lt;li&gt;Les cvxCRV obtenus sont ensuite déposés dans le Pounder (uCRV), qui les stake avec Convex et compose le rendement automatiquement.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;L’Union offre ainsi une alternative pertinente pour les possesseurs de CVX qui comptent maintenir et composer leur position sur le long-terme. Comme toujours, n’oubliez pas de faire attention aux frais malgré tout :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Les frais en gas sont répercutés et distribués sur tous les utilisateurs de l’Union.&lt;/li&gt;
+&lt;li&gt;Un frais correspondant à 2% du total des bribes reçues est également prélevé à chaque round.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/curve-wars-l2/llama-airforce-union.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Llama Air Force Union&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;notice warning&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Avertissement&lt;/p&gt;&lt;p&gt;Cette TVL ne prend en compte que les rendements des bribes composés en cvxCRV par l&amp;rsquo;Union (uCRV). Les vlCVX ne sont pas pris en compte puisqu&amp;rsquo;ils sont simplement délégués à l&amp;rsquo;Union (environ 2.5M CVX).&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;L’Union a connu un succès rapide. Le projet provient de la &lt;a class=&#34;link&#34; href=&#34;https://llama.airforce/#/convex/flyer&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Llama Airforce&lt;/a&gt;, une source d’information déjà bien connue au sein de l&amp;rsquo;écosystème Curve/Convex, ce qui a sans doute contribué à son adoption.&lt;/p&gt;
+&lt;h3 id=&#34;concentrator-aladdindao&#34;&gt;Concentrator (AladdinDAO)
+&lt;/h3&gt;&lt;p&gt;En résumé, le &lt;a class=&#34;link&#34; href=&#34;https://concentrator.aladdin.club/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Concentrator&lt;/a&gt; c’est un peu le même esprit que l&amp;rsquo;Union, mais cette fois-ci pour les apporteurs de liquidité. Ainsi le Concentrator se propose de gérer des LP Curve pour ses déposants : les récompenses (CRV, CVX et potentiels autres tokens) sont automatiquement vendues pour du cvxCRV et composées automatiquement (staking sur Convex) via le wrapper aCRV.&lt;/p&gt;
+&lt;p&gt;La proposition est intéressante et plutôt synergétique avec Curve et Convex : c’est un peu dommage de voir que les CVX sont vendus pour l’instant, mais expliqué par l&amp;rsquo;absence de wrapper disponible pour vlCVX. Le service proposé par Concentrator est donc plutôt pertinent pour les &lt;strong&gt;petits et moyens porteurs qui veulent utiliser leur LP Curve pour maximiser leur exposition au token CRV&lt;/strong&gt; de manière efficace.&lt;/p&gt;
+&lt;h3 id=&#34;congruent-ccrv--optimisation-de-la-flywheel-curveconvex&#34;&gt;Congruent CCRV : Optimisation de la flywheel Curve/Convex
+&lt;/h3&gt;&lt;p&gt;Une des limites actuelles de Convex (ou feature pour certains) c’est que malgré la liquidité assez dense dans la pool Curve cvxCRV/CRV, celle-ci est souvent déséquilibrée. CvxCRV est liquide contre CRV, mais rarement à 1:1.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://ccrv.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;CCRV&lt;/a&gt; est donc conçu comme un mécanisme pour aider à rééquilibrer cette pool, en utilisant à la fois Curve et Convex. Le principe est assez simple si vous avez compris les mécanismes de Curve et Convex :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/curve-wars-l2/ccrv.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;CCRV.finance&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Création du token cCRV, backé par 1 cvxCRV. Le protocole stake tous les cvxCRV déposés pour backer des cCRV dans Convex, afin d’obtenir un rendement.&lt;/li&gt;
+&lt;li&gt;Création de la pool Curve 3CRV : CRV, cvxCRV et cCRV&lt;/li&gt;
+&lt;li&gt;Bribes sur la pool 3CRV pour l’aider à se développer.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Le mécanisme se lancera grâce à une allocation initiale de 1M CRV (fournie par Congruent DAO). Cela permettra d’airdrop 1M cCRV (via bribes) sur les premières semaines d’existence du token afin de l’aider à se lancer rapidement.&lt;/p&gt;
+&lt;p&gt;Si le plan de lancement semble assez solide, la pérennisation du mécanisme semble encore incertaine. L’ajout de frais pourrait permettre au protocole CCRV de posséder sa propre liquidité (et donc rendement en CRV, CVX et 3 pool) ce qui pourrait alimenter les bribes tout en réduisant leur coût effectif sur le long terme.&lt;/p&gt;
+&lt;p&gt;cCRV n’est pas encore lancé mais se veut être une &lt;strong&gt;nouvelle optimisation de la flywheel Curve/Convex&lt;/strong&gt;. Point intéressant, cCRV est développé par &lt;a class=&#34;link&#34; href=&#34;https://congruent.fi/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Congruent&lt;/a&gt;, une DAO qui développe des produits de “Governance as a Service” (GaaS).&lt;/p&gt;
+&lt;h3 id=&#34;bent--le-convex-de-convex-&#34;&gt;Bent : le Convex de Convex ?
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://app.bentfinance.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Bent&lt;/a&gt; est un véritable L2 Convex / L3 de Curve. La question principale qui se pose avec ce projet c’est surtout de savoir s’il y a quelque chose à gagner à descendre à ce niveau de profondeur.&lt;/p&gt;
+&lt;p&gt;Concrètement, Bent fonctionne comme Convex fonctionne pour Curve : Bent permet de staker les tokens LP Curve : ils sont ensuite stakés dans Convex (par Bent), et vous bénéficiez d’un rendement supplémentaire payé avec leur token natif - BENT, en échange de frais collectés par Bent :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/curve-wars-l2/bentfinance-fees.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Bentfinance-fees&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Vous le remarquerez sans doute, la structure des frais est quasiment identique à celle de Convex. Enfin, tout comme Convex a créé sa propre représentation de CRV (cvxCRV), Bent crée sa représentation du CVX, le bentCVX. Celui-ci peut également être verrouillé (weBENT) exactement comme CVX-&amp;gt;vlCVX, pendant 8 semaines pour obtenir un rendement supplémentaire correspondant aux bribes.&lt;/p&gt;
+&lt;p&gt;Chaque deux semaines (round de jauges Curve), les possesseurs de weBENT votent sur Snapshot pour allouer leur capacité de vote sur les jauges de leur choix. Les votes des weBENT holders se répercutent via les CVX possédés par BentFinance, eux-même répercutés en vote CRV par Convex : deux niveaux de profondeur !&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/curve-wars-l2/bentCVX-lock.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;bentCVX-lock.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;une-abstraction-pertinente-&#34;&gt;Une abstraction pertinente ?
+&lt;/h4&gt;&lt;p&gt;Comme je le disais en abordant le sujet de Bent, la question ici n’est pas de savoir si le modèle est pertinent puisque Convex en est la preuve vivante. Néanmoins, Convex n’est pas un jeu à somme nulle par rapport à Curve, puisque le protocole a apporté de nouvelles fonctionnalités qui n’existaient pas avec juste Curve :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Farm avec LP Curve optimisé, sans posséder de veCRV&lt;/li&gt;
+&lt;li&gt;“Locking liquide” (⚠️taux de change cvxCRV &amp;lt;-&amp;gt; CRV) pour CRV&lt;/li&gt;
+&lt;li&gt;Et le troisième point qui est un peu la conséquence des deux autres : Convex est désormais le plus gros possesseurs de veCRV, et peut donc proposer le service de bribes (via Votium) avec le plus de potentiel tout en étant le plus pratique (délégation, pas besoin de claim chaque semaine, etc.)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Si je détaille les apports de Convex, c’est évidemment pour poser la question : qu’apporte &lt;strong&gt;fonctionnellement&lt;/strong&gt; Bent par rapport à Convex ?&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Option de farm avec LP Curve sans posséder de veCRV encore plus optimisée que Convex, mais toute la sur-performance vient de l’émission BENT.&lt;/li&gt;
+&lt;li&gt;Un locking de CVX moins contraignant que le locking direct via vlCVX (8 semaines chez Bent, 16 semaine + 7j chez Convex)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Il manque encore pour moi le troisième élément pour faire de Bent une option intéressante, un mécanisme qui créerait une vraie valeur ajoutée par rapport à Curve/Convex, outre l’optimisation du farm et une réduction des contraintes.&lt;/p&gt;
+&lt;p&gt;Enfin, je serai malhonnête si je n’ajoute pas un dernier point : la sécurité et la pérennité du protocole. En effet, Bent Finance a subi une attaque à priori par un insider en Décembre 2021 pendant plusieurs semaines. L’attaque a été rendue possible par le fait qu’à cette époque, les contrats de Bent n’étaient pas sécurisés par un multisig : &lt;a class=&#34;link&#34; href=&#34;https://halborn.com/explained-the-bent-finance-hack-december-2021/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;plus d’informations par ici&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;conic-finance-cnc---gestion-collective-de-liquidité-sur-curveconvex&#34;&gt;Conic Finance (CNC) 🚧 : gestion collective de liquidité sur Curve/Convex
+&lt;/h3&gt;&lt;div class=&#34;notice tip&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#tip-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Astuce&lt;/p&gt;&lt;p&gt;🚧 signale un protocole pas encore lancé&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Similaire à Bent, &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/ConicFinance&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Conic&lt;/a&gt; propose une abstraction supplémentaire à partir de LP Curve stakés sur Convex. Cependant je pense que cette fois-ci, le modèle a de la pertinence.&lt;/p&gt;
+&lt;p&gt;Conic introduit le concept des “omnipools”, qui simplifierait la gestion pour les LP Curve en redescendant au niveau primitif : ici, ce sont directement les tokens qui sont déposés (ex: USDC ou DAI). Les omnipools de Conic se chargeront ensuite de distribuer les tokens sur différentes positions LP Curve stakés ensuite sur Convex.&lt;/p&gt;
+&lt;p&gt;Les déposants reçoivent ainsi leur token CRV, CVX ainsi que des CNC, le token de Conic. De manière similaire à CVX, le CNC peut être “vote locked” pour :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Participer aux votes de jauges toutes les deux semaines qui déterminent la distribution des pools Curve par actifs acceptés sur Conic.&lt;/li&gt;
+&lt;li&gt;Voter sur la whitelist et blacklist des pools Curve acceptés (et donc éligible pour les jauges)&lt;/li&gt;
+&lt;li&gt;Participer au vote pour décider les actifs supportés sur Conic&lt;/li&gt;
+&lt;li&gt;Et tout autre décision de gouvernance, dont l’activation potentielle de frais pour le service (initialement, il n&amp;rsquo;y en aura aucun).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;L’approche de Conic semble donc pertinente et pourrait être décrite comme une gestion mutualisée d’actifs. C’est un modèle qui rappelle celui de &lt;a class=&#34;link&#34; href=&#34;https://tokemak.xyz/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Tokemak&lt;/a&gt; et va un pas plus loin que Curve/Convex qui reste au niveau de la détermination des incantations par la gouvernance. Ici, les votes de gouvernance résulteront en des mouvements de fonds effectifs entre différentes pools Curve. Si le protocole parvient à attirer une liquidité suffisante, il pourra devenir un acteur important des Curve Wars, avec potentiellement son propre système de bribes à terme.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/curve-wars-l2/conic-finance-fr.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;conic-finance-fr&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Le projet vient d’être dévoilé et l’approche envisagée pour le lancement est également intéressante. Une partie du supply de CNC est airdrop aux possesseurs de vlCVX. Pour le reste, il sera distribué avec une levée de fonds communautaire, du liquidity mining sur CNC/ETH et aux déposants sur Conic. Pour en apprendre plus, il n’y a &lt;a class=&#34;link&#34; href=&#34;https://medium.com/@ConicFinance/conic-finance-pre-launch-announcement-7b9f485f59f2&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;qu’un seul article disponible pour l’instant&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;services-demprunt-avec-tokens-lp-curveconvex-en-collatéral&#34;&gt;Services d’emprunt avec tokens LP Curve/Convex en collatéral
+&lt;/h2&gt;&lt;p&gt;Arrivé à ce stade, vous commencez peut-être à saturer rien qu’à l’évocation d’un nouveau wrapper potentiel sur CRV, CVX ou même cvxCRV : c’est sans doute normal. La plupart des protocoles impliqués dans les Curve Wars développent directement des synergies au niveau du token, qui reste le plus direct. Mais il ne faut pas oublier deux autres types d’acteurs important :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Les protocoles proposant un service synergétique avec le LP Curve/Convex, comme par exemple l’utilisation de celui-ci en collatéral.&lt;/li&gt;
+&lt;li&gt;Les protocoles / DAOs qui possèdent de larges quantités de CVX et CRV et peuvent les utiliser pour développer une position stratégique.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Avant d’aller voir du côté des whales et de leurs stratégies, je vous propose deux dernières analyses de protocoles qui permettent d’emprunter depuis une position LP Curve.&lt;/p&gt;
+&lt;h3 id=&#34;lendflare-lft&#34;&gt;Lendflare (LFT)
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://lendflare.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Lendflare&lt;/a&gt; permet aux LPs Curve d’emprunter depuis leur position un actif qui suit le même peg, par exemple un emprunt de DAI avec le token LP 3pool (USDC/DAI/USDT) comme collatéral. Cette limitation permet d’éviter les liquidations dues aux variations de prix entre les actifs : avec Lendflare tant qu’un emprunteur rembourse sa dette à l’heure ou avant, il n’est pas liquidé.&lt;/p&gt;
+&lt;p&gt;Le point critique, comme avec tout marché monétaire, c’est de réussir à attirer assez de déposants pour rendre l’emprunt aussi peu coûteux que possible et donc compétitif. Lendflare reprend ici la logique des boosts de Curve : les utilisateurs qui apportent des liquidités (USDC, DAI, ETH ou wBTC) pour faciliter les emprunts sont rémunérés avec le token LFT.&lt;/p&gt;
+&lt;p&gt;Tout comme sur Curve, ils peuvent ici aussi bénéficier d’un multiplicateur allant jusqu’à 2.5x en verrouillant une quantité de LFT (veLFT) proportionnelle au dépôt. Il y a même un schéma très dense qui résume le tout et vous fera apprécier le soin tout particulier que je mets dans mes infographies maisons :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/curve-wars-l2/lendflare.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;LendFlare&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Le protocole est encore en plein déploiement, bien que la fonctionnalité d’emprunt soit déjà disponible. Une vente initiale (IDO) du token LFT est en cours, et un airdrop est également discuté.&lt;/p&gt;
+&lt;h3 id=&#34;curvance-cve-&#34;&gt;Curvance (CVE) 🚧
+&lt;/h3&gt;&lt;p&gt;Curvance s’attaque au même problème mais avec une approche différente. Ici le protocole ne s’intéresse pas aux LP Curve comme collatéral, mais plutôt aux “wrapped assets” en général comme cvxCRV, bveCVX (Badger) ou yvBOOST (Yearn). Pour permettre l’emprunt de stablecoins avec ces actifs comme collatéral, ils envisagent d’isoler le risque en s’appuyant sur des pools Fuse.&lt;/p&gt;
+&lt;p&gt;Là encore, le token CVE sera distribué aux apporteurs de liquidité et un système de type veCVE est envisagé avec une nouvelle subtilité : encore un wrap, une version liquide du veCVE, le cveCVE qui donne accès au rendement du veCVE mais délègue les capacités de gouvernance à la DAO. Ici encore, des boosts, des jauges, et même potentiellement des bribes sont envisagés&lt;/p&gt;
+&lt;p&gt;Pour les curieux, &lt;a class=&#34;link&#34; href=&#34;https://docs.curvance.com/cve/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;la documentation est ici&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;daos-whales-en-cvx&#34;&gt;DAOs whales en CVX
+&lt;/h2&gt;&lt;p&gt;Enfin, pour finir ce panorama de l’écosystème Curve/Convex, il ne faut pas oublier de regarder  directement les tokens - et notamment les DAOs qui possèdent de grandes quantités de CRV ou CVX.&lt;/p&gt;
+&lt;p&gt;Pour CRV, il n’existe pas encore de tableau de bord clair résumant la situation à ma connaissance. Pour CVX par contre, il y a un site pour ca : &lt;a class=&#34;link&#34; href=&#34;Daocvx.com&#34; &gt;daocvx.com&lt;/a&gt;. Les protocoles que nous allons détailler désormais n’ont donc pas de synergie construite nativement avec Curve ou Convex, mais ils possèdent de grande quantité de CVX et les utilisent pour améliorer leur position compétitive dans la guerre des CRV.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/curve-wars-l2/daocvx.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;daocvx.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Je vous laisse creuser la liste par vous-même, on en détaillera simplement deux : Frax et Badger.&lt;/p&gt;
+&lt;h3 id=&#34;frax-finance--dominer-le-jeu-des-jauges-curve&#34;&gt;Frax Finance : dominer le jeu des jauges Curve
+&lt;/h3&gt;&lt;p&gt;Frax développe depuis longtemps une stratégie pertinente qui vise à dominer le jeu des jauges Curve pour aider à l’adoption de FRAX. Ca a été une des premières DAO à acquérir une position conséquente en CVX ; c’est désormais la DAO ayant &lt;strong&gt;la plus grosse position avec plus de 2.1M CVX&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Frax est connu pour être également le projet le plus agressif avec les bribes et c’est fréquemment Frax qui propose le plus gros bribe de Votium pour sa pool FRAX/3crv. Au dernier round (14), le bribe de Frax représentait environ &lt;strong&gt;40% de la valeur totale de toutes les bribes&lt;/strong&gt; payées à ce round ($6.5M / $16.2).&lt;/p&gt;
+&lt;p&gt;Si Frax peut se permettre d’être aussi agressif, c’est que leur position vlCVX permet de réduire le coût effectif de ces bribes : grâce à ses propres votes, le protocole est en mesure de &lt;a class=&#34;link&#34; href=&#34;https://etherscan.io/tx/0x090777069299e6e292363c6131b5cc5b463d598a7f89d3c7207148c0497587f8&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;récupérer&lt;/a&gt; une partie non négligeable des FXS utilisés à chaque round.&lt;/p&gt;
+&lt;p&gt;Avec cette stratégie, la pool FRAX/3CRV est en mesure de &lt;strong&gt;maintenir un taux d’émission de CRV presque cinq fois plus élevé que la 3pool, pour une liquidité totale similaire&lt;/strong&gt; (3pool : $3.3B, FRAX : $2.7B).&lt;/p&gt;
+&lt;h3 id=&#34;badger--un-petit-coin-pour-bitcoin&#34;&gt;Badger : un petit coin pour Bitcoin
+&lt;/h3&gt;&lt;p&gt;Depuis le début, Badger se concentre sur l’optimisation du farming avec BTC sur Ethereum. Initialement, avant Convex, Badger travaillait de près avec Yearn, mais avec le lancement de Convex et sa domination rapide, la position de Badger a évolué.&lt;/p&gt;
+&lt;p&gt;Contrairement à Frax, Badger n’a pas acheté ses CVX. À la place, Badger développe plutôt un modèle similaire à celui de Convex pour accumuler du CRV sous contrôle ; le vault bveCVX. Il propose un retour similaire au verrouillage direct sur Convex, mais s’inclut dans l&amp;rsquo;écosystème Badger.&lt;/p&gt;
+&lt;p&gt;Les balances en bveCVX contribuent par exemple au système de boost interne à Badger effectif sur la plupart des vaults. En outre, à chaque round la BadgerDAO utilise la puissance de vote correspondante au bveCVX pour soutenir les pools Curve supportées dans Badger, c’est à dire essentiellement des pools qui impliquent une ou plusieurs variantes du wBTC.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/curve-wars-l2/bvecvx.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;bvecvx.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Plutôt que d’acquérir sa position en CVX, Badger est en mesure de l’obtenir au prix d’émission sur son token natif - c’est donc en quelque sorte une location de CVX. Il y a également une pool Curve bveCVX/CVX pour permettre la sortie anticipée du vault. Il y a désormais presque 1.7M CVX dans le vault, la stratégie a donc fait ses preuves.&lt;/p&gt;
+&lt;h3 id=&#34;les-autres-daos&#34;&gt;Les autres DAOs
+&lt;/h3&gt;&lt;p&gt;Je me suis concentré sur deux projets qui développent deux stratégies bien distinctes pour accumuler des CVX et peser dans les Curve Wars. Comme vous pouvez le voir sur le graphique plus haut, il y en a de nombreuses autres.&lt;/p&gt;
+&lt;p&gt;Quand un protocole développe une position conséquente sur CVX (disons &amp;gt;300K CVX), il bénéficie d’avantages directs pour son/ses tokens, notamment au niveau de la liquidité. Néanmoins ça ne s’arrête pas là : les grands possesseurs de CVX sont dans une position stratégique et vont être également courtisés très prochainement pour différents partenariats.&lt;/p&gt;
+&lt;p&gt;On voit déjà la mécanique à l&amp;rsquo;œuvre, avec la discussion autour d’une potentielle 4pool (USDC/USDT/FRAX/UST), rendue possible grâce au cumul des influences de Frax, Luna, Redacted et Olympus. Les protocoles-whales CVX deviennent ainsi des interfaces pour les Curve Wars, reste à voir qui saura leur faire la meilleure offre.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;🙏 Un grand merci à &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/C53300&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Charles&lt;/a&gt; pour sa relecture attentive et ses nombreuses suggestions pertinentes.&lt;/em&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Comment construire un portefeuille DeFi résistant à l&#39;inflation ?</title>
+        <link>http://localhost:1313/fr/defi-vs-inflation/</link>
+        <pubDate>Tue, 08 Mar 2022 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/defi-vs-inflation/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2022/defi-vs-inflation/defi-vs-inflation-tokenbrice-cover.jpg" alt="Featured image of post Comment construire un portefeuille DeFi résistant à l&#39;inflation ?" /&gt;&lt;p&gt;L’inflation est plus que jamais au centre des discussions et préoccupations : personne n’y comprend grand-chose, aucun économiste ne l’a vraiment anticipée, mais nous avons tous un avis dessus.&lt;/p&gt;
+&lt;p&gt;Aujourd’hui, on laisse l’économie et la politique de côté pour se concentrer sur le concret : en finance décentralisée, toutes sortes de protocoles sont développés, et une bonne partie d’entre eux &lt;strong&gt;apportent des outils crédibles et novateurs pour préserver et développer le pouvoir d’achat d’un portefeuille&lt;/strong&gt;, même lorsque le contexte macroéconomique est des plus incertains.&lt;/p&gt;
+&lt;p&gt;Je vous propose donc d’évaluer des stratégies impliquants des actifs et protocoles différents, toutes avec le même but : préserver et développer le pouvoir d’achat effectif d’un portefeuille donné. Néanmoins, il faut commencer par la base, le niveau 0 : qu’est-ce que l’inflation et pourquoi nous, DeFians, devrions-nous en soucier ?&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;L&amp;rsquo;image de couverture a été réalisée par un généreux contributeur anonyme et met en scène les majestueuses &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://rarible.com/valkyre/created&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Valkyr-E&lt;/a&gt;&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;α-tutoriel--comprendre-limpact-de-linflation-sur-un-portefeuille-crypto&#34;&gt;α/ Tutoriel : Comprendre l’impact de l’inflation sur un portefeuille crypto
+&lt;/h2&gt;&lt;p&gt;Je ne m’hasarderais pas à rentrer en détail sur l’inflation pour les monnaies fiduciaires ici, mais le concept de base est connu de toutes personnes familières avec les cryptomonnaies.&lt;/p&gt;
+&lt;p&gt;Avant de rentrer dans le vif du sujet, partons de la base : l’inflation, telle que définie par l’Insee (Institut National de la Statistique et des Études Économiques) :&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;L&amp;rsquo;inflation est la perte du pouvoir d&amp;rsquo;achat de la monnaie qui se traduit par une augmentation générale et durable des prix. Elle doit être distinguée de l&amp;rsquo;augmentation du coût de la vie. La perte de valeur de la monnaie est un phénomène qui frappe l&amp;rsquo;économie nationale dans son ensemble (ménages, entreprises, etc.).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Rappelons juste que, &lt;strong&gt;tout comme en DeFi où chaque token est associé à un protocole et potentiellement même un écosystème, chaque monnaie fiduciaire s’appuie sur une économie ainsi qu’un ensemble de règles&lt;/strong&gt; (système légal).&lt;/p&gt;
+&lt;h3 id=&#34;linflation-point-de-vue-macro-échelle--pays&#34;&gt;L’inflation, point de vue macro (échelle = pays)
+&lt;/h3&gt;&lt;p&gt;L’inflation correspond à la production de nouvelle monnaie, l’important n’est pas tant la quantité de monnaie créée, mais plus &lt;strong&gt;ce qui est fait avec&lt;/strong&gt;. On le comprend tous plutôt bien avec deux exemples caricaturaux à chaque extrême :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;La banque centrale d’un pays A émet une quantité importante de monnaie afin d’investir massivement dans ses infrastructures de transport et son approvisionnement énergétique (= investissements long terme).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;Ici, l’inflation peut être a priori maîtrisée car la nouvelle monnaie émise sert à financer des investissements développant le potentiel économique du pays sur le long terme (-&amp;gt; compensation)&lt;/em&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;La banque centrale d’un pays B émet une quantité importante de monnaie afin de financer un plan d’urgence visant à compenser les conséquences prévisibles de précédentes mesures pseudo-sanitaires.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;Dans ce second scénario, la nouvelle monnaie est utilisée pour couvrir une “dépense courante&amp;quot; de l’État. L&amp;rsquo;équivalent à votre échelle personnelle serait de vous endetter chaque midi pour payer votre déjeuner. C’est évidemment intenable sur le long terme. Dans ce scénario, l’inflation ne peut être que massive car une quantité importante de nouvelle monnaie est émise, tandis que le potentiel économique du pays en question stagne ou se détériore.&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;évaluer-linflation-à-venir-&#34;&gt;Évaluer l’inflation à venir ?
+&lt;/h3&gt;&lt;p&gt;Assez pour le macro, revenons à notre échelle, avec des choses que l’on connait bien. Voici  l&amp;rsquo;évolution de la masse monétaire M1 sur le dollar, cela permet de visualiser sa “marketcap” en quelque sorte :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/defi-vs-inflation/USD-m1-supply.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;USD M1 Supply&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Ici on ne regarde que M1 par simplicité mais la tendance est similaire sur M2 et M3.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;On s’intéresse ici au dollar qui, bien que challengé, reste la monnaie fiduciaire qui donne le ton. Comme vous pouvez le voir, la courbe part à la verticale depuis le début de la crise Covid. L’allure de la courbe est désormais bien plus effrayante que les pires shitcoins que j’ai pu croiser. Vous en doutez ? Considérez la même information, présentée sous cet angle :&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Le dollar existe depuis 1914. 20% de tous les dollars en circulation ont été créés en 2020. Au rythme actuel, la quantité totale de dollars en circulation double tous les 4-5 ans environ.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Pour  comparer avec la crypto, nombreux sont ceux qui se soucient de l’inflation / émission de nouveau token sur Curve Finance (CRV). La courbe d&amp;rsquo;émission sur 4 ans ressemble à ceci :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/defi-vs-inflation/crv-release-schedule.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;crv-release-schedule&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Je ne suis pas économiste, mais je connais mes shitcoins. Le chiffre officiel de l’inflation américaine qui nous est donné est 7.5% par an. Comme les chiffres du chômage, c’est une métrique hautement politique qu’il est dur d’apprécier réellement.&lt;/p&gt;
+&lt;p&gt;Le chiffre de 7.5% peut sembler élevé, mais il reste faible face à la création monétaire sans précédent réalisée pour faire face au Covid. Je m’attends ainsi à voir cette inflation augmenter encore, ou alors se maintenir sur une période prolongée d’une dizaine d’années.&lt;/p&gt;
+&lt;p&gt;L’inflation est donc là, à 7.5% minimum pour plusieurs années a priori. Assez pour la macro de boomer, voyons donc l&amp;rsquo;éventail d’outils que la DeFi nous offre pour lui faire face et la dépasser.&lt;/p&gt;
+&lt;h2 id=&#34;i-battre-linflation-grâce-des-rendements-sur-stablecoins-classiques&#34;&gt;I/ Battre l’inflation grâce des rendements sur stablecoins “classiques”
+&lt;/h2&gt;&lt;p&gt;La première approche est comme toujours la plus simple, &lt;strong&gt;la méthode brute&lt;/strong&gt; : une inflation de 7.5% signifie que des USD laissés tels quels perdront 7.5% de leur valeur sur l’année. Il s’agit donc ici de trouver une source de rendement supérieur à l’inflation : la différence entre les deux correspond au rendement effectif.&lt;/p&gt;
+&lt;p&gt;Avec une inflation à 7.5% sur l’USD, je pense qu’il est prudent de s’assurer d’&lt;strong&gt;atteindre au moins 1.5x ce chiffre en rendement&lt;/strong&gt; pour réellement se considérer à l&amp;rsquo;abri de l’inflation.&lt;/p&gt;
+&lt;p&gt;Ici, le jeu est simple et les règles assez faciles à comprendre :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;On part d’une position dans un stablecoin donné&lt;/li&gt;
+&lt;li&gt;Le but est de la rendre productive, sans assumer de risque d’IL&lt;/li&gt;
+&lt;li&gt;Avec un rendement qui dépasse le chiffre de l’inflation, une fois les frais en gas amortis.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;simple-dépôt-de-stablecoin&#34;&gt;Simple dépôt de stablecoin
+&lt;/h3&gt;&lt;p&gt;On visera donc &lt;strong&gt;un rendement 10.875% annuel sur stablecoin $ au strict minimum&lt;/strong&gt;. Avec les baisses récentes et la compression des rendements c’est de plus en plus difficile, mais encore trouvable même avec un dépôt dans un seul stablecoin sans risque d’IL. Des outils comme &lt;a class=&#34;link&#34; href=&#34;https://coindix.com/?kind=stable&amp;amp;sort=-apy&amp;amp;chain=ethereum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Coindix&lt;/a&gt; peuvent vous aider à trouver le vault de vos rêves :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/defi-vs-inflation/coindix.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;coindix&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Attention cependant, &lt;strong&gt;tous les vaults ne se valent pas&lt;/strong&gt; ! Par exemple, on voit de beaux rendements sur Bancor sur la capture d’écran : n’oubliez pas de considérer la volatilité de ces rendements ainsi que les frais en gas pour déployer la position (un LP Bancor est notoirement plus coûteux qu’un dépôt sur Yearn par exemple).&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice warning&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Avertissement&lt;/p&gt;&lt;p&gt;Je le mentionne ici pour l’oublier aussi vite après : le protocole &lt;a class=&#34;link&#34; href=&#34;https://app.anchorprotocol.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Anchor&lt;/a&gt; vous offre également un rendement “fixe” proche de 20% sur le stablecoin UST. Un tel taux garanti ne s’obtient pas, bien sûr, sans de sérieux compromis qui posent de réelles questions sur la pérennité de l’ensemble de cet écosystème (Terra/Luna).&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;apport-de-liquidité--engagement-temporel&#34;&gt;Apport de liquidité + engagement temporel
+&lt;/h3&gt;&lt;p&gt;Toujours en dollar, mais un peu plus risqué, on peut considérer différents types d’engagement, toujours en stablecoin dollar et avec des risques d’IL très maîtrisés. Par exemple, un apport de liquidité entre FRAX et DAI.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/defi-vs-inflation/frax-dai.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;FRAX/DAI LP opportunities on Frax&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Ici, ca se passe chez &lt;a class=&#34;link&#34; href=&#34;https://frax.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Frax Finance&lt;/a&gt;, le taux de base (x1) correspond tout juste à notre objectif minimum, mais il est possible d’atteindre jusqu’à x5 avec deux types d’engagement :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;X3 en verrouillant les tokens LP pendant 3 ans&lt;/li&gt;
+&lt;li&gt;X2 grâce à vos potentiels veFXS (bien plus dur à atteindre)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Le rendement effectif d’une position verrouillée pour trois ans correspond à environ 3 fois notre objectif minimum, offrant ainsi une protection crédible contre la perte de valeur suite aux conséquences de l’inflation, mais encore faut-il pouvoir assumer les trois ans d’engagement.&lt;/p&gt;
+&lt;p&gt;L’exemple est pris ici sur DAI, mais la situation est similaire sur les autres stablecoins majeurs ; par exemple, voici les pools FRAX/USDC :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/defi-vs-inflation/frax-usdc.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;FRAX/USDC LP opportunities&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;notice tip&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#tip-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Astuce&lt;/p&gt;&lt;p&gt;Convex pour Frax arrive (optimisation du farming des LPs Frax via Convex), si vous n’avez pas vos propres veFXS, il est probablement pertinent d’attendre la sortie du service pour prendre une décision avec toutes les cartes en main.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;spéculation-sur-le-taux-de-rendement-et-tokénisation&#34;&gt;Spéculation sur le taux de rendement et tokénisation
+&lt;/h3&gt;&lt;p&gt;Pour battre ces fameux 10% de rendement sur le dollar, il existe encore bien d’autres options. Je vous en présente une dernière ici pour vous aider à envisager les autres stratégies possibles.&lt;/p&gt;
+&lt;p&gt;Pour celle-ci, on s’appuie sur &lt;a class=&#34;link&#34; href=&#34;https://apwine.fi/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;APWine&lt;/a&gt;, un protocole qui permet la tokénisation des rendements futurs d’actifs productifs. Le principe est à la fois simple et complexe : déposer un actif sur APWine permet de séparer son rendement futur (token FYT: Future Yield Token) du principal sous-jacent (PT: Principal Token).&lt;/p&gt;
+&lt;p&gt;À partir de là, différentes stratégies sont possibles, comme par exemple vendre immédiatement le rendement futur (FYT) afin d’augmenter la quantité du principal productif. Un tel outil permet également de mieux gérer son risque dû à la volatilité des taux de rendements.&lt;/p&gt;
+&lt;p&gt;Restons sur des choses simples et tout de même largement au-dessus des 10% requis : faisons un zoom sur le vault aUSDT de &lt;a class=&#34;link&#34; href=&#34;https://app.apwine.fi/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;APWine&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/defi-vs-inflation/apwine-USDT-fr.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;APWine aUSDT vault&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;J&amp;rsquo;exclue d’office la pool PT/FYT qui est plus complexe à comprendre et présente des risques bien plus conséquents que la PT/Underlying offrant un rendement en APW à 44% tout de même.&lt;/p&gt;
+&lt;p&gt;Ici la stratégie est simple, mais il faut &lt;strong&gt;garder en tête les frais en gas importants liés à l’utilisation d’APWine&lt;/strong&gt;. Pour mettre en place la stratégie à partir d’USDT dans le wallet, il faut :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Allow + Dépôt d’une partie de ceux-ci sur Aave (55% max)&lt;/li&gt;
+&lt;li&gt;Allow + Dépôt des aUSDT obtenus en 1 sur APwine&lt;/li&gt;
+&lt;li&gt;Allow (x2) + Dépôt des PT et Underlying (USDT) en apport de liquidité&lt;/li&gt;
+&lt;li&gt;Allow + Stake des tokens LPs PT/Underlying pour obtenir le rendement en APW&lt;/li&gt;
+&lt;li&gt;Ne pas oublier également les frais en gas liés aux claims des APW + déroulement de la position à la fin de l’époque (ou avant).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Il est donc préférable d’attendre un jour où les transactions passent sous 30 gwei pour ne pas trop souffrir des coûts en gas sur une telle stratégie.&lt;/p&gt;
+&lt;p&gt;L’avantage ici, par rapport à Frax par exemple, c’est que &lt;strong&gt;la position est bien plus liquide&lt;/strong&gt;. APWine fonctionne avec une logique d’epoch qui durent 90 jours. Ainsi, pour amortir plus facilement les frais en gas il est préférable de déployer la stratégie en début d’epoch : c’est aussi là où les rendements sont généralement les plus élevés.&lt;/p&gt;
+&lt;p&gt;Le troisième winelisting (là où sont décidés les prochains tokens supportés sur APWine) vient de s’achever, n’hésitez pas à vous y préparer :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/defi-vs-inflation/apw-winelisting3.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;APWine - Winelisting 3&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;APWine est encore un protocole jeune, mais la gouvernance est dynamique. La prochaine étape approche : tout comme sur Curve, ce seront bientôt les holders de veAPW (APW verrouillés) qui &lt;a class=&#34;link&#34; href=&#34;https://gov.apwine.fi/t/apgp-2-enable-gauges-for-apw-rewards/171&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;décideront des émissions&lt;/a&gt; pour chaque vault donné. Une redistribution des cartes est à envisager, prévoyez en connaissance de cause.&lt;/p&gt;
+&lt;h2 id=&#34;ii-positions-productives-hedgées-avec-différents-stablecoins-alternatifs&#34;&gt;II/ Positions productives hedgées avec différents stablecoins “alternatifs”
+&lt;/h2&gt;&lt;p&gt;On est resté pour l’instant sur le dollar, c’est plus simple pour commencer. Bien que les stablecoins dollars soient encore largement dominants, il existe désormais &lt;strong&gt;de nombreux stablecoins basés sur d’autres monnaies fiduciaires&lt;/strong&gt; comme l’EUR, le JPY (Yen Japonais), le CHF (Franc Suisse), KRW (Won Coréen) ou encore CAD (Dollar Canadien).&lt;/p&gt;
+&lt;p&gt;Outre les quelques stablecoins centralisés (EURS ou EURT) c’est un marché surtout couvert par des protocoles qui proposent de créer des stablecoins synthétiques à partir d’autres stablecoins. C’est le cas par exemple de &lt;a class=&#34;link&#34; href=&#34;https://jarvis.network/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Jarvis Network&lt;/a&gt;, qui utilise l’USDC pour collatéraliser différents types de stablecoins : jEUR, jCHF, jKRW, etc.&lt;/p&gt;
+&lt;h3 id=&#34;simple-dépôt&#34;&gt;Simple dépôt
+&lt;/h3&gt;&lt;p&gt;Les opportunités natives de rendement sans IL sur de tels stablecoins sont encore assez rares, et se situent généralement sur Curve : l’apport de liquidité contre d’autres stablecoins basés sur la même monnaie fiduciaire, s’il y en a.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/defi-vs-inflation/curve-chf.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Pool CHF sur Curve Finance&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Seuls quelques stablecoins ont des options lucratives en dépôt simple jEUR, jCHF, jJPY. Elles s’appuient sur les pools Curve correspondantes, avec des incitations additionnelles offertes par Jarvis et d’autres projets.&lt;/p&gt;
+&lt;p&gt;Via Jarvis (aussi disponible farmé par Harvest), il est également possible de produire un rendement sans IL sur jCAD et jJPY.&lt;/p&gt;
+&lt;h3 id=&#34;apport-de-liquidité&#34;&gt;Apport de liquidité
+&lt;/h3&gt;&lt;p&gt;Malgré tout, il existe une approche un peu différente, plus risquée, mais également potentiellement plus protectrice contre l’inflation : l’apport de liquidité sur deux stablecoins représentants deux monnaies fiduciaires différentes, par exemple EURT/3pool (USD) toujours sur Curve.&lt;/p&gt;
+&lt;p&gt;Plus intéressant encore, surtout pour les portefeuilles plus modestes, de nombreux stablecoins alternatifs sont disponibles sur Polygon ou Avalanche, avec un écosystème assez dense.&lt;/p&gt;
+&lt;p&gt;Ainsi Jarvis propose des pools jCHF-USDC, jEUR-USDC ou encore jCAD-USDC avec des rendements supérieurs à 20%. Des outils comme &lt;a class=&#34;link&#34; href=&#34;https://harvest.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Harvest.Finance&lt;/a&gt; ou encore &lt;a class=&#34;link&#34; href=&#34;https://beefy.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Beefy.Finance&lt;/a&gt; peuvent être également utilisés pour composer automatiquement les rendements obtenus :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/defi-vs-inflation/harvest-jarvis-2-stables.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Harvest Network Jarvis jFIAT&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Attention : en fonction de votre actif de base (par ex USDC), s’exposer à de l’EUR (ou autre monnaie) peut être lucratif ou coûteux - tout dépend de l’évolution du taux de change USDC/EUR.&lt;/p&gt;
+&lt;p&gt;Enfin, pour les plus aventuriers d’entrevous, sachez qu’APWine est également disponible sur Polygon et supporte déjà plusieurs tokens de Jarvis, comme par exemple le MooJarvis_4eur :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Apport de liquidité sur Curve (4eur)&lt;/li&gt;
+&lt;li&gt;Géré par Beefy Finance (moo)&lt;/li&gt;
+&lt;li&gt;Qui compose le rendement que Jarvis offre automatiquement&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Là encore, l’addition des tokens votés lors du winelisting 3 va ouvrir de nouvelles portes avec l’arrivée prochaine sur APWine/Polygon de :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MooKyber_USDC-jEUR&lt;/li&gt;
+&lt;li&gt;MooMai_USDC-MAI&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;emprunts-forex&#34;&gt;Emprunts Forex
+&lt;/h3&gt;&lt;p&gt;Enfin, si les liquidations ne vous font pas peur, sachez qu’une pool Fuse sur Polygon (&lt;a class=&#34;link&#34; href=&#34;https://polygon.market.xyz/pool/7&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Pool7 - Jarvis Forex Market&lt;/a&gt;) vous permet l’utilisation de différentes jFiat comme collatéral ainsi que pour emprunter.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/defi-vs-inflation/fuse-pool7.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Fuse pool 7&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Avec un tel service, presque tout est possible, voici quelques exemples pour vous inspirer :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Long le USD + short EUR = MAI en collatéral, emprunt jEUR puis vente du jEUR et potentielle boucle&lt;/li&gt;
+&lt;li&gt;Short GBP via CHF = jCHF en collatéral, emprunt jGBP puis vente et potentielle boucle.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;notice tip&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#tip-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Astuce&lt;/p&gt;&lt;p&gt;Notez également que les stablecoins productifs m2CAD et m2JPY sont disponibles en collatéral tout en gardant leur rendement intéressant pour des stratégies de leverage plus classique.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;trouver-son-équilibre&#34;&gt;Trouver son équilibre
+&lt;/h3&gt;&lt;p&gt;Plus qu’une seule position magique, ce qui me plait avec les stablecoins de Jarvis c’est la possibilité de &lt;strong&gt;diversifier facilement vers différents types de monnaies fiduciaires&lt;/strong&gt;. Grâce aux frais de transaction modérés sur Polygon, il est tout à fait possible de mélanger plusieurs monnaies et positions différentes pour faire un ensemble cohérent et bien protégé contre son inflation locale.&lt;/p&gt;
+&lt;p&gt;Par exemple, pour un Européen (= qui dépense des €) :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;25% en stable € productif sans IL, par exemple MooJarvis_4eur (+APWine)&lt;/li&gt;
+&lt;li&gt;25% en jEUR/USDC&lt;/li&gt;
+&lt;li&gt;20% en stable dollar productif (par ex stratégie aUSDT APWine)&lt;/li&gt;
+&lt;li&gt;&amp;amp; Diversification: 15% jCHF/USDC + 15% jGBP/USDC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Enfin, tant qu’on discute de stablecoins “exotiques” sachez qu’il en existe également quelques-uns qui suivent l’or ou l’argent - ils peuvent être également pertinents dans une telle perspective. Par exemple XAUT (avec pool Curve XAUT/3crv). L’or et l’argent restent des reliques ~~barbares ~~ de boomers, personnellement je n’y vois que très peu d’intérêt pour un DeFian compétent.&lt;/p&gt;
+&lt;h2 id=&#34;iii-les-stablecoins-résistants-à-linflation&#34;&gt;III/ Les stablecoins résistants à l’inflation
+&lt;/h2&gt;&lt;p&gt;Battre l’inflation, c’est chouette. La hedger, encore mieux. Mais &lt;strong&gt;pourquoi pas tout simplement l’abstraire&lt;/strong&gt;, en utilisant des produits qui résistent naturellement à celle-ci ? Il n’y a encore que très peu de stablecoins qui ne sont pas adossés à une monnaie fiduciaire, mais l’offre se développe rapidement.&lt;/p&gt;
+&lt;h3 id=&#34;rai-le-premier-stablecoin-libéré-du-dollar&#34;&gt;RAI, le premier stablecoin libéré du dollar
+&lt;/h3&gt;&lt;p&gt;RAI est une drôle de bête, le tout premier “unpegged stablecoin”. Lancé à une valeur de Pi en USD (3.14) en 2021, il évolue entre 3.02 et 3.06 quasiment depuis son lancement. Étant donné son arrivée récente (à peine plus d’un an), il est dur d’envisager comment RAI va se comporter dans une période d’inflation prolongée.&lt;/p&gt;
+&lt;p&gt;Malgré tout, diversifier une partie de ses stablecoins vers du RAI peut être une option intéressante. En outre, différentes options de rendement existent sur RAI :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Simple dépôt sans risque d’IL : Idle Finance déposez vos RAI dans Fuse/Aave pour optimiser le retour natif + incentives en FLX de Reflexer + incentives en IDLE.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/defi-vs-inflation/rai-idle-0.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;RAI on Idle Finance&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/defi-vs-inflation/rai-idle.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Additional FLX incentives for RAI on Idle Finance&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;En assumant des risques d’IL via un apport de liquidité sur Curve contre la 3pool, un meilleur rendement est possible. Le crvRAI peut ensuite être staké directement sur Curve ou via Convex ou encore Yearn.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Le RAI s’appuie sur un mécanisme inspiré de Maker MCD mais avec de nombreuses modifications pour rendre le tout possible. Pour comprendre comment il fonctionne, je vous invite à lire &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/fr/reflexer-rai/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;mon article dédié&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;🚧 Signale que le protocole mentionné est encore en développement.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;-un-stablecoin-résistant-à-linflation--le-fpi-de-frax&#34;&gt;🚧 Un stablecoin résistant à l’inflation ? Le FPI de FRAX
+&lt;/h3&gt;&lt;p&gt;Le Frax Price Index, c’est un nouveau protocole qui devrait arriver prochainement au sein de l’écosystème Frax. Le but est de proposer un nouveau stablecoin, qui suivrait le CPI (Consumer Price Index) afin de se prémunir contre l’inflation. Tout comme Frax, &lt;strong&gt;le système s’appuie sur deux tokens&lt;/strong&gt; :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;le stable - Frax Price Index (FPI)&lt;/li&gt;
+&lt;li&gt;et le token de gouvernance Frax Price Index Share (FPIS).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.frax.finance/frax-price-index/inflation-hedge&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;La documentation de Frax&lt;/a&gt; vous offre quelques informations sur le token à venir. &lt;strong&gt;Un airdrop de FPIS est prévu&lt;/strong&gt; pour les holders de veFXS ou encore cvxFXS. Ainsi, le protocole sera indépendant de FRAX/FXS, bien qu’un mécanisme de capture de valeur vers FXS est prévu au-delà de l’airdrop initial.&lt;/p&gt;
+&lt;p&gt;Il est dur de se projeter sur un simple design envisagé, mais il est clair qu’un stablecoin qui maintiendrait sa valeur malgré l’inflation est un produit très désirable. &lt;strong&gt;Plusieurs questions se posent quant au maintien du peg sur FPI&lt;/strong&gt; : pour maintenir son équilibre, il va falloir que des gens prennent le trade contraire au FPI, c’est à dire “short inflation”. Or, dans le contexte actuel avec une inflation galopante, on a du mal à envisager qui pourrait assumer une telle position.&lt;/p&gt;
+&lt;p&gt;Néanmoins, l&amp;rsquo;arrivée du FPI est imminente. On trouve des traces du token &lt;a class=&#34;link&#34; href=&#34;https://etherscan.io/token/0xdb68c6264e9d0f8a6df1fa5a89f205da38698d15&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;FPIS sur EtherScan&lt;/a&gt; depuis début Mars. J’ai hâte de voir le design proposé par l’équipe Frax pour répondre à ces enjeux conséquents.&lt;/p&gt;
+&lt;h3 id=&#34;-résistance-à-linflation--degen--volt&#34;&gt;🚧 Résistance à l’inflation + degen = VOLT
+&lt;/h3&gt;&lt;p&gt;En parallèle au FPI de Frax, il y a un autre projet que je suis de près, que j’attend depuis longtemps et qui porte de grands espoirs pour moi. Le concept de haut niveau est très simple : un produit du type Abracadabra qui ne serait pas une faille de sécurité ambulante.&lt;/p&gt;
+&lt;p&gt;En effet, Abracadabra permet d’emprunter depuis divers collatéraux productifs, ce qui rend le service désirable. Néanmoins l’infrastructure proche du bidouillage et les agissements des membres de l’équipe font d’Abracadabra un marché monétaire de seconde ou troisième zone.&lt;/p&gt;
+&lt;p&gt;L’idée ici, avec Volt, c’est de couvrir la même verticale en utilisant une infrastructure qui a fait ses preuves : la base offerte par Reflexer (RAI). Trois modifications principales sont attendues sur ce modèle :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Contrairement à Reflexer qui n’accepte que ETH en collatéral, Volt va diversifier les options disponibles, notamment avec des collatéraux productifs type wstETH.&lt;/li&gt;
+&lt;li&gt;La valeur de VOLT, le stablecoin du système, sera indexée sur le FPI de Frax. L’infrastructure de Reflexer sera là encore réutilisée (PID controller adapté)&lt;/li&gt;
+&lt;li&gt;L’équipe de Volt travaille également en collaboration avec Fuse et Olympus.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Pour suivre Volt, rien de mieux que &lt;a class=&#34;link&#34; href=&#34;https://discord.gg/dGhvDmCNGr&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;leur Discord &lt;/a&gt;!&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;Je décris ici le design initial de Volt Protocol, qui a évolué depuis. La vision de créer un service d&amp;rsquo;emprunt avec un stablecoin résistant à l&amp;rsquo;inflation demeure, mais les choix techniques ont évolué. Lisez &lt;a class=&#34;link&#34; href=&#34;https://github.com/volt-protocol/whitepaper/blob/main/volt.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;le whitepaper disponible ici&lt;/a&gt; pour les dernières informations.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;iv-battre-linflation-grâce-à-des-rendements-sur-actifs-volatils&#34;&gt;IV/ Battre l’inflation grâce à des rendements sur actifs volatils
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Dans un monde où plus rien ne tient et la valeur fuit, que nous reste-t-il ?&lt;/strong&gt; Et pourquoi pas de bons actifs DeFi qui ont fait leurs preuves et sont adossés à des protocoles aux revenus massifs et récurrents partagés directement avec leurs holders ?&lt;/p&gt;
+&lt;p&gt;Il en existe quelques-uns, très peu. On va les détailler un à un, ainsi que les différentes options disponibles sur ceux-ci pour produire un rendement.&lt;/p&gt;
+&lt;h3 id=&#34;eth--lorigine-et-la-fin&#34;&gt;ETH : l’origine et la fin
+&lt;/h3&gt;&lt;p&gt;Il y a bien sûr l’ETH, qui connaît de nombreuses sources de rendements divers - tout comme sur les stablecoins, rien ne vous empêche de diversifier votre exposition ETH avec plusieurs sources de rendement, par exemple:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ETH staké avec &lt;a class=&#34;link&#34; href=&#34;https://lido.fi/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Lido Finance &lt;/a&gt;(rendement faible, mais à priori le plus sûr) [~5%]&lt;/li&gt;
+&lt;li&gt;LP &lt;a class=&#34;link&#34; href=&#34;https://rocketpool.net/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;rETH&lt;/a&gt; sur Curve (plus novateur, plus lucratif, plus risqué) [~10%]&lt;/li&gt;
+&lt;li&gt;Vault covered call options sur ETH via &lt;a class=&#34;link&#34; href=&#34;https://stakedao.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Stakedao&lt;/a&gt; ou &lt;a class=&#34;link&#34; href=&#34;https://www.ribbon.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Ribbon Finance&lt;/a&gt; [~25%, risques !]&lt;/li&gt;
+&lt;li&gt;Apport de liquidité cross-chain sur un Bridge, par exemple &lt;a class=&#34;link&#34; href=&#34;https://cbridge.celer.network/#/liquidity&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Celer&lt;/a&gt; [~10%]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Une position ainsi équilibrée suit l’inflation / la dépasse légèrement avec les rendements obtenus sur les ETH. La profitabilité de la position sur le long-terme dépend bien sûr essentiellement du prix d’entrée moyen sur ETH et de l’évolution de celui-ci.&lt;/p&gt;
+&lt;h3 id=&#34;crv-cvx-et-fxs--les-trois-parques-de-la-defi-&#34;&gt;CRV, CVX, et FXS : Les trois Parques de la DeFi ?
+&lt;/h3&gt;&lt;p&gt;Chez les romains, les Parques sont trois déesses qui gouvernent la vie des humains :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Nona tisse le fil de la vie&lt;/li&gt;
+&lt;li&gt;Decima le déroule&lt;/li&gt;
+&lt;li&gt;Morta le découpe&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;La DeFi connaît elle aussi ces Parques : trois protocoles qui jouent un rôle critique dans la survie et la croissance de potentiellement tout autre.&lt;/p&gt;
+&lt;p&gt;En effet, outre l’ETH, il y a plusieurs projets DeFi qui ont déjà fait leurs preuves, contrôlent des flux de revenu conséquents et offrent un service réellement pertinent dans un contexte macro d’inflation prolongée ; j’en vois trois essentiellement :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Curve Finance - CRV&lt;/strong&gt; : la mère de tous les yields en DeFi + machine à peg et liquidité.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Convex Finance - CVX&lt;/strong&gt; : une option sur CRV, qui contrôle quasi 50% de tous les CRV verrouillés et apporte une réelle valeur ajoutée.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Frax Finance - FXS&lt;/strong&gt; : projet stable innovant, DeFi natif, très productif via les AMOs + arrivée de FPI + Frax possède une grosse position sur CVX &amp;amp; quelques autres protocoles.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Tout en étant des tokens adossés à des protocoles essentiels en DeFi, les options de rendement sur ces trois tokens ne manquent pas :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;CRV -&amp;gt; Dépôt sur Convex en CvxCRV puis stake ou LP cvxCRV/CRV.&lt;/li&gt;
+&lt;li&gt;CVX -&amp;gt; Vote locked sur Convex en vlCVX -&amp;gt; rendement en cvxCRV + bribes&lt;/li&gt;
+&lt;li&gt;FXS -&amp;gt; Dépôt direct sur Frax (veFXS) ou gestion via Convex (cvxFXS).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;dautres-tokens-prometteurs&#34;&gt;D’autres tokens prometteurs
+&lt;/h3&gt;&lt;p&gt;Enfin, il reste d’autres projets qui n’ont pas encore atteint la profitabilité de Curve ou Convex mais représentent des paris crédibles. Dans un monde où l’inflation est là durablement, les outils qui vont permettre de s’en prémunir peuvent devenir très populaire : je vous propose quelques autres thèses toujours en lien avec ce qui a été mentionné dans l’article.&lt;/p&gt;
+&lt;h4 id=&#34;apwinefi-apw--pari-sur-linfrastructure-defi-avancée&#34;&gt;APWine.fi (APW) : pari sur l’infrastructure DeFi avancée
+&lt;/h4&gt;&lt;p&gt;Quand l’inflation monte, tout le monde cherche du rendement. Laissez les courir derrière les %, et ciblez plutôt les vendeurs de pioches dans cette ruée vers l’or. C’est la thèse principale derrière un pari sur APW.&lt;/p&gt;
+&lt;p&gt;Comme vous avez pu le voir dans l’article déjà, APWine offre des produits intéressants pour parier sur l’évolution des rendements ou encore réaliser immédiatement un rendement futur. Au fur et à mesure que la DeFi se développe, la demande pour un produit type APWine ne fait que grandir. Est-ce que ce sera APWine, ou un autre ? À vous de voir !&lt;/p&gt;
+&lt;p&gt;Avec l’arrivée des APWine Wars, il n’est pas fantoche d’envisager à terme des bribes similaires à ce qu’on peut voir sur Convex.&lt;/p&gt;
+&lt;h4 id=&#34;reflexer-flx--pari-sur-la-dégouvernance&#34;&gt;Reflexer (FLX) : pari sur la dégouvernance
+&lt;/h4&gt;&lt;p&gt;Outre l’approche technique très intéressante, Reflexer innove également à un autre niveau. En effet, depuis le lancement du protocole, l’équipe a présenté un “Plan de Dégouvernance” visant à progressivement minimiser le contrôle de l’équipe sur le protocole grâce à deux moyens principaux :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Automatisation de tout ce qui peut l’être&lt;/li&gt;
+&lt;li&gt;Gestion par les holders de FLX pour les situations nécessitant encore une analyse manuelle / prise de décision.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;En outre, &lt;strong&gt;Reflexer dépasse désormais RAI&lt;/strong&gt;. La Money God League et un ensemble de projet construit l’infrastructure Reflexer, avec le soutien de l’équipe. Il semble donc assez naturel d’envisager un airdrop de ces nouveaux projets, dont VOLT, vers les holders de FLX.&lt;/p&gt;
+&lt;p&gt;Dernier tuyau : les stakers du LP FLX/ETH dans le Safety Module de Reflexer sont les derniers recours qui permettent de garantir la solvabilité du protocole. Si je devais envisager un airdrop pour remercier la communauté Reflexer, c’est sans doute eux que je viserai en priorité&lt;/p&gt;
+&lt;h4 id=&#34;looksrare-looks--pari-sur-les-nfts&#34;&gt;LooksRare (LOOKS) : pari sur les NFTs
+&lt;/h4&gt;&lt;p&gt;Voyez LOOKS comme une option sur le marché NFT. En effet, LooksRare est la première place de marché NFT qui partage ses revenus. Cela se traduit par &lt;strong&gt;un rendement en ETH pour stakers de LOOKS qui a pu atteindre 3 chiffres soutenus pendant les premières semaines&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2022/defi-vs-inflation/looks-eth-farm.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;ETH yields on LOOKS staking&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Depuis, le volume de transactions a baissé et le rendement en ETH avec, mais &lt;strong&gt;le staking LOOKS reste l’un des plus gros yields en ETH qui existe&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Je m’arrête à ces trois suggestions, mais il y a bien sûr d’autres options - à vous de juger. Par exemple, les QI Wars ont commencé et le protocole a une bonne traction. Attention cependant à ne pas tomber dans le piège qui consiste à penser que tous les protocoles qui adoptent le modèle ve + bribes connaîtront le succès de Curve et Convex. Les tokenomics ve vont se multiplier : il s’agit de faire les bons choix !&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;bonne-chance-et-joyeuses-récoltes-&#34;&gt;Bonne chance et joyeuses récoltes 🚜
+&lt;/h2&gt;&lt;p&gt;Je serai tenté de m’excuser pour la longueur de cet article, mais je reste confiant que sa lecture vaut le détour et sera instructive même pour les DeFians les plus avertis.&lt;/p&gt;
+&lt;p&gt;Si vous avez envisagé d’autres stratégies ou protocoles utiles pour se protéger de l’inflation, n’hésitez pas  à me les suggérer.&lt;/p&gt;
+&lt;p&gt;Pour approfondir, voici quelques lectures recommandées :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/fr/crv-wars/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Comprendre les Curve Wars&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/fr/reflexer-rai/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Comprendre le modèle du RAI de Reflexer&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Et enfin pour la pratique, qui reste ESSENTIELLE, le mieux est encore d’essayer avec de petites sommes sur des sidechains/L2 peu coûteux :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Le protocole APWine sur Polygon afin de vous familiariser avec ces mécanismes.&lt;/li&gt;
+&lt;li&gt;Minting jFIAT / Apport de liquidité sur Curve + farming pour découvrir Jarvis&lt;/li&gt;
+&lt;li&gt;Long/short sur Forex grâce aux jFiats + Fuse.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;notice info&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#info-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Information&lt;/p&gt;&lt;p&gt;Disclosure: J’ai investi dans la pre-sale d’APWine et je suis un grand utilisateur du protocole. Je suis utilisateur et souvent holder de quasi tous les protocoles mentionnés dans cet article.&lt;/p&gt;
+&lt;p&gt;Cet article ne constitue pas un conseil en investissement : je partage simplement mes recherches pour vous aider à faire les votres.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;🙏 Un grand merci à &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/C53300&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Charles&lt;/a&gt;, &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/phil_h&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PhilH&lt;/a&gt; et &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/disiaque_eth&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Disiaque&lt;/a&gt; pour leur relecture attentive et leurs nombreuses suggestions pertinentes.&lt;/em&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>⚔ Guerre du CRV : comprendre la course à l&#39;accumulation de la capacité à influencer le protocole Curve Finance</title>
+        <link>http://localhost:1313/fr/crv-wars/</link>
+        <pubDate>Tue, 28 Sep 2021 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/crv-wars/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2021/crv-wars/curve-wars-cover-tokenbrice.png" alt="Featured image of post ⚔ Guerre du CRV : comprendre la course à l&#39;accumulation de la capacité à influencer le protocole Curve Finance" /&gt;&lt;p&gt;Depuis les premiers jours de Curve Finance et du lancement du token CRV, on attend, on envisage et on présume sur ce que la guerre des CRV pourrait amener. Désormais, avec le lancement de Convex puis de Bribe.crv et enfin Votium, tout s&amp;rsquo;accélère : les votes VeCRV, ça s&amp;rsquo;achète désormais ! Voyons donc comment cela impacte Curve et la DeFi dans son intégralité.&lt;/p&gt;
+&lt;p&gt;À première vue, la question est plutôt simple et directe :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Curve est le plus grand échange décentralisé de la DeFi en terme de valeur totale déposée.&lt;/li&gt;
+&lt;li&gt;Le token CRV donne accès à 1/ une part des frais collectés 2/ &lt;strong&gt;une capacité de vote pour influencer l&amp;rsquo;émission de CRV future.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;=&amp;gt; Avoir le contrôle d&amp;rsquo;une grande capacité de vote VeCRV permet de &lt;strong&gt;grandement faciliter le développement d&amp;rsquo;une pool Curve&lt;/strong&gt;, puisque cela offre la possibilité de voter pour des rendements CRV importants sur la pool en question.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Néanmoins comme souvent en DeFi, tout n&amp;rsquo;est pas si simple et le diable est dans les détails. Pour comprendre les enjeux de la guerre des CRV, il faut avoir avoir &lt;strong&gt;bien compris les différents outils construits dessus&lt;/strong&gt;. Cela vous permettra ensuite de juger de la pertinence des stratégies déployées par les différents projets qui cherchent à influencer Curve.&lt;/p&gt;
+&lt;h2 id=&#34;convex-et-la-séparation-du-vecrv&#34;&gt;Convex et la séparation du VeCRV
+&lt;/h2&gt;&lt;p&gt;Avant d&amp;rsquo;analyser les champs de bataille - c&amp;rsquo;est-à-dire les différents outils utilisés dans cette guerre des CRV, il faut s&amp;rsquo;attarder plus en profondeur sur un en particulier : Convex. J&amp;rsquo;en ai déjà parlé sur ce blog, en expliquant &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/defi-flywheel.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;la dimension flywheel de Convex avec le CvxCRV&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Les interactions de Convex avec Curve vont largement au-delà du CvxCRV qui n&amp;rsquo;en est qu&amp;rsquo;un élément.&lt;/p&gt;
+&lt;p&gt;En fait, &lt;strong&gt;on pourrait décrire Convex comme une séparation entre la gouvernance et les rendements sur VeCRV&lt;/strong&gt; en amplifiant chacun des éléments sur un token séparé, je m&amp;rsquo;explique :&lt;/p&gt;
+&lt;h3 id=&#34;cvxcrv--vecrv-yield&#34;&gt;CvxCRV = VeCRV-yield++
+&lt;/h3&gt;&lt;p&gt;CvxCRV correspond à un VeCRV possédé par Convex. Ils sont verrouillés à jamais, mais la liquidité disponible sur CvxCRV/CRV permet aux déposants de solder leur position.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;En termes de gouvernance, CvxCRV perd toutes ses capacités&lt;/strong&gt;. En effet, un possesseur de VeCRV peut voter sur les gauges (émission CRV) et votes de gouvernance. Un possesseur de CvxCRV n&amp;rsquo;a aucun autre bénéfice que le rendement.&lt;/p&gt;
+&lt;p&gt;Néanmoins, &lt;strong&gt;le rendement est amplifié par rapport à une simple possession de VeCRV&lt;/strong&gt; :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Rendement en token 3pool - la part des frais collectés sur Curve - exactement comme VeCRV&lt;/li&gt;
+&lt;li&gt;Rendement en CRV (10% de tous les CRV farmés par Convex partagés entre tous les stakers CvxCRV)&lt;/li&gt;
+&lt;li&gt;Rendement en CVX quasiment équivalent&lt;/li&gt;
+&lt;li&gt;Potentiels airdrops comme Ellipsis&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Ainsi, CvxCRV correspond à un compromis simple par rapport à VeCRV : les capacités de gouvernance sont perdues (-&amp;gt; vlCVX) mais en contrepartie le rendement est grandement amplifié et diversifié.&lt;/p&gt;
+&lt;h3 id=&#34;vlcvx--vecrv-gov&#34;&gt;vlCVX = VeCRV-gov++
+&lt;/h3&gt;&lt;p&gt;À l&amp;rsquo;autre extrême, Convex propose une autre abstraction intéressante vis-à-vis de Curve. Il s&amp;rsquo;agit de son token natif CVX. En effet, &lt;strong&gt;chaque CVX correspond à une capacité de vote VeCRV&lt;/strong&gt; (qui provient des CvxCRV).&lt;/p&gt;
+&lt;p&gt;Pour la mobiliser, le déposant doit &amp;ldquo;vote lock&amp;rdquo; ses CVX en vlCVX. Ils sont verrouillés pour 16 semaines + 3 jours et donnent ainsi l&amp;rsquo;accès à la capacité de gouvernance. À l&amp;rsquo;heure actuelle, le vlCVX est le chemin de loin le plus efficace économiquement pour accumuler de la capacité de vote Curve :&lt;/p&gt;
+&lt;table&gt;
+  &lt;tr&gt;
+   &lt;td&gt;
+   &lt;/td&gt;
+   &lt;td&gt;Prix
+   &lt;/td&gt;
+   &lt;td&gt;Capacité de vote
+   &lt;/td&gt;
+   &lt;td&gt;VeCRV-vote/$
+   &lt;/td&gt;
+   &lt;td&gt;Engagement
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;VeCRV
+   &lt;/td&gt;
+   &lt;td&gt;$2.42
+   &lt;/td&gt;
+   &lt;td&gt;1 veCRV
+   &lt;/td&gt;
+   &lt;td&gt;0.41
+   &lt;/td&gt;
+   &lt;td&gt;4 ans
+   &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;vlCVX
+   &lt;/td&gt;
+   &lt;td&gt;$8.2
+   &lt;/td&gt;
+   &lt;td&gt;12,75 VeCRV
+   &lt;/td&gt;
+   &lt;td&gt;1.55
+   &lt;/td&gt;
+   &lt;td&gt;16 semaines + 3j
+   &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;Outre la rentabilité accrue du CVX pour influencer Curve, l&amp;rsquo;engagement est également moins conséquent que sur VeCRV. Pour la table de comparaison, je suis parti sur une assomption de vérouillage 4 ans sur CRV. L&amp;rsquo;écart est encore plus en faveur de vlCVX pour des engagements moins longs.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice warning&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Avertissement&lt;/p&gt;&lt;p&gt;Le vlCVX a malgré tout un inconvénient : à l&amp;rsquo;issue des 16 semaines de verrouillage initiales, des pénalités sont appliquées aux déposants si les tokens restent inactifs pendant plus de 4 semaines.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Si vous voulez analyser plus en profondeur les rendements offerts par la délégation de CVX et l&amp;rsquo;achat de vote associé, n&amp;rsquo;hésitez pas à &lt;a class=&#34;link&#34; href=&#34;https://medium.com/@portiadog/convex-finance-1cc6c9c1c733&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;lire cet article (EN)&lt;/a&gt; qui propose des calculs plus détaillés :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/crv-wars/bribes-rewards.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;bribes-rewards&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;bribes--une-séparation-pas-si-nette&#34;&gt;Bribes : une séparation pas si nette
+&lt;/h3&gt;&lt;p&gt;La situation était claire, mais elle ne l&amp;rsquo;est pas restée longtemps. En effet, il convient tout d&amp;rsquo;abord de noter que vlCVX n&amp;rsquo;est pas dénué de rendement : &lt;strong&gt;les possesseurs de vlCVX se partagent 6% de tous les CRV farmés par Convex, sous forme de CvxCRV&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;En outre, ce n&amp;rsquo;est potentiellement pas le seul rendement auquel les possesseurs de vlCVX sont éligibles. En effet, &lt;strong&gt;la capacité de gouvernance peut également offrir un rendement conséquent via les mécanismes de bribe&lt;/strong&gt; (achat de votes).&lt;/p&gt;
+&lt;p&gt;Différents projets proposent ainsi des incitations pour voter sur la gauge d&amp;rsquo;une pool Curve donnée. Par exemple, Alchemix propose des récompenses en ALCX, son token natif, qui peut être claim chaque semaine par tous ceux qui ont utilisé leur VeCRV pour voter afin d&amp;rsquo;augmenter l&amp;rsquo;allocation CRV de la pool AlUSD.&lt;/p&gt;
+&lt;p&gt;À long terme, il n&amp;rsquo;est pas impossible que la séparation initiale prévue par Convex ne soit pas des plus honnêtes. À l&amp;rsquo;heure actuelle, le rendement sur cvxCRV est environ 60% tandis qu&amp;rsquo;il n&amp;rsquo;est qu&amp;rsquo;à 15% sur CVX. Néanmoins, &lt;strong&gt;lorsque l&amp;rsquo;on ajoute les bribes dans l&amp;rsquo;équation, il n&amp;rsquo;est pas impossible que le rendement du vlCVX soit bien plus important que celui sur cvxCRV.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;les-champs-de-bataille&#34;&gt;Les champs de bataille
+&lt;/h2&gt;&lt;p&gt;Les services de &amp;ldquo;bribes&amp;rdquo; sont ainsi un élément essentiel de l&amp;rsquo;équation de gouvernance de Curve. Néanmoins avant de les creuser il faut rappeler le chemin de base (veCRV) qui définit le cadre de toutes ses variantes.&lt;/p&gt;
+&lt;p&gt;VeCRV s&amp;rsquo;obtient en verrouillant CRV pour une période allant jusqu&amp;rsquo;à 4 ans. Plus le verrouillage est long, plus le ratio VeCRV/CRV est proche de 1. &lt;strong&gt;Le verrouillage s&amp;rsquo;épuise progressivement avec le temps ainsi que la capacité de vote&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;C&amp;rsquo;est pourquoi les vaults construits sur VeCRV opèrent sur une logique de verrouillage perpétuel à 4 ans : afin de préserver une capacité de vote toujours au plus proche du maximum possible, &lt;strong&gt;ils &amp;ldquo;rafraîchissent&amp;rdquo; (refresh) le verrouillage fréquemment.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/crv-wars/ecosysteme-vecrv-tokenbrice.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;ecosysteme-vecrv-tokenbrice&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;bribe-v0--incitation-directe-sur-les-pools&#34;&gt;Bribe v0 : incitation directe sur les pools
+&lt;/h3&gt;&lt;p&gt;Avant de vous parler de bribe, il faut rappeler qu&amp;rsquo;il existe une forme primitive disponible depuis les premiers jours de Curve : les incitations additionnelles (en plus des CRV) pour les apporteurs de liquidité. Synthetix a ainsi été pionnier avec le programme de liquidity mining en SNX sur la pool sUSD.&lt;/p&gt;
+&lt;p&gt;Les incitations directes sont cumulables avec les bribes, et c&amp;rsquo;est même recommandé. On verra plus bas comment MIM par exemple a obtenu beaucoup plus d&amp;rsquo;activité en partageant son budget entre incitation et bribes (après d&amp;rsquo;une phase initiale sans bribe).&lt;/p&gt;
+&lt;h3 id=&#34;bribecrv-de-cronje-sur-vecrv&#34;&gt;Bribe.crv de Cronje [sur veCRV]
+&lt;/h3&gt;&lt;p&gt;Vous l&amp;rsquo;aurez donc compris, les &amp;ldquo;bribes&amp;rdquo; sont des achats de votes VeCRV. Ils sont payés à la semaine, généralement le vendredi (jour de prise en compte des votes).&lt;/p&gt;
+&lt;p&gt;Néanmoins, tout comme il y a plusieurs systèmes pour interagir avec VeCRV, plusieurs mécanismes existent également pour les bribes. On commence donc par celui qui a été disponible en premier : &lt;a class=&#34;link&#34; href=&#34;http://bribe.crv.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://bribe.crv.finance/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Ici, l&amp;rsquo;unité de base c&amp;rsquo;est le VeCRV. Bribe.crv est une simple interface qui résume les différentes offres et permet de récolter ses bribes. Le vote se fait directement sur Curve.&lt;/p&gt;
+&lt;p&gt;Après des débuts un peu timides, le service est de plus en plus utilisé et de nombreux projets proposent désormais des bribes. Les rendements des premières semaines ont été excellents, à voir s&amp;rsquo;ils dureront. Par exemple, j&amp;rsquo;ai touché &lt;strong&gt;environ 10% de retour sur mes VeCRV (/ prix actuel) en 5 semaines&lt;/strong&gt; en votant pour la pool MIM et recevant des tokens SPELL en bribes.&lt;/p&gt;
+&lt;p&gt;On reviendra sur les résultats obtenus un peu plus bas.&lt;/p&gt;
+&lt;h3 id=&#34;votium-sur-vlcvx&#34;&gt;Votium [sur vlCVX]
+&lt;/h3&gt;&lt;p&gt;L&amp;rsquo;alternative disponible, c&amp;rsquo;est &lt;a class=&#34;link&#34; href=&#34;http://votium.app/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Votium&lt;/a&gt;. Ici, l&amp;rsquo;unité de base c&amp;rsquo;est le vlCVX, les deux services ne sont donc pas concurrents mais complémentaires.&lt;/p&gt;
+&lt;p&gt;Votium est plus récent donc les bribes disponibles sont encore moins nombreuses. Par contre, &lt;strong&gt;Votium contrôle déjà une capacité de vote impressionnante : environ 8M CVX soit plus de 102M VeCRV&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Ici le système est potentiellement plus passif qu&amp;rsquo;avec bribe.crv puisque les déposants peuvent déléguer à Votium qui se chargera de voter chaque semaine pour eux et récolter les bribes correspondants.&lt;/p&gt;
+&lt;p&gt;Même avec une délégation active, un déposant peut à tout moment reprendre le contrôle et voter pour une pool donnée, directement sur snapshot (-&amp;gt; pas de coût en gas). Le système est donc plus flexible que bribe.crv à ce niveau là.&lt;/p&gt;
+&lt;p&gt;D&amp;rsquo;autres services pour gérer les bribes sont également en développement avec une sortie prochaine. Jusqu&amp;rsquo;à présent le jeu des bribes s&amp;rsquo;est concentré essentiellement autour de CRV, mais &lt;a class=&#34;link&#34; href=&#34;https://www.paladin.vote/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Paladin&lt;/a&gt;, par exemple, entend proposer un mécanisme similaire avec d&amp;rsquo;autres protocoles également.&lt;/p&gt;
+&lt;h2 id=&#34;mise-en-pratique--tactiques-et-résultats&#34;&gt;Mise en pratique : tactiques et résultats
+&lt;/h2&gt;&lt;p&gt;Les bases conceptuelles sont un peu lourdes sur ce sujet, mais il est essentiel de les comprendre. Pour rendre le tout plus explicite, passons donc à la pratique avec des exemples concrets.&lt;/p&gt;
+&lt;h3 id=&#34;exemple-de-spellmim&#34;&gt;Exemple de Spell/MIM
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://abracadabra.money/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Abracadabra&lt;/a&gt; est un service de type Maker. Différents actifs sont acceptés en tant que collatéral, dont des actifs productifs comme xSUSHI ou encore cvx3pool.&lt;/p&gt;
+&lt;p&gt;Tout comme Maker produit le DAI, Abracadabra produit un stablecoin (sur le dollar) baptisé MIM. La liquidité disponible sur MIM, ainsi que les opportunités de rendements sont donc un facteur essentiel du succès de la plateforme.&lt;/p&gt;
+&lt;p&gt;C&amp;rsquo;est pourquoi Abracadabra est passé progressivement par toutes les formes de bribes directes ou indirecte sur Curve :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Tout commence avec une incitation en SPELL (token de gouvernance) sur la pool Curve/MIM.&lt;/li&gt;
+&lt;li&gt;Quand bribe.crv est arrivé, &lt;strong&gt;une partie de cette incitation a été réallouée en bribe&lt;/strong&gt; - distribuée donc aux possesseurs de veCRV qui votent pour la gauge MIM.&lt;/li&gt;
+&lt;li&gt;Désormais, avec l&amp;rsquo;arrivée du vlCVX, l&amp;rsquo;équipe considère la redirection du budget par ce biais.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;En quelques semaines, la pool MIM a ainsi explosé sur Curve, à tous les niveaux :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Les rendements en CRV ont été vraiment excellents certaines semaines&lt;/li&gt;
+&lt;li&gt;Ce qui a attiré de la liquidité et du volume, réduisant légèrement le rendement mais augmentant la capacité à booster la pool&lt;/li&gt;
+&lt;li&gt;Grâce à cette dynamique, MIM est désormais la cinquième pool Curve en terme de volume, avec un beau ratio volume/TVL.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/crv-wars/crv-pools.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;curve-pools&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;En outre, la pool est désormais bien équilibrée et plutôt dense (&amp;gt; $700M liquidité totale).&lt;/p&gt;
+&lt;p&gt;L&amp;rsquo;exemple de Abracadabra est extrêmement instructif, puisqu&amp;rsquo;il démontre toute la pertinence des abstractions construites sur VeCRV : &lt;strong&gt;sans augmenter son budget total, Abracadabra a été en mesure d&amp;rsquo;attirer bien plus de liquidité qu&amp;rsquo;à l&amp;rsquo;époque de la simple incitation directe en SPELL.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Vous comprenez donc que les projets DeFi qui tirent habilement profit des mécanismes de veCRV, cvxCRV et vlCVX ont un avantage indéniable (&lt;strong&gt;économique ET politique&lt;/strong&gt;) face à ceux qui n&amp;rsquo;ont pas encore saisi toutes leurs subtilités.&lt;/p&gt;
+&lt;h3 id=&#34;exemple-croisé--sdvecrv-vs-cvxcrv&#34;&gt;Exemple croisé : sdveCRV VS cvxCRV
+&lt;/h3&gt;&lt;p&gt;En effet, &lt;strong&gt;je considère désormais la compréhension de Curve et la capacité à influencer efficacement sa gouvernance comme une capacité essentielle et requise dans la plupart des projets DeFi, surtout pour les projets de stablecoins.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Pas besoin de me croire sur parole néanmoins, comparons en pratique deux approches mises en place par des projets avec des enjeux similaires : les stratégies de liquidité sur cvxCRV (de Convex) et sdveCRV (de StakeDAO) - deux abstractions construites sur veCRV.&lt;/p&gt;
+&lt;p&gt;Bien que les situations soit similaires, il y a des différences de taille :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Commençons déjà par rappeler que Convex contrôle plus de 30 fois la quantité de CRV contrôlé par Stake (102M vs 3M).&lt;/li&gt;
+&lt;li&gt;En outre, sdveCRV a de graves problèmes avec son peg : 1 sdveCRV ~= 0.5 CRV&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/crv-wars/sdvecrv-peg.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;sdvecrv-peg&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;plan-de-liquidité-sdvecrv--incompréhension-totale-et-échec-cuisant&#34;&gt;Plan de liquidité sdveCRV : incompréhension totale et échec cuisant
+&lt;/h4&gt;&lt;p&gt;Passons donc à l&amp;rsquo;analyse. Initialement la liquidité sdveCRV était contre ETH tout comme pour Yearn. Depuis Convex, l&amp;rsquo;équipe Stake essaie de réagir pour rendre sdveCRV plus attractif.&lt;/p&gt;
+&lt;p&gt;Néanmoins, l&amp;rsquo;équipe n&amp;rsquo;a clairement pas pris le temps d&amp;rsquo;analyser la situation et s&amp;rsquo;est précipitée vers ce qui s&amp;rsquo;est avéré être &lt;strong&gt;un des échecs de gouvernance les plus cuisants jamais observé sur Curve&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Après avoir créé une pool sdveCRV/CRV anémique via la Curve Factory, un vote a été soumis pour y ajouter la contrôler gauge (= incentives CRV). Non seulement &lt;a class=&#34;link&#34; href=&#34;https://dao.curve.fi/vote/ownership/83&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;le vote a été rejeté massivement&lt;/a&gt; mais en outre &lt;strong&gt;la pool sdveCRV est paramétrée de façon aberrante et absolument dangereuse pour les déposants.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Inciter les dépôts sur une telle pool serait revenu à envoyer les déposants vers l&amp;rsquo;abattoir&lt;/strong&gt;. En effet, le facteur A (paramètre d&amp;rsquo;amplification) de la pool est &lt;a class=&#34;link&#34; href=&#34;https://curve.fi/factory/34&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;défini à 200&lt;/a&gt; &amp;mdash; une valeur correcte pour des actifs qui suivent le même peg, mais délirante si un actif vaut deux fois l&amp;rsquo;autre.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/crv-wars/sdvecrv-mim-crv-pools.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;sdvecrv-mim-crv-pools&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Pour vous donner une idée, même la pool MIM mentionnée plus haut, absolument massive (7000x la liquidité de la pool sdveCRV) n&amp;rsquo;a pas encore atteint 200 de A factor (119 actuellement, en augmentation).&lt;/p&gt;
+&lt;p&gt;Ainsi, non seulement Stake n&amp;rsquo;a pas réussi à résoudre son problème de liquidité sur sdveCRV, mais en outre &lt;strong&gt;un tel déroulé des événements soulève clairement la question de la compréhension des subtilités de Curve/Convex par l&amp;rsquo;équipe Stake&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Pour faire revenir le sdveCRV au peg et développer sa liquidité, il leur faudra beaucoup d&amp;rsquo;effort, dans l&amp;rsquo;ordre :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Revoir les paramètres de la pool&lt;/li&gt;
+&lt;li&gt;Incitations directes en SDT sur la pool ?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Une fois ces étapes accomplies, l&amp;rsquo;équipe aurait alors une chance d&amp;rsquo;obtenir la gauge CRV sur cette pool, mais pas avant. La situation actuelle ressemble donc à une coûteuse impasse : &lt;strong&gt;pas d&amp;rsquo;issue à moins de faire chauffer (encore plus) la planche à SDT&lt;/strong&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;plan-de-liquidité-cvxcrv--décollage-immédiat&#34;&gt;Plan de liquidité cvxCRV : décollage immédiat
+&lt;/h4&gt;&lt;p&gt;Le plan de liquidité sur cvxCRV démontre au contraire à quel point le processus peut être efficace. Initialement (et encore aujourd&amp;rsquo;hui), la pool principale pour cvxCRV est sur Sushiswap, contre CRV.&lt;/p&gt;
+&lt;p&gt;Cette situation ne fait que très peu de sens : &lt;strong&gt;Sushi est loin d&amp;rsquo;être optimal pour optimiser la liquidité sur des actifs qui suivent le même peg&lt;/strong&gt;. Ainsi, lorsque Curve a lancé les factory pools (V2), la &lt;a class=&#34;link&#34; href=&#34;https://curve.fi/factory/22&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;pool cvxCRV/CRV&lt;/a&gt; a été une des premières à émerger.&lt;/p&gt;
+&lt;p&gt;(Notez ici le A Factor à 50 - alors que cvxCRV tient bien plus son peg que sdveCRV&amp;hellip;)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/crv-wars/cvxcrv-pool.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;cvxcrv-pool&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Sans avoir d&amp;rsquo;incitation de la part de Convex ou Curve, la pool a déjà vu un volume important transiter grâce aux agrégateurs de DEX comme Paraswap. Rapidement, il y a eu un vote pour y ajouter la gauge CRV qui est passé - et cette pool est désormais farmable directement via Convex.&lt;/p&gt;
+&lt;p&gt;La pool reste légèrement déséquilibrée (il y a tant à faire avec des CRV, qui deviennent de plus en plus rares…) mais elle apporte déjà une alternative compétitive à la pool SLP cvxCRV/CRV avec encore une fraction de sa liquidité.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion
+&lt;/h2&gt;&lt;p&gt;J&amp;rsquo;espère que cet article vous aura aidé à saisir les subtilités de l&amp;rsquo;écosystème étendu de veCRV et leurs conséquences sur la bataille des CRV.&lt;/p&gt;
+&lt;p&gt;Avant de conclure, je tiens à vous rappeler que comme d&amp;rsquo;habitude l&amp;rsquo;alpha se trouve dans les creux. Si vous avez compris cet article, n&amp;rsquo;hésitez pas à exporter l&amp;rsquo;analyse de la stratégie de liquidité à d&amp;rsquo;autres projets : je suis certain qu&amp;rsquo;elle sera instructive !&lt;/p&gt;
+&lt;p&gt;Je vous le dis souvent, mais ce sera jamais assez : non seulement Curve est le DEX le plus important en DeFi mais c&amp;rsquo;est également &lt;strong&gt;le protocole le plus avancé en terme de gouvernance et de tokenomics de très loin par rapport à tout ce qu&amp;rsquo;il se fait d&amp;rsquo;autre&lt;/strong&gt;. Même si vous n&amp;rsquo;avez aucun intérêt pour Curve/Convex, il est indispensable de comprendre ces protocoles pour bien envisager ce qu&amp;rsquo;il se passe en DeFi… En espérant que cet article vous y aidera !&lt;/p&gt;
+&lt;div class=&#34;notice tip&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#tip-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Astuce&lt;/p&gt;&lt;p&gt;Pour approfondir votre compréhension du CRV, pilier de la DeFi, je vous propose également deux sessions en direct avec Charlie; un membre de l&amp;rsquo;équipe Curve :&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=G5PbqGtjSDQ&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Marathon DeFi Curve Finance dans le détail&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;iframe loading=&#34;lazy&#34; 
+            src=&#34;https://www.youtube.com/embed/EjuPdHv1bX8&#34; 
+            allowfullscreen 
+            title=&#34;YouTube Video&#34;
+    &gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;🙏 Un grand merci à HHK, Charles, Thomas, Erwan, &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/phil_h&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PhilH&lt;/a&gt; &amp;amp; FrenchTony pour leur relecture attentive de l&amp;rsquo;édition française de cet article et sa traduction en Anglais.&lt;/em&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

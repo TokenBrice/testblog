@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Exploring what risk tranching is and why it's **the next financial primitive** in line to be incorporated into major money markets like Aave or Compound.">
+<title>🗡 Risk? Yes please, but exactly how I like it</title>
+
+<link rel='canonical' href='http://localhost:1313/risk-tranching-defi/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="🗡 Risk? Yes please, but exactly how I like it">
+<meta property='og:description' content="Exploring what risk tranching is and why it's **the next financial primitive** in line to be incorporated into major money markets like Aave or Compound.">
+<meta property='og:url' content='http://localhost:1313/risk-tranching-defi/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Decentralized finance' /><meta property='article:tag' content='Risk Management' /><meta property='article:tag' content='Risk Tranching' /><meta property='article:tag' content='Money Markets' /><meta property='article:tag' content='Lend' /><meta property='article:tag' content='Borrow' /><meta property='article:tag' content='Interest-bearing Stablecoin' /><meta property='article:tag' content='DAI' /><meta property='article:tag' content='aDAI' /><meta property='article:tag' content='Saffron Finance' /><meta property='article:tag' content='88mph' /><meta property='article:tag' content='Aave' /><meta property='article:tag' content='Compound' /><meta property='article:tag' content='Yearn Finance' /><meta property='article:tag' content='AAVE' /><meta property='article:tag' content='SFI' /><meta property='article:tag' content='APWineFi' /><meta property='article:published_time' content='2021-01-12T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2021-01-12T01:13:50&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/2021/risk-tranching/cover.gif' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="🗡 Risk? Yes please, but exactly how I like it">
+<meta name="twitter:description" content="Exploring what risk tranching is and why it's **the next financial primitive** in line to be incorporated into major money markets like Aave or Compound."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/2021/risk-tranching/cover.gif' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">TokenBrice</a></h1>
+            <h2 class="site-description">Brutally Honest DeFi</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" selected>English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" >Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#from-lending-protocols-to-money-markets">From Lending Protocols to Money Markets</a></li>
+    <li><a href="#tranching-would-you-like-another-slice-of-risk">Tranching: would you like another slice of risk?</a>
+      <ol>
+        <li><a href="#risk-tranching-in-practice">Risk tranching in practice</a></li>
+      </ol>
+    </li>
+    <li><a href="#understanding-the-broader-context-of-risk-management-in-defi">Understanding the broader context of risk management in DeFi</a></li>
+    <li><a href="#another-take-on-risk-management-for-yields-apy-fixation">Another take on risk management for yields: APY-fixation</a>
+      <ol>
+        <li><a href="#apy-fixation-in-practice">APY-Fixation in practice</a></li>
+      </ol>
+    </li>
+    <li><a href="#what-does-the-endgame-look-like">What does the endgame look like?</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/risk-tranching-defi/">
+                
+                    <img src="/img/2021/risk-tranching/cover.gif" loading="lazy" alt="Featured image of post 🗡 Risk? Yes please, but exactly how I like it" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/defi/" style="background-color: #2a9d8f; color: #fff;">
+                DeFi
+            </a>
+        
+            <a href="/categories/understanding/" style="background-color: #2a9d8f; color: #fff;">
+                Understanding
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/risk-tranching-defi/">🗡 Risk? Yes please, but exactly how I like it</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Exploring what risk tranching is and why it&#39;s **the next financial primitive** in line to be incorporated into major money markets like Aave or Compound.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jan 12, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    9 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+        <footer class="article-translations">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+            <div>
+                
+                    <a href="http://localhost:1313/fr/tranching-risque-defi/" class="link">Français</a>
+                
+            </div>
+        </footer>
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>DeFi has grown tremendously over the past year, partly thanks to the appearance of more streamlined investment products such as Yearn&rsquo;s or Harvest&rsquo;s <strong><a class="link" href="https://tokenbrice.xyz/content/posts/2020/vaults.md"  target="_blank" rel="noopener"
+    >vaults</a></strong>. Thanks to their architecture, they facilitate the mutualization of capital which enables smaller yet profitable investments on money markets and other DeFi services like Curve or SushiSwap.</p>
+<p>It was a necessary and much-welcomed layer, and several improvements are still to be made to streamline things even further and increase gas efficiency. However, I believe the bulk of the innovation this year will come from another front: risk management on the vault-type products.</p>
+<p>Indeed, several definancial primitives have been developed to provide more options to segregate and hedge risks. There are now credible insurance options available for DeFi, as well as a new approach (in DeFi) to better distribute the risk between consenting and informed actors: tranching.</p>
+<p>We&rsquo;ll dive right in, but just before that, I think it&rsquo;s apt to examine the terminology too.</p>
+<hr>
+<h2 id="from-lending-protocols-to-money-markets">From Lending Protocols to Money Markets
+</h2><p>If you&rsquo;ve been reading me for a while, you might have seen the term &ldquo;lending protocol&rdquo; being used. While it was suited to describe their first purpose, I believe the concept has now outgrown the word, so I&rsquo;ll refer to them as money market from now on. Indeed, &ldquo;lending protocol&rdquo; fails to capture all the subtleties now offered by services like Aave — I&rsquo;m actually a bit late to the party of this one.</p>
+<p>In a sense, the change of nomenclature reflects the different stages of evolution of these money markets. In their first months of existence, there was <strong>a liquidity imperative</strong>: it&rsquo;s essentially a fight to grow to a sizeable size, big enough to justify interest from other projects to integrate with the money market fuelling a positive growth loop as we&rsquo;ve seen on Aave.</p>
+<p><img src="/img/2021/risk-tranching/aave-debank.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Aave TVL Growth - Debank"
+	
+	
+></p>
+<p>Once the critical mass is reached, <strong>the focus can and must evolve</strong>. To further expand, the money market must extend its range of features - again, like we&rsquo;ve seen Aave do with flashloans and fixed rate loans.</p>
+<p>To me, it seems clear now that <strong>the second phase of growth of the money markets will be feature-driven</strong>. Indeed, the base features available on the money market are essential, as these markets are more integrated into other DeFi protocols. The money markets with the most flexibility at the base layer will be able to handle more intricate use cases, such as credit delegation.</p>
+<p>But today, I want to focus this piece on a risk management concept that hasn&rsquo;t found its way to a mainstream money market yet: <strong>tranching</strong>. Let&rsquo;s see what it can enable!</p>
+<hr>
+<h2 id="tranching-would-you-like-another-slice-of-risk">Tranching: would you like another slice of risk?
+</h2><p>To begin, let&rsquo;s start with <strong>the most straightforward &ldquo;risk alteration&rdquo; there is - tranching</strong>. The idea here is quite straightforward: the different risk layers taken by the depositor of a given money market are tranched - meaning segregated one from the other.</p>
+<p>Each depositor can choose his preferred exposure. It enables, for instance, a confident degen to <strong>bear all available layers of risk to maximize his APY</strong> while a more conservative whale could <strong>downsize its risk perimeter</strong> by exposing oneself to the technical risk only.</p>
+<p>That&rsquo;s the core idea, but let&rsquo;s not forget we&rsquo;re talking about decentralized finance here, so <strong>composability is key</strong>. What makes tranching so exciting is its future as a <strong>financial primitive</strong> - a building block that other apps and projects can use to deliver new services.</p>
+<p>We&rsquo;ll explore more in-depth what tranching as financial primitive entails right after we consider how it currently works in practice, and examine the broader context of risk hedging and APY fixation.</p>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>If you&rsquo;re new to DeFi or even finance in general, you might wonder why we care so much about these different flavors of risks?
+You can picture these mechanisms enabling diverse types of risk exposure as building blocks making it possible to <strong>build end-user products fitting all ranges of risk appetite</strong>.</p>
+<p>I explain why tranching matters more explicitly in the last part of this article where we consider some end-game scenarios for it.</p></div>
+
+<h3 id="risk-tranching-in-practice">Risk tranching in practice
+</h3><p>This whole article was actually inspired by a tweet I published where I shared what a tranched aDAI could look like:</p>
+<p>As of today, there is mostly one product delivering tranching on mainnet I&rsquo;m looking at <a class="link" href="https://saffron.finance/"  target="_blank" rel="noopener"
+    >Saffron Finance</a>. It&rsquo;s essentially a tranching abstraction layer built on top of the Compound DAI market. The risk segregation is straightforward with two main tranches + one:</p>
+<ol>
+<li>The <strong>AA tranche</strong>, <strong>covered in case of platform failure</strong>.</li>
+<li>The <strong>A tranche</strong>, supplying the cover for the AA tranche (= slashing if a failure occurs) but earns a much <strong>more favorable APY</strong>.</li>
+<li>There is a third tranche - the <strong>S tranche</strong>. However, it is simply rebalancing between the two others as needed.</li>
+</ol>
+<p><img src="/img/2021/risk-tranching/saffron.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="The different tranches available on Saffron Finance"
+	
+	
+></p>
+<p>Tranching occurs on an epoch-basis, currently set at two weeks. So if you supply the A tranche, for instance, you are bearing the risk of platform failure for the AA tranche for a 2 week period.</p>
+<p>Thanks to the excitement that followed the launch, Saffron grew to close to $60M assets deposited. Since then, the dust settled around a low bar of roughly $15M of assets.</p>
+<p><img src="/img/2021/risk-tranching/saffron-debank.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Saffron Finance TVL - Debank"
+	
+	
+></p>
+<div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>On the charts, we can see some sharp withdrawals: it&rsquo;s due to the epoch-based logic of Saffron. At the end of every epochs, depositors are not earning rewards anymore until they pull out and deposit in the next epoch tranches.</p></div>
+
+<p>Saffron is looking to expand to other money markets, most obviously Aave and expand their token coverage (currently only DAI). Other projects are exploring the idea of tranching, most notably <a class="link" href="https://barnbridge.com/"  target="_blank" rel="noopener"
+    >BarnBridge</a>, but their current achievements are less enticing in my book.</p>
+<p><em>Last minute edit: BarnBridge <a class="link" href="https://twitter.com/CoinbaseCustody/status/1348739247277268997"  target="_blank" rel="noopener"
+    >BOND token is now listed on Coinbase</a>.</em></p>
+<p>Now that we have a more practical understanding of tranching and how it can work, let&rsquo;s take a step back to understand what it provides in the broader context of risk management in decentralized finance.</p>
+<hr>
+<h2 id="understanding-the-broader-context-of-risk-management-in-defi">Understanding the broader context of risk management in DeFi
+</h2><p>So far, we&rsquo;ve focused on the sole risk related to the definancial product itself: mainly smart contract risks, oracle, and economic attacks. We&rsquo;ve left at least two layers of risk untouched:</p>
+<ol>
+<li><strong>APY Variation</strong>: The APY of the service used is usually variable, so there is an additional layer of exposure there.</li>
+<li><strong>Token Price Fluctuation</strong>: Sometimes, the returns are paid in token different from the ones deposited. If the payout token is not a stablecoin, its price can vary - meaning there is yet an additional layer of exposure to consider here if we want to be exhaustive.</li>
+</ol>
+<p>Besides, to fully understand the broader context, let&rsquo;s not forget that there are several distinct &ldquo;temporal approaches&rdquo; to risk:</p>
+<ul>
+<li>Using an approach such as tranching, you can be <strong>proactive</strong>, splitting the risk <strong>beforehand</strong> between participants that understand their exposure.</li>
+<li>It can also go hand in hand with more <strong>reactive approaches</strong>, such as insurance - a system providing payout <strong>afterward</strong> in the event of a failure.</li>
+</ul>
+<p>The insurance markets are another fascinating topic by themselves, so we&rsquo;ll stick to this simple mention for now and go back to our yields.</p>
+<div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>While we&rsquo;re talking about insurance, a fascinating project just launched - Unslashed Finance. It&rsquo;s made in France by a builder I admire, so I&rsquo;m a little biased, but feel free <strong><a class="link" href="https://medium.com/unslashed/manifesto-for-a-decentralised-crypto-insurance-unslashed-finance-873078fd0ddd"  target="_blank" rel="noopener"
+    >to read their manifesto</a></strong> to learn more about their vision.</p></div>
+
+<hr>
+<h2 id="another-take-on-risk-management-for-yields-apy-fixation">Another take on risk management for yields: APY-fixation
+</h2><p>As we were saying, the APY of the different yield products available in decentralized finance are constantly fluctuating. It makes for a less predictable income and prevents the entry of investors who are not willing to stomach several layers of risk.</p>
+<p>To address this issue, another layer of meta-financial services is emerging - the base value proposition as an investor is quite simple: they offer a <strong>fixed APY on depositors&rsquo; investments</strong>. It&rsquo;s essentially another flavor of &ldquo;insurance&rdquo;: you&rsquo;ll get overall a bit of a lower yield, but it&rsquo;s predictable. It&rsquo;s very similar to a stable-interest loan on Aave (vs variable rate).</p>
+<p>The buyer side of such services is super interesting: picture it <strong>like a prediction market, for the yield of a given vault or investment product.</strong> Buyers deposit some assets and place a bet on the expected average yield: the closer their prediction is, the better is the return.</p>
+<p>I don&rsquo;t see the buyer side becoming mainstream anytime soon, but it provides the backbone to yet another useful financial primitive useful to provide services more suited to more risk-averse investors.</p>
+<h3 id="apy-fixation-in-practice">APY-Fixation in practice
+</h3><p>So far, there are two projects working on delivering fixed-APY yield on popular decentralized investment products such as the Yearn vaults: <a class="link" href="https://apwine.fi/"  target="_blank" rel="noopener"
+    >APWine</a> &amp; <a class="link" href="https://88mph.app/"  target="_blank" rel="noopener"
+    >88mph</a>.</p>
+<p>Just like Saffron, 88mph is another abstraction layer built on top of Compound, Aave, and Harvest deposits. It provides a <strong>fixed APY for depositors</strong>, while on the other side of the market buyers of floating-rate bonds are bearing the risk of the fluctuations of the APY of the underlying investment product.</p>
+<p><img src="/img/2021/risk-tranching/88mph.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="88mph main interface"
+	
+	
+></p>
+<hr>
+<h2 id="what-does-the-endgame-look-like">What does the endgame look like?
+</h2><p>Let&rsquo;s wrap this up with a little thought experiment. We&rsquo;re now leaving the present and what is currently live on the Ethereum mainnet to extrapolate a bit and consider what tranching &amp; other risk management approaches can enable in DeFi a few months or years from now.</p>
+<p>Assuming:</p>
+<ol>
+<li>An investment product built, for instance, on the Aave money market:</li>
+<li>With a Saffron-like product integrated into it</li>
+<li>Also with an 88mph-like service integrated into it</li>
+<li>And finally, an insurance such as Unslashed also natively integrated for the DAI peg.</li>
+</ol>
+<p>You could envision <strong>the first &ldquo;risk-free&rdquo; DeFi investment</strong>, which would be a wrapped deposit of say DAI on Aave, coming along with tranching to only bear the price risk hedged by a coverage against DAI losing its peg on Unslashed earning a fixed APY.</p>
+<p>It&rsquo;s insane to consider the different steps of the evolution of let&rsquo;s say DAI we witnessed or are about to witness in barely two years:</p>
+<ol>
+<li>DAI</li>
+<li><strong>Interest-bearing</strong> DAI</li>
+<li>Interest-bearing DAI with a <strong>fixed APY</strong></li>
+<li>Interest-bearing DAI with a fixed APY <strong>not bearing the technical risks</strong></li>
+<li>Interest-bearing DAI with a fixed APY not bearing the technical risks &amp; <strong>covered against DAI losing its peg</strong></li>
+</ol>
+<p>aFIXEDAPYDAI_PEGINSURED: our new monetary overlord? The actual name will be way more catchy, rest assured!</p>
+<p>Are you ready to witness <strong>the future of money unfolding methodically before your very eyes as your assets receive software updates</strong>?</p>
+<p>I for one cannot wait: I&rsquo;ve been prepping for the past three years.</p>
+<hr>
+<p><em>Thanks to Waël for making the cover image featured at the top of this article (as well as the TokenBrice emblem).</em></p>
+<p><em>🙏 Huge thanks to HHK, Charles, Thomas, Erwan, <a class="link" href="https://twitter.com/phil_h"  target="_blank" rel="noopener"
+    >PhilH</a> &amp; FrenchTony for proofreading the French version of this article and translating it integrally into English.</em></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/defi/">DeFi</a>
+        
+            <a href="/tags/ethereum/">Ethereum</a>
+        
+            <a href="/tags/decentralized-finance/">Decentralized Finance</a>
+        
+            <a href="/tags/risk-management/">Risk Management</a>
+        
+            <a href="/tags/risk-tranching/">Risk Tranching</a>
+        
+            <a href="/tags/money-markets/">Money Markets</a>
+        
+            <a href="/tags/lend/">Lend</a>
+        
+            <a href="/tags/borrow/">Borrow</a>
+        
+            <a href="/tags/interest-bearing-stablecoin/">Interest-Bearing Stablecoin</a>
+        
+            <a href="/tags/dai/">DAI</a>
+        
+            <a href="/tags/adai/">ADAI</a>
+        
+            <a href="/tags/saffron-finance/">Saffron Finance</a>
+        
+            <a href="/tags/88mph/">88mph</a>
+        
+            <a href="/tags/compound/">Compound</a>
+        
+            <a href="/tags/yearn-finance/">Yearn Finance</a>
+        
+            <a href="/tags/aave/">Aave</a>
+        
+            <a href="/tags/sfi/">SFI</a>
+        
+            <a href="/tags/apwinefi/">APWineFi</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Jan 12, 2021 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/defi-vs-inflation/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/defi-vs-inflation/defi-vs-inflation-tokenbrice-cover.jpg" loading="lazy" data-key="" data-hash="/img/2022/defi-vs-inflation/defi-vs-inflation-tokenbrice-cover.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">How to build an inflation-proof DeFi portfolio?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/defi-flywheel/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/defi-flywheel/defi-flywheel-cover-en.png" loading="lazy" data-key="" data-hash="/img/2021/defi-flywheel/defi-flywheel-cover-en.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🎡 DeFi Flywheel : engineering protocol to protocol synergies through tokens</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/money-markets-risk/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/risk-tranching/cover.gif" loading="lazy" data-key="" data-hash="/img/2021/risk-tranching/cover.gif"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Assessing risk in decentralized finance: a handbook for money markets</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/lending-protocol-renaissance/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2024/lending-protocol-renaissance/0-lending-protocol-renaissance-cover.png" loading="lazy" data-key="" data-hash="/img/2024/lending-protocol-renaissance/0-lending-protocol-renaissance-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Is this a Lending Protocol Renaissance?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/stablecoin-marauder-map/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2023/stablecoin-marauder-map/stablecoin-marauder-map-cover.png" loading="lazy" data-key="" data-hash="/img/2023/stablecoin-marauder-map/stablecoin-marauder-map-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">The Maurauder&#39;s Map of Decentralized Stablecoins</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

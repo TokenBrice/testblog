@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Saffron Finance on TokenBrice</title>
+        <link>http://localhost:1313/tags/saffron-finance/</link>
+        <description>Recent content in Saffron Finance on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Tue, 12 Jan 2021 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/saffron-finance/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>🗡 Risk? Yes please, but exactly how I like it</title>
+        <link>http://localhost:1313/risk-tranching-defi/</link>
+        <pubDate>Tue, 12 Jan 2021 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/risk-tranching-defi/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2021/risk-tranching/cover.gif" alt="Featured image of post 🗡 Risk? Yes please, but exactly how I like it" /&gt;&lt;p&gt;DeFi has grown tremendously over the past year, partly thanks to the appearance of more streamlined investment products such as Yearn&amp;rsquo;s or Harvest&amp;rsquo;s &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/vaults.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;vaults&lt;/a&gt;&lt;/strong&gt;. Thanks to their architecture, they facilitate the mutualization of capital which enables smaller yet profitable investments on money markets and other DeFi services like Curve or SushiSwap.&lt;/p&gt;
+&lt;p&gt;It was a necessary and much-welcomed layer, and several improvements are still to be made to streamline things even further and increase gas efficiency. However, I believe the bulk of the innovation this year will come from another front: risk management on the vault-type products.&lt;/p&gt;
+&lt;p&gt;Indeed, several definancial primitives have been developed to provide more options to segregate and hedge risks. There are now credible insurance options available for DeFi, as well as a new approach (in DeFi) to better distribute the risk between consenting and informed actors: tranching.&lt;/p&gt;
+&lt;p&gt;We&amp;rsquo;ll dive right in, but just before that, I think it&amp;rsquo;s apt to examine the terminology too.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;from-lending-protocols-to-money-markets&#34;&gt;From Lending Protocols to Money Markets
+&lt;/h2&gt;&lt;p&gt;If you&amp;rsquo;ve been reading me for a while, you might have seen the term &amp;ldquo;lending protocol&amp;rdquo; being used. While it was suited to describe their first purpose, I believe the concept has now outgrown the word, so I&amp;rsquo;ll refer to them as money market from now on. Indeed, &amp;ldquo;lending protocol&amp;rdquo; fails to capture all the subtleties now offered by services like Aave — I&amp;rsquo;m actually a bit late to the party of this one.&lt;/p&gt;
+&lt;p&gt;In a sense, the change of nomenclature reflects the different stages of evolution of these money markets. In their first months of existence, there was &lt;strong&gt;a liquidity imperative&lt;/strong&gt;: it&amp;rsquo;s essentially a fight to grow to a sizeable size, big enough to justify interest from other projects to integrate with the money market fuelling a positive growth loop as we&amp;rsquo;ve seen on Aave.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/risk-tranching/aave-debank.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Aave TVL Growth - Debank&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Once the critical mass is reached, &lt;strong&gt;the focus can and must evolve&lt;/strong&gt;. To further expand, the money market must extend its range of features - again, like we&amp;rsquo;ve seen Aave do with flashloans and fixed rate loans.&lt;/p&gt;
+&lt;p&gt;To me, it seems clear now that &lt;strong&gt;the second phase of growth of the money markets will be feature-driven&lt;/strong&gt;. Indeed, the base features available on the money market are essential, as these markets are more integrated into other DeFi protocols. The money markets with the most flexibility at the base layer will be able to handle more intricate use cases, such as credit delegation.&lt;/p&gt;
+&lt;p&gt;But today, I want to focus this piece on a risk management concept that hasn&amp;rsquo;t found its way to a mainstream money market yet: &lt;strong&gt;tranching&lt;/strong&gt;. Let&amp;rsquo;s see what it can enable!&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;tranching-would-you-like-another-slice-of-risk&#34;&gt;Tranching: would you like another slice of risk?
+&lt;/h2&gt;&lt;p&gt;To begin, let&amp;rsquo;s start with &lt;strong&gt;the most straightforward &amp;ldquo;risk alteration&amp;rdquo; there is - tranching&lt;/strong&gt;. The idea here is quite straightforward: the different risk layers taken by the depositor of a given money market are tranched - meaning segregated one from the other.&lt;/p&gt;
+&lt;p&gt;Each depositor can choose his preferred exposure. It enables, for instance, a confident degen to &lt;strong&gt;bear all available layers of risk to maximize his APY&lt;/strong&gt; while a more conservative whale could &lt;strong&gt;downsize its risk perimeter&lt;/strong&gt; by exposing oneself to the technical risk only.&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s the core idea, but let&amp;rsquo;s not forget we&amp;rsquo;re talking about decentralized finance here, so &lt;strong&gt;composability is key&lt;/strong&gt;. What makes tranching so exciting is its future as a &lt;strong&gt;financial primitive&lt;/strong&gt; - a building block that other apps and projects can use to deliver new services.&lt;/p&gt;
+&lt;p&gt;We&amp;rsquo;ll explore more in-depth what tranching as financial primitive entails right after we consider how it currently works in practice, and examine the broader context of risk hedging and APY fixation.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;If you&amp;rsquo;re new to DeFi or even finance in general, you might wonder why we care so much about these different flavors of risks?
+You can picture these mechanisms enabling diverse types of risk exposure as building blocks making it possible to &lt;strong&gt;build end-user products fitting all ranges of risk appetite&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;I explain why tranching matters more explicitly in the last part of this article where we consider some end-game scenarios for it.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;risk-tranching-in-practice&#34;&gt;Risk tranching in practice
+&lt;/h3&gt;&lt;p&gt;This whole article was actually inspired by a tweet I published where I shared what a tranched aDAI could look like:&lt;/p&gt;
+&lt;p&gt;As of today, there is mostly one product delivering tranching on mainnet I&amp;rsquo;m looking at &lt;a class=&#34;link&#34; href=&#34;https://saffron.finance/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Saffron Finance&lt;/a&gt;. It&amp;rsquo;s essentially a tranching abstraction layer built on top of the Compound DAI market. The risk segregation is straightforward with two main tranches + one:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The &lt;strong&gt;AA tranche&lt;/strong&gt;, &lt;strong&gt;covered in case of platform failure&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;A tranche&lt;/strong&gt;, supplying the cover for the AA tranche (= slashing if a failure occurs) but earns a much &lt;strong&gt;more favorable APY&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;There is a third tranche - the &lt;strong&gt;S tranche&lt;/strong&gt;. However, it is simply rebalancing between the two others as needed.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/risk-tranching/saffron.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;The different tranches available on Saffron Finance&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Tranching occurs on an epoch-basis, currently set at two weeks. So if you supply the A tranche, for instance, you are bearing the risk of platform failure for the AA tranche for a 2 week period.&lt;/p&gt;
+&lt;p&gt;Thanks to the excitement that followed the launch, Saffron grew to close to $60M assets deposited. Since then, the dust settled around a low bar of roughly $15M of assets.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/risk-tranching/saffron-debank.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Saffron Finance TVL - Debank&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;On the charts, we can see some sharp withdrawals: it&amp;rsquo;s due to the epoch-based logic of Saffron. At the end of every epochs, depositors are not earning rewards anymore until they pull out and deposit in the next epoch tranches.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Saffron is looking to expand to other money markets, most obviously Aave and expand their token coverage (currently only DAI). Other projects are exploring the idea of tranching, most notably &lt;a class=&#34;link&#34; href=&#34;https://barnbridge.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;BarnBridge&lt;/a&gt;, but their current achievements are less enticing in my book.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Last minute edit: BarnBridge &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/CoinbaseCustody/status/1348739247277268997&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;BOND token is now listed on Coinbase&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Now that we have a more practical understanding of tranching and how it can work, let&amp;rsquo;s take a step back to understand what it provides in the broader context of risk management in decentralized finance.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;understanding-the-broader-context-of-risk-management-in-defi&#34;&gt;Understanding the broader context of risk management in DeFi
+&lt;/h2&gt;&lt;p&gt;So far, we&amp;rsquo;ve focused on the sole risk related to the definancial product itself: mainly smart contract risks, oracle, and economic attacks. We&amp;rsquo;ve left at least two layers of risk untouched:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;APY Variation&lt;/strong&gt;: The APY of the service used is usually variable, so there is an additional layer of exposure there.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Token Price Fluctuation&lt;/strong&gt;: Sometimes, the returns are paid in token different from the ones deposited. If the payout token is not a stablecoin, its price can vary - meaning there is yet an additional layer of exposure to consider here if we want to be exhaustive.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Besides, to fully understand the broader context, let&amp;rsquo;s not forget that there are several distinct &amp;ldquo;temporal approaches&amp;rdquo; to risk:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Using an approach such as tranching, you can be &lt;strong&gt;proactive&lt;/strong&gt;, splitting the risk &lt;strong&gt;beforehand&lt;/strong&gt; between participants that understand their exposure.&lt;/li&gt;
+&lt;li&gt;It can also go hand in hand with more &lt;strong&gt;reactive approaches&lt;/strong&gt;, such as insurance - a system providing payout &lt;strong&gt;afterward&lt;/strong&gt; in the event of a failure.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The insurance markets are another fascinating topic by themselves, so we&amp;rsquo;ll stick to this simple mention for now and go back to our yields.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Note&lt;/p&gt;&lt;p&gt;While we&amp;rsquo;re talking about insurance, a fascinating project just launched - Unslashed Finance. It&amp;rsquo;s made in France by a builder I admire, so I&amp;rsquo;m a little biased, but feel free &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://medium.com/unslashed/manifesto-for-a-decentralised-crypto-insurance-unslashed-finance-873078fd0ddd&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;to read their manifesto&lt;/a&gt;&lt;/strong&gt; to learn more about their vision.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;another-take-on-risk-management-for-yields-apy-fixation&#34;&gt;Another take on risk management for yields: APY-fixation
+&lt;/h2&gt;&lt;p&gt;As we were saying, the APY of the different yield products available in decentralized finance are constantly fluctuating. It makes for a less predictable income and prevents the entry of investors who are not willing to stomach several layers of risk.&lt;/p&gt;
+&lt;p&gt;To address this issue, another layer of meta-financial services is emerging - the base value proposition as an investor is quite simple: they offer a &lt;strong&gt;fixed APY on depositors&amp;rsquo; investments&lt;/strong&gt;. It&amp;rsquo;s essentially another flavor of &amp;ldquo;insurance&amp;rdquo;: you&amp;rsquo;ll get overall a bit of a lower yield, but it&amp;rsquo;s predictable. It&amp;rsquo;s very similar to a stable-interest loan on Aave (vs variable rate).&lt;/p&gt;
+&lt;p&gt;The buyer side of such services is super interesting: picture it &lt;strong&gt;like a prediction market, for the yield of a given vault or investment product.&lt;/strong&gt; Buyers deposit some assets and place a bet on the expected average yield: the closer their prediction is, the better is the return.&lt;/p&gt;
+&lt;p&gt;I don&amp;rsquo;t see the buyer side becoming mainstream anytime soon, but it provides the backbone to yet another useful financial primitive useful to provide services more suited to more risk-averse investors.&lt;/p&gt;
+&lt;h3 id=&#34;apy-fixation-in-practice&#34;&gt;APY-Fixation in practice
+&lt;/h3&gt;&lt;p&gt;So far, there are two projects working on delivering fixed-APY yield on popular decentralized investment products such as the Yearn vaults: &lt;a class=&#34;link&#34; href=&#34;https://apwine.fi/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;APWine&lt;/a&gt; &amp;amp; &lt;a class=&#34;link&#34; href=&#34;https://88mph.app/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;88mph&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Just like Saffron, 88mph is another abstraction layer built on top of Compound, Aave, and Harvest deposits. It provides a &lt;strong&gt;fixed APY for depositors&lt;/strong&gt;, while on the other side of the market buyers of floating-rate bonds are bearing the risk of the fluctuations of the APY of the underlying investment product.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/risk-tranching/88mph.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;88mph main interface&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;what-does-the-endgame-look-like&#34;&gt;What does the endgame look like?
+&lt;/h2&gt;&lt;p&gt;Let&amp;rsquo;s wrap this up with a little thought experiment. We&amp;rsquo;re now leaving the present and what is currently live on the Ethereum mainnet to extrapolate a bit and consider what tranching &amp;amp; other risk management approaches can enable in DeFi a few months or years from now.&lt;/p&gt;
+&lt;p&gt;Assuming:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;An investment product built, for instance, on the Aave money market:&lt;/li&gt;
+&lt;li&gt;With a Saffron-like product integrated into it&lt;/li&gt;
+&lt;li&gt;Also with an 88mph-like service integrated into it&lt;/li&gt;
+&lt;li&gt;And finally, an insurance such as Unslashed also natively integrated for the DAI peg.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You could envision &lt;strong&gt;the first &amp;ldquo;risk-free&amp;rdquo; DeFi investment&lt;/strong&gt;, which would be a wrapped deposit of say DAI on Aave, coming along with tranching to only bear the price risk hedged by a coverage against DAI losing its peg on Unslashed earning a fixed APY.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s insane to consider the different steps of the evolution of let&amp;rsquo;s say DAI we witnessed or are about to witness in barely two years:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;DAI&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Interest-bearing&lt;/strong&gt; DAI&lt;/li&gt;
+&lt;li&gt;Interest-bearing DAI with a &lt;strong&gt;fixed APY&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Interest-bearing DAI with a fixed APY &lt;strong&gt;not bearing the technical risks&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Interest-bearing DAI with a fixed APY not bearing the technical risks &amp;amp; &lt;strong&gt;covered against DAI losing its peg&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;aFIXEDAPYDAI_PEGINSURED: our new monetary overlord? The actual name will be way more catchy, rest assured!&lt;/p&gt;
+&lt;p&gt;Are you ready to witness &lt;strong&gt;the future of money unfolding methodically before your very eyes as your assets receive software updates&lt;/strong&gt;?&lt;/p&gt;
+&lt;p&gt;I for one cannot wait: I&amp;rsquo;ve been prepping for the past three years.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;Thanks to Waël for making the cover image featured at the top of this article (as well as the TokenBrice emblem).&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;🙏 Huge thanks to HHK, Charles, Thomas, Erwan, &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/phil_h&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PhilH&lt;/a&gt; &amp;amp; FrenchTony for proofreading the French version of this article and translating it integrally into English.&lt;/em&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

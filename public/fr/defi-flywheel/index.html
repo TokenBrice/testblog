@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="On analyse la course à l'accumulation des CRV avec le lancement de Convex pour comprendre le concept de flywheel en DeFi\u00a0: des protocoles qui évoluent en synergie grâce à leur tokenomics.">
+<title>🎡 Flywheel DeFi : synergies de protocoles à protocoles, par tokens interposés </title>
+
+<link rel='canonical' href='http://localhost:1313/fr/defi-flywheel/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="🎡 Flywheel DeFi : synergies de protocoles à protocoles, par tokens interposés ">
+<meta property='og:description' content="On analyse la course à l'accumulation des CRV avec le lancement de Convex pour comprendre le concept de flywheel en DeFi\u00a0: des protocoles qui évoluent en synergie grâce à leur tokenomics.">
+<meta property='og:url' content='http://localhost:1313/fr/defi-flywheel/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Finance décentralisée' /><meta property='article:tag' content='Marchés Monétaires' /><meta property='article:tag' content='Liquity' /><meta property='article:tag' content='Curve Finance' /><meta property='article:tag' content='CRV' /><meta property='article:tag' content='Polygon' /><meta property='article:tag' content='Convex' /><meta property='article:tag' content='CVX' /><meta property='article:tag' content='Yearn Finance' /><meta property='article:tag' content='Pickle Finance' /><meta property='article:tag' content='Adamant Finance' /><meta property='article:published_time' content='2021-06-08T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2021-06-08T01:13:50&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/2021/defi-flywheel/defi-flywheel-cover-en.png' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="🎡 Flywheel DeFi : synergies de protocoles à protocoles, par tokens interposés ">
+<meta name="twitter:description" content="On analyse la course à l'accumulation des CRV avec le lancement de Convex pour comprendre le concept de flywheel en DeFi\u00a0: des protocoles qui évoluent en synergie grâce à leur tokenomics."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/2021/defi-flywheel/defi-flywheel-cover-en.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Afficher le menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/fr/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/fr">TokenBrice</a></h1>
+            <h2 class="site-description">DeFi en brutale honnêteté</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/fr/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Accueil</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/%C3%A0-propos/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>À Propos</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Recherche</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/fr/liens/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Liens</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" >English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" selected>Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Mode sombre</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table des matières</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#lémergence-de-la-première--flywheel-defi">L&rsquo;émergence de la première 🎡 flywheel DeFi</a></li>
+    <li><a href="#crv--une-tokenomics-qui-appelle-les--flywheels-">CRV : Une tokenomics qui appelle les 🎡 flywheels ?</a></li>
+    <li><a href="#le-modèle-de-convex-première-flywheel-">Le modèle de Convex, première flywheel 🎡</a>
+      <ol>
+        <li><a href="#les-frais--le-nerf-de-la-guerre">Les frais : le nerf de la guerre</a></li>
+      </ol>
+    </li>
+    <li><a href="#anticiper-les-prochaines-flywheels-">Anticiper les prochaines flywheels ?</a>
+      <ol>
+        <li><a href="#pickle-finance--une-flywheel-arrivée-trop-tôt">Pickle Finance : une flywheel arrivée trop tôt</a></li>
+        <li><a href="#adamant-finance---flywheel-sur-les-lp-polygon-">Adamant Finance : 🎡 flywheel sur les LP Polygon ?</a></li>
+        <li><a href="#un-service-x-sur-liquity---flywheel-sur-un-marché-monétaire-">Un service X sur Liquity : 🎡 flywheel sur un marché monétaire ?</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/fr/defi-flywheel/">
+                
+                    <img src="/img/2021/defi-flywheel/defi-flywheel-cover-en.png" loading="lazy" alt="Featured image of post 🎡 Flywheel DeFi : synergies de protocoles à protocoles, par tokens interposés " />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/fr/categories/defi/" style="background-color: #2a9d8f; color: #fff;">
+                DeFi
+            </a>
+        
+            <a href="/fr/categories/understanding/" style="background-color: #2a9d8f; color: #fff;">
+                Comprendre
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/fr/defi-flywheel/">🎡 Flywheel DeFi : synergies de protocoles à protocoles, par tokens interposés </a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            On analyse la course à l&#39;accumulation des CRV avec le lancement de Convex pour comprendre le concept de flywheel en DeFi : des protocoles qui évoluent en synergie grâce à leur tokenomics.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">juin 08, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    12 minutes de lecture
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+        <footer class="article-translations">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+            <div>
+                
+                    <a href="http://localhost:1313/defi-flywheel/" class="link">English</a>
+                
+            </div>
+        </footer>
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>En trois semaines, le protocole Convex a attiré plus de $ 3 milliards de dépôts, tout en devenant la plus grande 🐳 baleine de CRV, aujourd&rsquo;hui et à priori pour toujours. La chance n&rsquo;est jamais un facteur négligeable, mais avec une entrée aussi fracassante dans les sommets de la DeFi il faut chercher bien plus loin. En effet, la clef de compréhension de l&rsquo;ascension fulgurante de Convex c&rsquo;est la tokenomics, et c&rsquo;est donc notre sujet du jour !</p>
+<p>En DeFi, outre les caractéristiques techniques il faut aussi être fin sociologue, ou plutôt &ldquo;game theorist&rdquo; comme on dit par ici : savoir anticiper les réactions des foules à un jeu de règles données.</p>
+<p>L&rsquo;émergence des programmes d&rsquo;incitations de liquidité (liquidity mining) l&rsquo;année dernière a démontré qu&rsquo;un jeu de règles approprié peut mettre des quantités colossales de capital en mouvement. La question est désormais de savoir le faire à bon escient, c&rsquo;est-à-dire en étant conscient des enjeux <strong>sur le long terme.</strong></p>
+<p>En effet, le liquidity mining par lui-même n&rsquo;attire à priori que des <strong>dépôts mercenaires et opportunistes</strong>. En soit, le liquidity mining est davantage un outil qui sert à faire connaître un projet qu&rsquo;à sa pérennisation.</p>
+<p>Durer en DeFi, c&rsquo;est une affaire de tokenomics : c&rsquo;est-à-dire les mécaniques des tokens natifs des protocoles. <strong>La tokenomics, c&rsquo;est en quelque sorte le gameplay d&rsquo;un protocole DeFi</strong>.</p>
+<p>Vous le savez sans doute, je suis un grand admirateur du modèle CRV. Ça tombe à pic, puisque le jeu autour du token CRV n&rsquo;a jamais été aussi vif que ces dernières semaines. Certains parlent même de #lockening pour décrire <strong>la course à l&rsquo;accumulation de VeCRV</strong> à laquelle se livrent Convex, Yearn et StakeDAO.</p>
+<p>On va rentrer dans le détail pour bien comprendre le concept de flywheel avec l&rsquo;exemple de Convex / Curve. Je finirai par l&rsquo;analyse de protocoles qui pourraient se prêter à un scénario similaire.</p>
+<h2 id="lémergence-de-la-première--flywheel-defi">L&rsquo;émergence de la première 🎡 flywheel DeFi
+</h2><p>Avec le lancement de Convex, on a commencé à utiliser un nouveau terme pour décrire son fonctionnement et sa tokenomics : 🎡 flywheel.</p>
+<p>Il n&rsquo;a pas vraiment de définition précise encore mais je me mouille : cela décrit un protocole qui réussit un triptyque gagnant :</p>
+<ol>
+<li>Une tokenomics qui offre des opportunités intéressantes aux possesseurs du token optimistes sur le futur du modèle.</li>
+<li>Un protocole qui est lui-même pertinent et répond à un vrai besoin, idéalement en synergie directe avec un autre protocole.</li>
+<li>Un programme de liquidity mining (+airdrop) pour lancer la boucle et attirer les premiers possesseurs du token.</li>
+</ol>
+<p>J&rsquo;ai généralisé le modèle de Convex, mais il a une particularité supplémentaire : Convex est en quelque sorte un &ldquo;meta-protocole&rdquo; : il est <strong>construit entièrement sur Curve Finance et en synergie avec celui-ci.</strong></p>
+<p>Ainsi, l&rsquo;ancêtre de la flywheel serait sans doute à chercher parmi les protocoles construits en synergie avec d&rsquo;autres. Par exemple, bien qu&rsquo;il soit construit sur BSC et <a class="link" href="https://rekt.news/pancakebunny-rekt/"  target="_blank" rel="noopener"
+    >ait subi une attaque conséquente récemment</a>, le protocole Bunny a bien aidé le DEX PancakeSwap à se développer.</p>
+<p>En effet, Bunny propose de gérer les positions d&rsquo;apport de liquidité Pancake, tout en émettant son propre token en fonction des rendements générés. Cela permet de simplifier la gestion des positions des apporteurs de liquidité sur Pancake tout en générant une source de rendement supplémentaire (token BUNNY).</p>
+<p>Alors pour bien comprendre le concept de 🎡 flywheel, on va analyser la meilleure qu&rsquo;on ait eu l&rsquo;occasion de voir à ce jour : Convex. Elle s&rsquo;avère un peu plus compliquée car elle s&rsquo;appuie sur Curve, il faut donc déjà avoir saisi les enjeux à ce niveau là.</p>
+<h2 id="crv--une-tokenomics-qui-appelle-les--flywheels-">CRV : Une tokenomics qui appelle les 🎡 flywheels ?
+</h2><p>La tokenomics de Curve Finance a bientôt un an et pourtant elle est encore souvent mal comprise.</p>
+<p>La grande élégance de la tokenomics CRV, c&rsquo;est qu&rsquo;elle <strong>aligne les intérêts de plusieurs acteurs mieux que tout autre connue à ce jour</strong> : les apporteurs de liquidité sur Curve, les holdeurs de CRV et le protocole Curve lui-même.</p>
+<p>En effet, le modèle tend avec le temps à confondre les deux populations (CRV holdeurs et LP) grâce à deux mécaniques :</p>
+<ol>
+<li>Les apporteurs de liquidité sont rémunérés en CRV.</li>
+<li>Les stakers de CRV (holdeurs VeCRV) peuvent &ldquo;booster&rdquo; le rendement en CRV de leur position d&rsquo;apport de liquidité sur Curve.</li>
+</ol>
+<p>Le modèle crée ainsi un chemin intéressant pour les utilisateurs du protocole, qui sont <strong>fortement incités à s&rsquo;engager dans la durée</strong>. En effet, verrouiller des CRV en VeCRV devient de plus en plus efficace plus l&rsquo;engagement est long - le maximum étant 4 ans.</p>
+<p>Pour aller plus loin tout en français, je vous invite à suivre le <a class="link" href="https://www.youtube.com/watch?v=G5PbqGtjSDQ"  target="_blank" rel="noopener"
+    >direct-marathon Curve Finance avec Charlie.</a> Sinon, <a class="link" href="https://stakecapital.substack.com/p/curve-tokenomics-and-first-mover"  target="_blank" rel="noopener"
+    >cet article en anglais est aussi utile.</a></p>
+<p><img src="/img/2021/defi-flywheel/crv-tokenomics.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="crv-tokenomics"
+	
+	
+></p>
+<p>Néanmoins, le modèle CRV connait aussi ses limites, la plus évidente étant l&rsquo;impact des frais de transaction Ethereum : des sommes importantes peuvent être requises pour que le jeu commence à faire du sens.</p>
+<p>Le truc, c&rsquo;est que depuis longtemps, les plus grands apporteurs de liquidité sur Curve ne sont plus des utilisateurs mais <strong>d&rsquo;autres protocoles</strong>. Mutualiser les fonds permet ainsi de réduire l&rsquo;impact des frais en gaz tout en développant potentiellement une stratégie d&rsquo;accumulation de VeCRV.</p>
+<p>C&rsquo;est ainsi que différentes solutions sont apparues pour <strong>gérer les positions d&rsquo;apport de liquidité sur Curve</strong>, la plus connue étant Yearn, mais il y a aussi Harvest et StakeDAO. Bien qu&rsquo;elles puissent être utiles pour les déposants, elles souffrent de deux grandes limites : les frais de gestions élevés ainsi que leur approche proche de celle d&rsquo;un parasite. Yearn, Harvest ou StakeDAO vendent immédiatement tout token farmé. Cela résulte en une pression vendeuse grandissante sur le token natif des protocoles utilisés pour produire le rendement.</p>
+<h2 id="le-modèle-de-convex-première-flywheel-">Le modèle de Convex, première flywheel 🎡
+</h2><p>Fonctionnellement, Convex propose un service similaire à Yearn aux apporteurs de liquidité sur Curve : la <strong>gestion automatisée de leur position afin d&rsquo;en optimiser le rendement</strong>. Tout comme Yearn, Convex a une stratégie d&rsquo;accumulation de VeCRV afin de maximiser le rendement des déposants en CRV grâce au mécanisme de boost.</p>
+<p>Néanmoins, l&rsquo;approche sous-jacente est totalement différente de Yearn et s&rsquo;inscrit dans une synergie vertueuse avec Curve :</p>
+<ol>
+<li><strong>Pas de vente systématique</strong> : contrairement à Yearn, Convex ne vend pas les tokens farmés. Les apporteurs de liquidité sont ainsi rémunérés en CRV mais aussi en CVX, le token natif de Convex.</li>
+<li>Les <strong>frais collectés par Convex sont dédiés à 100% au protocole</strong>, tandis que Yearn par exemple paie des &ldquo;strategists&rdquo; - de toute évidence assez redondants sur une stratégie simple comme celle-ci.</li>
+<li>Grâce à la distribution des frais collectés, Convex crée deux <strong>opportunités de staking intéressantes</strong> pour composer ses rendements, détaillées plus bas.</li>
+<li>Enfin, <strong>la liquidité</strong> sur le token qui représente un CRV dans Convex (CvxCRV) est <strong>plus</strong> <strong>optimale</strong> que l&rsquo;équivalent Yearn : CvxCRV s&rsquo;échange dans une pool directement contre le CRV, avec un programme d&rsquo;incitation en CVX.</li>
+</ol>
+<h3 id="les-frais--le-nerf-de-la-guerre">Les frais : le nerf de la guerre
+</h3><p>Bien comprendre la structure des frais est essentiel pour arriver à saisir ce qu&rsquo;il s&rsquo;est passé avec Convex. Le protocole contrôle désormais plus de 32M de VeCRV, soit <strong>presque deux fois le total de Yearn, et ce à peine après trois semaines d&rsquo;existence</strong>.</p>
+<p><img src="/img/2021/defi-flywheel/convex-curve-stats.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="convex-curve-stats"
+	
+	
+></p>
+<p>Convex prélève un frais total de 16% sur l&rsquo;ensemble des CRV farmés sur le protocole (contre 20/2 sur tous les tokens pour Yearn, ou 30% pour Harvest par exemple). Sur les 16%, 1% sert à couvrir les frais opérationnels comme le coût en gas des collectes.</p>
+<p><img src="/img/2021/defi-flywheel/convex-synergies-CRV.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="convex-synergies-CRV"
+	
+	
+></p>
+<p>Le plus intéressant s&rsquo;opère au niveau de la redistribution des 15% restants, soit 15% de tous les CRV farmés par Convex (<strong>plus de 400 000 CRV par jour</strong> au rythme actuel). Vous pouvez consulter la <a class="link" href="https://curve.fi/pools?see=0x989aeb4d175e16225e39e87d0d97a3360524ad80"  target="_blank" rel="noopener"
+    >position Curve de Convex via CurveMarketCap par ici.</a> Deux populations de stakers sont éligibles à ce juteux gâteau :</p>
+<ol>
+<li><strong>10% sont reversés aux stakers de CvxCRV</strong>, sous forme de CRV, en plus de leur rendement en token 3pool et CVX (+airdrops VeCRV holder). Posséder du CvxCRV devient ainsi bien plus attractif que du VeCRV pour un simple déposant.</li>
+<li><strong>5% sont reversés aux stakers de CVX</strong>, sous forme de CvxCRV. Cela signifie donc que 5% de tous les CRV farmés par Convex sont capturés et verrouillés au sein du protocole. Cela permet d&rsquo;augmenter mécaniquement la réserve de VeCRV même si aucun dépôt de CRV par un tiers n&rsquo;a lieu.</li>
+</ol>
+<p>La situation est encore en plein développement et on observe encore des écarts surprenants : par exemple à l&rsquo;heure où j&rsquo;écris ces lignes (07 juin) la capitalisation totale du token CVX ne représente même pas la moitié de la valeur des CRV que possède le protocole ($30M vs $80M). Je pense que la situation va s&rsquo;harmoniser sur le long terme.</p>
+<h2 id="anticiper-les-prochaines-flywheels-">Anticiper les prochaines flywheels ?
+</h2><p>Avec quelques notions sur Curve et une analyse de la flywheel 🎡 Convex, on a désormais les cartes en mains pour se risquer au jeu de la prospective. Avant cela néanmoins je vous propose plutôt d&rsquo;aller regarder dans le passé pour analyser une presque flywheel ratée : Pickle Finance.</p>
+<h3 id="pickle-finance--une-flywheel-arrivée-trop-tôt">Pickle Finance : une flywheel arrivée trop tôt
+</h3><p>Sur le papier, Pickle a tout d&rsquo;une flywheel : c&rsquo;est un système pour augmenter les rendements des dépôts Yearn grâce à l&rsquo;émission additionnelle de token PICKLE. PICKLE reprend des éléments du système VeCRV, avec un mécanisme de verrouillage (DILL) qui permet de stimuler les rendements en PICKLE des dépôts sur Pickle Finance.</p>
+<p>Sauf que… Pickle n&rsquo;apporte techniquement strictement rien en plus de Yearn, en dehors de l&rsquo;émission de PICKLE. En outre, Pickle ne se spécialise pas : des fermes sont proposées sur les vault Yearn mais aussi certaines paires Sushi. À l&rsquo;inverse de Convex, Pickle n&rsquo;est donc pas en mesure de développer un avantage unique (moat) sur les services farmés.</p>
+<p>En DeFi rien n&rsquo;est définitif. La situation de Pickle pourrait évoluer, si les tokenomics des protocoles sous-jacents (YFI et SUSHI) évoluent. Les deux protocoles semblent s&rsquo;orienter vers une réappropriation du modèle VeCRV donc c&rsquo;est tout à fait possible. Un modèle qui mèle la logique de burn Adamant/Ellipsis et le boosting Curve a même été proposé pour Sushi : <strong><a class="link" href="https://forum.sushi.com/t/sushinomics-introducing-osushi/4055"  target="_blank" rel="noopener"
+    >oSUSHI</a></strong>.</p>
+<p><img src="/img/2021/defi-flywheel/veYFI.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="veYFI"
+	
+	
+></p>
+<h3 id="adamant-finance---flywheel-sur-les-lp-polygon-">Adamant Finance : 🎡 flywheel sur les LP Polygon ?
+</h3><p>Adamant est un protocole encore récent qui existe sur la sidechain Polygon. Il permet la gestion facilitée des positions d&rsquo;apport de liquidité sur les principaux services d&rsquo;échanges : QuickSwap, Cometh, SushiSwap, etc.</p>
+<p>Outre la composition automatique des rendements, Adamant offre aussi des récompenses supplémentaires en ADDY (en fonction des profits générés). Tous les ADDY obtenus sont vested (verrouillés) pendant 3 mois et peuvent être retirés plus tôt avec une pénalité de 50%. Celle-ci est redistribué à ceux qui acceptent de staker + locker leur ADDY pendant 3 mois.</p>
+<p>En outre, tous les stakers de ADDY (même ceux vested) bénéficient d&rsquo;une part des frais collectés par la plateforme, distribués en wMATIC. Le protocole dispose donc d&rsquo;une tokenomics déjà assez élaborée avec différents mécanismes de rétention, mais il lui reste encore quelques améliorations à trouver pour devenir une flywheel.</p>
+<p>La première consisterait à introduire une plus grande incitation à verrouiller ses ADDY grâce à un système de boost similaire à Curve. Les déposants possédant des ADDY en stake+lock disposeront ainsi d&rsquo;un meilleur rendement en ADDY sur leur position LP. C&rsquo;est déjà en discussion voir même en développement.</p>
+<p>Reste à Adamant à développer une synergie avec les protocoles farmés aussi solide que Convex avec Curve. C&rsquo;est pour l&rsquo;instant difficile voir impossible car aucun d&rsquo;entre eux ne dispose d&rsquo;une tokenomics aussi subtile que CRV.</p>
+<h3 id="un-service-x-sur-liquity---flywheel-sur-un-marché-monétaire-">Un service X sur Liquity : 🎡 flywheel sur un marché monétaire ?
+</h3><p>Jusqu&rsquo;à présent, on a discuté de flywheels construits sur des services d&rsquo;échange décentralisés, cela semble le plus évident. Néanmoins on peut envisager des modèles similaires sur d&rsquo;autres types de service, comme les marchés monétaires.</p>
+<p>Je vous propose donc de finir avec une flywheel théorique maison. À ma connaissance un tel protocole n&rsquo;existe pas encore : c&rsquo;est à vous de jouer !</p>
+<p>L&rsquo;équation de base est simple :</p>
+<ol>
+<li>Il y a une forte demande pour des <strong>produits &ldquo;passifs ETH&rdquo;</strong> - des produits qui développent des stratégies sur ETH en vue d&rsquo;accumuler des ETH.</li>
+<li>Pour se faire, une des options est d&rsquo;emprunter des stablecoins en utilisant les ETH comme collatéral. Les stablecoins peuvent ainsi produire un rendement supplémentaire.</li>
+<li>Pour cette stratégie, Liquity serait <strong>la plateforme de prédilection sans contestation possible</strong>. En effet, le coût d&rsquo;emprunt y est le plus bas du marché (presque 12x moins cher que Maker sur une année) et les opportunités de rendement sur le stablecoin LUSD ne manquent pas.</li>
+</ol>
+<p><img src="/img/2021/defi-flywheel/protocole-x-liquity.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="protocole-x-liquity"
+	
+	
+></p>
+<p>L&rsquo;enjeu sur une telle stratégie mutualisée c&rsquo;est de <strong>gérer le ratio de collatéralisation</strong> et d&rsquo;être en mesure de l&rsquo;équilibrer rapidement si le marché venait à bouger. Là encore, Liquity s&rsquo;y prête bien puisque la stability pool offre un rendement attractif sur le LUSD tout en permettant de  <strong>mobiliser rapidement les LUSD pour rembourser la dette si besoin</strong>.</p>
+<p>Le protocole X en question proposerait ainsi <strong>un produit passif de rendement sur l&rsquo;ETH</strong> pour les utilisateurs finaux qui n&rsquo;auraient pas à gérer la position eux-même. On peut également envisager que le protocole X ait son propre token avec une tokenomics qui vient adresser un des principaux dangers de la stratégie : le manque de prédictibilité. Ainsi le token natif de protocole X pourrait servir à inciter les dépôts longs et d&rsquo;une durée prévisible (les utilisateurs verrouillent leur ETH sur 3/6/9/12 mois par ex).</p>
+<p>Des engagements longue durée permettent également de <strong>développer une stratégie sur les LQTY farmés par les LUSD.</strong> Ainsi en engageant des ETH pendant un an dans le protocole par exemple, l&rsquo;utilisateur accumulera un droit sur une portion des LQTY farmés par l&rsquo;ensemble du protocole, et donc un droit, à vie, aux LUSD et ETH qu&rsquo;ils génèrent. La synergie du protocole avec Liquity ainsi que les rendements long-terme sont maximisés si le protocole X ne vend aucun LQTY, comme c&rsquo;est le cas dans le concept proposé ci-dessus.</p>
+<p>J&rsquo;espère que cet article vous aidera à mieux comprendre ce qu&rsquo;il s&rsquo;est joué avec Convex, Yearn et Curve ces dernières semaines et utiliser les leçons tirées de cet épisode pour identifier les prochaines opportunités similaires.</p>
+<p>Ce qui est chouette avec les différents mécanismes d&rsquo;incitation, c&rsquo;est qu&rsquo;ils précèdent l&rsquo;action. En game theory, il n&rsquo;y a pas de certitudes, mais certains comportements sont quasiment mécaniques - pour qui comprend réellement les incitations et leurs enjeux. C&rsquo;est à vous de jouer !</p>
+<p><em>🙏 Un grand merci à HHK, Charles, Thomas, Erwan, <a class="link" href="https://twitter.com/phil_h"  target="_blank" rel="noopener"
+    >PhilH</a> &amp; FrenchTony pour leur relecture attentive de l&rsquo;édition française de cet article et sa traduction en Anglais.</em></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/fr/tags/defi/">DeFi</a>
+        
+            <a href="/fr/tags/ethereum/">Ethereum</a>
+        
+            <a href="/fr/tags/finance-d%C3%A9centralis%C3%A9e/">Finance Décentralisée</a>
+        
+            <a href="/fr/tags/march%C3%A9s-mon%C3%A9taires/">Marchés Monétaires</a>
+        
+            <a href="/fr/tags/liquity/">Liquity</a>
+        
+            <a href="/fr/tags/curve-finance/">Curve Finance</a>
+        
+            <a href="/fr/tags/crv/">CRV</a>
+        
+            <a href="/fr/tags/polygon/">Polygon</a>
+        
+            <a href="/fr/tags/convex/">Convex</a>
+        
+            <a href="/fr/tags/cvx/">CVX</a>
+        
+            <a href="/fr/tags/yearn-finance/">Yearn Finance</a>
+        
+            <a href="/fr/tags/pickle-finance/">Pickle Finance</a>
+        
+            <a href="/fr/tags/adamant-finance/">Adamant Finance</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Dernière mise à jour le juin 08, 2021 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Contenus liés</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/fr/defi-janus/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/defi-janus/defi-janus-cover-en.png" loading="lazy" data-key="" data-hash="/img/2021/defi-janus/defi-janus-cover-en.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Janus : le nouvel ennemi juré des protocoles DeFi ?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/crv-wars-l2/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/curve-wars-l2/curve-wars-l2-cover-tokenbrice.png" loading="lazy" data-key="" data-hash="/img/2022/curve-wars-l2/curve-wars-l2-cover-tokenbrice.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">⚔ Guerre du CRV avancée : analyse des protocoles construits sur Curve et Convex </h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/crv-wars/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/crv-wars/curve-wars-cover-tokenbrice.png" loading="lazy" data-key="" data-hash="/img/2021/crv-wars/curve-wars-cover-tokenbrice.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">⚔ Guerre du CRV : comprendre la course à l&#39;accumulation de la capacité à influencer le protocole Curve Finance</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/unstoppable-defi/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/unstoppable-defi/unstoppable-defi-tokenbrice-cover.png" loading="lazy" data-key="" data-hash="/img/2022/unstoppable-defi/unstoppable-defi-tokenbrice-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Dans les coulisses du théâtre de la décentralisation : étude de l’inaltérabilité des protocoles DeFi</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fr/defi-vs-inflation/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/defi-vs-inflation/defi-vs-inflation-tokenbrice-cover.jpg" loading="lazy" data-key="" data-hash="/img/2022/defi-vs-inflation/defi-vs-inflation-tokenbrice-cover.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Comment construire un portefeuille DeFi résistant à l&#39;inflation ?</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Généré avec <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Thème <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> conçu par <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

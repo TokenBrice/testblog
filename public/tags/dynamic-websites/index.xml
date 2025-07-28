@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Dynamic Websites on TokenBrice</title>
+        <link>http://localhost:1313/tags/dynamic-websites/</link>
+        <description>Recent content in Dynamic Websites on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Mon, 18 Mar 2019 09:44:14 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/dynamic-websites/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>The Edge of the Static Web</title>
+        <link>http://localhost:1313/p/the-edge-of-the-static-web/</link>
+        <pubDate>Mon, 18 Mar 2019 09:44:14 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/the-edge-of-the-static-web/</guid>
+        <description>&lt;p&gt;&lt;code&gt;This article is the second of a series which examines the technical reasons behind the renewed interest for static websites, from both a content writer and a developer perspective. It also provides you with useful tools and services to build a static website. If you want to learn more about the macro perspective behind the shift toward the static web, feel free to read:&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/p/static-web-back-to-the-roots/&#34; &gt;Static web - back to the roots?&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;static-websites-serve-their-purpose-better&#34;&gt;Static websites serve their purpose better
+&lt;/h3&gt;&lt;p&gt;Let&amp;rsquo;s leave the tech aside for a second and take a step back. What&amp;rsquo;s the first goal of a website? Let me gonna risk the &amp;ldquo;to be seen and read&amp;rdquo; answer. So then how can speed and performance be so much overlooked? It&amp;rsquo;s a direct factor in the equation.&lt;/p&gt;
+&lt;p&gt;Consider for instance the New York Times, which is far from the worst in terms of development practices. Let&amp;rsquo;s load the same page (&lt;a class=&#34;link&#34; href=&#34;https://www.nytimes.com/section/health&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Health Section&lt;/a&gt;) in two different &amp;ldquo;versions&amp;rdquo;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The full one, including all trackers, ads, and unnecessary scripts. Rendered using Chrome, private browsing with no extensions.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;The cleaned one, using Firefox and several extensions to remove most advertisements, tracking and other unnecessary scripts.&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;The tests were realized on my laptop with a connection speed of ~7 Mbps upload/download.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Here are the eloquent results:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;/&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;FULL/BLOATED VERSION&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;BAREBONE/SUFFICIENT VERSION&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;OBSERVED Δ&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;PAGE WEIGHT (MB)&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;4.9&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1.01&lt;/td&gt;
+&lt;td&gt;79% lower&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;NB OF REQUESTS&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;295&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;25&lt;/td&gt;
+&lt;td&gt;91.5% lower&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;LOAD TIME (S)&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;5.21&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2.07&lt;/td&gt;
+&lt;td&gt;60 % lower&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The results we observe are consistent with our experimentations. &lt;strong&gt;Static websites are about 10 times lighter than their dynamic counterpart.&lt;/strong&gt; So how comes dynamic became the standard, especially during the 2005-2015 period where the connection speeds were still limited?&lt;/p&gt;
+&lt;h3 id=&#34;from-the-dynamic-heresy&#34;&gt;From the Dynamic Heresy
+&lt;/h3&gt;&lt;p&gt;If you think about this from today&amp;rsquo;s perspective, the whole thing is absurd - the very existence of WordPress is essentially senseless, considering its primary usage. Instead of looking at the issue from the perspective of static websites being relevant, it&amp;rsquo;s much clearer with the tables shifted: &lt;strong&gt;dynamic websites are unnecessary in 95% of their current usage scenarios.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Of course, there are specific situations where having a dynamic website is a necessity - any case you want to render a user input for instance, like a forum or a board. &lt;strong&gt;However, the default behavior should be to build a static website&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Indeed, if your content is static (= rarely changed once published, like most websites), why choose a dynamic engine? All your users see the same pages every time. So, using a dynamic engine &lt;strong&gt;means that it forces a computation on both the server and user side every time a page is rendered&lt;/strong&gt;: it is incredibly wasteful and irresponsible.&lt;/p&gt;
+&lt;p&gt;On the other hand, a static website is built once on deployment and then simply served to all its viewers. It dramatically reduces the resource and network usage both for the server and the user.&lt;/p&gt;
+&lt;p&gt;So how did we get there?&lt;/p&gt;
+&lt;p&gt;Well it&amp;rsquo;s a tricky question but &lt;strong&gt;mostly a matter of convenience.&lt;/strong&gt; Back in 2005 and until recently, dynamic websites were all the rage. New frameworks were popping up everywhere, and clients wanted to offer an incredible experience on their website, often at the expense of performance.&lt;/p&gt;
+&lt;p&gt;So, when a developer was tasked with building a new website, he would look at the available building blocks and find shiny dynamic rendering engines. Going static back them was almost like reinventing the wheel with each development.&lt;/p&gt;
+&lt;h3 id=&#34;to-the-static-serenity&#34;&gt;To the Static Serenity
+&lt;/h3&gt;&lt;h4 id=&#34;organic-performance&#34;&gt;Organic Performance
+&lt;/h4&gt;&lt;p&gt;The overall speed and resource usage of a website have a tremendous impact on its organic performance. It was true 10 years ago, but it is even more now with the rise of mobile — &lt;strong&gt;poor performance destroys the average time on page, therefore annihilating the CTR&lt;/strong&gt; (Click-Through-Ratio)… That is if the page manages to rank in the first place.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve been working in SEO for the last few years, and I already so considerable shifts in the industry. When I started, we could grab the first spot with a well-written and researched content piece on a long-trend keyword, using a bare WordPress and requiring little to no backlinks. Nowadays the competition is intense: every detail counts, and none can be overlooked.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A website performance is like a K-factor affecting all potential interactions users can have with it.&lt;/strong&gt; Platforms like WordPress emerged to allow people to create websites without having to worry about this. Paradoxically, after years of development, such frameworks are now so bloated that they require an intense and complex optimization process — they are no longer accessible to non-tech profiles.&lt;/p&gt;
+&lt;p&gt;On the other hand, &lt;strong&gt;most static website generators are able to build websites complying with SEO best practices, out of the box&lt;/strong&gt;. This includes sitemap.xml/robots.txt generation, OpenGraph, Twitter Cards, Schema.org (rich previews), taxonomies, href lang/multilingual markup and others.&lt;/p&gt;
+&lt;p&gt;So we reached the current weird situation where despite WordPress&amp;rsquo; relative simplicity, the most straightforward option to build a blog that will be read is actually to create a static website, even for non-developers.&lt;/p&gt;
+&lt;h2 id=&#34;static-websites---resources-and-services&#34;&gt;Static Websites - Resources and Services
+&lt;/h2&gt;&lt;p&gt;Now that you have the data, you might be considering a switch to static? Welcome aboard! The next section introduces resources that will help you build a blazing fast and optimized static website.&lt;/p&gt;
+&lt;p&gt;Since the release of Jekyll in 2008, the framework adopted by GitHub, static websites are gaining traction. New frameworks and services have been developed to facilitate the conception of a static website:&lt;/p&gt;
+&lt;h3 id=&#34;static-websites-engines&#34;&gt;Static Websites Engines
+&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Logo&lt;/th&gt;
+&lt;th&gt;Framework&lt;/th&gt;
+&lt;th&gt;Language&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/img/2019/staticweb/jekyll.png&#34;
+         alt=&#34;Jekyll Logo&#34;/&gt;
+&lt;/figure&gt;
+&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://jekyllrb.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Jekyll&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Ruby&lt;/td&gt;
+&lt;td&gt;Available as a Gem or integrated with GitHub Pages. Jekyll is fast and efficient but offers minimal features out of the box. Many plugins are offering additional functionalities.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/img/2019/staticweb/gatsby.png&#34;
+         alt=&#34;Gatsby Logo&#34;/&gt;
+&lt;/figure&gt;
+&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.gatsbyjs.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Gatsby&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;React&lt;/td&gt;
+&lt;td&gt;Along with Jekyll, Gatsby is the most popular static website framework. It offers very good performance and a large range of plugin as well as integrations with many third-party services.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/img/2019/staticweb/hugo.png&#34;
+         alt=&#34;Hugo Logo&#34;/&gt;
+&lt;/figure&gt;
+&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Hugo&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Go&lt;/td&gt;
+&lt;td&gt;Hugo puts forward its impressive performance, especially while building large websites. It offers anything you need to build a website compliant with SEO best practices out of the box.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/img/2019/staticweb/hexo.png&#34;
+         alt=&#34;Hexo Logo&#34;/&gt;
+&lt;/figure&gt;
+&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://hexo.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Hexo&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;NodeJS&lt;/td&gt;
+&lt;td&gt;Another fast static website generator with a built-in package manager to install plugins and themes.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/img/2019/staticweb/pelican.png&#34;
+         alt=&#34;Pelican Logo&#34;/&gt;
+&lt;/figure&gt;
+&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.getpelican.com/en/stable/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Pelican&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Python&lt;/td&gt;
+&lt;td&gt;Pelican is another interesting alternative for pythonistas however it doesn&amp;rsquo;t have as many much third-party resources available (themes, plugins…) as the previous ones.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Static websites are also a perfect fit for documentation or e-books. Some frameworks were explicitly developed for the purpose, such as &lt;a class=&#34;link&#34; href=&#34;https://www.gitbook.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GitBook&lt;/a&gt; or &lt;a class=&#34;link&#34; href=&#34;https://docusaurus.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Docusaurus&lt;/a&gt;.&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/img/2019/staticweb/gitbook-screen.png&#34;
+         alt=&#34;GitBook Preview&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Preview of a website built with GitBook&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Finally, if you want to explore all potential options, &lt;a class=&#34;link&#34; href=&#34;https://www.staticgen.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;check this excellent, exhaustive database&lt;/a&gt; maintained by netlify (more about them below).&lt;/p&gt;
+&lt;h3 id=&#34;content-management-system&#34;&gt;Content Management System
+&lt;/h3&gt;&lt;p&gt;Once your website is up and running, you might want to implement a content management system so that your editor can easily submit new pieces of content. If you are a developer building a blog for yourself, you probably don&amp;rsquo;t need a CMS. However, they are convenient for those who make sites maintained my non-technical profiles.&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/img/2019/staticweb/forestry-screen.png&#34;
+         alt=&#34;forestry CMS&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Preview of the editor interface on Foresty&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h4 id=&#34;a-git-repository-the-base-cms&#34;&gt;A Git repository, the base CMS
+&lt;/h4&gt;&lt;p&gt;Using a Github (or Gitlab) repo as your CMS comes with many advantages over a traditional CMS, including among others:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Version control,&lt;/li&gt;
+&lt;li&gt;User and permission management,&lt;/li&gt;
+&lt;li&gt;Branches (staging, pre-prod, prod)&lt;/li&gt;
+&lt;li&gt;Access to the full files&amp;rsquo; history.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It can seem intimidating if you have non-technical profiles interacting with your website, but it doesn&amp;rsquo;t have to be: &lt;strong&gt;they don&amp;rsquo;t have to use the Git CLI to push a commit,&lt;/strong&gt; they can do all of it from Github&amp;rsquo;s website. We cover in depths the writing/editing flow of static websites in 🔴 -&amp;gt; StaticWebsite_MKT.md /WN/.&lt;/p&gt;
+&lt;h4 id=&#34;alternative-cms&#34;&gt;Alternative CMS
+&lt;/h4&gt;&lt;p&gt;If a git repo is too limited for your needs, you can consider one of the following alternatives. They are all built on top of a repo, so using a git repo as CMS should be your first step.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Logo&lt;/th&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/img/2019/staticweb/netlify.png&#34;
+         alt=&#34;Netlify Logo&#34;/&gt;
+&lt;/figure&gt;
+&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.netlifycms.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Netlify CMS&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;A CMS built for static website generator able to integrate with the most common frameworks. Netlify is a pretty exhaustive suite of services for static websites including tools for CD/CI, user management (CMS), forms and images management.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/img/2019/staticweb/forestry.jpg&#34;
+         alt=&#34;Forestry Logo&#34;/&gt;
+&lt;/figure&gt;
+&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://forestry.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Forestry&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;A compelling alternative to Netlify that focuses on the UX of the editor. Forestry is a great choice if you are looking for a visual CMS to facilitate the contributions of non-tech profiles to a static website. Forestry also includes other tools, as Netlify does.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/img/2019/staticweb/vapid.png&#34;
+         alt=&#34;Vapid Logo&#34;/&gt;
+&lt;/figure&gt;
+&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.vapid.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Vapid&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;a third alternative that focuses on simplicity. Vapid is a &amp;ldquo;pure&amp;rdquo; CMS, made &amp;ldquo;for people who build websites for other people&amp;rdquo;. Vapid is easy to customize and maintain, as it only uses HTML tags to function.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;continuous-integration--deployment&#34;&gt;Continuous Integration &amp;amp; Deployment
+&lt;/h3&gt;&lt;p&gt;Both &lt;a class=&#34;link&#34; href=&#34;https://www.netlify.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Netlify&lt;/a&gt; and Forestry offer a continuous deployment service integrated with their CMS. They are usually the two most suitable options if you are building a website that will be maintained by someone else.&lt;/p&gt;
+&lt;p&gt;However, if you are simply looking for a CI/CD solution and don&amp;rsquo;t need the CMS you can either use Netlify without its CMS component or consider the usual CI/CDs services that all offer resources facilitating the support for static websites:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Logo&lt;/th&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Resource&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/img/2019/staticweb/semaphore.png&#34;
+         alt=&#34;Semaphore CI Logo&#34;/&gt;
+&lt;/figure&gt;
+&lt;/td&gt;
+&lt;td&gt;SemaphoreCI&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.semaphoreci.com/article/97-continuous-deployment-static-website&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Official Documentation - Continuous Deployment of a Static Website&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/img/2019/staticweb/CircleCI.png&#34;
+         alt=&#34;CircleCI Logo&#34;/&gt;
+&lt;/figure&gt;
+&lt;/td&gt;
+&lt;td&gt;CircleCI&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://circleci.com/blog/automate-your-static-site-deployment-with-circleci/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Blog Post - Automate Your Static Site Deployment with CircleCI&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/img/2019/staticweb/codeship.png&#34;
+         alt=&#34;CodeShip Logo&#34;/&gt;
+&lt;/figure&gt;
+&lt;/td&gt;
+&lt;td&gt;CodeShip&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.codeship.com/continuous-delivery-for-static-sites/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Blog Post - Continuous Delivery for Static Sites&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;how-callr-build-their-tech-blog&#34;&gt;How CALLR build their tech blog
+&lt;/h3&gt;&lt;p&gt;Check this post to see some tips on how we built our own tech blog, using &lt;a class=&#34;link&#34; href=&#34;https://blog.callr.tech/static-blog-hugo-docker-gitlab&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Hugo, Docker, and GitLab&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;Base Rendering of &lt;code&gt;https://www.nytimes.com/section/health&lt;/code&gt; using &lt;code&gt;Chrome Version 72.0.3626.121 (64-bit)&lt;/code&gt; &lt;figure&gt;&lt;img src=&#34;http://localhost:1313/img/2019/staticweb/nyt-bloated.png&#34;
+         alt=&#34;nyt-bloated&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Preview of the NYT-health section, BLOATED version&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;Ad and tracker-filtered rendering of &lt;code&gt;https://www.nytimes.com/section/health&lt;/code&gt; using&lt;code&gt;Firefox Version 65.0.1 (64-bit) using uBlock Origin and Privacy Badger&lt;/code&gt; &lt;figure&gt;&lt;img src=&#34;http://localhost:1313/img/2019/staticweb/nyt-light.png&#34;
+         alt=&#34;nyt-light&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Preview of the NYT-health section, LIGHT version&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
+        <title>Static web - back to the roots?</title>
+        <link>http://localhost:1313/p/static-web-back-to-the-roots/</link>
+        <pubDate>Mon, 04 Mar 2019 09:44:14 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/static-web-back-to-the-roots/</guid>
+        <description>&lt;p&gt;&lt;code&gt;This article goes back to the early years of the web to understand why dynamic websites are so prevalent today. Then, we consider what static websites bring in terms of performance, editing speed, and organic results.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;At first, the web was static.&lt;/p&gt;
+&lt;p&gt;The early days Internet was a place for tinkerers. Despite the frequent comparisons between MySpace and Facebook, the two services are fundamentally different. They are also a &lt;strong&gt;good representation of the &amp;ldquo;Internet Paradigm&amp;rdquo; of their respective time of fame&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Both are social networks, yet creating a page on MySpace required a basic understanding of HTML and CSS. The service was launched in 2003 after all. On the other hand, Facebook&amp;rsquo;s easy to use interface contributed to its success and helped it reach 2+ billion users.&lt;/p&gt;
+&lt;p&gt;Behind the MySpace/Facebook antagonism lies on the most critical point of tension on the internet - &lt;strong&gt;how to interact with the content we edit?&lt;/strong&gt; There are mostly two ways to look at this:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;WYSIWYG (What You See Is What You Get)&lt;/strong&gt; — As the name suggests, in this paradigm the goal is to have an editor as close as the final rendering. WordPress was one of the most visible early proponent of WYSIWYG, but others joined. The Medium editor (featured below), built using &lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/TinyMCE&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;TinyMCE&lt;/a&gt;, is now regarded as one of the best WYSIWYG experience available online.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Efficiency First&lt;/strong&gt; — WYSIWYG editors are easy to get started with but tend to be either clunky or limited. Ultimately, introducing some form of syntax adds complexity, but it also allows more control over the final rendering of the content. Moreover, since the formatting is enforced with syntax (HTML, CSS, Markdown…), it&amp;rsquo;s no longer dependent on the editor used.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/img/2019/staticweb/mediumeditor.png&#34;
+         alt=&#34;Medium Editor&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;the-dawn-of-wordpress&#34;&gt;The Dawn of WordPress
+&lt;/h2&gt;&lt;p&gt;WordPress quickly took over the web: it currently holds about 60% of the CMS market share. WordPress is so commonplace that we can even look at it from a venture point encompassing the whole web: &lt;strong&gt;about a third of all websites use WordPress&lt;/strong&gt;.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Success does not mean relevance. Indeed, power users are leaving WordPress in drove for various reasons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Editing&lt;/strong&gt;: The WP Editor, even the new Guttenberg, is a pain. It&amp;rsquo;s slow, clunky, and comes with a convoluted block logic. Using it to format and edit content results in a pure waste of time considering the alternative options. Besides, it does not support any &amp;ldquo;smart feature&amp;rdquo; by default such as footnotes or tables of content. They require an absurdly complex workflow or yet another plugin.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Security&lt;/strong&gt;: Because of its success, WordPress is a prime target for hackers. Any large WP-based website will have to implement additional measures (plugins?) to handle different types of attacks. Moreover, WordPress supports all version of PHP ranging from 5.2.4 (released 12 years ago) to 7.2. Cross this with all the potential plugins and themes, and you get an endless list of attack vectors. Here is an &lt;a class=&#34;link&#34; href=&#34;https://kinsta.com/blog/is-wordpress-secure/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;overview of the most common ones&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Performance&lt;/strong&gt;: Out of the box, WordPress performance is atrocious. With some plugins (cache, CDN…) and other settings you can speed it up - but is it your job? &lt;strong&gt;Isn&amp;rsquo;t the point of a web framework to minimize the optimization effort?&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Plugin Bloat&lt;/strong&gt;: Because of all the plugins WordPress requires, it ends up slowing down the website and hindering security. &lt;strong&gt;A fresh WP install needs 5-10 plugins to be usable and 10-15 to be &amp;ldquo;optimized&amp;rdquo;&lt;/strong&gt;.&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;make-it-static&#34;&gt;Make It Static!
+&lt;/h2&gt;&lt;p&gt;Back when WordPress was released in 2003, the competition was unconvincing. However, this was 15 years ago. In the meanwhile, we saw exciting &lt;strong&gt;tools and frameworks emerge both to format written content and to host and render it for the end-user.&lt;/strong&gt; It&amp;rsquo;s the development of both, hand in hand, that paved the way for the static web.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s start with editing, focusing on Markdown.&lt;/p&gt;
+&lt;h3 id=&#34;the-rise-of-markdown&#34;&gt;The Rise of Markdown
+&lt;/h3&gt;&lt;p&gt;While WordPress was getting fatter and fatter, alternatives developed both to host website and format content.&lt;/p&gt;
+&lt;p&gt;For the content, new lightweight markup languages like Markdown offer a credible alternative even for a non-technical profile. Markdown&amp;rsquo;s promise is simple: take an hour to &lt;a class=&#34;link&#34; href=&#34;https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;master the cheatsheet&lt;/a&gt; to cut down formatting time to virtually 0.&lt;/p&gt;
+&lt;p&gt;Indeed, Markdown is reasonably straightforward, quick to master yet incredibly potent. A writer using a markdown editor and some shortcuts can write and format its content at the same time. On top of that, Markdown offers many exporting options (HTML, PDF, LaTex, Doc…) and ensures that your formatting stays consistent whatever the end format is.&lt;/p&gt;
+&lt;p&gt;Finally, it might seem, but it&amp;rsquo;s not given: with markdown you can handle text-related features (footnotes, tagging, linking to a section, table of contents, diagrams and charts) at the document-level instead of having to interact with yet another layer. &lt;strong&gt;It dramatically improves the maintainability and portability of your content.&lt;/strong&gt;&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/img/2019/staticweb/jamstack.png&#34;
+         alt=&#34;JAMStack&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;version-control-is-not-just-about-code-writers-love-it-too&#34;&gt;Version control is not just about code: writers love it too!
+&lt;/h3&gt;&lt;p&gt;Version control and git-based development rapidly developed in the software world for solid reasons. It makes the whole development process more reliable and safe. Furthermore, the user permission management system, the branch logic and the access to the full file history as well as the ability to compare files between to versions are incredibly useful to avoid breaking changes or fix them.&lt;/p&gt;
+&lt;p&gt;While the developers got all these fancy new tools, us writers were still editing our articles in Word to copy paste it in the WordPress WYSIWYG editor and then start our formatting struggle. Why not share the goodies?&lt;/p&gt;
+&lt;p&gt;Indeed, as paradoxical as it can seem, a Github repo makes for a very compelling CMS:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Easy User/Access Management&lt;/strong&gt;. The branch logic fits the editing process. For instance, if there is a need to keep a tight grip over the content published, the merging power on the master branch can be granted only to the chief editor to ensure consistency.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Branch Logic&lt;/strong&gt;: while using a repo as a CMS, branches can serve various purposes. It&amp;rsquo;s possible to use one branch as a staging environment so that the writers can see the final rendering of their content on their machine.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;File History&lt;/strong&gt;: with GitHub repos, you can access the whole history of a file and easily compare two versions. It is handy, especially if your blog has a lot of different contributors.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;No setup&lt;/strong&gt;: the repository can be opened in a click. From here, another click with a service like &lt;a class=&#34;link&#34; href=&#34;https://www.netlify.com/docs/deploy-button/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Netlify&lt;/a&gt; is enough to have a blog up and running.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;beyond-the-lack-of-performance-lies-exclusion&#34;&gt;Beyond the lack of performance lies exclusion
+&lt;/h2&gt;&lt;p&gt;So far, we stayed very pragmatic as we addressed static websites&amp;rsquo; benefits in terms of performance or increased efficiency. Let&amp;rsquo;s take a step back and consider the big picture for a minute.&lt;/p&gt;
+&lt;p&gt;The average website size is now well over 3 MB&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; (as 2017). &lt;strong&gt;More the size itself, the macro-level issue lies in the trend&lt;/strong&gt;. Here is the evolution of the average website page since 2011 for reference&lt;sup id=&#34;fnref1:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;:&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/img/2019/staticweb/pagebloat.png&#34;
+         alt=&#34;Web performance page bloat&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;To give you a reference for comparison on blog.call.tech, our homepage weights 10 KB and an average page (image included) weights about 400 KB.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Why do I need to download a full and bloated 3+ MB page to get simple textual information that might be just a few bits?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;You and I are sitting here, probably on a modern laptop/smartphone with a decent connection. What about those who live in countries where the Internet service is poor? Most of the Internet is made of text; it should be lightweight. Why do I need to download a full and bloated 3+ MB page to get simple textual information that might be just a few bits?&lt;/p&gt;
+&lt;h4 id=&#34;mind-the-people-using-your-websites&#34;&gt;Mind the people using your websites
+&lt;/h4&gt;&lt;p&gt;It might seem like a first world problem; in reality, it&amp;rsquo;s a terrible third world problem. &lt;strong&gt;Poorly designed websites result in the exclusion of regular people from services they could benefit from.&lt;/strong&gt; Moreover, the unnecessary data usage bloats the network creating congestions, higher demands and eventually pushing the price of the service up.&lt;/p&gt;
+&lt;p&gt;Let us go as far as stating this: &lt;strong&gt;publishing an unnecessary dynamic website in 2019 is an abuse of a common good.&lt;/strong&gt; The Internet network is a shared resource, why don&amp;rsquo;t we try to avoid another tragedy of the commons using nothing more than common sense?&lt;/p&gt;
+&lt;h5 id=&#34;slow-websites-are-lonely&#34;&gt;Slow websites are lonely
+&lt;/h5&gt;&lt;p&gt;So let us merely ask a question to those who design those websites 12-times more massive than they should be: why so much hate? In perfect conditions, &lt;strong&gt;the average Internet user with his 7.2 MB/s average connection will need more than 3 seconds&lt;/strong&gt;&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt; to get one page.&lt;/p&gt;
+&lt;p&gt;What&amp;rsquo;s the impact? Neil Patel, a well-known figure in the SEO community, produced a very comprehensive info-graphics covering this topic.&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt; He estimates that &lt;strong&gt;40% (53% on mobile) of users abandon a website that takes more than 3 seconds to load.&lt;/strong&gt; So crossing the two numbers, you get the following absurdity:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;News, media and other sites are loosing up to 40% of their potential traffic because of their poor performance stemming from their baseless choice of a dynamic rendering engine. This figure does not include the organic traffic lost because of a lack of SEO-compliance.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;So let&amp;rsquo;s skim the fat. Do we need this many scripts? How could having a dynamic engine continuously regenerating the same static content have become the standard of the Internet? Is this really this hard to implement proper handling of images (resizing, compression, load order) in 2019?&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;How could having a dynamic engine continuously regenerating the same static content have become the standard of the Internet?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Florent Chauveau&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;getting-started-with-the-static-web&#34;&gt;Getting started with the static web
+&lt;/h2&gt;&lt;p&gt;We are convinced that static websites will become commonplace shortly. In the meantime, it&amp;rsquo;s super easy to beat a bloated dynamic website at the SEO-game using a static one: now it the time to play!&lt;/p&gt;
+&lt;p&gt;Hugo was a fit for our tech blog as it helped us streamline the content editing process while achieving impressive organic results:&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/img/2019/staticweb/searchconsole.png&#34;
+         alt=&#34;Blog.CALLR.tech Organic performance&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Luckily, the offer of static website generators and other related services greatly expanded since the release of Jekyll in 2008.&lt;/p&gt;
+&lt;p&gt;If you are considering a static engine for your next website, please check our &lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/p/the-edge-of-the-static-web/&#34; &gt;follow-up article covering the main frameworks and tools you can use as well some tips and best practices to develop killer static websites.&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References
+&lt;/h2&gt;&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://kinsta.com/wordpress-market-share/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;WordPress Market Share&lt;/a&gt; — Kinsta.com, 2019&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;1/ Cache/Minification plugin, 2/CDN, 3/ Image Compressor, 4/ SEO (YoastSEO, RankMath), 5/ Redirect, 6/Security, 7/ Comment Spam Management, 8/Formatting (Code Syntax, Shortcode, External Links, etc.) Any other common feature will require yet another plugin, including: multilingual, social share buttons, markdown import, footnotes, table of content, carousel…&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://speedcurve.com/blog/web-performance-page-bloat/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;The average web page is 3MB. How much should we care?&lt;/a&gt; — Tammy Everts, Speed Matters, August 2017&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref1:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/List_of_countries_by_Internet_connection_speeds#Average_connection_speeds&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;List of countries by Internet connection speeds&lt;/a&gt; — Wikipedia&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:5&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://neilpatel.com/blog/loading-time/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;How Loading Time Affects Your Bottom Line&lt;/a&gt; — Neil Patel, Neil Patel Blog, August 2018&amp;#160;&lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

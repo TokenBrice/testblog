@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>MakerDAO on TokenBrice</title>
+        <link>http://localhost:1313/fr/tags/makerdao/</link>
+        <description>Recent content in MakerDAO on TokenBrice</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>fr</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Mon, 05 Jul 2021 01:13:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/fr/tags/makerdao/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Janus : le nouvel ennemi juré des protocoles DeFi ?</title>
+        <link>http://localhost:1313/fr/defi-janus/</link>
+        <pubDate>Mon, 05 Jul 2021 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/defi-janus/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2021/defi-janus/defi-janus-cover-en.png" alt="Featured image of post Janus : le nouvel ennemi juré des protocoles DeFi ?" /&gt;&lt;p&gt;La mythologie est souvent utilisée pour illustrer la DeFi. Par exemple, on évoque souvent le dieu cananéen Moloch pour symboliser les enjeux de coordination. Aujourd&amp;rsquo;hui, je vais identifier avec vous une nouvelle divinité du panthéon DeFi : Janus.&lt;/p&gt;
+&lt;p&gt;Dans cet article, on analyse les mécanismes des gouvernances ouvertes des protocoles DeFi qui peuvent conduire à l&amp;rsquo;émergence d&amp;rsquo;un nouveau genre de défi pour la DeFi, un ennemi juré que je vous propose d&amp;rsquo;incarner dans la divinité romaine Janus.&lt;/p&gt;
+&lt;p&gt;Tout comme le dieu aux deux visages, &lt;strong&gt;un protocole Janus souffre d’une ambivalence profonde&lt;/strong&gt; : bien qu&amp;rsquo;il puisse être un succès incontestable en termes d&amp;rsquo;utilisation, il fait face à de sérieux antagonismes entre ses différentes parties prenantes qui mettent en jeu la pérennité du protocole (utilisateurs, holdeurs, investisseurs, équipe et communauté étendue).&lt;/p&gt;
+&lt;p&gt;Pour comprendre les Janus, il faut saisir la complexité inhérente de la DeFi et comment elle peut s’accommoder de  &lt;strong&gt;consensus sur des décisions pourtant délétères ou non optimales&lt;/strong&gt;. Une fois le contexte posé, on pourra analyser trois Janus, chacun à leur manière : MakerDAO, Yearn Finance et Uniswap.&lt;/p&gt;
+&lt;h2 id=&#34;complexité-et-enjeux-de-gouvernance--un-terreau-fertile-pour-janus&#34;&gt;Complexité et enjeux de gouvernance : un terreau fertile pour Janus
+&lt;/h2&gt;&lt;p&gt;L&amp;rsquo;émergence de protocoles Janus dans la situation actuelle est due à de nombreux facteurs difficiles à hiérarchiser. Je les ai regroupés en trois thématiques :&lt;/p&gt;
+&lt;h3 id=&#34;mécanismes-de-gouvernance-et-vote&#34;&gt;Mécanismes de gouvernance et vote
+&lt;/h3&gt;&lt;p&gt;La gouvernance des protocoles DeFi se fait &lt;strong&gt;de manière ouverte et transparente&lt;/strong&gt;, en plusieurs étapes.&lt;/p&gt;
+&lt;p&gt;Au fil des discussions sur différents supports comme Discord, la communauté converge vers différentes idées qui peuvent aboutir à des propositions. Les propositions sont formalisées, généralement sur les forums de gouvernance et amendées avant d&amp;rsquo;atteindre un &lt;strong&gt;consensus informel&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Des mécanismes de &lt;strong&gt;signalement&lt;/strong&gt; (Snapshot) permettent d&amp;rsquo;identifier les propositions les plus pertinentes. Elles sont par la suite &lt;strong&gt;soumises au vote des détenteurs des tokens&lt;/strong&gt; via le mécanisme de gouvernance principal.&lt;/p&gt;
+&lt;p&gt;La plupart des systèmes de gouvernance fonctionnent encore sur la logique du &lt;strong&gt;1 token = 1 vote&lt;/strong&gt;, attribuant ainsi le même poids à tous les possesseurs de tokens quelque soit leur attitude vis-à-vis du projet ou niveau d&amp;rsquo;engagement par rapport à celui-ci.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/defi-janus/influence-governance.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;influence-governance&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Mesurer l&amp;rsquo;influence dans la gouvernance des protocoles DeFi - &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/Lsquaredleland/status/1411031620748943360&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;source&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Certains protocoles ont pourtant réussi à remettre en cause cette approche en ajoutant une logique d&amp;rsquo;engagement temporel : interagir avec la DAO de Curve nécessite d&amp;rsquo;engager ses CRV pour une période allant de 1 à 4 ans. Un engagement de longue durée augmente le pouvoir de vote effectif obtenu (veCRV).&lt;/p&gt;
+&lt;p&gt;Malgré tout, la &lt;strong&gt;participation est généralement basse&lt;/strong&gt;, même lorsque des mécanismes de délégation sont utilisés.&lt;/p&gt;
+&lt;h3 id=&#34;complexité-des-décisions&#34;&gt;Complexité des décisions
+&lt;/h3&gt;&lt;p&gt;Pour évaluer des propositions de gouvernance d&amp;rsquo;un protocole de finance décentralisée, il faut avoir &lt;strong&gt;une compréhension de tout un ensemble de notions de base relative à Ethereum&lt;/strong&gt;, la blockchain et la DeFi.&lt;/p&gt;
+&lt;p&gt;À partir de là, il faut idéalement une compréhension approfondie du protocole en question, ainsi que ses &lt;strong&gt;interactions avec les autres protocoles, synergies&lt;/strong&gt;, etc. On peut également désormais rajouter à cela toute la complexité additionnelle liée à la multiplication des solutions de scalabilité : sidechains et L2.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;En outre, la formulation des propositions sur les forums de gouvernance est généralement assez technique, ce qui &lt;strong&gt;rend leur compréhension&lt;/strong&gt; difficile et ouvre la porte aux manipulations.&lt;/p&gt;
+&lt;p&gt;Enfin, la gouvernance souffre d&amp;rsquo;un véritable effet de masse : au fur et à mesure que les protocoles se développent, la quantité d&amp;rsquo;informations à digérer pour avoir un vote éclairé augmente en conséquence.&lt;/p&gt;
+&lt;p&gt;Un membre du forum de gouvernance MakerDAO a estimé son travail hebdomadaire de suivi et de participation à environ 40h par semaine, en augmentation constante :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/defi-janus/maker-governance-overhead.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;maker-governance-overhead&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;supports-de-la-gouvernance&#34;&gt;Supports de la gouvernance
+&lt;/h3&gt;&lt;p&gt;Bien que la gouvernance soit ouverte et transparente, &lt;strong&gt;elle s&amp;rsquo;appuie encore souvent sur différents services propriétaires et donc administrés,&lt;/strong&gt; le plus souvent par l&amp;rsquo;équipe elle-même. Cela pose de sérieux problèmes.&lt;/p&gt;
+&lt;p&gt;Ainsi, les discussions relatives à la gouvernance se font généralement sur Discord et sur le forum de gouvernance - les &lt;strong&gt;deux supports sont généralement modérés directement par l&amp;rsquo;équipe du projet&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;En outre, l&amp;rsquo;équipe peut avoir &lt;strong&gt;un contrôle sur les mécanismes de signalement&lt;/strong&gt; comme &lt;a class=&#34;link&#34; href=&#34;https://snapshot.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Snapshot&lt;/a&gt;. Le cumul de toutes ces limitations des systèmes de gouvernance décentralisée peut amener aux situations observées dernièrement, où les possesseurs de tokens ne votent pas dans leurs meilleurs intérêts.&lt;/p&gt;
+&lt;p&gt;Ce tour rapide des limites actuelles des systèmes de gouvernance était nécessaire pour avoir le contexte pour la suite. Voyons donc les trois Janus que j&amp;rsquo;ai repérés :&lt;/p&gt;
+&lt;h2 id=&#34;uniswap--1m-duni-par-ci-1m-duni-par-là&#34;&gt;Uniswap : 1M d&amp;rsquo;UNI par ci, 1M d&amp;rsquo;UNI par là
+&lt;/h2&gt;&lt;h3 id=&#34;la-proposition-05-en-résumé&#34;&gt;La proposition 05 en résumé
+&lt;/h3&gt;&lt;p&gt;Un vote précipité qui abouti à la signature d&amp;rsquo;un chèque quasiment en blanc de 1M UNI pour un groupe de directeurs juridiques de gros projets décentralisés chargés de déployer une stratégie de lobbying DeFI. Très peu de mécanismes de transparence ont été déployés et l&amp;rsquo;influence de la communauté des UNI holder sur le groupe financé est restreinte.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://gov.uniswap.org/t/governance-proposal-005-defi-education-fund/12963&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Proposition 05 Uniswap Gouvernance - DeFi Education Fund&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;compression-de-la-gouvernance&#34;&gt;Compression de la gouvernance
+&lt;/h3&gt;&lt;p&gt;Dans le cas d&amp;rsquo;Uniswap, tout y était. Tout commence avec un vote précipité alors que des membres de la communauté avaient de &lt;strong&gt;très nombreuses questions ignorées&lt;/strong&gt;. La communauté s&amp;rsquo;inquiète du manque de contrôle sur les fonds alloués sans aucune condition. Chris Blec a regroupé les principales questions et inquiétudes dans &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/ChrisBlec/status/1409857319144394758&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;une lettre&lt;/a&gt; et a réussi à obtenir quelques réponses de l&amp;rsquo;équipe dans un &lt;a class=&#34;link&#34; href=&#34;https://odysee.com/@ChrisBlec:8/chrisblec-june24-twitterspace:9?r=DeLsAYctGhcLFvkGBKYgE2tN17fUXA9u&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Twitter space&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;En outre, &lt;strong&gt;l&amp;rsquo;organisation qui va recevoir les 1M UNI est composée de membres proches de l&amp;rsquo;équipe Uniswap&lt;/strong&gt; et on suspecte également des investisseurs du projet comme a16z d&amp;rsquo;avoir été décisif dans l&amp;rsquo;adoption de la décision. La proposition bénéficiait également du soutien direct de l&amp;rsquo;équipe.&lt;/p&gt;
+&lt;p&gt;Finalement, la proposition se veut plus large qu&amp;rsquo;Uniswap puisqu&amp;rsquo;ils sont officiellement mandatés pour faire du lobbying DeFi, mais on peut se poser la question de la vision de la DeFi portée par de tels profils.&lt;/p&gt;
+&lt;h3 id=&#34;transparence--peut-être-contrôle--non-&#34;&gt;Transparence ? Peut être. Contrôle ? Non !
+&lt;/h3&gt;&lt;p&gt;Après les réactions aux premières itérations de la proposition, différents mécanismes ont été ajoutés pour apporter plus de transparence sur les agissements du DeFi Education Fund. L&amp;rsquo;équipe s&amp;rsquo;est également engagée à implémenter &lt;a class=&#34;link&#34; href=&#34;https://github.com/withtally/safeguard&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;FailSafe&lt;/a&gt; dès que possible. Cela permettrait à la DAO (holdeurs UNI) de pouvoir exercer un veto sur les transactions réalisées par le multisig.&lt;/p&gt;
+&lt;p&gt;Néanmoins à l&amp;rsquo;heure d&amp;rsquo;aujourd&amp;rsquo;hui &lt;strong&gt;le contrôle effectif de la DAO reste limité&lt;/strong&gt; : le vote est passé et &lt;a class=&#34;link&#34; href=&#34;https://etherscan.io/address/0x1C95930Dfc1139381265ce45B5f480F1EFae09A1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;les 1M UNI sont désormais alloués&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Edit du 17 Juillet : peu après avoir reçu les fonds, le multisig &lt;a class=&#34;link&#34; href=&#34;https://thedefiant.io/sale-of-usdc-raises-concerns-regarding-newly-formed-defi-education-fund/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;a déjà vendu la moitié de ceux-ci&lt;/a&gt; pour des stablecoins qui restent encore dans le wallet pour l&amp;rsquo;instant.&lt;/p&gt;
+&lt;p&gt;Cet épisode correspond pour moi à l&amp;rsquo;équivalent d&amp;rsquo;un détournement de fonds publics, sauf qu&amp;rsquo;ici les fonds proviennent d&amp;rsquo;une DAO. L&amp;rsquo;aventure et ses péripéties mettent également en lumière le pouvoir effectif exercé par les différentes parties prenantes du protocole.&lt;/p&gt;
+&lt;h2 id=&#34;makerdao--déséquilibre-dintérêts-antagonistes&#34;&gt;MakerDAO : déséquilibre d&amp;rsquo;intérêts antagonistes
+&lt;/h2&gt;&lt;p&gt;Le problème avec Maker est plus général et remonte bien plus loin. C&amp;rsquo;est un problème courant en DeFi d&amp;rsquo;alignement d&amp;rsquo;intérêts divergents de différents participants. En outre, pour répondre rapidement à la demande grandissante pour le DAI, &lt;strong&gt;la multiplication des collatéraux (mise à jour MCD) a grandement impacté la trustlessness et la décentralisation effective de DAI.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Plus de 60% des garanties du DAI sont des tokens qui nécessitent une forme de confiance comme USDC, wBTC ou TUSD. Le problème existe depuis longtemps et n&amp;rsquo;est pas prêt de se résoudre, si jamais. J&amp;rsquo;ai déjà discuté de ce problème sur ce blog, je vous renvoie vers cet article :
+&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/pegged-assets.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Actifs à vocation stable sur Ethereum : quelles approches et quels enjeux ?&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;des-frais-dutilisation-abusifs&#34;&gt;Des frais d&amp;rsquo;utilisation abusifs
+&lt;/h3&gt;&lt;p&gt;Ici, on va plutôt creuser le problème des frais excessifs qui illustre &lt;strong&gt;un cas classique de maximisation de rente sur une clientèle pensée captive&lt;/strong&gt;.&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; DAI étant un stablecoin synthétique frappé directement par l&amp;rsquo;utilisateur, son frais d&amp;rsquo;emprunt annuel ne devrait pas excéder 2-3% et cela reste encore coûteux. &lt;a class=&#34;link&#34; href=&#34;http://liquity.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liquity&lt;/a&gt;, une alternative à Maker, charge un frais qui revient à 0.5% annuel sur les LUSD empruntés.&lt;/p&gt;
+&lt;p&gt;Avant la dernière mise à jour, le principal vault ETH de maker (ETH-A) chargeait 5.5% de frais annuel. C&amp;rsquo;est désormais descendu à 3.5%, mais les frais sur le vault le plus proche des conditions d&amp;rsquo;emprunt de Liquity (ETH-B, collatéralisation minimale = 130% // 110% sur Liquity) reste à 9% annuel, soit &lt;strong&gt;18 fois plus coûteux que son alternative&lt;/strong&gt;.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice info&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#info-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Information&lt;/p&gt;&lt;p&gt;Liquity est construit avec une approche de minimisation de la gouvernance, contrairement à Maker, ce qui peut expliquer une partie de l&amp;rsquo;écart immense observé entre les frais appliqués par les deux plateformes.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;une-rente-pour-les-holdeurs-mkr-&#34;&gt;Une rente pour les holdeurs MKR ?
+&lt;/h3&gt;&lt;p&gt;Les frais de MakerDAO sont habituellement élevés, même s&amp;rsquo;ils ont été à zéro ou proches à de courtes périodes pour stimuler la demande. Alors &lt;strong&gt;pourquoi la DAO Maker vote systématiquement des frais excessifs&lt;/strong&gt; ? La réponse est aussi simple que 1+1=2 :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Les frais prélevés sur les vaults Maker sont utilisés pour acheter des MKR tokens sur les marchés et les brûler, rendant le token MKR plus rare.&lt;/li&gt;
+&lt;li&gt;Ils sont votés par la DAO de Maker, en proportion donc des tokens MKR possédés.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;La conception même du protocole incite ainsi les possesseurs de MKR à voter pour &lt;strong&gt;extraire les frais maximaux tolérés par les utilisateurs&lt;/strong&gt;, et pas un centime de moins. En effet, chaque point de base&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; en frais supplémentaire se traduit par plus de MKR brûlés et donc à priori un capital qui s&amp;rsquo;apprécie pour les possesseurs du token.&lt;/p&gt;
+&lt;p&gt;Ça peut sembler fabuleux en termes de tokenomics car cela optimise pour le meilleur prix possible sur MKR (théoriquement), mais &lt;strong&gt;cela se fait au détriment des utilisateurs du service&lt;/strong&gt; que la plateforme propose - et donc va contre l&amp;rsquo;intérêt long-terme du protocole.&lt;/p&gt;
+&lt;p&gt;Il faut également garder en tête que contrairement à la plupart des protocoles, Maker n&amp;rsquo;a jamais mis en place de mécanisme pour transformer ses utilisateurs en holdeurs (liquidity mining). Je vois donc difficilement comment Maker peut être compétitif avec une telle structure.&lt;/p&gt;
+&lt;h2 id=&#34;le-cas-ambigu-de-yearn-finance&#34;&gt;Le cas ambigu de Yearn Finance
+&lt;/h2&gt;&lt;p&gt;Yearn est sans doute l&amp;rsquo;exemple le plus simple et direct d&amp;rsquo;un Janus. En à peine un an, Yearn est devenu un &lt;strong&gt;protocole majeur de la DeFi avec $4B d&amp;rsquo;actifs déposés&lt;/strong&gt; et surtout &lt;strong&gt;une profitabilité délirante&lt;/strong&gt; que l&amp;rsquo;équipe aime mettre en avant.&lt;/p&gt;
+&lt;p&gt;Néanmoins, l&amp;rsquo;histoire n&amp;rsquo;est pas aussi rose en fonction de votre perspective. On va donc étudier la situation de Yearn sous 3 angles : du point de vue d&amp;rsquo;un utilisateur, pour un autre protocole et pour la DAO Yearn elle-même.&lt;/p&gt;
+&lt;h3 id=&#34;coté-utilisateurs--des-frais-délirants&#34;&gt;Coté utilisateurs : des frais délirants
+&lt;/h3&gt;&lt;p&gt;Le succès de Yearn s&amp;rsquo;obtient à quel prix ? Encore une fois, essentiellement &lt;strong&gt;des utilisateurs qui se font littéralement dépouiller par Yearn&lt;/strong&gt; - les frais comptent parmis les plus élevés observés pour un gestionnaire d&amp;rsquo;actif en DeFi, tout en étant complexe :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Yearn prend &lt;strong&gt;2% de frais de gestion annuel sur l&amp;rsquo;ensemble du dépôt&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Yearn prélève également un frais sur la performance de 20% : 20% de tous les actifs farmés partent vers la trésorerie.&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Les premier frais est le plus problématique puisque cela signifie que les frais excessivement gourmands de Yearn amène à des vaults qui… perdent de l&amp;rsquo;argent !&lt;/p&gt;
+&lt;p&gt;En effet, tout vault qui ne réalise pas au minimum 2% de retour annuel sur Yearn finit dans le rouge une fois les frais de gestion prélevés, sans même prendre en compte les frais de performance&amp;hellip;&lt;/p&gt;
+&lt;h3 id=&#34;coté-protocoles--le-câlin-de-la-mort-de-yearn&#34;&gt;Coté protocoles : le câlin de la mort de Yearn
+&lt;/h3&gt;&lt;p&gt;Yearn permet à ses utilisateurs de farmer différents protocoles comme Curve en gérant automatiquement la composition de leurs rendements.&lt;/p&gt;
+&lt;p&gt;C&amp;rsquo;est pratique pour l&amp;rsquo;utilisateur, mais cela signifie également que &lt;strong&gt;Yearn vend systématiquement tous les tokens farmés&lt;/strong&gt; par ses vaults : on peut donc se poser la question de l&amp;rsquo;impact et de la pertinence pour le protocole farmé, qui subit donc une pression vendeuse sur son token natif.&lt;/p&gt;
+&lt;p&gt;L&amp;rsquo;arrivée de Convex a démontré qu&amp;rsquo;un protocole mieux structuré en termes de tokenomics et spécifique à Curve peut proposer une alternative synergistique où les rendements sont largement supérieurs, tout en évitant la vente systématique des tokens farmés. J&amp;rsquo;analyse la &amp;ldquo;flywheel&amp;rdquo; de Convex dans cet article : &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/defi-flywheel.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🎡 Flywheel DeFi : synergies de protocoles à protocoles, par tokens interposés&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Ainsi, l&amp;rsquo;arrivée de Convex a mis Yearn face à ses contradictions et Yearn a essentiellement capitulé en intégrant Convex pour optimiser le rendement de ses vaults. Cela signifie désormais que &lt;strong&gt;les utilisateurs de Yearn paient des frais à Convex et aident le protocole à accumuler plus de VeCRV&lt;/strong&gt; et creuser ainsi son écart avec Yearn - échec et mat pour Yearn sur Curve.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/defi-janus/vecrv-par-dao.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;vecrv-par-dao&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Aperçu des veCRV possédés par les différentes DAO - source &lt;a class=&#34;link&#34; href=&#34;https://duneanalytics.com/banteg/misc&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Dune Analytics / Banteg&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;coté-yearn-dao&#34;&gt;Coté Yearn DAO
+&lt;/h3&gt;&lt;p&gt;Malgré cette situation fondamentale assez inquiétante puisque Yearn propose désormais des &lt;strong&gt;produits essentiellement non compétitifs&lt;/strong&gt; (tous les vaults Curve), Yearn se présente comme un des succès incontestables de la DeFi.&lt;/p&gt;
+&lt;p&gt;En effet, l&amp;rsquo;équipe semble mesurer le succès du protocole au volume des frais prélevés par celui-ci. L&amp;rsquo;indicateur est évidemment dangereux puisqu&amp;rsquo;avec les frais de gestion à 2% annuel, tout dépôt sur Yearn paie systématiquement des frais même si peu ou pas de profit n&amp;rsquo;est dégagé.&lt;/p&gt;
+&lt;p&gt;Plutôt que de prendre les frais prélevés comme un indicateur et donc une mesure de succès, le protocole pourrait être optimisé sur la base des profits générés pour les déposants.&lt;/p&gt;
+&lt;p&gt;Enfin, et même si c&amp;rsquo;est un sujet plus subjectif, la communication autour du projet est brouillone voire presque dérangeante parfois, par exemple &lt;a class=&#34;link&#34; href=&#34;https://thedefiant.io/yearn-revenues-projected-to-surpass-tradfis-fueled-by-thriving-community/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;quand Yearn est comparé&lt;/a&gt; aux gestionnaires d&amp;rsquo;actifs classiques comme WealthFront ou BlackRock - je trouve ça assez déséquilibré puisque Yearn charge des frais similaires à ces structures mais opère dans un marché bien plus dynamique. En outre, de telles sociétés sont-elles réellement des modèles pertinents à avoir en DeFi ?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/defi-janus/yearn-comp.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;yearn-comp&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Si Yearn se compare aux gestionnaires d&amp;rsquo;actifs, c&amp;rsquo;est peut-être parce que la comparaison avec ses pairs DeFi est sans appel :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/defi-janus/defi-asset-manager.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;defi-asset-manager&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;En outre, là où Convex travaille à permettre aux holdeurs cvxCRV de voter dans les décisions de la DAO Curve, Yearn s&amp;rsquo;octroie le contrôle sur la puissance de vote associée aux CRV déposés par ses utilisateurs sur le yveCRV. La même démarche s&amp;rsquo;observe sur les airdrops alloués aux holdeurs VeCRV : Yearn se les octroie pour acheter des CRV et sponsoriser son vault yveCRV tandis que Convex les rend accessibles à ses déposants.&lt;/p&gt;
+&lt;h2 id=&#34;les-janus-sont-ils-défendables-&#34;&gt;Les Janus sont-ils défendables ?
+&lt;/h2&gt;&lt;p&gt;Maintenant qu&amp;rsquo;on a posé le décor avec trois Janus, reste la question de leur défendabilité. Tous les trois ont des alternatives crédibles, souvent plus récentes et avec des tokenomics plus équilibrées. Voyons donc comment nos Janus évoluent par rapport à celles-ci.&lt;/p&gt;
+&lt;p&gt;En à peine deux mois d&amp;rsquo;existence, Convex a déjà dépassé Yearn en termes de valeur totale des actifs déposés. Pour l&amp;rsquo;instant, les réactions de Yearn n&amp;rsquo;ont pas réussi à inverser la tendance, et je pense que &lt;strong&gt;seule une révision profonde du modèle permettra au protocole de rester compétitif sur le long-terme&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Néanmoins &lt;strong&gt;la machine est lancée&lt;/strong&gt; : Convex possède déjà plus de deux fois plus de CRV que Yearn et en accumule bien plus rapidement. Et même si Yearn farme de nombreux autres protocoles, il me semble improbable qu&amp;rsquo;il puisse redevenir compétitif sur Curve.&lt;/p&gt;
+&lt;p&gt;Côté Marker, de plus en plus de personnes commencent à souligner l&amp;rsquo;absurdité de la situation actuelle sur DAI, et les alternatives gagnent du terrain. En quelques semaines et avec seulement ETH comme collatéral accepté, Liquity a déjà attiré l&amp;rsquo;équivalent de plus de 40% de la valeur total déposée dans MakerDAO :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/defi-janus/tokenterminal-tvl-maker-liquity.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;tokenterminal-tvl-maker-liquity&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Sur Liquity, les frais d&amp;rsquo;emprunt sont bien plus bas, plus clairs, et distribués directement aux stakers de LQTY. Le service est ainsi plus ouvert et participatif que MakerDAO tout en étant brutalement plus efficace. Là encore, je pense qu&amp;rsquo;une refonte d&amp;rsquo;ampleur de MakerDAO serait nécessaire pour que le protocole retrouve sa pertinence et sa compétitivité.&lt;/p&gt;
+&lt;p&gt;Enfin pour Uniswap, la concurrence est encore plus vive. Le protocole évolue face à des tokenomics matures comme Curve qui a un mécanisme de partage des revenus du protocoles actif depuis bientôt un an, tandis que rien n&amp;rsquo;est encore proposé sur UNI.&lt;/p&gt;
+&lt;p&gt;Sur les trois fronts, je pense que la situation forcera Uniswap, Maker et Yearn à se renouveler. Néanmoins avec le rythme de l&amp;rsquo;industrie, l&amp;rsquo;étau se resserre et leurs alternatives plus ouvertes, efficaces et synergiques gagnent rapidement du terrain.&lt;/p&gt;
+&lt;p&gt;Alors que les DAO des trois protocoles se sont désynchronisées de leurs utilisateurs, le meilleur intérêt de ceux-ci leur a été rappelé de la manière la plus simple et efficace que l&amp;rsquo;on connaisse : avec des mouvements de capitaux conséquents. J&amp;rsquo;ai hâte de voir ce qui arrive ensuite !&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;🙏 Un grand merci à HHK, Charles, Thomas, Erwan, &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/phil_h&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PhilH&lt;/a&gt; &amp;amp; FrenchTony pour leur relecture attentive de l&amp;rsquo;édition française de cet article et sa traduction en Anglais.&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;Regardez par exemple &lt;a class=&#34;link&#34; href=&#34;https://forum.makerdao.com/t/mip33-maker-stability-price-module/5943&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;cette pré-proposition prise au hasard sur le forum de gouvernance de MakerDAO&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;DAI est encore perçu par beaucoup comme un stablecoin décentralisé qui ne nécessite pas de confiance, bien que ce ne soit plus le cas. Il existe encore peu de stablecoins qui ne s&amp;rsquo;appuient que sur des collatérals trustless (ETH) et crédiblement décentralisés (ou en voie) : j&amp;rsquo;en connais deux - le LUSD de Liquity et le RAI de Reflexer.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;Les frais des services financiers sont souvent mesurés en point de base (bps / basis point). Un point de base est un centième de pourcent : 1 bps = 0,01%.&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.yearn.finance/yearn-finance/yvaults/overview#yvault-fee-structure&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Documentation Yearn Finance - Structure des frais&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
+        <title>Actifs à vocation stable sur Ethereum : quelles approches et quels enjeux ?</title>
+        <link>http://localhost:1313/fr/actifs-stables-ethereum/</link>
+        <pubDate>Tue, 23 Mar 2021 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/actifs-stables-ethereum/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2021/pegged-assets/money-god-meme.png" alt="Featured image of post Actifs à vocation stable sur Ethereum : quelles approches et quels enjeux ?" /&gt;&lt;p&gt;Aujourd&amp;rsquo;hui, je veux traiter un sujet essentiel pour Ethereum et les autres blockchains et souvent mal compris : &lt;strong&gt;les actifs &amp;ldquo;stables&amp;rdquo;&lt;/strong&gt;, qui suivent le prix d&amp;rsquo;un actif de référence. Avant d&amp;rsquo;étudier les différentes approches qui permettent de produire un tel actif, on va d&amp;rsquo;abord commencer par un niveau d&amp;rsquo;analyse plus élevé :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Pourquoi a-t-on besoin de tels actifs ?&lt;/li&gt;
+&lt;li&gt;Quels usages en sont faits ?&lt;/li&gt;
+&lt;li&gt;Pourquoi veut-on représenter des actifs non-natifs d&amp;rsquo;Ethereum sur cette chaîne ?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Une fois ces bases établies, on aura le nécessaire pour &lt;strong&gt;étudier les différentes approches et comprendre leurs enjeux&lt;/strong&gt;. Je finirai avec une analyse plus détaillée d&amp;rsquo;un projet qui me semble très pertinent et innovant sur la question : le RAI de Reflexer Labs.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;Dans cet article, faute de traduction satisfaisante je vais parler de &amp;ldquo;pegged-assets&amp;rdquo; c&amp;rsquo;est-à-dire des actifs indexés sur un autre, au sens large. Ils ne sont pas tous indexés sur le dollar, par exemple il y a aussi des pegged-assets BTC sur la chaîne Ethereum, comme wBTC ou RenBTC.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;p&gt;Si vous connaissez déjà bien les différents mécanismes de pegging, vous pouvez sauter &lt;a class=&#34;link&#34; href=&#34;#zoom-sur-le-rai-de-reflexer&#34; &gt;directement vers la section sur Reflexer&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;représentation-dactifs-sur-la-chaîne-ethereum&#34;&gt;Représentation d&amp;rsquo;actifs sur la chaîne Ethereum
+&lt;/h2&gt;&lt;p&gt;Le volume d&amp;rsquo;émission et d&amp;rsquo;utilisation des pegged-assets (actifs indexés) a explosé l&amp;rsquo;année dernière, mais avant de voir concrètement à quoi ils servent, comprenons pourquoi. Le cas d&amp;rsquo;usage le plus simple est celui qui vise à produire un actif stable, le plus souvent indexé sur le dollar.&lt;/p&gt;
+&lt;p&gt;Pour se faire, &lt;strong&gt;l&amp;rsquo;approche utilisé à un haut niveau est la tokénisation&lt;/strong&gt; : on représente un actif qui vient d&amp;rsquo;une autre chaîne / d&amp;rsquo;un autre monde sur Ethereum, comme par exemple wBTC (correspondant à 1 BTC sur la chaîne Bitcoin) ou encore USDC (correspondant à 1 USD dans le compte en banque de Circle, en très bref).&lt;/p&gt;
+&lt;p&gt;Cela permet de &lt;strong&gt;répondre à une des inquiétudes les plus communes pour le grand public : &lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2018/stablecoins.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;les cryptos sont des actifs volatiles&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;En outre, &lt;strong&gt;l&amp;rsquo;essor des stablecoins est allé de pair avec l&amp;rsquo;essor de la DeFi&lt;/strong&gt;, pourquoi ? Il y a pour moi de nombreuses raisons dont voici les principales :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Les emprunts&lt;/li&gt;
+&lt;li&gt;Les actifs stables peuvent être très productifs en DeFi&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;pourquoi-les-emprunts-se-font-essentiellement-en-stablecoins-&#34;&gt;Pourquoi les emprunts se font essentiellement en stablecoins ?
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/money-market-risks.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Les marchés monétaires&lt;/a&gt; permettent à leur utilisateurs d&amp;rsquo;emprunter des actifs en utilisant d&amp;rsquo;autres actifs comme garanties (collatéral). Le cas d&amp;rsquo;usage le plus fréquent correspond au schéma suivant :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;L&amp;rsquo;utilisateur dépose un actif volatile, comme ETH, wBTC ou encore LINK&lt;/li&gt;
+&lt;li&gt;Il l&amp;rsquo;utilise comme collatéral pour &lt;strong&gt;emprunter un actif stable, comme USDC ou DAI&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Pourquoi est-ce ainsi ? Pour le dire simplement, peu de gens sont friands des risques liés aux variations de prix. &lt;strong&gt;Emprunter un actif, si vous le mobilisez ensuite revient à le shorter&lt;/strong&gt;. Pas de problème avec les stablecoins — à priori donc, mais la réalité est tout autre avec un actif non stable : si le prix diminue, tant mieux pour vous : la dette n&amp;rsquo;en sera que moins chère à rembourser.&lt;/p&gt;
+&lt;p&gt;Néanmoins dans l&amp;rsquo;autre sens le scénario peut être effrayant puisque &lt;strong&gt;vous pouvez vous retrouver avec une dette qui augmente&lt;/strong&gt;. Je m&amp;rsquo;explique : mettons que vous empruntez 1000 UNI quand il vaut $20. Vous les vendez pour un autre token, par exemple des stablecoins. Vous voilà donc avec $20 000 DAI que vous mobilisez en DeFi par exemple.&lt;/p&gt;
+&lt;p&gt;Vous gardez votre dette plusieurs mois et vous souhaitez désormais la rembourser. Sauf que l&amp;rsquo;UNI vaut maintenant $30 et vous n&amp;rsquo;en avez plus : vous devez en racheter sur les marchés pour rembourser la dette et clôturer la position. &lt;strong&gt;La dette se paie toujours dans l&amp;rsquo;actif emprunté&lt;/strong&gt; : vous devez donc 1000 UNI à $30 l&amp;rsquo;unité soit 30 000 DAI.&lt;/p&gt;
+&lt;div class=&#34;notice warning&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Avertissement&lt;/p&gt;&lt;p&gt;J&amp;rsquo;ignore ici totalement les intérêts du prêt par simplicité. En réalité vous devriez rembourser légèrement plus d&amp;rsquo;UNI, en fonction du taux d&amp;rsquo;intérêt et de la durée d&amp;rsquo;exposition.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;production-de-rendement-avec-des-stablecoins&#34;&gt;Production de rendement avec des stablecoins
+&lt;/h3&gt;&lt;p&gt;Avec le premier point compris, le second coule de source : &lt;strong&gt;de très nombreuses personnes empruntent des stablecoins&lt;/strong&gt;, cela signifie donc que de l&amp;rsquo;autre côté du marché des gens les prêtent, pour des taux d&amp;rsquo;intérêt attractifs vu la demande. Par exemple sur Aave, un des principaux marchés monétaires, on constate &lt;strong&gt;une crise de liquidité (&lt;em&gt;liquidity crunch&lt;/em&gt;) sur les stablecoins&lt;/strong&gt; quasiment depuis le lancement de la v2. Les déposants bénéficient d&amp;rsquo;un retour moyen annualisé de 10% environ.&lt;/p&gt;
+&lt;p&gt;La situation est assez similaire ailleurs avec des différences dues aux spécificités de chaque marché monétaire. Néanmoins, la crise de liquidité sur les stablecoins dépasse largement Aave : elle s&amp;rsquo;étend potentiellement à toute la DeFi.&lt;/p&gt;
+&lt;p&gt;En effet, &lt;strong&gt;les opportunités pour produire un retour avec des stablecoins ne manquent pas&lt;/strong&gt;. Je vous parle ici de prêts, mais il est également possible d&amp;rsquo;apporter de la liquidité sur les paires de stablecoins voire de cumuler les deux approches pour augmenter le rendement avec un produit comme Curve :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/pegged-assets/curve-yield-pool.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;curve-yield-pool&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;explosion-de-lutilisation-des-pegged-assets-en-2020&#34;&gt;Explosion de l&amp;rsquo;utilisation des pegged-assets en 2020
+&lt;/h3&gt;&lt;p&gt;On a ainsi observé une véritable explosion de l&amp;rsquo;émission et de l&amp;rsquo;utilisation des pegged-assets en 2020. D&amp;rsquo;un côté, de plus en plus de projets se lancent pour proposer de &lt;strong&gt;nouveaux types d&amp;rsquo;actifs ou de nouvelles approches pour les représenter&lt;/strong&gt;. De l&amp;rsquo;autre, les scénarios d&amp;rsquo;utilisation de ces pegged-assets se multiplient grâce à la croissance des marchés monétaires de Curve, des vaults comme ceux proposés par Yearn ou Harvest et d&amp;rsquo;autres produits DeFi plus complexes encore.&lt;/p&gt;
+&lt;p&gt;Pour n&amp;rsquo;en citer qu&amp;rsquo;un, parlons un peu&lt;a class=&#34;link&#34; href=&#34;https://alchemix.fi/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt; d&amp;rsquo;Alchemix&lt;/a&gt;, un nouveau service d&amp;rsquo;actif synthétique qui permet &lt;strong&gt;des emprunts sécurisés par votre futur rendement&lt;/strong&gt;. Je m&amp;rsquo;explique : avec Alchemix, tout débute avec un actif stable qui produit un rendement. Ils ont choisi le yDAI pour commencer (DAI productif grâce au vault Yearn).&lt;/p&gt;
+&lt;p&gt;L&amp;rsquo;utilisateur donc commencer par déposer des yDAI. Il peut ensuite &lt;strong&gt;renoncer à son futur rendement&lt;/strong&gt; pour emprunter jusqu&amp;rsquo;à 50% de la valeur déposée. Son prêt est &lt;strong&gt;remboursé automatiquement grâce aux intérêts produits par le yDAI&lt;/strong&gt;. En outre, comme il a accès à 50% de la valeur déposée immédiatement (emprunté en alUSD), il peut la mettre au travail pour augmenter le retour de l&amp;rsquo;ensemble de la stratégie.&lt;/p&gt;
+&lt;p&gt;Ce type de produits permet un arbitrage temporel intéressant et entraîne une demande encore plus conséquente pour les stablecoins : lors du lancement d&amp;rsquo;Alchemix, les dépôts dans le vault yDAI ont décollé au point d&amp;rsquo;atteindre la capacité maximale pendant un moment.&lt;/p&gt;
+&lt;p&gt;Je vous ai parlé jusqu&amp;rsquo;à présent plutôt des stablecoins, mais un scénario similaire s&amp;rsquo;est déroulé sur d&amp;rsquo;autres pegged-assets comme les BTC tokénisés sur Ethereum.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/pegged-assets/stablecoin-growth.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;stablecoin-growth-ethereum-messari&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Face à la croissance impressionnante de la DeFi, on ne peut s&amp;rsquo;attendre qu&amp;rsquo;à une augmentation toujours plus rapide de la demande pour ce type d&amp;rsquo;actifs. Voyons donc les différentes approches utilisées pour les produire afin de comprendre leur compromis.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;les-différentes-approches-pour-produire-des-pegged-assets&#34;&gt;Les différentes approches pour produire des pegged-assets
+&lt;/h2&gt;&lt;p&gt;Jusqu&amp;rsquo;à présent, la très large majorité de cette demande pour des actifs stables est adressée avec des solutions s&amp;rsquo;appuyant sur une correspondance 1:1 nécessitant de la confiance. Ainsi, ce sont &lt;strong&gt;essentiellement USDT ($38.5 B émis) et USDC ($9.4 B) qui mènent la danse&lt;/strong&gt;, bien devant DAI ($2.7 B). Idem côté Bitcoin, sans rentrer dans les détails, toutes les solutions les plus utilisées nécessitent de la confiance.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;En anglais on parle de &amp;ldquo;pegged-assets&amp;rdquo; (actifs indéxés). Ce sont des actifs qui suivent le prix d&amp;rsquo;un autre via un mécanisme dit de &amp;ldquo;pegging&amp;rdquo;. Le &amp;ldquo;peg&amp;rdquo; est donc la valeur que l&amp;rsquo;actif doit maintenir, par exemple $1 pour les stablecoins qui suivent le dollar.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Une diversité d&amp;rsquo;approches grandissantes sont donc explorées pour produire un pegged-asset avec moins de compromis. On les regroupe généralement dans des grandes familles qui correspondent à la principale méthode utilisée pour maintenir le peg. Néanmoins au fur et à mesure du développement de ces approches, les limites entre elles se confondent vu que plusieurs projets explorent &lt;strong&gt;des approches hybrides mêlant plusieurs éléments de chaque&lt;/strong&gt;. On commence du plus simple à comprendre pour aller progressivement vers le plus complexe.&lt;/p&gt;
+&lt;h3 id=&#34;la-correspondance-11-avec-un-intermédiaire-de-confiance&#34;&gt;La correspondance 1:1 avec un intermédiaire de confiance
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👍 Avantages :&lt;/strong&gt; Le peg est maintenu facilement et plutôt stable. Le système est solvable à tout moment (-&amp;gt; 1 USD en banque pour 1 USDC émis par ex)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👎 Inconvénients / Risques :&lt;/strong&gt; Le système nécessite un intermédiaire de confiance central — l&amp;rsquo;organisme émetteur. Ce même organisme repose sur un autre intermédiaire, la banque où les USD sont déposés. En outre, la présence d&amp;rsquo;un intermédiaire de confiance crée un risque : est-il fiable ? transparent ? Le risque va au-delà de l&amp;rsquo;image, il peut aussi être légal.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;On a déjà assez détaillé cette approche, je passe donc directement aux méthodes plus complexes.&lt;/p&gt;
+&lt;h3 id=&#34;stablecoin-produit-par-sur-collatéralisation--maker-dai&#34;&gt;Stablecoin produit par sur-collatéralisation : Maker DAI
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👍 Avantages :&lt;/strong&gt; Le système n&amp;rsquo;implique plus d&amp;rsquo;intermédiaire de confiance central (en tout cas initialement) &amp;amp; arrive malgré tout à plus ou moins maintenir le peg.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👎 Inconvénients / Risques :&lt;/strong&gt; Il faudra &lt;strong&gt;toujours plus de collatéral en $ que de $ (DAI) produit (sur-collatéralisation)&lt;/strong&gt;. Risques de gouvernance. Risques aux niveaux des liquidations, effectués par des tiers. Le système est aussi trustless que ses collatéraux les plus utilisés. Maker accepte désormais des collatéraux censurables (wBTC, USDC, etc.) ce qui réintroduit un risque de confiance dans le système.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Bien avant les stablecoins algorithmiques, MakerDAO est un pionnier quand on réfléchit à comment &lt;strong&gt;produire un actif stable avec moins de confiance nécessaire dans le système que les approches 1:1&lt;/strong&gt;. Maker est un service plus complexe car au-delà du DAI — le stablecoin émis par le système, il permet également à ses utilisateurs d&amp;rsquo;utiliser différents actifs pour emprunter (techniquement battre / &lt;em&gt;mint&lt;/em&gt;) des DAI.&lt;/p&gt;
+&lt;p&gt;En outre, cela recrée des risques et dangers pour maintenir le peg du DAI. De nombreuses améliorations ont été proposées et implémentées depuis le début, ce qui permet à DAI d&amp;rsquo;être désormais beaucoup plus stable que dans ses premiers jours. Néanmoins, la mise à l&amp;rsquo;échelle du DAI s&amp;rsquo;est faite avec des compromis additionnels en termes de confiance.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;les-approches-plus-innovantes&#34;&gt;Les approches plus innovantes
+&lt;/h3&gt;&lt;p&gt;Ici, les approches sont plus diversifiées — je les regroupe en deux familles : les approches algorithmiques déjà bien étudiées sur mon blog ainsi que les approches hybrides. Toutes deux s&amp;rsquo;appuient sur un concept essentiel à comprendre : la &amp;ldquo;banque centrale&amp;rdquo; de ces systèmes est un smart contract.&lt;/p&gt;
+&lt;h4 id=&#34;un-smart-contract-comme-banque-centrale&#34;&gt;Un smart contract comme &amp;ldquo;banque centrale&amp;rdquo;
+&lt;/h4&gt;&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;J&amp;rsquo;utilise le mot &amp;ldquo;banque centrale&amp;rdquo; car il évoque bien le concept essentiel ici : l&amp;rsquo;organisme émetteur de la monnaie et qui applique la politique monétaire du système est un smart contract. Cela permet d&amp;rsquo;avoir une grande transparence et visibilité sur les actions relatives à la politique monétaire.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Donc pour comprendre les systèmes présentés plus bas, il faut vraiment saisir ça : &lt;strong&gt;les décisions de création ou de destruction de nouveaux stablecoins sont &amp;ldquo;prises&amp;rdquo; par un smart contract&lt;/strong&gt; — lui seul à cette capacité d&amp;rsquo;émettre (et de détruire dans certains systèmes) des jetons.&lt;/p&gt;
+&lt;p&gt;Quand je dis que le smart contract prend des &amp;ldquo;décisions&amp;rdquo; il faut aussi expliciter : pour être plus précis, on pourrait dire qu&amp;rsquo;&lt;strong&gt;il réagit à l&amp;rsquo;évolution de différents paramètres mesurables&lt;/strong&gt;. Les décisions du smart contract sont donc transparentes et prédictibles. Un changement des règles qui le régissent est possible mais uniquement via un vote de gouvernance.&lt;/p&gt;
+&lt;p&gt;Le plus souvent, le principal paramètre pris en compte est tout simplement &lt;strong&gt;le prix du stablecoin&lt;/strong&gt;. Par exemple dans les premiers systèmes algorithmiques comme Basis (BAC est le stablecoin), les règles sont simples :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Si BAC &amp;gt; $1, alors le système émet et distribue de nouveaux BAC pour essayer de ramener le prix vers $1.&lt;/li&gt;
+&lt;li&gt;Lorsque BAC &amp;lt; $1 le système détruit des BAC pour créer une pression haussière. La destruction n&amp;rsquo;est pas directe mais volontaire : les acteurs du système sont incités à brûler leur BAC pour un coupon (BAB) correspondant à 1 BAC + premium, qu&amp;rsquo;ils pourront collecter seulement lorsque BAC aura un cours soutenu au-dessus du dollar.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Pour plus de contexte sur cette idée de &amp;ldquo;smart contract banque centrale&amp;rdquo;, vous pouvez lire mon premier article sur les stablecoins algorithmiques :&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2020/algorithmic-stablecoins.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;L&amp;rsquo;état et le futur des stablecoins algorithmiques&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;approches-algorithmiques&#34;&gt;Approches algorithmiques
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👍 Avantages :&lt;/strong&gt; Cela rend possible des systèmes sans intermédiaire central de confiance et donc ouvre la voie à des pegged-assets réellement trustless. Gouvernance communautaire possible.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👎 Inconvénients / Risques :&lt;/strong&gt; Perte de peg soutenue ou difficulté à maintenir le peg. Possible attaque de gouvernance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;J&amp;rsquo;analyse les principales approches pour produire des stablecoins algorithmiques dans un article dédié :&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://tokenbrice.xyz/content/posts/2021/seigniorage-basis-vs-esd.fr.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;⚖ L&amp;rsquo;histoire de deux modèles de seigneuriage : Basis contre ESD&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Ainsi, des projets comme ESD, DSD, ou encore Basis Cash ont été les pionniers des stablecoins algorithmiques. Néanmoins tous ces systèmes sont aujourd&amp;rsquo;hui un peu dans une abysse : cela fait &lt;strong&gt;bien longtemps que leur &amp;ldquo;stablecoin&amp;rdquo; vaut largement moins d&amp;rsquo;un dollar&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/pegged-assets/bac-90days.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;bac-price-90d&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Leurs utilisateurs sont plutôt dans l&amp;rsquo;expectative d&amp;rsquo;une V2 qui arriverait comme le messie à ramener le stablecoin au dollar.&lt;/p&gt;
+&lt;h4 id=&#34;approches-hybrides&#34;&gt;Approches hybrides
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👍 Avantages :&lt;/strong&gt; Le meilleur des deux mondes ?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👎 Inconvénients / Risques :&lt;/strong&gt; Un nouveau point potentiellement central et potentiellement intermédiaire de confiance apparaît dans le système. Vous connaissez la suite…&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Face aux limites actuelles des stablecoins algorithmiques de première génération, une autre approche a émergé avec succès : l&amp;rsquo;approche hybride. Il s&amp;rsquo;agit de systèmes algorithmiques par essence qui &lt;strong&gt;incluent néanmoins une réserve en stablecoin&lt;/strong&gt; (différent de celui du système) utilisé pour maintenir le peg : &lt;a class=&#34;link&#34; href=&#34;https://samkazemian.medium.com/frax-v2-algorithmic-market-operations-b84521ed7133&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;plus d&amp;rsquo;info ici (en anglais)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Le pionnier en la matière, c&amp;rsquo;est Frax. Avec Frax, &lt;strong&gt;lorsque le FRAX s&amp;rsquo;échange au-dessus du dollar le système lui-même en vend pour accumuler des USDC&lt;/strong&gt;. Cela permet de ramener le prix vers le bas tout en constituant une réserve en stablecoins non exposés au système lui-même. Ainsi, si le FRAX s&amp;rsquo;échange &lt;strong&gt;au-dessous du dollar, le système peut acheter des FRAX directement&lt;/strong&gt; sur le marché (grâce à son stock d&amp;rsquo;USDC) pour ramener le prix vers $1.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/pegged-assets/frax-price.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;frax-price-90d&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Bien que cette approche a le &lt;strong&gt;mérite de l&amp;rsquo;efficacité&lt;/strong&gt; (FRAX a très bien maintenu son peg depuis le lancement), elle réintroduit un intermédiaire de confiance dans le mécanisme. Certes, ce n&amp;rsquo;est pas une banque comme avec Tether, mais ça reste de la confiance nécessaire dans le système. Que se passe-t-il si la balance en USDC de Frax est saisie ou gelée : est-ce que le système pourrait y survivre ? Pour ceux qui ne le savent pas, oui c&amp;rsquo;est tout à fait possible techniquement parlant (et légalement).&lt;/p&gt;
+&lt;div class=&#34;notice info&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#info-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Information&lt;/p&gt;&lt;p&gt;Je reste très haut-niveau sur FRAX et décrit le système surtout tel qu&amp;rsquo;il était au début. De nombreuses intégrations ont été implémentées ou sont envisagées, comme la possibilité de battre le FRAX directement dans le FRAX-Tornado anonymity set (directement dans TornadoCash) pour proposer un stablecoin potentiellement plus confidentiel.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;zoom-sur-le-rai-de-reflexer&#34;&gt;Zoom sur le RAI de Reflexer
+&lt;/h2&gt;&lt;p&gt;Pour finir cet article que j&amp;rsquo;espère instructif, je vous propose d&amp;rsquo;analyser un système novateur : Reflexer RAI. C&amp;rsquo;est une approche similaire à celle de Marker, dans le sens où l&amp;rsquo;actif à vocation stable est produit par sur-collatéralisation. Néanmoins, il apporte de nombreuses améliorations par rapport au modèle Maker :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Collatéraux trustless&lt;/strong&gt;: Jusqu&amp;rsquo;à présent, RAI n&amp;rsquo;accepte que ETH en collatéral. Cela signifie donc que 100% des collatéraux du système ne sont pas censurables.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Au-delà du dollar&lt;/strong&gt; : l&amp;rsquo;actif produit par le système ne suit pas le dollar (qui n&amp;rsquo;est lui-même pas vraiment stable). Le prix du RAI est déterminé par un consensus établi par le marché.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Le Money God&lt;/strong&gt; : tout comme les stablecoins algorithmiques, le système réagit à différents paramètres observés. Néanmoins tout comme Maker, ici ce sont les utilisateurs eux-mêmes qui frappent directement le RAI.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dégouvernance&lt;/strong&gt; : le token du système Reflexer (FLX), qui sera distribué aux utilisateurs a pour vocation de servir à décentraliser progressivement la gouvernance.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Pas de panique si vous n&amp;rsquo;avez pas immédiatement compris pourquoi ce système est innovant et significatif, on va explorer chacun de ces points plus en détail.&lt;/p&gt;
+&lt;h3 id=&#34;collatéral-résistant-à-la-censure&#34;&gt;Collatéral résistant à la censure
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Initialement, MakerDAO n&amp;rsquo;acceptait que l&amp;rsquo;Ether en collatéral&lt;/strong&gt;. Avec la première mise à jour significative du système — le &lt;a class=&#34;link&#34; href=&#34;https://makerdao.com/whitepaper/White%20Paper%20-The%20Maker%20Protocol_%20MakerDAO%E2%80%99s%20Multi-Collateral%20Dai%20%28MCD%29%20System-FINAL-%20021720.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Multi Collateral DAI&lt;/a&gt; — de nouveaux tokens ont été acceptés. La communauté est restée perplexe face à cette décision, surtout à cause du choix des tokens acceptés. Ainsi, BAT a été l&amp;rsquo;un des premiers nouveaux collatéraux tandis que LINK, un token au volume et à la liquidité déjà largement supérieure à BAT à l&amp;rsquo;époque n&amp;rsquo;est arrivé que bien plus tard.&lt;/p&gt;
+&lt;p&gt;Au-delà de cette &lt;strong&gt;priorisation difficilement compréhensible&lt;/strong&gt;, le nœud du problème c&amp;rsquo;est surtout que &lt;strong&gt;de nombreux collatéraux désormais acceptés sont censurables&lt;/strong&gt;: wBTC, RenBTC, USDC, TUSD, etc. Cela réduit ainsi la trustlessness de MakerDAO puisque en fonction des moments, jusqu&amp;rsquo;à 50% de tous les DAI étaient frappés depuis des collatéraux censurables.&lt;/p&gt;
+&lt;p&gt;Le chiffre est désormais réduit, mais l&amp;rsquo;inquiétude persiste. En outre, l&amp;rsquo;addition d&amp;rsquo;un vault spécial USDC a été critiqué lors du Black Thursday pour aider le DAI à retrouver son peg — mais cela a également rendu MakerDAO encore plus dépendant de ce type de collatéraux.&lt;/p&gt;
+&lt;p&gt;Ainsi, Reflexer s&amp;rsquo;inscrit aussi comme &lt;strong&gt;une réaction à cette &amp;ldquo;dérive&amp;rdquo; de MakerDAO&lt;/strong&gt; : pour l&amp;rsquo;instant, seulement ETH est accepté pour ouvrir un vault. Je serai surpris de voir l&amp;rsquo;équipe ou la DAO voter pour accepter des collatéraux censurables.&lt;/p&gt;
+&lt;h3 id=&#34;au-delà-du-dollar&#34;&gt;Au-delà du dollar
+&lt;/h3&gt;&lt;p&gt;En outre, Reflexer va bien plus loin que DAI dans sa quête de stabilité. En effet, le dollar en lui même n&amp;rsquo;a pas de valeur stable, à cause de la production continue de nouvelles unités qui entraîne une inflation : ainsi $10 000 de 1950 sont équivalent en pouvoir d&amp;rsquo;achat à presque $110 000 de 2021 (3.42% inflation par an en moyenne sur la période).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Un actif qui a pour vocation d&amp;rsquo;être stable se doit donc de dépasser les limitations du dollar et c&amp;rsquo;est précisément ce que fait RAI&lt;/strong&gt; : il ne suit pas le prix du dollar. Le prix du RAI est déterminé par un pur consensus social : le système prend en compte le prix observé sur la paire ETH/RAI (market price) ainsi qu&amp;rsquo;un objectif de prix interne (redemption rate).&lt;/p&gt;
+&lt;p&gt;Il y a souvent des écarts entre les deux, ce qui crée une forme d&amp;rsquo;incitation à battre du RAI :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2021/pegged-assets/reflexer-spread.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;reflexer-spread&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;RAI n&amp;rsquo;est donc bien évidemment pas un stablecoin. Ce n&amp;rsquo;est pas non plus un pegged-asset.&lt;/strong&gt; Les mots manquent pour décrire fidèlement ce qu&amp;rsquo;est RAI mais permettez moi d&amp;rsquo;essayer. RAI c&amp;rsquo;est une abstraction sur l&amp;rsquo;ETH qui a vocation d&amp;rsquo;être plus stable que celui-ci, tout en maintenant sa trustlessness (à terme).&lt;/p&gt;
+&lt;h3 id=&#34;all-hail-the-money-god&#34;&gt;All Hail the Money God
+&lt;/h3&gt;&lt;p&gt;Le &amp;ldquo;Money God&amp;rdquo;, c&amp;rsquo;est le terme utilisé pour faire référence à l&amp;rsquo;ensemble des règles qui régissent le système Reflexer. Le potentiel mémétique est également énorme. Pour rester assez synthétique, le Money God est clément envers ceux qui s&amp;rsquo;inscrivent dans une logique pérenne et long terme sur le protocole.&lt;/p&gt;
+&lt;p&gt;Par exemple, le mécanisme de distribution du token Reflexer, le FLX, a récemment été modifié pour mieux aligner les incitations (&lt;a class=&#34;link&#34; href=&#34;https://medium.com/reflexer-labs/introducing-flx-20755214a465&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;plus d&amp;rsquo;info ici&lt;/a&gt;). L&amp;rsquo;essentiel du changement est de mieux rémunérer ceux qui pérennisent le système, c&amp;rsquo;est à dire :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Déposent des ETH pour frapper du RAI&lt;/li&gt;
+&lt;li&gt;Déposent &lt;strong&gt;tous&lt;/strong&gt; les RAI frappés + l’équivalent en ETH dans la pool de liquidité sur Uniswap.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Depuis le 8 Mars, 100% des FLX sont distribués à ceux qui suivent ce scénario.&lt;a class=&#34;link&#34; href=&#34;https://gist.github.com/stefanionescu/e66204be990f4bc113a022341cb39186&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt; L&amp;rsquo;historique des stratégies de distribution rétroactive du FLX est ici.&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;le-plan-de-dégouvernance&#34;&gt;Le plan de dégouvernance
+&lt;/h3&gt;&lt;p&gt;Outre l&amp;rsquo;innovation technique importante sur Reflexer, à peine explorée ici, j&amp;rsquo;apprécie tout particulièrement &lt;strong&gt;leur approche de la gouvernance et décentralisation du protocole&lt;/strong&gt;, comme décrit par Stefan l&amp;rsquo;un de ses architectes :&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;Le principe de la &amp;ldquo;dégouvernance&amp;rdquo; vient de notre volonté de progressivement retirer les mécanismes de contrôle individuel (humain) du système RAI afin de lui permettre de se développer et le rendre évolutif via un consensus social.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;L&amp;rsquo;équipe a établi &lt;strong&gt;un plan avec des objectifs concrets et datés&lt;/strong&gt; pour arriver à cette fin. La première étape consiste à rendre &amp;ldquo;governance minimized&amp;rdquo; les mécanismes de liquidation et de taxation du système — seuls quelques paramètres resteront modifiables via la gouvernance (vote des FLX holders) à partir de ce moment. La date visée est le 17 Avril 2022 soit un peu plus d&amp;rsquo;un an après le lancement initial de RAI.&lt;/p&gt;
+&lt;p&gt;À chaque étape, le scénario est similaire : un mécanisme critique du système est &amp;ldquo;governance-minimized&amp;rdquo; avant qu&amp;rsquo;il soit remis entièrement sous contrôle des holders de FLX.&lt;/p&gt;
+&lt;p&gt;Vous pouvez retrouver&lt;a class=&#34;link&#34; href=&#34;https://medium.com/reflexer-labs/introducing-flx-20755214a465&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt; le détail de ce plan ici&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Pour approfondir, n&amp;rsquo;hésitez pas à lire &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/reflexer-labs/whitepapers/blob/master/French/rai-french.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;le whitepaper de RAI traduit en français traduit par PhilH et BenDuPeloux&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion
+&lt;/h2&gt;&lt;p&gt;Je suivais et attendais Reflexer depuis plus d&amp;rsquo;un an, je suis ravi d&amp;rsquo;enfin vous en parler et excusez-moi pour le délai : je voulais le mettre en contexte pour s&amp;rsquo;assurer que tout le monde saisisse l&amp;rsquo;innovation apportée par ce protocole.&lt;/p&gt;
+&lt;div class=&#34;notice warning&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Avertissement&lt;/p&gt;&lt;p&gt;Cet article &lt;strong&gt;ne constitue pas un conseil en investissement&lt;/strong&gt;. Je n&amp;rsquo;ai aucune accréditation en la matière : elles n&amp;rsquo;existent pas encore pour la DeFi.&lt;/p&gt;
+&lt;p&gt;Je discute des mécanismes de plusieurs protocoles et ce qu&amp;rsquo;ils permettent de faire ou d&amp;rsquo;envisager dans le futur. Même si je mentionne des tokens, idem : je discute de leur utilité ou tokenomics mais &lt;strong&gt;jamais de leur pertinence en tant qu&amp;rsquo;investissement&lt;/strong&gt;. Sur ce sujet, c&amp;rsquo;est à vous de voir !&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;J&amp;rsquo;espère que cet article vous aidera à mieux comprendre l&amp;rsquo;essor des pegged-assets sur Ethereum — c&amp;rsquo;est essentiel. Il est également critique de comprendre les différents jeux de compromis associés à chaque approche : elles sont toutes potentiellement plus ou moins pertinentes, tout dépend de votre situation et de vos besoins !&lt;/p&gt;
+&lt;p&gt;Enfin, que vous soyez convaincu par Reflexer ou non, je vous invite grandement à creuser ce système, tout comme je vous invite régulièrement à explorer le fonctionnement d&amp;rsquo;Aave, de Curve ou d&amp;rsquo;Unslashed. Tous les quatre sont des systèmes très pertinents et innovants : les comprendre en profondeur vous permettra d&amp;rsquo;internaliser de nombreuses choses essentielles pour comprendre la finance décentralisée en général.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;🙏 Un grand merci à HHK, Charles, Thomas, Erwan, &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/phil_h&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PhilH&lt;/a&gt; &amp;amp; FrenchTony pour leur relecture attentive de l&amp;rsquo;édition française de cet article et sa traduction en Anglais.&lt;/em&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>L&#39;état et le futur des stablecoins algorithmiques</title>
+        <link>http://localhost:1313/fr/p/l%C3%A9tat-et-le-futur-des-stablecoins-algorithmiques/</link>
+        <pubDate>Mon, 28 Dec 2020 01:13:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/fr/p/l%C3%A9tat-et-le-futur-des-stablecoins-algorithmiques/</guid>
+        <description>&lt;img src="http://localhost:1313/img/2020/algorithmic-stablecoins/cover.pn" alt="Featured image of post L&#39;état et le futur des stablecoins algorithmiques" /&gt;&lt;p&gt;Depuis début décembre, une nouvelle tendance se dessine dans le DeFi : les stablecoins algorithmiques. Plusieurs projets ont été lancés et ont connu une croissance importante, suscitant encore plus d&amp;rsquo;intérêt pour ce sous-ensemble de l&amp;rsquo;espace.&lt;/p&gt;
+&lt;p&gt;Avant de nous plonger dans ce qu&amp;rsquo;ils sont et ce qu&amp;rsquo;ils impliquent, abordons d&amp;rsquo;abord les marchés envisageables. Les stablecoins sur Ethereum sont massifs : ils circulent autour de 20B USDT, 3.5B USDC &amp;amp; 1B DAI. Comme vous pouvez le constater, la majeure partie du volume est actuellement desservie par des stablecoins nécessitant une certaine forme de confiance, tels que &lt;strong&gt;USDC ou USDT : la société émettrice a le pouvoir de geler les actifs et de manipuler les soldes&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Maker a exploré une autre approche avec le DAI qui comporte beaucoup moins de compromis - cependant, l&amp;rsquo;extensibilité est réduite. En outre, il est difficile de considérer le DAI comme &amp;ldquo;suffisamment trustless&amp;rdquo; aujourd&amp;rsquo;hui alors que 60% des garanties utilisées pour le frapper ne le sont pas (USDC, wBTC, TUSD, etc.)&lt;/p&gt;
+&lt;p&gt;Il convient donc de rappeler que jusqu&amp;rsquo;à présent, il existe une demande insatisfaite évidente dans le domaine des stablecoins - ceux qui ont atteint un total circulant important l&amp;rsquo;ont fait avec des compromis significatifs, ce qui leur a permis de satisfaire les marchés bien qu&amp;rsquo;il s&amp;rsquo;agisse de services nécessitant de la confiance, et qui en sont plus ou moins dignes (en particulier USDT).&lt;/p&gt;
+&lt;p&gt;La raison pour laquelle j&amp;rsquo;écris cet article aujourd&amp;rsquo;hui est qu&amp;rsquo;après avoir suivi l&amp;rsquo;évolution de l&amp;rsquo;espace des stablecoins pendant des années, il semble que nous ayons atteint une percée passionnante avec une nouvelle génération de stablecoins capables d&amp;rsquo;offrir &lt;strong&gt;à la fois une évolutivité et une trustlessness&lt;/strong&gt;. Le sujet n&amp;rsquo;est ni simple ni facilement accessible, surtout pour les nouveaux arrivants. Je ferai de mon mieux pour vous guider pas à pas dans le processus de réflexion.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;pourquoi-avons-nous-besoin-de-stablecoins-trustless-&#34;&gt;Pourquoi avons-nous besoin de stablecoins trustless ?
+&lt;/h3&gt;&lt;p&gt;Avant de nous plonger dans quel projet  fait quoi et à quelle fin prenons un peu de recul. Nous avons établi qu&amp;rsquo;il existe une demande importante de stablecoins, et qu&amp;rsquo;aucune des offres phares actuelles n&amp;rsquo;est suffisamment trustless. Mais qu&amp;rsquo;est-ce que cela signifie exactement ?&lt;/p&gt;
+&lt;p&gt;En termes simples, la &lt;strong&gt;trustlessness signifie que l&amp;rsquo;ensemble du système ne nécessite aucun point de confiance central pour fonctionner correctement&lt;/strong&gt;. On parle souvent de &amp;ldquo;résistance à la censure&amp;rdquo;, une propriété différente qui découle de la trustlessness. D&amp;rsquo;un point de vue pratique, voici donc quelques questions pour vous aider à évaluer la trustlessness : plus les autorisations sont permissives, moins le projet a tendance à être trustless :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Est-ce que les tokens peuvent être saisis ou gelés ?&lt;/li&gt;
+&lt;li&gt;Le code ou les paramètres du protocole peuvent-ils être mis à jour ? Dans quelles conditions ? Par qui ?&lt;/li&gt;
+&lt;li&gt;Le protocole dépend-il de services tiers, tels qu&amp;rsquo;un flux de prix (oracle) qui pourrait être manipulé ?&lt;/li&gt;
+&lt;li&gt;Qui/quoi peut frapper de nouveaux tokens ? Est-ce à l&amp;rsquo;initiative de l&amp;rsquo;utilisateur (quelqu&amp;rsquo;un prend une action) ou du protocole (une décision que le protocole prend en fonction de paramètres donnés) ?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;La dernière question est particulièrement pertinente, car elle met en évidence un élément essentiel des stablecoins algorithmiques : &lt;strong&gt;leur &amp;ldquo;banque centrale&amp;rdquo; est un contrat intelligent&lt;/strong&gt; - personne ne la contrôle, elle réagit simplement aux paramètres du système. Nous y reviendrons plus loin.&lt;/p&gt;
+&lt;p&gt;Avec cette pièce, nous allons donc examiner les principaux modèles disponibles : Ampleforth, Basis Cash, Empty Set Dollar, et Dynamic Set Dollar. Je ne vais pas me plonger dans l&amp;rsquo;histoire de l&amp;rsquo;espace et les spécificités de chaque modèle, n&amp;rsquo;hésitez pas à consulter cet article de Deribit Insights si vous avez besoin de plus de contexte :&lt;/p&gt;
+&lt;p&gt;👉 &lt;a class=&#34;link&#34; href=&#34;https://insights.deribit.com/market-research/stability-elasticity-and-reflexivity-a-deep-dive-into-algorithmic-stablecoins/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Stabilité, élasticité et réflexivité : A Deep Dive into Algorithmic Stablecoins&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Donc, au lieu de plonger dans les détails de chaque système, je vais dessiner &lt;strong&gt;un croquis montrant les principes fondamentaux sur lesquels cette génération de stablecoins est construite&lt;/strong&gt;, en me basant sur les paramètres et les approches de conception communs à tous les projets.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;central-smart-contract&#34;&gt;Central Smart Contract
+&lt;/h3&gt;&lt;p&gt;La première dimension intéressante est la &amp;ldquo;banque centrale&amp;rdquo; du système - c&amp;rsquo;est-à-dire qui/quoi peut imprimer de nouveaux tokens et à quelles conditions ? &lt;strong&gt;L&amp;rsquo;USDC et l&amp;rsquo;USDT reproduisent à peu près une banque centrale&lt;/strong&gt; - une entité est chargée du projet et de l&amp;rsquo;émission de nouveaux tokens.&lt;/p&gt;
+&lt;p&gt;Comme Maker n&amp;rsquo;est qu&amp;rsquo;un contrat intelligent permettant à ses utilisateurs de frapper le DAI à partir de certaines garanties, l&amp;rsquo;approche est différente ici. Pour l&amp;rsquo;essentiel, &lt;strong&gt;Maker/DAI vous permet d&amp;rsquo;être votre propre banque centrale&lt;/strong&gt;. La banque centrale de Maker est donc un contrat intelligent, mais elle exige une intervention humaine pour frapper le DAI.&lt;/p&gt;
+&lt;p&gt;Les stablecoins algorithmiques vont encore plus loin, puisque &lt;strong&gt;l&amp;rsquo;apport humain est retiré du processus de frappe&lt;/strong&gt;. Dans ces systèmes, personne n&amp;rsquo;a la capacité de frapper des tokens - seul le contrat intelligent qui le gère le peut. C&amp;rsquo;est très élégant et minimal, mais cela nécessite un ensemble d&amp;rsquo;incitations soigneusement conçues pour s&amp;rsquo;assurer que les stablecoins finiront par se rapprocher de leur valeur nominale. Pour dire les choses simplement, &lt;strong&gt;avec des stablecoins algorithmiques, la banque centrale est un contrat intelligent autonome.&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;une-armée-de-stabilisateurs&#34;&gt;Une armée de stabilisateurs
+&lt;/h3&gt;&lt;p&gt;Avec les stablecoins algorithmiques, surtout à leurs débuts, les ruptures de peg sont fréquentes. Pour ramener le stablecoin à son point d&amp;rsquo;ancrage, les protocoles prévoient différents types d&amp;rsquo;incitations.&lt;/p&gt;
+&lt;p&gt;Lorsque le stablecoin vaut plus d&amp;rsquo;un dollar, &lt;strong&gt;le protocole frappe de nouveaux jetons et les distribue comme incitation&lt;/strong&gt; aux utilisateurs qui fournissent des liquidités ou qui verrouillent leur token, ce qui contribue à faire baisser le prix.&lt;/p&gt;
+&lt;p&gt;Lorsque le stablecoin se négocie en dessous de 1 $, le système des coupons (ou obligations) entre en jeu : &lt;strong&gt;Les utilisateurs peuvent brûler leurs stablecoins pour un coupon&lt;/strong&gt; le représentant + une prime. Toutefois, ils ne pourront réclamer le coupon qu&amp;rsquo;une fois que le prix sera de nouveau supérieur au dollar.&lt;/p&gt;
+&lt;p&gt;Comme vous pouvez le voir, à un niveau élevé, ces mécanismes sont simples. Ils comportent des subtilités que vous devez maîtriser si vous voulez participer au système. &lt;strong&gt;Les utilisateurs qui les comprennent et les suivent peuvent aider le protocole à se stabiliser&lt;/strong&gt;, et si c&amp;rsquo;est le cas, ils peuvent gagner de l&amp;rsquo;argent dans le processus. Ces règles simples conduisent donc à l&amp;rsquo;émergence d&amp;rsquo;une armée de stabilisateurs, qui utilisent tous les mécanismes pour stabiliser le prix :&lt;/p&gt;
+&lt;p&gt;Cette conception pousse la théorie du jeu et le jeu de mime à un autre niveau :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/algorithmic-stablecoins/dsd-meme.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;DSD Meme&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;phase-dexpansion-agressive&#34;&gt;Phase d&amp;rsquo;expansion agressive
+&lt;/h3&gt;&lt;p&gt;Comme l&amp;rsquo;approvisionnement en stablecoins algorithmiques est élastique, leur mécanisme est rapidement mis à l&amp;rsquo;épreuve. En effet, au moment du lancement, l&amp;rsquo;offre circulante de stablecoins est généralement faible et les incitations intéressantes créent une forte demande.&lt;/p&gt;
+&lt;p&gt;Par exemple, &lt;strong&gt;Basis Cash a été lancé avec 50 000 jetons BAC&lt;/strong&gt; distribués aux premiers participants. Environ un mois après, il y a maintenant &lt;strong&gt;40M de BAC en circulation&lt;/strong&gt; : ils ont été produits parce que le BAC s&amp;rsquo;est échangé à plus d&amp;rsquo;un dollar la plupart des jours depuis le lancement. Jusqu&amp;rsquo;à présent, il n&amp;rsquo;y a pas eu de phase où le BAC s&amp;rsquo;est négocié à &amp;gt;1$, donc le système de coupons de la base (BAB) n&amp;rsquo;a pas encore été testé.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice info&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#info-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Information&lt;/p&gt;&lt;p&gt;L&amp;rsquo;expansion et la contraction sont phasés dans des &amp;ldquo;epochs&amp;rdquo;. L&amp;rsquo;epoch de Basis Cash a une durée de 24 heures. ESD est de 8h et DSD est de 2h.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;En revanche, l&amp;rsquo;ESD et le DSD ont déjà connu plusieurs cycles d&amp;rsquo;expansion et de contraction chacun, le protocole fonctionnant comme prévu :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2020/algorithmic-stablecoins/dsd-mktcap.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;DSD Market Cap au cours des 7 derniers jours&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;exploiter-la-composabilité-du-defi&#34;&gt;Exploiter la composabilité du DeFi
+&lt;/h3&gt;&lt;p&gt;Un autre principe clé des stablecoins algorithmiques est la composabilité. On y pense souvent comme à &amp;ldquo;comment puis-je brancher mon produit/service fini sur d&amp;rsquo;autres&amp;rdquo;. Ces projets vont beaucoup plus loin, car &lt;strong&gt;ils utilisent d&amp;rsquo;autres protocoles comme Uniswap comme partie centrale de leur système dès le début.&lt;/strong&gt; Basis, ESD et DSD ont tous trois des composantes principales :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Un mécanisme interne de verrouillage/prise en charge des phases d&amp;rsquo;expansion (DAO ou Boardroom)&lt;/li&gt;
+&lt;li&gt;Un mécanisme de &amp;ldquo;burn&amp;amp;redeem&amp;rdquo; pour les phases de contraction&lt;/li&gt;
+&lt;li&gt;Une paire Uniswap (/USDC ou /DAI)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Leur structure même démontre une compréhension du DeFi et de sa composabilité. En plaçant la (les) paire(s) Uniswap au cœur du protocole, cela aide à bien des niveaux - puisque &lt;strong&gt;Uniswap est la base du DeFi que les utilisateurs connaissent bien.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Bien que l&amp;rsquo;Uniswap soit le principal pool, la liquidité des autres DEX est de plus en plus examinée. Avec le lancement d&amp;rsquo;Omakase, Sushi a ajouté deux nouveaux pools de stablecoins algorithmiques incitatifs : ESD/ETH &amp;amp; DSD/USDC.&lt;/p&gt;
+&lt;p&gt;La composabilité est essentielle pour les stablecoins algorithmiques et plusieurs projets prennent déjà des mesures pour s&amp;rsquo;intégrer davantage dans l&amp;rsquo;écosystème. Dans les prochains mois, nous devrions en voir les prochaines étapes avec l&amp;rsquo;arrivée de certains stablecoins algorithmiques comme garantie sur les plateformes de prêt.&lt;/p&gt;
+&lt;h3 id=&#34;oracle-minimaliste&#34;&gt;Oracle Minimaliste
+&lt;/h3&gt;&lt;p&gt;Les oracles sont utilisés comme paramètre de base dans le système algorithmique des stablecoins: : ils sont la &lt;strong&gt;source de vérité pour le prix du stablecoin&lt;/strong&gt;. Il est essentiel de s&amp;rsquo;assurer que l&amp;rsquo;oracle est résistant et ne peut pas être manipulé.&lt;/p&gt;
+&lt;p&gt;Pour ce faire, la génération précédente de projets, en particulier Maker, avait tendance à suringénierieser. Dans les premiers temps, le paramètre d&amp;rsquo;entrée de Maker était presque le prix pur et brut de l&amp;rsquo;ETH. Cependant, pour rendre le système moins sujet aux &amp;ldquo;liquidations éclair&amp;rdquo;, Maker a construit son propre oracle, et utilise plusieurs délais et moyennes avec le prix de liquidation pour &lt;strong&gt;ajouter une certaine inertie à son système&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;D&amp;rsquo;autre part, comme nous l&amp;rsquo;avons vu précédemment, nos stablecoins algorithmiques ont tendance à être minimalistes et à exploiter la composabilité du DeFi. &lt;strong&gt;Avec leurs paires Uniswap, ils ont déjà une un flux de prix décent avec une liquidité importante, ce qui le rend difficile à manipuler&lt;/strong&gt;. Le prix Uniswap est donc utilisé comme base, mais généralement calculé comme un TWAP (Time Weighted Average Price) afin d&amp;rsquo;éviter les manipulations de prix juste avant les rebases.&lt;/p&gt;
+&lt;p&gt;Tout en étant minimalistes, les systèmes sont efficaces et élégants : à mesure que ces projets de stablecoins se développent, leur liquidité sur l&amp;rsquo;Uniswap devrait augmenter, rendant l&amp;rsquo;oracle plus résistant et le prix plus difficile à manipuler.&lt;/p&gt;
+&lt;p&gt;Pour ma part, je suis enthousiaste quant à la direction que prend ce sous-ensemble de l&amp;rsquo;espace. Que vous ayez l&amp;rsquo;intention de participer ou non à la phase d&amp;rsquo;amorçage de ces stablecoins, je pense qu&amp;rsquo;il est très utile de vous documenter sur eux car ils sont un bon indicateur des principales tendances de l&amp;rsquo;espace.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-boîte-à-outils-pour-les-stablecoins-algorithmique&#34;&gt;🧰 Boîte à outils pour les stablecoins algorithmique
+&lt;/h3&gt;&lt;p&gt;Avant de nous séparer, permettez-moi de vous présenter quelques outils utiles pour suivre l&amp;rsquo;évolution de ces stablecoins. Tout d&amp;rsquo;abord, chaque projet possède son propre tracker qui fournit les principales mesures de l&amp;rsquo;époque actuelle :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://bc.tools/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Basis Cash Tools&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://esd.tools/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Outils de suivi ESD&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://dsd.tools/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Outils de suivi DSD&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Enfin, vous pouvez consulter des informations plus détaillées sur le système ESD et DSD sur ce tableau de bord : &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://duneanalytics.com/tongnk/esd_1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ESD/DSD Bonding&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;disclaimer&#34;&gt;Disclaimer
+&lt;/h3&gt;&lt;div class=&#34;notice warning&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Avertissement&lt;/p&gt;&lt;p&gt;&lt;strong&gt;CET ARTICLE NE CONSTITUE PAS UN CONSEIL EN INVESTISSEMENT.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Je ne suis pas un conseiller financier qualifié, mais qui en a vraiment quelque chose à foutre ? C&amp;rsquo;est de DeFi qu&amp;rsquo;on parle.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Je me suis senti légitime d&amp;rsquo;écrire cet article parce que j&amp;rsquo;ai suivi de près le Basis Cash, le Empty Set Dollar et le Dynamic Set Dollar, ainsi que le Basis Dollar &amp;amp; Share moins attentivement. Frax est un autre projet hybride qui mérite d&amp;rsquo;être examiné - je n&amp;rsquo;en ai pas parlé car je ne le connais pas encore assez.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#note-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Remarque&lt;/p&gt;&lt;p&gt;&lt;strong&gt;💰 Bag Disclosure&lt;/strong&gt; : Je possède des BAC/BAS (Basis Cash), ESD (Empty Set Dollar) et DSD (Dynamic Set Dollar).&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;J&amp;rsquo;espère que cette lecture vous a éclairé. Si c&amp;rsquo;est le cas, vous pouvez &lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/tokenbrice/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;me suivre sur Twitter&lt;/a&gt;&lt;/strong&gt; ou ce blog par RSS (tout en bas de la page 👇) pour être informé de la publication des prochains articles.&lt;/p&gt;
+&lt;div class=&#34;notice tip&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#tip-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Astuce&lt;/p&gt;&lt;p&gt;Cet article a éveillé votre curiosité ? Vous êtes tombés au bon endroit — nous avons un ecosystème dynamique en français pour vous aider à suivre et comprendre la finance décentralisée. Du plus accessible au plus spécialisé :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://discord.gg/3bWZcK2&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;💬 Le serveur Discord DeFi France&lt;/a&gt;&lt;/strong&gt; pour échanger avec la communauté.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://thedailygweifr.substack.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;☕ La version française du Daily Gwei&lt;/a&gt;&lt;/strong&gt; pour des articles et résumés très accessibles.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://banklessfr.substack.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🗞 La newsletter BanklessFR&lt;/a&gt;&lt;/strong&gt; pour comprendre les concepts fondamentaux.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/channel/UCefQC4Y-X9MBRuYBKc2waiQ&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;🎥 La chaine Youtube DeFi France&lt;/a&gt;&lt;/strong&gt; pour approfondir avec des lives pointus.&lt;/li&gt;
+&lt;li&gt;&amp;amp; Bien sûr &lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/fr/&#34; &gt;ce blog&lt;/a&gt; qui creuse des sujets spécifiques liés à la pratique de la DeFi.&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;
+
+</description>
+        </item>
+        
+    </channel>
+</rss>

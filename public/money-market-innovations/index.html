@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="What are the next steps for money markets? We're tackling different themes with an emblematic project: re-appropriation of liquidations with Bprotocol, loans that pay back over time with Alchemix, and much more!">
+<title>Understanding innovations in money markets to envision their future</title>
+
+<link rel='canonical' href='http://localhost:1313/money-market-innovations/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Understanding innovations in money markets to envision their future">
+<meta property='og:description' content="What are the next steps for money markets? We're tackling different themes with an emblematic project: re-appropriation of liquidations with Bprotocol, loans that pay back over time with Alchemix, and much more!">
+<meta property='og:url' content='http://localhost:1313/money-market-innovations/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='DeFi' /><meta property='article:tag' content='Ethereum' /><meta property='article:tag' content='Decentralized Finance' /><meta property='article:tag' content='Money Markets' /><meta property='article:tag' content='Aave' /><meta property='article:tag' content='Compound' /><meta property='article:tag' content='Liquity' /><meta property='article:tag' content='Mimo Capital' /><meta property='article:tag' content='Reflexer' /><meta property='article:tag' content='BProtocol' /><meta property='article:tag' content='Liquidation' /><meta property='article:published_time' content='2021-04-19T01:13:50&#43;00:00'/><meta property='article:modified_time' content='2021-04-19T01:13:50&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/2021/money-market-innovations/cover-en.png' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="Understanding innovations in money markets to envision their future">
+<meta name="twitter:description" content="What are the next steps for money markets? We're tackling different themes with an emblematic project: re-appropriation of liquidations with Bprotocol, loans that pay back over time with Alchemix, and much more!"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/2021/money-market-innovations/cover-en.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">TokenBrice</a></h1>
+            <h2 class="site-description">Brutally Honest DeFi</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" selected>English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" >Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#discovering-money-markets">Discovering money markets</a></li>
+    <li><a href="#innovations-built-on-existing-money-markets">Innovations built on existing money markets</a>
+      <ol>
+        <li><a href="#easy-loan-positions-management-with-defisaver">Easy loan positions management with DeFiSaver</a></li>
+      </ol>
+    </li>
+    <li><a href="#reclaiming-liquidation-with-bprotocol">Reclaiming liquidation with B.Protocol</a></li>
+    <li><a href="#innovations-of-the-makerdao-model">Innovations of the MakerDAO model</a>
+      <ol>
+        <li><a href="#mimo-capital-down-with-the-dollar-up-with-the-euro">Mimo Capital: down with the dollar, up with the euro!</a></li>
+        <li><a href="#beyond-fiat-currencies-with-reflexer">Beyond fiat currencies with Reflexer</a></li>
+      </ol>
+    </li>
+    <li><a href="#new-generation-of-money-markets">New generation of money markets</a></li>
+    <li><a href="#alchemix-productive-assets-as-collateral">Alchemix: productive assets as collateral?</a>
+      <ol>
+        <li><a href="#liquity-efficiency-at-all-costs">Liquity: efficiency at all costs</a></li>
+      </ol>
+    </li>
+    <li><a href="#the-next-step-to-understand-money-markets">The next step to understand money markets</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/money-market-innovations/">
+                
+                    <img src="/img/2021/money-market-innovations/cover-en.png" loading="lazy" alt="Featured image of post Understanding innovations in money markets to envision their future" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/defi/" style="background-color: #2a9d8f; color: #fff;">
+                DeFi
+            </a>
+        
+            <a href="/categories/discovery/" style="background-color: #2a9d8f; color: #fff;">
+                Discovery
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/money-market-innovations/">Understanding innovations in money markets to envision their future</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            What are the next steps for money markets? We&#39;re tackling different themes with an emblematic project: re-appropriation of liquidations with Bprotocol, loans that pay back over time with Alchemix, and much more!
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Apr 19, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    11 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+        <footer class="article-translations">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+            <div>
+                
+                    <a href="http://localhost:1313/fr/marche-monetaire-innovations/" class="link">Français</a>
+                
+            </div>
+        </footer>
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Money markets like <a class="link" href="https://www.defiscan.info/protocols/aave/ethereum"  target="_blank" rel="noopener"
+    >Aave</a>, <a class="link" href="https://www.defiscan.info/protocols/compound-v3/ethereum"  target="_blank" rel="noopener"
+    >Compound</a> or <a class="link" href="https://www.defiscan.info/protocols/sky/ethereum"  target="_blank" rel="noopener"
+    >Maker</a> are the heart of the DeFi ecosystem. For the final user, these protocols have the same function than a classic bank : borrowing or putting sleepy money at work by lendind it.</p>
+<p>Nevertheless, <strong>the analogy stops immediately at this functional comparison</strong>. Indeed, the underlying logic of money markets has nothing to do with the functioning of a bank. Money markets benefit from all the advantages of DeFi and, in particular, the transparency and accessibility of all operations.</p>
+<p>When a user borrows on Aave, <strong>the protocol does not need to know his age or identity</strong>: validate all conditions is enough ! It means that you just have to put enough collateral.</p>
+<p>In the same way, a user who deposits stablecoins on Aave to generate a return by lending them to others does not trust anyone: he can check at any time which amounts are borrowed by each address to <strong>ensure the solvency of the entire system.</strong></p>
+<p>This may seem basic to a DeFian, but it is a real paradigm shift. In traditional finance, we have no choice but to trust a third party (auditor, rating agency, etc.) to obtain this kind of information - with the reliability that we know.</p>
+<hr>
+<h2 id="discovering-money-markets">Discovering money markets
+</h2><p>We have already talked a lot about money markets on this blog, especially in the article that offers a qualitative methodology to evaluate their risks : <strong><a class="link" href="https://tokenbrice.xyz/content/posts/2021/money-market-risks.md"  target="_blank" rel="noopener"
+    >Assessing risk in decentralized finance: a handbook for money markets</a></strong></p>
+<p>Or the one about the different services of abstraction and distribution of the inherent risks in money markets: <strong><a class="link" href="https://tokenbrice.xyz/content/posts/2021/risk-tranching.md"  target="_blank" rel="noopener"
+    >Risk? Yes please, but exactly how I like it</a></strong></p>
+<p>However, money markets are constantly evolving, both through their updates and through the contribution of third-party services built on top. In addition, new and more challenging money markets are being launched to cover needs that are still unsatisfied.</p>
+<p>So this is precisely our purpose today: <strong>understanding the essential innovations underway in money markets in order to better envision their future development.</strong> Rather than making an exhaustive list, I propose to look at a selection of projects that I think are relevant to understanding the industry evolution.</p>
+<hr>
+<h2 id="innovations-built-on-existing-money-markets">Innovations built on existing money markets
+</h2><p>Money markets may seem really complex at first glance. The curious are most often frightened by the risks of liquidating the collateral when its value is no longer sufficient to secure the borrowed amount.</p>
+<h3 id="easy-loan-positions-management-with-defisaver">Easy loan positions management with DeFiSaver
+</h3><p>Many DeFi users have not yet fully understood the issues at stake here. Many still think that liquidation can be total and sudden. In addition to information and education, tools for managing one&rsquo;s positions help users to feel more confident.</p>
+<p>Fortunately, tools that facilitate and automate the management of borrowing positions on money markets have emerged very quickly, such as DeFi Saver. I already talked about it last year in this article <strong><a class="link" href="https://tokenbrice.xyz/content/posts/2020/leveraging-ETH.md"  target="_blank" rel="noopener"
+    >🎚 ETH exposure or DeFi yields: why choose?</a></strong></p>
+<p>DeFiSaver works as a proxy between the user and money markets. It allows new features such as the well-loved &ldquo;Save&rdquo;: when the position falls below a user-defined collateralization limit, DeFiSaver automatically rebalances the position with a flash loan.</p>
+<p>In concrete terms, this function sells a part of the user&rsquo;s collateral to pay off some debt and return to a collateralization ratio decided earlier. Such a tool allows the most aggressive or worried borrowers to sleep much more peacefully.</p>
+<h2 id="reclaiming-liquidation-with-bprotocol">Reclaiming liquidation with B.Protocol
+</h2><p>Although DeFiSaver is very useful, it remains a tool that does not fundamentally change the way the underlying services work. Other projects go further, like <a class="link" href="https://www.bprotocol.org/"  target="_blank" rel="noopener"
+    >BProtocol</a> which I discovered recently.</p>
+<p>The idea is very simple: instead of borrowing directly from Maker, the user goes through the BProtocol contract. Funds available to the protocol allows it to <strong>liquidate the user&rsquo;s position (if necessary) before other liquidators do so.</strong></p>
+<p><img src="/img/2021/money-market-innovations/bprotocolexplainer.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="bprotocol explainer"
+	
+	
+></p>
+<p>What is usually a gas war between different liquidators becomes a more predictable operation. It also allows <strong>redistributing part of the liquidation premium to the user himself rather than to the miners.</strong></p>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>On money markets, users deposit collateral to borrow. If the value of the collateral is too low compared to the borrowed amount, a liquidation is necessary.</p>
+<p>Usually this liquidation is at the expense of another type of user who gets paid (premium liquidation).</p></div>
+
+<p>The idea, simple at a high level, is nonetheless very reassuring for users while allowing for &ldquo;professionalization&rdquo; of liquidations which become more predictable. There are now about $100M of assets managed by the protocol which already covers Maker and Compound (Aave is coming soon).</p>
+<hr>
+<h2 id="innovations-of-the-makerdao-model">Innovations of the MakerDAO model
+</h2><p>MakerDAO is probably the best-known money market, but it is also a special one. Indeed, MakerDAO serves a dual function: the service allows borrowing just like Aave or Compound, however <strong>no one lends you anything when you borrow on Maker - borrowers directly mint a currency (DAI) that corresponds to their debt.</strong></p>
+<p>Thus, while allowing borrowing, MakerDAO also produces a stable asset, the DAI, which is indexed on dollar. Although DAI has its limitations, it is less centralized and requires less trust than stablecoin models like USDC. This is why Maker&rsquo;s model has been taken up many times to serve new purposes.</p>
+<h3 id="mimo-capital-down-with-the-dollar-up-with-the-euro">Mimo Capital: down with the dollar, up with the euro!
+</h3><p>Until now, the dollar has been the reference fiat currency for DeFi. Almost all stablecoin projects aim to produce an asset that tracks the value of the dollar. In addition, it is also the dollar value of volatile assets that is considered by borrowing systems to determine the collateralization ratio, both on Maker and Compound or Aave.</p>
+<p>The dollar being the most common and best known fiat currency, it made sense to start with but it is time to go beyond that to meet the needs of all types of users and make DeFi more accessible.</p>
+<p>This is precisely what a project like Mimo Capital is looking for, as it proposes <strong>a system similar to MakerDAO but where the Euro is the base currency</strong>, instead of the dollar. This means that the stablecoin produced by the borrowers - the PAR - follows the Euro, but also that the internal prices of the system are in €, as the value of the collateral used (ETH, wBTC or USDC).</p>
+<p><img src="/img/2021/money-market-innovations/mimo-capital-par.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Mimo-Capital-PAR"
+	
+	
+></p>
+<p>Mimo is not coming up in an empty market as Euro stablecoins are beginning to emerge. In addition to Mimo&rsquo;s PAR, there is the EURS stablecoin which follows a centralized model: each EURS in circulation is backed by a Euro fiat owned by the issuer. Thus, <strong>yield opportunities are starting to emerge via Euro exposures</strong>, for example the sEUR/EURS pool on Curve also accessible via vaults on StakeDAO or Harvest Finance.</p>
+<p>The arrival of <strong>a protocol like Mimo allows European investors to consider a circuit with the Euro as the reference currency</strong>. Using their ETH or wBTC as collateral, they can borrow PAR (stablecoin €) and make it productive via, for now, two liquidity pools on Balancer, but eventually, probably more.</p>
+<p>Mimo is still a fairly new system with approximately €25 million of collateral deposited as collateral for approximately 12.5 million PARs issued (€). The governance token associated with the service - MIMO - is currently distributed to any active vault holder as well as to liquidity providers on the PAR/ETH and PAR/USDC pairs.</p>
+<h3 id="beyond-fiat-currencies-with-reflexer">Beyond fiat currencies with Reflexer
+</h3><p><strong>Switching from dollar to euro is good, going completely without a fiat currency reference is even better</strong> This is exactly what Reflexer, another service inspired by the Maker model, offers.</p>
+<p>There is no reference price here. The price of the RAI (borrower-generated asset) is governed directly by the market (average price on the RAI/ETH pair). The system also has its &ldquo;internal&rdquo; price, the <em>Redemption Price</em> - the rate used when users directly mint RAI (by depositing ETH as collateral).</p>
+<p><img src="/img/2021/money-market-innovations/raiprice.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="reflexer RAI price"
+	
+	
+></p>
+<p>Various parameters in the Reflexer system adjust to <strong>converge the two prices over time, or at least keep them within a narrow range</strong>. While this approach is much more difficult for the user to learn, it is completely uncorrelated with the dollar (or any other fiat currency), which is valuable in itself.</p>
+<p>To better understand Reflexer, I recommend you to read my previous article on stable assets:</p>
+<p><strong><a class="link" href="https://tokenbrice.xyz/content/posts/2021/pegged-assets.md"  target="_blank" rel="noopener"
+    >Exploring stable assets on Ethereum: approaches &amp; endgame?</a></strong></p>
+<hr>
+<h2 id="new-generation-of-money-markets">New generation of money markets
+</h2><p>So far, we have considered innovations built on the existing core money markets or directly inspired by their models. There is also a whole new wave of money markets exploring different approaches.</p>
+<p>I therefore propose to consider two final projects that bring real fundamental changes.</p>
+<h2 id="alchemix-productive-assets-as-collateral">Alchemix: productive assets as collateral?
+</h2><p>I couldn&rsquo;t start this section with another project than Alchemix! The idea of this project is as simple as powerful:</p>
+<ol>
+<li>What if, instead of taking non-productive collateral, we only took productive collateral <strong>like a stablecoin that produces a return ?</strong></li>
+<li>Our collateral now has a return: what if the return on the collateral <strong>was used to pay off the loan?</strong></li>
+<li>And there you have it: <strong>A loan that pays for itself over time!</strong></li>
+</ol>
+<p><img src="/img/2021/money-market-innovations/alchemix.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Alchemix overview"
+	
+	
+></p>
+<p>Alchemix launched by accepting yDAI (DAI deposited on Yearn Finance) as collateral. Depositors can borrow up to 50% of the value of their yDAI in AlUSD, another stablecoin dollar. T<strong>heir collateral is not at risk, and the loan pays for itself through the interest generated by the yDAI: it takes about 3 years at the current return rate.</strong></p>
+<p>Alchemix quickly became a very popular service, especially for <strong>proceeding large purchases without spending crypto</strong>, it&rsquo;s just a matter of patience. Let&rsquo;s take an example.</p>
+<p>This is Bob, a DeFi farmer who has worked hard: he now wants to enjoy the fruits of his labor. He wants to raise $50,000 to buy a car. Rather than taking $50,000 directly from his assets, Bob can achieve the same result without spending anything thanks to Alchemix :</p>
+<ol>
+<li>Bob deposits 100,000 DAI on Alchemix, which are then deployed on Yearn</li>
+<li>This allows him to borrow up to 50,000 AlUSD, which he can use to buy his car.</li>
+<li>Bob just has to wait while the yDAI returns pay back his loan. In ~3 years, once the debt is paid off, he can get his original 100,000 DAI back.</li>
+</ol>
+<p><strong>Such flow allows to spend immediately without any other cost than the fact of locking about 2 times the amount mobilized within Alchemix.</strong> The future of programmable money is live!</p>
+<p>It is so powerful and innovative that many still find it hard to believe. The feedback from Alchemix users still attracts many skeptics:</p>
+<h3 id="liquity-efficiency-at-all-costs">Liquity: efficiency at all costs
+</h3><p><a class="link" href="https://www.liquity.org/"  target="_blank" rel="noopener"
+    >Liquity</a> is another money market that innovates on several levels. The fundamental concept to understand here is that <strong>liquidations are automated and therefore much more predictable and quick.</strong></p>
+<p>This allows <a class="link" href="https://www.defiscan.info/protocols/liquity/ethereum"  target="_blank" rel="noopener"
+    >Liquity</a> to offer <strong>lower collateralization ratios</strong> than other systems, or to put it another way: Liquity users can raise more dollars per ETH deposited than on a system like Maker:</p>
+<div class="notice info" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span>Info</p><p>The maximum loan-to-value ratio (maximum LTV) determines the borrowing power of a collateral. A maximum loan-to-value of 50% means that up to half of the dollar value of the deposited collateral can be borrowed.</p></div>
+
+<ul>
+<li>Maker : minimal ratio = 150% ⇒ approximately 66% max LTV</li>
+<li>Liquidity : Collateralisation minimal ratio = 110% ⇒ approximately 90% max LTV</li>
+</ul>
+<p>Liquity also innovates on the fees side since <strong>the loans are interest free</strong> unlike other systems. On Maker/ETH for example, the stability fee is 5.5%. If you borrow 10,000 DAI today, you will have to pay back 10,550 DAI in 1 year (if the fees do not change).</p>
+<p><img src="/img/2021/money-market-innovations/liquity.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Liquity"
+	
+	
+></p>
+<p>On the other hand, there is no stability fee on Liquity. Instead, users pay <strong>a one-time, immediate fee when borrowing</strong>. This fee depends on the &ldquo;base rate&rdquo; which is governed by the protocol directly. It is currently 0.5%.</p>
+<p>On Liquity, those who deposit ETH to mint LUSD can then deploy them into the Stability Pool (LUSD) or the LUSD/ETH pair for remuneration in LQTY - the service&rsquo;s native token.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> The LQTY can then be staked to <strong>get a share of the LUSD paid to the protocol when a loan is contracted</strong> as well as the redemption fee (ETH ↔ LUSD).</p>
+<div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>Liquity is a so-called &ldquo;governance mimized&rdquo; platform - LQTY is therefore not a governance token.</p></div>
+
+<p>Finally, Liquity also innovates in terms of decentralization since <strong>the interface used to access the service is not managed by the team behind the protocol</strong>. Different frontends operated by third parties are offered while the team focuses on the protocol itself. This ensures that many mirrors exist so that the service is always easily accessible.</p>
+<hr>
+<h2 id="the-next-step-to-understand-money-markets">The next step to understand money markets
+</h2><p>I hope you have found this introduction to the latest innovations in the money markets informative. I&rsquo;m delighted to see the offering growing and becoming denser to cover ever more varied needs. Money markets are essential elements of DeFi, and with the growth of the space, they will become more and more preponderant.</p>
+<p>Finally, let me remind you that in addition to functionality, <strong>risk management is the essential element that differentiates each money market</strong>. Before you start spending large sums of money on them, I invite you to familiarize yourself with the associated risks. It&rsquo;s a good thing, I wrote what remains to this day <strong>the most exhaustive and comprehensible synthesis to understand the risks incurred in the money markets</strong>, I invite you to read it:</p>
+<p><strong><a class="link" href="https://tokenbrice.xyz/content/posts/2021/money-market-risks.md"  target="_blank" rel="noopener"
+    >Assessing risk in decentralized finance: a handbook for money markets</a></strong></p>
+<p><em>🙏 Huge thanks to HHK, Charles, Thomas, Erwan, <a class="link" href="https://twitter.com/phil_h"  target="_blank" rel="noopener"
+    >PhilH</a> &amp; FrenchTony for proofreading the French version of this article and translating it integrally into English.</em></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>You&rsquo;ll find more info <a class="link" href="https://docs.liquity.org/faq/lqty-distribution-and-rewards"  target="_blank" rel="noopener"
+    >regarding the LQTY token distribution</a> in the official documentation.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/defi/">DeFi</a>
+        
+            <a href="/tags/ethereum/">Ethereum</a>
+        
+            <a href="/tags/decentralized-finance/">Decentralized Finance</a>
+        
+            <a href="/tags/money-markets/">Money Markets</a>
+        
+            <a href="/tags/aave/">Aave</a>
+        
+            <a href="/tags/compound/">Compound</a>
+        
+            <a href="/tags/liquity/">Liquity</a>
+        
+            <a href="/tags/mimo-capital/">Mimo Capital</a>
+        
+            <a href="/tags/reflexer/">Reflexer</a>
+        
+            <a href="/tags/bprotocol/">BProtocol</a>
+        
+            <a href="/tags/liquidation/">Liquidation</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Apr 19, 2021 01:13 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/money-market-recipes/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/money-market-recipes/money-market-recipes-cover.png" loading="lazy" data-key="" data-hash="/img/2021/money-market-recipes/money-market-recipes-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🌽 Defi money markets cookbook</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/money-markets-risk/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/risk-tranching/cover.gif" loading="lazy" data-key="" data-hash="/img/2021/risk-tranching/cover.gif"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Assessing risk in decentralized finance: a handbook for money markets</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/defi-vs-inflation/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2022/defi-vs-inflation/defi-vs-inflation-tokenbrice-cover.jpg" loading="lazy" data-key="" data-hash="/img/2022/defi-vs-inflation/defi-vs-inflation-tokenbrice-cover.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">How to build an inflation-proof DeFi portfolio?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/fixed-interest-rate-protocol-firp-apwine/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/firp-apwine/pac-man.png" loading="lazy" data-key="" data-hash="/img/2021/firp-apwine/pac-man.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">🍷 Yields are like fine wines, the secret lies in the brewing process</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/lending-protocol-renaissance/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2024/lending-protocol-renaissance/0-lending-protocol-renaissance-cover.png" loading="lazy" data-key="" data-hash="/img/2024/lending-protocol-renaissance/0-lending-protocol-renaissance-cover.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Is this a Lending Protocol Renaissance?</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

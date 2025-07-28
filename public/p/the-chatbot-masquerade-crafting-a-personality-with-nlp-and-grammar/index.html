@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Has the chatbot hype peaked? Despite massive investments from leading messaging platforms such as Messenger Facebook, Telegram, or Slack, **are chatbots living up to their promise?**">
+<title>The Chatbot Masquerade: Crafting a personality with NLP and grammar</title>
+
+<link rel='canonical' href='http://localhost:1313/p/the-chatbot-masquerade-crafting-a-personality-with-nlp-and-grammar/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="The Chatbot Masquerade: Crafting a personality with NLP and grammar">
+<meta property='og:description' content="Has the chatbot hype peaked? Despite massive investments from leading messaging platforms such as Messenger Facebook, Telegram, or Slack, **are chatbots living up to their promise?**">
+<meta property='og:url' content='http://localhost:1313/p/the-chatbot-masquerade-crafting-a-personality-with-nlp-and-grammar/'>
+<meta property='og:site_name' content='TokenBrice'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='chat' /><meta property='article:tag' content='design' /><meta property='article:tag' content='dark patterns' /><meta property='article:tag' content='interview' /><meta property='article:published_time' content='2017-08-02T12:43:42&#43;00:00'/><meta property='article:modified_time' content='2017-08-02T12:43:42&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/2017/chatbot-masquerade/cover.png' />
+<meta name="twitter:site" content="@TokenBrice">
+    <meta name="twitter:creator" content="@TokenBrice"><meta name="twitter:title" content="The Chatbot Masquerade: Crafting a personality with NLP and grammar">
+<meta name="twitter:description" content="Has the chatbot hype peaked? Despite massive investments from leading messaging platforms such as Messenger Facebook, Telegram, or Slack, **are chatbots living up to their promise?**"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/2017/chatbot-masquerade/cover.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    <img src="/img/main/emblem-color-square.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🐜</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">TokenBrice</a></h1>
+            <h2 class="site-description">Brutally Honest DeFi</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://x.com/tokenbrice'
+                        target="_blank"
+                        title="X"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" selected>English</option>
+                                
+                                    <option value="http://localhost:1313/fr/" >Français</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#natural-language-processing-the-key-to-smartchatbots">Natural language processing: the key to smart chatbots</a>
+      <ol>
+        <li><a href="#tokenization">Tokenization</a></li>
+        <li><a href="#lexicalanalysis">Lexical Analysis</a></li>
+        <li><a href="#syntactic-analysis">Syntactic Analysis</a></li>
+        <li><a href="#semanticanalysis">Semantic Analysis</a></li>
+        <li><a href="#discourse-integration">Discourse Integration</a></li>
+        <li><a href="#pragmatic-analysis">Pragmatic Analysis</a></li>
+      </ol>
+    </li>
+    <li><a href="#why-do-they-fail-the-seven-sins-ofchatbots">Why do they fail? The seven sins of chatbots</a>
+      <ol>
+        <li><a href="#limited-ai-availability">Limited AI availability</a></li>
+        <li><a href="#are-use-cases-really-thatstrong">Are use cases really that strong?</a></li>
+        <li><a href="#lack-of-transparency-whowhom-am-i-talkingto">Lack of transparency: Who/Whom am I talking to?</a></li>
+        <li><a href="#lack-of-context-awareness">Lack of context awareness</a></li>
+        <li><a href="#lack-of-communications-with-existing-businesssystems">Lack of communications with existing business systems</a></li>
+        <li><a href="#lack-offocus">Lack of focus</a></li>
+        <li><a href="#lack-of-human-escalation-protocol">Lack of human escalation protocol</a></li>
+      </ol>
+    </li>
+    <li><a href="#how-to-achieve-truly-natural-like-expression">How to achieve truly natural-like expression?</a>
+      <ol>
+        <li><a href="#vocabulary-quantity-is-easy-polysemy-isnot">Vocabulary: quantity is easy, polysemy is not</a></li>
+        <li><a href="#the-maxims-of-an-honestchatbot">The maxims of an honest chatbot</a></li>
+        <li><a href="#the-bots-self-reference-whatwho-are-we-talkingto">The bot’s self-reference: what/who are we talking to?</a></li>
+        <li><a href="#in-search-for-the-honestbot">In search for the Honest Bot</a></li>
+      </ol>
+    </li>
+    <li><a href="#chatbots-role-and-challengesa-quick-exchange-with-brettscotthttpshowwegettonextcomsuitpossum">Chatbots’ role and challenges — a quick exchange with <a href="https://howwegettonext.com/@Suitpossum">Brett Scott</a></a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/the-chatbot-masquerade-crafting-a-personality-with-nlp-and-grammar/">
+                
+                    <img src="/img/2017/chatbot-masquerade/cover.png" loading="lazy" alt="Featured image of post The Chatbot Masquerade: Crafting a personality with NLP and grammar" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/analysis/" style="background-color: #2a9d8f; color: #fff;">
+                Analysis
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/the-chatbot-masquerade-crafting-a-personality-with-nlp-and-grammar/">The Chatbot Masquerade: Crafting a personality with NLP and grammar</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Has the chatbot hype peaked? Despite massive investments from leading messaging platforms such as Messenger Facebook, Telegram, or Slack, **are chatbots living up to their promise?**
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 02, 2017</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    21 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>Are chatbots living up to their promises?</p>
+<p>The answer is complicated. While on the technical side bot-building frameworks, services, and libraries keep getting better, <strong>chatbots’ ability to understand their users and express themselves needs to be more refined for mass adoption</strong>. Let’s dig in to figure out the underlying challenges of natural language processing and achieving a natural-like expression. The chatbot industry is now worth millions (billions?), yet do you use chatbots daily? Do you know any friends that do?</p>
+<p>Let’s dig in to figure out the underlying challenges of natural language processing and achieving a natural-like expression.</p>
+<p>Before we do so, let’s state what’s on the menu. We’ll go back to the roots of chatbots, looking at what NLP really is and why it’s so hard. Then, we’ll look at currently available chatbots and analyze their shortcomings. With all this stated, we’ll be able to go back to the linguistics side of it and understand what is required to achieve a genuinely natural like expression.</p>
+<p>Finally, loyal readers who stuck with me until the end can go a little further with the transcript of a quick exchange I had with <a class="link" href="https://twitter.com/Suitpossum"  target="_blank" rel="noopener"
+    >Brett Scott</a> while researching this article: we discuss the darker sides of chatbots — automation, speaker obfuscation, and data harvesting.</p>
+<p>There are mainly two ways to build a chatbot: rule-based bots and chatbots relying on Artificial Intelligence (AI).</p>
+<ol>
+<li><strong>Rule-based chatbots:</strong> these are the simplest — <strong>if the user says A, the bot will say B</strong>. For instance, a weather bot will respond back with the weather in Los Angeles to the query “weather + LA.” Rules can have some flexibility built-in, to work correctly even if the user inputs the command with a typo for instance. However, the bot will not be able to process an unknown query.</li>
+<li><strong>AI-based chatbot:</strong> this approach is entirely different. These bots can analyze the language of the user to extract meaning out of it and answer accordingly — they can <strong>process an unknown input</strong>. To do so, AI-based chatbots use a technique called Natural Language Processing (NLP).</li>
+</ol>
+<p>This dichotomy seems too nice to be true? It’s because it is! Chatbots in the wild are quite often made of a <strong>mix of both approaches</strong>: they follow a complex decision-tree logic and use NLP to <strong>make unknown statements fall back into one of the branches</strong> of their tree.</p>
+<p>The tree logic is straightforward so we won’t detail it in in-depth. What’s more interesting is Natural Language Processing. Besides, it’s not only a bot matter: <strong>NLP powers all form of automated language recognition</strong>, ranging from sorting through a pile of resume to sentiment analysis on social networks.</p>
+<h2 id="natural-language-processing-the-key-to-smartchatbots">Natural language processing: the key to smart chatbots
+</h2><blockquote>
+<p><em>Natural language processing (NLP) is a way for computers to analyze, understand and derive meaning from human language.</em></p>
+</blockquote>
+<blockquote>
+<p><em>iCapps</em></p>
+</blockquote>
+<p>iCapps gives a pretty <a class="link" href="http://www.icapps.com/the-linguistics-behind-chatbots/"  target="_blank" rel="noopener"
+    >clear and straightforward definition of NLP</a> . Essentially, the goal of NLP is to create <strong>programs able to understand regular, every-day language inputs</strong> instead of having the user pre-process his queries to make them understandable by a machine (The early “Siri” talk).</p>
+<p>To do so, <strong>NLP relies on six key steps</strong>. We’ll detail what lies behind each of these steps to make the link between a written prompt to natural language expression analysis:</p>
+<h3 id="tokenization">Tokenization
+</h3><p>Before processing any written prompt, the text must be broken down into words and sentences to facilitate the analysis. In that regard, <strong>tokenization is pre-processing</strong>: it identifies the basic units (words and sentences) that will be processed during the analysis. While this step may seem basic, the tokenization must be accurate for the rest of the analysis to be relevant. Indeed, since tokenization is the first step of NLP, <strong>errors made here will propagate and cause problems of interpretation later on.</strong></p>
+<p>While it may seem basic (words are separated from each other by spaces, duh!) <strong>the reality of tokenization is more complex:</strong> “Los Angeles” is an individual entity even though it’s made of two words. “I’m” is two words and two different ideas without any blank space between them. Besides, <strong>NLP techniques may be applied to “dirty texts”</strong> — prompts that contain spelling mistakes, incorrect spacing, or improper use of punctuation — making it even trickier.</p>
+<p>Therefore, different methods of tokenization have been developed, each with their strengths and weaknesses. The <a class="link" href="https://www.ibm.com/developerworks/community/blogs/nlp/entry/tokenization?lang=en"  target="_blank" rel="noopener"
+    >IBM’s developer blog article</a> on the subject is a good starting point to learn more about it. <strong>Tokenization methods are not absolute</strong>: they are chosen and adapted depending of the nature of text analyzed.</p>
+<h3 id="lexicalanalysis">Lexical Analysis
+</h3><p>With a successful tokenization process, the words are properly separated from each other. Naturally, the next step is to categorize the tokens to facilitate their processing. An effortless way to classify the tokens is to **use an already existing categorization of language **— the grammatical nature of the words.</p>
+<p><img src="/img/2017/chatbot-masquerade/linguistics.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="_The linguistics behind chatbots — _iCapps"
+	
+	
+>
+_The linguistics behind chatbots — _<a class="link" href="http://www.icapps.com/the-linguistics-behind-chatbots/"  target="_blank" rel="noopener"
+    ><em>iCapps</em></a></p>
+<p>First, it’s convenient because the match between a word and its grammatical nature is <strong>easily done using a dictionary</strong>. On top of that, because grammar is the set of rules governing the composition of clauses and phrases in the language, sorting tokens with <strong>the grammatical criteria makes the following steps easier</strong>, especially the next one: the syntactic analysis.</p>
+<h3 id="syntactic-analysis">Syntactic Analysis
+</h3><p>While the tokenization and the lexical analysis happen at the word level, the syntactic analysis jumps to the sentence level to identify the relationship between each word.</p>
+<p>Essentially, it takes you back to school: article + adjective(s) + noun = subject group and so on.</p>
+<p><img src="/img/2017/chatbot-masquerade/linguistics-2.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="_The linguistics behind chatbots — _iCapps"
+	
+	
+>
+_The linguistics behind chatbots — _<a class="link" href="http://www.icapps.com/the-linguistics-behind-chatbots/"  target="_blank" rel="noopener"
+    ><em>iCapps</em></a></p>
+<p>The <strong>syntactic analysis provides order and structure of each sentence in the text.</strong> Identifying the subjects, for instance, is particularly important for one of the following steps — discourse integration — which looks at the context around each sentence.</p>
+<h3 id="semanticanalysis">Semantic Analysis
+</h3><p>In this step, the computer looks for the meaning of each word. What may once again seem like a <strong>simple step for a human</strong> (we have dictionaries for this, duh!) is <strong>trickier for a computer.</strong></p>
+<p>Some words are straightforward and therefore easy to interpret — “monosemy” for instance is <strong>the perfect body and soul example</strong>: it’s a noun referring <strong>exclusively</strong> to “the property of having only one meaning.”</p>
+<p>The intended meaning can be much harder to figure out for <strong>polysemic words</strong>. <a class="link" href="http://www.dictionary.com/browse/set"  target="_blank" rel="noopener"
+    >“Set” has 119 different meanings</a> and can be used as a transitive or intransitive verb, a noun, an adjective, an interjection as well as taking part in verb phrases (such as “set back”) and in idioms (such as “all set”).</p>
+<p>The previous steps facilitate this one to some extent. Indeed, if we know that “set” is used as a noun, we’re down to 28 possible different meanings. <strong>Context is crucial here to find out the meaning intended by the speaker.</strong></p>
+<h3 id="discourse-integration">Discourse Integration
+</h3><p>Discourse integration looks at the <strong>significance of the sentences compared to the preceding sentences</strong>. Cohesion between following sentences of the text is assumed.</p>
+<p>To achieve this, the key lies in <strong>pronouns which must be correctly recognized as such and then linked to the relevant antecedent</strong>. For instance, in the following statement the computer needs to be able to properly recognize “it” and link it to “Google”:</p>
+<blockquote>
+<p><em>Google is a search engine. It helps individuals find the information they are looking for online.</em></p>
+</blockquote>
+<p>While this example is really straightforward. Yet, a real, natural sentence rarely is. Anaphoric references can be hard to interpret, <strong>especially in natural language where pronouns antecedents can be unclear or missing</strong>.</p>
+<h3 id="pragmatic-analysis">Pragmatic Analysis
+</h3><p>Pragmatics study the ways context contributes to meaning. <strong>It’s the step going from what is said to what is meant</strong>, which is the hardest of the six steps. Ambiguity is hard to handle with computers, yet this is all we do while we humans talk. Depending on languages and situations, context can be more or less important.</p>
+<p>Even human linguists have a tough time defining methods to analyze what meaning is brought by the context. <strong>Diverse theories emerged to account for the referential use of language</strong> such as Jakobson’s six functions of language (<a class="link" href="https://en.wikipedia.org/wiki/Jakobson%27s_functions_of_language"  target="_blank" rel="noopener"
+    >Referential, Poetic, Emotive, Conative, Phatic and Metalingual</a>) or the Speech Act Theory (Which <a class="link" href="https://en.wikipedia.org/wiki/Speech_act"  target="_blank" rel="noopener"
+    >studies performative utterances </a>— a statement that produces an act by itself such as “The meeting is now adjourned.). Defining what is context is already a hard job for a linguist; <strong>contextual awareness is arguably the hardest part of NLP.</strong></p>
+<h2 id="why-do-they-fail-the-seven-sins-ofchatbots">Why do they fail? The seven sins of chatbots
+</h2><p>Currently available chatbots most often fail to meet the expectations of users for reasons ranging from <strong>design issues to technical limitations</strong>. <a class="link" href="https://chatbot.fail/"  target="_blank" rel="noopener"
+    >Fabricio from UXdesign.cc</a> sums up, predominantly from a design perspective, the seven sins of chatbots. Here’s my take on it:</p>
+<h3 id="limited-ai-availability">Limited AI availability
+</h3><p>Even though NLP platform and libraries are becoming more accessible and common, <strong>AI is still hard and costly to implement.</strong> What this means is that despite the technological hype behind chatbots, <strong>a large part of the currently deployed bot base is still relying on a word-triggered, decision-tree logic to answer the queries</strong>. This type of bot is only as intelligent as the thoroughness of the person who designed the tree and his ability to anticipate potential use cases and inputs.</p>
+<p>Even though these bots might be efficient in certain specific contexts, they also <strong>quickly generate frustration because of their lack of linguistic capabilities</strong>. They are quite often at a loss when faced with the way we talk in the real world: abbreviations, ungrammatical phrasing, spelling mistakes… Moreover, because of their tree-based decision logic, <strong>they are not able to respond appropriately to non-anticipated use cases</strong>:</p>
+<p><img src="/img/2017/chatbot-masquerade/weather-bot-bug.jpeg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="A weather bot fooled by the ambiguity between Paris, the capital of France and all the others (20&#43;) Paris in several US-states."
+	
+	
+>
+<em>A weather bot fooled by the ambiguity between Paris, the capital of France and all the others (20+) Paris in several US-states.</em></p>
+<h3 id="are-use-cases-really-thatstrong">Are use cases really that strong?
+</h3><p>When innovative technologies are emerging, they tend to generate a particular excitation among the developers’ and designers’ communities. Just like the apps, or the website before that, <strong>chatbots are becoming a must-have for any business who wishes to appear innovative</strong>. There’s a <strong>chatbot gold-rush</strong> leading to the development of bots solving irrelevant use cases or offering sub-par customer experience.</p>
+<p>This leads to a <strong>multiplication of ill-conceived bots</strong> either missing to fit a real use case or just doing it worse that the existing solutions (sites, apps): dad jokes bots, personal florist bots, weather bots… See Darren Orf’s hall of horrors on the matter: <a class="link" href="http://gizmodo.com/facebook-messenger-chatbots-are-more-frustrating-than-h-1770732045"  target="_blank" rel="noopener"
+    >Facebook Chatbots Are Frustrating and Useless</a>.</p>
+<p>Good chatbots, on the other hand, are those who <strong>solve a problem in a more convenient and straightforward way that websites or apps would have done.</strong> For instance, <a class="link" href="https://medium.com/@kipsearch/kip-for-slack-edc84908f298"  target="_blank" rel="noopener"
+    >Kip is a Slack bot</a> made to simplify the handling of grocery and food collective orders at the office. The <strong>efficient usage of Slack’s built-in functions</strong> allows @Kiptalk to be handy and reactive.</p>
+<p><img src="/img/2017/chatbot-masquerade/kip.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Kip Slack bot in action"
+	
+	
+>
+<em>Kip Slack bot in action</em></p>
+<h3 id="lack-of-transparency-whowhom-am-i-talkingto">Lack of transparency: Who/Whom am I talking to?
+</h3><p><strong>The way chatbots present themselves frame the user interaction</strong>. Even though bot-makers want to make them feel as human as possible, they must remember the importance of setting up the right expectations. <strong>People are empathetic towards other people, not machines.</strong></p>
+<p>The choice between a “humanized bot” and a bot assuming his mechanical identity is hard; essentially, it boils down to the relationship you’re looking to build between your chatbot and its users. <strong>Users tend to be more patient and willing to tolerate mistakes made by a bot who’s honest about its robotic nature.</strong></p>
+<p>While giving bots generic pre-made answers to use while he doesn’t understand a query can help maintain the conversation flow, <strong>does it help to build trust?</strong></p>
+<h3 id="lack-of-context-awareness">Lack of context awareness
+</h3><p>Human conversation is hard to replicate because of its <strong>reliance on context:</strong> we use and understand sarcasm, adapt our way of chatting depending on the channels and the persons we address (see <a class="link" href="http://www.signosemio.com/jakobson/functions-of-language.asp"  target="_blank" rel="noopener"
+    >Jakobson’s phatic function of language</a>) and can read between the lines. Bots can’t.</p>
+<p>Imagine you have a friend coming over to your place:</p>
+<p>Friend_: “Do you have beers?”_</p>
+<p>You_: “Help yourself.”_</p>
+<p>With nothing more than these two words, your friend infers that you do have beers, that they’re probably in their usual place and he can grab one or two if you’re drinking too.</p>
+<p><img src="/img/2017/chatbot-masquerade/sure-chatbot.jpeg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Sure chatbot is asking for your location at every query."
+	
+	
+>
+<a class="link" href="https://facebook.com/surebot/"  target="_blank" rel="noopener"
+    ><em>Sure chatbot</em></a> <em>is asking for your location at every query.</em></p>
+<p>Bots that are not powered by natural language processing technologies can’t hold contextual information for a long time. <strong>They may lose track of what the customer is saying before he asks his question.</strong></p>
+<p>Because of this shortcoming, we can’t exchange with the bot naturally, <strong>we must adapt our prompt</strong> to include location each time we ask him something.</p>
+<h3 id="lack-of-communications-with-existing-businesssystems">Lack of communications with existing business systems
+</h3><p>To be efficient, <strong>bots need to be able to interact with current business processes</strong> instead of creating new ones. Ultimately, chatbots are part of a broad ecosystem constituted of numerous touch points between customers and brands.</p>
+<p>Creating a chatbot operating in silo not only hurts the bot’s ability to process and respond to users’ queries; it also makes it harder <strong>for the business to handle the requests generated by the bot channels</strong>.</p>
+<p><strong>Only bots able to interact with pre-existing business processes can consistently produce value</strong>, such as Kip discussed before: he orders the item specified on the grocery list collected with Slack using Amazon.</p>
+<h3 id="lack-offocus">Lack of focus
+</h3><p><strong>Efficient bots tackle specific issues where they can provide more value than their pre-existing counterparts</strong> (website, apps, or any other mode of interaction).</p>
+<p><strong>The pre-existing channels to solve the defined user problem must be thoroughly studied</strong> to make a chatbot that is an improvement regarding the design and efficiency of the interaction.</p>
+<p>Moreover, lack of focus can result in a bot that is both hard to develop and to maintain.</p>
+<h3 id="lack-of-human-escalation-protocol">Lack of human escalation protocol
+</h3><p>Bots are not the answer to all customer interactions. Even though the temptation of automation is understandable for businesses with many clients, <strong>there are always situations where a human touch is required</strong>.</p>
+<p>These situations must be thought of and included in the bots’ decision tree/actions. Indeed, <strong>without proper escalation, these situations result in a user left hanging</strong>, probably frustrated by their unsuccessful interaction with the bot.</p>
+<p>The current dominant business perspective tends to see <strong>chatbots as a way to reduce the need for real humans to handle customer interaction</strong>. The truth of efficient and engaging bots is the opposite: they’re used to create a new interaction channel where a real person will be available if required.</p>
+<p>With a better understanding of what NLP is, from a linguistic perspective and why primary reasons behind current bots’ failure, it’s time to go back to the linguistics and explore what bots need to achieve a truly natural-like expression.</p>
+<p>Since linguistics features vary per language, we’ll focus only on English, which is the most common language for bots and the one for which the research is the most advanced.</p>
+<h2 id="how-to-achieve-truly-natural-like-expression">How to achieve truly natural-like expression?
+</h2><h3 id="vocabulary-quantity-is-easy-polysemy-isnot">Vocabulary: quantity is easy, polysemy is not
+</h3><p>Depending on the estimates and the way a “word” is defined, there are around 500,000 words in the English language. <strong>Most of them are very rarely used</strong>: they may be obsolete, part of a field-specific jargon or register-specific.</p>
+<p>Indeed, an educated native English speaker has an active vocabulary of roughly 50 000 words (Words in the Mind: An Introduction to the Mental Lexicon — <a class="link" href="https://www.researchgate.net/publication/269554913_Words_in_the_Mind_An_Introduction_to_the_Mental_Lexicon"  target="_blank" rel="noopener"
+    >Jean Aitchison and Detlef Stark</a>). Once again, out of these 50,000 words, <strong>few of them make for most of our texts</strong>. Frequently used words include the most flexible: verbs, prepositions, and pronouns. <strong>Research indicates that 2,145 words account for 80% of all English text (<strong>The linguistic accuracy of chatbots: Usability from an ESL perspective — <a class="link" href="https://www.researchgate.net/publication/272536147_The_linguistic_accuracy_of_chatbots_Usability_from_an_ESL_perspective"  target="_blank" rel="noopener"
+    >David Coniam</a></strong>).</strong></p>
+<p>As the analysis of the semantic analysis challenges proved, the difficulty does not lie in the quantity of vocabulary to apprehend but in its flexibility: <strong>polysemy is tough to compute</strong>. We have access to context to sort out between the dozens of potential meanings of a word to find the one relevant to our current situation. Currently, chatbots have little to no context awareness; <strong>they must rely on other strategies</strong>.</p>
+<h3 id="the-maxims-of-an-honestchatbot">The maxims of an honest chatbot
+</h3><p>While we talk, a lot of the transmission of meaning happens by the choice we make.</p>
+<p>When photographer takes a picture, he gives it an angle, saturation, a particular framing — ultimately, <strong>he translates his perspective, his view to what is in the most basic sense a very truthful representation of the real world</strong>.</p>
+<p>We do the same with language. We choose to talk about certain things and not others, use specific words to refer to what we meant, order these words a certain way among all the possibilities… <strong>Those choices carry meaning by themselves</strong>.</p>
+<p>Therefore, we’re left to guess why the person talking to you made these linguistic choices. <strong>Our analysis is not purely intuitive or random</strong>. To understand the implicature of prompts (the implied meaning) we rely on a few fundamental principles.</p>
+<p><a class="link" href="https://en.wikipedia.org/wiki/Paul_Grice"  target="_blank" rel="noopener"
+    >Herbert Paul Grice</a> studied semantics and is well known for his theory of implicature. He isolated four main maxims we use to understand implicatures:</p>
+<ul>
+<li><strong>Maxim of Quantity</strong> — we make the information we give as informative as required (for the current purpose of the exchange), but not too detailed (which would hinder comprehension).</li>
+<li><strong>Maxim of Quality</strong> — we try to make a contribution that is true. Which means to omit saying what we believe is false but also avoid talking while lacking sufficient evidence.</li>
+<li><strong>Maxim of Relevance</strong> — we try to stay relevant and say things that are pertinent within the context of the discussion… A tough one for a bot!</li>
+<li><strong>Maxim of Manner</strong> — we try to make ourselves easy to understand. This means to stay as concise as possible, avoid ambiguity, make ourselves clear and try to stay orderly.</li>
+</ul>
+<p><strong>We have an intuitive understanding of these maxims and expect every speaker we encounter to follow them as much as possible</strong>. While the people we talk with don’t do so, we tend to get frustrated by the exchange which becomes either hard to follow (too much quantity / not enough quality / not relevant enough / lack of manners) or not informative enough (lack of quantity or quality).</p>
+<p>It’s safe to expect that <strong>we hold the chatbots</strong> — if they are natural enough — <strong>up to the same standards</strong>.</p>
+<h3 id="the-bots-self-reference-whatwho-are-we-talkingto">The bot’s self-reference: what/who are we talking to?
+</h3><p>Despite the advanced tech behind chatbots, the though-process on their design and “personality” is still at a very early stage. Indeed, <strong>the submissive female persona in still very prevalent in bots</strong>. Moreover, bots who can process and answer queries with audio predominantly adopt a female voice for speech generation. Siri, probably the most famous virtual assistant was released at first with a female voice in 2011. The option to give a male voice to Siri only came two years later.</p>
+<p><img src="/img/2017/chatbot-masquerade/gender-neutral.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>Some bot-builders avoid the gender definition issue by crafting gender neutral persona. For instance, Kip, the slackbot discussed earlier use a penguin mascot as its persona.</p>
+<p>Essentially, bot builders have three options when it comes to the chatbot self-reference:</p>
+<ol>
+<li><strong>Avoid it all together</strong>: diverse self-reference avoidance strategies can be enforced such as using a gender-neutral mascot, or producing an evasive answer when the bot is asked directly what its gender is.</li>
+<li><strong>Using the first person singular pronoun “I”</strong>: although the “I” is the simplest way to deal with this question, <strong>it also sets elevated expectations for the customers</strong>. If the bot fails to display a real personality, its self-reference might come up as purely artificial .</li>
+<li><strong>Using the first person singular pronoun “We”</strong>: “we” can seem as a good middle ground. It might refer to the team behind the bot, or simply the team the bot is impersonating (such as the bank employees for a bank clerk bot). Yet, “we” has been already widely used to make business communications sound friendlier; <strong>a chatbot referring to himself as “we” might suffer from the “corporate we” fatigue</strong>.</li>
+</ol>
+<p>Peter Wallis and Emma Norling researched <strong>the impact of social intelligence, or the lack thereof in conversational agents to deal with problematic situations</strong> such as a rude callers (The Trouble with Chatbots: social skills in a social world — <a class="link" href="http://perso.telecom-paristech.fr/~pelachau/AISB05/final/WalNor05.pdf"  target="_blank" rel="noopener"
+    >Peter Wallis and Emma Norling</a>). <strong>They highlighted the need for chatbots to be able to “play the game” to efficiently de-escalate conflicts</strong>.</p>
+<blockquote>
+<p><em>An approach described in a forthcoming paper is based on the idea that</em> <strong><em>emotions are basically a means of signaling escalation in conflict</em></strong><em>. Although lions can inflict life-threatening injuries on each other, fights usually stop well before this happens. In the same way,</em> <strong><em>an abusive response might be a signal that the agent is willing to (emotionally) hurt the human</em></strong><em>, and that the human had better stop soon or risk being hurt. Although a human might not have any inhibitions about ‘hurting the feelings’ of a machine,</em> <strong>_they might feel differently about being called a moron themselves _</strong><em>— even if it is by a machine.</em></p>
+</blockquote>
+<blockquote>
+<p><em>Peter Wallis and Emma Norling</em></p>
+</blockquote>
+<h3 id="in-search-for-the-honestbot">In search for the Honest Bot
+</h3><p>We tend to get personal and emotionally invested with chatbots. Chatbotslife carried out an analysis of 10 billion messages sent to bots and noted that about 10% of bots receive an ‘I love you’ or ‘I hate you’ type of message.</p>
+<p><img src="/img/2017/chatbot-masquerade/10b-messages.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="What 10 Billion Messages can Teach us About Making Chatbots –Chatbotslife"
+	
+	
+>
+<em>What 10 Billion Messages can Teach us About Making Chatbots –</em><a class="link" href="https://chatbotslife.com/what-10-billion-messages-can-teach-us-about-making-chatbots-fb796781bb4a"  target="_blank" rel="noopener"
+    ><em>Chatbotslife</em></a></p>
+<p>A lot is at stake behind the question of chatbots’ self-reference. Humans tend to mystify objects — <strong>we see objects for more than their mere physical existence</strong>: a Coke is not just soda, it’s a lifestyle. Brett Scott discusses this process called fetishization in his article <a class="link" href="https://howwegettonext.com/if-you-talk-to-bots-youre-talking-to-their-bosses-cd8e390c242f"  target="_blank" rel="noopener"
+    >If You Talk to Bots, You’re Talking to Their Bosses</a>.</p>
+<p>Indeed, <strong>the emergence of chatbots pushes the boundaries of corporate personhood</strong>. Companies already have legal personalities; bots can give them another layer of pseudo-humanity with a conversational and artificial personality blurring, even more, the frontier between corporations and individuals.</p>
+<blockquote>
+<p><em>The Honest Bot does not currently exist. The new wave of bots are — to use a term popularized by the existentialist misfit Holden Caulfield from The Catcher in the Rye — the</em> <strong><em>ultimate phonies</em></strong><em>. They’ll pretend to be friendly, to be cool, to be serious, to be insightful, and even to be self-reflective. But they’ll never just be themselves. Because,</em> <strong><em>in the end, there is no “I.” There is only a company, its shares held by who knows who, possibly registered in Panama</em></strong><em>.</em></p>
+</blockquote>
+<blockquote>
+<p><em>Brett Scott</em></p>
+</blockquote>
+<p>While bots are now mostly seen as a new, practical way for the consumer to interact with brands, the search for the honest bot showcases the deep stakes of the chatbot industry. <strong>As the personalization of chatbots gets more and more precise, so does the data collected on each user</strong>.</p>
+<p>It can end up being resold and consolidated with other databases fulfilling the economic agenda of the bot’s owners and bot-platforms. The end-user might be left even more vulnerable than before to intrusive data-collection and advertising methods.</p>
+<p>Now is the time to <strong>question what are the benefits to be gained from chatbots and who will harness those benefits</strong>. We should remain alert towards the hype and make sure we truly benefit from bots, not the other way around. Once they’ll be part of our everyday life, it’ll already be too late.</p>
+<p>This article was first published May the 31st 2017 on <a class="link" href="https://www.callr.com/blog/chatbot-masquerade/"  target="_blank" rel="noopener"
+    >CALLR’s blog</a> and slightly modified for Medium.</p>
+<h2 id="chatbots-role-and-challengesa-quick-exchange-with-brettscotthttpshowwegettonextcomsuitpossum">Chatbots’ role and challenges — a quick exchange with <a class="link" href="https://howwegettonext.com/@Suitpossum"  target="_blank" rel="noopener"
+    >Brett Scott</a>
+</h2><p>While I was researching this article, I had the chance to have a quick exchange with Brett Scott about chatbots’ perceived roles and their current limitations. I figured it would be a good way to wrap this one up, as <strong>we discuss some themes addressed by this article and explore a few others that are related</strong>. Thanks again Brett for the quality insights! <br>
+Here is the transcript:</p>
+<blockquote>
+<p><em>Do brands crave chatbots because they are looking at automating certain positions (support, customer relations, etc.) previously handled by real, human workers?</em></p>
+</blockquote>
+<ul>
+<li>New companies that have never hired front-line workers and that are **starting out with an automated customer process **— a lot of Silicon Valley companies are like this e.g. AirBnB has never had actual customer-facing staff.</li>
+<li>Old companies that previously have had front-line customer-facing workers and who are now looking to provide a <strong>lower-cost option</strong>, potentially with a view to <strong>eventually getting rid of the front-line workers</strong> e.g. a lot of banks are like this.</li>
+<li>In the latter context, the chatbot is seen as a more <strong>‘human’ experience’</strong> than just giving them a webpage or app with options.</li>
+</ul>
+<blockquote>
+<p><em>Isn’t the lack of human touch frustrating considering the current state of chatbots? Are chatbots a real improvement in terms of UX?</em></p>
+</blockquote>
+<ul>
+<li>In terms of whether the UX is authentically improved, I don’t know — I suspect a <strong>significant number of people could find chatbots pretty irritating</strong>, and might just prefer a normal interface. The key difference with the normal interface though, is that it limits your queries through predefined categories, whereas the chatbot creates the <strong>illusion of being able to request or ask anything</strong>.</li>
+<li>I guess then the NLP stuff is about being able to fit those badly-spelled or strangely phrased queries into predefined categories that can be answered (as far as I know chatbots cannot yet improvise or make up answers or engage in spontaneous actions — <strong>they can only learn to take in unpredictable inputs and give out predictable outputs</strong>)</li>
+</ul>
+<blockquote>
+<p><em>In a brand perspective, chatbots embody a new interface to interact with customers. What are the characteristics of chatbots — as interfaces — compared to the usual ones (website, apps…)?</em></p>
+</blockquote>
+<ul>
+<li>We can have a general critique of interfaces in that <strong>they obscure what goes on behind them</strong> and we might argue that the chatbot is particularly good at that because it presents <strong>a human or ‘confidential’ persona</strong> that lulls the user into thinking they are actually just interacting with a ‘being’ rather than an IT system.</li>
+</ul>
+<blockquote>
+<p><em>Is data the main driver of chatbots’ adoption? — Are companies looking forward to implement chatbots because it allows them to collect even more data on their users?</em></p>
+</blockquote>
+<ul>
+<li>I’m not sure if the data extracted in this process is going to be greater than with any other digital interface, but perhaps.</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/chat/">Chat</a>
+        
+            <a href="/tags/design/">Design</a>
+        
+            <a href="/tags/dark-patterns/">Dark Patterns</a>
+        
+            <a href="/tags/interview/">Interview</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            Last updated on Aug 02, 2017 12:43 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/dark-patterns-submission-by-design/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2019/dark-patterns/cover.jpeg" loading="lazy" data-key="" data-hash="/img/2019/dark-patterns/cover.jpeg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Dark patterns: submission by design?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/the-sovereign-individual-in-the-age-of-technofeudalism/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2021/technofeudalism-sovereign-individual/francis-bacon.jpg" loading="lazy" data-key="" data-hash="/img/2021/technofeudalism-sovereign-individual/francis-bacon.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">The Sovereign Individual in the age of technofeudalism</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/why-is-technocentrism-killing-blockchains/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2019/technocentrism/cover.jpeg" loading="lazy" data-key="" data-hash="/img/2019/technocentrism/cover.jpeg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Why is technocentrism killing blockchains?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/deep-work-the-ultimate-state-of-focus/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2019/deep-work/cover.jpeg" loading="lazy" data-key="" data-hash="/img/2019/deep-work/cover.jpeg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Deep Work: the ultimate state of focus?</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/the-attention-economy-from-engagement-to-dollars/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/2019/attention-economy/cover.jpeg" loading="lazy" data-key="" data-hash="/img/2019/attention-economy/cover.jpeg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">The attention economy: from engagement to dollars</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Example Person
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.f6a2d572a8174dfa87e4e607541a30ded25c1e2ccc45f073a5a116894891b4d8.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
